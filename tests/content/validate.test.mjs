@@ -176,10 +176,13 @@ test('rule 17: numbers with units need a claim citation in the same sentence', a
 });
 
 test('rules 10 and 18: orphans are warnings in draft and errors in release', async () => {
-  const { warnings } = await validateContent({ denylist: [] });
-  assert.ok(warnings.some((w) => w.includes('[rule 18]')));
-  const e = await errorsFor(clone(base), { release: true });
-  assert.match(e, /\[rule 18\]/);
+  const c = clone(base);
+  c.claims.push({ id: 'unused-claim', statement: 'x', value: null, unit: null, kind: 'technical', method: 'stated', sources: [{ referenceId: 'ieee-80211be', locator: 'Clause 1' }], derivation: null, verification: {} });
+  c.tabs[10].draft = true;
+  const { warnings } = await validateContent({ content: c, denylist: [] });
+  assert.ok(warnings.some((w) => w.includes('[rule 18] claim unused-claim')));
+  const e = await errorsFor(c, { release: true });
+  assert.match(e, /\[rule 18\] claim unused-claim/);
   assert.match(e, /\[rule 3\] .*still marked draft/);
 });
 
