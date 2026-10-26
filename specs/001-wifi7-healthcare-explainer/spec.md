@@ -162,21 +162,37 @@ arrow/Page Down keys) to walk from the Overview to the last tab.
 
 ---
 
-### User Story 7 - Check sources and move the site to a host later (Priority: P3)
+### User Story 7 - Validate every figure and its sources, and host the site later (Priority: P2)
 
-An engineer verifying a claim opens the References section and finds the source for each figure.
+An engineer or reviewer doubts a figure, such as "46 Gbps". They click it and see the claim, the
+reputable source it comes from, the exact clause or table, a short excerpt, how the number was
+calculated (e.g., 16 spatial streams × 2,882 Mbps per stream), and when it was last verified.
+Before release, the project owner runs one command that rejects any uncited number, disallowed
+source, or derived value that doesn't recompute, and produces a provenance report for auditors.
 Later, the owner copies the site's files to a web host and it works unchanged.
 
-**Why this priority**: Credibility and portability matter but follow from a working explainer.
+**Why this priority**: The site will inform infrastructure decisions; every figure has to be
+checkable against reputable sources. Raised from P3 at stakeholder request (2026-10-26).
 
-**Independent Test**: Pick five figures at random and trace each to a listed reference; copy the
-site folder to a static web host and confirm all tabs work.
+**Independent Test**: Pick five figures at random; for each, the provenance view names a Tier 1
+source with a clause/table location and derivation, and an independent reviewer with the source
+reaches the same value. Change one derivation input in content and confirm validation fails.
+Copy the site folder to a static web host and confirm all tabs work.
 
 **Acceptance Scenarios**:
 
-1. **Given** any numeric or normative claim, **When** the viewer looks for its source, **Then** the
-   References section lists a neutral source (IEEE, Wi-Fi Alliance, IEEE 802.3, regulator) for it.
-2. **Given** the site folder, **When** it is placed on a static web host without changes, **Then**
+1. **Given** any figure or citation, **When** the viewer activates it, **Then** a provenance panel
+   shows the claim, each source (title, publisher, tier, location, excerpt, link), how the value
+   was obtained (stated or derived, with formula and inputs), and the verification date.
+2. **Given** a content change that adds a number without a claim citation, cites a source outside
+   the allowlist, or breaks a derivation, **When** validation runs, **Then** it fails and names the
+   problem.
+3. **Given** the References tab, **When** opened, **Then** it explains the source policy (tiers and
+   what is excluded) and how figures are derived and verified, and lists every claim with its
+   status.
+4. **Given** a release build, **When** any claim is unverified or was verified more than 12 months
+   earlier, **Then** release validation fails.
+5. **Given** the site folder, **When** it is placed on a static web host without changes, **Then**
    all tabs, animations, and links work.
 
 ---
@@ -347,7 +363,8 @@ with a failing test — merge blocked.
 
 - **FR-023**: The site MUST NOT contain vendor names, logos, product names, model numbers, or
   proprietary feature names, in text or imagery.
-- **FR-024**: Every numeric or normative claim MUST link or map to an entry in References.
+- **FR-024**: Every numeric or normative claim MUST link or map to an entry in References, through
+  a recorded claim (see FR-046–FR-053).
 - **FR-025**: All copy, figures, and sources MUST be maintainable separately from the animation
   logic, so a fact can be corrected without changing a scene.
 
@@ -406,6 +423,39 @@ with a failing test — merge blocked.
   `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `frame-ancestors 'none'` /
   `X-Frame-Options: DENY`, `Permissions-Policy` disabling unused features).
 
+**Data accuracy & provenance**
+
+- **FR-046**: Every numeric or normative statement shown anywhere (beat text, Bottom line, Under
+  the hood, key figures, scene labels, scenario cards) MUST be backed by a recorded **claim** with
+  ≥ 1 source, the exact location in each source (clause, table, section, or page), and its
+  method: *stated* (value appears in the source), *derived* (computed from cited inputs, with the
+  formula shown), or *illustrative* (a non-measured visual, labeled "illustrative" on screen).
+- **FR-047**: Only reputable sources may be cited. Tier 1 — standards bodies and regulators
+  (IEEE, Wi-Fi Alliance, IETF, FCC, ECC/CEPT, ETSI, ISED, Ofcom, NIST) — is required for every
+  technical claim. Tier 2 — peer-reviewed publications with a DOI, and government or standards
+  bodies for healthcare context (FDA, AAMI, WHO) — is allowed for healthcare context and
+  corroboration. Vendor material, Wikipedia, blogs, forums, news articles, and AI-generated text
+  MUST NOT be cited. The allowed publishers and their web domains MUST be kept in a single,
+  reviewable list.
+- **FR-048**: Derived values (e.g., peak PHY rates, channel counts) MUST be recomputed
+  automatically from their cited inputs during validation, and validation MUST fail if the
+  displayed value differs from the recomputed value beyond stated rounding.
+- **FR-049**: Every claim MUST record when it was verified and by whom (initials or role). Release
+  validation MUST fail if any claim is unverified, verified more than 12 months before the build
+  date, or relies on a source marked superseded without an explanation.
+- **FR-050**: From any figure or citation, viewers MUST be able to open a provenance panel showing
+  the claim, its sources (title, publisher, tier, location, excerpt, link), the method and any
+  derivation, and the verification date. Leadership view shows a short form (source and date)
+  with "How we know this" to expand; Technical view shows the full panel.
+- **FR-051**: The References tab MUST include the source policy, a plain-language explanation of
+  how figures are derived and verified, and a register of every claim (statement, value, method,
+  sources, verified date) filterable by tab.
+- **FR-052**: The project MUST generate a provenance report (every claim with sources, locations,
+  derivations and verification status) for offline review by auditors; CI MUST fail if the
+  committed report is out of date with the content.
+- **FR-053**: Reference links MUST be checked for availability on a schedule (outside the site
+  itself, which makes no network requests), and broken links MUST be reported for repair.
+
 **Repository & merge security**
 
 - **FR-043**: Changes MUST reach `main` only through pull requests; direct pushes, force pushes,
@@ -428,11 +478,15 @@ with a failing test — merge blocked.
   it matters), plain-language text, optional deep-dive text, scene state, text description of the
   animation for assistive technology.
 - **Key Figure**: A comparable value — metric, value per generation, unit, qualifier (theoretical,
-  typical, optional, regulatory-domain-specific), reference.
+  typical, optional, regulatory-domain-specific), and the claim behind each value.
+- **Claim**: One checkable statement or value — statement, value and unit, method (stated /
+  derived / illustrative), sources with exact locations and short excerpts, derivation (formula
+  and inputs, which are themselves claims), verification date and verifier.
 - **Healthcare Scenario**: A clinical setting and situation — location (ED, ICU, med-surg, imaging),
   device types, problem, outcome supported.
-- **Reference**: A neutral source — title, publisher (IEEE, Wi-Fi Alliance, regulator), identifier,
-  date, link.
+- **Reference**: A reputable source — title, publisher (from the allowlist), tier (1 or 2),
+  identifier (standard number, docket, or DOI), edition/date, status (current or superseded),
+  access (open or paywalled), link.
 - **Glossary Term**: Term, plain-language definition, tabs where it appears.
 
 ## Success Criteria *(mandatory)*
@@ -466,6 +520,11 @@ with a failing test — merge blocked.
   have zero open high or critical findings.
 - **SC-012**: 100% of changes merged to `main` after setup arrive through pull requests with all
   required checks passing (verifiable from repository history and settings).
+- **SC-013**: 100% of displayed numbers and normative statements map to a verified claim; 100% of
+  technical claims have a Tier 1 source with a clause/table location; 0 citations to sources
+  outside the allowlist; 100% of derived values recompute exactly (within stated rounding).
+- **SC-014**: In a spot check of 10 randomly chosen figures, an independent reviewer with access
+  to the cited sources reproduces 10 of 10 values using only the provenance panel's information.
 
 ## Assumptions
 
@@ -478,6 +537,15 @@ with a failing test — merge blocked.
   integrated graphics running a current evergreen browser.
 - The GitHub repository is public, so branch rulesets, code scanning, secret scanning, and
   dependency review are available at no cost.
+- Verifying exact clauses of IEEE standards needs access to the standard text (purchase,
+  institutional subscription, or the IEEE GET Program where the amendment is included). Where a
+  Tier 1 text isn't accessible, the claim stays unverified and blocks release; it isn't replaced
+  with a lower-tier source.
+- The verifier is recorded by initials or role (e.g., "TB", "Network architect"); no other
+  personal data is stored.
+- Healthcare scenarios remain fictional composites and are labeled "illustrative scenario";
+  any factual healthcare statistic shown (e.g., devices per bed) needs a claim with a Tier 1 or
+  Tier 2 source, otherwise it is stated qualitatively.
 - English only for this version; content structure should not prevent translation later.
 - Content is a single site with tabs (one entry page plus supporting files), not separate unrelated
   documents; "local HTML pages" is satisfied by a self-contained folder that can be zipped and shared.

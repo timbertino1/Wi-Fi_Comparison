@@ -141,7 +141,7 @@ No vendor color schemes (constitution, Content & Technology Constraints).
 Exact versions in `package.json` (no `^`/`~`) plus committed `package-lock.json`. Viewers need none
 of these — only a browser and the built `dist/` folder.
 
-## R11. Technical facts register (accuracy gate input)
+## R11. Technical facts register (accuracy gate input; seeds `content/claims.json`, see R16)
 
 Initial figures the content must use. Each MUST be re-verified against the listed source during the
 accuracy review gate before its tab is done; items marked ⚠ are known to need careful wording.
@@ -256,5 +256,99 @@ healthcare scenario cards); automatic detection (not possible without tracking).
 easier to script); a third-party secret scanner such as gitleaks (GitHub secret scanning with push
 protection covers this at no cost); pre-commit hooks only (local hooks are easy to skip and are
 not enforced at merge).
+
+## R15. Source policy and allowlist (FR-047, Principle I)
+
+**Decision**: A single machine-readable allowlist, `content/source-policy.json`, that the validator
+enforces and the References tab displays. Each Reference names a publisher from this list; its
+`tier` must match, and its `url` host must be one of that publisher's domains.
+
+| Tier | Publisher | Domains | Use |
+|------|-----------|---------|-----|
+| 1 | IEEE (Standards Association, 802 working groups) | `standards.ieee.org`, `ieeexplore.ieee.org`, `ieee802.org`, `mentor.ieee.org`, `grouper.ieee.org` | 802.11 / 802.3 technical facts, Wi-Fi 8 project status |
+| 1 | Wi-Fi Alliance | `wi-fi.org` | Certification programs, security requirements, generation naming and dates |
+| 1 | IETF / RFC Editor | `ietf.org`, `rfc-editor.org`, `datatracker.ietf.org` | Protocol background (e.g., SAE-related RFCs) |
+| 1 | FCC | `fcc.gov`, `docs.fcc.gov` | US 6 GHz allocation and rules |
+| 1 | ECC/CEPT, ETSI | `docdb.cept.org`, `efis.cept.org`, `etsi.org` | European 6 GHz decisions and harmonized standards |
+| 1 | ISED (Canada), Ofcom (UK) | `ised-isde.canada.ca`, `ofcom.org.uk` | Other-region 6 GHz notes |
+| 1 | NIST | `nist.gov`, `csrc.nist.gov` | Cryptography background (e.g., GCMP, SAE context) |
+| 2 | Peer-reviewed publication | `doi.org` (DOI required) | Corroboration, measured-performance context |
+| 2 | FDA, AAMI, WHO | `fda.gov`, `aami.org`, `who.int` | Healthcare context (wireless medical devices, coexistence guidance) |
+
+**Excluded** (validator rejects these domains and publishers, and reviewers reject them on sight):
+equipment or chipset vendors and their blogs, whitepapers and datasheets; Wikipedia; personal or
+company blogs; forums and Q&A sites; news and trade-press articles; marketing analyst reports;
+AI-generated text; uncredited infographics. Wi-Fi Alliance member-company material is vendor
+material even when it is hosted elsewhere.
+
+**Rules**: technical claims need ≥ 1 Tier 1 source; healthcare-context claims need ≥ 1 Tier 1 or 2
+source; a Tier 2 source alone may never support a technical figure. Adding a publisher or domain
+is a reviewed change to `content/source-policy.json` (CODEOWNERS applies).
+
+**Alternatives considered**: free-form references with manual review only (not enforceable);
+allowing reputable trade press (useful context, but secondary and frequently vendor-sourced).
+
+## R16. Claims, derivations and verification (FR-046, FR-048–FR-052)
+
+**Decision**: A claims register, `content/claims.json`, is the single source of every checkable
+statement. Text cites claims (`{{claim-id}}`); key figures point to claims per generation; scenes
+read numbers through claims. Each claim records `method` (`stated` | `derived` | `illustrative`),
+`sources[]` with `referenceId`, `locator` (clause/table/section/page) and an optional ≤ 50-word
+`excerpt`, a `derivation` for derived values, and `verification` (`verifiedOn`, `verifiedBy`,
+`notes`).
+
+**Automatic recomputation**: `scripts/derivations.mjs` holds pure functions (`phyRate`,
+`channelCount`, `percentGain`, `ratio`). A derived claim names its `formula` and its inputs as other
+claim ids; the validator recomputes the value and fails if it differs beyond the claim's declared
+`rounding`. Each input claim is itself a stated claim with its own Tier 1 location.
+
+Peak PHY rate = N_SS × N_SD × N_BPSCS × R ÷ (T_DFT + T_GI), using the highest MCS, widest channel,
+and shortest guard interval per generation. The worked values below must match; the input
+parameters (⚠) are confirmed against the standard's clause/table during the accuracy gate:
+
+| Generation | N_SS | Width | N_SD (data subcarriers) | Modulation (N_BPSCS) | R | Symbol + GI | Per stream | Peak |
+|------------|------|-------|-------------------------|----------------------|---|-------------|------------|------|
+| Wi-Fi 4 (802.11n) | 4 | 40 MHz | 108 | 64-QAM (6) | 5/6 | 3.2 + 0.4 µs | 150.0 Mbps | **600 Mbps** |
+| Wi-Fi 5 (802.11ac) | 8 | 160 MHz | 468 | 256-QAM (8) | 5/6 | 3.2 + 0.4 µs | 866.7 Mbps | **6.93 Gbps** |
+| Wi-Fi 6/6E (802.11ax) | 8 | 160 MHz | 1960 | 1024-QAM (10) | 5/6 | 12.8 + 0.8 µs | 1,201 Mbps | **9.61 Gbps** |
+| Wi-Fi 7 (802.11be) | 16 | 320 MHz | 3920 | 4096-QAM (12) | 5/6 | 12.8 + 0.8 µs | 2,882 Mbps | **46.1 Gbps** |
+
+Other derived claims: 4096- vs 1024-QAM gain = 12/10 − 1 = 20%; US 6 GHz channel counts from the
+band edges (5.925–7.125 GHz) and channel width; "320 MHz is double 160 MHz".
+
+**Illustrative claims**: visuals that show a shape rather than a measurement (e.g., the latency
+histogram) are `illustrative` claims: no number is shown, the on-screen label reads
+"Illustrative", and the claim still cites the Tier 1 source for the mechanism being illustrated.
+
+**Uncited-number check**: the validator scans every beat `heading`, `body`, `bottomLine`,
+`deepDive`, section `body`, `sceneDescription`, scenario text and in-scene label for numbers with
+units or percentages (e.g., `46 Gbps`, `320 MHz`, `20%`, `60 W`) and fails unless the same
+sentence carries a claim citation, or the field is backed by a claim (key figures, labels). Years
+in generation names and ordinal words are exempt through a small, explicit pattern list.
+
+**Verification and staleness**: release validation fails on any claim without `verifiedOn` and
+`verifiedBy`, any claim verified more than 12 months before the build date, and any claim that
+relies on a Reference with `status: "superseded"` without a `notes` explanation.
+
+**Viewer-facing provenance**: activating a figure or citation opens a provenance panel (claim,
+method badge, sources with tier, location and excerpt, derivation steps rendered from the formula
+and inputs, verified date). Citations no longer jump straight to the References tab; the panel
+links there.
+
+**Auditor report**: `npm run provenance` writes `docs/provenance-report.md` (every claim grouped
+by tab: statement, value, method, sources with locations, derivation, verification). The CI
+`validate` job runs `npm run provenance -- --check` and fails if the committed report differs.
+
+**Link health**: `.github/workflows/link-check.yml` runs weekly (and on demand). A dependency-free
+Node script requests every Reference `url` (HEAD, then GET on 405), treats 2xx/3xx as healthy, and
+opens or updates a single GitHub issue listing failures. It never blocks merges, because standards
+sites sometimes rate-limit automated requests.
+
+**Seed**: the R11 facts register becomes the initial `content/claims.json`, all with
+`verifiedOn: null` until the accuracy gate.
+
+**Alternatives considered**: citations directly to references without claims (no place for the
+location, derivation or verification); spreadsheet-based facts register (not validated with the
+build; drifts from the site).
 
 No open NEEDS CLARIFICATION items remain.

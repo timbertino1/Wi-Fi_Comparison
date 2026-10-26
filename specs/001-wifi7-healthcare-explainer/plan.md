@@ -15,7 +15,9 @@ works unchanged on any static host. A build-time snapshot step gives a WebGL-fre
 A **Leadership | Technical** view switch layers the same story for mixed audiences (R13). A strict
 meta Content-Security-Policy, escaped content rendering, and no third-party code harden the page
 (R12). GitHub Actions checks, CodeQL, Dependabot, secret scanning and a branch ruleset on `main`
-protect merges (R14). Details: [research.md](./research.md).
+protect merges (R14). Every figure is a recorded **claim** with reputable sources (allowlist,
+R15), exact locations, derivations that are recomputed automatically, and verification dates,
+viewable on the page and in an auditor report (R16). Details: [research.md](./research.md).
 
 ## Technical Context
 
@@ -55,7 +57,7 @@ No deployment pipeline; `dist/` is built locally or downloaded from the CI artif
 
 | # | Principle | How the design complies | Status |
 |---|-----------|------------------------|--------|
-| I | Vendor neutrality & accuracy | Content in JSON with `referenceId` on every figure; build-time validator rejects missing references; denylist scan for vendor names; `qualifier` field enforces theoretical/optional labels; facts register (research R11) feeds accuracy gate | ✅ |
+| I | Vendor neutrality & accuracy | Claims register (R16): every number/normative statement is a claim with Tier 1 source, clause/table locator, method and verification; source allowlist enforced (R15); derived values recomputed; uncited-number scan; provenance panel and auditor report; denylist scan for vendor names; `qualifier` field enforces theoretical/optional labels; facts register (research R11) feeds accuracy gate | ✅ |
 | II | Teach by telling a story | Data model requires exactly five beats of fixed types per feature tab; validator enforces it; jargon defined via glossary links at first use; audience layers (`body` core, `bottomLine` leadership, `deepDive`/sections technical) behind a Leadership/Technical view (R13) | ✅ |
 | III | Healthcare context | Each tab references ≥ 1 `HealthcareScenario`; copy review checks for outcome/compliance guarantees; scenarios are composites, no PHI | ✅ |
 | IV | Generational comparison | Generation switcher in every feature tab; single generation palette token set shared by CSS and scenes; `introducedIn` field states feature lineage | ✅ |
@@ -97,17 +99,22 @@ specs/001-wifi7-healthcare-explainer/
 ```text
 .github/
 ├── workflows/
-│   ├── ci.yml                 # validate, build, e2e (3 browsers), audit, dependency-review
+│   ├── ci.yml                 # validate (+ provenance report check), build, e2e (3 browsers), audit, dependency-review
+│   ├── link-check.yml         # Weekly reference-link health check → issue
 │   └── codeql.yml             # CodeQL javascript-typescript
 ├── dependabot.yml             # npm + github-actions, weekly
 └── CODEOWNERS
 
 SECURITY.md                    # Vulnerability reporting
 docs/
-└── hosting-security.md        # Recommended HTTP headers for static hosting (FR-042)
+├── hosting-security.md        # Recommended HTTP headers for static hosting (FR-042)
+├── source-policy.md           # How sources are chosen, cited and verified (human-readable R15/R16)
+└── provenance-report.md       # Generated: every claim, source, location, derivation, verification
 
 content/                       # All copy and facts — editable without touching scenes
 ├── generations.json
+├── source-policy.json         # Allowlisted publishers, tiers, domains (R15)
+├── claims.json                # Every checkable statement + provenance (R16)
 ├── references.json
 ├── glossary.json
 ├── scenarios.json
@@ -135,7 +142,8 @@ src/
 │   ├── presentation.js        # Fullscreen, clicker keys, blanking
 │   ├── preferences.js         # Theme, motion, view (localStorage, try/catch)
 │   ├── view.js                # Leadership | Technical switch (data-view, ?view=, V key)
-│   └── glossary.js            # Inline term definitions, references links
+│   ├── glossary.js            # Inline term definitions
+│   └── provenance.js          # "How we know this" panel for figures and citations
 ├── stage/
 │   ├── renderer.js            # Shared WebGLRenderer + CSS2D label layer, loop control
 │   ├── fallback.js            # Snapshot <img> fallback, context-loss handling
@@ -161,7 +169,10 @@ src/
 
 scripts/
 ├── build.mjs                  # esbuild IIFE bundle + copy html/css → dist/
-├── validate-content.mjs       # Schema + cross-reference checks (also used by tests)
+├── validate-content.mjs       # Schema, cross-reference, source-policy, provenance checks
+├── derivations.mjs            # Pure formulas: phyRate, channelCount, percentGain, ratio
+├── provenance-report.mjs      # Writes/checks docs/provenance-report.md
+├── check-links.mjs            # Scheduled reference-link health check (CI only)
 └── snapshots.mjs              # Playwright: render every beat → dist/fallback/*.webp
 
 tests/

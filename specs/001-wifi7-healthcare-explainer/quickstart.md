@@ -18,7 +18,8 @@ Prerequisites: Node.js ≥ 20, npm.
 ```sh
 npm ci                     # install pinned dev tooling
 npx playwright install     # one-time: browsers for snapshots and E2E tests
-npm run validate           # content schema, references, beats, qualifiers, denylist
+npm run validate           # content schema, references, beats, qualifiers, denylist, sources, claims, derivations
+npm run provenance         # regenerate docs/provenance-report.md (CI checks it is current)
 npm run build              # bundle → dist/ (app.js, index.html, styles) + fallback snapshots
 npm run build:fast         # bundle only, skip snapshots (for quick iteration)
 npm run watch              # rebuild on change; refresh the open file:// page
@@ -49,16 +50,18 @@ unless marked *manual*.
 | V12 | Performance | E2E samples frame times for 5 s per tab | Median ≤ 16.7 ms on the dev laptop; *manual* check on a mid-range phone ≥ 30 fps | SC-005 |
 | V13 | Responsive | Viewports 360×740, 768×1024, 1920×1080, 3840×2160 | No horizontal scroll; readable text; usable controls | FR-034 |
 | V14 | Neutrality | `npm test` denylist; *manual* visual scan | 0 vendor names/logos | FR-023, SC-003 |
-| V15 | Accuracy gate | *Manual*: for each tab, check every figure against [research.md R11](./research.md) sources; set `verifiedOn` | 100% of figures verified and cited | FR-024, SC-003 |
+| V15 | Accuracy gate | *Manual*: for every claim in `content/claims.json`, open the cited source at the recorded `locator`, confirm the value/wording (and the inputs of derived claims), record `verifiedOn`/`verifiedBy`; then `npm run validate -- --release` | 100% of claims verified with Tier 1 locations; release validation passes | FR-024, FR-046–FR-049, SC-003, SC-013 |
 | V16 | Single-place fix | Change one KeyFigure value in content; rebuild | Value updates in panel and scene; no scene code edited | SC-009 |
 | V17 | Comprehension | *Manual*: 5+ reviewers (clinical + IT) view MLO, 6 GHz, TWT, 4K-QAM tabs; leaders in Leadership view, engineers in Technical view | ≥ 80% explain each correctly in one sentence; ≥ 80% rate depth "about right" | SC-002, SC-010 |
 | V18 | Audience views | Open fresh (Leadership default); press `V`; open `#/mlo/3?view=technical`; switch views in presentation mode | Bottom line shown in Leadership; Under the hood, sections and all figures expanded in Technical; tab/beat unchanged; view survives reload | FR-035–FR-038 |
 | V19 | CSP & content safety | E2E records `securitypolicyviolation` on every tab from `file://` and HTTP in all three browsers; fixture content containing `<script>` is rendered | 0 violations; markup renders as inert text; external links have `rel="noopener noreferrer"` | FR-039–FR-041, SC-011 |
+| V21 | Provenance | Click five random figures and citations in each view; run `npm run provenance -- --check`; change one derivation input in content and run `npm run validate` | Panel shows source, tier, location, excerpt, derivation and verified date; report is current; validation fails naming the broken derivation | FR-048, FR-050–FR-052, SC-013 |
+| V22 | Independent spot check | *Manual*: a reviewer with access to the sources reproduces 10 random figures using only the provenance panel | 10 of 10 reproduced | SC-014 |
 | V20 | Merge protection | Try `git push origin main` directly; open a PR with a deliberately failing test | Push rejected by the ruleset; PR merge blocked until checks pass | FR-043–FR-045, SC-012 |
 
 ## Release checklist (constitution quality gates)
 
-- [ ] Accuracy gate: V15 complete
+- [ ] Accuracy gate: V15, V21 and V22 complete; `docs/provenance-report.md` current
 - [ ] Neutrality gate: V14 passes
 - [ ] Story gate: V4 passes and copy reviewed for outcome/compliance wording
 - [ ] Accessibility & performance gate: V9–V13 pass
