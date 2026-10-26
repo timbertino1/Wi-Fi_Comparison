@@ -1454,6 +1454,32 @@
       }
     },
     {
+      "id": "single-link-pre-be",
+      "statement": "Before 802.11be, a device is associated with an access point on one band (link) at a time; moving to another band requires a new association",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 11, association and reassociation procedures",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35, multi-link device introduction",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
       "id": "puncturing-ax",
       "statement": "Preamble puncturing was introduced in 802.11ax for multi-user transmissions",
       "value": null,

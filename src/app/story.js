@@ -1,7 +1,7 @@
 // Beat state machine: which tab and beat are showing, the scene that animates them, and the text
 // that goes with them. Other modules subscribe to tab/beat/generation changes.
-import { tabById, markupContext, generations } from './content.js';
-import { renderMarkup, plainText } from './markup.js';
+import { tabById, markupContext, generations, genById } from './content.js';
+import { renderMarkup, renderInline, plainText } from './markup.js';
 import { sceneFor } from '../scenes/index.js';
 import { claim } from './content.js';
 
@@ -20,6 +20,7 @@ const storyEl = document.getElementById('story');
 const descriptionEl = document.getElementById('scene-description');
 const stageEl = document.getElementById('stage');
 const deepEl = document.getElementById('deep');
+const lineageEl = document.getElementById('lineage');
 const deepBeatEl = document.createElement('div');
 const sectionsEl = document.createElement('div');
 deepEl.append(deepBeatEl, sectionsEl);
@@ -101,9 +102,9 @@ function renderText() {
   const beat = tab.beats?.[state.beatIndex];
   const parts = [];
   if (beat) parts.push(`<p class="beat-kicker">${BEAT_LABELS[beat.type] ?? ''}</p>`);
-  parts.push(`<h2 id="tab-heading">${renderMarkup(tab.title, markupContext).replace(/^<p>|<\/p>$/g, '')}</h2>`);
+  parts.push(`<h2 id="tab-heading">${renderInline(tab.title, markupContext)}</h2>`);
   if (beat) {
-    parts.push(`<h3>${renderMarkup(beat.heading, markupContext).replace(/^<p>|<\/p>$/g, '')}</h3>`);
+    parts.push(`<h3>${renderInline(beat.heading, markupContext)}</h3>`);
     parts.push(renderMarkup(beat.body, markupContext));
   } else {
     parts.push(renderMarkup(tab.summary, markupContext));
@@ -112,6 +113,21 @@ function renderText() {
   const description = beat?.sceneDescription ?? tab.summary;
   descriptionEl.textContent = plainText(description);
   renderDeepDive(beat);
+}
+
+/** Lineage callout for features that existed before Wi-Fi 7 (Principle IV). */
+function renderLineage(tab) {
+  lineageEl.replaceChildren();
+  if (tab.kind !== 'feature' || !tab.introducedIn || tab.introducedIn === 'wifi7') return;
+  const g = genById.get(tab.introducedIn);
+  const p = document.createElement('div');
+  p.className = 'lineage';
+  const lead = document.createElement('strong');
+  lead.textContent = `First introduced in ${g.name} (${g.ieee}). `;
+  const rest = document.createElement('span');
+  rest.innerHTML = 'What Wi-Fi 7 adds: ' + renderInline(tab.wifi7Adds, markupContext); // safe: renderMarkup
+  p.append(lead, rest);
+  lineageEl.append(p);
 }
 
 /** Technical layer for the current beat: an "Under the hood" disclosure. */
@@ -177,6 +193,7 @@ export function showTab(tabId, beatIndex = 0, { animate = false, generation = nu
   if (changed) {
     mountScene(tab);
     renderSections(tab);
+    renderLineage(tab);
   }
   renderText();
   if (changed) emit('tab');

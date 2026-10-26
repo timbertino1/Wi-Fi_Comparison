@@ -43,6 +43,11 @@ export function renderMarkup(text, ctx = {}) {
     .join('');
 }
 
+/** Like renderMarkup, but for inline contexts: paragraphs are joined with spaces, no <p> wrappers. */
+export function renderInline(text, ctx = {}) {
+  return renderMarkup(text, ctx).replace(/<\/p><p>/g, ' ').replace(/^<p>|<\/p>$/g, '');
+}
+
 /** Plain text with markup removed (for aria labels, alt text and descriptions). */
 export function plainText(text, ctx = {}) {
   const { termById = new Map() } = ctx;

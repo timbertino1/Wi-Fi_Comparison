@@ -74,7 +74,7 @@ export default {
       bar.userData.h = height;
       towers.add(bar);
       const anchor = new THREE.Object3D();
-      anchor.position.set(bar.position.x, height + 0.5 + (i < 3 ? (i % 2) * 0.7 : 0), 0);
+      anchor.position.set(bar.position.x, i < 3 ? 0.9 + i * 0.8 : height + 0.5, 0);
       towers.add(anchor);
       const label = labels.add(anchor, `${genName(gen)}: ${fmt(c)}${theoretical ? ' (theoretical)' : ''}`, { className: 'big' });
       label.element.style.opacity = '0';

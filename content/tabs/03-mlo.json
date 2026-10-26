@@ -6,7 +6,11 @@
   "summary": "One connection that uses several bands at once, or switches between them instantly.",
   "introducedIn": "wifi7",
   "wifi7Adds": null,
-  "compareGenerations": ["wifi5", "wifi6e", "wifi7"],
+  "compareGenerations": [
+    "wifi5",
+    "wifi6e",
+    "wifi7"
+  ],
   "defaultCompare": "wifi6e",
   "sceneId": "mlo",
   "scenarioIds": [],
@@ -62,13 +66,53 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "links",
+      "metric": "Bands one connection can use at once",
+      "unit": null,
+      "values": {
+        "wifi5": "One",
+        "wifi6e": "One",
+        "wifi7": "Up to 3"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": "Actual number depends on the device and its multi-link mode.",
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "single-link-pre-be",
+        "wifi6e": "single-link-pre-be",
+        "wifi7": "mlo-bands"
+      }
+    },
+    {
+      "id": "switch-bands",
+      "metric": "Moves traffic between bands without reconnecting",
+      "unit": null,
+      "values": {
+        "wifi5": "No",
+        "wifi6e": "No",
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "single-link-pre-be",
+        "wifi6e": "single-link-pre-be",
+        "wifi7": "mlo-tid-mapping"
+      }
+    }
+  ],
   "sections": [
     {
       "id": "mlo-modes",
       "heading": "MLO modes: STR, NSTR, EMLSR and EMLMR",
-      "body": "IEEE 802.11be defines several ways a device can use multiple links {{mlo-modes-be}}:\n\n**[[str|STR]] (simultaneous transmit and receive)** — separate radios send on one link while receiving on another. This gives the most benefit but needs multiple full radios and good isolation between bands.\n\n**[[nstr|NSTR]] (non-simultaneous)** — the device has multiple links but cannot send on one while receiving on another, so their timing is coordinated.\n\n**[[emlsr|EMLSR]] (enhanced multi-link single radio)** — the device listens on several links and moves its single full radio to whichever link has traffic. It is designed for devices with one main radio, trading some throughput for lower cost and power.\n\n**[[emlmr|EMLMR]] (enhanced multi-link multi-radio)** — several radios are reassigned between links as traffic needs.\n\nWhich mode a badge, phone, laptop or access point supports is a product decision, so check device specifications during procurement."
-      ,
+      "body": "IEEE 802.11be defines several ways a device can use multiple links {{mlo-modes-be}}:\n\n**[[str|STR]] (simultaneous transmit and receive)** — separate radios send on one link while receiving on another. This gives the most benefit but needs multiple full radios and good isolation between bands.\n\n**[[nstr|NSTR]] (non-simultaneous)** — the device has multiple links but cannot send on one while receiving on another, so their timing is coordinated.\n\n**[[emlsr|EMLSR]] (enhanced multi-link single radio)** — the device listens on several links and moves its single full radio to whichever link has traffic. It is designed for devices with one main radio, trading some throughput for lower cost and power.\n\n**[[emlmr|EMLMR]] (enhanced multi-link multi-radio)** — several radios are reassigned between links as traffic needs.\n\nWhich mode a badge, phone, laptop or access point supports is a product decision, so check device specifications during procurement.",
       "sceneState": "modes-compare"
     }
   ]

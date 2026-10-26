@@ -6,7 +6,10 @@
   "summary": "Getting alarms, voice and video through on time, every time, not just on average.",
   "introducedIn": "wifi7",
   "wifi7Adds": null,
-  "compareGenerations": ["wifi6", "wifi7"],
+  "compareGenerations": [
+    "wifi6",
+    "wifi7"
+  ],
   "defaultCompare": "wifi6",
   "sceneId": "latency",
   "scenarioIds": [],
@@ -62,6 +65,58 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "mlo",
+      "metric": "Multi-link operation",
+      "unit": null,
+      "values": {
+        "wifi6": null,
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi7": "mlo-defined-be"
+      }
+    },
+    {
+      "id": "rtwt",
+      "metric": "Restricted TWT",
+      "unit": null,
+      "values": {
+        "wifi6": null,
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi7": "rtwt-be"
+      }
+    },
+    {
+      "id": "multi-ru",
+      "metric": "Multiple resource units per device",
+      "unit": null,
+      "values": {
+        "wifi6": null,
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi7": "multi-ru-be"
+      }
+    }
+  ],
   "sections": []
 }
