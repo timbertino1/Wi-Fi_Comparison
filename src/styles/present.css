@@ -1,4 +1,78 @@
 /* Presentation mode (US6). Applied when <html data-present> is set. */
+[data-present] {
+  --text-xs: 1.05rem;
+  --text-sm: 1.35rem;
+  --text-md: 1.6rem;
+  --text-lg: 2rem;
+  --text-xl: 2.8rem;
+}
+
 [data-present] body {
-  font-size: calc(var(--text-md) * 1.5);
+  font-size: var(--text-md);
+}
+
+/* Hide secondary chrome; keep the audience switch and the way out. */
+[data-present] #theme-toggle,
+[data-present] #motion-toggle,
+[data-present] #shortcuts-toggle,
+[data-present] .brand-sub,
+[data-present] .deep-dive,
+[data-present] .deep-section,
+[data-present] .scene-description,
+[data-present] #figures,
+[data-present] #scenario,
+[data-present] .pager {
+  display: none;
+}
+
+[data-present] .panel {
+  max-width: none;
+  padding: var(--space-4) var(--space-6);
+}
+
+[data-present] .layout {
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+}
+
+[data-present] .stage {
+  aspect-ratio: auto;
+  height: calc(100vh - 260px);
+}
+
+[data-present] .stage-label {
+  font-size: 1rem;
+}
+
+[data-present] .beat-dot {
+  width: 40px;
+  height: 40px;
+}
+
+.present-prompt {
+  position: fixed;
+  z-index: 45;
+  left: 50%;
+  bottom: var(--space-6);
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+
+.blank-overlay[hidden] {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  [data-present] .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-present] .stage {
+    height: 50vh;
+  }
 }
