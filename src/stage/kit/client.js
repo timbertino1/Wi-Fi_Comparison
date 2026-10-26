@@ -17,7 +17,7 @@ const SHAPES = {
 export const clientTypes = Object.keys(SHAPES);
 
 function shapeGeometry(type) {
-  if (type === 'dot') return new THREE.SphereGeometry(0.13, 16, 12).translate(0, 0.13, 0);
+  if (type === 'dot') return new THREE.SphereGeometry(0.13, 8, 6).translate(0, 0.13, 0);
   const parts = (SHAPES[type] ?? SHAPES.phone).map(([w, h, d, y]) => {
     const g = new THREE.BoxGeometry(w, h, d);
     g.translate(0, y, 0);
@@ -53,7 +53,7 @@ export function client(type, { color = '#8796ad' } = {}) {
  * `mesh.setColorAt(i, color)` and positions with `mesh.setMatrixAt(i, matrix)`.
  */
 export function clientCrowd(type, count, { color = '#8796ad' } = {}) {
-  const mesh = new THREE.InstancedMesh(shapeGeometry(type), new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: 0.6 }), count);
+  const mesh = new THREE.InstancedMesh(shapeGeometry(type), new THREE.MeshLambertMaterial({ color: '#ffffff' }), count);
   const c = new THREE.Color(color);
   for (let i = 0; i < count; i++) mesh.setColorAt(i, c);
   return mesh;

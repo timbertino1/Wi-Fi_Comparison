@@ -18,10 +18,10 @@ export default {
     // --- Floor with treatment bays and a crowd of devices (one instanced mesh, one draw call).
     const floor = new THREE.Group();
     scene.add(floor);
-    const slab = new THREE.Mesh(new THREE.BoxGeometry(14, 0.1, 7), new THREE.MeshStandardMaterial({ color: neutral.floor }));
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(14, 0.1, 7), new THREE.MeshLambertMaterial({ color: neutral.floor }));
     slab.position.y = -0.05;
     floor.add(slab);
-    const bayMaterial = new THREE.MeshStandardMaterial({ color: neutral.wall, transparent: true, opacity: 0.6 });
+    const bayMaterial = new THREE.MeshLambertMaterial({ color: neutral.wall, transparent: true, opacity: 0.6 });
     for (let i = 0; i < 6; i++) {
       for (const side of [-1, 1]) {
         const bay = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.04, 2), bayMaterial);

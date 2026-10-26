@@ -76,7 +76,6 @@ export function setActiveTab(tabId) {
   prevButton.textContent = activeIndex > 0 ? `← ${tabs[activeIndex - 1].title}` : 'Previous';
   const last = activeIndex === tabs.length - 1;
   nextButton.textContent = last ? 'Back to Overview' : `${tabs[activeIndex + 1].title} →`;
-  nextButton.setAttribute('aria-label', last ? 'Back to Overview' : `Next: ${tabs[activeIndex + 1].title}`);
 }
 
 export function setProgress(tabId, beatIndex, beatCount) {

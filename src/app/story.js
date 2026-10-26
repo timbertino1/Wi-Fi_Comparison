@@ -28,6 +28,7 @@ deepEl.append(deepBeatEl, sectionsEl);
 const listeners = { tab: new Set(), beat: new Set(), generation: new Set() };
 const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null };
 let stage = null;
+let fallback = null;
 let testHook = false;
 
 export function on(event, fn) {
@@ -66,7 +67,9 @@ function updateTestHook() {
     beat: state.beatIndex + 1,
     state: state.sceneName,
     generation: state.generation,
-    running: stage?.isRunning?.() ?? false,
+    get running() {
+      return stage?.isRunning?.() ?? false;
+    },
     info: () => stage?.info?.()
   };
 }
@@ -83,10 +86,40 @@ function clearPlaceholder() {
   stageEl.querySelector('.stage-empty')?.remove();
 }
 
+/** Switches to still images (no WebGL, or the WebGL context was lost). */
+export function useFallback(value) {
+  fallback = value;
+  stage = null;
+  state.instance = null;
+  if (state.tab) {
+    mountScene(state.tab);
+    applySceneState({ animate: false });
+  }
+}
+
+/** Re-creates the current scene (after a motion or theme change) at the current beat. */
+export function remount() {
+  if (!state.tab) return;
+  mountScene(state.tab);
+  applySceneState({ animate: false });
+}
+
+function showStill(key) {
+  const beat = state.tab.beats?.[state.beatIndex];
+  fallback?.show(state.tab.id, key, plainText(beat?.sceneDescription ?? state.tab.summary));
+}
+
 function mountScene(tab) {
   state.instance = null;
   state.sceneName = null;
-  if (!stage) return;
+  if (!stage) {
+    if (fallback && tab.sceneId) clearPlaceholder();
+    else {
+      fallback?.hide();
+      showPlaceholder(tab.kind === 'references' ? 'Sources, claims and glossary' : 'Animation unavailable');
+    }
+    return;
+  }
   stage.unmount();
   const module = tab.sceneId ? sceneFor(tab.sceneId) : null;
   if (!module) {
@@ -174,7 +207,15 @@ function renderSections(tab) {
 
 async function applySceneState({ animate }) {
   const beat = state.tab.beats?.[state.beatIndex];
-  if (!state.instance || !beat?.sceneState) return;
+  if (!beat?.sceneState) return;
+  if (!state.instance) {
+    if (fallback && state.tab.sceneId) {
+      state.sceneName = beat.sceneState;
+      updateTestHook();
+      showStill(state.beatIndex + 1);
+    }
+    return;
+  }
   state.transition?.abort();
   const controller = new AbortController();
   state.transition = controller;
@@ -251,7 +292,15 @@ export function restoreSceneState() {
 
 /** Moves the scene to an arbitrary named state (deep sections). */
 export function showSceneState(name) {
-  if (!state.instance) return Promise.resolve();
+  if (!state.instance) {
+    const section = state.tab.sections?.find((x) => x.sceneState === name);
+    if (fallback && section) {
+      state.sceneName = name;
+      updateTestHook();
+      showStill(section.id);
+    }
+    return Promise.resolve();
+  }
   state.transition?.abort();
   const controller = new AbortController();
   state.transition = controller;

@@ -14,11 +14,11 @@ export default {
     // --- Hospital floor
     const floor = new THREE.Group();
     scene.add(floor);
-    const slab = new THREE.Mesh(new THREE.BoxGeometry(14, 0.12, 8), new THREE.MeshStandardMaterial({ color: neutral.floor, roughness: 0.9 }));
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(14, 0.12, 8), new THREE.MeshLambertMaterial({ color: neutral.floor }));
     slab.position.y = -0.06;
     floor.add(slab);
 
-    const wallMaterial = new THREE.MeshStandardMaterial({ color: neutral.wall, roughness: 0.8 });
+    const wallMaterial = new THREE.MeshLambertMaterial({ color: neutral.wall });
     const wallGeometry = new THREE.BoxGeometry(1, 0.5, 1);
     const walls = new THREE.InstancedMesh(wallGeometry, wallMaterial, 32);
     const m = new THREE.Matrix4();

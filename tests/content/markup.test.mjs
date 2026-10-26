@@ -28,7 +28,7 @@ test('glossary terms render as buttons', () => {
 
 test('claim citations render as numbered buttons with escaped labels', () => {
   const html = renderMarkup('46.1 Gbps {{wifi7-peak-phy}}', ctx);
-  assert.match(html, /<sup><button type="button" class="cite" data-claim="wifi7-peak-phy" aria-haspopup="dialog" aria-label="Source for: Peak &quot;rate&quot; &lt;x&gt;">\[1\]<\/button><\/sup>/);
+  assert.match(html, /<sup><button type="button" class="cite" data-claim="wifi7-peak-phy" aria-haspopup="dialog" aria-label="Source 1: Peak &quot;rate&quot; &lt;x&gt;">\[1\]<\/button><\/sup>/);
 });
 
 test('reference links point at the References tab', () => {
