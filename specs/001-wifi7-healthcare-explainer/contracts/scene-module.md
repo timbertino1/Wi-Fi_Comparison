@@ -54,3 +54,7 @@ content validator checks this.
 - No network or file loads at runtime; textures, if any, are generated procedurally or bundled as
   data URIs.
 - Deterministic end states (no randomness without a fixed seed) so fallback snapshots are stable.
+- **Import-safe**: importing the module MUST NOT touch `window`, `document`, or WebGL; all such
+  work happens inside `create()`. The content validator imports modules in Node to read `states`.
+- No `eval`, `new Function`, string-based `setTimeout`, or `innerHTML` (CSP, research R12).
+- Scenes ignore the audience view; Leadership and Technical views share identical animation.

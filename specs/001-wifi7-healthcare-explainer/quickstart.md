@@ -8,7 +8,8 @@ How to build, open, and verify the Wi-Fi 7 Healthcare Explainer end to end. Desi
 1. Get the `dist/` folder (or its zip) and unzip it anywhere.
 2. Double-click `dist/index.html`. It opens in the default browser; no internet connection needed.
 3. To host it: upload the contents of `dist/` to any static web host (intranet share, static site
-   bucket, web server). No configuration is needed.
+   bucket, web server). It works with no configuration; for hardening, apply the response headers
+   in `docs/hosting-security.md`.
 
 ## Authors / developers
 
@@ -50,7 +51,10 @@ unless marked *manual*.
 | V14 | Neutrality | `npm test` denylist; *manual* visual scan | 0 vendor names/logos | FR-023, SC-003 |
 | V15 | Accuracy gate | *Manual*: for each tab, check every figure against [research.md R11](./research.md) sources; set `verifiedOn` | 100% of figures verified and cited | FR-024, SC-003 |
 | V16 | Single-place fix | Change one KeyFigure value in content; rebuild | Value updates in panel and scene; no scene code edited | SC-009 |
-| V17 | Comprehension | *Manual*: 5+ reviewers (clinical + IT) view MLO, 6 GHz, TWT, 4K-QAM tabs | ≥ 80% explain each correctly in one sentence | SC-002 |
+| V17 | Comprehension | *Manual*: 5+ reviewers (clinical + IT) view MLO, 6 GHz, TWT, 4K-QAM tabs; leaders in Leadership view, engineers in Technical view | ≥ 80% explain each correctly in one sentence; ≥ 80% rate depth "about right" | SC-002, SC-010 |
+| V18 | Audience views | Open fresh (Leadership default); press `V`; open `#/mlo/3?view=technical`; switch views in presentation mode | Bottom line shown in Leadership; Under the hood, sections and all figures expanded in Technical; tab/beat unchanged; view survives reload | FR-035–FR-038 |
+| V19 | CSP & content safety | E2E records `securitypolicyviolation` on every tab from `file://` and HTTP in all three browsers; fixture content containing `<script>` is rendered | 0 violations; markup renders as inert text; external links have `rel="noopener noreferrer"` | FR-039–FR-041, SC-011 |
+| V20 | Merge protection | Try `git push origin main` directly; open a PR with a deliberately failing test | Push rejected by the ruleset; PR merge blocked until checks pass | FR-043–FR-045, SC-012 |
 
 ## Release checklist (constitution quality gates)
 
@@ -58,4 +62,7 @@ unless marked *manual*.
 - [ ] Neutrality gate: V14 passes
 - [ ] Story gate: V4 passes and copy reviewed for outcome/compliance wording
 - [ ] Accessibility & performance gate: V9–V13 pass
+- [ ] Security gate: V19 passes; `npm audit --audit-level=high`, CodeQL and secret scanning show
+      no open high/critical findings
+- [ ] Merge gate: V20 verified; all release changes merged through PRs with green checks
 - [ ] `dist/` zipped and V1 repeated from the unzipped copy on a second machine

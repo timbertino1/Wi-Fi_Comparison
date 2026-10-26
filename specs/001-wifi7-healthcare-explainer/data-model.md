@@ -39,6 +39,7 @@ runtime persistence other than viewer preferences.
 | `scenarioIds` | string[] | `feature`: ≥ 1 |
 | `sections` | DeepSection[] | Optional extra depth (e.g., MLO modes) |
 | `sceneId` | string | Matches a module in `src/scenes/`; null for `references` |
+| `draft` | boolean, optional | Authoring flag: while `true`, beat-structure and first-use rules are skipped; any `draft` is an error in release mode |
 
 ### StoryBeat
 
@@ -47,7 +48,8 @@ runtime persistence other than viewer preferences.
 | `type` | enum `problem` \| `what` \| `how` \| `improvement` \| `why` | Feature tabs: exactly this order. Overview/roadmap use `intro` \| `context` \| `outlook` |
 | `heading` | string | ≤ 60 chars |
 | `body` | rich text (limited markup) | Plain language; glossary terms marked `[[term-id]]`, citations `{{ref-id}}` |
-| `deepDive` | rich text \| null | "Under the hood" content |
+| `bottomLine` | string | Leadership layer: impact, risk, cost, or planning implication; ≤ 40 words; plain text with `{{ref}}` allowed; required on `feature` tab beats, optional elsewhere |
+| `deepDive` | rich text \| null | Technical layer ("Under the hood"); required on `how` and `improvement` beats of `feature` tabs |
 | `sceneState` | string | Named state the scene module exposes for this beat |
 | `sceneDescription` | string | Text equivalent of the animation for assistive tech; required, ≥ 20 words |
 | `durationMs` | int | Auto-play dwell time; 6000–20000 |
@@ -72,6 +74,7 @@ runtime persistence other than viewer preferences.
 | `qualifier` | enum `theoretical` \| `typical` \| `optional` \| `regulatory` \| `specified-not-shipping` \| `normative` | Peak rates MUST be `theoretical`; 46 Gbps MUST be `specified-not-shipping` |
 | `regulatoryDomain` | string \| null | Required when `qualifier` = `regulatory` (e.g., "US (FCC)") |
 | `note` | string \| null | Short caveat shown with the figure |
+| `headline` | boolean | Shown in Leadership view; `feature` tabs MUST have 2–3 headline figures |
 | `referenceIds` | string[] | ≥ 1 |
 
 ### HealthcareScenario
@@ -133,16 +136,30 @@ StoryBeat.sceneState ──> a state name that scene module declares
 8. No string in scenarios or beats matches guarantee phrases (e.g., "ensures compliance",
    "guarantees", "eliminates risk") — warnings reviewed in the story gate.
 9. Every glossary term used on a tab appears there at least once with `[[ ]]` markup (first-use
-   definition).
+   definition). "Used" means the term's `term` or `expansion` occurs as a whole word,
+   case-insensitive, in any beat `heading`, `body`, `bottomLine`, `deepDive`, or section `body`.
 10. Every Reference is cited at least once (no orphans).
+11. Audience layers: every `feature` tab beat has a `bottomLine` (≤ 40 words); `how` and
+    `improvement` beats have a non-empty `deepDive`; each `feature` tab has 2–3 `headline` figures.
+12. Security: content strings MUST NOT contain `<`, `>`, `javascript:`, or `data:` sequences
+    outside the inline markup forms; Reference `url` values MUST be `https:` URLs.
+
+**Draft vs release**: tabs with `draft: true` skip rules 3, 9 and 11. The minimum counts (≥ 2
+keyFigures, ≥ 1 scenarioId, 2–3 headline figures) and orphan references (rule 10) are enforced
+only in release mode (`--release`), so stories can be built in order (US2 content before US3
+figures and US4 scenarios) without breaking `npm run validate`. Release mode also errors on any
+remaining `draft`.
 
 ## State (runtime, not persisted except where noted)
 
 ```text
-ViewState = { tabId, beatIndex, compareGen, playing, presenting, motion, theme }
+ViewState = { tabId, beatIndex, compareGen, playing, presenting, motion, theme,
+              view: 'leadership' | 'technical' }   # view default 'leadership'
 
 beat transitions:  idle ─play→ playing ─(dwell elapsed)→ next beat … ─(last beat)→ idle
                    any ─step±/replay→ paused at target beat
 tab change:        dispose old scene → init new scene lazily → beatIndex from hash or 0
-persisted:         motion, theme (localStorage); tabId/beatIndex/presenting live in the URL hash
+view change:       sets data-view on <html>; no scene re-mount, beat unchanged
+persisted:         motion, theme, view (localStorage); tabId/beatIndex/gen/view/presenting live in
+                   the URL hash (URL view wins over stored view)
 ```

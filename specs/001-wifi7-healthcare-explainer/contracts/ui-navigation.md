@@ -8,6 +8,9 @@
 | `#/<tabId>` | Tab, beat 1 |
 | `#/<tabId>/<n>` | Tab, beat *n* (1-based); out-of-range → clamp to nearest valid beat |
 | `#/<tabId>/<n>?gen=<genId>` | Same, with comparison generation set |
+| `…?view=leadership` / `…?view=technical` | Same position in that audience view (overrides the stored preference) |
+| `#/references?ref=<refId>` | References tab, scrolled to and highlighting that entry (citation links) |
+| `…?test` | Enables test hooks (`window.__stage`, dwell override) for E2E and snapshots; no visible change |
 | `…?present` | Same position, presentation mode requested (fullscreen needs a user gesture; until one occurs, a "Start presenting" prompt is shown) |
 | Unknown `tabId` | Overview, with a non-blocking "Section not found" notice |
 
@@ -28,6 +31,7 @@ public contract (shared links).
 | `R` | Replay tab | Replay tab |
 | `1`–`5` | Jump to beat | Jump to beat |
 | `G` | Cycle comparison generation | same |
+| `V` | Toggle Leadership / Technical view | same (position unchanged) |
 | `P` | Enter presentation mode | Exit presentation mode |
 | `B` or `.` | — | Blank / unblank stage |
 | `Escape` | Close open popover | Exit fullscreen (stays on same tab and beat) |
@@ -47,3 +51,13 @@ Shortcuts are ignored while focus is in a text control or an open popover, and a
   colors are always paired with text labels (never color alone).
 - Focus is visible on every interactive element (≥ 3:1 contrast focus ring).
 - Progress text "Tab *n* of 11 · Step *m* of 5" is visible and announced on tab change.
+- View switch: a two-option radio group labelled "Audience" ("Leadership", "Technical") in the
+  header; the active view is always visible; the change is announced ("Technical view").
+
+## Security constraints on the shell
+
+- `index.html` contains the meta CSP and `<meta name="referrer" content="no-referrer">` from
+  research.md R12, and no inline `<script>`, event-handler attributes, or `style="…"` attributes.
+- All dynamic text goes through `renderMarkup()` or `textContent`; no other code path assigns
+  `innerHTML`.
+- External links: `target="_blank" rel="noopener noreferrer"`.

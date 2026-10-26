@@ -12,7 +12,10 @@ generation comparison, and a key-figures panel; it also has a presentation mode 
 The source is ES modules plus JSON content. esbuild bundles it into a static `dist/` folder that
 uses a classic (non-module) script, so it opens by **double-clicking `index.html`** offline and
 works unchanged on any static host. A build-time snapshot step gives a WebGL-free fallback.
-Details: [research.md](./research.md).
+A **Leadership | Technical** view switch layers the same story for mixed audiences (R13). A strict
+meta Content-Security-Policy, escaped content rendering, and no third-party code harden the page
+(R12). GitHub Actions checks, CodeQL, Dependabot, secret scanning and a branch ruleset on `main`
+protect merges (R14). Details: [research.md](./research.md).
 
 ## Technical Context
 
@@ -37,7 +40,11 @@ from local disk (`file://`) or a static web host
 phone; first tab readable < 3 s; initial JS bundle ≤ 500 KB gzipped (three.js core ≈ 160 KB gz)
 
 **Constraints**: Works from `file://` with no server; zero runtime network requests; no tracking;
-WCAG 2.2 AA; reduced-motion and no-WebGL alternatives; vendor-neutral content
+WCAG 2.2 AA; reduced-motion and no-WebGL alternatives; vendor-neutral content; zero CSP
+violations under the R12 policy; no `eval`, inline script, or `innerHTML` with unescaped content
+
+**CI/CD**: GitHub Actions (`ci.yml`, `codeql.yml`), Dependabot, branch ruleset on `main` (R14).
+No deployment pipeline; `dist/` is built locally or downloaded from the CI artifact
 
 **Scale/Scope**: 11 tabs; 8 animated feature tabs × 5 beats = 40 beat states; 5 generations;
 ≈ 40–60 references; ≈ 60 glossary terms
@@ -49,16 +56,19 @@ WCAG 2.2 AA; reduced-motion and no-WebGL alternatives; vendor-neutral content
 | # | Principle | How the design complies | Status |
 |---|-----------|------------------------|--------|
 | I | Vendor neutrality & accuracy | Content in JSON with `referenceId` on every figure; build-time validator rejects missing references; denylist scan for vendor names; `qualifier` field enforces theoretical/optional labels; facts register (research R11) feeds accuracy gate | ✅ |
-| II | Teach by telling a story | Data model requires exactly five beats of fixed types per feature tab; validator enforces it; jargon defined via glossary links at first use | ✅ |
+| II | Teach by telling a story | Data model requires exactly five beats of fixed types per feature tab; validator enforces it; jargon defined via glossary links at first use; audience layers (`body` core, `bottomLine` leadership, `deepDive`/sections technical) behind a Leadership/Technical view (R13) | ✅ |
 | III | Healthcare context | Each tab references ≥ 1 `HealthcareScenario`; copy review checks for outcome/compliance guarantees; scenarios are composites, no PHI | ✅ |
 | IV | Generational comparison | Generation switcher in every feature tab; single generation palette token set shared by CSS and scenes; `introducedIn` field states feature lineage | ✅ |
 | V | Purposeful 3D animation | Scene module contract requires per-beat states, generation modes, play/pause/step/replay, lazy init + `dispose()` | ✅ |
 | VI | Accessible & performant | WAI-ARIA tabs pattern; per-beat `sceneDescription`; reduced-motion path; snapshot fallback for no-WebGL; axe + frame-time E2E checks | ✅ |
 | VII | Simplicity & static delivery | Static `dist/`; one runtime dependency; dev tooling justified below; content separated from scenes | ✅ with justification (see Complexity Tracking) |
+| VIII | Secure by default | Meta CSP + `no-referrer` (R12); escaping markup renderer; `rel="noopener noreferrer"`; preferences-only storage; pinned deps + lockfile + `npm audit`; CI required checks, CodeQL, dependency review, secret scanning with push protection, ruleset on `main` (R14); hosting-header guide | ✅ |
 
 **Quality gates mapping**: accuracy gate → `npm run validate` + manual review against R11;
 neutrality gate → denylist test; story gate → beat-structure test; accessibility/performance gate →
-`npm run test:e2e` (axe, keyboard, reduced motion, no-WebGL, offline, fps sampling).
+`npm run test:e2e` (axe, keyboard, reduced motion, no-WebGL, offline, fps sampling); merge gate →
+required CI checks + ruleset; security gate → CSP-violation E2E, `npm audit`, CodeQL, secret
+scanning.
 
 **Post-design re-check (after Phase 1)**: The data model, contracts, and quickstart preserve all
 mappings above. No new violations. ✅
@@ -85,6 +95,17 @@ specs/001-wifi7-healthcare-explainer/
 ### Source Code (repository root)
 
 ```text
+.github/
+├── workflows/
+│   ├── ci.yml                 # validate, build, e2e (3 browsers), audit, dependency-review
+│   └── codeql.yml             # CodeQL javascript-typescript
+├── dependabot.yml             # npm + github-actions, weekly
+└── CODEOWNERS
+
+SECURITY.md                    # Vulnerability reporting
+docs/
+└── hosting-security.md        # Recommended HTTP headers for static hosting (FR-042)
+
 content/                       # All copy and facts — editable without touching scenes
 ├── generations.json
 ├── references.json
@@ -104,7 +125,7 @@ content/                       # All copy and facts — editable without touchin
     └── 11-references.json
 
 src/
-├── index.html                 # Shell: header, tablist, stage, story panel, controls
+├── index.html                 # Shell + meta CSP/referrer policy (R12); no inline script/style
 ├── main.js                    # Boot: load content, feature-detect WebGL, start router
 ├── app/
 │   ├── router.js              # Hash routing (#/tab/beat?present)
@@ -112,7 +133,8 @@ src/
 │   ├── story.js               # Beat state machine, play/pause/step/replay
 │   ├── comparison.js          # Generation switcher + key-figures panel
 │   ├── presentation.js        # Fullscreen, clicker keys, blanking
-│   ├── preferences.js         # Theme + motion (localStorage, try/catch)
+│   ├── preferences.js         # Theme, motion, view (localStorage, try/catch)
+│   ├── view.js                # Leadership | Technical switch (data-view, ?view=, V key)
 │   └── glossary.js            # Inline term definitions, references links
 ├── stage/
 │   ├── renderer.js            # Shared WebGLRenderer + CSS2D label layer, loop control

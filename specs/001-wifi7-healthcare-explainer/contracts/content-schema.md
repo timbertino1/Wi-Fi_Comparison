@@ -33,6 +33,7 @@ Content authors edit only files under `content/`. Field semantics and validation
       "type": "problem",
       "heading": "The call that drops between units",
       "body": "A nurse's [[voice-badge]] is tied to a single band ...",
+      "bottomLine": "Dropped badge calls mean repeated pages and delays; this is a reliability issue for clinical communication, not just an IT one.",
       "deepDive": null,
       "sceneState": "single-link-congested",
       "sceneDescription": "A nurse walks down a hallway. The badge is linked to an access point by one beam on the 5 GHz band ...",
@@ -48,6 +49,7 @@ Content authors edit only files under `content/`. Field semantics and validation
       "qualifier": "normative",
       "regulatoryDomain": null,
       "note": "Device capability varies; see MLO modes.",
+      "headline": true,
       "referenceIds": ["ieee-80211be"]
     }
   ],
@@ -57,7 +59,7 @@ Content authors edit only files under `content/`. Field semantics and validation
 }
 ```
 
-## Inline markup in `body` / `deepDive`
+## Inline markup in `body` / `deepDive` / `bottomLine`
 
 | Markup | Meaning | Renders as |
 |--------|---------|-----------|

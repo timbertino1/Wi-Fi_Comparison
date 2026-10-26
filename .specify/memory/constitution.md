@@ -28,6 +28,10 @@ on neutrality and on numbers that hold up to scrutiny.
   5. **Why it matters in healthcare** — the outcome for clinicians, patients, or IT.
 - Copy MUST be written for a mixed audience (clinical leadership, biomed, and network
   engineers): lead with plain language, then offer technical depth on demand.
+- Audience depth MUST be layered within one story, not split into separate versions: a shared
+  plain-language core seen by everyone, a leadership layer (impact, risk, cost, planning), and a
+  technical layer (mechanism and protocol detail). Every layer draws on the same facts and
+  references.
 - Jargon MUST be defined at first use on each tab.
 
 Rationale: The goal is understanding, not a spec sheet. A consistent arc lets learners build a
@@ -100,6 +104,23 @@ accessibility needs; the story must reach all of them.
 Rationale: Static delivery keeps hosting trivial (including on restricted hospital intranets) and
 keeps the project maintainable as Wi-Fi standards evolve.
 
+### VIII. Secure by Default
+
+- The page MUST ship a restrictive Content-Security-Policy that blocks inline script, `eval`, and
+  all network connections, and MUST work under it both from local files and from a web host.
+- All content MUST be rendered through an escaping renderer; raw HTML from content files is never
+  injected. External links MUST open with `rel="noopener noreferrer"`.
+- The site MUST NOT store anything beyond non-sensitive viewer preferences, and MUST NOT load
+  third-party code, fonts, or assets at runtime.
+- Dependencies MUST be pinned, installed from a committed lockfile, and scanned for known
+  vulnerabilities; high or critical findings block merges.
+- Changes reach `main` only through pull requests that pass the required automated checks
+  (build, tests, content validation, dependency and code scanning); direct pushes and force pushes
+  to `main` are blocked. Secrets MUST never be committed, with push protection enabled.
+
+Rationale: Hospital IT teams will host and share this site on clinical networks; it must be
+trustworthy to deploy, and its repository must resist accidental or malicious changes.
+
 ## Content & Technology Constraints
 
 **Required feature coverage** — each item below MUST have its own tab following Principle II:
@@ -127,7 +148,11 @@ overview/introduction and a references section are expected in addition to featu
 
 - Work proceeds through Spec Kit: `/speckit-specify` → `/speckit-clarify` (as needed) →
   `/speckit-plan` → `/speckit-tasks` → `/speckit-implement`. Plans MUST include a Constitution
-  Check against Principles I–VII.
+  Check against Principles I–VIII.
+- **Merge gate**: every pull request to `main` MUST pass the required CI checks (Principle VIII)
+  before merging; reviews MUST confirm constitution compliance.
+- **Security gate**: before release, the CSP MUST produce zero violations in all target browsers,
+  and dependency, code, and secret scans MUST report no open high or critical findings.
 - **Accuracy review gate**: before a tab is considered done, every numeric or normative claim on
   it MUST be checked against its cited source, and theoretical vs. typical values MUST be
   labeled.
@@ -150,4 +175,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-26
+**Version**: 1.1.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-26

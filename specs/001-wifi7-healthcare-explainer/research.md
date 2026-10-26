@@ -129,7 +129,7 @@ verified for AA contrast against both themes during implementation):
 
 No vendor color schemes (constitution, Content & Technology Constraints).
 
-## R10. Pinned dependency versions (Principle VII)
+## R10. Pinned dependency versions (Principle VII, VIII)
 
 | Package | Version | Kind | Justification |
 |---------|---------|------|---------------|
@@ -165,5 +165,96 @@ accuracy review gate before its tab is done; items marked ⚠ are known to need 
 | Wired uplinks | 2.5/5/10GBASE-T (multi-gigabit) | IEEE 802.3bz, 802.3an |
 | Timeline ⚠ | Wi-Fi CERTIFIED 7 program launched Jan 2024; confirm IEEE 802.11be publication date | Wi-Fi Alliance; IEEE SA |
 | Wi-Fi 8 ⚠ | IEEE 802.11bn "Ultra High Reliability" task group; forward-looking only | IEEE 802.11 TGbn |
+
+## R12. Content-Security-Policy that works from `file://` and a host (FR-039, Principle VIII)
+
+**Decision**: Ship the policy as a `<meta http-equiv="Content-Security-Policy">` in
+`dist/index.html` (a meta policy is the only option for `file://`), plus
+`<meta name="referrer" content="no-referrer">`:
+
+```text
+default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:;
+connect-src 'none'; font-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none';
+worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'
+```
+
+- No inline `<script>` or `style="…"` attributes in HTML; all JS is in `app.js`. Styles set from
+  JavaScript through the CSSOM (`element.style.x = …`, as three.js's CSS2DRenderer does) are
+  permitted by CSP and need no `'unsafe-inline'`.
+- esbuild IIFE output and three.js use no `eval`/`new Function`, so `'unsafe-eval'` is not needed.
+- `frame-ancestors` cannot be set by a meta tag; it goes in the documented hosting headers
+  (FR-042, `docs/hosting-security.md`), together with the same CSP as an HTTP header.
+- **Verification risk**: browsers handle `'self'` for `file://` documents differently (file URLs
+  have an opaque origin in some browsers). The E2E suite records `securitypolicyviolation` events
+  on every tab in Chromium, Firefox and WebKit from both `file://` and HTTP. If any browser
+  blocks `app.js`, CSS or fallback images under `'self'` on `file://`, add the `file:` scheme
+  source to exactly the affected directives (`script-src 'self' file:` etc.) — this does not
+  widen the hosted policy because `file:` URLs never resolve on an HTTP origin — and record the
+  finding here.
+
+**Alternatives considered**: no CSP (fails the security review); hash-based inline script (not
+needed — no inline script exists); a separate hosted build with a different policy (two
+artifacts to test; rejected unless the verification step above forces it).
+
+## R13. Audience layering (FR-035–FR-038, Principle II)
+
+**Decision**: One story with a **Leadership | Technical** view switch (default Leadership),
+rather than two files or curated single-depth copy.
+
+| Layer | Leadership view | Technical view |
+|-------|-----------------|----------------|
+| Beat `body` (plain-language core) | Shown | Shown |
+| Beat `bottomLine` (≤ 40 words: impact, risk, cost, planning) | Shown as a "Bottom line" callout | Shown, de-emphasized |
+| Beat `deepDive` ("Under the hood") | Collapsed, available | Expanded |
+| `DeepSection`s (e.g., MLO modes) | Collapsed, available | Expanded |
+| Key figures | `headline: true` figures only (2–3) + "Show all figures" | All figures |
+| Animation, beats, controls, comparison | Identical | Identical |
+
+The view lives in the URL hash (`?view=leadership|technical`) and in `localStorage`
+(preferences). It is a CSS-driven switch (`data-view` attribute on `<html>`), so switching never
+re-mounts the scene or changes the beat. Keyboard shortcut `V` toggles it, including in presentation
+mode.
+
+**Rationale**: Separate files would double the accuracy-gate work and drift apart. Curated
+single-depth copy fails both groups: leaders get protocol detail, engineers get too little. A
+toggle keeps one source of facts, supports mixed-room presentations, and lets a presenter share
+a link in the right view.
+
+**Alternatives considered**: two HTML files (rejected as above); three or more personas such as
+clinical, biomed and IT (more copy to maintain; the biomed and clinical needs are covered by the
+healthcare scenario cards); automatic detection (not possible without tracking).
+
+## R14. CI and merge protection (FR-043–FR-045, Principle VIII)
+
+**Decision** (the repository `timbertino1/Wi-Fi_Comparison` is public, so all of these are free):
+
+- **`.github/workflows/ci.yml`** on `pull_request` and `push` to `main`, `permissions: contents:
+  read`, every action pinned to a full commit SHA with a version comment, `npm ci` from the
+  lockfile. Jobs (these job names become the required status checks):
+  - `validate` — `npm run validate` and `node --test tests/content/`
+  - `build` — `npm run build:fast` (includes the 500 KB gzip limit); uploads `dist/` as an artifact
+  - `e2e` — matrix over chromium, firefox and webkit: `npx playwright install --with-deps <browser>`
+    then `npx playwright test --project=<browser>` (includes axe and CSP-violation checks)
+  - `audit` — `npm audit --audit-level=high` (runtime and dev dependencies)
+  - `dependency-review` — `actions/dependency-review-action` with `fail-on-severity: high` (pull
+    requests only)
+- **`.github/workflows/codeql.yml`** — CodeQL `javascript-typescript` on pull requests, pushes to
+  `main`, and weekly; required check `CodeQL`.
+- **`.github/dependabot.yml`** — weekly updates for `npm` and `github-actions`; grouped minor and
+  patch updates.
+- **`.github/CODEOWNERS`** — `* @timbertino1`.
+- **`SECURITY.md`** — how to report a vulnerability (GitHub private vulnerability reporting).
+- **Repository settings** via `gh api`: enable secret scanning, push protection, Dependabot alerts
+  and security updates, and private vulnerability reporting.
+- **Branch ruleset on `main`** via `gh api repos/{owner}/{repo}/rulesets`: require a pull request
+  (0 required approvals — a sole maintainer can't approve their own pull request; raise to 1 when a
+  second maintainer joins), require conversation resolution, require the status checks above to
+  pass with the branch up to date, block force pushes and deletion, require linear history. The
+  ruleset is created after CI has run once so the check names exist.
+
+**Alternatives considered**: classic branch protection (rulesets are the current mechanism and
+easier to script); a third-party secret scanner such as gitleaks (GitHub secret scanning with push
+protection covers this at no cost); pre-commit hooks only (local hooks are easy to skip and are
+not enforced at merge).
 
 No open NEEDS CLARIFICATION items remain.
