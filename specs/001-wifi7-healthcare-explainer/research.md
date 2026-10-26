@@ -192,6 +192,11 @@ worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'
   widen the hosted policy because `file:` URLs never resolve on an HTTP origin — and record the
   finding here.
 
+**Verification outcome (2026-10-26)**: `tests/e2e/security.spec.js` loaded every beat of every tab
+in Chromium, Firefox and WebKit, from `file://` and from HTTP with the hosting headers: zero CSP
+violations, zero external requests, zero console errors. `'self'` works for `file://` resources in
+all three browsers, so the `file:` scheme fallback was **not** needed.
+
 **Alternatives considered**: no CSP (fails the security review); hash-based inline script (not
 needed — no inline script exists); a separate hosted build with a different policy (two
 artifacts to test; rejected unless the verification step above forces it).

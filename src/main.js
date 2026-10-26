@@ -12,6 +12,8 @@ import { initFigures } from './app/figures.js';
 import { initScenario } from './app/scenario.js';
 import { initShortcuts } from './app/shortcuts.js';
 import { initView } from './app/view.js';
+import { initProvenance } from './app/provenance.js';
+import { initReferences } from './app/references.js';
 import { setMotion } from './stage/tween.js';
 import { createStage, webglAvailable } from './stage/renderer.js';
 import { createFallback } from './stage/fallback.js';
@@ -110,6 +112,8 @@ function boot() {
   initFigures();
   initScenario();
   initShortcuts();
+  initProvenance();
+  initReferences();
   initPreferenceToggles();
 
   story.on('beat', ({ tabId, beatIndex, beatCount }) => {
@@ -122,6 +126,7 @@ function boot() {
     routeNotice.hidden = !route.notFound;
     routeNotice.textContent = route.notFound ? `Section “${route.requestedTab}” was not found, so the Overview is shown instead.` : '';
     const tabChanged = story.snapshot().tabId !== route.tabId;
+    document.documentElement.dataset.tab = route.tabId;
     setActiveTab(route.tabId);
     const beatIndex = route.beat ? route.beat - 1 : 0;
     story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged, generation: route.params.get('gen') });
