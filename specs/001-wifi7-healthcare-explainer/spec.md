@@ -181,6 +181,58 @@ site folder to a static web host and confirm all tabs work.
 
 ---
 
+### User Story 8 - Get the right depth for a leadership or technical audience (Priority: P2)
+
+A CIO opens the site and sees each step's plain-language story plus a short "Bottom line" on
+impact, risk and planning. A network engineer switches to Technical view and sees the same story
+with protocol detail expanded and the full figures table. A presenter in a mixed room switches
+views live as questions come up.
+
+**Why this priority**: The audience is mixed; without layering, the content is either too shallow
+for engineers or too dense for leaders. It builds on the story engine (US2).
+
+**Independent Test**: On any feature tab, switch between Leadership and Technical views; the beat,
+scene and position stay the same, while the Bottom line, Under the hood, deep sections and figures
+change as specified; the view survives a reload and a shared link.
+
+**Acceptance Scenarios**:
+
+1. **Given** a first-time visitor, **When** the site opens, **Then** Leadership view is active and
+   each feature-tab beat shows its Bottom line.
+2. **Given** Technical view, **When** a feature tab opens, **Then** Under the hood text and deep
+   sections are expanded and all key figures are shown.
+3. **Given** either view, **When** the viewer switches during presentation mode, **Then** the
+   current tab and beat are unchanged.
+4. **Given** a link containing `view=technical`, **When** it is opened, **Then** Technical view is
+   active.
+
+---
+
+### User Story 9 - Trust the site and its repository (Priority: P2)
+
+A hospital security reviewer inspects the site before it is hosted on the intranet and finds a
+strict content security policy, no third-party code, no network calls, and documented hosting
+headers. The project owner knows that nothing reaches `main` without passing automated checks.
+
+**Why this priority**: The site will be hosted on clinical networks; it must pass a security
+review, and the repository must resist accidental or malicious changes.
+
+**Independent Test**: Open every tab from a local file and from a web host with CSP violation
+reporting on — zero violations; try to push directly to `main` — rejected; open a pull request
+with a failing test — merge blocked.
+
+**Acceptance Scenarios**:
+
+1. **Given** any tab, **When** it is loaded, **Then** the browser reports zero CSP violations and
+   no network requests.
+2. **Given** content containing `<script>` or HTML, **When** it is rendered, **Then** it appears
+   as plain text.
+3. **Given** a direct push or force push to `main`, **When** attempted, **Then** it is rejected.
+4. **Given** a pull request with a failing required check or a newly added dependency with a
+   high/critical vulnerability, **When** merge is attempted, **Then** it is blocked.
+
+---
+
 ### Edge Cases
 
 - 3D graphics unavailable or the graphics context is lost mid-animation → fall back to static view
@@ -323,6 +375,49 @@ site folder to a static web host and confirm all tabs work.
 - **FR-034**: Layout MUST work from 360 px wide phones to large displays, in light and dark
   appearance (or a single theme with verified AA contrast).
 
+**Audience layering**
+
+- **FR-035**: The site MUST offer a view switch with two options, **Leadership** (default) and
+  **Technical**. Both views show the same tabs, beats, animations, and shared plain-language text;
+  only the extra layer differs. The current view MUST be shown on screen at all times.
+- **FR-036**: Every feature-tab beat MUST have a leadership "Bottom line" (≤ 40 words: impact,
+  risk, cost, or planning implication) shown in Leadership view. Every feature tab MUST have
+  technical depth (per-beat "Under the hood" text and any deep sections such as MLO modes) that is
+  expanded by default in Technical view and collapsed but still available in Leadership view.
+- **FR-037**: In Leadership view, the key-figures panel MUST show only the figures marked as
+  headline (2–3 per tab) with a "Show all figures" option; Technical view shows all figures.
+- **FR-038**: The view MUST be carried in the shareable address (`view=leadership|technical`),
+  remembered for the viewer, and switchable during presentation mode without losing the current
+  tab and beat.
+
+**Application security**
+
+- **FR-039**: The page MUST enforce a Content-Security-Policy that allows scripts, styles, and
+  images only from the site's own files, blocks inline script and `eval`, blocks all network
+  connections, plugins, and form submissions, and MUST work identically from a local file and a
+  web host with zero policy violations.
+- **FR-040**: All text from content files MUST be escaped before display; content MUST NOT be able
+  to inject markup, script, or links other than the controlled citation and glossary forms.
+  External reference links MUST open in a new tab with `rel="noopener noreferrer"`, and the page
+  MUST send no referrer (`no-referrer` policy).
+- **FR-041**: Browser storage MUST hold only theme, motion, and view preferences; all reads and
+  writes MUST tolerate storage being unavailable.
+- **FR-042**: The project MUST document recommended response headers for web hosting (CSP,
+  `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `frame-ancestors 'none'` /
+  `X-Frame-Options: DENY`, `Permissions-Policy` disabling unused features).
+
+**Repository & merge security**
+
+- **FR-043**: Changes MUST reach `main` only through pull requests; direct pushes, force pushes,
+  and branch deletion on `main` MUST be blocked.
+- **FR-044**: Every pull request MUST pass required automated checks before merge: content
+  validation and unit tests, build (including bundle-size limit), end-to-end tests including
+  accessibility and CSP-violation checks, dependency vulnerability audit (fail on high/critical),
+  dependency review of newly added packages, and static code scanning.
+- **FR-045**: The repository MUST enable secret scanning with push protection and automated
+  dependency update pull requests for npm packages and CI actions; CI actions MUST be pinned to
+  full commit SHAs and run with read-only default permissions.
+
 ### Key Entities
 
 - **Generation**: A Wi-Fi generation (Wi-Fi 4/5/6/6E/7/8) — Wi-Fi Alliance name, IEEE amendment,
@@ -363,11 +458,26 @@ site folder to a static web host and confirm all tabs work.
   a static web host (verified by both tests).
 - **SC-009**: Correcting a single figure requires editing content only, in one place, with no change
   to animation logic.
+- **SC-010**: In the comprehension review (SC-002), leadership reviewers using Leadership view and
+  technical reviewers using Technical view each rate the content's depth as "about right" in at
+  least 80% of responses.
+- **SC-011**: Zero Content-Security-Policy violations are reported on any tab in any target
+  browser, from both a local file and a web host; at release, dependency, code, and secret scans
+  have zero open high or critical findings.
+- **SC-012**: 100% of changes merged to `main` after setup arrive through pull requests with all
+  required checks passing (verifiable from repository history and settings).
 
 ## Assumptions
 
-- Audience is mixed (clinical leadership, biomed, network engineers); content leads with plain
-  language and offers technical depth on demand, per the project constitution.
+- Audience is mixed (clinical leadership, biomed, network engineers). Rather than two separate
+  versions, one story is layered: a shared plain-language core, a leadership "Bottom line", and
+  technical depth, switched by a Leadership/Technical view (FR-035–FR-038). Separate versions were
+  rejected because they double accuracy-review work, drift apart, and fail mixed-room
+  presentations. Leadership is the default because executives are least likely to look for a switch.
+- "Typical hospital workstation" (SC-005) means a 4-year-old business laptop or desktop with
+  integrated graphics running a current evergreen browser.
+- The GitHub repository is public, so branch rulesets, code scanning, secret scanning, and
+  dependency review are available at no cost.
 - English only for this version; content structure should not prevent translation later.
 - Content is a single site with tabs (one entry page plus supporting files), not separate unrelated
   documents; "local HTML pages" is satisfied by a self-contained folder that can be zipped and shared.
