@@ -7,6 +7,8 @@ import * as story from './app/story.js';
 import { initOverview } from './app/overview.js';
 import { initControls } from './app/controls.js';
 import { initGlossary } from './app/glossary.js';
+import { initComparison } from './app/comparison.js';
+import { initFigures } from './app/figures.js';
 import { setMotion } from './stage/tween.js';
 import { createStage, webglAvailable } from './stage/renderer.js';
 import { register } from './scenes/index.js';
@@ -42,6 +44,8 @@ function boot() {
   initOverview();
   initControls({ test: testMode });
   initGlossary();
+  initComparison();
+  initFigures();
 
   story.on('beat', ({ tabId, beatIndex, beatCount }) => {
     setProgress(tabId, beatIndex, beatCount);

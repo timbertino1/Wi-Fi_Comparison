@@ -6,7 +6,12 @@
   "summary": "A wide, uncrowded band and channels twice as wide as Wi-Fi 6E allows.",
   "introducedIn": "wifi6e",
   "wifi7Adds": "Wi-Fi 7 adds 320 MHz channels in the 6 GHz band, twice the widest channel Wi-Fi 6E can use {{eht-max-width}} {{width-320-vs-160}}.",
-  "compareGenerations": ["wifi5", "wifi6", "wifi6e", "wifi7"],
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi6e",
+    "wifi7"
+  ],
   "defaultCompare": "wifi6e",
   "sceneId": "spectrum",
   "scenarioIds": [],
@@ -62,6 +67,91 @@
       "durationMs": 12000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "widest-channel",
+      "metric": "Widest channel",
+      "unit": "MHz",
+      "values": {
+        "wifi5": 160,
+        "wifi6": 160,
+        "wifi6e": 160,
+        "wifi7": 320
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "vht-max-width",
+        "wifi6": "he-max-width",
+        "wifi6e": "he-max-width",
+        "wifi7": "eht-max-width"
+      }
+    },
+    {
+      "id": "six-ghz-access",
+      "metric": "Can use the 6 GHz band",
+      "unit": null,
+      "values": {
+        "wifi5": "No",
+        "wifi6": "No",
+        "wifi6e": "Yes",
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "6ghz-no-legacy",
+        "wifi6": "6ghz-no-legacy",
+        "wifi6e": "wifi6e-6ghz-origin",
+        "wifi7": "320mhz-6ghz-only"
+      }
+    },
+    {
+      "id": "widest-channels-count",
+      "metric": "Non-overlapping widest channels in 6 GHz",
+      "unit": "channels",
+      "values": {
+        "wifi5": null,
+        "wifi6": null,
+        "wifi6e": 7,
+        "wifi7": 3
+      },
+      "qualifier": "regulatory",
+      "regulatoryDomain": "US (FCC)",
+      "note": "Fewer, wider channels: 320 MHz channels {{eht-max-width}} suit areas with few neighbouring access points.",
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6e": "us-6ghz-channels-160",
+        "wifi7": "us-6ghz-channels-320"
+      }
+    },
+    {
+      "id": "six-ghz-spectrum",
+      "metric": "6 GHz spectrum available",
+      "unit": "MHz",
+      "values": {
+        "wifi5": null,
+        "wifi6": null,
+        "wifi6e": 1200,
+        "wifi7": 1200
+      },
+      "qualifier": "regulatory",
+      "regulatoryDomain": "US (FCC)",
+      "note": "Other regions allow less; Europe harmonises the lower part of the band.",
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6e": "us-6ghz-total",
+        "wifi7": "us-6ghz-total"
+      }
+    }
+  ],
   "sections": []
 }

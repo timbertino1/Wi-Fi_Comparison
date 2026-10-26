@@ -6,7 +6,11 @@
   "summary": "Packing more bits into every signal and working around interference instead of giving up channel width.",
   "introducedIn": "wifi6",
   "wifi7Adds": "Preamble puncturing existed in Wi-Fi 6 for multi-user transmissions only {{puncturing-ax}}; Wi-Fi 7 extends it to all transmissions {{puncturing-be}} and adds 4096-QAM {{eht-4096qam-bits}} and multiple resource units per device {{multi-ru-be}}.",
-  "compareGenerations": ["wifi5", "wifi6", "wifi7"],
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
   "defaultCompare": "wifi6",
   "sceneId": "qam-puncturing",
   "scenarioIds": [],
@@ -62,6 +66,83 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "bits",
+      "metric": "Bits per subcarrier at the top modulation",
+      "unit": "bits",
+      "values": {
+        "wifi5": 8,
+        "wifi6": 10,
+        "wifi7": 12
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "vht-256qam-bits",
+        "wifi6": "he-1024qam-bits",
+        "wifi7": "eht-4096qam-bits"
+      }
+    },
+    {
+      "id": "qam-gain",
+      "metric": "Peak-rate gain over the previous top modulation",
+      "unit": "%",
+      "values": {
+        "wifi5": null,
+        "wifi6": null,
+        "wifi7": 20
+      },
+      "qualifier": "theoretical",
+      "regulatoryDomain": null,
+      "note": "Requires a strong, clean signal, typically close to the access point.",
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi7": "qam-4k-gain"
+      }
+    },
+    {
+      "id": "puncturing",
+      "metric": "Preamble puncturing",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": "Multi-user only",
+        "wifi7": "All transmissions"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "puncturing-ax",
+        "wifi7": "puncturing-be"
+      }
+    },
+    {
+      "id": "ru-per-device",
+      "metric": "Resource units per device",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": "One",
+        "wifi7": "Several"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "multi-ru-be",
+        "wifi7": "multi-ru-be"
+      }
+    }
+  ],
   "sections": []
 }

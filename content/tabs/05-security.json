@@ -6,7 +6,11 @@
   "summary": "Stronger sign-in that resists password guessing, required on 6 GHz and for Wi-Fi 7 multi-link.",
   "introducedIn": "wifi6",
   "wifi7Adds": "WPA3 arrived alongside Wi-Fi 6 {{wpa3-mandatory-cert}}; Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, and the 6 GHz band does not permit WPA2 {{wpa3-6ghz-required}}.",
-  "compareGenerations": ["wifi5", "wifi6", "wifi7"],
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
   "defaultCompare": "wifi5",
   "sceneId": "security",
   "scenarioIds": [],
@@ -62,6 +66,45 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "wpa2-6ghz",
+      "metric": "WPA2-Personal in the 6 GHz band",
+      "unit": null,
+      "values": {
+        "wifi5": "Cannot use 6 GHz",
+        "wifi6": "Cannot use 6 GHz",
+        "wifi7": "Not permitted"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "6ghz-no-legacy",
+        "wifi6": "6ghz-no-legacy",
+        "wifi7": "wpa3-6ghz-required"
+      }
+    },
+    {
+      "id": "wpa3-mlo",
+      "metric": "WPA3 required for multi-link connections",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": null,
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": "Earlier generations have no multi-link operation.",
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi7": "wpa3-mlo-required"
+      }
+    }
+  ],
   "sections": []
 }

@@ -6,7 +6,11 @@
   "summary": "Hundreds of devices sharing the air in a crowded unit without slowing each other down.",
   "introducedIn": "wifi6",
   "wifi7Adds": "Wi-Fi 6 introduced OFDMA {{ofdma-ax}} and BSS coloring {{bss-coloring-ax}} for crowded spaces; Wi-Fi 7 adds wider channels {{eht-max-width}}, multi-link load balancing {{mlo-bands}}, Multi-RU {{multi-ru-be}} and broader puncturing {{puncturing-be}}.",
-  "compareGenerations": ["wifi5", "wifi6", "wifi7"],
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
   "defaultCompare": "wifi5",
   "sceneId": "density",
   "scenarioIds": [],
@@ -62,6 +66,65 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "served",
+      "metric": "Devices served per transmission",
+      "unit": null,
+      "values": {
+        "wifi5": "One",
+        "wifi6": "Several (OFDMA)",
+        "wifi7": "Several, across multiple links"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi5": "contention-dcf",
+        "wifi6": "ofdma-ax",
+        "wifi7": "mlo-bands"
+      }
+    },
+    {
+      "id": "bss-color",
+      "metric": "BSS coloring",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": "Yes",
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "bss-coloring-ax",
+        "wifi7": "bss-coloring-ax"
+      }
+    },
+    {
+      "id": "ru",
+      "metric": "Resource units per device",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": "One",
+        "wifi7": "Several"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "multi-ru-be",
+        "wifi7": "multi-ru-be"
+      }
+    }
+  ],
   "sections": []
 }

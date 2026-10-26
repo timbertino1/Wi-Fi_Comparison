@@ -6,7 +6,11 @@
   "summary": "Scheduled wake-ups that let badges and sensors sleep, plus protected time slots for urgent traffic.",
   "introducedIn": "wifi6",
   "wifi7Adds": "Target Wake Time came to mainstream Wi-Fi with Wi-Fi 6 {{twt-wifi6}}; Wi-Fi 7 adds Restricted TWT, which protects time slots for latency-sensitive traffic {{rtwt-be}}.",
-  "compareGenerations": ["wifi5", "wifi6", "wifi7"],
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
   "defaultCompare": "wifi5",
   "sceneId": "twt",
   "scenarioIds": [],
@@ -62,6 +66,44 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "twt",
+      "metric": "Target Wake Time",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": "Individual and broadcast",
+        "wifi7": "Individual and broadcast"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "twt-types-ax",
+        "wifi7": "twt-types-ax"
+      }
+    },
+    {
+      "id": "rtwt",
+      "metric": "Restricted TWT (protected time slots)",
+      "unit": null,
+      "values": {
+        "wifi5": null,
+        "wifi6": null,
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi7": "rtwt-be"
+      }
+    }
+  ],
   "sections": []
 }

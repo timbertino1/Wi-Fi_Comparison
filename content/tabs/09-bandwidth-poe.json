@@ -6,7 +6,12 @@
   "summary": "What faster Wi-Fi asks of the switches, cabling and power behind every access point.",
   "introducedIn": "wifi7",
   "wifi7Adds": null,
-  "compareGenerations": ["wifi4", "wifi5", "wifi6", "wifi7"],
+  "compareGenerations": [
+    "wifi4",
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
   "defaultCompare": "wifi6",
   "sceneId": "bandwidth-poe",
   "scenarioIds": [],
@@ -24,11 +29,11 @@
     {
       "type": "what",
       "heading": "Peak rates by generation",
-      "body": "Each generation raised the theoretical [[phy-rate|PHY rate]] — the raw over-the-air signalling speed. Wi-Fi 4 tops out at 600 Mbps {{wifi4-peak-phy}}, Wi-Fi 5 at 6.93 Gbps {{wifi5-peak-phy}}, Wi-Fi 6 at 9.61 Gbps {{wifi6-peak-phy}} and Wi-Fi 7 at 46.1 Gbps {{wifi7-peak-phy}}.\n\nThese are theoretical maximums with every option at its limit, including 16 [[spatial-stream|spatial streams]] for Wi-Fi 7 {{eht-max-nss}}. Real devices use fewer streams and real throughput is lower.",
+      "body": "Each generation raised the theoretical [[phy-rate|PHY rate]] — the raw over-the-air signalling speed. Wi-Fi 4 tops out at 600 Mbps {{wifi4-peak-phy}}, Wi-Fi 5 at 6.93 Gbps {{wifi5-peak-phy}}, Wi-Fi 6 at 9.61 Gbps {{wifi6-peak-phy}} and Wi-Fi 7 at 46.1 Gbps {{wifi7-peak-phy}}.\n\nThese are theoretical maximums with every option at its limit, including 16 [[spatial-stream|spatial streams]] for Wi-Fi 7 {{eht-max-nss}}. A device with fewer streams has a proportionally lower peak, and usable throughput is lower still {{be-mac-throughput-goal}}.",
       "bottomLine": "Treat peak rates as a ceiling, not a forecast: the meaningful number is the throughput your devices and environment actually achieve.",
       "deepDive": null,
       "sceneState": "peak-rates",
-      "sceneDescription": "Four towers rise in a row, one per generation, each in its own colour and labelled with its theoretical peak rate. The Wi-Fi 7 tower is drawn translucent and marked as theoretical, as no current device uses all sixteen streams.",
+      "sceneDescription": "Four towers rise in a row, one per generation, each in its own colour and labelled with its theoretical peak rate. The Wi-Fi 7 tower is drawn translucent and marked as theoretical, because it assumes sixteen spatial streams, the most the standard allows.",
       "durationMs": 13000
     },
     {
@@ -62,6 +67,77 @@
       "durationMs": 11000
     }
   ],
-  "keyFigures": [],
+  "keyFigures": [
+    {
+      "id": "peak-phy",
+      "metric": "Theoretical peak PHY rate",
+      "unit": null,
+      "values": {
+        "wifi4": 600,
+        "wifi5": 6.93,
+        "wifi6": 9.61,
+        "wifi7": 46.1
+      },
+      "qualifier": "theoretical",
+      "regulatoryDomain": null,
+      "note": "Raw signalling rates with every option at its maximum; real throughput is lower.",
+      "headline": true,
+      "cellQualifiers": {
+        "wifi7": "specified-not-shipping"
+      },
+      "claimIds": {
+        "wifi4": "wifi4-peak-phy",
+        "wifi5": "wifi5-peak-phy",
+        "wifi6": "wifi6-peak-phy",
+        "wifi7": "wifi7-peak-phy"
+      }
+    },
+    {
+      "id": "max-streams",
+      "metric": "Maximum spatial streams in the standard",
+      "unit": "streams",
+      "values": {
+        "wifi4": 4,
+        "wifi5": 8,
+        "wifi6": 8,
+        "wifi7": 16
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": false,
+      "cellQualifiers": {
+        "wifi7": "specified-not-shipping"
+      },
+      "claimIds": {
+        "wifi4": "ht-max-nss",
+        "wifi5": "vht-max-nss",
+        "wifi6": "he-max-nss",
+        "wifi7": "eht-max-nss"
+      }
+    },
+    {
+      "id": "widest-channel",
+      "metric": "Widest channel",
+      "unit": "MHz",
+      "values": {
+        "wifi4": 40,
+        "wifi5": 160,
+        "wifi6": 160,
+        "wifi7": 320
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi4": "ht-max-width",
+        "wifi5": "vht-max-width",
+        "wifi6": "he-max-width",
+        "wifi7": "eht-max-width"
+      }
+    }
+  ],
   "sections": []
 }
