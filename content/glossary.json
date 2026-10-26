@@ -161,6 +161,96 @@
       "term": "Beacon protection",
       "expansion": null,
       "definition": "A security feature that lets devices check that the access point announcements they hear are genuine, not forged."
+    },
+    {
+      "id": "twt",
+      "term": "TWT",
+      "expansion": "Target Wake Time",
+      "definition": "An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time."
+    },
+    {
+      "id": "restricted-twt",
+      "term": "Restricted TWT",
+      "expansion": null,
+      "definition": "A Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry."
+    },
+    {
+      "id": "service-period",
+      "term": "Service period",
+      "expansion": null,
+      "definition": "The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement."
+    },
+    {
+      "id": "airtime",
+      "term": "Airtime",
+      "expansion": null,
+      "definition": "The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime."
+    },
+    {
+      "id": "contention",
+      "term": "Contention",
+      "expansion": null,
+      "definition": "How Wi-Fi devices take turns: each listens, waits a random time, then transmits if the channel is free. More devices means more waiting."
+    },
+    {
+      "id": "bss-coloring",
+      "term": "BSS coloring",
+      "expansion": null,
+      "definition": "A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighbouring networks and transmit more often."
+    },
+    {
+      "id": "latency",
+      "term": "Latency",
+      "expansion": null,
+      "definition": "How long data takes to get from one device to another. For alarms and voice, lower is better."
+    },
+    {
+      "id": "jitter",
+      "term": "Jitter",
+      "expansion": null,
+      "definition": "Variation in latency from one packet to the next. High jitter makes calls choppy even when average latency is low."
+    },
+    {
+      "id": "tail-latency",
+      "term": "Tail latency",
+      "expansion": null,
+      "definition": "The delay experienced by the slowest packets, such as the worst one in a hundred. It decides whether urgent messages are ever late."
+    },
+    {
+      "id": "phy-rate",
+      "term": "PHY rate",
+      "expansion": "Physical-layer data rate",
+      "definition": "The raw speed at which bits are sent over the air. Usable throughput is always lower because of protocol overhead and sharing."
+    },
+    {
+      "id": "spatial-stream",
+      "term": "Spatial stream",
+      "expansion": null,
+      "definition": "An independent data stream sent over its own antenna path at the same time as others. More streams multiply the peak rate."
+    },
+    {
+      "id": "poe",
+      "term": "PoE",
+      "expansion": "Power over Ethernet",
+      "definition": "Delivering electrical power to an access point over the same Ethernet cable that carries its data."
+    },
+    {
+      "id": "multigig",
+      "term": "Multi-gigabit Ethernet",
+      "expansion": null,
+      "definition": "Ethernet links faster than 1 Gb/s over ordinary twisted-pair cabling, such as 2.5GBASE-T, 5GBASE-T and 10GBASE-T."
+    },
+    {
+      "id": "uplink",
+      "term": "Uplink",
+      "expansion": null,
+      "definition": "The wired connection from an access point back to the network switch. All of the access point's traffic shares it."
+    },
+    {
+      "id": "uhr",
+      "term": "UHR",
+      "expansion": "Ultra High Reliability",
+      "definition": "The goal and name of the IEEE 802.11bn project, expected to become Wi-Fi 8: more dependable delivery of data, not just more speed."
     }
   ]
 }
