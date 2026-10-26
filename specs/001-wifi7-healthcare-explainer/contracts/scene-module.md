@@ -31,6 +31,7 @@ content validator checks this.
 | `ctx.tween` | Tween helper; returns promises; honors reduced motion |
 | `ctx.motion` | `'full'` or `'reduced'` |
 | `ctx.t(key)` | Label strings from content (scenes MUST NOT hard-code user-visible copy) |
+| `ctx.claim(id)` | Returns `{ value, unit, method }` for a claim; the only way a scene obtains a number to display |
 
 ## SceneInstance
 
@@ -47,7 +48,7 @@ content validator checks this.
 
 - Each state MUST show a real mechanism (Principle V). "Side by side" states render both the
   comparison generation and Wi-Fi 7, colored with `ctx.palette`.
-- Visible text comes from content via `ctx.t()` or labels; numbers shown in-scene MUST equal the
+- Visible text comes from content via `ctx.t()` or labels; numbers shown in-scene MUST come from `ctx.claim()` (never literals) and MUST equal the
   tab's KeyFigures.
 - Budget per scene: ≤ 150 draw calls, ≤ 200k triangles; use `InstancedMesh` for > 50 identical
   objects.

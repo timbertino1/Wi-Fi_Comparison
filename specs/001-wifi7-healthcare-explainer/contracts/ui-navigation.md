@@ -9,7 +9,8 @@
 | `#/<tabId>/<n>` | Tab, beat *n* (1-based); out-of-range → clamp to nearest valid beat |
 | `#/<tabId>/<n>?gen=<genId>` | Same, with comparison generation set |
 | `…?view=leadership` / `…?view=technical` | Same position in that audience view (overrides the stored preference) |
-| `#/references?ref=<refId>` | References tab, scrolled to and highlighting that entry (citation links) |
+| `#/references?ref=<refId>` | References tab, scrolled to and highlighting that entry (from the provenance panel or `{{ref:id}}` links) |
+| `#/references?claim=<claimId>` | References tab, claims register filtered to and highlighting that claim |
 | `…?test` | Enables test hooks (`window.__stage`, dwell override) for E2E and snapshots; no visible change |
 | `…?present` | Same position, presentation mode requested (fullscreen needs a user gesture; until one occurs, a "Start presenting" prompt is shown) |
 | Unknown `tabId` | Overview, with a non-blocking "Section not found" notice |
@@ -53,6 +54,19 @@ Shortcuts are ignored while focus is in a text control or an open popover, and a
 - Progress text "Tab *n* of 11 · Step *m* of 5" is visible and announced on tab change.
 - View switch: a two-option radio group labelled "Audience" ("Leadership", "Technical") in the
   header; the active view is always visible; the change is announced ("Technical view").
+
+## Provenance panel
+
+- Claim citations (`{{claim-id}}`) and every key-figure value are buttons that open a provenance
+  panel (`role="dialog"`, labelled by the claim statement; Escape closes and returns focus).
+- Contents: statement and value; method badge ("Stated in source", "Derived", "Illustrative");
+  each source with title, publisher, tier ("Tier 1: standards body / regulator" or "Tier 2:
+  peer-reviewed / health authority"), location, excerpt, access (open/paywalled) and an external
+  link; for derived claims, the formula in words and each input with its own source and value;
+  "Verified <date> by <initials/role>" or "Not yet verified".
+- Leadership view opens it in short form (statement, primary source, verified date, "How we know
+  this" to expand); Technical view opens it fully expanded.
+- Links: "All sources" → `#/references?ref=<id>`; "In the claims register" → `#/references?claim=<id>`.
 
 ## Security constraints on the shell
 

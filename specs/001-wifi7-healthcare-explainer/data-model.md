@@ -75,7 +75,7 @@ runtime persistence other than viewer preferences.
 | `regulatoryDomain` | string \| null | Required when `qualifier` = `regulatory` (e.g., "US (FCC)") |
 | `note` | string \| null | Short caveat shown with the figure |
 | `headline` | boolean | Shown in Leadership view; `feature` tabs MUST have 2–3 headline figures |
-| `referenceIds` | string[] | ≥ 1 |
+| `claimIds` | map Generation id → Claim id | Required for every non-null value; the claim's `value` and `unit` MUST equal the displayed value (references are reached through claims) |
 
 ### HealthcareScenario
 
@@ -93,11 +93,38 @@ runtime persistence other than viewer preferences.
 |-------|------|-------|
 | `id` | slug | Unique |
 | `title` | string | |
-| `publisher` | enum `IEEE` \| `Wi-Fi Alliance` \| `FCC` \| `ECC/ETSI` \| `Other regulator` | Neutral sources only |
-| `identifier` | string | e.g., "IEEE Std 802.11be-2024" |
-| `date` | string (YYYY or YYYY-MM-DD) | |
-| `url` | string \| null | Opens in a new tab; site works without following it |
-| `verifiedOn` | date \| null | Set when the accuracy gate confirms it |
+| `publisher` | SourcePolicy publisher id | MUST exist in `content/source-policy.json` |
+| `tier` | 1 \| 2 | MUST equal the publisher's tier |
+| `identifier` | string | Standard number, docket/report number, or DOI (e.g., "IEEE Std 802.11be-2024", "FCC 20-51"); Tier 2 peer-reviewed sources MUST have a DOI |
+| `edition` | string \| null | Version, amendment, or revision cited |
+| `date` | string (YYYY or YYYY-MM-DD) | Publication date |
+| `status` | enum `current` \| `superseded` | Claims using a superseded source need a reason in `verification.notes` |
+| `access` | enum `open` \| `paywalled` | Shown so reviewers know whether they can check it directly |
+| `url` | `https:` URL | Host MUST match one of the publisher's `domains`; opens in a new tab; the site works without following it |
+
+### SourcePolicy (`content/source-policy.json`, research R15)
+
+| Field | Type | Rules |
+|-------|------|-------|
+| `publishers` | { `id`, `name`, `tier` (1 \| 2), `domains[]`, `use` }[] | The only publishers a Reference may name; `domains` are exact hosts or `*.`-prefixed suffixes |
+| `excluded` | { `category`, `description` }[] | Shown on the References tab (documentation; never names specific vendors) |
+| `technicalMinTier` | 1 | Technical claims need ≥ 1 source at this tier |
+| `contextMinTier` | 2 | Healthcare-context claims need ≥ 1 source at or above this tier |
+| `maxVerificationAgeDays` | int | 365 |
+
+### Claim (`content/claims.json`, research R16)
+
+| Field | Type | Rules |
+|-------|------|-------|
+| `id` | slug | Unique across claims and references; cited in text as `{{id}}` |
+| `statement` | string | Plain-language statement, e.g., "Wi-Fi 7 peak PHY rate with 16 spatial streams" |
+| `value` | number \| string \| null | null for purely normative claims |
+| `unit` | string \| null | |
+| `kind` | enum `technical` \| `context` | `technical` needs ≥ 1 Tier 1 source; `context` (healthcare or background) needs ≥ 1 Tier 1 or Tier 2 source |
+| `method` | enum `stated` \| `derived` \| `illustrative` | `illustrative` claims show no number and are labeled "Illustrative" on screen |
+| `sources` | { `referenceId`, `locator`, `excerpt`? }[] | ≥ 1; `locator` required (clause, table, section, page, or paragraph); `excerpt` ≤ 50 words |
+| `derivation` | { `formula`, `inputs`: { name → claim id }, `rounding`, `explanation` } \| null | Required when `method` = `derived`; `formula` names a function in `scripts/derivations.mjs`; `rounding` e.g. `{ "decimals": 1 }`; inputs MUST be `stated` claims |
+| `verification` | { `verifiedOn`: date \| null, `verifiedBy`: string \| null, `notes`: string \| null } | Release: `verifiedOn` and `verifiedBy` required, `verifiedOn` ≤ 365 days before the build; `verifiedBy` is initials or a role only |
 
 ### GlossaryTerm
 
@@ -115,10 +142,12 @@ Glossary "tabs where it appears" is derived at build time, not authored.
 ```text
 Generation 1─* KeyFigure.values
 FeatureTab 1─* StoryBeat
-FeatureTab 1─* KeyFigure *─* Reference
+FeatureTab 1─* KeyFigure ──claimIds──> Claim *─* Reference ──publisher──> SourcePolicy
+Claim ──derivation.inputs──> Claim (stated)
 FeatureTab *─* HealthcareScenario
 StoryBeat / DeepSection body ──[[term]]──> GlossaryTerm
-StoryBeat / DeepSection body ──{{ref}}───> Reference
+StoryBeat / DeepSection / scenario text ──{{claim-id}}──> Claim
+StoryBeat / DeepSection body ──{{ref:reference-id}}──> Reference (background reading only, never for numbers)
 FeatureTab.sceneId ──> scene module (contracts/scene-module.md)
 StoryBeat.sceneState ──> a state name that scene module declares
 ```
@@ -126,7 +155,8 @@ StoryBeat.sceneState ──> a state name that scene module declares
 ## Validation rules (enforced by `scripts/validate-content.mjs`)
 
 1. All ids unique within their collection; tab `order` values 1–11 contiguous.
-2. Every `[[term]]`, `{{ref}}`, `referenceIds`, `scenarioIds`, and Generation id resolves.
+2. Every `[[term]]`, `{{claim-id}}`, `{{ref:id}}`, `claimIds`, Generation `referenceIds`,
+   `scenarioIds`, claim `sources[].referenceId`, derivation input, and Generation id resolves.
 3. Feature tabs have exactly 5 beats in the order problem → what → how → improvement → why.
 4. Every `sceneState` is declared by the matching scene module's `states` list.
 5. Any KeyFigure whose metric is a peak/maximum rate has `qualifier` `theoretical` or
@@ -143,12 +173,33 @@ StoryBeat.sceneState ──> a state name that scene module declares
     `improvement` beats have a non-empty `deepDive`; each `feature` tab has 2–3 `headline` figures.
 12. Security: content strings MUST NOT contain `<`, `>`, `javascript:`, or `data:` sequences
     outside the inline markup forms; Reference `url` values MUST be `https:` URLs.
+13. Source policy: every Reference `publisher` exists in `source-policy.json`, its `tier` matches,
+    its `url` host matches one of the publisher's `domains`, and Tier 2 peer-reviewed references
+    have a DOI `identifier`.
+14. Claim sources: every claim has ≥ 1 source with a non-empty `locator`; `technical` claims have
+    ≥ 1 Tier 1 source; `context` claims have ≥ 1 Tier 1 or Tier 2 source; `excerpt` ≤ 50 words.
+15. Derivations: every `derived` claim names a formula exported by `scripts/derivations.mjs` and
+    inputs that are `stated` claims; recomputing from the inputs' values reproduces `value`
+    within `rounding`.
+16. Figure–claim agreement: every non-null KeyFigure value has a `claimIds` entry whose claim
+    `value`/`unit` equal the displayed value; `illustrative` claims are never attached to a
+    displayed number.
+17. Uncited numbers: in beat `heading`, `body`, `bottomLine`, `deepDive`, section `body`,
+    `sceneDescription`, and scenario text, any number with a unit or percent sign (e.g., `46 Gbps`,
+    `320 MHz`, `20%`, `60 W`, `5.925 GHz`) must share its sentence with a `{{claim-id}}` citation;
+    exemptions (generation names such as "Wi-Fi 7", IEEE identifiers such as "802.11be", beat
+    numbering) come from one explicit pattern list in the validator.
+18. Orphans: every claim is used (cited, attached to a figure, or a derivation input) — warning
+    normally, error in release.
+19. Verification (release only): every claim has `verifiedOn` and `verifiedBy`; `verifiedOn` is no
+    more than `maxVerificationAgeDays` before the build date; a claim whose source has
+    `status: "superseded"` has a `verification.notes` reason.
 
-**Draft vs release**: tabs with `draft: true` skip rules 3, 9 and 11. The minimum counts (≥ 2
-keyFigures, ≥ 1 scenarioId, 2–3 headline figures) and orphan references (rule 10) are enforced
-only in release mode (`--release`), so stories can be built in order (US2 content before US3
-figures and US4 scenarios) without breaking `npm run validate`. Release mode also errors on any
-remaining `draft`.
+**Draft vs release**: tabs with `draft: true` skip rules 3, 9, 11 and 17. The minimum counts (≥ 2
+keyFigures, ≥ 1 scenarioId, 2–3 headline figures), orphan references and claims (rules 10, 18)
+and verification (rule 19) are enforced only in release mode (`--release`), so stories can be
+built in order (US2 content before US3 figures and US4 scenarios) without breaking
+`npm run validate`. Rules 13–16 always apply. Release mode also errors on any remaining `draft`.
 
 ## State (runtime, not persisted except where noted)
 

@@ -11,6 +11,8 @@ Content authors edit only files under `content/`. Field semantics and validation
 | `content/references.json` | `{ "references": Reference[] }` |
 | `content/glossary.json` | `{ "terms": GlossaryTerm[] }` |
 | `content/scenarios.json` | `{ "scenarios": HealthcareScenario[] }` |
+| `content/source-policy.json` | `SourcePolicy` object (allowlisted publishers, tiers, domains) |
+| `content/claims.json` | `{ "claims": Claim[] }` |
 | `content/tabs/NN-<id>.json` | one `FeatureTab` object; `NN` equals `order` |
 
 ## Example (abridged feature tab)
@@ -50,11 +52,54 @@ Content authors edit only files under `content/`. Field semantics and validation
       "regulatoryDomain": null,
       "note": "Device capability varies; see MLO modes.",
       "headline": true,
-      "referenceIds": ["ieee-80211be"]
+      "claimIds": { "wifi5": "links-wifi5", "wifi6e": "links-wifi6e", "wifi7": "mlo-links-wifi7" }
     }
   ],
   "sections": [
     { "id": "mlo-modes", "heading": "MLO modes: STR, NSTR, EMLSR, EMLMR", "body": "...", "sceneState": "modes-compare" }
+  ]
+}
+```
+
+## Example claims (abridged `content/claims.json`)
+
+A stated input and a derived figure. Locators and excerpts shown here are placeholders: real values
+are filled in, and checked against the standard, during the accuracy gate.
+
+```json
+{
+  "claims": [
+    {
+      "id": "eht-nsd-320",
+      "statement": "Data subcarriers in a 320 MHz Wi-Fi 7 (EHT) channel",
+      "value": 3920,
+      "unit": "subcarriers",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        { "referenceId": "ieee-80211be", "locator": "<clause/table of EHT tone plan parameters>", "excerpt": null }
+      ],
+      "derivation": null,
+      "verification": { "verifiedOn": null, "verifiedBy": null, "notes": null }
+    },
+    {
+      "id": "wifi7-peak-phy",
+      "statement": "Wi-Fi 7 peak PHY rate: 16 spatial streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval",
+      "value": 46.1,
+      "unit": "Gbps",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        { "referenceId": "ieee-80211be", "locator": "<clause/table of EHT MCS and data rates>", "excerpt": null }
+      ],
+      "derivation": {
+        "formula": "phyRate",
+        "inputs": { "nss": "eht-max-nss", "nsd": "eht-nsd-320", "bits": "eht-4096qam-bits", "codingRate": "eht-max-coding-rate", "symbolUs": "he-eht-symbol-us", "giUs": "he-eht-min-gi-us" },
+        "rounding": { "decimals": 1, "unit": "Gbps" },
+        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
+      },
+      "verification": { "verifiedOn": null, "verifiedBy": null, "notes": "Specified in the standard; not in current certified devices." }
+    }
   ]
 }
 ```
@@ -65,7 +110,8 @@ Content authors edit only files under `content/`. Field semantics and validation
 |--------|---------|-----------|
 | `[[term-id]]` | Glossary term | Underlined term with accessible popover definition |
 | `[[term-id\|display text]]` | Glossary term, custom text | Same |
-| `{{ref-id}}` | Citation | Superscript link to References tab entry |
+| `{{claim-id}}` | Claim citation (required for every number or normative statement) | Superscript button opening the provenance panel for that claim |
+| `{{ref:reference-id}}` | Background reading (never for numbers) | Superscript link to the References tab entry |
 | `**text**` | Emphasis | `<strong>` |
 | Blank line | Paragraph break | `<p>` |
 

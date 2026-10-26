@@ -10,6 +10,18 @@
   security requirements) MUST trace to a neutral primary source: IEEE 802.11 amendments
   (802.11ax, 802.11be, etc.), Wi-Fi Alliance certification material, IEEE 802.3 (PoE), or
   regulatory bodies (e.g., FCC). Sources MUST be listed in a references area of the site.
+- **Reputable sources only.** Tier 1 (standards bodies and regulators: IEEE, Wi-Fi Alliance, IETF,
+  FCC, ECC/CEPT, ETSI, ISED, Ofcom, NIST) is required for every technical figure. Tier 2
+  (peer-reviewed publications with a DOI, and government or standards bodies for healthcare
+  context such as FDA, AAMI, WHO) is allowed for healthcare context and corroboration. Vendor
+  material of any kind, Wikipedia, blogs, forums, news articles, and AI-generated text MUST NOT be
+  cited.
+- **Provenance for every claim.** Every number or normative statement MUST be recorded as a
+  claim with its source(s), the exact location in the source (clause, table, section, or page),
+  how the value was obtained (stated directly, or derived with the formula and inputs shown),
+  and when and by whom it was verified. Derived values MUST be recomputed automatically from their
+  cited inputs. Illustrative (non-measured) visuals MUST be labeled "illustrative".
+- Viewers MUST be able to see, from any figure, where it came from and how it was put together.
 - Theoretical maximums MUST be labeled as such ("up to", "theoretical PHY rate") and MUST NOT be
   presented as typical real-world throughput.
 - Features that are optional in the standard or certification MUST be identified as optional;
@@ -154,8 +166,10 @@ overview/introduction and a references section are expected in addition to featu
 - **Security gate**: before release, the CSP MUST produce zero violations in all target browsers,
   and dependency, code, and secret scans MUST report no open high or critical findings.
 - **Accuracy review gate**: before a tab is considered done, every numeric or normative claim on
-  it MUST be checked against its cited source, and theoretical vs. typical values MUST be
-  labeled.
+  it MUST be checked against its cited source at the recorded location, its verification date
+  and verifier recorded, and theoretical vs. typical values labeled. Automated checks MUST reject
+  uncited numbers, non-allowlisted sources, and derived values that do not recompute. At release,
+  no claim may be unverified, and claims verified more than 12 months earlier MUST be re-verified.
 - **Neutrality gate**: a scan of copy and assets for vendor names, logos, and trademarks MUST
   pass before release.
 - **Story gate**: each tab MUST demonstrably contain all five narrative beats from Principle II
@@ -175,4 +189,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 1.1.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-26
+**Version**: 1.2.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-26
