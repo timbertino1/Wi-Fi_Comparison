@@ -37,8 +37,11 @@ Manual review findings and fixes:
       Tier 1 source (see `eht-max-nss` verification notes). If none is found, change the wording to
       "the most the standard allows".
 
-## Leadership layer review (US8)
+## Leadership layer review (US8) — 2026-10-26
 
-- [ ] Every `bottomLine` states an impact, risk, cost or planning implication in ≤ 40 words
-- [ ] Every `how`/`improvement` `deepDive` adds real protocol depth rather than repeating the body
-- [ ] 2–3 headline figures per feature tab
+- [x] Every `bottomLine` states an impact, risk, cost or planning implication in ≤ 40 words
+      (longest is 29 words; each was read for jargon and guarantee wording — none found)
+- [x] Every `how`/`improvement` `deepDive` adds protocol depth beyond the body (MLD/TID mapping,
+      EVM and MCS parameters, AKM/PMF/H2E, OFDMA/MRU, r-TWT service periods, PoE PD power, derivations)
+- [x] 2–3 headline figures per feature tab (all eight tabs have 2; release validation enforces 2–3)
+- [ ] Human review: a leadership reader confirms each Bottom line is useful for decisions

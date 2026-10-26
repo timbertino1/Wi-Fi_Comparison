@@ -288,6 +288,19 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
   - Recomputed: 3 channels
 - **Verification:** not yet verified
 
+#### `us-6ghz-channels-40`
+
+- **Statement:** Non-overlapping 40 MHz channels in the US 6 GHz band
+- **Value:** 29 channels
+- **Kind / method:** technical · Derived
+- **Sources:**
+  - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Band edges** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E, channel numbering** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
+- **Derivation:** `channelCount` — Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
+  - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 40
+  - Recomputed: 29 channels
+- **Verification:** not yet verified
+
 #### `us-6ghz-channels-80`
 
 - **Statement:** Non-overlapping 80 MHz channels in the US 6 GHz band
@@ -1190,18 +1203,3 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — P802.11bn PAR — **PAR item 5.2.b (Scope)** — Tier 1 (standards body / regulator) — open — <https://www.ieee802.org/11/PARs/P802.11bn_PAR.pdf>
 - **Verification:** not yet verified — Project goal, not a measured result.
-
-## Not yet used on the site
-
-#### `us-6ghz-channels-40`
-
-- **Statement:** Non-overlapping 40 MHz channels in the US 6 GHz band
-- **Value:** 29 channels
-- **Kind / method:** technical · Derived
-- **Sources:**
-  - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Band edges** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E, channel numbering** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Derivation:** `channelCount` — Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-  - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 40
-  - Recomputed: 29 channels
-- **Verification:** not yet verified
