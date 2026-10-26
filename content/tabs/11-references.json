@@ -3,7 +3,7 @@
   "order": 11,
   "kind": "references",
   "title": "References & Glossary",
-  "summary": "Every source, every claim, and every term used on this site.",
+  "summary": "Every source, every claim, and every term used on this site — and how each figure was checked.",
   "introducedIn": null,
   "wifi7Adds": null,
   "compareGenerations": [],
@@ -12,6 +12,24 @@
   "scenarioIds": [],
   "beats": [],
   "keyFigures": [],
-  "sections": [],
-  "draft": true
+  "sections": [
+    {
+      "id": "why-these-sources",
+      "heading": "Why only standards bodies, regulators and peer-reviewed research",
+      "body": "This site informs decisions about hospital infrastructure, so every technical figure comes from the organisations that define Wi-Fi and its rules: IEEE, the Wi-Fi Alliance, IETF and national regulators such as the FCC. Healthcare context may also draw on peer-reviewed research and health authorities.\n\nWe never cite vendor material, Wikipedia, blogs, forums, news or AI-generated text — if one of those points to a useful fact, we find and cite the original source instead.",
+      "sceneState": null
+    },
+    {
+      "id": "how-figures-are-checked",
+      "heading": "How each figure is recorded and checked",
+      "body": "Every number or rule on the site is a **claim** that records its source, the exact clause, table or page, and how the value was obtained: **stated** in the source, **derived** from other cited values (for example, peak rates are recalculated from the standard's parameters every time the site is built), or **illustrative** (a picture of a pattern, with no numbers shown).\n\nA reviewer checks each claim against its source and records the date and their initials; claims must be re-checked at least every 12 months. Select any small number in brackets, or any key figure, to see this for yourself.",
+      "sceneState": null
+    },
+    {
+      "id": "what-labels-mean",
+      "heading": "What the labels mean",
+      "body": "**Theoretical maximum** — the highest value the standard allows with every option at its limit; real devices and real networks achieve less.\n\n**In the standard; not in current devices** — defined by IEEE but beyond what shipping devices implement.\n\n**Varies by country** — depends on national radio rules; the region used is named.\n\n**Illustrative** — shows the shape of an effect, not measured values.",
+      "sceneState": null
+    }
+  ]
 }
