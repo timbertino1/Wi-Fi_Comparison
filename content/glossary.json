@@ -251,6 +251,42 @@
       "term": "UHR",
       "expansion": "Ultra High Reliability",
       "definition": "The goal and name of the IEEE 802.11bn project, expected to become Wi-Fi 8: more dependable delivery of data, not just more speed."
+    },
+    {
+      "id": "pmf",
+      "term": "PMF",
+      "expansion": "Protected management frames",
+      "definition": "Encryption and integrity protection for Wi-Fi control messages, which stops attackers from forging disconnect or similar commands."
+    },
+    {
+      "id": "evm",
+      "term": "EVM",
+      "expansion": "Error vector magnitude",
+      "definition": "A measure of how accurately a radio places each signal point. Higher-order modulation needs a lower (better) EVM."
+    },
+    {
+      "id": "mpdu",
+      "term": "MPDU",
+      "expansion": "MAC protocol data unit",
+      "definition": "A single Wi-Fi data frame as handled by the MAC layer. Reliability goals are often stated as how many MPDUs are lost."
+    },
+    {
+      "id": "ppdu",
+      "term": "PPDU",
+      "expansion": "PHY protocol data unit",
+      "definition": "One complete over-the-air transmission, including its preamble and the frames it carries."
+    },
+    {
+      "id": "akm",
+      "term": "AKM",
+      "expansion": "Authentication and key management suite",
+      "definition": "The method a network uses to authenticate devices and derive encryption keys, such as SAE for WPA3-Personal."
+    },
+    {
+      "id": "mac-layer",
+      "term": "MAC layer",
+      "expansion": "Medium access control layer",
+      "definition": "The part of Wi-Fi that decides when devices may transmit and packages data into frames, above the radio (PHY) layer."
     }
   ]
 }

@@ -13,7 +13,9 @@
   ],
   "defaultCompare": "wifi5",
   "sceneId": "security",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "shared-passphrase-risk"
+  ],
   "beats": [
     {
       "type": "problem",
@@ -40,7 +42,7 @@
       "heading": "Fresh keys every session",
       "body": "With SAE, both sides prove they know the password without revealing anything an eavesdropper can test, and they agree on a fresh encryption key for each session {{wpa3-sae}}.\n\nThat gives [[forward-secrecy|forward secrecy]]: even if the password leaks later, traffic captured earlier stays protected {{wpa3-forward-secrecy}}. WPA3 also protects management frames, which stops simple attacks that knock devices off the network.",
       "bottomLine": "A leaked password no longer means every past recording can be decrypted, which limits the damage of a single mistake.",
-      "deepDive": "SAE is a password-authenticated key exchange (the \"dragonfly\" handshake) followed by the standard 4-way handshake; each successful exchange yields a unique pairwise key {{wpa3-sae}}. WPA3 configurations require protected management frames (PMF), and WEP, TKIP and WPA version 1 are disallowed {{legacy-security-disallowed}}. Hash-to-element (H2E) derives the password element in constant time, closing side channels found in early SAE implementations {{wifi7-eht-security}}.",
+      "deepDive": "SAE is a password-authenticated key exchange (the \"dragonfly\" handshake) followed by the standard 4-way handshake; each successful exchange yields a unique pairwise key {{wpa3-sae}}. WPA3 configurations require [[pmf|protected management frames (PMF)]], and WEP, TKIP and WPA version 1 are disallowed {{legacy-security-disallowed}}. Hash-to-element (H2E) derives the password element in constant time, closing side channels found in early SAE implementations {{wifi7-eht-security}}.",
       "sceneState": "session-keys",
       "sceneDescription": "Each device that joins receives its own differently coloured lock, showing a unique key per session. An old recording on the observer's machine stays locked even after a password card appears.",
       "durationMs": 13000
@@ -50,7 +52,7 @@
       "heading": "Required where it matters most",
       "body": "With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. The 6 GHz band does not permit WPA2-Personal at all {{wpa3-6ghz-required}}, and Wi-Fi 7 multi-link connections require WPA3 {{wpa3-mlo-required}}.\n\nFor Wi-Fi 7 networks, Wi-Fi Alliance deployment guidance goes further, making beacon protection and the strongest encryption options mandatory {{wifi7-eht-security}}.",
       "bottomLine": "Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become the baseline rather than an option someone has to remember.",
-      "deepDive": "For networks with EHT enabled, the WPA3 deployment guide marks as mandatory: the SAE-GDH AKM (suite 24), PMF required, SAE hash-to-element only, beacon protection, and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
+      "deepDive": "For networks with EHT enabled, the WPA3 deployment guide marks as mandatory: the SAE-GDH [[akm|AKM]] (suite 24), PMF required, SAE hash-to-element only, beacon protection, and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
       "sceneState": "gen-compare",
       "sceneDescription": "Two gates stand side by side. The earlier generation's gate admits devices using WPA2 or WPA3. The Wi-Fi 7 and 6 GHz gate admits only WPA3 devices and turns a WPA2 device away.",
       "durationMs": 14000

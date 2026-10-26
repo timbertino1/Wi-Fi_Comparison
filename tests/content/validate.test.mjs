@@ -201,3 +201,9 @@ test('field limits: heading, sceneDescription, durationMs', async () => {
   assert.match(e, /sceneDescription needs ≥ 20 words/);
   assert.match(e, /durationMs must be 6000–20000/);
 });
+
+test('rule 8: guarantee wording in a scenario fails release validation', async () => {
+  const c = clone(base);
+  c.scenarios.push({ id: 'overclaim', location: 'Ward', deviceTypes: ['voice badge'], problem: 'Calls drop.', outcomeSupported: 'This guarantees calls never drop.' });
+  assert.match(await errorsFor(c, { release: true }), /\[rule 8\] scenarios.*guarantee/);
+});

@@ -804,3 +804,40 @@ button {
 [data-view="leadership"] .figures[data-show-all="false"] tr[data-headline="false"] {
   display: none;
 }
+
+/* Scenario card */
+.scenario-kicker {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.scenario-card h4 {
+  margin: var(--space-3) 0 var(--space-1);
+  font-size: var(--text-sm);
+}
+
+.scenario-card p {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.scenario-devices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: var(--space-2) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scenario-devices li {
+  padding: 1px var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: var(--text-xs);
+}

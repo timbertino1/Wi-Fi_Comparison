@@ -14,7 +14,9 @@
   ],
   "defaultCompare": "wifi6e",
   "sceneId": "spectrum",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "med-surg-crowded-bands"
+  ],
   "beats": [
     {
       "type": "problem",

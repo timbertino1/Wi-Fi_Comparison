@@ -12,7 +12,9 @@
   ],
   "defaultCompare": "wifi6",
   "sceneId": "latency",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "telemetry-alarm-delay"
+  ],
   "beats": [
     {
       "type": "problem",
