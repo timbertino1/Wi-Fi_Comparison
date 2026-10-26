@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; font-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A vendor-neutral, animated explanation of Wi-Fi 7 and how it improves on earlier Wi-Fi, told through healthcare stories.">
+  <title>Wi-Fi 7 Explained</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="present.css">
+</head>
+<body>
+  <a class="skip-link" href="#panel">Skip to the story</a>
+
+  <header role="banner" class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-title">Wi-Fi 7 Explained</span>
+        <span class="brand-sub">A healthcare story</span>
+      </span>
+    </div>
+    <div class="header-controls">
+      <div id="audience" class="segmented" role="radiogroup" aria-label="Audience"></div>
+      <button id="theme-toggle" class="chip-button" type="button">Theme: System</button>
+      <button id="motion-toggle" class="chip-button" type="button" aria-pressed="true">Motion: On</button>
+      <button id="present-toggle" class="chip-button" type="button">Present</button>
+      <button id="shortcuts-toggle" class="chip-button" type="button" aria-haspopup="dialog">Keyboard shortcuts</button>
+    </div>
+  </header>
+
+  <nav class="tabs-nav" aria-label="Story sections">
+    <div id="tablist" class="tablist" role="tablist" aria-label="Wi-Fi 7 story"></div>
+  </nav>
+
+  <main>
+    <section id="panel" class="panel" role="tabpanel" tabindex="-1">
+      <div class="layout">
+        <div class="stage-col">
+          <div id="stage" class="stage" aria-hidden="true"></div>
+          <p id="stage-notice" class="notice" hidden></p>
+          <div id="controls" class="controls"></div>
+          <div id="compare" class="compare"></div>
+        </div>
+        <div class="story-col">
+          <p id="progress" class="progress"></p>
+          <div id="lineage"></div>
+          <article id="story" class="story"></article>
+          <div id="bottom-line"></div>
+          <div id="deep"></div>
+          <section class="scene-description" aria-labelledby="scene-description-title">
+            <h3 id="scene-description-title">What the animation shows</h3>
+            <p id="scene-description" aria-live="polite"></p>
+          </section>
+          <div id="figures"></div>
+          <div id="scenario"></div>
+          <div id="extra"></div>
+        </div>
+      </div>
+      <div class="pager">
+        <button id="prev" class="pager-button" type="button">Previous</button>
+        <button id="next" class="pager-button pager-next" type="button">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+  <div id="blank" class="blank-overlay" hidden></div>
+
+  <noscript>
+    <p class="noscript">This explainer needs JavaScript to show its tabs and animations. Please enable JavaScript, or open the site in a current browser.</p>
+  </noscript>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

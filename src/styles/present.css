@@ -1,0 +1,4 @@
+/* Presentation mode (US6). Applied when <html data-present> is set. */
+[data-present] body {
+  font-size: calc(var(--text-md) * 1.5);
+}

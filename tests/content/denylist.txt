@@ -1,0 +1,55 @@
+# Vendor, chipset and product-line names that must never appear in site content or the built
+# bundle (constitution Principle I). One name per line; matched case-insensitively as whole words.
+# This file is test configuration, not site content.
+
+# Wireless LAN and networking equipment vendors
+Cisco
+Meraki
+Aruba
+HPE
+Juniper
+Mist
+Extreme Networks
+Ruckus
+CommScope
+Ubiquiti
+UniFi
+Fortinet
+FortiAP
+Netgear
+TP-Link
+Linksys
+D-Link
+Asus
+Eero
+Cambium
+Arista
+Huawei
+H3C
+Ruijie
+Zebra
+Vocera
+Spectralink
+Ascom
+Stryker
+
+# Chipset and silicon vendors
+Qualcomm
+Broadcom
+Intel
+MediaTek
+Marvell
+MaxLinear
+Realtek
+NXP
+Infineon
+Samsung
+Apple
+
+# Product-line and marketing names
+AirOS
+Catalyst
+Instant On
+Omada
+Orbi
+Nighthawk

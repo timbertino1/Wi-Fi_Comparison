@@ -1,0 +1,21 @@
+{
+  "id": "twt",
+  "order": 6,
+  "kind": "feature",
+  "title": "Target Wake Time & Battery Life",
+  "summary": "Scheduled wake-ups that let badges and sensors sleep, plus protected time slots for urgent traffic.",
+  "introducedIn": "wifi6",
+  "wifi7Adds": "Target Wake Time came to mainstream Wi-Fi with Wi-Fi 6; Wi-Fi 7 adds Restricted TWT, which protects time slots for latency-sensitive traffic.",
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6",
+  "sceneId": "twt",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

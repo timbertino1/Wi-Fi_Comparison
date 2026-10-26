@@ -1,0 +1,21 @@
+{
+  "id": "density",
+  "order": 7,
+  "kind": "feature",
+  "title": "Client Density",
+  "summary": "Hundreds of devices sharing the air in a crowded unit without slowing each other down.",
+  "introducedIn": "wifi6",
+  "wifi7Adds": "Wi-Fi 6 introduced OFDMA and BSS coloring for crowded spaces; Wi-Fi 7 adds wider channels, multi-link load balancing, Multi-RU and broader puncturing.",
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6",
+  "sceneId": "density",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

@@ -1,0 +1,1766 @@
+{
+  "claims": [
+    {
+      "id": "gen-naming",
+      "statement": "Wi-Fi Alliance names 802.11n, 802.11ac and 802.11ax as Wi-Fi 4, Wi-Fi 5 and Wi-Fi 6",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi6-naming",
+          "locator": "Press release, 2018-10-03",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi4-published",
+      "statement": "IEEE 802.11n (Wi-Fi 4) published",
+      "value": 2009,
+      "unit": "year",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211n",
+          "locator": "Standard listing: published date",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi5-published",
+      "statement": "IEEE 802.11ac (Wi-Fi 5) published",
+      "value": 2013,
+      "unit": "year",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ac",
+          "locator": "Standard listing: published date",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi6-cert-launch",
+      "statement": "Wi-Fi CERTIFIED 6 program launched",
+      "value": 2019,
+      "unit": "year",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi6-launch",
+          "locator": "Press release, 2019-09-16",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi6e-cert-launch",
+      "statement": "Wi-Fi 6E certification program launched (Wi-Fi 6 in the 6 GHz band)",
+      "value": 2021,
+      "unit": "year",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi6e-launch",
+          "locator": "Press release, 2021-01-07",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi7-cert-launch",
+      "statement": "Wi-Fi CERTIFIED 7 program launched",
+      "value": 2024,
+      "unit": "year",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi7-launch",
+          "locator": "Press release, 2024-01-08",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi7-ieee-approved",
+      "statement": "IEEE 802.11be approved by the IEEE SA Standards Board",
+      "value": "2024-09-26",
+      "unit": "date",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Standard listing: board approval date",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi7-ieee-published",
+      "statement": "IEEE 802.11be published",
+      "value": "2025-07-22",
+      "unit": "date",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Standard listing: published date",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi8-status",
+      "statement": "IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in development and not yet approved",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211bn-tg",
+          "locator": "TGbn status and timeline section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Re-check status at every verification; forward-looking."
+      }
+    },
+    {
+      "id": "wifi8-throughput-goal",
+      "statement": "P802.11bn goal: at least 25% higher throughput than 802.11be in at least one mode",
+      "value": 25,
+      "unit": "%",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211bn-par",
+          "locator": "PAR item 5.2.b (Scope)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Project goal, not a measured result."
+      }
+    },
+    {
+      "id": "wifi8-latency-goal",
+      "statement": "P802.11bn goal: at least 25% lower 95th-percentile latency than 802.11be in at least one mode",
+      "value": 25,
+      "unit": "%",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211bn-par",
+          "locator": "PAR item 5.2.b (Scope)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Project goal, not a measured result."
+      }
+    },
+    {
+      "id": "ht-max-nss",
+      "statement": "Wi-Fi 4 (HT) maximum spatial streams",
+      "value": 4,
+      "unit": "streams",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 19 (HT PHY), HT MCS tables",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "ht-max-width",
+      "statement": "Wi-Fi 4 (HT) widest channel",
+      "value": 40,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 19 (HT PHY)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "ht-nsd-40",
+      "statement": "Data subcarriers in a 40 MHz HT channel",
+      "value": 108,
+      "unit": "subcarriers",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 19, HT timing-related constants table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "ht-64qam-bits",
+      "statement": "Bits per subcarrier at 64-QAM (Wi-Fi 4 highest modulation)",
+      "value": 6,
+      "unit": "bits",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 19, HT modulation-dependent parameters table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "vht-max-nss",
+      "statement": "Wi-Fi 5 (VHT) maximum spatial streams",
+      "value": 8,
+      "unit": "streams",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 21 (VHT PHY), VHT MCS tables",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "vht-max-width",
+      "statement": "Wi-Fi 5 (VHT) widest channel",
+      "value": 160,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 21 (VHT PHY)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "vht-nsd-160",
+      "statement": "Data subcarriers in a 160 MHz VHT channel",
+      "value": 468,
+      "unit": "subcarriers",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 21, VHT timing-related constants table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "vht-256qam-bits",
+      "statement": "Bits per subcarrier at 256-QAM (Wi-Fi 5 highest modulation)",
+      "value": 8,
+      "unit": "bits",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 21, VHT modulation-dependent parameters table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "ofdm-symbol-ht-vht-us",
+      "statement": "OFDM symbol duration (without guard interval) for HT and VHT",
+      "value": 3.2,
+      "unit": "µs",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clauses 19 and 21, timing-related constants (T_DFT)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "short-gi-ht-vht-us",
+      "statement": "Short guard interval for HT and VHT",
+      "value": 0.4,
+      "unit": "µs",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clauses 19 and 21, timing-related constants (T_GI,S)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "he-max-nss",
+      "statement": "Wi-Fi 6 (HE) maximum spatial streams",
+      "value": 8,
+      "unit": "streams",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27 (HE PHY), HE-MCS tables",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "he-max-width",
+      "statement": "Wi-Fi 6 / 6E (HE) widest channel",
+      "value": 160,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27 (HE PHY)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "he-nsd-160",
+      "statement": "Data subcarriers in a 160 MHz HE channel (2×996-tone RU)",
+      "value": 1960,
+      "unit": "subcarriers",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE-MCS rate tables (N_SD)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "he-1024qam-bits",
+      "statement": "Bits per subcarrier at 1024-QAM (Wi-Fi 6 highest modulation)",
+      "value": 10,
+      "unit": "bits",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE-MCS 10–11 parameters",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "he-eht-symbol-us",
+      "statement": "OFDM symbol duration (without guard interval) for HE and EHT",
+      "value": 12.8,
+      "unit": "µs",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, timing-related constants",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, timing-related constants",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "he-eht-min-gi-us",
+      "statement": "Shortest guard interval for HE and EHT",
+      "value": 0.8,
+      "unit": "µs",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, guard interval durations",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, guard interval durations",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "eht-max-nss",
+      "statement": "Wi-Fi 7 (EHT) maximum spatial streams defined in the standard",
+      "value": 16,
+      "unit": "streams",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36 (EHT PHY), EHT-MCS tables",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Defined in the standard; current certified devices support fewer streams. Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "eht-max-width",
+      "statement": "Wi-Fi 7 (EHT) widest channel, 6 GHz only",
+      "value": 320,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36 (EHT PHY)",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-wifi7",
+          "locator": "\"320 MHz channels\" feature description",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "eht-nsd-320",
+      "statement": "Data subcarriers in a 320 MHz EHT channel (4×996-tone RU)",
+      "value": 3920,
+      "unit": "subcarriers",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, EHT-MCS rate tables (N_SD)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "eht-4096qam-bits",
+      "statement": "Bits per subcarrier at 4096-QAM (Wi-Fi 7 highest modulation)",
+      "value": 12,
+      "unit": "bits",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, EHT-MCS 12–13 parameters",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "coding-rate-max",
+      "statement": "Highest coding rate used at the top MCS of Wi-Fi 4 through Wi-Fi 7",
+      "value": 0.833333,
+      "unit": "ratio (5/6)",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clauses 19 and 21, MCS tables",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE-MCS tables",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, EHT-MCS tables",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "wifi4-peak-phy",
+      "statement": "Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval",
+      "value": 600,
+      "unit": "Mbps",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 19, HT MCS 31 rate table",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "phyRate",
+        "inputs": {
+          "nss": "ht-max-nss",
+          "nsd": "ht-nsd-40",
+          "bits": "ht-64qam-bits",
+          "codingRate": "coding-rate-max",
+          "symbolUs": "ofdm-symbol-ht-vht-us",
+          "giUs": "short-gi-ht-vht-us"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi5-peak-phy",
+      "statement": "Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval",
+      "value": 6.93,
+      "unit": "Gbps",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 21, VHT-MCS 9 rate table",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "phyRate",
+        "inputs": {
+          "nss": "vht-max-nss",
+          "nsd": "vht-nsd-160",
+          "bits": "vht-256qam-bits",
+          "codingRate": "coding-rate-max",
+          "symbolUs": "ofdm-symbol-ht-vht-us",
+          "giUs": "short-gi-ht-vht-us"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 2,
+          "unit": "Gbps"
+        },
+        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi6-peak-phy",
+      "statement": "Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval",
+      "value": 9.61,
+      "unit": "Gbps",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE-MCS 11 rate table",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "phyRate",
+        "inputs": {
+          "nss": "he-max-nss",
+          "nsd": "he-nsd-160",
+          "bits": "he-1024qam-bits",
+          "codingRate": "coding-rate-max",
+          "symbolUs": "he-eht-symbol-us",
+          "giUs": "he-eht-min-gi-us"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 2,
+          "unit": "Gbps"
+        },
+        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi7-peak-phy",
+      "statement": "Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval",
+      "value": 46.1,
+      "unit": "Gbps",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, EHT-MCS 13 rate table",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "phyRate",
+        "inputs": {
+          "nss": "eht-max-nss",
+          "nsd": "eht-nsd-320",
+          "bits": "eht-4096qam-bits",
+          "codingRate": "coding-rate-max",
+          "symbolUs": "he-eht-symbol-us",
+          "giUs": "he-eht-min-gi-us"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 1,
+          "unit": "Gbps"
+        },
+        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Specified in the standard; not in current certified devices."
+      }
+    },
+    {
+      "id": "qam-4k-gain",
+      "statement": "Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier)",
+      "value": 20,
+      "unit": "%",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, EHT-MCS 12–13",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-wifi7",
+          "locator": "\"4K QAM\" feature description",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "percentGain",
+        "inputs": {
+          "a": "eht-4096qam-bits",
+          "b": "he-1024qam-bits"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "(12 ÷ 10 − 1) × 100"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "width-320-vs-160",
+      "statement": "A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel",
+      "value": 2,
+      "unit": "×",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "ratio",
+        "inputs": {
+          "a": "eht-max-width",
+          "b": "he-max-width"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "320 ÷ 160"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-band-start",
+      "statement": "Lower edge of the US 6 GHz unlicensed band",
+      "value": 5925,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Report and Order, paragraph 1 / §15.407 rules",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-band-end",
+      "statement": "Upper edge of the US 6 GHz unlicensed band",
+      "value": 7125,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Report and Order, paragraph 1 / §15.407 rules",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-total",
+      "statement": "Spectrum made available for unlicensed use in the US 6 GHz band",
+      "value": 1200,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Report and Order, paragraph 1",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "6ghz-ch1-lower-edge",
+      "statement": "Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz)",
+      "value": 5945,
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, 6 GHz band operating classes and channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "us-6ghz-channels-20",
+      "statement": "Non-overlapping 20 MHz channels in the US 6 GHz band",
+      "value": 59,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Band edges",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "channelCount",
+        "inputs": {
+          "bandStartMHz": "us-6ghz-band-start",
+          "bandEndMHz": "us-6ghz-band-end",
+          "firstEdgeMHz": "6ghz-ch1-lower-edge"
+        },
+        "constants": {
+          "widthMHz": 20
+        },
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-channels-40",
+      "statement": "Non-overlapping 40 MHz channels in the US 6 GHz band",
+      "value": 29,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Band edges",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "channelCount",
+        "inputs": {
+          "bandStartMHz": "us-6ghz-band-start",
+          "bandEndMHz": "us-6ghz-band-end",
+          "firstEdgeMHz": "6ghz-ch1-lower-edge"
+        },
+        "constants": {
+          "widthMHz": 40
+        },
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-channels-80",
+      "statement": "Non-overlapping 80 MHz channels in the US 6 GHz band",
+      "value": 14,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Band edges",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "channelCount",
+        "inputs": {
+          "bandStartMHz": "us-6ghz-band-start",
+          "bandEndMHz": "us-6ghz-band-end",
+          "firstEdgeMHz": "6ghz-ch1-lower-edge"
+        },
+        "constants": {
+          "widthMHz": 80
+        },
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Whole 80 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-channels-160",
+      "statement": "Non-overlapping 160 MHz channels in the US 6 GHz band",
+      "value": 7,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Band edges",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "channelCount",
+        "inputs": {
+          "bandStartMHz": "us-6ghz-band-start",
+          "bandEndMHz": "us-6ghz-band-end",
+          "firstEdgeMHz": "6ghz-ch1-lower-edge"
+        },
+        "constants": {
+          "widthMHz": 160
+        },
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Whole 160 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "us-6ghz-channels-320",
+      "statement": "Non-overlapping 320 MHz channels in the US 6 GHz band",
+      "value": 3,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Band edges",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "channelCount",
+        "inputs": {
+          "bandStartMHz": "us-6ghz-band-start",
+          "bandEndMHz": "us-6ghz-band-end",
+          "firstEdgeMHz": "6ghz-ch1-lower-edge"
+        },
+        "constants": {
+          "widthMHz": 320
+        },
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Whole 320 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
+      },
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "eu-6ghz-band",
+      "statement": "European harmonised 6 GHz band for Wi-Fi (lower 6 GHz)",
+      "value": "5945–6425",
+      "unit": "MHz",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ecc-dec-20-01",
+          "locator": "Decision, Annex 1",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wifi6e-6ghz-origin",
+      "statement": "6 GHz operation first became available to Wi-Fi with Wi-Fi 6E (802.11ax in 6 GHz)",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi6e-launch",
+          "locator": "Press release",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E (6 GHz operation)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "320mhz-6ghz-only",
+      "statement": "320 MHz channels are only available where the 6 GHz band is open to Wi-Fi",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi7",
+          "locator": "\"320 MHz channels\" feature description",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "mlo-defined-be",
+      "statement": "Multi-Link Operation (MLO) is defined in IEEE 802.11be",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35 (EHT MAC), multi-link operation subclauses",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "mlo-modes-be",
+      "statement": "IEEE 802.11be defines STR, NSTR, EMLSR and EMLMR multi-link modes",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35, multi-link device operation and EMLSR/EMLMR subclauses",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "puncturing-ax",
+      "statement": "Preamble puncturing was introduced in 802.11ax for multi-user transmissions",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE MU PPDU preamble puncturing",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "puncturing-be",
+      "statement": "802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, preamble puncturing",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "multi-ru-be",
+      "statement": "802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, MRU definitions",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, RU allocation",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "twt-origin",
+      "statement": "Target Wake Time was first defined in IEEE 802.11ah",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ah",
+          "locator": "TWT subclause (MAC)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "twt-wifi6",
+      "statement": "Target Wake Time is one of the features of Wi-Fi CERTIFIED 6",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wifi6-announce",
+          "locator": "Feature list",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "rtwt-be",
+      "statement": "Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35, restricted TWT subclause",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "wpa3-mandatory-cert",
+      "statement": "WPA3 is required for new Wi-Fi CERTIFIED devices",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-security",
+          "locator": "WPA3 section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wpa3-6ghz-required",
+      "statement": "WPA3 (or Wi-Fi Enhanced Open for open networks) is required in the 6 GHz band; WPA2 and open networks without OWE are not allowed",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "6 GHz deployment requirements section",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-security",
+          "locator": "WPA3 section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wpa3-mlo-required",
+      "statement": "Password-based authentication over Wi-Fi 7 MLO requires WPA3",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "EHT / MLO requirements section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "wpa3-sae",
+      "statement": "WPA3-Personal uses Simultaneous Authentication of Equals (SAE), which resists offline password guessing",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "WPA3-Personal / SAE requirements",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "poe-type1-pse",
+      "statement": "IEEE 802.3af (Type 1) minimum power at the switch port (PSE)",
+      "value": 15.4,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 33, PSE output power table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type2-pse",
+      "statement": "IEEE 802.3at (Type 2) minimum power at the switch port (PSE)",
+      "value": 30,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 33, PSE output power table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type3-pse",
+      "statement": "IEEE 802.3bt Type 3 power at the switch port (PSE)",
+      "value": 60,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 145, PSE power classes table",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-8023bt",
+          "locator": "Clause 145",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type4-pse",
+      "statement": "IEEE 802.3bt Type 4 power at the switch port (PSE)",
+      "value": 90,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 145, PSE power classes table",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-8023bt",
+          "locator": "Clause 145",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type1-pd",
+      "statement": "IEEE 802.3af (Type 1) power available at the device (PD)",
+      "value": 12.95,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 33, PD power classification table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type2-pd",
+      "statement": "IEEE 802.3at (Type 2) power available at the device (PD)",
+      "value": 25.5,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 33, PD power classification table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type3-pd",
+      "statement": "IEEE 802.3bt Type 3 power available at the device (PD)",
+      "value": 51,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 145, PD power classes table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "poe-type4-pd",
+      "statement": "IEEE 802.3bt Type 4 power available at the device (PD)",
+      "value": 71.3,
+      "unit": "W",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 145, PD power classes table",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "multigig-2-5-5",
+      "statement": "2.5GBASE-T and 5GBASE-T run 2.5 and 5 Gb/s over twisted-pair structured cabling",
+      "value": "2.5 / 5",
+      "unit": "Gb/s",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023bz",
+          "locator": "Clause 126",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 126",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "multigig-10",
+      "statement": "10GBASE-T runs 10 Gb/s over twisted-pair cabling",
+      "value": 10,
+      "unit": "Gb/s",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 55",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "generations": [
+    {
+      "id": "wifi4",
+      "name": "Wi-Fi 4",
+      "ieee": "IEEE 802.11n",
+      "year": "2009",
+      "yearClaimId": "wifi4-published",
+      "colorToken": "--gen-wifi4",
+      "status": "ratified",
+      "referenceIds": [
+        "ieee-80211n",
+        "wfa-wifi6-naming"
+      ]
+    },
+    {
+      "id": "wifi5",
+      "name": "Wi-Fi 5",
+      "ieee": "IEEE 802.11ac",
+      "year": "2013",
+      "yearClaimId": "wifi5-published",
+      "colorToken": "--gen-wifi5",
+      "status": "ratified",
+      "referenceIds": [
+        "ieee-80211ac",
+        "wfa-wifi6-naming"
+      ]
+    },
+    {
+      "id": "wifi6",
+      "name": "Wi-Fi 6",
+      "ieee": "IEEE 802.11ax",
+      "year": "2019",
+      "yearClaimId": "wifi6-cert-launch",
+      "colorToken": "--gen-wifi6",
+      "status": "ratified",
+      "referenceIds": [
+        "ieee-80211ax",
+        "wfa-wifi6-launch"
+      ]
+    },
+    {
+      "id": "wifi6e",
+      "name": "Wi-Fi 6E",
+      "ieee": "IEEE 802.11ax (6 GHz)",
+      "year": "2021",
+      "yearClaimId": "wifi6e-cert-launch",
+      "colorToken": "--gen-wifi6e",
+      "status": "ratified",
+      "referenceIds": [
+        "ieee-80211ax",
+        "wfa-wifi6e-launch"
+      ]
+    },
+    {
+      "id": "wifi7",
+      "name": "Wi-Fi 7",
+      "ieee": "IEEE 802.11be",
+      "year": "2024",
+      "yearClaimId": "wifi7-cert-launch",
+      "colorToken": "--gen-wifi7",
+      "status": "ratified",
+      "referenceIds": [
+        "ieee-80211be",
+        "wfa-wifi7-launch"
+      ]
+    },
+    {
+      "id": "wifi8",
+      "name": "Wi-Fi 8",
+      "ieee": "IEEE 802.11bn",
+      "year": "In development",
+      "yearClaimId": "wifi8-status",
+      "colorToken": "--gen-wifi8",
+      "status": "in-development",
+      "referenceIds": [
+        "ieee-80211bn-tg",
+        "ieee-80211bn-par"
+      ]
+    }
+  ]
+}

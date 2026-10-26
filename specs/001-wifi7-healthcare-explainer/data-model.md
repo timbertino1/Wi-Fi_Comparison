@@ -15,6 +15,7 @@ runtime persistence other than viewer preferences.
 | `name` | string | Wi-Fi Alliance name, e.g., "Wi-Fi 7" |
 | `ieee` | string | e.g., "IEEE 802.11be" |
 | `year` | string | Certification/ratification year as stated in a reference, e.g., "2024" |
+| `yearClaimId` | Claim id | The claim that backs `year` (shown via the provenance panel) |
 | `colorToken` | string | CSS custom property name, e.g., `--gen-wifi7`; one per generation, used site-wide |
 | `status` | enum `ratified` \| `in-development` | `wifi8` MUST be `in-development` |
 | `referenceIds` | string[] | ≥ 1 |
@@ -123,7 +124,7 @@ runtime persistence other than viewer preferences.
 | `kind` | enum `technical` \| `context` | `technical` needs ≥ 1 Tier 1 source; `context` (healthcare or background) needs ≥ 1 Tier 1 or Tier 2 source |
 | `method` | enum `stated` \| `derived` \| `illustrative` | `illustrative` claims show no number and are labeled "Illustrative" on screen |
 | `sources` | { `referenceId`, `locator`, `excerpt`? }[] | ≥ 1; `locator` required (clause, table, section, page, or paragraph); `excerpt` ≤ 50 words |
-| `derivation` | { `formula`, `inputs`: { name → claim id }, `rounding`, `explanation` } \| null | Required when `method` = `derived`; `formula` names a function in `scripts/derivations.mjs`; `rounding` e.g. `{ "decimals": 1 }`; inputs MUST be `stated` claims |
+| `derivation` | { `formula`, `inputs`: { name → claim id }, `constants`: { name → number }, `rounding`, `explanation` } \| null | Required when `method` = `derived`; `formula` names a function in `scripts/derivations.mjs`; `rounding` e.g. `{ "decimals": 1 }`; inputs MUST be `stated` claims; `constants` are definitional parameters of the question asked (e.g., the channel width being counted), never facts |
 | `verification` | { `verifiedOn`: date \| null, `verifiedBy`: string \| null, `notes`: string \| null } | Release: `verifiedOn` and `verifiedBy` required, `verifiedOn` ≤ 365 days before the build; `verifiedBy` is initials or a role only |
 
 ### GlossaryTerm

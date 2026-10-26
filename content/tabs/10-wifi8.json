@@ -1,0 +1,20 @@
+{
+  "id": "wifi8",
+  "order": 10,
+  "kind": "roadmap",
+  "title": "What’s Next: Wi-Fi 8",
+  "summary": "IEEE 802.11bn is being written now, with reliability as its goal.",
+  "introducedIn": null,
+  "wifi7Adds": null,
+  "compareGenerations": [
+    "wifi7",
+    "wifi8"
+  ],
+  "defaultCompare": "wifi7",
+  "sceneId": "wifi8",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

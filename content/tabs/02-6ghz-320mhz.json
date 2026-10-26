@@ -1,0 +1,22 @@
+{
+  "id": "spectrum",
+  "order": 2,
+  "kind": "feature",
+  "title": "6 GHz Spectrum & 320 MHz Channels",
+  "summary": "A wide, uncrowded band and channels twice as wide as Wi-Fi 6E allows.",
+  "introducedIn": "wifi6e",
+  "wifi7Adds": "Wi-Fi 7 adds 320 MHz channels in the 6 GHz band, twice the widest channel Wi-Fi 6E can use.",
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi6e",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6e",
+  "sceneId": "spectrum",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

@@ -31,6 +31,8 @@ content validator checks this.
 | `ctx.tween` | Tween helper; returns promises; honors reduced motion |
 | `ctx.motion` | `'full'` or `'reduced'` |
 | `ctx.t(key)` | Label strings from content (scenes MUST NOT hard-code user-visible copy) |
+| `ctx.generations` | Generation list from content (name, IEEE id, `yearClaimId`); scenes MUST NOT import content modules |
+| `ctx.animateTo(targets, opts)` / `ctx.seeded(seed)` | Property animation helper and deterministic random generator |
 | `ctx.claim(id)` | Returns `{ value, unit, method }` for a claim; the only way a scene obtains a number to display |
 
 ## SceneInstance

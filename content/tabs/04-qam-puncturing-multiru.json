@@ -1,0 +1,21 @@
+{
+  "id": "qam-puncturing",
+  "order": 4,
+  "kind": "feature",
+  "title": "4K-QAM, Puncturing & Multi-RU",
+  "summary": "Packing more bits into every signal and working around interference instead of giving up channel width.",
+  "introducedIn": "wifi6",
+  "wifi7Adds": "Preamble puncturing existed in Wi-Fi 6 for multi-user transmissions only; Wi-Fi 7 extends it to all transmissions and adds 4096-QAM and multiple resource units per device.",
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6",
+  "sceneId": "qam-puncturing",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}
