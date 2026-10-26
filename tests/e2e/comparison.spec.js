@@ -52,10 +52,10 @@ for (const tab of featureTabs) {
 
 test('G cycles the comparison generation and deep links restore it', async ({ page }) => {
   await open(page, 'spectrum', '&gen=wifi5');
-  await expect(page.getByRole('radio', { checked: true })).toHaveValue('wifi5');
+  await expect(page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' }).getByRole('radio', { checked: true })).toHaveValue('wifi5');
   await page.locator('#stage').click({ force: true });
   await page.keyboard.press('g');
-  await expect(page.getByRole('radio', { checked: true })).toHaveValue('wifi6');
+  await expect(page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' }).getByRole('radio', { checked: true })).toHaveValue('wifi6');
 });
 
 test('generation colours are identical on every tab', async ({ page }) => {
