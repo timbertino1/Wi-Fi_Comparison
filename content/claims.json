@@ -232,6 +232,27 @@
       }
     },
     {
+      "id": "wifi8-reliability-def",
+      "statement": "The P802.11bn project defines reliability improvements in terms of throughput, latency and the loss of data units (MPDUs), including in the presence of interference and mobility",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211bn-par",
+          "locator": "PAR item 5.2.b (Scope) and 5.5 (Need for the Project)",
+          "excerpt": null
+        }
+      ],
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Forward-looking project scope; re-check against the current PAR and TGbn status at each verification."
+      },
+      "derivation": null
+    },
+    {
       "id": "ht-max-nss",
       "statement": "Wi-Fi 4 (HT) maximum spatial streams",
       "value": 4,
@@ -1527,6 +1548,48 @@
       }
     },
     {
+      "id": "bss-coloring-ax",
+      "statement": "802.11ax BSS coloring marks each network's transmissions so devices can tell their own network from a neighbour's and reuse the channel more often",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 26, BSS color and spatial reuse operation",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "contention-dcf",
+      "statement": "Before OFDMA, devices on a Wi-Fi channel contend for the medium and transmit one at a time, using the full channel for each transmission",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Clause 10, distributed coordination function (DCF) and EDCA",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
       "id": "eht-4kqam-evm",
       "statement": "4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it",
       "value": null,
@@ -1609,6 +1672,116 @@
         "verifiedBy": null,
         "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
       }
+    },
+    {
+      "id": "twt-what",
+      "statement": "With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ah",
+          "locator": "TWT subclause (MAC)",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 26, TWT operation",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "twt-types-ax",
+      "statement": "802.11ax defines both individual TWT agreements (per device) and broadcast TWT schedules (shared by groups of devices)",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 26, individual and broadcast TWT subclauses",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "rtwt-protect",
+      "statement": "During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35, restricted TWT operation",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "be-latency-objective",
+      "statement": "The scope of IEEE 802.11be includes at least one mode of operation with improved worst-case latency and jitter",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Standard listing: Scope",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "latency-histogram-illustrative",
+      "statement": "The latency histograms show the shape of the improvement Wi-Fi 7 targets (a shorter worst-case tail), not measured values",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "illustrative",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Standard listing: Scope (worst-case latency and jitter objective)",
+          "excerpt": null
+        }
+      ],
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Illustrative: no figures are shown. Confirm the scope wording at the accuracy gate."
+      },
+      "derivation": null
     },
     {
       "id": "wpa3-mandatory-cert",
@@ -2008,6 +2181,48 @@
         {
           "referenceId": "ieee-8023-2022",
           "locator": "Clause 55",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "be-mac-throughput-goal",
+      "statement": "IEEE 802.11be's scope targets a maximum throughput of at least 30 Gb/s measured at the MAC data service access point — below the 46 Gb/s PHY rate, because of protocol overhead",
+      "value": 30,
+      "unit": "Gbps",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Standard listing: Scope",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "gigabit-1",
+      "statement": "1000BASE-T Ethernet carries 1 Gb/s over twisted-pair cabling",
+      "value": 1,
+      "unit": "Gb/s",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-8023-2022",
+          "locator": "Clause 40 (1000BASE-T)",
           "excerpt": null
         }
       ],

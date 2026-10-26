@@ -5,17 +5,63 @@
   "title": "Client Density",
   "summary": "Hundreds of devices sharing the air in a crowded unit without slowing each other down.",
   "introducedIn": "wifi6",
-  "wifi7Adds": "Wi-Fi 6 introduced OFDMA and BSS coloring for crowded spaces; Wi-Fi 7 adds wider channels, multi-link load balancing, Multi-RU and broader puncturing.",
-  "compareGenerations": [
-    "wifi5",
-    "wifi6",
-    "wifi7"
-  ],
-  "defaultCompare": "wifi6",
+  "wifi7Adds": "Wi-Fi 6 introduced OFDMA {{ofdma-ax}} and BSS coloring {{bss-coloring-ax}} for crowded spaces; Wi-Fi 7 adds wider channels {{eht-max-width}}, multi-link load balancing {{mlo-bands}}, Multi-RU {{multi-ru-be}} and broader puncturing {{puncturing-be}}.",
+  "compareGenerations": ["wifi5", "wifi6", "wifi7"],
+  "defaultCompare": "wifi5",
   "sceneId": "density",
   "scenarioIds": [],
-  "beats": [],
+  "beats": [
+    {
+      "type": "problem",
+      "heading": "Shift change in the emergency department",
+      "body": "At shift change, an emergency department fills with devices: two shifts of staff phones and [[voice-badge|badges]], bedside monitors, infusion pumps, workstations on wheels, plus patients' and visitors' phones.\n\nWith Wi-Fi 5 and earlier, devices on a channel take turns, sending one at a time {{contention-dcf}}. The more devices there are, the longer each one waits — and small, urgent messages wait just as long as large downloads.",
+      "bottomLine": "In crowded areas, Wi-Fi often fails from too many devices sharing too little airtime, not from weak signal.",
+      "deepDive": null,
+      "sceneState": "crowd-contention",
+      "sceneDescription": "An emergency department floor fills with hundreds of device dots around the treatment bays. Above the access point, a channel timeline shows one device transmitting at a time, with empty gaps between turns while others wait.",
+      "durationMs": 12000
+    },
+    {
+      "type": "what",
+      "heading": "Every device shares the same airtime",
+      "body": "An [[access-point|access point]]'s capacity is its [[airtime]] — the time its channel spends carrying traffic. Every connected device draws from the same pool. Client density is how many devices share that pool, and density is rising as more clinical equipment becomes wireless.",
+      "bottomLine": "Capacity planning, not just coverage planning, decides how a unit performs at its busiest moments.",
+      "deepDive": null,
+      "sceneState": "crowd-airtime",
+      "sceneDescription": "The channel timeline above the access point is highlighted. The time spent waiting and taking turns is shaded, showing how much airtime is lost as more devices compete for it.",
+      "durationMs": 11000
+    },
+    {
+      "type": "how",
+      "heading": "Serve many devices in each transmission",
+      "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once {{ofdma-ax}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighbouring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, [[mlo|multi-link operation]] spreads devices across bands {{mlo-bands}}, and [[multi-ru|Multi-RU]] and puncturing use spectrum that would otherwise go idle {{multi-ru-be}} {{puncturing-be}}.",
+      "bottomLine": "The same access point can serve more devices with less waiting, which is how dense units stay responsive.",
+      "deepDive": "Before OFDMA, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. OFDMA assigns RUs to multiple stations in one PPDU, in both directions {{ofdma-ax}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}.",
+      "sceneState": "ofdma-slices",
+      "sceneDescription": "The channel timeline changes: each transmission is now divided into several horizontal slices, each slice serving a different device, so several device dots on the floor light up at the same moment.",
+      "durationMs": 14000
+    },
+    {
+      "type": "improvement",
+      "heading": "One at a time, several at once, across bands",
+      "body": "Wi-Fi 5 serves one device per transmission {{contention-dcf}}. Wi-Fi 6 serves several at once {{ofdma-ax}}. Wi-Fi 7 adds wider channels and more than one link, so the access point can split traffic across bands as well as within each transmission {{mlo-bands}} {{eht-max-width}}.",
+      "bottomLine": "Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.",
+      "deepDive": "Gains depend on device support: OFDMA and multi-link benefits apply to clients that support Wi-Fi 6 and Wi-Fi 7 respectively. Older clients still use contention and full-channel transmissions {{contention-dcf}}, so mixed device fleets see partial gains until devices are refreshed.",
+      "sceneState": "gen-compare",
+      "sceneDescription": "Two channel timelines are stacked. The earlier generation's timeline shows devices taking turns. The Wi-Fi 7 timeline shows two links, each split into several slices, serving many devices at the same time.",
+      "durationMs": 14000
+    },
+    {
+      "type": "why",
+      "heading": "Staying responsive at the busiest moments",
+      "body": "Shift changes, mass-casualty events and full waiting rooms are exactly when clinical communication matters most — and when device counts peak. Serving more devices per transmission helps alerts, calls and charting stay responsive when the unit is busiest.\n\nDesign for peak density: count devices per bed and per staff member, not just square metres.",
+      "bottomLine": "Plan wireless capacity around peak device counts in each unit; Wi-Fi 7 raises the ceiling, but placement and channel planning still matter.",
+      "deepDive": null,
+      "sceneState": "clinical-outcome",
+      "sceneDescription": "The emergency department stays full of devices, but many dots light up together as the multi-link, sliced channel timelines serve them, and none are left waiting for long.",
+      "durationMs": 11000
+    }
+  ],
   "keyFigures": [],
-  "sections": [],
-  "draft": true
+  "sections": []
 }
