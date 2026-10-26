@@ -13,7 +13,9 @@
   ],
   "defaultCompare": "wifi5",
   "sceneId": "twt",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "badge-battery-shift"
+  ],
   "beats": [
     {
       "type": "problem",

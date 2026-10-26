@@ -13,7 +13,9 @@
   ],
   "defaultCompare": "wifi6e",
   "sceneId": "mlo",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "voice-badge-hallway"
+  ],
   "beats": [
     {
       "type": "problem",

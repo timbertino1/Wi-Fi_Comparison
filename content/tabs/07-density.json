@@ -13,7 +13,9 @@
   ],
   "defaultCompare": "wifi5",
   "sceneId": "density",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "ed-shift-change"
+  ],
   "beats": [
     {
       "type": "problem",
@@ -40,7 +42,7 @@
       "heading": "Serve many devices in each transmission",
       "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once {{ofdma-ax}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighbouring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, [[mlo|multi-link operation]] spreads devices across bands {{mlo-bands}}, and [[multi-ru|Multi-RU]] and puncturing use spectrum that would otherwise go idle {{multi-ru-be}} {{puncturing-be}}.",
       "bottomLine": "The same access point can serve more devices with less waiting, which is how dense units stay responsive.",
-      "deepDive": "Before OFDMA, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. OFDMA assigns RUs to multiple stations in one PPDU, in both directions {{ofdma-ax}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}.",
+      "deepDive": "Before OFDMA, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], in both directions {{ofdma-ax}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}.",
       "sceneState": "ofdma-slices",
       "sceneDescription": "The channel timeline changes: each transmission is now divided into several horizontal slices, each slice serving a different device, so several device dots on the floor light up at the same moment.",
       "durationMs": 14000

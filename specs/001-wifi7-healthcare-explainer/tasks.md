@@ -242,14 +242,14 @@ outcome; validator rule 8 reports no guarantee phrases
 
 ### Tests for User Story 4
 
-- [ ] T087 [P] [US4] Create `tests/e2e/scenario.spec.js`: each feature tab (2–9) shows a `#scenario` card with location, device-type list and supported outcome; the device types also appear in the tab's problem beat text
+- [X] T087 [P] [US4] Create `tests/e2e/scenario.spec.js`: each feature tab (2–9) shows a `#scenario` card with location, device-type list and supported outcome; the device types also appear in the tab's problem beat text
 
 ### Implementation for User Story 4
 
-- [ ] T088 [US4] Fill `content/scenarios.json` with ≥ 1 composite scenario per feature tab (fields `id`, `location`, `deviceTypes` — generic only, e.g., "voice badge", "infusion pump", "telemetry monitor", "RTLS tag", "mobile workstation", "imaging cart", "telehealth cart" — `problem`, `outcomeSupported` phrased as enabling/supporting), e.g., `voice-badge-hallway`, `imaging-transfer-6ghz`, `interference-near-equipment`, `shared-passphrase-risk`, `badge-battery-shift`, `ed-shift-change`, `telemetry-alarm-delay`, `new-wing-closet-planning`; set each feature tab's `scenarioIds` in `content/tabs/02…09-*.json`
-- [ ] T089 [US4] Create `src/app/scenario.js` rendering the tab's scenarios into `#scenario` (location heading, device list, problem, "What this supports" outcome) and wire it into `src/main.js`
-- [ ] T090 [US4] Extend `tests/content/validate.test.mjs` so release mode treats any rule-8 guarantee-phrase warning in scenarios or beats as a failure, and fix any hits in content
-- [ ] T091 [US4] Story-gate copy review: read every beat and scenario for outcome/compliance overclaims, jargon defined at first use, and plain-language-first ordering; record findings and fixes in `specs/001-wifi7-healthcare-explainer/checklists/story-gate.md`
+- [X] T088 [US4] Fill `content/scenarios.json` with ≥ 1 composite scenario per feature tab (fields `id`, `location`, `deviceTypes` — generic only, e.g., "voice badge", "infusion pump", "telemetry monitor", "RTLS tag", "mobile workstation", "imaging cart", "telehealth cart" — `problem`, `outcomeSupported` phrased as enabling/supporting), e.g., `voice-badge-hallway`, `imaging-transfer-6ghz`, `interference-near-equipment`, `shared-passphrase-risk`, `badge-battery-shift`, `ed-shift-change`, `telemetry-alarm-delay`, `new-wing-closet-planning`; set each feature tab's `scenarioIds` in `content/tabs/02…09-*.json`
+- [X] T089 [US4] Create `src/app/scenario.js` rendering the tab's scenarios into `#scenario` (location heading, device list, problem, "What this supports" outcome) and wire it into `src/main.js`
+- [X] T090 [US4] Extend `tests/content/validate.test.mjs` so release mode treats any rule-8 guarantee-phrase warning in scenarios or beats as a failure, and fix any hits in content
+- [X] T091 [US4] Story-gate copy review: read every beat and scenario for outcome/compliance overclaims, jargon defined at first use, and plain-language-first ordering; record findings and fixes in `specs/001-wifi7-healthcare-explainer/checklists/story-gate.md`
 
 **Checkpoint**: Healthcare relevance is explicit on every feature tab and free of overclaims.
 

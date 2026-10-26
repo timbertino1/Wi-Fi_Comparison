@@ -13,7 +13,9 @@
   ],
   "defaultCompare": "wifi6",
   "sceneId": "qam-puncturing",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "imaging-suite-interference"
+  ],
   "beats": [
     {
       "type": "problem",
@@ -40,7 +42,7 @@
       "heading": "More bits per signal, and skipping the busy slice",
       "body": "[[qam|QAM]] encodes bits as points on a grid; more points mean more bits per signal. Going from 1024 to 4096 points adds two bits per subcarrier, raising the peak rate by 20% {{qam-4k-gain}}. The points sit closer together, so 4K-QAM needs a very clean, strong signal — typically a device near its access point {{eht-4kqam-evm}}.\n\nWith puncturing, the access point marks the busy slice as unused and transmits on all the others {{puncturing-be}}.",
       "bottomLine": "Devices close to an access point get faster transfers; every device keeps more of the channel when interference appears.",
-      "deepDive": "4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM {{eht-4096qam-bits}} {{he-1024qam-bits}}, and 802.11be sets a stricter EVM limit for it {{eht-4kqam-evm}}. Puncturing is signalled in the preamble so receivers ignore the punctured 20 MHz subchannels {{puncturing-be}}.",
+      "deepDive": "4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM {{eht-4096qam-bits}} {{he-1024qam-bits}}, and 802.11be sets a stricter [[evm|EVM]] limit for it {{eht-4kqam-evm}}. Puncturing is signalled in the preamble so receivers ignore the punctured 20 MHz subchannels {{puncturing-be}}.",
       "sceneState": "puncture",
       "sceneDescription": "The wide channel returns with the red interference on one slice. This time, in the Wi-Fi 7 colour, every slice except the busy one stays lit, leaving a single gap where the interference is.",
       "durationMs": 14000

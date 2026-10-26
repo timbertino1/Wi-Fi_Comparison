@@ -14,7 +14,9 @@
   ],
   "defaultCompare": "wifi6",
   "sceneId": "bandwidth-poe",
-  "scenarioIds": [],
+  "scenarioIds": [
+    "new-wing-closet"
+  ],
   "beats": [
     {
       "type": "problem",
@@ -39,7 +41,7 @@
     {
       "type": "how",
       "heading": "Faster uplinks and more power per port",
-      "body": "Even below its PHY rate, a Wi-Fi 7 access point can move more traffic than a 1 Gb/s link carries: 802.11be targets at least 30 Gb/s at the MAC layer {{be-mac-throughput-goal}}. [[multigig|Multi-gigabit Ethernet]] — 2.5 and 5 Gb/s {{multigig-2-5-5}} or 10 Gb/s {{multigig-10}} — gives the [[uplink]] headroom over existing twisted-pair cabling.\n\n[[poe|Power over Ethernet]] comes in classes: 15.4 W {{poe-type1-pse}}, 30 W {{poe-type2-pse}}, 60 W {{poe-type3-pse}} and 90 W {{poe-type4-pse}} at the switch port.",
+      "body": "Even below its PHY rate, a Wi-Fi 7 access point can move more traffic than a 1 Gb/s link carries: 802.11be targets at least 30 Gb/s at the [[mac-layer|MAC layer]] {{be-mac-throughput-goal}}. [[multigig|Multi-gigabit Ethernet]] — 2.5 and 5 Gb/s {{multigig-2-5-5}} or 10 Gb/s {{multigig-10}} — gives the [[uplink]] headroom over existing twisted-pair cabling.\n\n[[poe|Power over Ethernet]] comes in classes: 15.4 W {{poe-type1-pse}}, 30 W {{poe-type2-pse}}, 60 W {{poe-type3-pse}} and 90 W {{poe-type4-pse}} at the switch port.",
       "bottomLine": "Plan switch ports and power budgets from each access point model's specifications, not from the previous generation's.",
       "deepDive": "Power figures are at the power-sourcing equipment (switch port). After cable losses, the powered device receives about 12.95 W {{poe-type1-pd}}, 25.5 W {{poe-type2-pd}}, 51 W {{poe-type3-pd}} or 71.3 W {{poe-type4-pd}}. Types 1–2 come from 802.3af/at and Types 3–4 from 802.3bt, all consolidated in IEEE 802.3-2022 {{poe-type3-pse}}. Multi-gigabit PHYs are 2.5GBASE-T and 5GBASE-T {{multigig-2-5-5}} and 10GBASE-T {{multigig-10}}.",
       "sceneState": "wired-chain",
