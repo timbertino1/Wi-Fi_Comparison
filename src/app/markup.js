@@ -24,13 +24,13 @@ export function renderMarkup(text, ctx = {}) {
 
   const withRefs = withTerms.replace(/\{\{ref:([a-z0-9-]+)\}\}/g, (_, id) => {
     if (!refById.has(id)) return '';
-    return `<sup><a class="cite-ref" href="#/references?ref=${id}" aria-label="Background reading: ${escapeHtml(refById.get(id).title)}">[ref]</a></sup>`;
+    return `<sup><a class="cite-ref" href="#/references?ref=${id}" aria-label="ref: background reading, ${escapeHtml(refById.get(id).title)}">[ref]</a></sup>`;
   });
 
   const withClaims = withRefs.replace(/\{\{([a-z0-9-]+)\}\}/g, (_, id) => {
     const claim = claimById.get(id);
     if (!claim) return '';
-    return `<sup><button type="button" class="cite" data-claim="${id}" aria-haspopup="dialog" aria-label="Source for: ${escapeHtml(claim.statement)}">[${citationNumber(id)}]</button></sup>`;
+    return `<sup><button type="button" class="cite" data-claim="${id}" aria-haspopup="dialog" aria-label="Source ${citationNumber(id)}: ${escapeHtml(claim.statement)}">[${citationNumber(id)}]</button></sup>`;
   });
 
   const withBold = withClaims.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');

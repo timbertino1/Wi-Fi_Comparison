@@ -49,7 +49,8 @@ for (const tab of storyTabs) {
       await page.evaluate(() => { window.__dwellMs = 300; });
       await page.locator('#play').click();
       await expect(page.locator('#play')).toHaveAttribute('aria-pressed', 'true');
-      await expectBeat(page, tab, 2);
+      // Auto-play advances on its own; it may pass step 3 before we look, so check it got at least that far.
+      await expect.poll(() => page.evaluate(() => window.__stage.beat)).toBeGreaterThanOrEqual(3);
       await page.keyboard.press('k');
       await expect(page.locator('#play')).toHaveAttribute('aria-pressed', 'false');
       const stopped = await page.locator('#progress').textContent();

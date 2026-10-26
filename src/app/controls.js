@@ -23,7 +23,7 @@ const forward = el('button', { type: 'button', className: 'control', id: 'step-f
 const replay = el('button', { type: 'button', className: 'control', id: 'replay' }, '↺ Replay');
 const dots = el('div', { className: 'beat-dots', role: 'group' });
 dots.setAttribute('aria-label', 'Steps');
-back.setAttribute('aria-label', 'Previous step');
+back.setAttribute('aria-label', 'Back: previous step');
 forward.setAttribute('aria-label', 'Next step');
 replay.setAttribute('aria-label', 'Replay from the first step');
 
