@@ -1,0 +1,27 @@
+{
+  "name": "wifi7-healthcare-explainer",
+  "version": "0.1.0",
+  "description": "Vendor-neutral, animated explainer of Wi-Fi 7 for healthcare audiences",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-content.mjs",
+    "provenance": "node scripts/provenance-report.mjs",
+    "build": "node scripts/build.mjs",
+    "build:fast": "node scripts/build.mjs --no-snapshots",
+    "watch": "node scripts/build.mjs --watch --no-snapshots",
+    "test": "npm run validate && node --test \"tests/content/*.test.mjs\"",
+    "test:e2e": "npm run build:fast && playwright test"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "esbuild": "0.28.2"
+  }
+}

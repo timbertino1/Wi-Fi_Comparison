@@ -1,0 +1,22 @@
+{
+  "id": "bandwidth-poe",
+  "order": 9,
+  "kind": "feature",
+  "title": "Bandwidth, Peak Rates & PoE",
+  "summary": "What faster Wi-Fi asks of the switches, cabling and power behind every access point.",
+  "introducedIn": "wifi7",
+  "wifi7Adds": null,
+  "compareGenerations": [
+    "wifi4",
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6",
+  "sceneId": "bandwidth-poe",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

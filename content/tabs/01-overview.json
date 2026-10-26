@@ -1,0 +1,57 @@
+{
+  "id": "overview",
+  "order": 1,
+  "kind": "overview",
+  "title": "Why Wi-Fi 7, and why now",
+  "summary": "A busy hospital, a growing wall of wireless devices, and five generations of Wi-Fi that brought us here.",
+  "introducedIn": null,
+  "wifi7Adds": null,
+  "compareGenerations": ["wifi4", "wifi5", "wifi6", "wifi6e", "wifi7"],
+  "defaultCompare": "wifi6",
+  "sceneId": "overview",
+  "scenarioIds": [],
+  "beats": [
+    {
+      "type": "intro",
+      "heading": "A hospital that runs on wireless",
+      "body": "Walk any modern care unit and count what is talking over the air: nurses' [[voice-badge|voice badges]] and phones, bedside [[telemetry|telemetry]] monitors, smart infusion pumps, [[rtls|location tags]] on equipment, mobile workstations, imaging carts and telehealth video.\n\nEvery one of them shares the same invisible resource — radio time from the [[access-point|access points]] in the ceiling.",
+      "bottomLine": "Wireless is now part of how care is delivered, not just a convenience for staff and guests.",
+      "deepDive": null,
+      "sceneState": "floor-quiet",
+      "sceneDescription": "A stylized hospital floor seen from above: patient rooms along a corridor, a nurses' station in the middle, and a few access points on the ceiling. A small number of devices glow as they connect.",
+      "durationMs": 11000
+    },
+    {
+      "type": "context",
+      "heading": "More devices, more data, less tolerance for delay",
+      "body": "Each year more clinical work moves onto wireless devices, and the traffic gets heavier: high-resolution images, video consults, continuous monitoring. Some of it is bulky; some of it is small but urgent, like an alarm or a voice call.\n\nWhen the network gets crowded, the urgent traffic waits in line behind everything else. That is the problem each feature in this story is designed to solve.",
+      "bottomLine": "Network capacity planning now has a direct line to clinical workflow — delays show up as missed pages, stalled images and frustrated staff.",
+      "deepDive": null,
+      "sceneState": "floor-crowded",
+      "sceneDescription": "The same hospital floor fills with many more devices in every room and hallway. Small packets stream toward the access points, and some begin to queue up and wait, showing the air becoming crowded.",
+      "durationMs": 12000
+    },
+    {
+      "type": "context",
+      "heading": "Five generations of Wi-Fi",
+      "body": "Wi-Fi is defined by the [[ieee-802-11]] standards; the Wi-Fi Alliance gives each generation a simple name {{gen-naming}}.\n\n**Wi-Fi 4** (802.11n) arrived in 2009 {{wifi4-published}}. **Wi-Fi 5** (802.11ac) followed in 2013 {{wifi5-published}}. **Wi-Fi 6** (802.11ax) certification began in 2019 {{wifi6-cert-launch}}, and **Wi-Fi 6E** brought it into the new 6 GHz band in 2021 {{wifi6e-cert-launch}}. **Wi-Fi 7** (802.11be) certification launched in 2024 {{wifi7-cert-launch}}.",
+      "bottomLine": "Wi-Fi 7 is the current generation: devices and access points are certified and shipping, so it belongs in today's refresh plans.",
+      "deepDive": "Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be {{gen-naming}}. IEEE approved 802.11be on 2024-09-26 {{wifi7-ieee-approved}} and published it on 2025-07-22 {{wifi7-ieee-published}}.",
+      "sceneState": "timeline",
+      "sceneDescription": "A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own colour and labelled with its name and year.",
+      "durationMs": 13000
+    },
+    {
+      "type": "outlook",
+      "heading": "How to use this story",
+      "body": "Each tab tells one part of the story in five steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care.\n\nUse the **Audience** switch at the top for a leadership summary or the full technical detail. Every figure links to its source — select any small number in brackets to see where it came from and how it was calculated.",
+      "bottomLine": "Start with the tabs that match your current pain points; each one stands on its own.",
+      "deepDive": null,
+      "sceneState": "timeline-wifi7",
+      "sceneDescription": "The Wi-Fi 7 pillar on the timeline grows taller and brighter than the others, with a ring of light around it, inviting the viewer to continue into the feature tabs.",
+      "durationMs": 10000
+    }
+  ],
+  "keyFigures": [],
+  "sections": []
+}

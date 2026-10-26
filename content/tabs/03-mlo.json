@@ -1,0 +1,21 @@
+{
+  "id": "mlo",
+  "order": 3,
+  "kind": "feature",
+  "title": "Multi-Link Operation (MLO)",
+  "summary": "One connection that uses several bands at once, or switches between them instantly.",
+  "introducedIn": "wifi7",
+  "wifi7Adds": null,
+  "compareGenerations": [
+    "wifi5",
+    "wifi6e",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6e",
+  "sceneId": "mlo",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

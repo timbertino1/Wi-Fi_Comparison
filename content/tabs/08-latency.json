@@ -1,0 +1,20 @@
+{
+  "id": "latency",
+  "order": 8,
+  "kind": "feature",
+  "title": "Low & Predictable Latency",
+  "summary": "Getting alarms, voice and video through on time, every time, not just on average.",
+  "introducedIn": "wifi7",
+  "wifi7Adds": null,
+  "compareGenerations": [
+    "wifi6",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6",
+  "sceneId": "latency",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

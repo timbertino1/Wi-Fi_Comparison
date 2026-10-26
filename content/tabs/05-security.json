@@ -1,0 +1,21 @@
+{
+  "id": "security",
+  "order": 5,
+  "kind": "feature",
+  "title": "Security: WPA3 and Wi-Fi 7",
+  "summary": "Stronger sign-in that resists password guessing, required on 6 GHz and for Wi-Fi 7 multi-link.",
+  "introducedIn": "wifi6",
+  "wifi7Adds": "WPA3 arrived alongside Wi-Fi 6; Wi-Fi 7 requires it for multi-link connections and the 6 GHz band requires it for every network.",
+  "compareGenerations": [
+    "wifi5",
+    "wifi6",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6",
+  "sceneId": "security",
+  "scenarioIds": [],
+  "beats": [],
+  "keyFigures": [],
+  "sections": [],
+  "draft": true
+}

@@ -1,0 +1,34 @@
+{
+  "terms": [
+    {
+      "id": "access-point",
+      "term": "Access point",
+      "expansion": null,
+      "definition": "The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network."
+    },
+    {
+      "id": "ieee-802-11",
+      "term": "IEEE 802.11",
+      "expansion": null,
+      "definition": "The family of IEEE standards that defines Wi-Fi. Each generation is an amendment with a letter suffix, such as 802.11ax (Wi-Fi 6) or 802.11be (Wi-Fi 7)."
+    },
+    {
+      "id": "rtls",
+      "term": "RTLS",
+      "expansion": "Real-time location system",
+      "definition": "Small battery-powered tags on staff or equipment that report their location so teams can find pumps, wheelchairs or colleagues quickly."
+    },
+    {
+      "id": "telemetry",
+      "term": "Telemetry",
+      "expansion": null,
+      "definition": "Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station."
+    },
+    {
+      "id": "voice-badge",
+      "term": "Voice badge",
+      "expansion": null,
+      "definition": "A small wearable communicator that lets clinicians call and message each other hands-free over Wi-Fi."
+    }
+  ]
+}
