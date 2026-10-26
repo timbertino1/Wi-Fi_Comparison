@@ -885,3 +885,44 @@ button {
 .shortcut-list dd {
   margin: 0;
 }
+
+/* Audience layers */
+.bottom-line {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.bottom-line-label {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--accent);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bottom-line p {
+  margin: 0;
+}
+
+[data-view="leadership"] .bottom-line {
+  border-left: 5px solid var(--accent);
+  box-shadow: var(--shadow);
+  font-size: var(--text-md);
+}
+
+[data-view="technical"] .bottom-line {
+  border-style: dashed;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+
+[data-view="leadership"] #progress::after {
+  content: " · Leadership view";
+}
+
+[data-view="technical"] #progress::after {
+  content: " · Technical view";
+}

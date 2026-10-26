@@ -11,6 +11,7 @@ import { initComparison } from './app/comparison.js';
 import { initFigures } from './app/figures.js';
 import { initScenario } from './app/scenario.js';
 import { initShortcuts } from './app/shortcuts.js';
+import { initView } from './app/view.js';
 import { setMotion } from './stage/tween.js';
 import { createStage, webglAvailable } from './stage/renderer.js';
 import { createFallback } from './stage/fallback.js';
@@ -100,6 +101,7 @@ function boot() {
   story.setStage(stage, { test: testMode });
   if (!stage) story.useFallback(createFallback(stageEl, noticeEl));
 
+  initView();
   initTabs();
   initOverview();
   initControls({ test: testMode });

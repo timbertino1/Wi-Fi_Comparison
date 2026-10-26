@@ -21,6 +21,7 @@ const descriptionEl = document.getElementById('scene-description');
 const stageEl = document.getElementById('stage');
 const deepEl = document.getElementById('deep');
 const lineageEl = document.getElementById('lineage');
+const bottomLineEl = document.getElementById('bottom-line');
 const deepBeatEl = document.createElement('div');
 const sectionsEl = document.createElement('div');
 deepEl.append(deepBeatEl, sectionsEl);
@@ -146,6 +147,23 @@ function renderText() {
   const description = beat?.sceneDescription ?? tab.summary;
   descriptionEl.textContent = plainText(description);
   renderDeepDive(beat);
+  renderBottomLine(beat);
+}
+
+/** Leadership layer: the beat's Bottom line (shown in both views, emphasised in Leadership view). */
+function renderBottomLine(beat) {
+  bottomLineEl.replaceChildren();
+  if (!beat?.bottomLine) return;
+  const box = document.createElement('aside');
+  box.className = 'bottom-line';
+  box.setAttribute('aria-label', 'Bottom line');
+  const label = document.createElement('strong');
+  label.className = 'bottom-line-label';
+  label.textContent = 'Bottom line';
+  const text = document.createElement('p');
+  text.innerHTML = renderInline(beat.bottomLine, markupContext); // safe: renderMarkup
+  box.append(label, text);
+  bottomLineEl.append(box);
 }
 
 /** Lineage callout for features that existed before Wi-Fi 7 (Principle IV). */
