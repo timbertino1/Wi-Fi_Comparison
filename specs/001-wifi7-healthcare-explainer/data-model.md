@@ -188,8 +188,8 @@ StoryBeat.sceneState ──> a state name that scene module declares
 17. Uncited numbers: in beat `heading`, `body`, `bottomLine`, `deepDive`, section `body`,
     `sceneDescription`, and scenario text, any number with a unit or percent sign (e.g., `46 Gbps`,
     `320 MHz`, `20%`, `60 W`, `5.925 GHz`) must share its sentence with a `{{claim-id}}` citation;
-    exemptions (generation names such as "Wi-Fi 7", IEEE identifiers such as "802.11be", beat
-    numbering) come from one explicit pattern list in the validator.
+    exemptions (generation names such as "Wi-Fi 7", IEEE identifiers such as "802.11be", the band
+    names "2.4 GHz", "5 GHz" and "6 GHz", beat numbering) come from one explicit pattern list in the validator.
 18. Orphans: every claim is used (cited, attached to a figure, or a derivation input) — warning
     normally, error in release.
 19. Verification (release only): every claim has `verifiedOn` and `verifiedBy`; `verifiedOn` is no

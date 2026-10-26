@@ -1276,6 +1276,74 @@
       }
     },
     {
+      "id": "6ghz-no-legacy",
+      "statement": "Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E and 6 GHz operation subclauses (HE operation only)",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-wifi6e-launch",
+          "locator": "Press release",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "fcc-lpi",
+      "statement": "In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Report and Order, low-power indoor operation section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "6ghz-building-loss",
+      "statement": "Building walls and materials attenuate 6 GHz signals; the FCC relied on this building entry loss when permitting low-power indoor operation",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Report and Order, building entry loss analysis",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
       "id": "mlo-defined-be",
       "statement": "Multi-Link Operation (MLO) is defined in IEEE 802.11be",
       "value": null,
@@ -1307,6 +1375,53 @@
         {
           "referenceId": "ieee-80211be",
           "locator": "Clause 35, multi-link device operation and EMLSR/EMLMR subclauses",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "mlo-bands",
+      "statement": "A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35, multi-link device (MLD) operation",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-wifi7",
+          "locator": "\"Multi-Link Operation\" feature description",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "mlo-tid-mapping",
+      "statement": "802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 35, TID-to-link mapping and MLD association subclauses",
           "excerpt": null
         }
       ],
@@ -1375,6 +1490,53 @@
         {
           "referenceId": "ieee-80211ax",
           "locator": "Clause 27, RU allocation",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "ofdma-ax",
+      "statement": "OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6)",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE MU PPDU and RU allocation",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-wifi6-announce",
+          "locator": "Feature list (OFDMA)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+      }
+    },
+    {
+      "id": "eht-4kqam-evm",
+      "statement": "4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, transmit constellation error (EVM) requirements table",
           "excerpt": null
         }
       ],
@@ -1471,7 +1633,7 @@
     },
     {
       "id": "wpa3-6ghz-required",
-      "statement": "WPA3 (or Wi-Fi Enhanced Open for open networks) is required in the 6 GHz band; WPA2 and open networks without OWE are not allowed",
+      "statement": "WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1479,12 +1641,12 @@
       "sources": [
         {
           "referenceId": "wfa-wpa3-deploy",
-          "locator": "6 GHz deployment requirements section",
-          "excerpt": null
+          "locator": "Section 2, WPA3-Personal configuration notes (note 5)",
+          "excerpt": "Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted."
         },
         {
-          "referenceId": "wfa-security",
-          "locator": "WPA3 section",
+          "referenceId": "wfa-wpa3-highlights",
+          "locator": "Page 1",
           "excerpt": null
         }
       ],
@@ -1492,7 +1654,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
       }
     },
     {
@@ -1505,7 +1667,7 @@
       "sources": [
         {
           "referenceId": "wfa-wpa3-deploy",
-          "locator": "EHT / MLO requirements section",
+          "locator": "Tables 5–7, rows for \"AP: EHT enabled on BSS\" (AKM suites)",
           "excerpt": null
         }
       ],
@@ -1513,7 +1675,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
       }
     },
     {
@@ -1525,8 +1687,13 @@
       "method": "stated",
       "sources": [
         {
+          "referenceId": "wfa-wpa3-launch",
+          "locator": "Press release, WPA3-Personal paragraph",
+          "excerpt": null
+        },
+        {
           "referenceId": "wfa-wpa3-spec",
-          "locator": "WPA3-Personal / SAE requirements",
+          "locator": "SAE requirements section",
           "excerpt": null
         }
       ],
@@ -1535,6 +1702,95 @@
         "verifiedOn": null,
         "verifiedBy": null,
         "notes": null
+      }
+    },
+    {
+      "id": "wpa3-forward-secrecy",
+      "statement": "WPA3-Personal provides forward secrecy: capturing traffic now and learning the password later does not expose that earlier traffic",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-overview",
+          "locator": "WPA3-Personal section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; confirm wording at the accuracy gate."
+      }
+    },
+    {
+      "id": "owe-what",
+      "statement": "Wi-Fi Enhanced Open (OWE) encrypts traffic on open networks, such as guest Wi-Fi, without requiring a password",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "Section 1 and Wi-Fi Enhanced Open mode tables",
+          "excerpt": null
+        },
+        {
+          "referenceId": "wfa-security",
+          "locator": "Wi-Fi Enhanced Open section",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Locator is best-known; confirm wording at the accuracy gate."
+      }
+    },
+    {
+      "id": "wifi7-eht-security",
+      "statement": "Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection, protected management frames, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption mandatory",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "Tables 4–5 (pages 13–14), rows for \"AP: EHT enabled on BSS\"",
+          "excerpt": "Beacon Protection AP: EHT enabled on BSS MAND"
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Deployment guidance; the guide notes its guidelines are not certification requirements. Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "legacy-security-disallowed",
+      "statement": "WEP, TKIP and WPA (version 1) are disallowed in all WPA3 and Wi-Fi Enhanced Open configurations",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "Table 4, Legacy Security Parameters",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
       }
     },
     {

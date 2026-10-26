@@ -19,6 +19,10 @@ const BEAT_LABELS = {
 const storyEl = document.getElementById('story');
 const descriptionEl = document.getElementById('scene-description');
 const stageEl = document.getElementById('stage');
+const deepEl = document.getElementById('deep');
+const deepBeatEl = document.createElement('div');
+const sectionsEl = document.createElement('div');
+deepEl.append(deepBeatEl, sectionsEl);
 
 const listeners = { tab: new Set(), beat: new Set(), generation: new Set() };
 const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null };
@@ -107,6 +111,49 @@ function renderText() {
   storyEl.innerHTML = parts.join(''); // safe: renderMarkup
   const description = beat?.sceneDescription ?? tab.summary;
   descriptionEl.textContent = plainText(description);
+  renderDeepDive(beat);
+}
+
+/** Technical layer for the current beat: an "Under the hood" disclosure. */
+function renderDeepDive(beat) {
+  const wasOpen = deepBeatEl.querySelector('details')?.open;
+  deepBeatEl.replaceChildren();
+  if (!beat?.deepDive) return;
+  const details = document.createElement('details');
+  details.className = 'deep-dive card';
+  details.open = !!wasOpen || document.documentElement.dataset.view === 'technical';
+  const summary = document.createElement('summary');
+  summary.textContent = 'Under the hood';
+  const body = document.createElement('div');
+  body.className = 'deep-body';
+  body.innerHTML = renderMarkup(beat.deepDive, markupContext); // safe: renderMarkup
+  details.append(summary, body);
+  deepBeatEl.append(details);
+}
+
+/** Deeper sections for the tab (e.g., MLO modes). Opening one shows its scene state. */
+function renderSections(tab) {
+  sectionsEl.replaceChildren();
+  for (const section of tab.sections ?? []) {
+    const details = document.createElement('details');
+    details.className = 'deep-section card';
+    details.dataset.section = section.id;
+    details.open = document.documentElement.dataset.view === 'technical';
+    const summary = document.createElement('summary');
+    summary.textContent = section.heading;
+    const body = document.createElement('div');
+    body.className = 'deep-body';
+    body.innerHTML = renderMarkup(section.body, markupContext); // safe: renderMarkup
+    details.append(summary, body);
+    details.addEventListener('toggle', () => {
+      if (!section.sceneState || !details.matches('[data-user-toggle]')) return;
+      details.removeAttribute('data-user-toggle');
+      if (details.open) showSceneState(section.sceneState);
+      else restoreSceneState();
+    });
+    summary.addEventListener('click', () => details.setAttribute('data-user-toggle', ''));
+    sectionsEl.append(details);
+  }
 }
 
 async function applySceneState({ animate }) {
@@ -127,7 +174,10 @@ export function showTab(tabId, beatIndex = 0, { animate = false, generation = nu
   state.tab = tab;
   state.beatIndex = clampBeat(beatIndex);
   state.generation = (generation && tab.compareGenerations.includes(generation) ? generation : null) ?? tab.defaultCompare ?? null;
-  if (changed) mountScene(tab);
+  if (changed) {
+    mountScene(tab);
+    renderSections(tab);
+  }
   renderText();
   if (changed) emit('tab');
   emit('beat');

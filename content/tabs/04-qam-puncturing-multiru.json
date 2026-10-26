@@ -5,17 +5,63 @@
   "title": "4K-QAM, Puncturing & Multi-RU",
   "summary": "Packing more bits into every signal and working around interference instead of giving up channel width.",
   "introducedIn": "wifi6",
-  "wifi7Adds": "Preamble puncturing existed in Wi-Fi 6 for multi-user transmissions only; Wi-Fi 7 extends it to all transmissions and adds 4096-QAM and multiple resource units per device.",
-  "compareGenerations": [
-    "wifi5",
-    "wifi6",
-    "wifi7"
-  ],
+  "wifi7Adds": "Preamble puncturing existed in Wi-Fi 6 for multi-user transmissions only {{puncturing-ax}}; Wi-Fi 7 extends it to all transmissions {{puncturing-be}} and adds 4096-QAM {{eht-4096qam-bits}} and multiple resource units per device {{multi-ru-be}}.",
+  "compareGenerations": ["wifi5", "wifi6", "wifi7"],
   "defaultCompare": "wifi6",
   "sceneId": "qam-puncturing",
   "scenarioIds": [],
-  "beats": [],
+  "beats": [
+    {
+      "type": "problem",
+      "heading": "One busy slice shrinks the whole channel",
+      "body": "A wide Wi-Fi channel is made of many narrower slices. In an imaging suite, another system or a neighbouring network is busy in just one of those slices.\n\nWith earlier Wi-Fi, the [[access-point|access point]] has to avoid the busy slice by dropping to a much narrower channel — giving up most of its capacity to dodge a small piece of interference.",
+      "bottomLine": "Interference in a small part of the spectrum can cut wireless capacity in a room far more than its size suggests.",
+      "deepDive": null,
+      "sceneState": "interferer",
+      "sceneDescription": "A wide channel is drawn as a row of equal slices. A red block of interference sits on one slice. In the earlier generation's colour, only the few slices before the interference stay lit, and the rest of the channel goes dark and unused.",
+      "durationMs": 12000
+    },
+    {
+      "type": "what",
+      "heading": "Three ways to get more from the same spectrum",
+      "body": "Wi-Fi 7 combines three techniques:\n\n**4K-QAM** packs 12 bits into each [[subcarrier|subcarrier]] instead of 10 {{eht-4096qam-bits}} {{he-1024qam-bits}}. **[[preamble-puncturing|Preamble puncturing]]** skips only the busy slice of a wide channel {{puncturing-be}}. **[[multi-ru|Multi-RU]]** lets one device use several separate pieces of the channel at once {{multi-ru-be}}.",
+      "bottomLine": "These features raise both peak speed and resilience to interference, without needing new spectrum.",
+      "deepDive": null,
+      "sceneState": "constellation-grow",
+      "sceneDescription": "Three square grids of dots rise side by side, one per generation. Each grid has four times as many dots as the one before, showing how each newer modulation can tell apart more signal states and so carry more bits.",
+      "durationMs": 12000
+    },
+    {
+      "type": "how",
+      "heading": "More bits per signal, and skipping the busy slice",
+      "body": "[[qam|QAM]] encodes bits as points on a grid; more points mean more bits per signal. Going from 1024 to 4096 points adds two bits per subcarrier, raising the peak rate by 20% {{qam-4k-gain}}. The points sit closer together, so 4K-QAM needs a very clean, strong signal — typically a device near its access point {{eht-4kqam-evm}}.\n\nWith puncturing, the access point marks the busy slice as unused and transmits on all the others {{puncturing-be}}.",
+      "bottomLine": "Devices close to an access point get faster transfers; every device keeps more of the channel when interference appears.",
+      "deepDive": "4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM {{eht-4096qam-bits}} {{he-1024qam-bits}}, and 802.11be sets a stricter EVM limit for it {{eht-4kqam-evm}}. Puncturing is signalled in the preamble so receivers ignore the punctured 20 MHz subchannels {{puncturing-be}}.",
+      "sceneState": "puncture",
+      "sceneDescription": "The wide channel returns with the red interference on one slice. This time, in the Wi-Fi 7 colour, every slice except the busy one stays lit, leaving a single gap where the interference is.",
+      "durationMs": 14000
+    },
+    {
+      "type": "improvement",
+      "heading": "From one piece per device to several",
+      "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits a channel into [[resource-unit|resource units]] so several devices can share one transmission {{ofdma-ax}}. But each device got just one resource unit, and puncturing was limited to multi-user transmissions {{puncturing-ax}}.\n\nWi-Fi 7 can give one device several resource units, even non-adjacent ones {{multi-ru-be}}, and can puncture any transmission {{puncturing-be}}.",
+      "bottomLine": "The access point can fit traffic around interference and give busy devices more of the channel, so less capacity is wasted.",
+      "deepDive": "In 802.11ax, each station in an MU transmission receives a single RU {{multi-ru-be}}. 802.11be defines multiple resource units (MRUs): combinations of RUs assigned to one station, which also make puncturing practical for single-user transmissions {{puncturing-be}}. The top modulation rises from 1024-QAM to 4096-QAM {{qam-4k-gain}}.",
+      "sceneState": "ru-compare",
+      "sceneDescription": "Two rows of resource units are shown. In the earlier generation's row, each device gets exactly one block. In the Wi-Fi 7 row, one device is given several separate blocks spread across the channel, skipping a busy one.",
+      "durationMs": 14000
+    },
+    {
+      "type": "why",
+      "heading": "Capacity that survives a busy neighbourhood",
+      "body": "Hospitals are dense radio environments: neighbouring networks, building systems and wireless clinical equipment all share the air. Puncturing and Multi-RU let wide channels keep working when part of the spectrum is busy, and 4K-QAM speeds up transfers for devices near an access point, such as an imaging workstation in the same room.",
+      "bottomLine": "Wi-Fi 7 delivers more usable capacity in the real, cluttered radio environment of a hospital, not only in ideal conditions.",
+      "deepDive": null,
+      "sceneState": "clinical-outcome",
+      "sceneDescription": "An imaging workstation and several other devices share a punctured channel. The red interference block stays on its slice while data keeps flowing in all the other slices, and the workstation near the access point receives its data quickly.",
+      "durationMs": 11000
+    }
+  ],
   "keyFigures": [],
-  "sections": [],
-  "draft": true
+  "sections": []
 }
