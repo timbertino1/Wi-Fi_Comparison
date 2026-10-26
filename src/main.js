@@ -14,6 +14,7 @@ import { initShortcuts } from './app/shortcuts.js';
 import { initView } from './app/view.js';
 import { initProvenance } from './app/provenance.js';
 import { initReferences } from './app/references.js';
+import { initPresentation } from './app/presentation.js';
 import { setMotion } from './stage/tween.js';
 import { createStage, webglAvailable } from './stage/renderer.js';
 import { createFallback } from './stage/fallback.js';
@@ -114,6 +115,7 @@ function boot() {
   initShortcuts();
   initProvenance();
   initReferences();
+  initPresentation();
   initPreferenceToggles();
 
   story.on('beat', ({ tabId, beatIndex, beatCount }) => {
