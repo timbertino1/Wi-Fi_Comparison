@@ -263,6 +263,42 @@
       "status": "current",
       "access": "open",
       "url": "https://docdb.cept.org/document/16737"
+    },
+    {
+      "id": "wfa-wpa3-launch",
+      "title": "Wi-Fi Alliance introduces Wi-Fi CERTIFIED WPA3 security",
+      "publisher": "wfa",
+      "tier": 1,
+      "identifier": "Wi-Fi Alliance press release",
+      "edition": null,
+      "date": "2018-06-25",
+      "status": "current",
+      "access": "open",
+      "url": "https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-wpa3-security"
+    },
+    {
+      "id": "wfa-wpa3-overview",
+      "title": "Wi-Fi CERTIFIED WPA3 Technology Overview",
+      "publisher": "wfa",
+      "tier": 1,
+      "identifier": "Technology overview, January 2021",
+      "edition": "2021-01",
+      "date": "2021-01",
+      "status": "current",
+      "access": "open",
+      "url": "https://www.wi-fi.org/system/files/Wi-Fi_CERTIFIED_WPA3_Technology_Overview_202101.pdf"
+    },
+    {
+      "id": "wfa-wpa3-highlights",
+      "title": "Driving widespread adoption of WPA3",
+      "publisher": "wfa",
+      "tier": 1,
+      "identifier": "WPA3 Deployment Options Highlights",
+      "edition": "2026-02",
+      "date": "2026-02",
+      "status": "current",
+      "access": "open",
+      "url": "https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf"
     }
   ]
 }

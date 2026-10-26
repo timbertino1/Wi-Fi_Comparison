@@ -26,7 +26,11 @@ test('index.html carries the R12 CSP and no-referrer policy', () => {
 });
 
 test('index.html has no inline script, event handlers or style attributes', () => {
-  for (const [, attrs, body] of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
+  const openTags = html.match(/<script\b/gi) ?? [];
+  const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)];
+  assert.equal(scripts.length, openTags.length, 'every <script> tag must be closed normally');
+  assert.equal(scripts.length, 1, 'exactly one script tag (app.js) is allowed');
+  for (const [, attrs, body] of scripts) {
     assert.match(attrs, /src="app\.js"/, 'only the app.js script tag is allowed');
     assert.equal(body.trim(), '', 'script tags must be empty');
   }

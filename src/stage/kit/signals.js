@@ -12,11 +12,12 @@ export function packet({ color = '#0f9a8a', size = 0.18 } = {}) {
  * An arched link between two points.
  * @returns {{ mesh: THREE.Mesh, curve: THREE.QuadraticBezierCurve3 }}
  */
-export function linkBeam(from, to, { color = '#0f9a8a', radius = 0.045, arch = 1.2, opacity = 0.9 } = {}) {
+export function linkBeam(from, to, { color = '#0f9a8a', radius = 0.045, arch = 1.2, bend = 0, opacity = 0.9 } = {}) {
   const a = from.clone();
   const b = to.clone();
   const mid = a.clone().lerp(b, 0.5);
   mid.y += arch;
+  mid.z += bend;
   const curve = new THREE.QuadraticBezierCurve3(a, mid, b);
   const mesh = new THREE.Mesh(
     new THREE.TubeGeometry(curve, 48, radius, 8, false),

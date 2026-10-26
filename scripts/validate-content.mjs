@@ -17,7 +17,8 @@ export const REF_RE = /\{\{ref:([a-z0-9-]+)\}\}/g;
 
 // Numbers with units that must carry a claim citation (rule 17), and the patterns exempt from it.
 const NUMBER_WITH_UNIT_RE = /(?<![\w.])\d+(?:[.,]\d+)*\s?(?:%|percent\b|[GMk]bps\b|[GM]b\/s\b|[GMk]Hz\b|W\b|watts?\b|ms\b|µs\b|us\b|dBm?\b|spatial streams?\b|streams?\b|channels?\b|subcarriers?\b|bits?\b|×|x\b)/i;
-const EXEMPT_RES = [/Wi-Fi\s?\d+E?/gi, /802\.\d+[a-z]*(?:-\d{4})?/gi, /\b(?:Type|Class|Clause|Table|Annex|Step|Tab)\s\d+/gi, /\b\d+(?:st|nd|rd|th)\b/gi, /\b(?:19|20)\d{2}\b/g];
+// Band names ("2.4 GHz", "5 GHz", "6 GHz") are names, not figures; other numbers about a band still need a claim.
+const EXEMPT_RES = [/(?<![\d.])(?:2\.4|5|6)\s?GHz\b/gi, /Wi-Fi\s?\d+E?/gi, /802\.\d+[a-z]*(?:-\d{4})?/gi, /\b(?:Type|Class|Clause|Table|Annex|Step|Tab)\s\d+/gi, /\b\d+(?:st|nd|rd|th)\b/gi, /\b(?:19|20)\d{2}\b/g];
 
 export function loadContent(dir = path.join(root, 'content')) {
   const read = (f) => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));

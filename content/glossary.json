@@ -29,6 +29,138 @@
       "term": "Voice badge",
       "expansion": null,
       "definition": "A small wearable communicator that lets clinicians call and message each other hands-free over Wi-Fi."
+    },
+    {
+      "id": "mlo",
+      "term": "MLO",
+      "expansion": "Multi-Link Operation",
+      "definition": "A Wi-Fi 7 feature that lets one connection use links in more than one band at the same time, or switch between them without reconnecting."
+    },
+    {
+      "id": "mld",
+      "term": "MLD",
+      "expansion": "Multi-link device",
+      "definition": "A device, client or access point, that can operate several Wi-Fi links as one connection."
+    },
+    {
+      "id": "str",
+      "term": "STR",
+      "expansion": "Simultaneous transmit and receive",
+      "definition": "A multi-link mode where a device can send on one link while receiving on another, using separate radios."
+    },
+    {
+      "id": "nstr",
+      "term": "NSTR",
+      "expansion": "Non-simultaneous transmit and receive",
+      "definition": "A multi-link mode where a device cannot send on one link while receiving on another, so link timing is coordinated."
+    },
+    {
+      "id": "emlsr",
+      "term": "EMLSR",
+      "expansion": "Enhanced multi-link single radio",
+      "definition": "A multi-link mode where a device listens on several links and moves its one full radio to whichever link has traffic."
+    },
+    {
+      "id": "emlmr",
+      "term": "EMLMR",
+      "expansion": "Enhanced multi-link multi-radio",
+      "definition": "A multi-link mode where a device with several radios reassigns them between links as traffic needs."
+    },
+    {
+      "id": "channel-width",
+      "term": "Channel width",
+      "expansion": null,
+      "definition": "How much radio spectrum one Wi-Fi channel occupies. Wider channels carry more data at once, but fewer of them fit in a band."
+    },
+    {
+      "id": "legacy-device",
+      "term": "Legacy device",
+      "expansion": null,
+      "definition": "A device built for an older Wi-Fi generation. It can slow a shared channel because everyone must fall back to methods it understands."
+    },
+    {
+      "id": "regulatory-domain",
+      "term": "Regulatory domain",
+      "expansion": null,
+      "definition": "The country or region whose radio rules apply. Each one decides which frequencies Wi-Fi may use and at what power."
+    },
+    {
+      "id": "lpi",
+      "term": "LPI",
+      "expansion": "Low-power indoor",
+      "definition": "A class of 6 GHz access points limited to indoor use at low power, allowed across the whole US 6 GHz band without a coordination service."
+    },
+    {
+      "id": "qam",
+      "term": "QAM",
+      "expansion": "Quadrature amplitude modulation",
+      "definition": "The way Wi-Fi encodes bits into a radio signal. Higher orders, such as 4096-QAM, pack more bits into each signal but need a cleaner, stronger signal."
+    },
+    {
+      "id": "subcarrier",
+      "term": "Subcarrier",
+      "expansion": null,
+      "definition": "One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others."
+    },
+    {
+      "id": "preamble-puncturing",
+      "term": "Preamble puncturing",
+      "expansion": null,
+      "definition": "Skipping a busy slice inside a wide channel so the rest of the channel can still be used, instead of falling back to a narrower channel."
+    },
+    {
+      "id": "resource-unit",
+      "term": "Resource unit",
+      "expansion": null,
+      "definition": "A block of subcarriers within a channel that an access point assigns to one device for a transmission. Also called an RU."
+    },
+    {
+      "id": "multi-ru",
+      "term": "Multi-RU",
+      "expansion": "Multiple resource units",
+      "definition": "A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other."
+    },
+    {
+      "id": "ofdma",
+      "term": "OFDMA",
+      "expansion": "Orthogonal frequency-division multiple access",
+      "definition": "A Wi-Fi 6 technique that divides a channel into resource units so several devices can send or receive in the same transmission."
+    },
+    {
+      "id": "wpa2",
+      "term": "WPA2",
+      "expansion": "Wi-Fi Protected Access 2",
+      "definition": "The previous generation of Wi-Fi security. Its password-based mode lets a recorded sign-in be attacked offline."
+    },
+    {
+      "id": "wpa3",
+      "term": "WPA3",
+      "expansion": "Wi-Fi Protected Access 3",
+      "definition": "The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options."
+    },
+    {
+      "id": "sae",
+      "term": "SAE",
+      "expansion": "Simultaneous Authentication of Equals",
+      "definition": "The WPA3 sign-in exchange. Both sides prove they know the password without revealing anything an eavesdropper could test offline."
+    },
+    {
+      "id": "forward-secrecy",
+      "term": "Forward secrecy",
+      "expansion": null,
+      "definition": "A property where learning a password later does not let someone decrypt traffic they recorded earlier, because each session used its own key."
+    },
+    {
+      "id": "owe",
+      "term": "OWE",
+      "expansion": "Opportunistic Wireless Encryption (Wi-Fi Enhanced Open)",
+      "definition": "Encryption for open networks, such as guest Wi-Fi, that protects each device's traffic without needing a password."
+    },
+    {
+      "id": "beacon-protection",
+      "term": "Beacon protection",
+      "expansion": null,
+      "definition": "A security feature that lets devices check that the access point announcements they hear are genuine, not forged."
     }
   ]
 }
