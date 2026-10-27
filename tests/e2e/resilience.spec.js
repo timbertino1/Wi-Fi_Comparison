@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fileUrl } from './helpers.js';
+import { fileUrl, hasWebGL } from './helpers.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const tabs = fs.readdirSync(path.join(root, 'content', 'tabs'))
@@ -38,6 +38,7 @@ test('losing the WebGL context switches to still images without losing the place
   test.skip(!haveSnapshots, 'Run `npm run build` (with snapshots) first');
   test.skip(browserName === 'webkit', 'WEBGL_lose_context is unreliable in headless WebKit');
   await page.goto(fileUrl('#/mlo/3'));
+  test.skip(!(await hasWebGL(page)), 'No WebGL in this browser; nowebgl.spec.js covers the fallback');
   await page.waitForSelector('#stage canvas');
   await page.evaluate(() => {
     const canvas = document.querySelector('#stage canvas');
@@ -50,6 +51,7 @@ test('losing the WebGL context switches to still images without losing the place
 
 test('hiding the page stops the render loop', async ({ page }) => {
   await page.goto(fileUrl('#/mlo/3?test'));
+  test.skip(!(await hasWebGL(page)), 'No WebGL in this browser, so there is no render loop');
   await page.waitForFunction(() => window.__stage?.running === true);
   await page.evaluate(() => {
     Object.defineProperty(document, 'visibilityState', { value: 'hidden', configurable: true });
