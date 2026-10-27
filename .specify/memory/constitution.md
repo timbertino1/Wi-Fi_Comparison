@@ -32,7 +32,10 @@ on neutrality and on numbers that hold up to scrutiny.
 
 ### II. Teach by Telling a Story
 
-- Each feature MUST live on its own tab, and each tab MUST follow the same narrative arc:
+- **Chapter**: a self-contained part of the explainer covering one topic. A chapter MAY be
+  presented as a tab or as a chapter of a continuous talk; the rules below apply either way.
+- Each feature MUST have its own chapter, and each feature chapter MUST follow the same narrative
+  arc, expressed through its steps, on-screen captions, hotspots, animation and supporting notes:
   1. **The problem** — a healthcare scenario that exposes a limitation of earlier Wi-Fi.
   2. **What it is** — a plain-language definition of the Wi-Fi 7 feature.
   3. **How it works** — an animated, step-by-step explanation of the mechanism.
@@ -44,14 +47,15 @@ on neutrality and on numbers that hold up to scrutiny.
   plain-language core seen by everyone, a leadership layer (impact, risk, cost, planning), and a
   technical layer (mechanism and protocol detail). Every layer draws on the same facts and
   references.
-- Jargon MUST be defined at first use on each tab.
+- Jargon MUST be defined at first use in each chapter, on screen (for example by a caption or
+  hotspot), not only in supporting notes.
 
 Rationale: The goal is understanding, not a spec sheet. A consistent arc lets learners build a
-mental model tab by tab.
+mental model chapter by chapter.
 
 ### III. Healthcare-Grounded Context
 
-- Every feature tab MUST anchor to at least one concrete healthcare use case (e.g., clinician
+- Every feature chapter MUST anchor to at least one concrete healthcare use case (e.g., clinician
   voice-over-Wi-Fi badges and smartphones, infusion pumps, wireless patient telemetry,
   RTLS/asset tags, mobile workstations, imaging transfer, telehealth video, AR/VR training).
 - The site MUST NOT make clinical-outcome, patient-safety, or regulatory-compliance guarantees
@@ -64,12 +68,12 @@ domain would undermine trust.
 
 ### IV. Generational Comparison
 
-- Each feature tab MUST explicitly compare Wi-Fi 7 (802.11be) against Wi-Fi 6/6E (802.11ax) and,
+- Each feature chapter MUST explicitly compare Wi-Fi 7 (802.11be) against Wi-Fi 6/6E (802.11ax) and,
   where it aids the story, Wi-Fi 5 (802.11ac) and Wi-Fi 4 (802.11n).
 - Comparisons MUST use consistent generation naming (both the Wi-Fi Alliance name and IEEE
-  amendment) and a consistent visual language (same color per generation across all tabs).
+  amendment) and a consistent visual language (same color per generation across all chapters).
 - Where a feature first appeared in an earlier generation (e.g., TWT, WPA3, preamble puncturing,
-  6 GHz), the tab MUST state that origin and explain precisely what Wi-Fi 7 adds or changes.
+  6 GHz), the chapter MUST state that origin and explain precisely what Wi-Fi 7 adds or changes.
 
 Rationale: Value is only clear relative to what came before; precise lineage prevents the common
 error of crediting Wi-Fi 7 with features it inherited.
@@ -79,26 +83,28 @@ error of crediting Wi-Fi 7 with features it inherited.
 - three.js is the primary visualization engine. Every animation MUST depict a real mechanism
   (spectrum, links, symbols, frames, sleep schedules, power budgets) — decoration alone is not
   sufficient justification.
-- Each tab's scene MUST support a before/after or side-by-side mode showing the earlier
+- Each chapter's scene MUST support a before/after or side-by-side mode showing the earlier
   generation's behavior against Wi-Fi 7.
 - Animations MUST be narratively paced and controllable: play/pause, step forward/back, and
   replay for each story beat.
-- Scenes MUST be lazy-initialized per tab and disposed (geometries, materials, textures,
-  render loop) when a tab is left.
+- Scenes MUST be lazy-initialized per chapter and disposed (geometries, materials, textures,
+  render loop) when the chapter is left; transitions between chapters MUST NOT keep more than one
+  scene alive at a time.
 
 Rationale: Animation is the teaching medium; if it does not explain, it distracts and costs
 performance.
 
 ### VI. Accessible & Performant by Default
 
-- The page MUST meet WCAG 2.2 AA: keyboard-operable tabs (WAI-ARIA tabs pattern), sufficient
-  contrast, visible focus, and text equivalents for every animated concept.
+- The page MUST meet WCAG 2.2 AA: keyboard-operable navigation using the WAI-ARIA pattern
+  appropriate to the control (for example tabs, disclosure menu), presentation-clicker keys for
+  stepping, sufficient contrast, visible focus, and text equivalents for every animated concept.
 - `prefers-reduced-motion` MUST be honored with static or minimal-motion alternatives that
   convey the same information.
 - If WebGL is unavailable, the page MUST degrade to a non-3D presentation (static diagrams or
   2D illustration) with all story content intact.
 - Targets: 60 fps on a mid-range laptop integrated GPU, usable at 30 fps on a modern mid-range
-  phone; responsive layout from 360 px wide upward; initial load (before first tab scene) under
+  phone; responsive layout from 360 px wide upward; initial load (before the first chapter's scene) under
   3 seconds on a typical broadband connection.
 
 Rationale: Hospital audiences include shared workstations, older hardware, and users with
@@ -135,7 +141,7 @@ trustworthy to deploy, and its repository must resist accidental or malicious ch
 
 ## Content & Technology Constraints
 
-**Required feature coverage** — each item below MUST have its own tab following Principle II:
+**Required feature coverage** — each item below MUST have its own chapter following Principle II:
 
 1. 6 GHz spectrum (including channel availability and why clean spectrum matters)
 2. Multi-Link Operation (MLO)
@@ -145,8 +151,8 @@ trustworthy to deploy, and its repository must resist accidental or malicious ch
 6. Client density and its healthcare implications
 7. Bandwidth and Power over Ethernet (PoE) / wired-infrastructure impact
 
-Additional tabs MAY be added through the spec process, provided they meet all principles. An
-overview/introduction and a references section are expected in addition to feature tabs.
+Additional chapters MAY be added through the spec process, provided they meet all principles. An
+overview/introduction and a references section are expected in addition to feature chapters.
 
 **Technology**:
 
@@ -165,14 +171,14 @@ overview/introduction and a references section are expected in addition to featu
   before merging; reviews MUST confirm constitution compliance.
 - **Security gate**: before release, the CSP MUST produce zero violations in all target browsers,
   and dependency, code, and secret scans MUST report no open high or critical findings.
-- **Accuracy review gate**: before a tab is considered done, every numeric or normative claim on
+- **Accuracy review gate**: before a chapter is considered done, every numeric or normative claim on
   it MUST be checked against its cited source at the recorded location, its verification date
   and verifier recorded, and theoretical vs. typical values labeled. Automated checks MUST reject
   uncited numbers, non-allowlisted sources, and derived values that do not recompute. At release,
   no claim may be unverified, and claims verified more than 12 months earlier MUST be re-verified.
 - **Neutrality gate**: a scan of copy and assets for vendor names, logos, and trademarks MUST
   pass before release.
-- **Story gate**: each tab MUST demonstrably contain all five narrative beats from Principle II
+- **Story gate**: each feature chapter MUST demonstrably contain all five narrative beats from Principle II
   and a generational comparison per Principle IV.
 - **Accessibility & performance gate**: keyboard navigation, reduced-motion mode, WebGL fallback,
   and frame-rate targets MUST be verified manually or by automated checks before release.
@@ -189,4 +195,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 1.2.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-26
+**Version**: 1.3.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-27
