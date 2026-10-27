@@ -92,12 +92,21 @@ function renderRegister() {
   const usage = claimUsage();
   const verified = claims.filter((c) => c.verification?.verifiedOn).length;
   const s = section('claims-register', `Claims register (${claims.length} claims, ${verified} verified)`);
-  const filterLabel = el('label', 'ref-filter', 'Show claims used on: ');
-  const select = el('select');
-  select.append(new Option('All tabs', ''));
-  for (const t of tabs.filter((x) => x.kind !== 'references')) select.append(new Option(t.title, t.id));
-  filterLabel.append(select);
-  s.append(filterLabel);
+  // A button group rather than <select>: WebKit's built-in select styling trips the strict CSP.
+  const filter = el('div', 'ref-filter');
+  filter.setAttribute('role', 'group');
+  filter.setAttribute('aria-label', 'Show claims used on');
+  filter.append(el('span', 'ref-filter-label', 'Show claims used on: '));
+  const options = [['', 'All tabs'], ...tabs.filter((x) => x.kind !== 'references').map((t) => [t.id, t.title])];
+  const filterButtons = options.map(([value, label]) => {
+    const b = el('button', 'chip-button ref-filter-option', label);
+    b.type = 'button';
+    b.dataset.filter = value;
+    b.setAttribute('aria-pressed', String(value === ''));
+    filter.append(b);
+    return b;
+  });
+  s.append(filter);
 
   const wrap = el('div', 'table-wrap');
   const table = el('table', 'figures-table register-table');
@@ -124,9 +133,11 @@ function renderRegister() {
     row.insertCell().textContent = (c.sources ?? []).map((x) => `${publisherById.get(refById(x.referenceId)?.publisher)?.name ?? ''} ${refById(x.referenceId)?.identifier ?? x.referenceId} — ${x.locator}`).join('; ');
     row.insertCell().textContent = c.verification?.verifiedOn ? `${c.verification.verifiedOn} (${c.verification.verifiedBy})` : 'Not yet';
   }
-  select.addEventListener('change', () => {
-    for (const row of body.rows) row.hidden = !!select.value && !row.dataset.tabs.split(' ').includes(select.value);
-  });
+  const applyFilter = (value) => {
+    for (const b of filterButtons) b.setAttribute('aria-pressed', String(b.dataset.filter === value));
+    for (const row of body.rows) row.hidden = !!value && !row.dataset.tabs.split(' ').includes(value);
+  };
+  for (const b of filterButtons) b.addEventListener('click', () => applyFilter(b.dataset.filter));
   wrap.append(table);
   s.append(wrap);
   return s;
@@ -187,11 +198,7 @@ export function initReferences() {
     requestAnimationFrame(() => {
       if (ref) highlight(`ref-${ref}`);
       if (claim && claimById.has(claim)) {
-        const select = document.querySelector('#claims-register select');
-        if (select) {
-          select.value = '';
-          select.dispatchEvent(new Event('change'));
-        }
+        document.querySelector('#claims-register .ref-filter-option[data-filter=""]')?.click();
         highlight(`claim-${claim}`);
       }
     });
