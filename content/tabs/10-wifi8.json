@@ -14,6 +14,10 @@
     {
       "type": "intro",
       "heading": "The next amendment is in development",
+      "caption": {
+        "headline": "The next amendment is in development",
+        "takeaway": "Wi-Fi 8 is not a reason to wait: Wi-Fi 7 is the current, certified generation, and…"
+      },
       "body": "The IEEE is already working on the next generation: P802.11bn, \"Enhancements for [[uhr|Ultra High Reliability]]\", which is expected to become Wi-Fi 8. It is still in development and has not been approved {{wifi8-status}}.\n\nEverything on this tab is forward-looking and subject to change.",
       "bottomLine": "Wi-Fi 8 is not a reason to wait: Wi-Fi 7 is the current, certified generation, and Wi-Fi 8 is expected to build on it.",
       "deepDive": null,
@@ -24,6 +28,10 @@
     {
       "type": "context",
       "heading": "From faster to more reliable",
+      "caption": {
+        "headline": "From faster to more reliable",
+        "takeaway": "The next generation targets exactly the problems that matter most in clinical settings: dependable delivery, not…"
+      },
       "body": "Where Wi-Fi 7 focused on throughput and lower [[latency|latency]], the stated goal of 802.11bn is reliability: fewer lost messages and more consistent performance, including with interference and movement {{wifi8-reliability-def}}.\n\nThe project's goals include at least 25% more throughput than Wi-Fi 7 in at least one mode {{wifi8-throughput-goal}} and 25% lower latency for the slowest 5% of messages {{wifi8-latency-goal}}.",
       "bottomLine": "The next generation targets exactly the problems that matter most in clinical settings: dependable delivery, not just speed.",
       "deepDive": "The P802.11bn PAR defines reliability improvements in terms of throughput, latency and [[mpdu|MPDU]] loss {{wifi8-reliability-def}}, with targets of at least 25% higher throughput {{wifi8-throughput-goal}} and 25% lower 95th-percentile latency {{wifi8-latency-goal}} than 802.11be in at least one mode. These are project goals, not measured results; the technical mechanisms are still being decided in task group TGbn {{wifi8-status}}.",
@@ -34,6 +42,10 @@
     {
       "type": "outlook",
       "heading": "What to do today",
+      "caption": {
+        "headline": "What to do today",
+        "takeaway": "Investments in wired infrastructure and 6 GHz design for Wi-Fi 7 are expected to carry forward…"
+      },
       "body": "Deploy Wi-Fi 7 where it solves today's problems, and make choices that carry forward: [[multigig|multi-gigabit]] switching, sufficient [[poe|PoE]] budgets, 6 GHz-capable designs and clinical devices with current Wi-Fi support.\n\nWe will update this page as 802.11bn progresses {{wifi8-status}}.",
       "bottomLine": "Investments in wired infrastructure and 6 GHz design for Wi-Fi 7 are expected to carry forward to the next generation.",
       "deepDive": null,

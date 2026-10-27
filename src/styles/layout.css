@@ -1,4 +1,7 @@
-/* Layout and components. Colours come from tokens.css. */
+/* Layout and components. Colours come from tokens.css.
+   Performance rule (research P11): never put backdrop-filter, box-shadow or filter on DOM that moves
+   every frame (stage labels, hotspot markers). The browser recomposites them each frame, which
+   costs real frame time on software-rendered GPUs. Static panels (caption, drawer) may use them. */
 *,
 *::before,
 *::after {

@@ -14,7 +14,8 @@
     "build:fast": "node scripts/build.mjs --no-snapshots",
     "watch": "node scripts/build.mjs --watch --no-snapshots",
     "test": "npm run validate && node --test \"tests/content/*.test.mjs\"",
-    "test:e2e": "npm run build:fast && playwright test"
+    "test:e2e": "npm run build:fast && playwright test",
+    "frame-budget": "node scripts/frame-budget.mjs"
   },
   "dependencies": {
     "three": "0.186.1"

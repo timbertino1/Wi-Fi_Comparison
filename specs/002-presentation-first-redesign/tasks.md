@@ -30,8 +30,8 @@ with US5 brought forward because it is P1).
 **Purpose**: Governance and guard-rails before any UI changes
 
 - [x] T001 Amend Principle II via `/speckit-constitution` in .specify/memory/constitution.md: replace "Each feature MUST live on its own tab, and each tab MUST follow the same narrative arc" with "Each feature MUST have its own chapter (a tab or a chapter of a continuous talk), and each chapter MUST follow the same narrative arc, expressed through its steps, captions, hotspots and animation"; MINOR bump 1.2.0 → 1.3.0; include Sync Impact Report and reason (FR-031)
-- [ ] T002 [P] Add an uncapped frame-time comparison script (Chromium flags `--disable-gpu-vsync --disable-frame-rate-limit`, median per scene, compares against a `main` build path argument) in scripts/frame-budget.mjs, and an npm script `frame-budget` in package.json (research P11, quickstart V16)
-- [ ] T003 [P] Record the P11 styling rule as a comment block at the top of src/styles/layout.css: no `backdrop-filter`, `box-shadow` or `filter` on DOM that moves every frame (hotspots, labels)
+- [x] T002 [P] Add an uncapped frame-time comparison script (Chromium flags `--disable-gpu-vsync --disable-frame-rate-limit`, median per scene, compares against a `main` build path argument) in scripts/frame-budget.mjs, and an npm script `frame-budget` in package.json (research P11, quickstart V16)
+- [x] T003 [P] Record the P11 styling rule as a comment block at the top of src/styles/layout.css: no `backdrop-filter`, `box-shadow` or `filter` on DOM that moves every frame (hotspots, labels)
 
 ---
 
@@ -43,12 +43,12 @@ with US5 brought forward because it is P1).
 
 ### Content model & validation
 
-- [ ] T004 Extend the content schema in scripts/validate-content.mjs for Step fields per data-model.md: `caption.headline` required, "≤ 8 words"; `caption.takeaway` required, "≤ 16 words", may contain `{{claim-id}}`; `caption.technical` optional, "≤ 20 words"; `captionAtMs` optional "0–`durationMs`; default 600"; `hotspots` optional "≤ 4 per depth per step"; `questions` optional. Word counts strip markup and split on whitespace; error text `<chapter>/<step>: caption.<field> has N words (max M)`
-- [ ] T005 Extend validation in scripts/validate-content.mjs for Hotspot (`id` unique kebab-case within step; `anchor` required; `term` required and must exist; `claim` optional, must exist and be verified; `technical` optional "≤ 30 words"; `depth` `all` (default) or `technical`) and LikelyQuestion (`q` "≤ 25 words"; `a` "≤ 80 words", numbers MUST carry `{{claim-id}}`; `audience` `leadership`, `technical` or `both` (default)), including denylist and uncited-number scans on all new text
-- [ ] T006 Extend validation in scripts/validate-content.mjs for GlossaryTerm `short` (optional, "≤ 30 words") and Chapter `shortTitle` (optional, "≤ 24 characters"); require that a hotspot's term has `definition` ≤ 30 words or a `short`
-- [ ] T007 Add the jargon-first-use rule to scripts/validate-content.mjs: every glossary term used in a chapter's captions is defined at or before first use by a caption `[[term]]` link or a hotspot with that `term` (FR-017)
-- [ ] T008 [P] Content tests for T004–T007 with passing and failing fixtures in tests/content/captions.test.mjs and tests/content/fixtures/
-- [ ] T009 Add temporary placeholder captions (headline = beat `heading` truncated to 8 words, takeaway = first sentence of `bottomLine` truncated to 16 words) for every step so the build passes before authoring, via a one-off script scripts/seed-captions.mjs writing content/tabs/*.json; delete the script after running
+- [x] T004 Extend the content schema in scripts/validate-content.mjs for Step fields per data-model.md: `caption.headline` required, "≤ 8 words"; `caption.takeaway` required, "≤ 16 words", may contain `{{claim-id}}`; `caption.technical` optional, "≤ 20 words"; `captionAtMs` optional "0–`durationMs`; default 600"; `hotspots` optional "≤ 4 per depth per step"; `questions` optional. Word counts strip markup and split on whitespace; error text `<chapter>/<step>: caption.<field> has N words (max M)`
+- [x] T005 Extend validation in scripts/validate-content.mjs for Hotspot (`id` unique kebab-case within step; `anchor` required; `term` required and must exist; `claim` optional, must exist and be verified; `technical` optional "≤ 30 words"; `depth` `all` (default) or `technical`) and LikelyQuestion (`q` "≤ 25 words"; `a` "≤ 80 words", numbers MUST carry `{{claim-id}}`; `audience` `leadership`, `technical` or `both` (default)), including denylist and uncited-number scans on all new text
+- [x] T006 Extend validation in scripts/validate-content.mjs for GlossaryTerm `short` (optional, "≤ 30 words") and Chapter `shortTitle` (optional, "≤ 24 characters"); require that a hotspot's term has `definition` ≤ 30 words or a `short`
+- [x] T007 Add the jargon-first-use rule to scripts/validate-content.mjs: every glossary term used in a chapter's captions is defined at or before first use by a caption `[[term]]` link or a hotspot with that `term` (FR-017)
+- [x] T008 [P] Content tests for T004–T007 with passing and failing fixtures in tests/content/captions.test.mjs and tests/content/fixtures/
+- [x] T009 Add temporary placeholder captions (headline = beat `heading` truncated to 8 words, takeaway = first sentence of `bottomLine` truncated to 16 words) for every step so the build passes before authoring, via a one-off script scripts/seed-captions.mjs writing content/tabs/*.json; delete the script after running
 
 ### Shell structure
 
