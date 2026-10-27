@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 // Generic, unbranded device silhouettes built from simple boxes: [width, height, depth, yOffset].
 const SHAPES = {
@@ -19,33 +21,21 @@ export const clientTypes = Object.keys(SHAPES);
 function shapeGeometry(type) {
   if (type === 'dot') return new THREE.SphereGeometry(0.13, 8, 6).translate(0, 0.13, 0);
   const parts = (SHAPES[type] ?? SHAPES.phone).map(([w, h, d, y]) => {
-    const g = new THREE.BoxGeometry(w, h, d);
+    // Soft device corners: the radius follows the thinnest side.
+    const g = new RoundedBoxGeometry(w, h, d, 1, Math.min(w, h, d) * 0.45);
     g.translate(0, y, 0);
     return g;
   });
   if (parts.length === 1) return parts[0];
   // Merge parts into one geometry (keeps draw calls low).
-  const positions = [];
-  const normals = [];
-  const indices = [];
-  let offset = 0;
-  for (const g of parts) {
-    positions.push(...g.attributes.position.array);
-    normals.push(...g.attributes.normal.array);
-    indices.push(...Array.from(g.index.array, (i) => i + offset));
-    offset += g.attributes.position.count;
-    g.dispose();
-  }
-  const merged = new THREE.BufferGeometry();
-  merged.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  merged.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
-  merged.setIndex(indices);
+  const merged = mergeGeometries(parts);
+  for (const g of parts) g.dispose();
   return merged;
 }
 
 /** A single client device mesh. */
 export function client(type, { color = '#8796ad' } = {}) {
-  return new THREE.Mesh(shapeGeometry(type), new THREE.MeshStandardMaterial({ color, roughness: 0.6 }));
+  return new THREE.Mesh(shapeGeometry(type), new THREE.MeshStandardMaterial({ color, roughness: 0.38 }));
 }
 
 /**

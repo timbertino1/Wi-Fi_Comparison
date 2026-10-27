@@ -1,10 +1,11 @@
 import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
-/** A small frame/packet travelling between devices. */
+/** A small frame/packet travelling between devices: a rounded, softly lit capsule-like block. */
 export function packet({ color = '#0f9a8a', size = 0.18 } = {}) {
   return new THREE.Mesh(
-    new THREE.BoxGeometry(size * 1.6, size, size),
-    new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 0.35, roughness: 0.4 })
+    new RoundedBoxGeometry(size * 1.6, size, size, 1, size * 0.4),
+    new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 0.55, roughness: 0.3 })
   );
 }
 
@@ -34,9 +35,10 @@ export function constellation(order, { color = '#0f9a8a', extent = 4, pointSize 
   const side = Math.round(Math.sqrt(order));
   const step = extent / (side - 1);
   const size = pointSize ?? Math.min(0.12, step * 0.55);
+  // Round symbols read as constellation points; dense constellations get fewer facets per point.
   const mesh = new THREE.InstancedMesh(
-    new THREE.BoxGeometry(size, size, size),
-    new THREE.MeshStandardMaterial({ color, roughness: 0.5 }),
+    new THREE.IcosahedronGeometry(size * 0.62, 0),
+    new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 0.25, roughness: 0.35 }),
     side * side
   );
   const m = new THREE.Matrix4();

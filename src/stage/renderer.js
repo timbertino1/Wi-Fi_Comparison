@@ -35,6 +35,9 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  // Neutral tone mapping keeps the generation colours true while softening highlights.
+  renderer.toneMapping = THREE.NeutralToneMapping;
+  renderer.toneMappingExposure = 1;
   renderer.domElement.setAttribute('aria-hidden', 'true');
   renderer.domElement.classList.add('stage-canvas');
   container.appendChild(renderer.domElement);
@@ -133,10 +136,10 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
   };
 
   function addLights(target) {
-    target.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.6));
-    const sun = new THREE.DirectionalLight(0xffffff, 1.4);
-    sun.position.set(6, 12, 8);
-    target.add(sun);
+    target.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.4));
+    const key = new THREE.DirectionalLight(0xfff6ec, 1.5);
+    key.position.set(6, 12, 8);
+    target.add(key);
   }
 
   return {

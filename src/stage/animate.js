@@ -17,7 +17,7 @@ function setPath(obj, path, value) {
  * @param {Array<[object, string, number]>} targets
  * @returns {Promise<boolean>}
  */
-export function animateTo(targets, { durationMs = 900, delayMs = 0, animate = true, signal, ease = easing.easeInOutCubic } = {}) {
+export function animateTo(targets, { durationMs = 900, delayMs = 0, animate = true, signal, ease = easing.easeInOutQuart } = {}) {
   const from = targets.map(([obj, path]) => getPath(obj, path));
   const apply = (t) => {
     targets.forEach(([obj, path, to], i) => setPath(obj, path, from[i] + (to - from[i]) * t));
