@@ -15,7 +15,8 @@ function featureTab(overrides = {}) {
     deepDive: type === 'how' || type === 'improvement' ? 'Protocol detail.' : null,
     sceneState: `state-${type}`,
     sceneDescription: 'An access point and several clinical devices are shown on a hospital floor while packets move between them over the air.',
-    durationMs: 10000
+    durationMs: 10000,
+    caption: { headline: `Caption for ${type}`, takeaway: 'A short slide takeaway.' }
   });
   return {
     id: 'fixture', order: 3, kind: 'feature', title: 'Fixture', summary: 'A fixture.', introducedIn: 'wifi7', wifi7Adds: null,
