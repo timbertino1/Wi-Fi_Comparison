@@ -24,6 +24,14 @@ export async function guardOffline(page) {
   return () => blocked;
 }
 
+/** Whether the browser can create a WebGL context (headless Firefox on Linux CI cannot). */
+export function hasWebGL(page) {
+  return page.evaluate(() => {
+    const canvas = document.createElement('canvas');
+    return !!(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+  });
+}
+
 /** Collects console errors and uncaught page errors. */
 export function collectConsoleErrors(page) {
   const errors = [];
