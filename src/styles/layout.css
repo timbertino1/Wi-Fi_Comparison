@@ -1155,3 +1155,16 @@ a {
 .prov-constant {
   color: var(--fg-muted);
 }
+
+.ref-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.ref-filter-option[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}

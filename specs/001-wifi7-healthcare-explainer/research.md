@@ -195,7 +195,9 @@ worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'
 **Verification outcome (2026-10-26)**: `tests/e2e/security.spec.js` loaded every beat of every tab
 in Chromium, Firefox and WebKit, from `file://` and from HTTP with the hosting headers: zero CSP
 violations, zero external requests, zero console errors. `'self'` works for `file://` resources in
-all three browsers, so the `file:` scheme fallback was **not** needed.
+all three browsers, so the `file:` scheme fallback was **not** needed. One WebKit quirk was found: creating a `<select>`
+element triggers a `style-src-attr` violation (its built-in rendering uses inline styles), so the site
+uses button groups instead of `<select>`.
 
 **Alternatives considered**: no CSP (fails the security review); hash-based inline script (not
 needed — no inline script exists); a separate hosted build with a different policy (two

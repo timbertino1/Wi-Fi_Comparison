@@ -59,6 +59,17 @@ unless marked *manual*.
 | V22 | Independent spot check | *Manual*: a reviewer with access to the sources reproduces 10 random figures using only the provenance panel | 10 of 10 reproduced | SC-014 |
 | V20 | Merge protection | Try `git push origin main` directly; open a PR with a deliberately failing test | Push rejected by the ruleset; PR merge blocked until checks pass | FR-043–FR-045, SC-012 |
 
+## Validation status (2026-10-26, end of implementation)
+
+| Scenarios | Status | Evidence |
+|-----------|--------|----------|
+| V1–V14, V16, V18–V21 | Automated and passing | `npm test`; `npm run test:e2e` in Chromium, Firefox and WebKit (`tests/e2e/*`); performance at 60 fps on an integrated GPU (V12, local GPU run) |
+| V12 phone check | Manual — pending | Run on a modern mid-range phone |
+| V15 accuracy gate | Manual — pending | `checklists/accuracy-gate.md` (94 claims to verify by a person) |
+| V17 comprehension | Manual — pending | `checklists/comprehension-review.md` |
+| V20 direct push | Verified via rules API; live push intentionally not attempted | `checklists/security-gate.md` |
+| V22 spot check | Manual — pending | `checklists/accuracy-gate.md` |
+
 ## Release checklist (constitution quality gates)
 
 - [ ] Accuracy gate: V15, V21 and V22 complete; `docs/provenance-report.md` current

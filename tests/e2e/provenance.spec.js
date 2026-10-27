@@ -73,7 +73,7 @@ test('References tab lists the source policy, every reference, the register and 
   await expect(page.locator('#source-policy')).toContainText('Never cited');
   await expect(page.locator('#reference-list .ref-item')).toHaveCount(references.length);
   await expect(page.locator('#claims-register tbody tr')).toHaveCount(claims.length);
-  await page.locator('#claims-register select').selectOption('mlo');
+  await page.locator('#claims-register .ref-filter-option[data-filter="mlo"]').click();
   const visible = await page.locator('#claims-register tbody tr:visible').count();
   expect(visible).toBeGreaterThan(0);
   expect(visible).toBeLessThan(claims.length);
