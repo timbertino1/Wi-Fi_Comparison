@@ -101,14 +101,14 @@ with US5 brought forward because it is P1).
 
 ### Tests for User Story 5
 
-- [ ] T028 [P] [US5] Coverage test in tests/content/talk-track.test.mjs: walk every string field under content/ except ids, URLs, dates and enums; normalise markup per contracts/talk-track.md; assert each appears in the generated output; report missing JSON paths
-- [ ] T029 [P] [US5] Freshness test in tests/content/talk-track.test.mjs: `--check` fails when docs/talk-track.md differs from a fresh generation
+- [x] T028 [P] [US5] Coverage test in tests/content/talk-track.test.mjs: walk every string field under content/ except ids, URLs, dates and enums; normalise markup per contracts/talk-track.md; assert each appears in the generated output; report missing JSON paths
+- [x] T029 [P] [US5] Freshness test in tests/content/talk-track.test.mjs: `--check` fails when docs/talk-track.md differs from a fresh generation
 
 ### Implementation for User Story 5
 
-- [ ] T030 [US5] Generator in scripts/talk-track.mjs per contracts/talk-track.md: per chapter scenario; per step On screen / Say (leadership) / Technical depth / Figures table (value with qualifier, source title, locator, verified date) / Likely questions; chapter deep sections; Glossary; References by tier; markup rules (`[[term]]` with first-use definition per chapter, `{{claim-id}}` and `{{ref:id}}` → `[S<n>]`); plain GitHub-flavoured Markdown, no HTML; `--check` mode
-- [ ] T031 [US5] Run the generator from scripts/build.mjs (write) and add `node scripts/talk-track.mjs --check` to the `validate` job in .github/workflows/ci.yml and to `npm run validate` in package.json
-- [ ] T032 [US5] Generate and commit docs/talk-track.md; confirm it is not copied into dist/ (assert in tests/content/talk-track.test.mjs)
+- [x] T030 [US5] Generator in scripts/talk-track.mjs per contracts/talk-track.md: per chapter scenario; per step On screen / Say (leadership) / Technical depth / Figures table (value with qualifier, source title, locator, verified date) / Likely questions; chapter deep sections; Glossary; References by tier; markup rules (`[[term]]` with first-use definition per chapter, `{{claim-id}}` and `{{ref:id}}` → `[S<n>]`); plain GitHub-flavoured Markdown, no HTML; `--check` mode
+- [x] T031 [US5] Run the generator from scripts/build.mjs (write) and add `node scripts/talk-track.mjs --check` to the `validate` job in .github/workflows/ci.yml and to `npm run validate` in package.json
+- [x] T032 [US5] Generate and commit docs/talk-track.md; confirm it is not copied into dist/ (assert in tests/content/talk-track.test.mjs)
 - [ ] T033 [US5] Publish the generated talk track once as an editable document titled "Wi-Fi 7 Explained — Talk Track (annotate here)" (quickstart T1); record its link in specs/002-presentation-first-redesign/quickstart.md
 
 **Checkpoint**: Talk track complete and in CI; editable copy available for annotation

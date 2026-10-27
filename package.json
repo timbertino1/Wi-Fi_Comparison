@@ -8,14 +8,15 @@
     "node": ">=20"
   },
   "scripts": {
-    "validate": "node scripts/validate-content.mjs",
+    "validate": "node scripts/validate-content.mjs && node scripts/talk-track.mjs --check",
     "provenance": "node scripts/provenance-report.mjs",
     "build": "node scripts/build.mjs",
     "build:fast": "node scripts/build.mjs --no-snapshots",
     "watch": "node scripts/build.mjs --watch --no-snapshots",
     "test": "npm run validate && node --test \"tests/content/*.test.mjs\"",
     "test:e2e": "npm run build:fast && playwright test",
-    "frame-budget": "node scripts/frame-budget.mjs"
+    "frame-budget": "node scripts/frame-budget.mjs",
+    "talk-track": "node scripts/talk-track.mjs"
   },
   "dependencies": {
     "three": "0.186.1"

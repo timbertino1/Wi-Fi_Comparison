@@ -14,7 +14,7 @@
 
 ```markdown
 # Wi-Fi 7 Explained — Talk Track
-Generated from content on <build date>. Do not edit; annotate the editable copy instead.
+Generated from `content/` (no date, so output is deterministic). Do not edit; annotate the editable copy instead.
 
 ## Contents
 1. Why Wi-Fi 7, and why now … 10. What's next: Wi-Fi 8 · Glossary · References
