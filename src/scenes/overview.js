@@ -50,22 +50,55 @@ export default {
     });
     labels.add(aps[2], 'Access point', { className: 'muted', offset: [0, 0.6, 0] });
 
-    // Devices: one instanced mesh; how many are visible tells the story.
-    const devices = kit.clientCrowd('dot', MAX_DEVICES, { color: neutral.device });
+    // Devices: one instanced crowd per typical clinical client; device i is of type i % types, so
+    // how many are visible tells the story and every type is present from the quiet floor on.
+    // `where`: rooms (bedside kit), corridor (carts) or anywhere (worn and carried devices).
+    const TYPES = [
+      // The first device of each type anchors its hotspot: spots sit in the left two-thirds of the
+      // floor, clear of the callout card on the right.
+      { id: 'voice-badge', scale: 0.62, where: 'any', spot: [-5.2, 1.9] },
+      { id: 'infusion-pump', scale: 0.38, where: 'room', spot: [-3.0, -2.4] },
+      { id: 'telemetry-monitor', scale: 0.5, where: 'room', spot: [-0.9, 2.6] },
+      { id: 'phone', scale: 0.55, where: 'any', spot: [1.4, 2.2] },
+      { id: 'workstation-cart', scale: 0.42, where: 'corridor', spot: [-2.4, 0.6] },
+      { id: 'rtls-tag', scale: 0.85, where: 'any', spot: [-3.4, 2.8] }
+    ];
     const genColor = new THREE.Color(palette.wifi7);
+    const idleColor = new THREE.Color(neutral.device);
+    const crowds = TYPES.map((t) => {
+      const mesh = kit.clientCrowd(t.id, Math.ceil(MAX_DEVICES / TYPES.length), { color: neutral.device });
+      floor.add(mesh);
+      return { ...t, mesh, spots: [] };
+    });
     const deviceSpots = [];
+    const typeAnchors = {};
     for (let i = 0; i < MAX_DEVICES; i++) {
-      const inRoom = i % 5 !== 0;
-      const side = rand() < 0.5 ? -1 : 1;
-      const x = -6.6 + rand() * 13.2;
-      const z = inRoom ? side * (1.4 + rand() * 2.2) : (rand() - 0.5) * 1.6;
-      deviceSpots.push(new THREE.Vector3(x, 0, z));
-      m.compose(deviceSpots[i], new THREE.Quaternion().setFromEuler(new THREE.Euler(0, rand() * Math.PI, 0)), new THREE.Vector3(1, 1, 1));
-      devices.setMatrixAt(i, m);
-      devices.setColorAt(i, i < QUIET_DEVICES ? genColor : new THREE.Color(neutral.device));
+      const crowd = crowds[i % TYPES.length];
+      const k = crowd.spots.length;
+      let spot;
+      if (k === 0) {
+        spot = new THREE.Vector3(crowd.spot[0], 0, crowd.spot[1]);
+      } else {
+        const side = rand() < 0.5 ? -1 : 1;
+        const where = crowd.where === 'any' ? (rand() < 0.75 ? 'room' : 'corridor') : crowd.where;
+        const x = -6.6 + rand() * 13.2;
+        spot = new THREE.Vector3(x, 0, where === 'room' ? side * (1.4 + rand() * 2.2) : (rand() - 0.5) * 1.6);
+      }
+      crowd.spots.push(spot);
+      deviceSpots.push(spot);
+      m.compose(spot, new THREE.Quaternion().setFromEuler(new THREE.Euler(0, rand() * Math.PI, 0)), new THREE.Vector3().setScalar(crowd.scale));
+      crowd.mesh.setMatrixAt(k, m);
+      crowd.mesh.setColorAt(k, i < QUIET_DEVICES ? genColor : idleColor);
+      if (k === 0) {
+        // Hotspot anchor at the top of this type's first device, which is visible in every floor state.
+        const anchor = new THREE.Object3D();
+        anchor.position.set(spot.x, crowd.scale * 1.1, spot.z);
+        floor.add(anchor);
+        typeAnchors[crowd.id] = anchor;
+      }
     }
-    devices.count = QUIET_DEVICES;
-    floor.add(devices);
+    const visibleOf = (n, t) => (n > t ? Math.floor((n - 1 - t) / TYPES.length) + 1 : 0);
+    for (const [t, c] of crowds.entries()) c.mesh.count = visibleOf(QUIET_DEVICES, t);
 
     // Ambient packets flowing to the nearest access point while the floor is busy.
     const packets = Array.from({ length: 24 }, (_, i) => {
@@ -105,13 +138,22 @@ export default {
     const cameraFloor = { x: 0, y: 9.5, z: 9.5 };
     const cameraTimeline = { x: 0, y: 4.2, z: 12.5 };
     const counter = { n: QUIET_DEVICES };
+    let shown = QUIET_DEVICES;
     function applyCount() {
       const n = Math.round(counter.n);
-      if (n === devices.count) return;
-      for (let i = Math.min(n, devices.count); i < Math.max(n, devices.count); i++) devices.setColorAt(i, i < n ? genColor : new THREE.Color(neutral.device));
-      devices.count = n;
-      devices.instanceColor.needsUpdate = true;
+      if (n === shown) return;
+      shown = n;
+      for (const [t, c] of crowds.entries()) {
+        const count = visibleOf(n, t);
+        if (count === c.mesh.count) continue;
+        for (let k = Math.min(count, c.mesh.count); k < Math.max(count, c.mesh.count); k++) c.mesh.setColorAt(k, k < count ? genColor : idleColor);
+        c.mesh.count = count;
+        c.mesh.instanceColor.needsUpdate = true;
+      }
     }
+    // Hotspot anchors per state (contract: cached, hidden objects omitted). `ap` is the middle AP.
+    const floorAnchors = { ap: aps[1], ...typeAnchors };
+    const timelineAnchors = { ap: aps[1] };
     let mode = 'floor-quiet';
     let time = 0;
     const motionFull = ctx.motion === 'full';
@@ -169,6 +211,10 @@ export default {
       isIdle() {
         return !(motionFull && mode === 'floor-crowded');
       },
+      anchors() {
+        return mode.startsWith('timeline') ? timelineAnchors : floorAnchors;
+      },
+      shots: { wide: { position: [0, 11, 12], target: [0, 0, 0] } },
       resize(width, height) {
         camera.fov = width / height < 1 ? 60 : 40;
         camera.updateProjectionMatrix();

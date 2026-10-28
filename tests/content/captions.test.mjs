@@ -1,4 +1,4 @@
-// Feature 002 content rules 20–23: captions, hotspots, likely questions, on-screen jargon.
+// Feature 002 content rules 20–25: captions, hotspots, likely questions, on-screen jargon, callouts, openers.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateContent, loadContent } from '../../scripts/validate-content.mjs';
@@ -23,6 +23,7 @@ function tabWith(edit = () => {}) {
   edit(beats);
   return {
     id: 'fixture', order: 3, kind: 'feature', title: 'Fixture', summary: 'A fixture.', introducedIn: 'wifi7', wifi7Adds: null,
+    opener: { promise: 'A short promise', problem: 'The problem this chapter solves, in a sentence.' },
     compareGenerations: ['wifi6', 'wifi7'], defaultCompare: 'wifi6', sceneId: null, scenarioIds: [], sections: [],
     beats, keyFigures: [], _file: 'tabs/fixture.json'
   };
@@ -34,7 +35,7 @@ async function errorsFor(tab, glossary = base.glossary) {
   content.glossary = glossary;
   content.tabs = content.tabs.map((t) => (t.order === tab.order ? tab : t));
   const { errors } = await validateContent({ content, denylist: [] });
-  return errors.filter((e) => /\[rule 2[0-3]\]/.test(e) && e.includes('fixture')).join('\n');
+  return errors.filter((e) => /\[rule 2[0-5]\]/.test(e) && e.includes('fixture')).join('\n');
 }
 
 test('valid captions, hotspots and questions pass', async () => {
@@ -83,6 +84,40 @@ test('headline citations and out-of-range captionAtMs are errors', async () => {
   const errors = await errorsFor(tab);
   assert.match(errors, /fixture\/1: caption\.headline must not contain citations/);
   assert.match(errors, /fixture\/2: captionAtMs must be an integer from 0 to durationMs/);
+});
+
+test('callout rules: title, point count, point length, citations and atMs (rule 24)', async () => {
+  const tab = tabWith((beats) => {
+    beats[0].callout = { title: 'A title that runs on for far too many words', points: ['Only one point'] };
+    beats[1].callout = { title: `Cited ${'{{' + base.claims[0].id + '}}'}`, points: ['One', 'Two', 'Three', 'Four', 'Five'], atMs: 20001 };
+    beats[2].callout = { title: 'Fine', points: ['ok', 'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen'] };
+    beats[3].callout = { title: 'Fine too', points: ['A short point', 'Another short point'] };
+  });
+  const errors = await errorsFor(tab);
+  assert.match(errors, /fixture\/1: callout\.title has 10 words \(max 6\)/);
+  assert.match(errors, /fixture\/1: callout needs 2–4 points/);
+  assert.match(errors, /fixture\/2: callout\.title must not contain citations/);
+  assert.match(errors, /fixture\/2: callout needs 2–4 points/);
+  assert.match(errors, /fixture\/2: callout\.atMs must be an integer from 0 to durationMs/);
+  assert.match(errors, /fixture\/3: callout point 2 has 15 words \(max 14\)/);
+  assert.doesNotMatch(errors, /fixture\/4: callout/);
+});
+
+test('chapter opener rules: required, word limits, no term links, badge (rule 25)', async () => {
+  const missing = tabWith();
+  delete missing.opener;
+  assert.match(await errorsFor(missing), /fixture: opener required/);
+
+  const bad = tabWith();
+  bad.opener = { promise: 'one two three four five six seven eight nine ten eleven', problem: `Uses [[${glossaryTerm.id}]] here.`, badge: 'yes' };
+  const errors = await errorsFor(bad);
+  assert.match(errors, /fixture: opener\.promise has 11 words \(max 10\)/);
+  assert.match(errors, /fixture: opener\.problem must not contain term links/);
+  assert.match(errors, /fixture: opener\.badge may only be false/);
+
+  const noBadge = tabWith();
+  noBadge.opener.badge = false;
+  assert.equal(await errorsFor(noBadge), '');
 });
 
 test('hotspot rules: ids, anchor, term, depth and per-depth limit', async () => {

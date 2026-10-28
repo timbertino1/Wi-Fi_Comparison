@@ -4,6 +4,10 @@
   "kind": "feature",
   "title": "Multi-Link Operation (MLO)",
   "summary": "One connection that uses several bands at once, or switches between them instantly.",
+  "opener": {
+    "promise": "One connection that uses several bands at once",
+    "problem": "Badge calls break up when the one band a device uses gets busy."
+  },
   "introducedIn": "wifi7",
   "wifi7Adds": null,
   "compareGenerations": [

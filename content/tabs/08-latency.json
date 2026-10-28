@@ -4,6 +4,10 @@
   "kind": "feature",
   "title": "Low & Predictable Latency",
   "summary": "Getting alarms, voice and video through on time, every time, not just on average.",
+  "opener": {
+    "promise": "Alarms and calls on time, not just on average",
+    "problem": "Now and then an alarm waits behind a large download before reaching the nurses’ station."
+  },
   "introducedIn": "wifi7",
   "wifi7Adds": null,
   "compareGenerations": [

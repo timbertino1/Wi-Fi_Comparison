@@ -4,6 +4,11 @@
   "kind": "feature",
   "title": "Bandwidth, Peak Rates & PoE",
   "summary": "What faster Wi-Fi asks of the switches, cabling and power behind every access point.",
+  "opener": {
+    "promise": "Switches, cabling and power that let Wi-Fi 7 deliver",
+    "problem": "New access points on old switch ports and power budgets cannot reach their potential.",
+    "badge": false
+  },
   "introducedIn": "wifi7",
   "wifi7Adds": null,
   "compareGenerations": [

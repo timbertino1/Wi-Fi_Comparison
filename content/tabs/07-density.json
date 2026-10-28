@@ -4,6 +4,10 @@
   "kind": "feature",
   "title": "Client Density",
   "summary": "Hundreds of devices sharing the air in a crowded unit without slowing each other down.",
+  "opener": {
+    "promise": "Serve many devices at once, across several bands",
+    "problem": "At shift change, hundreds of devices compete for the same radio time."
+  },
   "introducedIn": "wifi6",
   "wifi7Adds": "Wi-Fi 6 introduced OFDMA {{ofdma-ax}} and BSS coloring {{bss-coloring-ax}} for crowded spaces; Wi-Fi 7 adds wider channels {{eht-max-width}}, multi-link load balancing {{mlo-bands}}, Multi-RU {{multi-ru-be}} and broader puncturing {{puncturing-be}}.",
   "compareGenerations": [

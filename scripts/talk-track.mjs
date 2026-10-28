@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadContent, TERM_RE, CLAIM_RE, REF_RE } from './validate-content.mjs';
+import { openerParts } from '../src/app/opener-text.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const OUTPUT = 'docs/talk-track.md';
@@ -64,6 +65,12 @@ export function buildTalkTrack(content = loadContent()) {
     line();
     line(md(tab.summary));
     line();
+    if (tab.opener) {
+      const o = openerParts(tab, ci + 1, genById);
+      const badge = o.badge ? ` · ${o.badge}` : '';
+      line(`**Opener** (its own click): ${o.label} · ${o.tag}${badge} — ${tab.title}. ${sentence(md(tab.opener.promise))} The problem: ${sentence(md(tab.opener.problem))}`);
+      line();
+    }
     if (tab.introducedIn && tab.introducedIn !== 'wifi7' && genById.has(tab.introducedIn)) {
       const g = genById.get(tab.introducedIn);
       line(`**Lineage:** first introduced in ${g.name} (${g.ieee}). What Wi-Fi 7 adds: ${md(tab.wifi7Adds)}`);
@@ -87,6 +94,12 @@ export function buildTalkTrack(content = loadContent()) {
       if (hotspots.length) onScreen.push(`Hotspots: ${hotspots.map((h) => termById.get(h.term)?.term ?? h.term).join(', ')}.`);
       line(`**On screen:** ${onScreen.join(' ')}`);
       line();
+      if (b.callout) {
+        line(`**Callout — ${md(b.callout.title)}:**`);
+        line();
+        for (const p of b.callout.points) line(`- ${md(p)}`);
+        line();
+      }
       line(`**Say (leadership):** ${md(b.heading)}.`);
       line();
       line(md(b.body));
@@ -98,7 +111,7 @@ export function buildTalkTrack(content = loadContent()) {
       const technical = [b.caption?.technical, b.deepDive, ...hotspots.map((h) => h.technical)].filter(Boolean).map(md);
       line(`**Technical depth:** ${technical.length ? technical.join(' ') : 'No extra technical layer on this step.'}`);
       line();
-      const terms = termsIn(b.heading, b.body, b.bottomLine, b.deepDive, b.caption?.headline, b.caption?.takeaway, b.caption?.technical).concat(hotspots.map((h) => h.term));
+      const terms = termsIn(b.heading, b.body, b.bottomLine, b.deepDive, b.caption?.headline, b.caption?.takeaway, b.caption?.technical, ...(b.callout?.points ?? [])).concat(hotspots.map((h) => h.term));
       const uniqueTerms = [...new Set(terms)].filter((id) => termById.has(id));
       if (uniqueTerms.length) {
         line('**Terms:**');
@@ -107,7 +120,7 @@ export function buildTalkTrack(content = loadContent()) {
         line();
       }
       const stepClaims = [...new Set([
-        ...claimsIn(b.body, b.bottomLine, b.deepDive, b.caption?.takeaway, b.caption?.technical, ...hotspots.map((h) => h.technical)),
+        ...claimsIn(b.body, b.bottomLine, b.deepDive, b.caption?.takeaway, b.caption?.technical, ...(b.callout?.points ?? []), ...hotspots.map((h) => h.technical)),
         ...hotspots.map((h) => h.claim).filter(Boolean)
       ])].filter((id) => claimById.has(id));
       line('**Figures:**');

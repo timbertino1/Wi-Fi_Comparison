@@ -33,9 +33,14 @@ function* pageText({ tabs, scenarios, glossary, references, claims, generations 
   for (const t of tabs) {
     const at = `tabs/${t.id}`;
     for (const f of ['title', 'summary', 'wifi7Adds']) if (t[f]) yield [`${at}.${f}`, t[f]];
+    for (const f of ['promise', 'problem']) if (t.opener?.[f]) yield [`${at}.opener.${f}`, t.opener[f]];
     for (const [i, b] of t.beats.entries()) {
       for (const f of ['heading', 'body', 'bottomLine', 'deepDive', 'sceneDescription']) if (b[f]) yield [`${at}.beats[${i}].${f}`, b[f]];
       for (const f of ['headline', 'takeaway', 'technical']) if (b.caption?.[f]) yield [`${at}.beats[${i}].caption.${f}`, b.caption[f]];
+      if (b.callout) {
+        yield [`${at}.beats[${i}].callout.title`, b.callout.title];
+        for (const [j, p] of b.callout.points.entries()) yield [`${at}.beats[${i}].callout.points[${j}]`, p];
+      }
       for (const [j, h] of (b.hotspots ?? []).entries()) if (h.technical) yield [`${at}.beats[${i}].hotspots[${j}].technical`, h.technical];
       for (const [j, q] of (b.questions ?? []).entries()) for (const f of ['q', 'a']) yield [`${at}.beats[${i}].questions[${j}].${f}`, q[f]];
     }

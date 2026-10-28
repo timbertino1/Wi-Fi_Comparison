@@ -60,21 +60,91 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
   let frameListener = null;
   let cueListener = null;
 
+  // Frame inset (fraction of the width kept free on the right): the whole camera view is fitted, at
+  // the same aspect, into the rest of the stage and centred there vertically. Off-centre projection
+  // only, so a callout card on the right never covers the scene. Labels share the camera.
+  const shift = { value: 0 };
+  let applied = { value: NaN, w: 0, h: 0 };
+  let viewW = 1;
+  let viewH = 1;
+
+  function applyShift() {
+    if (applied.value === shift.value && applied.w === viewW && applied.h === viewH) return;
+    if (shift.value) {
+      const k = 1 - shift.value; // scale of the fitted picture
+      const fullW = k * viewW;
+      const fullH = k * viewH;
+      // The fitted picture sits a little in from the left edge and centred vertically.
+      const left = (viewW - fullW) * 0.08;
+      camera.setViewOffset(fullW, fullH, -left, -(viewH - fullH) / 2, viewW, viewH);
+    } else camera.clearViewOffset();
+    applied = { value: shift.value, w: viewW, h: viewH };
+  }
+
   function size() {
-    const w = Math.max(1, container.clientWidth);
-    const h = Math.max(1, container.clientHeight);
-    renderer.setSize(w, h, false);
-    labelRenderer.setSize(w, h);
-    camera.aspect = w / h;
+    viewW = Math.max(1, container.clientWidth);
+    viewH = Math.max(1, container.clientHeight);
+    renderer.setSize(viewW, viewH, false);
+    labelRenderer.setSize(viewW, viewH);
+    camera.aspect = viewW / viewH;
     camera.updateProjectionMatrix();
-    instance?.resize?.(w, h);
+    instance?.resize?.(viewW, viewH);
+    applied.value = NaN;
     renderOnce();
   }
 
+  // A held framing (the chapter opener's wide shot) overrides the scene's own camera every frame
+  // until released; the next animated state then moves the camera on from there.
+  let held = null;
+
   function renderOnce() {
     if (!scene) return;
+    applyShift();
+    if (held) {
+      camera.position.set(...held.position);
+      camera.lookAt(...held.target);
+    }
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
+  }
+
+  /** Holds the camera on `shot` ({ position, target }); without one, on a pulled-back framing. */
+  function holdShot(shot) {
+    if (!shot) {
+      const p = camera.position;
+      shot = { position: [p.x * 1.3, p.y * 1.3, p.z * 1.3], target: [0, 0, 0] };
+    }
+    held = shot;
+    renderOnce();
+  }
+
+  function releaseShot() {
+    held = null;
+  }
+
+  /** The transition's move-out: the camera eases away from the scene. Resolves when done or aborted. */
+  function dollyOut({ durationMs = 700, signal } = {}) {
+    const p = camera.position;
+    return animateTo([[p, 'x', p.x * 1.45], [p, 'y', p.y * 1.45], [p, 'z', p.z * 1.45]], { durationMs, signal });
+  }
+
+  /** Draws the frame just rendered into a 2D canvas (same task as the render, so no preserved buffer). */
+  function captureFrame(target) {
+    renderOnce();
+    target.width = renderer.domElement.width;
+    target.height = renderer.domElement.height;
+    target.getContext('2d').drawImage(renderer.domElement, 0, 0);
+  }
+
+  /** Eases the frame shift to `target` (0 = centred); instant when `animate` is false. */
+  function setShift(target, { animate = true } = {}) {
+    if (shift.value === target) return;
+    if (!animate) {
+      shift.value = target;
+      renderOnce();
+      return;
+    }
+    animateTo([[shift, 'value', target]], { durationMs: 900 });
   }
 
   function frame(now) {
@@ -119,6 +189,9 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
     add(object, text, { className = '', offset = [0, 0, 0] } = {}) {
       const el = document.createElement('div');
       el.className = `stage-label ${className}`.trim();
+      // Scene labels are decorative (the scene description carries the meaning); hotspot markers in
+      // the same layer are real buttons, so the hiding is per label, not on the layer.
+      el.setAttribute('aria-hidden', 'true');
       el.textContent = text;
       const label = new CSS2DObject(el);
       label.position.set(...offset);
@@ -135,6 +208,22 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
       labels = labels.filter((l) => l !== label);
     }
   };
+
+  /**
+   * Pins a shell-owned element (a hotspot marker) to a scene object through the label layer, so it
+   * follows the object with transforms only (P11). Returns a function that unpins it.
+   */
+  function attach(object, element, offset = [0, 0, 0]) {
+    const pin = new CSS2DObject(element);
+    pin.position.set(...offset);
+    object.add(pin);
+    wake();
+    return () => {
+      pin.parent?.remove(pin);
+      element.remove();
+      wake();
+    };
+  }
 
   function addLights(target) {
     target.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.4));
@@ -182,6 +271,7 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
     },
     unmount() {
       if (!instance) return;
+      held = null;
       tweens.cancelAllTweens();
       instance.dispose?.();
       for (const l of [...labels]) labelApi.remove(l);
@@ -198,6 +288,12 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
       }
     },
     wake,
+    attach,
+    setShift,
+    holdShot,
+    releaseShot,
+    dollyOut,
+    captureFrame,
     renderOnce,
     isRunning: () => rafId !== 0,
     onFrame(fn) {

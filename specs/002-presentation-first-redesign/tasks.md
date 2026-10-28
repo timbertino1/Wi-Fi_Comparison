@@ -135,6 +135,7 @@ with US5 brought forward because it is P1).
 - [ ] T040 [US2] Frame copy and camera dolly helpers in src/stage/renderer.js: synchronous copy of the just-rendered frame to a 2D overlay canvas; dolly from/to a framing relative to the `ap` anchor
 - [ ] T041 [US2] Transition controller in src/app/transition.js: out (≈ 700 ms) → crossfade (≈ 600 ms, unmount old, mount new at `shots.wide`, anchor screen-position match) → in (≈ 900 ms); skip-to-end on press; reduced-motion variants (research P4)
 - [ ] T042 [US2] Replace the instant chapter change in src/app/sequencer.js with the transition controller and its states
+- [ ] T042a [US2] Chapter opener (FR-011a, added 2026-10-28 from the presenter's feedback): `opener` content per chapter, validator rule 25, src/app/opener.js and opener-text.js, intro mode in story.js, sequencer move-out + crossfade onto the opener, `?intro` deep links, talk-track "Opener" line, tests/e2e/opener.spec.js. *First pass built; per-scene `shots.wide` and AP screen-position matching (T036–T039) still open.*
 - [ ] T043 [US2] Run `npm run frame-budget` against an fc36db8 (MVP slide) build for all scenes and transitions; record results in specs/002-presentation-first-redesign/research.md under P11
 
 **Checkpoint**: Chapters flow into each other

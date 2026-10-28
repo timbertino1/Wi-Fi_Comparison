@@ -2258,6 +2258,158 @@
         "verifiedBy": null,
         "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
       }
+    },
+    {
+      "id": "wpa3-ent-pmf-required",
+      "statement": "In WPA3-Enterprise Only Mode, protected management frames are required (PMF Required) on the access point and the device",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "Section 3.2 (WPA3-Enterprise Only Mode), AP item 3 and STA item 3, page 15",
+          "excerpt": "The AP’s BSS Configuration shall be PMF Required"
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "wpa3-ent-sha256",
+      "statement": "WPA3-Enterprise Only Mode uses the IEEE 802.1X sign-in with SHA-256 and does not enable the SHA-1 version used by WPA2-Enterprise",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "Section 3.2 (WPA3-Enterprise Only Mode), AP items 1–2, page 15",
+          "excerpt": "shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)"
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "wpa2-ent-pmf-optional",
+      "statement": "WPA2-Enterprise does not require protected management frames: WPA3-Enterprise transition mode differs from it by disallowing TKIP, enabling PMF and requiring SHA-256 sign-in",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "Section 2.8, note on WPA3-Enterprise Transition Mode, page 21",
+          "excerpt": "WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled (\"Capable\"), and support for SHA-256 AKM (in addition to SHA-1 AKM) is required."
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "wpa3-ent-cert-validation",
+      "statement": "A WPA3 device must validate the authentication server’s certificate when it signs in with EAP-TLS, EAP-TTLS or EAP-PEAP",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "Section 5.1 (Failure Conditions for Server Certificate Validation), page 21",
+          "excerpt": "A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1 EAP methods."
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "wpa3-ent-192",
+      "statement": "WPA3-Enterprise 192-bit mode, intended for networks with higher security requirements, uses only the Suite B 192-bit sign-in, requires PMF, and uses GCMP-256 and BIP-GMAC-256 encryption",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "Section 3.5 (WPA3-Enterprise 192-bit mode), AP items 1–3, page 16",
+          "excerpt": "well suited for deployments in sensitive enterprise environments to further protect Wi-Fi networks with higher security requirements"
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "wpa3-ent-6ghz-eht",
+      "statement": "The WPA2-Enterprise sign-in (802.1X with SHA-1) is not used in associations that use Wi-Fi 7 (EHT or MLO) or the 6 GHz band; 6 GHz Enterprise networks run WPA3-Enterprise Only Mode",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "Section 3.3 (WPA3-Enterprise Transition Mode), STA item 1 note, page 16",
+          "excerpt": "AKM suite selector 00-0F-AC:1 (IEEE 802.1X with SHA-1) is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band."
+        },
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "Section 3.1.2 (recommended Enterprise configuration), page 27",
+          "excerpt": "For BSSs in 6 GHz and sub-1 GHz bands: WPA3-Enterprise Only Mode."
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
+    },
+    {
+      "id": "wpa3-dual-ssid-legacy",
+      "statement": "Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configuration so older devices that cannot use WPA3 keep connecting during the transition",
+      "value": null,
+      "unit": null,
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "wfa-wpa3-deploy",
+          "locator": "Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30",
+          "excerpt": "The Dual-SSID configuration for legacy STA interoperability is defined in Table 16."
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": null,
+        "verifiedBy": null,
+        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+      }
     }
   ]
 }

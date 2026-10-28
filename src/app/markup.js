@@ -35,7 +35,10 @@ export function renderMarkup(text, ctx = {}) {
 
   const withBold = withClaims.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
-  return withBold
+  // A term or source button keeps the punctuation right after it on the same line.
+  const glued = withBold.replace(/((?:<sup>)?<button [^>]*>[^<]*<\/button>(?:<\/sup>)?)([.,;:!?)’]+)/g, '<span class="nowrap">$1$2</span>');
+
+  return glued
     .split(/\n\s*\n/)
     .map((p) => p.trim())
     .filter(Boolean)

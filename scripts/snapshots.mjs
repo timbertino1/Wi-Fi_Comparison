@@ -25,7 +25,7 @@ async function capture(file, expectedState) {
   // The caption and slide bar sit over the stage and are drawn over the still again; keep them out of it.
   // (CSSOM, not a style tag: the page's CSP blocks inline styles.)
   await page.evaluate(() => {
-    for (const el of document.querySelectorAll('#caption, #stage-notice, .slide-bar')) el.style.visibility = 'hidden';
+    for (const el of document.querySelectorAll('#caption, #callout, #stage-notice, .slide-bar')) el.style.visibility = 'hidden';
   });
   // Let the end state render (reduced motion resolves transitions immediately).
   await page.waitForTimeout(250);

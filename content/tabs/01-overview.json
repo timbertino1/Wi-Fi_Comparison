@@ -4,6 +4,10 @@
   "kind": "overview",
   "title": "Why Wi-Fi 7, and why now",
   "summary": "A busy hospital, a growing wall of wireless devices, and five generations of Wi-Fi that brought us here.",
+  "opener": {
+    "promise": "Wireless now carries care, and Wi-Fi 7 is here",
+    "problem": "More devices, heavier traffic and urgent messages all share the same radio time."
+  },
   "introducedIn": null,
   "wifi7Adds": null,
   "compareGenerations": [
@@ -29,7 +33,42 @@
       "deepDive": null,
       "sceneState": "floor-quiet",
       "sceneDescription": "A stylized hospital floor seen from above: patient rooms along a corridor, a nurses' station in the middle, and a few access points on the ceiling. A small number of devices glow as they connect.",
-      "durationMs": 11000
+      "durationMs": 11000,
+      "callout": {
+        "title": "Typical clients on a care unit",
+        "points": [
+          "[[voice-badge|Voice badges]] and [[clinical-smartphone|clinical smartphones]] for calls, messages and alarms",
+          "[[infusion-pump|Smart infusion pumps]] and [[patient-monitor|patient monitors]] at every bedside",
+          "[[workstation-on-wheels|Workstations on wheels]] for charting and medication scanning",
+          "[[rtls|Location tags]] on staff and equipment"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "access-point",
+          "anchor": "ap",
+          "term": "access-point",
+          "technical": "Wi-Fi 7 access points can run links in the 2.4, 5 and 6 GHz bands at the same time{{mlo-bands}}."
+        },
+        {
+          "id": "voice-badge",
+          "anchor": "voice-badge",
+          "term": "voice-badge",
+          "technical": "Sends small, steady voice packets; any delay or jitter is heard straight away as gaps in the call."
+        },
+        {
+          "id": "infusion-pump",
+          "anchor": "infusion-pump",
+          "term": "infusion-pump",
+          "technical": "Light traffic that must be reliable: drug-library updates, pump orders and alerts."
+        },
+        {
+          "id": "patient-monitor",
+          "anchor": "telemetry-monitor",
+          "term": "patient-monitor",
+          "technical": "Streams small readings continuously and must deliver alarms promptly, so worst-case delay matters more than speed."
+        }
+      ]
     },
     {
       "type": "context",
@@ -43,7 +82,36 @@
       "deepDive": null,
       "sceneState": "floor-crowded",
       "sceneDescription": "The same hospital floor fills with many more devices in every room and hallway. Small packets stream toward the access points, and some begin to queue up and wait, showing the air becoming crowded.",
-      "durationMs": 12000
+      "durationMs": 12000,
+      "callout": {
+        "title": "Why density hurts care",
+        "points": [
+          "Two shifts of staff devices plus patients’ and visitors’ phones share one unit’s [[airtime|airtime]]",
+          "Devices take turns on a channel{{contention-dcf}}, so each new one adds waiting",
+          "Small urgent messages, such as alarms and calls, queue behind large downloads",
+          "Wi-Fi 7 spreads devices across bands{{mlo-bands}} and serves many per transmission{{ofdma-ax}}"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "clinical-smartphone",
+          "anchor": "phone",
+          "term": "clinical-smartphone",
+          "technical": "Mixes voice, messaging and alarm notifications, and roams between access points as staff move."
+        },
+        {
+          "id": "workstation-on-wheels",
+          "anchor": "workstation-cart",
+          "term": "workstation-on-wheels",
+          "technical": "Moves larger records and images, and roams constantly between rooms."
+        },
+        {
+          "id": "rtls",
+          "anchor": "rtls-tag",
+          "term": "rtls",
+          "technical": "Sends tiny, infrequent location reports and depends on long battery life."
+        }
+      ]
     },
     {
       "type": "context",

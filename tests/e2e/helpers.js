@@ -21,6 +21,22 @@ export function talkPath() {
   return talkChapters().flatMap((tab) => tab.beats.map((beat, i) => ({ chapter: tab.id, step: i + 1, tab, beat })));
 }
 
+/**
+ * Every clicker position from the first chapter's step 1 on: steps plus the chapter openers that
+ * Next lands on between chapters (FR-011a). `key` matches `positionKey()` in the page.
+ */
+export function clickerPath() {
+  return talkChapters().flatMap((tab, c) => [
+    ...(c > 0 ? [{ chapter: tab.id, step: 1, intro: true, key: `${tab.id}/opener` }] : []),
+    ...tab.beats.map((beat, i) => ({ chapter: tab.id, step: i + 1, intro: false, key: `${tab.id}/${i + 1}` }))
+  ]);
+}
+
+/** The page's clicker position, in the form `clickerPath()` uses: "mlo/3" or "mlo/opener". */
+export function positionKey(page) {
+  return page.evaluate(() => (window.__stage.intro ? `${window.__stage.tab}/opener` : `${window.__stage.tab}/${window.__stage.beat}`));
+}
+
 /** Plain text of inline markup ([[term|text]], {{claim}}, **bold**). */
 export function plainMarkup(text) {
   return (text ?? '').replace(/\[\[[^\]|]+\|([^\]]+)\]\]|\[\[([^\]]+)\]\]/g, '$1$2').replace(/\{\{[^}]+\}\}/g, '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();

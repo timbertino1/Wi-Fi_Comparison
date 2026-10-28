@@ -23,6 +23,14 @@ export function closeTop() {
   return false;
 }
 
+/** Closes the named overlay if it is open. Returns true if it was. */
+export function closeIfOpen(name) {
+  const o = overlays.find((x) => x.name === name);
+  if (!o?.isOpen()) return false;
+  o.close();
+  return true;
+}
+
 export function closeAll() {
   for (const o of overlays) if (o.isOpen()) o.close();
 }
