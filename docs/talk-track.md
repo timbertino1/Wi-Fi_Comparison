@@ -973,7 +973,7 @@ WPA3 is one layer of security, not a complete programme: it complements network 
 
 Scheduled wake-ups that let badges and sensors sleep, plus protected time slots for urgent traffic.
 
-**Opener** (its own click): Chapter 6 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in Wi-Fi 6 — Target Wake Time & Battery Life. Devices sleep between agreed wake-ups; urgent traffic gets protected time. The problem: Badges and tags drain their batteries listening, and calls compete with downloads.
+**Opener** (its own click): Chapter 6 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in Wi-Fi 6 — Target Wake Time & Battery Life. Devices sleep between agreed wake-ups, so batteries last the shift. The problem: Badges and tags drain their batteries listening for messages that rarely come.
 
 **Lineage:** first introduced in Wi-Fi 6 (IEEE 802.11ax). What Wi-Fi 7 adds: Target Wake Time came to mainstream Wi-Fi with Wi-Fi 6 [S4]; Wi-Fi 7 adds Restricted TWT, which protects time slots for latency-sensitive traffic [S8].
 
@@ -982,13 +982,19 @@ Scheduled wake-ups that let badges and sensors sleep, plus protected time slots 
 - Problem: Small battery-powered devices keep their radios listening and need recharging or swapping before the shift ends.
 - What Wi-Fi 7 supports: Target Wake Time lets devices sleep between agreed wake-ups, and Restricted TWT protects time for voice and telemetry, supporting longer battery life and dependable delivery.
 
-### Step 1 — Batteries that do not last the shift
+### Step 1 — Always listening, flat by mid-shift
 
-**On screen:** Batteries that do not last the shift / Battery swaps cost staff time and leave clinicians or equipment unreachable until recharged. Three device rows run along a timeline. Each row is raised and lit along its whole length, showing the radio awake all the time, and the battery gauge beside each row is drawn low. The gauges are labelled illustrative.
+**On screen:** Always listening, flat by mid-shift / Radios that never sleep drain batteries, leaving clinicians or equipment unreachable until recharged. One ward over one shift. A voice badge, a location tag and a patient monitor stand under the access point, each with a large battery above it and its radio glowing to show it is always listening. As the shift bar along the front fills, every battery drains from green through amber to red, and the badge goes flat before the shift ends. Battery levels are labelled illustrative. Hotspots: Access point, Voice badge, RTLS, Patient monitor.
 
-**Say (leadership):** Batteries that do not last the shift.
+**Callout — Why batteries run out:**
 
-Voice badges, location tags and wearable monitors are small, battery-powered devices. Without a schedule, their radios stay ready to listen in case the access point has something for them — and listening costs power.
+- Radios stay awake listening, even when nothing arrives
+- Listening drains the battery all shift long
+- A flat badge or tag means an unreachable clinician or lost equipment
+
+**Say (leadership):** Always listening, flat by mid-shift.
+
+Voice badges, location tags and wearable patient monitors are small, battery-powered devices. Without a schedule, their radios stay ready to listen in case the access point has something for them, and listening costs power even when nothing arrives.
 
 The result is batteries swapped or recharged mid-shift, and devices that go quiet when a battery runs out.
 
@@ -1000,6 +1006,7 @@ The result is batteries swapped or recharged mid-shift, and devices that go quie
 
 - Voice badge — A small wearable communicator that lets clinicians call and message each other hands-free over Wi-Fi.
 - RTLS — Small battery-powered tags on staff or equipment that report their location so teams can find pumps, wheelchairs or colleagues quickly.
+- Patient monitor — A bedside or wearable monitor that tracks vital signs such as heart rhythm and oxygen levels and sends readings and alarms to the nurses’ station over Wi-Fi.
 - Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
 
 **Figures:**
@@ -1012,9 +1019,15 @@ No figures cited on this step.
 
 ### Step 2 — Agree when to wake, sleep in between
 
-**On screen:** Agree when to wake, sleep in between / With Target Wake Time, devices sleep between agreed wake-ups [S9, S7], so batteries last longer. The rows change: most of each timeline drops flat to show the radio asleep, with short raised windows at agreed times. The battery gauges rise higher. The gauges remain labelled illustrative.
+**On screen:** Agree when to wake, sleep in between / With Target Wake Time, devices sleep between agreed wake-ups [S9, S7], so batteries last the shift. The same shift again, now with Target Wake Time. Marks on the shift bar show the agreed wake-ups. Each device stays dark and asleep, glowing and linking to the access point only briefly at its own wake-up times. The batteries drain slowly and are still green at the end of the shift. Hotspots: TWT.
 
-**Say (leadership):** Agree when to wake, sleep the rest of the time.
+**Callout — What Target Wake Time changes:**
+
+- Each device and the access point agree when it will wake [S9, S7]
+- Between wake-ups the radio sleeps and saves battery
+- The access point holds messages until the next wake-up
+
+**Say (leadership):** Agree when to wake, sleep in between.
 
 With Target Wake Time, each device and its access point agree on when the device will wake up to exchange data, so it can sleep in between [S9, S7]. TWT was first defined in IEEE 802.11ah [S9] and became a core feature of Wi-Fi 6 [S4].
 
@@ -1041,7 +1054,13 @@ With Target Wake Time, each device and its access point agree on when the device
 
 ### Step 3 — Schedules for one device or a whole group
 
-**On screen:** Schedules for one device or a whole group / Access points can coordinate hundreds of tags and badges with shared wake schedules [S7]. A playhead sweeps across the timeline. Each time it reaches a device's wake window, that row lights up briefly to exchange packets, then drops back to sleep until its next window.
+**On screen:** Schedules for one device or a whole group / Access points can coordinate hundreds of tags and badges with shared wake schedules [S7]. The access point announces one wake-up time for the whole group. At each mark on the shift bar, all three devices wake together, exchange data and go back to sleep, and the access point glows as it serves them in one go. Batteries stay high. Hotspots: Service period, RTLS.
+
+**Callout — One schedule, many devices:**
+
+- A device can agree its own wake-up times [S7]
+- Or join one schedule the access point shares with a group
+- Floors with hundreds of tags stay organised and save battery
 
 **Say (leadership):** Schedules for one device or a whole group.
 
@@ -1054,6 +1073,7 @@ A device can negotiate its own schedule, or join a schedule the access point ann
 **Terms:**
 
 - Service period — The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
+- RTLS — Small battery-powered tags on staff or equipment that report their location so teams can find pumps, wheelchairs or colleagues quickly.
 
 **Figures:**
 
@@ -1068,7 +1088,13 @@ A device can negotiate its own schedule, or join a schedule the access point ann
 
 ### Step 4 — Protected time for urgent traffic
 
-**On screen:** Protected time for urgent traffic / Restricted TWT reserves protected slots so voice and alarms are not crowded out [S8]. Translucent protected slots appear across all rows at regular intervals. A busy laptop row stops its long transmissions just before each slot begins, so the badge and monitor rows can send inside the protected slots.
+**On screen:** Protected time for urgent traffic / Restricted TWT reserves protected slots so voice and alarms are not crowded out [S8]. A laptop joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups. Hotspots: Restricted TWT, Service period.
+
+**Callout — What Wi-Fi 7 adds:**
+
+- Restricted TWT reserves protected slots for urgent traffic [S8]
+- Other devices pause before each slot begins [S8]
+- Calls and alarms arrive on time, and batteries still last
 
 **Say (leadership):** Protected time for urgent traffic.
 
@@ -1083,6 +1109,7 @@ Other devices that support it are expected to finish transmitting before a prote
 **Terms:**
 
 - Restricted TWT — A Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry.
+- Service period — The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
 
 **Figures:**
 
@@ -1097,9 +1124,15 @@ Other devices that support it are expected to finish transmitting before a prote
 
 - **Q (both):** Will Restricted TWT slow down other users? **A:** Slightly, during the protected slots: supporting devices pause before each one [S8]. The slots are reserved only for traffic that needs them, such as voice and telemetry.
 
-### Step 5 — Longer battery life and dependable calls
+### Step 5 — Batteries that last, calls that arrive
 
-**On screen:** Longer battery life and dependable calls / Gains need support in each device, so ask vendors about TWT and Restricted TWT. The badge, location tag and monitor rows mostly sleep, with full battery gauges, while their voice and telemetry packets travel inside the protected slots. The gauges remain labelled illustrative.
+**On screen:** Batteries that last, calls that arrive / Gains need support in each device, so ask vendors about TWT and Restricted TWT. The whole shift with both features on: the devices sleep between wake-ups, the laptop pauses for protected slots, and every battery is still green at the end of the shift. Hotspots: TWT.
+
+**Callout — What to ask vendors:**
+
+- Does the device support Target Wake Time?
+- Battery data with TWT on, tested with our own traffic
+- Restricted TWT support for voice badges and monitors
 
 **Say (leadership):** Longer battery life and dependable calls.
 
@@ -1115,10 +1148,13 @@ The gains depend on support in each device and in the access points, so include 
 
 - Telemetry — Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station.
 - Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
+- TWT — An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
 
 **Figures:**
 
-No figures cited on this step.
+| Figure | Value | Source | Where |
+|---|---|---|---|
+| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
 
 **Likely questions:**
 
