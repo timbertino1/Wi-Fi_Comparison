@@ -29,6 +29,7 @@ test.describe('reduced motion', () => {
 
   test('the motion toggle turns animation back on', async ({ page }) => {
     await page.goto(fileUrl('#/mlo/1'));
+    await page.locator('#settings-toggle').click();
     await page.locator('#motion-toggle').click();
     await expect(page.locator('#motion-toggle')).toHaveText('Motion: On');
   });

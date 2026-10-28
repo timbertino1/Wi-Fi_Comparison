@@ -52,10 +52,10 @@ with US5 brought forward because it is P1).
 
 ### Shell structure
 
-- [ ] T010 Restructure src/index.html into the slide shell per contracts/slide-navigation.md: slim header (title, chapter-menu button, Audience radiogroup, settings button), `main` with a 16:9 `.slide` containing `#stage`, `#hotspots`, `#caption` (aria-live polite), `#progress`, on-slide controls (Back, Next, play/pause, Notes, generation switch), visually hidden `#scene-description` live region, and `aside#notes` (hidden); remove the tablist, side column and pager; keep the meta CSP unchanged
-- [ ] T011 Slide frame styles in src/styles/layout.css: `.slide` width `min(100vw, 177.78vh)`, centred and letterboxed, `--slide-h` custom property; caption headline 4.4%, takeaway 3.3%, technical 2.8% of slide height on a solid surface panel ≥ 7:1 contrast; under 600 px the caption moves below the slide (research P1, P2)
-- [ ] T012 Fold src/styles/present.css into the slide styles, leaving only fullscreen-specific rules (header hidden, slide fills screen) and blanking
-- [ ] T013 Add `ctx.cue(name)` and test hooks `window.__stage.anchors`, `.phase`, `.captionShown` to src/stage/renderer.js per contracts/scene-module.md (no behaviour yet beyond recording)
+- [x] T010 Restructure src/index.html into the slide shell per contracts/slide-navigation.md: slim header (title, chapter-menu button, Audience radiogroup, settings button), `main` with a 16:9 `.slide` containing `#stage`, `#hotspots`, `#caption` (aria-live polite), `#progress`, on-slide controls (Back, Next, play/pause, Notes, generation switch), visually hidden `#scene-description` live region, and `aside#notes` (hidden); remove the tablist, side column and pager; keep the meta CSP unchanged
+- [x] T011 Slide frame styles in src/styles/layout.css: `.slide` width `min(100vw, 177.78vh)`, centred and letterboxed, `--slide-h` custom property; caption headline 4.4%, takeaway 3.3%, technical 2.8% of slide height on a solid surface panel ≥ 7:1 contrast; under 600 px the caption moves below the slide (research P1, P2)
+- [x] T012 Fold src/styles/present.css into the slide styles, leaving only fullscreen-specific rules (header hidden, slide fills screen) and blanking
+- [x] T013 Add `ctx.cue(name)` and test hooks `window.__stage.anchors`, `.phase`, `.captionShown` to src/stage/renderer.js per contracts/scene-module.md (no behaviour yet beyond recording)
 
 **Checkpoint**: Content validates with placeholder captions; shell renders the stage in a 16:9 slide
 
@@ -71,23 +71,23 @@ with US5 brought forward because it is P1).
 
 > Write first; they must fail before implementation
 
-- [ ] T014 [P] [US1] E2E: clicker keys (`→`, `PageDown`, `Space`, `↓` / `←`, `PageUp`, `Shift+Space`, `↑`) traverse all 47 steps across chapters and back; references page not in the path; in tests/e2e/talk.spec.js
-- [ ] T015 [P] [US1] E2E: per step, visible slide text in Leadership depth ≤ 24 words and no side column; caption appears no earlier than `captionAtMs` and immediately under reduced motion; progress shows chapter name and "Chapter n of 10 · Step m of k"; in tests/e2e/slide.spec.js
-- [ ] T016 [P] [US1] E2E: rapid Next (10 presses) settles on the expected step with `__stage.phase === 'settled'` (FR-008); deep links `#/<chapterId>/<n>` and legacy `?present` still open the right step; in tests/e2e/talk.spec.js
-- [ ] T017 [P] [US1] E2E: Notes drawer opens with `N`/button showing body, bottom line, key figures, scenario, scene description; closes on Escape and automatically on Next/Back; `?notes` opens it; in tests/e2e/notes.spec.js
+- [x] T014 [P] [US1] E2E: clicker keys (`→`, `PageDown`, `Space`, `↓` / `←`, `PageUp`, `Shift+Space`, `↑`) traverse all 47 steps across chapters and back; references page not in the path; in tests/e2e/talk.spec.js
+- [x] T015 [P] [US1] E2E: per step, visible slide text in Leadership depth ≤ 24 words and no side column; caption appears no earlier than `captionAtMs` and immediately under reduced motion; progress shows chapter name and "Chapter n of 10 · Step m of k"; in tests/e2e/slide.spec.js
+- [x] T016 [P] [US1] E2E: rapid Next (10 presses) settles on the expected step with `__stage.phase === 'settled'` (FR-008); deep links `#/<chapterId>/<n>` and legacy `?present` still open the right step; in tests/e2e/talk.spec.js
+- [x] T017 [P] [US1] E2E: Notes drawer opens with `N`/button showing body, bottom line, key figures, scenario, scene description; closes on Escape and automatically on Next/Back; `?notes` opens it; in tests/e2e/notes.spec.js
 
 ### Implementation for User Story 1
 
-- [ ] T018 [US1] Talk sequencer in src/app/sequencer.js: flatten clicker-path chapters × steps; states per data-model.md (`settled`, `animating`; chapter transitions stubbed as instant until US2); settle-then-apply on press; close-first rule for open overlays; hash sync (`replaceState` for steps, assign for chapters)
-- [ ] T019 [US1] Caption panel in src/app/caption.js: render headline/takeaway (and technical in Technical depth) through the escaping renderer; release at `captionAtMs` or on `ctx.cue('caption')`, whichever first; immediate when settled or reduced motion; short opacity fade; announce via the live region
-- [ ] T020 [US1] Progress strip in src/app/sequencer.js and src/index.html: chapter `shortTitle` (fallback `title`), "Chapter n of 10 · Step m of k", slim bar
-- [ ] T021 [P] [US1] Chapter menu in src/app/chapter-menu.js replacing src/app/tabs.js: disclosure button + list of chapter links (`aria-current="step"`), References link; `M` opens it
-- [ ] T022 [P] [US1] Settings menu in src/app/settings-menu.js: theme, motion, fullscreen, keyboard shortcuts (presenter view entry added in US7)
-- [ ] T023 [US1] Update the key map in src/app/shortcuts.js and the shortcuts dialog per contracts/slide-navigation.md (Next/Back keys, `N`, `F`/`P`, `B`/`.`, `M`, `H`, `K`, `R`, `G`, `V`, `?`); remove `1`–`5` beat jumps
-- [ ] T024 [US1] Reduce src/app/presentation.js to fullscreen + blanking; make `?present` a no-op alias; remove the separate presentation layout
-- [ ] T025 [US1] Notes drawer in src/app/notes.js reusing src/app/markup.js, src/app/glossary.js, src/app/figures.js, src/app/scenario.js and src/app/provenance.js; Technical depth adds deep dive and chapter sections (FR-021)
-- [ ] T026 [US1] Wire boot in src/main.js: sequencer, caption, chapter menu, settings, notes; remove src/app/story.js stepping UI and the pager; keep play/pause and replay on the slide (FR-009)
-- [ ] T027 [US1] Rewrite tests that targeted the tablist, pager and side column (tests/e2e/navigation.spec.js, tests/e2e/story.spec.js, tests/e2e/presentation.spec.js, tests/e2e/audience.spec.js, tests/e2e/scenario.spec.js, tests/e2e/smoke.spec.js) against the slide, keeping their intent; update tests/e2e/a11y.spec.js keyboard walk
+- [x] T018 [US1] Talk sequencer in src/app/sequencer.js: flatten clicker-path chapters × steps; states per data-model.md (`settled`, `animating`; chapter transitions stubbed as instant until US2); settle-then-apply on press; close-first rule for open overlays; hash sync (`replaceState` for steps, assign for chapters)
+- [x] T019 [US1] Caption panel in src/app/caption.js: render headline/takeaway (and technical in Technical depth) through the escaping renderer; release at `captionAtMs` or on `ctx.cue('caption')`, whichever first; immediate when settled or reduced motion; short opacity fade; announce via the live region
+- [x] T020 [US1] Progress strip in src/app/sequencer.js and src/index.html: chapter `shortTitle` (fallback `title`), "Chapter n of 10 · Step m of k", slim bar
+- [x] T021 [P] [US1] Chapter menu in src/app/chapter-menu.js replacing src/app/tabs.js: disclosure button + list of chapter links (`aria-current="step"`), References link; `M` opens it
+- [x] T022 [P] [US1] Settings menu in src/app/settings-menu.js: theme, motion, fullscreen, keyboard shortcuts (presenter view entry added in US7)
+- [x] T023 [US1] Update the key map in src/app/shortcuts.js and the shortcuts dialog per contracts/slide-navigation.md (Next/Back keys, `N`, `F`/`P`, `B`/`.`, `M`, `H`, `K`, `R`, `G`, `V`, `?`); remove `1`–`5` beat jumps
+- [x] T024 [US1] Reduce src/app/presentation.js to fullscreen + blanking; make `?present` a no-op alias; remove the separate presentation layout
+- [x] T025 [US1] Notes drawer in src/app/notes.js reusing src/app/markup.js, src/app/glossary.js, src/app/figures.js, src/app/scenario.js and src/app/provenance.js; Technical depth adds deep dive and chapter sections (FR-021)
+- [x] T026 [US1] Wire boot in src/main.js: sequencer, caption, chapter menu, settings, notes; remove src/app/story.js stepping UI and the pager; keep play/pause and replay on the slide (FR-009)
+- [x] T027 [US1] Rewrite tests that targeted the tablist, pager and side column (tests/e2e/navigation.spec.js, tests/e2e/story.spec.js, tests/e2e/presentation.spec.js, tests/e2e/audience.spec.js, tests/e2e/scenario.spec.js, tests/e2e/smoke.spec.js) against the slide, keeping their intent; update tests/e2e/a11y.spec.js keyboard walk
 
 **Checkpoint**: The full talk can be delivered by clicker with placeholder captions; MVP
 

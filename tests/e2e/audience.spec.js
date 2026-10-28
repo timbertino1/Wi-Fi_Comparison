@@ -7,14 +7,14 @@ async function open(page, hash) {
 }
 
 test('fresh visit opens in Leadership view with Bottom lines and headline figures', async ({ page }) => {
-  await open(page, '#/mlo/3?test');
+  await open(page, '#/mlo/3?notes&test');
   await expect(page.locator('html')).toHaveAttribute('data-view', 'leadership');
   await expect(page.getByRole('radio', { name: 'Leadership' })).toBeChecked();
   await expect(page.locator('.bottom-line')).toContainText('Bottom line');
   await expect(page.locator('.deep-dive')).not.toHaveAttribute('open', '');
   await expect(page.locator('[data-section="mlo-modes"]')).not.toHaveAttribute('open', '');
   // Bandwidth tab: one non-headline figure hidden until "Show all figures".
-  await open(page, '#/bandwidth-poe/1?test');
+  await open(page, '#/bandwidth-poe/1?notes&test');
   await expect(page.locator('.figures-table tbody tr:visible')).toHaveCount(2);
   await page.getByRole('button', { name: /Show all figures/ }).click();
   await expect(page.locator('.figures-table tbody tr:visible')).toHaveCount(3);

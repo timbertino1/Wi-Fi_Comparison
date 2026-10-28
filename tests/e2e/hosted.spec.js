@@ -16,9 +16,10 @@ test('navigation, deep links and the story work over HTTP with hardening headers
     if (!req.url().startsWith(server.url) && !/^(data|blob):/.test(req.url())) external.push(req.url());
   });
   await page.goto(server.url);
-  await expect(page.getByRole('tab')).toHaveCount(11);
-  await page.locator('#next').click();
-  await expect(page.locator('#tab-spectrum')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#chapter-list a')).toHaveCount(11);
+  await page.goto(`${server.url}#/overview/4`);
+  await page.locator('#step-forward').click();
+  await expect(page.locator('#chapter-list a[data-chapter="spectrum"]')).toHaveAttribute('aria-current', 'step');
   await page.goto(`${server.url}#/mlo/3?gen=wifi5`);
   await expect(page.locator('#progress')).toContainText('Step 3 of 5');
   await expect(page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' }).getByRole('radio', { checked: true })).toHaveValue('wifi5');

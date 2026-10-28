@@ -27,7 +27,7 @@ const sectionsEl = document.createElement('div');
 deepEl.append(deepBeatEl, sectionsEl);
 
 const listeners = { tab: new Set(), beat: new Set(), generation: new Set() };
-const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null };
+const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null, animated: false, phase: 'settled', captionShown: false };
 let stage = null;
 let fallback = null;
 let testHook = false;
@@ -50,8 +50,20 @@ export function snapshot() {
     beat: tab?.beats?.[state.beatIndex] ?? null,
     beatCount: tab?.beats?.length ?? 0,
     generation: state.generation,
-    instance: state.instance
+    instance: state.instance,
+    animated: state.animated
   };
+}
+
+/** Records the talk sequencer's phase and caption visibility for the `?test` hook. */
+export function setPhase(phase) {
+  state.phase = phase;
+  updateTestHook();
+}
+
+export function setCaptionShown(shown) {
+  state.captionShown = shown;
+  updateTestHook();
 }
 
 /** Provides the 3D stage (null when WebGL is unavailable). */
@@ -68,6 +80,11 @@ function updateTestHook() {
     beat: state.beatIndex + 1,
     state: state.sceneName,
     generation: state.generation,
+    phase: state.phase,
+    captionShown: state.captionShown,
+    get anchors() {
+      return Object.keys(state.instance?.anchors?.() ?? {});
+    },
     get running() {
       return stage?.isRunning?.() ?? false;
     },
@@ -238,8 +255,10 @@ async function applySceneState({ animate }) {
   const controller = new AbortController();
   state.transition = controller;
   state.sceneName = beat.sceneState;
+  state.phase = animate ? 'animating' : 'settled';
   updateTestHook();
   await state.instance.setState(beat.sceneState, { generation: state.generation, animate, signal: controller.signal });
+  if (state.transition === controller) setPhase('settled');
 }
 
 /** Shows a tab at a beat. `animate: false` jumps straight to the end state (deep links). */
@@ -248,6 +267,7 @@ export function showTab(tabId, beatIndex = 0, { animate = false, generation = nu
   const changed = state.tab?.id !== tabId;
   state.tab = tab;
   state.beatIndex = clampBeat(beatIndex);
+  state.animated = animate;
   state.generation = (generation && tab.compareGenerations.includes(generation) ? generation : null) ?? tab.defaultCompare ?? null;
   if (changed) {
     mountScene(tab);
@@ -272,6 +292,7 @@ export function goTo(index, { animate = true } = {}) {
   const next = clampBeat(index);
   if (next === state.beatIndex && state.sceneName) return Promise.resolve();
   state.beatIndex = next;
+  state.animated = animate;
   renderText();
   emit('beat');
   updateTestHook();

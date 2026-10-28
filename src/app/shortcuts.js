@@ -1,17 +1,17 @@
 // "Keyboard shortcuts" dialog (opened by ? or the header button), per contracts/ui-navigation.md.
 
 const SHORTCUTS = [
-  ['← / →, Home / End', 'In the tab list: previous / next / first / last tab'],
-  ['→, Page Down, Space', 'Next step'],
-  ['←, Page Up', 'Previous step'],
-  ['1 – 5', 'Jump to a step'],
+  ['→, ↓, Page Down, Space', 'Next (continues into the next chapter)'],
+  ['←, ↑, Page Up, Shift + Space', 'Back (continues into the previous chapter)'],
+  ['N', 'Open or close the notes for this step'],
+  ['M', 'Open the chapter menu'],
   ['K', 'Play or pause'],
-  ['R', 'Replay from the first step'],
+  ['R', 'Replay from the first step of the chapter'],
   ['G', 'Change the generation compared with Wi-Fi 7'],
   ['V', 'Switch between Leadership and Technical view'],
-  ['P', 'Start or stop presenting'],
-  ['B or .', 'Blank the screen while presenting'],
-  ['Esc', 'Close a dialog or leave full screen'],
+  ['F or P', 'Full screen on or off'],
+  ['B or .', 'Blank the screen'],
+  ['Esc', 'Close notes, a menu or a dialog; else leave full screen'],
   ['?', 'Show these shortcuts']
 ];
 

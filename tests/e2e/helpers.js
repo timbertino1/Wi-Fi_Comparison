@@ -1,8 +1,30 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const indexFile = path.join(root, 'dist', 'index.html');
+
+/** Content tabs in story order. */
+export function contentTabs() {
+  const dir = path.join(root, 'content', 'tabs');
+  return fs.readdirSync(dir).sort().map((f) => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')));
+}
+
+/** Chapters in the clicker path (everything except the references page), in order. */
+export function talkChapters() {
+  return contentTabs().filter((t) => t.kind !== 'references' && t.beats.length);
+}
+
+/** Every step of the talk in clicker order: { chapter, step (1-based), tab, beat }. */
+export function talkPath() {
+  return talkChapters().flatMap((tab) => tab.beats.map((beat, i) => ({ chapter: tab.id, step: i + 1, tab, beat })));
+}
+
+/** Plain text of inline markup ([[term|text]], {{claim}}, **bold**). */
+export function plainMarkup(text) {
+  return (text ?? '').replace(/\[\[[^\]|]+\|([^\]]+)\]\]|\[\[([^\]]+)\]\]/g, '$1$2').replace(/\{\{[^}]+\}\}/g, '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+}
 
 /** file:// URL of the built site, with an optional hash such as "#/mlo/3". */
 export function fileUrl(hash = '') {
@@ -57,5 +79,5 @@ export async function trackCspViolations(page) {
 export async function gotoTab(page, id, beat, query = '') {
   const hash = `#/${id}${beat ? `/${beat}` : ''}${query ? `?${query}` : ''}`;
   await page.goto(fileUrl(hash));
-  await page.waitForSelector(`[role="tab"][aria-selected="true"]`);
+  await page.waitForSelector(`#chapter-list a[aria-current="step"][data-chapter="${id}"]`, { state: 'attached' });
 }

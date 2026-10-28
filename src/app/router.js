@@ -6,6 +6,7 @@ const listeners = new Set();
 let tabIds = [];
 let defaultTab = 'overview';
 let current = null;
+let resolvedHash = null; // the hash the app last acted on, so a duplicate hashchange is ignored
 
 export function parse(hash) {
   const raw = (hash ?? '').replace(/^#\/?/, '');
@@ -28,6 +29,7 @@ export function serialize({ tabId, beat, params }) {
 }
 
 function resolve() {
+  resolvedHash = location.hash;
   const parsed = parse(location.hash);
   const notFound = !!parsed.tabId && !tabIds.includes(parsed.tabId);
   const tabId = parsed.tabId && !notFound ? parsed.tabId : defaultTab;
@@ -44,7 +46,9 @@ function resolve() {
 export function init({ tabs, fallback = 'overview' }) {
   tabIds = tabs;
   defaultTab = fallback;
-  window.addEventListener('hashchange', resolve);
+  window.addEventListener('hashchange', () => {
+    if (location.hash !== resolvedHash) resolve();
+  });
   resolve();
 }
 
@@ -71,8 +75,10 @@ export function goTab(tabId, beat = null, extra = {}) {
   for (const k of PERSISTENT) if (current?.params.has(k)) params.set(k, current.params.get(k));
   for (const [k, v] of Object.entries(extra)) if (v !== null && v !== undefined) params.set(k, String(v));
   const hash = serialize({ tabId, beat, params });
-  if (location.hash === hash) resolve();
-  else location.hash = hash;
+  // Assigning the hash adds a history entry (Back moves between chapters); resolving at once keeps
+  // rapid clicker presses in order instead of waiting for the asynchronous hashchange event.
+  if (location.hash !== hash) location.hash = hash;
+  resolve();
 }
 
 /** Updates the beat or a parameter in place (no history entry, no route event). */
@@ -83,4 +89,5 @@ export function replace({ beat, set = {}, remove = [] } = {}) {
   for (const k of remove) params.delete(k);
   current = { ...current, beat: beat ?? current.beat, params };
   history.replaceState(history.state, '', serialize({ tabId: current.tabId, beat: current.beat, params }));
+  resolvedHash = location.hash;
 }
