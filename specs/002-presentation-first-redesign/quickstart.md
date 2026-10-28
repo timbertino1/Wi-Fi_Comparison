@@ -41,6 +41,9 @@ Open `dist/index.html` by double-clicking. The talk track is `docs/talk-track.md
 
 - **T1** After the first successful build, publish `docs/talk-track.md` once as an editable document
   titled "Wi-Fi 7 Explained — Talk Track (annotate here)".
+  Published 2026-10-28 as a Claude Doc (private to the owner until shared):
+  https://claude.ai/artifact/R8Z5sNwuBjLwcNR8TJWavx. The claims register is left out; it stays in
+  `docs/talk-track.md`.
 - **T2** Annotate that copy only; never edit `docs/talk-track.md` by hand (CI rejects drift).
 - **T3** When content changes, rebuild and publish a fresh copy with a date suffix; carry
   annotations across by hand.
