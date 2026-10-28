@@ -35,35 +35,51 @@
       "heading": "Fast on average is not enough",
       "caption": {
         "headline": "Fast on average is not enough",
-        "takeaway": "Wi-Fi 7 is the first generation that explicitly targets the worst-case delays that make real-time clinical…"
+        "takeaway": "[[latency|Latency]] has a long tail; Wi-Fi 7 explicitly targets the worst-case delays{{be-latency-objective}}.",
+        "technical": "802.11be’s scope includes improved worst-case latency and [[jitter|jitter]]{{be-latency-objective}}; [[tail-latency|tail latency]] is the slowest messages’ delay."
       },
       "body": "[[latency|Latency]] is how long a message takes to arrive. Two things matter: the typical delay, and how much it varies — [[jitter]] and [[tail-latency|tail latency]], the delay of the slowest messages.\n\nWi-Fi 7 was designed with this in mind: the scope of IEEE 802.11be includes improved worst-case latency and jitter {{be-latency-objective}}.",
       "bottomLine": "Wi-Fi 7 is the first generation that explicitly targets the worst-case delays that make real-time clinical communication unreliable.",
       "deepDive": null,
       "sceneState": "latency-what",
       "sceneDescription": "A histogram of delivery times rises from the floor. Most bars cluster on the left, where messages arrive quickly, but a long low tail stretches to the right, showing occasional very slow deliveries. The chart is labelled illustrative.",
-      "durationMs": 12000
+      "durationMs": 12000,
+      "questions": [
+        {
+          "q": "How much lower is Wi-Fi 7 latency?",
+          "a": "There is no single figure: worst-case delay depends on load, device mix and configuration. The standard targets improved worst-case latency and jitter{{be-latency-objective}}; measure it in a pilot with your own alarm and voice systems."
+        }
+      ]
     },
     {
       "type": "how",
       "heading": "Three ways to avoid waiting",
       "caption": {
         "headline": "Three ways to avoid waiting",
-        "takeaway": "These features work together to remove the specific situations that make urgent messages wait."
+        "takeaway": "Multi-link, protected [[twt|TWT]] slots and [[multi-ru|Multi-RU]] each remove a different reason urgent messages wait{{rtwt-be}}.",
+        "technical": "[[mlo|MLO]] uses whichever link wins access first{{mlo-tid-mapping}}; restricted service periods clear the air{{rtwt-protect}}."
       },
       "body": "Wi-Fi 7 combines three features to cut the long waits:\n\n**[[mlo|Multi-link operation]]** sends the alarm on whichever band is free {{mlo-bands}}. **[[restricted-twt|Restricted TWT]]**, a form of [[twt|Target Wake Time]], reserves protected time for latency-sensitive traffic {{rtwt-protect}}. **[[multi-ru|Multi-RU]]** fits urgent traffic into spare parts of the channel {{multi-ru-be}}.",
       "bottomLine": "These features work together to remove the specific situations that make urgent messages wait.",
       "deepDive": "MLO lets traffic move to the link that gains channel access first, with TID-to-link mapping steering traffic classes {{mlo-tid-mapping}}. Restricted TWT service periods require supporting stations to end transmissions before the period starts {{rtwt-protect}}. Multi-RU allows flexible RU combinations per station {{multi-ru-be}}. Each one addresses a different cause of queuing delay.",
       "sceneState": "latency-tools",
       "sceneDescription": "The download blocks shift aside as three labels appear over the path — multi-link, restricted TWT and Multi-RU — and the red alarm packet travels straight through to the nurses' station without waiting.",
-      "durationMs": 14000
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "Which feature helps latency most?",
+          "a": "It depends on the cause. MLO helps when one band is congested{{mlo-tid-mapping}}, Restricted TWT when long transmissions block urgent traffic{{rtwt-protect}}, and Multi-RU when the channel has spare fragments{{multi-ru-be}}.",
+          "audience": "technical"
+        }
+      ]
     },
     {
       "type": "improvement",
       "heading": "A shorter tail, not just a faster average",
       "caption": {
         "headline": "A shorter tail, not just a faster average",
-        "takeaway": "The goal is predictability: urgent traffic arriving on time consistently, which is what clinical workflows depend…"
+        "takeaway": "The goal is predictability: urgent traffic arriving on time, consistently{{latency-histogram-illustrative}}.",
+        "technical": "Results vary with load, device mix and configuration; pilot latency-sensitive applications before rollout{{be-latency-objective}}."
       },
       "body": "Earlier generations improved typical speed but left the slow tail: a busy band, a long transmission or a crowded channel could still hold up a message. Wi-Fi 7 targets that tail directly {{be-latency-objective}}.\n\nThe charts here show the shape of the change, not measured values {{latency-histogram-illustrative}}.",
       "bottomLine": "The goal is predictability: urgent traffic arriving on time consistently, which is what clinical workflows depend on.",
@@ -77,14 +93,21 @@
       "heading": "Alarms and calls that arrive on time",
       "caption": {
         "headline": "Alarms and calls that arrive on time",
-        "takeaway": "Include worst-case [[latency|latency]] in Wi-Fi 7 acceptance testing for alarm, voice and video applications, not only…"
+        "takeaway": "Include worst-case latency in Wi-Fi 7 acceptance tests for alarm, voice and video."
       },
       "body": "Clinical alarms, nurse calls, voice and remotely supported procedures need consistent delivery, not just a good average. Wi-Fi 7's latency features support that consistency on busy networks.\n\nWireless networks remain one part of the alarm chain, so clinical alarm systems should still follow their manufacturers' validated configurations.",
       "bottomLine": "Include worst-case latency in Wi-Fi 7 acceptance testing for alarm, voice and video applications, not only average throughput.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
       "sceneDescription": "Alarm and voice packets flow steadily from the monitor through the access point to the nurses' station, while the Wi-Fi 7 histogram beside them stays tightly bunched. The chart is labelled illustrative.",
-      "durationMs": 11000
+      "durationMs": 11000,
+      "questions": [
+        {
+          "q": "Can we rely on Wi-Fi 7 for clinical alarms?",
+          "a": "Wi-Fi is one link in the alarm chain. Wi-Fi 7 improves consistency, but alarm systems should still follow their manufacturers’ validated configurations and your clinical engineering testing.",
+          "audience": "leadership"
+        }
+      ]
     }
   ],
   "keyFigures": [

@@ -23,7 +23,7 @@
       "heading": "New access points, old wiring closets",
       "caption": {
         "headline": "New access points, old wiring closets",
-        "takeaway": "A Wi-Fi 7 project is also a wired-network project; budget for switches, power and cabling at…"
+        "takeaway": "A Wi-Fi 7 project is also a wired-network project: budget switches, power and cabling together."
       },
       "body": "A hospital plans a Wi-Fi 7 refresh for a new wing. The wireless side looks fast — but each [[access-point|access point]] still plugs into a switch port, through a cable, drawing its power from that switch.\n\nIf the switch ports are 1 Gb/s {{gigabit-1}} and the power budget was sized for older access points, the new radios cannot deliver what they promise.",
       "bottomLine": "A Wi-Fi 7 project is also a wired-network project; budget for switches, power and cabling at the same time.",
@@ -36,36 +36,56 @@
       "type": "what",
       "heading": "Peak rates by generation",
       "caption": {
-        "headline": "Peak rates by generation",
-        "takeaway": "Treat peak rates as a ceiling, not a forecast: the meaningful number is the throughput your…"
+        "headline": "Peak rates are a ceiling, not a forecast",
+        "takeaway": "Wi-Fi 7’s theoretical peak is 46.1 Gbps{{wifi7-peak-phy}}; real devices and networks achieve far less.",
+        "technical": "Assumes 16 [[spatial-stream|spatial streams]]{{eht-max-nss}}; the [[phy-rate|PHY rate]] is raw signalling, and MAC throughput is lower{{be-mac-throughput-goal}}."
       },
       "body": "Each generation raised the theoretical [[phy-rate|PHY rate]] — the raw over-the-air signalling speed. Wi-Fi 4 tops out at 600 Mbps {{wifi4-peak-phy}}, Wi-Fi 5 at 6.93 Gbps {{wifi5-peak-phy}}, Wi-Fi 6 at 9.61 Gbps {{wifi6-peak-phy}} and Wi-Fi 7 at 46.1 Gbps {{wifi7-peak-phy}}.\n\nThese are theoretical maximums with every option at its limit, including 16 [[spatial-stream|spatial streams]] for Wi-Fi 7 {{eht-max-nss}}. A device with fewer streams has a proportionally lower peak, and usable throughput is lower still {{be-mac-throughput-goal}}.",
       "bottomLine": "Treat peak rates as a ceiling, not a forecast: the meaningful number is the throughput your devices and environment actually achieve.",
       "deepDive": null,
       "sceneState": "peak-rates",
       "sceneDescription": "Four towers rise in a row, one per generation, each in its own colour and labelled with its theoretical peak rate. The Wi-Fi 7 tower is drawn translucent and marked as theoretical, because it assumes sixteen spatial streams, the most the standard allows.",
-      "durationMs": 13000
+      "durationMs": 13000,
+      "questions": [
+        {
+          "q": "Why show a theoretical peak that no device reaches?",
+          "a": "It is the standard’s ceiling with 16 spatial streams{{eht-max-nss}}, useful only to compare generations. Real throughput depends on device streams, channel width and sharing; ask vendors for tested throughput instead.",
+          "audience": "leadership"
+        }
+      ]
     },
     {
       "type": "how",
       "heading": "Faster uplinks and more power per port",
       "caption": {
-        "headline": "Faster uplinks and more power per port",
-        "takeaway": "Plan switch ports and power budgets from each [[access-point|access point]] model's specifications, not from the previous…"
+        "headline": "Faster [[uplink|uplinks]] and more power per port",
+        "takeaway": "[[multigig|Multi-gigabit]] uplinks{{multigig-2-5-5}} and higher [[poe|PoE]] classes, up to 90 W{{poe-type4-pse}}, become planning items.",
+        "technical": "Power at the device is lower after cable loss: 71.3 W for Type 4{{poe-type4-pd}}."
       },
       "body": "Even below its PHY rate, a Wi-Fi 7 access point can move more traffic than a 1 Gb/s link carries: 802.11be targets at least 30 Gb/s at the [[mac-layer|MAC layer]] {{be-mac-throughput-goal}}. [[multigig|Multi-gigabit Ethernet]] — 2.5 and 5 Gb/s {{multigig-2-5-5}} or 10 Gb/s {{multigig-10}} — gives the [[uplink]] headroom over existing twisted-pair cabling.\n\n[[poe|Power over Ethernet]] comes in classes: 15.4 W {{poe-type1-pse}}, 30 W {{poe-type2-pse}}, 60 W {{poe-type3-pse}} and 90 W {{poe-type4-pse}} at the switch port.",
       "bottomLine": "Plan switch ports and power budgets from each access point model's specifications, not from the previous generation's.",
       "deepDive": "Power figures are at the power-sourcing equipment (switch port). After cable losses, the powered device receives about 12.95 W {{poe-type1-pd}}, 25.5 W {{poe-type2-pd}}, 51 W {{poe-type3-pd}} or 71.3 W {{poe-type4-pd}}. Types 1–2 come from 802.3af/at and Types 3–4 from 802.3bt, all consolidated in IEEE 802.3-2022 {{poe-type3-pse}}. Multi-gigabit PHYs are 2.5GBASE-T and 5GBASE-T {{multigig-2-5-5}} and 10GBASE-T {{multigig-10}}.",
       "sceneState": "wired-chain",
       "sceneDescription": "The cable between switch and access point widens into a multi-gigabit pipe and packets flow freely. Beside the switch, four power gauges for the PoE classes stand side by side, each labelled with its power at the switch port.",
-      "durationMs": 14000
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "Do we need to recable for Wi-Fi 7?",
+          "a": "Often not. 2.5GBASE-T and 5GBASE-T run multi-gigabit speeds over existing twisted-pair cabling{{multigig-2-5-5}}; verify cable runs during the survey, and plan 10 Gb/s{{multigig-10}} only where it is needed."
+        },
+        {
+          "q": "How much PoE does a Wi-Fi 7 access point need?",
+          "a": "It varies by model and enabled features. Classes range from 15.4 W{{poe-type1-pse}} to 90 W{{poe-type4-pse}} at the switch port; check each model’s documented class, and whether features switch off at lower power."
+        }
+      ]
     },
     {
       "type": "improvement",
       "heading": "What changes in the wired network",
       "caption": {
         "headline": "What changes in the wired network",
-        "takeaway": "Expect to refresh or upgrade access-layer switches alongside Wi-Fi 7; leaving old switches in place can…"
+        "takeaway": "1 Gb/s ports{{gigabit-1}} can cap new access points; expect to upgrade access-layer switches alongside.",
+        "technical": "Peak rate is streams × subcarriers × bits × coding rate ÷ symbol time{{wifi7-peak-phy}}."
       },
       "body": "Access points from the Wi-Fi 5 era commonly ran on 1 Gb/s ports {{gigabit-1}}. With Wi-Fi 7's higher capacity, multi-gigabit uplinks {{multigig-2-5-5}} and higher PoE classes {{poe-type3-pse}} become planning considerations for each access point model.\n\nCheck each model's documented power class and uplink speed, and size switch power budgets for every port on the floor.",
       "bottomLine": "Expect to refresh or upgrade access-layer switches alongside Wi-Fi 7; leaving old switches in place can cap the benefit of new access points.",
@@ -78,8 +98,8 @@
       "type": "why",
       "heading": "Planning closets, budgets and timelines",
       "caption": {
-        "headline": "Planning closets, budgets and timelines",
-        "takeaway": "Include switching, [[poe|PoE]] budget and cabling verification in the Wi-Fi 7 business case and project timeline…"
+        "headline": "Plan closets, budgets and timelines early",
+        "takeaway": "Put switching, PoE budgets and cabling checks in the business case from the start."
       },
       "body": "For a hospital floor, the wired side often decides the schedule and the budget: switch replacements, power supplies, cabling checks and maintenance windows in clinical areas.\n\nPlanning these early avoids installing new access points that are throttled by old switch ports or unable to power all of their features.",
       "bottomLine": "Include switching, PoE budget and cabling verification in the Wi-Fi 7 business case and project timeline from the start.",

@@ -22,7 +22,7 @@
       "heading": "One captured handshake, unlimited guesses",
       "caption": {
         "headline": "One captured handshake, unlimited guesses",
-        "takeaway": "A single weak or long-lived shared passphrase can expose a whole device network, often without any…"
+        "takeaway": "A shared [[wpa2|WPA2]] passphrase can be cracked offline from one recording, with no sign of attack."
       },
       "body": "Many clinical device networks still use a shared passphrase with [[wpa2|WPA2]]-Personal. Someone in the car park can record the moment a device joins, take that recording away, and try millions of passphrase guesses offline — no one on the network would ever notice {{wpa3-sae}}.\n\nIf they succeed, they can join the network and, with the passphrase, potentially decrypt traffic they recorded earlier.",
       "bottomLine": "A single weak or long-lived shared passphrase can expose a whole device network, often without any sign of an attack.",
@@ -36,56 +36,84 @@
       "heading": "WPA3: a handshake that gives nothing away",
       "caption": {
         "headline": "[[wpa3|WPA3]]: a handshake that gives nothing away",
-        "takeaway": "WPA3 closes the most common way attackers break shared-passphrase networks, and it is already built into…"
+        "takeaway": "Recordings are useless for offline guessing{{wpa3-sae}}, and WPA3 is required for new certified devices{{wpa3-mandatory-cert}}."
       },
       "body": "[[wpa3|WPA3]] replaces the WPA2-Personal handshake with [[sae|SAE]], an exchange designed so that a recording is useless for offline guessing: every guess requires talking to the real network {{wpa3-sae}}. WPA3 is required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}.\n\nFor open networks such as guest Wi-Fi, [[owe|Wi-Fi Enhanced Open]] encrypts traffic without a password {{owe-what}}.",
       "bottomLine": "WPA3 closes the most common way attackers break shared-passphrase networks, and it is already built into current devices.",
       "deepDive": null,
       "sceneState": "sae-exchange",
       "sceneDescription": "The device and the access point exchange messages that the observer can still record, but the recording now produces a sealed box that cannot be tested offline, and the observer's guesses go nowhere.",
-      "durationMs": 12000
+      "durationMs": 12000,
+      "questions": [
+        {
+          "q": "What about guest Wi-Fi with no password?",
+          "a": "Wi-Fi Enhanced Open encrypts each guest device’s traffic without a password{{owe-what}}, so an open network is no longer readable by anyone nearby."
+        }
+      ]
     },
     {
       "type": "how",
       "heading": "Fresh keys every session",
       "caption": {
         "headline": "Fresh keys every session",
-        "takeaway": "A leaked password no longer means every past recording can be decrypted, which limits the damage…"
+        "takeaway": "A leaked password no longer unlocks past recordings{{wpa3-forward-secrecy}}, limiting the damage of one mistake.",
+        "technical": "[[sae|SAE]] yields a unique key per session; [[pmf|PMF]] is required, and WEP and TKIP are disallowed{{legacy-security-disallowed}}."
       },
       "body": "With SAE, both sides prove they know the password without revealing anything an eavesdropper can test, and they agree on a fresh encryption key for each session {{wpa3-sae}}.\n\nThat gives [[forward-secrecy|forward secrecy]]: even if the password leaks later, traffic captured earlier stays protected {{wpa3-forward-secrecy}}. WPA3 also protects management frames, which stops simple attacks that knock devices off the network.",
       "bottomLine": "A leaked password no longer means every past recording can be decrypted, which limits the damage of a single mistake.",
       "deepDive": "SAE is a password-authenticated key exchange (the \"dragonfly\" handshake) followed by the standard 4-way handshake; each successful exchange yields a unique pairwise key {{wpa3-sae}}. WPA3 configurations require [[pmf|protected management frames (PMF)]], and WEP, TKIP and WPA version 1 are disallowed {{legacy-security-disallowed}}. Hash-to-element (H2E) derives the password element in constant time, closing side channels found in early SAE implementations {{wifi7-eht-security}}.",
       "sceneState": "session-keys",
       "sceneDescription": "Each device that joins receives its own differently coloured lock, showing a unique key per session. An old recording on the observer's machine stays locked even after a password card appears.",
-      "durationMs": 13000
+      "durationMs": 13000,
+      "questions": [
+        {
+          "q": "Why does forward secrecy matter if we rotate passwords?",
+          "a": "Rotation limits future exposure, but with WPA2-Personal a leaked passphrase can still decrypt traffic recorded earlier. WPA3-Personal derives a fresh key each session{{wpa3-forward-secrecy}}, so old recordings stay protected.",
+          "audience": "technical"
+        }
+      ]
     },
     {
       "type": "improvement",
       "heading": "Required where it matters most",
       "caption": {
         "headline": "Required where it matters most",
-        "takeaway": "Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become…"
+        "takeaway": "6 GHz does not permit WPA2-Personal{{wpa3-6ghz-required}}, and Wi-Fi 7 multi-link requires WPA3{{wpa3-mlo-required}}.",
+        "technical": "Wi-Fi 7 deployment guidance mandates [[beacon-protection|beacon protection]], SAE hash-to-element and GCMP-256{{wifi7-eht-security}}."
       },
       "body": "With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. The 6 GHz band does not permit WPA2-Personal at all {{wpa3-6ghz-required}}, and Wi-Fi 7 multi-link connections require WPA3 {{wpa3-mlo-required}}.\n\nFor Wi-Fi 7 networks, Wi-Fi Alliance deployment guidance goes further, making beacon protection and the strongest encryption options mandatory {{wifi7-eht-security}}.",
       "bottomLine": "Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become the baseline rather than an option someone has to remember.",
       "deepDive": "For networks with EHT enabled, the WPA3 deployment guide marks as mandatory: the SAE-GDH [[akm|AKM]] (suite 24), PMF required, SAE hash-to-element only, beacon protection, and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
       "sceneState": "gen-compare",
       "sceneDescription": "Two gates stand side by side. The earlier generation's gate admits devices using WPA2 or WPA3. The Wi-Fi 7 and 6 GHz gate admits only WPA3 devices and turns a WPA2 device away.",
-      "durationMs": 14000
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "Will our older clinical devices still connect?",
+          "a": "Devices without WPA3 cannot join 6 GHz networks{{wpa3-6ghz-required}} or Wi-Fi 7 multi-link connections{{wpa3-mlo-required}}. Many sites run a separate network name for older devices during the transition and retire it as devices are replaced."
+        }
+      ]
     },
     {
       "type": "why",
       "heading": "Protecting clinical and device traffic",
       "caption": {
         "headline": "Protecting clinical and device traffic",
-        "takeaway": "Plan WPA3 alongside clinical device refresh: some older devices may not support it, so 6 GHz…"
+        "takeaway": "Some older clinical devices lack WPA3, so plan separate network names during the transition."
       },
       "body": "Hospital networks carry clinical messages, device [[telemetry|telemetry]] and staff communications. Stronger sign-in and per-session encryption make it much harder to eavesdrop on or impersonate that traffic.\n\nWPA3 is one layer of security, not a complete programme: it complements network segmentation, device management and your organisation's security and compliance processes.",
       "bottomLine": "Plan WPA3 alongside clinical device refresh: some older devices may not support it, so 6 GHz and Wi-Fi 7 networks may need separate network names during the transition.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
       "sceneDescription": "Clinical devices — a voice badge, an infusion pump and a monitor — each hold their own lock while connected to the access point, and the outside observer gives up and fades away.",
-      "durationMs": 11000
+      "durationMs": 11000,
+      "questions": [
+        {
+          "q": "Does WPA3 make our network compliant?",
+          "a": "No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organisation’s security and compliance processes.",
+          "audience": "leadership"
+        }
+      ]
     }
   ],
   "keyFigures": [

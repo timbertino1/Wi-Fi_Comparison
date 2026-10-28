@@ -17,7 +17,14 @@ test.describe('slide content', () => {
       const caption = page.locator('#caption');
       await expect(caption).toBeVisible();
       await expect(caption.locator('.caption-headline')).toHaveText(plainMarkup(beat.caption.headline));
-      await expect(caption.locator('.caption-takeaway')).toHaveText(plainMarkup(beat.caption.takeaway));
+      // A takeaway's {{claim}} citations render as source buttons; compare the words around them.
+      const takeaway = caption.locator('.caption-takeaway');
+      await expect.poll(() => takeaway.evaluate((el) => {
+        const copy = el.cloneNode(true);
+        for (const cite of copy.querySelectorAll('.cite')) cite.remove();
+        return copy.textContent.replace(/\s+/g, ' ').trim();
+      })).toBe(plainMarkup(beat.caption.takeaway).replace(/\s+/g, ' ').trim());
+      await expect(takeaway.locator('.cite')).toHaveCount((beat.caption.takeaway.match(/\{\{[^}]+\}\}/g) ?? []).length);
       expect(words(await caption.innerText()), `${chapter}/${step}`).toBeLessThanOrEqual(24);
       await expect(page.locator('#notes')).toBeHidden();
       const order = chapters.findIndex((c) => c.id === chapter) + 1;

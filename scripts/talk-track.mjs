@@ -36,7 +36,9 @@ export function buildTalkTrack(content = loadContent()) {
   const md = (text) => (text ?? '')
     .replace(TERM_RE, (_, id, label) => label ?? termById.get(id)?.term ?? id)
     .replace(REF_RE, (_, id) => marker([id]))
-    .replace(CLAIM_RE, (_, id) => claimMarker(id));
+    .replace(CLAIM_RE, (_, id) => claimMarker(id))
+    .replace(/(?<=[^\s([])\[(S\d+)/g, ' [$1'); // a marker written straight after a word gets a space
+  const sentence = (s) => (/[.!?…]$/.test(s) ? s : `${s}.`);
   const cell = (text) => md(String(text ?? '')).replace(/\s*\n+\s*/g, ' ').replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
   const termsIn = (...texts) => [...new Set(texts.flatMap((t) => [...(t ?? '').matchAll(new RegExp(TERM_RE.source, 'g'))].map((m) => m[1])))];
   const claimsIn = (...texts) => [...new Set(texts.flatMap((t) => [...(t ?? '').matchAll(new RegExp(CLAIM_RE.source, 'g'))].map((m) => m[1])))];
@@ -81,7 +83,7 @@ export function buildTalkTrack(content = loadContent()) {
       line(`### Step ${si + 1} — ${md(b.caption?.headline ?? b.heading)}`);
       line();
       const hotspots = b.hotspots ?? [];
-      const onScreen = [`${md(b.caption?.headline)} / ${md(b.caption?.takeaway)}.`, md(b.sceneDescription)];
+      const onScreen = [sentence(`${md(b.caption?.headline)} / ${md(b.caption?.takeaway)}`), md(b.sceneDescription)];
       if (hotspots.length) onScreen.push(`Hotspots: ${hotspots.map((h) => termById.get(h.term)?.term ?? h.term).join(', ')}.`);
       line(`**On screen:** ${onScreen.join(' ')}`);
       line();

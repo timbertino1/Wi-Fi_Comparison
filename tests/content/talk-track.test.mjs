@@ -17,6 +17,7 @@ const plainContent = (s) => s
   .replace(/\{\{(?:ref:)?[a-z0-9-]+\}\}/g, '')
   .replace(/\*\*/g, '')
   .replace(/\s+/g, ' ')
+  .replace(/ (?=[.,;:!?)])/g, '') // a removed citation can leave a space before punctuation
   .trim();
 
 /** The generated document normalised the same way: source markers, emphasis and escapes removed. */
@@ -24,7 +25,8 @@ const plainDoc = (s) => s
   .replace(/\[S\d+(?:, S\d+)*\]/g, '')
   .replace(/\*\*/g, '')
   .replace(/\\\|/g, '|')
-  .replace(/\s+/g, ' ');
+  .replace(/\s+/g, ' ')
+  .replace(/ (?=[.,;:!?)])/g, '');
 
 /** Every text field the explainer shows on the page, with a JSON path for failure messages. */
 function* pageText({ tabs, scenarios, glossary, references, claims, generations }) {

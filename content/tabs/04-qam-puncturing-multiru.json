@@ -22,21 +22,27 @@
       "heading": "One busy slice shrinks the whole channel",
       "caption": {
         "headline": "One busy slice shrinks the whole channel",
-        "takeaway": "Interference in a small part of the spectrum can cut wireless capacity in a room far…"
+        "takeaway": "A small patch of interference can force earlier Wi-Fi onto a much narrower channel."
       },
       "body": "A wide Wi-Fi channel is made of many narrower slices. In an imaging suite, another system or a neighbouring network is busy in just one of those slices.\n\nWith earlier Wi-Fi, the [[access-point|access point]] has to avoid the busy slice by dropping to a much narrower channel — giving up most of its capacity to dodge a small piece of interference.",
       "bottomLine": "Interference in a small part of the spectrum can cut wireless capacity in a room far more than its size suggests.",
       "deepDive": null,
       "sceneState": "interferer",
       "sceneDescription": "A wide channel is drawn as a row of equal slices. A red block of interference sits on one slice. In the earlier generation's colour, only the few slices before the interference stay lit, and the rest of the channel goes dark and unused.",
-      "durationMs": 12000
+      "durationMs": 12000,
+      "questions": [
+        {
+          "q": "What causes this interference in a hospital?",
+          "a": "Neighbouring Wi-Fi networks, building systems and wireless clinical equipment share the same air. Puncturing lets an access point skip only the busy part of a wide channel{{puncturing-be}} instead of giving up most of it."
+        }
+      ]
     },
     {
       "type": "what",
       "heading": "Three ways to get more from the same spectrum",
       "caption": {
-        "headline": "Three ways to get more from the same…",
-        "takeaway": "These features raise both peak speed and resilience to interference, without needing new spectrum."
+        "headline": "Three ways to get more from the spectrum",
+        "takeaway": "4K-QAM packs more bits per signal; [[preamble-puncturing|puncturing]] and [[multi-ru|Multi-RU]] work around interference."
       },
       "body": "Wi-Fi 7 combines three techniques:\n\n**4K-QAM** packs 12 bits into each [[subcarrier|subcarrier]] instead of 10 {{eht-4096qam-bits}} {{he-1024qam-bits}}. **[[preamble-puncturing|Preamble puncturing]]** skips only the busy slice of a wide channel {{puncturing-be}}. **[[multi-ru|Multi-RU]]** lets one device use several separate pieces of the channel at once {{multi-ru-be}}.",
       "bottomLine": "These features raise both peak speed and resilience to interference, without needing new spectrum.",
@@ -49,36 +55,51 @@
       "type": "how",
       "heading": "More bits per signal, and skipping the busy slice",
       "caption": {
-        "headline": "More bits per signal, and skipping the busy…",
-        "takeaway": "Devices close to an [[access-point|access point]] get faster transfers; every device keeps more of the channel…"
+        "headline": "More bits per signal, skip the busy slice",
+        "takeaway": "4K-QAM adds 20%{{qam-4k-gain}} peak rate close in; puncturing keeps the rest of the channel working.",
+        "technical": "4096-QAM carries 12 bits per [[subcarrier|subcarrier]] versus 10{{eht-4096qam-bits}}{{he-1024qam-bits}}, and needs a stricter [[evm|EVM]]{{eht-4kqam-evm}}."
       },
       "body": "[[qam|QAM]] encodes bits as points on a grid; more points mean more bits per signal. Going from 1024 to 4096 points adds two bits per subcarrier, raising the peak rate by 20% {{qam-4k-gain}}. The points sit closer together, so 4K-QAM needs a very clean, strong signal — typically a device near its access point {{eht-4kqam-evm}}.\n\nWith puncturing, the access point marks the busy slice as unused and transmits on all the others {{puncturing-be}}.",
       "bottomLine": "Devices close to an access point get faster transfers; every device keeps more of the channel when interference appears.",
       "deepDive": "4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM {{eht-4096qam-bits}} {{he-1024qam-bits}}, and 802.11be sets a stricter [[evm|EVM]] limit for it {{eht-4kqam-evm}}. Puncturing is signalled in the preamble so receivers ignore the punctured 20 MHz subchannels {{puncturing-be}}.",
       "sceneState": "puncture",
       "sceneDescription": "The wide channel returns with the red interference on one slice. This time, in the Wi-Fi 7 colour, every slice except the busy one stays lit, leaving a single gap where the interference is.",
-      "durationMs": 14000
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "Will every device get the 4K-QAM speed-up?",
+          "a": "No. 4096-QAM needs a very clean, strong signal{{eht-4kqam-evm}}, so mainly devices close to their access point benefit, such as a workstation in the same room. Devices further away use lower modulation as before."
+        }
+      ]
     },
     {
       "type": "improvement",
       "heading": "From one piece per device to several",
       "caption": {
         "headline": "From one piece per device to several",
-        "takeaway": "The access point can fit traffic around interference and give busy devices more of the channel…"
+        "takeaway": "Wi-Fi 7 can give one device several [[resource-unit|resource units]], even non-adjacent ones{{multi-ru-be}}.",
+        "technical": "[[ofdma|OFDMA]] gave each device one RU{{ofdma-ax}}; 802.11be adds multi-RU and single-user puncturing{{puncturing-be}}."
       },
       "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits a channel into [[resource-unit|resource units]] so several devices can share one transmission {{ofdma-ax}}. But each device got just one resource unit, and puncturing was limited to multi-user transmissions {{puncturing-ax}}.\n\nWi-Fi 7 can give one device several resource units, even non-adjacent ones {{multi-ru-be}}, and can puncture any transmission {{puncturing-be}}.",
       "bottomLine": "The access point can fit traffic around interference and give busy devices more of the channel, so less capacity is wasted.",
       "deepDive": "In 802.11ax, each station in an MU transmission receives a single RU {{multi-ru-be}}. 802.11be defines multiple resource units (MRUs): combinations of RUs assigned to one station, which also make puncturing practical for single-user transmissions {{puncturing-be}}. The top modulation rises from 1024-QAM to 4096-QAM {{qam-4k-gain}}.",
       "sceneState": "ru-compare",
       "sceneDescription": "Two rows of resource units are shown. In the earlier generation's row, each device gets exactly one block. In the Wi-Fi 7 row, one device is given several separate blocks spread across the channel, skipping a busy one.",
-      "durationMs": 14000
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "How is this different from OFDMA in Wi-Fi 6?",
+          "a": "Wi-Fi 6 OFDMA gives each device one resource unit per transmission{{multi-ru-be}}. Wi-Fi 7 can give a device several, including non-adjacent ones, and can puncture single-user transmissions too{{puncturing-be}}.",
+          "audience": "technical"
+        }
+      ]
     },
     {
       "type": "why",
       "heading": "Capacity that survives a busy neighbourhood",
       "caption": {
         "headline": "Capacity that survives a busy neighbourhood",
-        "takeaway": "Wi-Fi 7 delivers more usable capacity in the real, cluttered radio environment of a hospital, not…"
+        "takeaway": "More usable capacity in a real, cluttered hospital radio environment, not only in ideal conditions."
       },
       "body": "Hospitals are dense radio environments: neighbouring networks, building systems and wireless clinical equipment all share the air. Puncturing and Multi-RU let wide channels keep working when part of the spectrum is busy, and 4K-QAM speeds up transfers for devices near an access point, such as an imaging workstation in the same room.",
       "bottomLine": "Wi-Fi 7 delivers more usable capacity in the real, cluttered radio environment of a hospital, not only in ideal conditions.",

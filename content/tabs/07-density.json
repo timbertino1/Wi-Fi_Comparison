@@ -22,7 +22,7 @@
       "heading": "Shift change in the emergency department",
       "caption": {
         "headline": "Shift change in the emergency department",
-        "takeaway": "In crowded areas, Wi-Fi often fails from too many devices sharing too little [[airtime|airtime]], not from…"
+        "takeaway": "Crowded units fail from too little [[airtime|airtime]] per device, not from weak signal."
       },
       "body": "At shift change, an emergency department fills with devices: two shifts of staff phones and [[voice-badge|badges]], bedside monitors, infusion pumps, workstations on wheels, plus patients' and visitors' phones.\n\nWith Wi-Fi 5 and earlier, devices on a channel take turns, sending one at a time {{contention-dcf}}. The more devices there are, the longer each one waits — and small, urgent messages wait just as long as large downloads.",
       "bottomLine": "In crowded areas, Wi-Fi often fails from too many devices sharing too little airtime, not from weak signal.",
@@ -36,7 +36,7 @@
       "heading": "Every device shares the same airtime",
       "caption": {
         "headline": "Every device shares the same airtime",
-        "takeaway": "Capacity planning, not just coverage planning, decides how a unit performs at its busiest moments."
+        "takeaway": "Plan capacity, not just coverage: peak device counts decide how a unit performs."
       },
       "body": "An [[access-point|access point]]'s capacity is its [[airtime]] — the time its channel spends carrying traffic. Every connected device draws from the same pool. Client density is how many devices share that pool, and density is rising as more clinical equipment becomes wireless.",
       "bottomLine": "Capacity planning, not just coverage planning, decides how a unit performs at its busiest moments.",
@@ -50,21 +50,34 @@
       "heading": "Serve many devices in each transmission",
       "caption": {
         "headline": "Serve many devices in each transmission",
-        "takeaway": "The same [[access-point|access point]] can serve more devices with less waiting, which is how dense units…"
+        "takeaway": "[[ofdma|OFDMA]] serves several devices at once{{ofdma-ax}}; Wi-Fi 7 also spreads them across bands{{mlo-bands}}.",
+        "technical": "Before OFDMA, [[contention|contention]] gives one station the whole channel{{contention-dcf}}; [[bss-coloring|BSS coloring]] aids spatial reuse{{bss-coloring-ax}}."
       },
       "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once {{ofdma-ax}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighbouring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, [[mlo|multi-link operation]] spreads devices across bands {{mlo-bands}}, and [[multi-ru|Multi-RU]] and puncturing use spectrum that would otherwise go idle {{multi-ru-be}} {{puncturing-be}}.",
       "bottomLine": "The same access point can serve more devices with less waiting, which is how dense units stay responsive.",
       "deepDive": "Before OFDMA, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], in both directions {{ofdma-ax}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}.",
       "sceneState": "ofdma-slices",
       "sceneDescription": "The channel timeline changes: each transmission is now divided into several horizontal slices, each slice serving a different device, so several device dots on the floor light up at the same moment.",
-      "durationMs": 14000
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "Do older devices benefit from OFDMA?",
+          "a": "No. Devices from before Wi-Fi 6 still take turns using the whole channel{{contention-dcf}}. They benefit indirectly when newer devices finish sooner, but the full gains arrive as devices are refreshed."
+        },
+        {
+          "q": "What does BSS coloring do on a dense floor?",
+          "a": "It tags each network’s transmissions so a device can tell its own network from a neighbour’s{{bss-coloring-ax}}, and reuse the channel more often instead of deferring to distant traffic.",
+          "audience": "technical"
+        }
+      ]
     },
     {
       "type": "improvement",
       "heading": "One at a time, several at once, across bands",
       "caption": {
-        "headline": "One at a time, several at once, across…",
-        "takeaway": "Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use…"
+        "headline": "One at a time, then many at once",
+        "takeaway": "Wi-Fi 5 serves one device per transmission{{contention-dcf}}; Wi-Fi 6 several{{ofdma-ax}}; Wi-Fi 7 adds multiple bands{{mlo-bands}}.",
+        "technical": "Older clients still contend for the full channel{{contention-dcf}}, so mixed fleets see partial gains until refreshed."
       },
       "body": "Wi-Fi 5 serves one device per transmission {{contention-dcf}}. Wi-Fi 6 serves several at once {{ofdma-ax}}. Wi-Fi 7 adds wider channels and more than one link, so the access point can split traffic across bands as well as within each transmission {{mlo-bands}} {{eht-max-width}}.",
       "bottomLine": "Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.",
@@ -78,14 +91,21 @@
       "heading": "Staying responsive at the busiest moments",
       "caption": {
         "headline": "Staying responsive at the busiest moments",
-        "takeaway": "Plan wireless capacity around peak device counts in each unit; Wi-Fi 7 raises the ceiling, but…"
+        "takeaway": "Size each unit for peak device counts; Wi-Fi 7 raises the ceiling, but placement still matters."
       },
       "body": "Shift changes, mass-casualty events and full waiting rooms are exactly when clinical communication matters most — and when device counts peak. Serving more devices per transmission helps alerts, calls and charting stay responsive when the unit is busiest.\n\nDesign for peak density: count devices per bed and per staff member, not just square metres.",
       "bottomLine": "Plan wireless capacity around peak device counts in each unit; Wi-Fi 7 raises the ceiling, but placement and channel planning still matter.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
       "sceneDescription": "The emergency department stays full of devices, but many dots light up together as the multi-link, sliced channel timelines serve them, and none are left waiting for long.",
-      "durationMs": 11000
+      "durationMs": 11000,
+      "questions": [
+        {
+          "q": "How many devices can one access point handle?",
+          "a": "There is no single number: it depends on the traffic mix, channel width and how many devices support OFDMA and multi-link. Count devices per bed and per staff member at peak, and size from a site survey.",
+          "audience": "leadership"
+        }
+      ]
     }
   ],
   "keyFigures": [

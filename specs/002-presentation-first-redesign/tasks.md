@@ -227,6 +227,8 @@ with US5 brought forward because it is P1).
 
 **Purpose**: Replace placeholder captions and add hotspots and likely questions for all 47 steps. Each task is one chapter file and can run in parallel; every item goes through the validator (T004–T007).
 
+**Progress (2026-10-28)**: captions (headline, takeaway, technical) and 33 likely questions drafted for all 47 steps of T062–T071, and the editable talk track refreshed with a per-chapter review table (T073, first pass). Still open in these tasks: hotspots (need US4 and scene anchors), per-step `captionAtMs` tuning, and the presenter's review verdicts. Leave the boxes unticked until hotspots land.
+
 - [ ] T062 [P] Author captions (headline "≤ 8 words", takeaway "≤ 16 words", technical "≤ 20 words"), `captionAtMs`, hotspots and 4–8 likely questions for content/tabs/01-overview.json, opening with why Wi-Fi 7 matters to healthcare
 - [ ] T063 [P] Author captions, hotspots and questions for content/tabs/02-6ghz-320mhz.json
 - [ ] T064 [P] Author captions, hotspots and questions for content/tabs/03-mlo.json (add `ctx.cue('caption')` timing for the reroute moment in src/scenes/mlo.js)
