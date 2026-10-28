@@ -37,7 +37,7 @@ export function buildTalkTrack(content = loadContent()) {
     .replace(TERM_RE, (_, id, label) => label ?? termById.get(id)?.term ?? id)
     .replace(REF_RE, (_, id) => marker([id]))
     .replace(CLAIM_RE, (_, id) => claimMarker(id));
-  const cell = (text) => md(String(text ?? '')).replace(/\s*\n+\s*/g, ' ').replace(/\|/g, '\\|');
+  const cell = (text) => md(String(text ?? '')).replace(/\s*\n+\s*/g, ' ').replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
   const termsIn = (...texts) => [...new Set(texts.flatMap((t) => [...(t ?? '').matchAll(new RegExp(TERM_RE.source, 'g'))].map((m) => m[1])))];
   const claimsIn = (...texts) => [...new Set(texts.flatMap((t) => [...(t ?? '').matchAll(new RegExp(CLAIM_RE.source, 'g'))].map((m) => m[1])))];
   const value = (c) => (c.value === null || c.value === undefined ? '—' : `${c.value}${c.unit ? ` ${c.unit}` : ''}`);
