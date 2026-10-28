@@ -58,6 +58,7 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
   let baseline = null;
   let hidden = document.visibilityState === 'hidden';
   let frameListener = null;
+  let cueListener = null;
 
   function size() {
     const w = Math.max(1, container.clientWidth);
@@ -170,7 +171,9 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
         motion: tweens.getMotion(),
         t,
         claim,
-        requestRender: wake
+        requestRender: wake,
+        /** Signals a narrative moment, e.g. cue('caption') when a step's subject appears (research P3). */
+        cue: (name) => cueListener?.(name)
       };
       instance = sceneModule.create(ctx);
       size();
@@ -199,6 +202,9 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
     isRunning: () => rafId !== 0,
     onFrame(fn) {
       frameListener = fn;
+    },
+    onCue(fn) {
+      cueListener = fn;
     },
     info: () => renderer.info
   };

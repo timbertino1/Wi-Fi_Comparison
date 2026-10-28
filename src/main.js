@@ -2,7 +2,11 @@
 import * as prefs from './app/preferences.js';
 import { tabs } from './app/content.js';
 import * as router from './app/router.js';
-import { initTabs, setActiveTab, setProgress, announce } from './app/tabs.js';
+import { initChapterMenu, setActiveChapter, setProgress, announce } from './app/chapter-menu.js';
+import { initSequencer, consumeSettle, talkChapters } from './app/sequencer.js';
+import { initCaption } from './app/caption.js';
+import { initNotes } from './app/notes.js';
+import { initSettingsMenu } from './app/settings-menu.js';
 import * as story from './app/story.js';
 import { initOverview } from './app/overview.js';
 import { initControls, pause } from './app/controls.js';
@@ -33,9 +37,9 @@ import wifi8Scene from './scenes/wifi8.js';
 for (const scene of [overviewScene, spectrumScene, mloScene, qamScene, securityScene, twtScene, densityScene, latencyScene, bandwidthScene, wifi8Scene]) register(scene);
 
 const routeNotice = document.createElement('p');
-routeNotice.className = 'notice';
+routeNotice.className = 'notice route-notice';
 routeNotice.hidden = true;
-document.getElementById('story').before(routeNotice);
+document.getElementById('slide').before(routeNotice);
 
 const THEME_LABEL = { system: 'System', light: 'Light', dark: 'Dark' };
 const NEXT_THEME = { system: 'light', light: 'dark', dark: 'system' };
@@ -105,9 +109,13 @@ function boot() {
   if (!stage) story.useFallback(createFallback(stageEl, noticeEl));
 
   initView();
-  initTabs();
+  initChapterMenu();
   initOverview();
   initControls({ test: testMode });
+  initSequencer();
+  initCaption({ stage });
+  initNotes();
+  initSettingsMenu();
   initGlossary();
   initComparison();
   initFigures();
@@ -129,12 +137,16 @@ function boot() {
     routeNotice.textContent = route.notFound ? `Section “${route.requestedTab}” was not found, so the Overview is shown instead.` : '';
     const tabChanged = story.snapshot().tabId !== route.tabId;
     document.documentElement.dataset.tab = route.tabId;
-    setActiveTab(route.tabId);
+    setActiveChapter(route.tabId);
     const beatIndex = route.beat ? route.beat - 1 : 0;
-    story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged, generation: route.params.get('gen') });
+    // A Back across chapters lands settled; a forward chapter change plays its first step.
+    const settle = consumeSettle();
+    story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged && !settle, generation: route.params.get('gen') });
     if (tabChanged && !firstRoute) {
       const tab = tabs.find((t) => t.id === route.tabId);
-      announce(`${tab.title}, tab ${tab.order} of ${tabs.length}`);
+      const chapters = talkChapters();
+      const n = chapters.indexOf(tab);
+      announce(n >= 0 ? `${tab.title}, chapter ${n + 1} of ${chapters.length}` : tab.title);
     }
     firstRoute = false;
   });

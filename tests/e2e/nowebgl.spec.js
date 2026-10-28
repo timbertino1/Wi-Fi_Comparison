@@ -28,3 +28,17 @@ test('every animated tab shows still images with text alternatives and a notice'
     }
   }
 });
+
+test('the still-image notice leaves the comparison and slide controls uncovered', async ({ page }) => {
+  // Narrow enough that the slide bar wraps onto two rows, as it does with wider fonts.
+  await page.setViewportSize({ width: 1024, height: 640 });
+  await page.goto(fileUrl('#/twt/1?test'));
+  await expect(page.locator('#stage-notice')).toBeVisible();
+  // A real (unforced) click fails if anything sits on top of the control.
+  for (const id of ['wifi6', 'wifi5']) {
+    await page.locator(`#compare input[value="${id}"]`).click();
+    await expect(page.locator(`#compare input[value="${id}"]`)).toBeChecked();
+  }
+  await page.locator('#step-forward').click();
+  await expect(page.locator('#progress')).toContainText('Step 2 of');
+});

@@ -22,6 +22,11 @@ let count = 0;
 
 async function capture(file, expectedState) {
   await page.waitForFunction((s) => window.__stage?.state === s, expectedState, { timeout: 10000 });
+  // The caption and slide bar sit over the stage and are drawn over the still again; keep them out of it.
+  // (CSSOM, not a style tag: the page's CSP blocks inline styles.)
+  await page.evaluate(() => {
+    for (const el of document.querySelectorAll('#caption, #stage-notice, .slide-bar')) el.style.visibility = 'hidden';
+  });
   // Let the end state render (reduced motion resolves transitions immediately).
   await page.waitForTimeout(250);
   const stage = page.locator('#stage');
@@ -43,8 +48,10 @@ for (const tab of tabs) {
   }
   for (const section of tab.sections ?? []) {
     if (!section.sceneState) continue;
-    await page.goto(`${index}#/${tab.id}/1?test`);
+    // Sections live in the notes drawer; open it to expand one, then close it so it doesn't cover the stage.
+    await page.goto(`${index}#/${tab.id}/1?notes&test`);
     await page.locator(`[data-section="${section.id}"] summary`).click();
+    await page.locator('#notes-close').click();
     await capture(path.join(dist, 'fallback', tab.id, `${section.id}.jpg`), section.sceneState);
   }
 }

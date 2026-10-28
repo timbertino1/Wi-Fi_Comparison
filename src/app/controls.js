@@ -1,5 +1,5 @@
-// Story controls: play/pause, step, replay, step dots, and their keyboard shortcuts
-// (contracts/ui-navigation.md).
+// Slide controls: Back, play/pause, Next and replay, and their clicker/keyboard shortcuts
+// (contracts/slide-navigation.md). The sequencer installs the chapter-crossing boundary handlers.
 import * as story from './story.js';
 import * as prefs from './preferences.js';
 
@@ -7,9 +7,10 @@ const root = document.getElementById('controls');
 let playing = false;
 let playToken = 0;
 let testMode = false;
-let onLastBeat = () => false; // presentation mode overrides this to cross into the next tab
+let onLastBeat = () => false; // the sequencer overrides these to cross into the neighbouring chapter
 let onFirstBeat = () => false;
-let crossTabs = false;
+let hasNext = () => false;
+let hasPrev = () => false;
 
 const el = (tag, props = {}, text = '') => {
   const node = Object.assign(document.createElement(tag), props);
@@ -19,12 +20,10 @@ const el = (tag, props = {}, text = '') => {
 
 const back = el('button', { type: 'button', className: 'control', id: 'step-back' }, '◀ Back');
 const play = el('button', { type: 'button', className: 'control control-play', id: 'play' }, 'Play');
-const forward = el('button', { type: 'button', className: 'control', id: 'step-forward' }, 'Next step ▶');
+const forward = el('button', { type: 'button', className: 'control control-next', id: 'step-forward' }, 'Next ▶');
 const replay = el('button', { type: 'button', className: 'control', id: 'replay' }, '↺ Replay');
-const dots = el('div', { className: 'beat-dots', role: 'group' });
-dots.setAttribute('aria-label', 'Steps');
-back.setAttribute('aria-label', 'Back: previous step');
-forward.setAttribute('aria-label', 'Next step');
+back.setAttribute('aria-label', 'Back');
+forward.setAttribute('aria-label', 'Next');
 replay.setAttribute('aria-label', 'Replay from the first step');
 
 function dwellFor(beat) {
@@ -72,7 +71,7 @@ export function stepForward() {
 export function stepBack() {
   pause();
   if (story.isFirstBeat()) return onFirstBeat();
-  story.prev();
+  story.prev({ animate: false }); // Back lands on a settled step (data-model.md)
   return true;
 }
 
@@ -81,36 +80,21 @@ export function replayTab() {
   story.goTo(0);
 }
 
-/** Presentation mode installs handlers so stepping past either end moves between tabs. */
-export function setBoundaryHandlers({ last, first }) {
-  onLastBeat = last ?? (() => false);
-  onFirstBeat = first ?? (() => false);
-  crossTabs = !!(last || first);
+/** The sequencer installs handlers so stepping past either end of a chapter moves between chapters. */
+export function setBoundaryHandlers(handlers) {
+  onLastBeat = handlers.last ?? (() => false);
+  onFirstBeat = handlers.first ?? (() => false);
+  hasNext = handlers.hasNext ?? (() => false);
+  hasPrev = handlers.hasPrev ?? (() => false);
   update(story.snapshot());
-}
-
-function renderDots({ beatCount, beatIndex, tab }) {
-  dots.replaceChildren(
-    ...Array.from({ length: beatCount }, (_, i) => {
-      const dot = el('button', { type: 'button', className: 'beat-dot' }, String(i + 1));
-      dot.setAttribute('aria-label', `Step ${i + 1}: ${tab.beats[i].heading}`);
-      if (i === beatIndex) dot.setAttribute('aria-current', 'step');
-      dot.addEventListener('click', () => {
-        pause();
-        story.goTo(i);
-      });
-      return dot;
-    })
-  );
 }
 
 function update(snap) {
   const hasBeats = snap.beatCount > 0;
   root.hidden = !hasBeats;
   if (!hasBeats) return;
-  renderDots(snap);
-  back.disabled = snap.beatIndex === 0 && !crossTabs;
-  forward.disabled = snap.beatIndex === snap.beatCount - 1 && !crossTabs;
+  back.disabled = snap.beatIndex === 0 && !hasPrev();
+  forward.disabled = snap.beatIndex === snap.beatCount - 1 && !hasNext();
   replay.disabled = snap.beatIndex === 0;
 }
 
@@ -120,7 +104,7 @@ function isEditable(target) {
 
 export function initControls({ test = false } = {}) {
   testMode = test;
-  root.append(back, play, forward, replay, dots);
+  root.append(back, play, forward, replay);
   back.addEventListener('click', stepBack);
   forward.addEventListener('click', stepForward);
   play.addEventListener('click', togglePlay);
@@ -132,12 +116,13 @@ export function initControls({ test = false } = {}) {
 
   document.addEventListener('keydown', (e) => {
     if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || isEditable(e.target)) return;
-    if (e.target.closest?.('[role="tablist"], [role="dialog"], [role="radiogroup"], details > summary')) {
+    if (e.target.closest?.('[role="dialog"], [role="radiogroup"], details > summary, #chapter-menu, #settings-menu')) {
       if (!['k', 'K', 'r', 'R'].includes(e.key)) return;
     }
     const onButton = e.target.closest?.('button, a');
     switch (e.key) {
       case 'ArrowRight':
+      case 'ArrowDown':
       case 'PageDown':
         e.preventDefault();
         stepForward();
@@ -145,9 +130,11 @@ export function initControls({ test = false } = {}) {
       case ' ':
         if (onButton) return; // Space activates the focused button instead
         e.preventDefault();
-        stepForward();
+        if (e.shiftKey) stepBack();
+        else stepForward();
         break;
       case 'ArrowLeft':
+      case 'ArrowUp':
       case 'PageUp':
         e.preventDefault();
         stepBack();
@@ -163,14 +150,6 @@ export function initControls({ test = false } = {}) {
         replayTab();
         break;
       default:
-        if (/^[1-9]$/.test(e.key)) {
-          const i = Number(e.key) - 1;
-          if (i < story.snapshot().beatCount) {
-            e.preventDefault();
-            pause();
-            story.goTo(i);
-          }
-        }
     }
   });
 

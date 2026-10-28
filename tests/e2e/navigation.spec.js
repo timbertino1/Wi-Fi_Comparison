@@ -1,85 +1,72 @@
 import { test, expect } from '@playwright/test';
-import { fileUrl, guardOffline, collectConsoleErrors, gotoTab } from './helpers.js';
+import { fileUrl, guardOffline, collectConsoleErrors, gotoTab, talkChapters } from './helpers.js';
 
-const TAB_COUNT = 11;
+const chapters = talkChapters();
+const CHAPTER_COUNT = chapters.length;
 
-test.describe('navigation (US1)', () => {
-  test('Overview loads with all tabs; Next visits every tab in order', async ({ page }) => {
+test.describe('chapter navigation', () => {
+  test('the explainer opens on the first chapter offline, with no errors', async ({ page }) => {
     const blocked = await guardOffline(page);
     const errors = collectConsoleErrors(page);
     await page.goto(fileUrl());
-    const tabs = page.getByRole('tab');
-    await expect(tabs).toHaveCount(TAB_COUNT);
-    await expect(tabs.first()).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('#progress')).toContainText(`Tab 1 of ${TAB_COUNT}`);
-
-    for (let i = 2; i <= TAB_COUNT; i++) {
-      await page.locator('#next').click();
-      await expect(tabs.nth(i - 1)).toHaveAttribute('aria-selected', 'true');
-      await expect(page.locator('#progress')).toContainText(`Tab ${i} of ${TAB_COUNT}`);
-    }
-    await expect(page.locator('#next')).toHaveText('Back to Overview');
-    await page.locator('#next').click();
-    await expect(tabs.first()).toHaveAttribute('aria-selected', 'true');
-
+    await expect(page.locator('#progress')).toContainText(`Chapter 1 of ${CHAPTER_COUNT} · Step 1 of ${chapters[0].beats.length}`);
+    await expect(page.locator('#chapter-list a')).toHaveCount(CHAPTER_COUNT + 1);
+    await expect(page.locator(`#chapter-list a[data-chapter="${chapters[0].id}"]`)).toHaveAttribute('aria-current', 'step');
     expect(blocked()).toEqual([]);
     expect(errors()).toEqual([]);
   });
 
-  test('tablist keyboard: arrows, Home and End move and activate tabs', async ({ page }) => {
-    await page.goto(fileUrl());
-    const tabs = page.getByRole('tab');
-    await tabs.first().focus();
-    await page.keyboard.press('ArrowRight');
-    await expect(tabs.nth(1)).toHaveAttribute('aria-selected', 'true');
-    await expect(tabs.nth(1)).toBeFocused();
-    await page.keyboard.press('End');
-    await expect(tabs.nth(TAB_COUNT - 1)).toHaveAttribute('aria-selected', 'true');
-    await page.keyboard.press('Home');
-    await expect(tabs.first()).toHaveAttribute('aria-selected', 'true');
-    await page.keyboard.press('ArrowLeft');
-    await expect(tabs.nth(TAB_COUNT - 1)).toHaveAttribute('aria-selected', 'true');
-    // Only the selected tab is in the tab order.
-    await expect(page.locator('[role="tab"][tabindex="0"]')).toHaveCount(1);
+  test('chapter menu by keyboard: M opens it on the current chapter; Escape closes it', async ({ page }) => {
+    await gotoTab(page, 'mlo', 2);
+    await page.keyboard.press('m');
+    await expect(page.locator('#chapter-menu')).toBeVisible();
+    await expect(page.locator('#chapter-menu-toggle')).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#chapter-list a[data-chapter="mlo"]')).toBeFocused();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#chapter-menu')).toBeHidden();
+    // Escape closed the menu without moving the story.
+    await expect(page.locator('#progress')).toContainText('Step 2 of 5');
   });
 
-  test('deep links open tabs and beats directly; out-of-range beats clamp', async ({ page }) => {
+  test('deep links open chapters and steps directly; out-of-range steps clamp', async ({ page }) => {
     await gotoTab(page, 'mlo');
-    await expect(page.locator('#tab-mlo')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#progress')).toContainText('Multi-Link');
     await gotoTab(page, 'overview', 3);
     await expect(page.locator('#progress')).toContainText('Step 3 of 4');
     await gotoTab(page, 'overview', 99);
     await expect(page.locator('#progress')).toContainText('Step 4 of 4');
   });
 
-  test('unknown tab shows the Overview with a notice', async ({ page }) => {
+  test('unknown chapter shows the first chapter with a notice', async ({ page }) => {
     await page.goto(fileUrl('#/not-a-tab'));
-    await expect(page.locator('#tab-overview')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#chapter-list a[data-chapter="overview"]')).toHaveAttribute('aria-current', 'step');
     await expect(page.getByText('was not found')).toBeVisible();
   });
 
-  test('browser Back returns to the previous tab, not the previous beat', async ({ page }) => {
+  test('browser Back returns to the previous chapter, not the previous step', async ({ page }) => {
     await page.goto(fileUrl());
-    await page.keyboard.press('ArrowRight'); // beat 2 of overview
+    await page.keyboard.press('ArrowRight'); // step 2 of the overview
     await expect(page.locator('#progress')).toContainText('Step 2');
-    await page.getByRole('tab', { name: /Multi-Link/ }).click();
-    await expect(page.locator('#tab-mlo')).toHaveAttribute('aria-selected', 'true');
+    await page.locator('#chapter-menu-toggle').click();
+    await page.locator('#chapter-list a[data-chapter="mlo"]').click();
+    await expect(page.locator('#progress')).toContainText('Multi-Link');
     await page.goBack();
-    await expect(page.locator('#tab-overview')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#chapter-list a[data-chapter="overview"]')).toHaveAttribute('aria-current', 'step');
   });
 
-  test('any tab is reachable from any other in one click on the tablist', async ({ page }) => {
+  test('any chapter, or the references, is reachable in two actions (SC-004)', async ({ page }) => {
     await gotoTab(page, 'latency');
-    for (const name of [/Overview|Why Wi-Fi 7/, /References/, /6 GHz/]) {
-      await page.getByRole('tab', { name }).click();
-      await expect(page.getByRole('tab', { name })).toHaveAttribute('aria-selected', 'true');
+    for (const id of ['overview', 'references', 'spectrum']) {
+      await page.locator('#chapter-menu-toggle').click();
+      await page.locator(`#chapter-list a[data-chapter="${id}"]`).click();
+      await expect(page.locator(`#chapter-list a[data-chapter="${id}"]`)).toHaveAttribute('aria-current', 'step');
     }
   });
 
-  test('overview final beat previews every tab', async ({ page }) => {
-    await gotoTab(page, 'overview', 4);
-    await expect(page.locator('.preview-list li')).toHaveCount(TAB_COUNT - 1);
+  test('the overview final step previews every chapter in its notes', async ({ page }) => {
+    await page.goto(fileUrl('#/overview/4?notes'));
+    await expect(page.locator('#notes .preview-list li')).toHaveCount(CHAPTER_COUNT);
     await page.getByRole('button', { name: /Start the story/ }).click();
-    await expect(page.locator('#tab-spectrum')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#chapter-list a[data-chapter="spectrum"]')).toHaveAttribute('aria-current', 'step');
   });
 });

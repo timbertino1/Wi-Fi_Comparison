@@ -56,9 +56,14 @@ export function cycleGeneration() {
   root.querySelector(`input[value="${next}"]`)?.focus({ preventScroll: true });
 }
 
+/** Updates the checked radio in place, so the radio a viewer just chose (and its focus) survives. */
+function sync({ generation }) {
+  for (const input of root.querySelectorAll('input[name="compare-gen"]')) input.checked = input.value === generation;
+}
+
 export function initComparison() {
   story.on('tab', render);
-  story.on('generation', render);
+  story.on('generation', sync);
   document.addEventListener('keydown', (e) => {
     if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.target.closest?.('input[type="text"], textarea, select, [contenteditable="true"], [role="dialog"]')) return;

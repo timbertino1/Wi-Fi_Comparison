@@ -1,4 +1,4 @@
-// Validates content/ against data-model.md "Validation rules" 1–19.
+// Validates content/ against data-model.md "Validation rules" 1–19 (feature 001) and 20–23 (feature 002).
 // Usage: node scripts/validate-content.mjs [--release]
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,7 +9,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const BEAT_ORDER = ['problem', 'what', 'how', 'improvement', 'why'];
 const NARRATIVE_BEATS = ['intro', 'context', 'outlook'];
-const GUARANTEE_PHRASES = ['ensures compliance', 'guarantee', 'guarantees', 'guaranteed', 'eliminates risk', 'hipaa compliant', 'prevents patient harm'];
+export const CAPTION_LIMITS = { headline: 8, takeaway: 16, technical: 20 };
+const HOTSPOT_DEFINITION_MAX = 30;
+const GUARANTEE_PHRASES =['ensures compliance', 'guarantee', 'guarantees', 'guaranteed', 'eliminates risk', 'hipaa compliant', 'prevents patient harm'];
 
 export const TERM_RE = /\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g;
 export const CLAIM_RE = /\{\{([a-z0-9-]+)\}\}/g;
@@ -59,7 +61,11 @@ function tabTextFields(tab) {
   out.push([`${tab._file}.summary`, tab.summary]);
   if (tab.wifi7Adds) out.push([`${tab._file}.wifi7Adds`, tab.wifi7Adds]);
   for (const [i, b] of (tab.beats ?? []).entries()) {
-    for (const f of ['heading', 'body', 'bottomLine', 'deepDive', 'sceneDescription']) if (b[f]) out.push([`${tab._file}.beats[${i}].${f}`, b[f]]);
+    const at = `${tab._file}.beats[${i}]`;
+    for (const f of ['heading', 'body', 'bottomLine', 'deepDive', 'sceneDescription']) if (b[f]) out.push([`${at}.${f}`, b[f]]);
+    for (const f of ['headline', 'takeaway', 'technical']) if (b.caption?.[f]) out.push([`${at}.caption.${f}`, b.caption[f]]);
+    for (const [j, h] of (b.hotspots ?? []).entries()) if (h.technical) out.push([`${at}.hotspots[${j}].technical`, h.technical]);
+    for (const [j, q] of (b.questions ?? []).entries()) for (const f of ['q', 'a']) if (q[f]) out.push([`${at}.questions[${j}].${f}`, q[f]]);
   }
   for (const [i, s] of (tab.sections ?? []).entries()) {
     for (const f of ['heading', 'body']) if (s[f]) out.push([`${tab._file}.sections[${i}].${f}`, s[f]]);
@@ -134,6 +140,80 @@ export async function validateContent({ release = false, content = loadContent()
     if (/[<>]/.test(bare) || /javascript:/i.test(bare) || /data:/i.test(bare)) err(12, `${where}: contains "<", ">", "javascript:" or "data:"`);
   };
 
+  // Rules 20–22: slide captions, hotspots and likely questions on each step (feature 002 data model).
+  const checkStep = (tab, i, b) => {
+    const at = `${tab.id}/${i + 1}`;
+    const caption = b.caption;
+    if (!caption) {
+      if (tab.draft !== true) err(20, `${at}: caption required`);
+    } else {
+      for (const [field, max, required] of [['headline', CAPTION_LIMITS.headline, true], ['takeaway', CAPTION_LIMITS.takeaway, true], ['technical', CAPTION_LIMITS.technical, false]]) {
+        const text = caption[field];
+        if (!text?.trim()) {
+          if (required) err(20, `${at}: caption.${field} required`);
+          continue;
+        }
+        const n = words(stripMarkup(text));
+        if (n > max) err(20, `${at}: caption.${field} has ${n} words (max ${max})`);
+      }
+      if (matchAll(caption.headline, CLAIM_RE).length || matchAll(caption.headline, REF_RE).length) err(20, `${at}: caption.headline must not contain citations`);
+    }
+    if (b.captionAtMs !== undefined && !(Number.isInteger(b.captionAtMs) && b.captionAtMs >= 0 && b.captionAtMs <= (b.durationMs ?? 0))) {
+      err(20, `${at}: captionAtMs must be an integer from 0 to durationMs`);
+    }
+
+    const hotspots = b.hotspots ?? [];
+    const ids = new Set();
+    for (const depth of ['all', 'technical']) {
+      const n = hotspots.filter((h) => (h.depth ?? 'all') === depth).length;
+      if (n > 4) err(21, `${at}: ${n} hotspots at depth "${depth}" (max 4)`);
+    }
+    for (const h of hotspots) {
+      const where = `${at} hotspot ${h.id ?? '?'}`;
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(h.id ?? '')) err(21, `${where}: id must be kebab-case`);
+      else if (ids.has(h.id)) err(21, `${where}: duplicate id`);
+      ids.add(h.id);
+      if (!h.anchor?.trim()) err(21, `${where}: anchor required`);
+      const term = termById.get(h.term);
+      if (!h.term) err(21, `${where}: term required`);
+      else if (!term) err(2, `${where}: unknown glossary term "${h.term}"`);
+      else if (words(term.definition) > HOTSPOT_DEFINITION_MAX && !term.short) err(21, `${where}: term "${h.term}" needs a short definition (≤ ${HOTSPOT_DEFINITION_MAX} words)`);
+      if (h.claim) {
+        usedClaims.add(h.claim);
+        const c = claimById.get(h.claim);
+        if (!c) err(2, `${where}: unknown claim "${h.claim}"`);
+        else if (release && !c.verification?.verifiedOn) err(21, `${where}: claim "${h.claim}" is not verified`);
+      }
+      if (h.technical && words(stripMarkup(h.technical)) > 30) err(21, `${where}: technical has more than 30 words`);
+      if (h.depth !== undefined && !['all', 'technical'].includes(h.depth)) err(21, `${where}: depth must be "all" or "technical"`);
+    }
+
+    for (const [j, q] of (b.questions ?? []).entries()) {
+      const where = `${at} question ${j + 1}`;
+      if (!q.q?.trim()) err(22, `${where}: q required`);
+      else if (words(stripMarkup(q.q)) > 25) err(22, `${where}: q has more than 25 words`);
+      if (!q.a?.trim()) err(22, `${where}: a required`);
+      else if (words(stripMarkup(q.a)) > 80) err(22, `${where}: a has more than 80 words`);
+      if (q.audience !== undefined && !['leadership', 'technical', 'both'].includes(q.audience)) err(22, `${where}: audience must be leadership, technical or both`);
+    }
+  };
+
+  // Rule 23: jargon in a chapter's captions is defined on screen at or before its first use (FR-017),
+  // by a [[term]] link in a caption or by a hotspot for that term.
+  const checkCaptionJargon = (tab) => {
+    const defined = new Set();
+    for (const [i, b] of (tab.beats ?? []).entries()) {
+      for (const f of ['headline', 'takeaway', 'technical']) for (const [, id] of matchAll(b.caption?.[f], TERM_RE)) defined.add(id);
+      for (const h of b.hotspots ?? []) if (h.term) defined.add(h.term);
+      const plain = ['headline', 'takeaway', 'technical'].map((f) => stripMarkup(b.caption?.[f])).join(' \n ');
+      for (const term of glossary) {
+        const names = [term.term, term.expansion].filter(Boolean);
+        const used = names.some((n) => new RegExp(`(?<![\\w-])${escapeRe(n)}(?![\\w-])`, 'i').test(plain));
+        if (used && !defined.has(term.id)) err(23, `${tab.id}/${i + 1}: caption uses "${term.term}" before it is defined on screen (link [[${term.id}]] or add a hotspot)`);
+      }
+    }
+  };
+
   // Scenarios (rules 2, 8, 12, 17).
   for (const s of scenarios) {
     for (const f of ['location', 'problem', 'outcomeSupported']) {
@@ -149,6 +229,8 @@ export async function validateContent({ release = false, content = loadContent()
     const draft = tab.draft === true;
     if (draft && release) err(3, `${where}: still marked draft`);
     if ((tab.title ?? '').length > 40) err(1, `${where}: title longer than 40 characters`);
+    if (tab.shortTitle !== undefined && (tab.shortTitle ?? '').length > 24) err(1, `${where}: shortTitle longer than 24 characters`);
+    if (!draft) checkCaptionJargon(tab);
 
     for (const g of tab.compareGenerations ?? []) if (!genById.has(g)) err(2, `${where}: unknown generation "${g}"`);
     if (tab.defaultCompare && !genById.has(tab.defaultCompare)) err(2, `${where}: unknown defaultCompare "${tab.defaultCompare}"`);
@@ -188,6 +270,7 @@ export async function validateContent({ release = false, content = loadContent()
         else if (words(stripMarkup(b.bottomLine)) > 40) err(11, `${at}: bottomLine longer than 40 words`);
         if ((b.type === 'how' || b.type === 'improvement') && !b.deepDive?.trim()) err(11, `${at}: deepDive required on ${b.type} beats`);
       }
+      checkStep(tab, i, b);
     }
 
     // Text fields: markup resolution, security, uncited numbers, guarantee phrases.
@@ -249,7 +332,10 @@ export async function validateContent({ release = false, content = loadContent()
   }
 
   // Glossary.
-  for (const t of glossary) if (words(t.definition) > 50) err(1, `glossary ${t.id}: definition longer than 50 words`);
+  for (const t of glossary) {
+    if (words(t.definition) > 50) err(1, `glossary ${t.id}: definition longer than 50 words`);
+    if (t.short !== undefined && words(t.short) > HOTSPOT_DEFINITION_MAX) err(1, `glossary ${t.id}: short definition longer than ${HOTSPOT_DEFINITION_MAX} words`);
+  }
 
   // Rule 13: source policy.
   for (const r of references) {

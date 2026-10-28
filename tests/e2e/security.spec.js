@@ -34,8 +34,9 @@ for (const origin of ['file', 'http']) {
     for (const tab of tabs) {
       const beats = Math.max(1, tab.beats.length);
       for (let b = 1; b <= beats; b++) {
-        await page.goto(`${base}#/${tab.id}/${b}`);
-        await page.waitForSelector('[role="tab"][aria-selected="true"]');
+        // ?notes opens the step's notes so their markup is exercised too.
+        await page.goto(`${base}#/${tab.id}/${b}?notes`);
+        await page.waitForSelector(`#chapter-list a[aria-current="step"][data-chapter="${tab.id}"]`, { state: 'attached' });
       }
       // Open technical detail so its markup is exercised too.
       for (const summary of await page.locator('details summary').all()) await summary.click();
@@ -50,6 +51,7 @@ test('only app.js is loaded as script, and storage holds only preferences', asyn
   await page.goto(fileUrl('#/overview'));
   const scripts = await page.evaluate(() => [...document.scripts].map((s) => s.getAttribute('src')));
   expect(scripts).toEqual(['app.js']);
+  await page.locator('#settings-toggle').click();
   await page.locator('#theme-toggle').click();
   await page.locator('#motion-toggle').click();
   await page.getByRole('radio', { name: 'Technical' }).check({ force: true });

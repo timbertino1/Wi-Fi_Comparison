@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="present.css">
 </head>
 <body>
-  <a class="skip-link" href="#panel">Skip to the story</a>
+  <a class="skip-link" href="#slide">Skip to the slide</a>
 
   <header role="banner" class="site-header">
     <div class="brand">
@@ -23,54 +23,65 @@
       </span>
     </div>
     <div class="header-controls">
+      <div class="menu">
+        <button id="chapter-menu-toggle" class="chip-button" type="button" aria-expanded="false" aria-controls="chapter-menu">Chapters</button>
+        <nav id="chapter-menu" class="menu-panel" aria-label="Chapters" hidden>
+          <ol id="chapter-list" class="chapter-list"></ol>
+        </nav>
+      </div>
       <div id="audience" class="segmented" role="radiogroup" aria-label="Audience"></div>
-      <button id="theme-toggle" class="chip-button" type="button">Theme: System</button>
-      <button id="motion-toggle" class="chip-button" type="button" aria-pressed="true">Motion: On</button>
-      <button id="present-toggle" class="chip-button" type="button">Present</button>
-      <button id="shortcuts-toggle" class="chip-button" type="button" aria-haspopup="dialog">Keyboard shortcuts</button>
+      <div class="menu">
+        <button id="settings-toggle" class="chip-button" type="button" aria-expanded="false" aria-controls="settings-menu">Settings</button>
+        <div id="settings-menu" class="menu-panel settings-panel" hidden>
+          <button id="theme-toggle" class="menu-item" type="button">Theme: System</button>
+          <button id="motion-toggle" class="menu-item" type="button" aria-pressed="true">Motion: On</button>
+          <button id="present-toggle" class="menu-item" type="button">Full screen</button>
+          <button id="shortcuts-toggle" class="menu-item" type="button" aria-haspopup="dialog">Keyboard shortcuts</button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <nav class="tabs-nav" aria-label="Story sections">
-    <div id="tablist" class="tablist" role="tablist" aria-label="Wi-Fi 7 story"></div>
-  </nav>
-
-  <main>
-    <section id="panel" class="panel" role="tabpanel" tabindex="-1">
-      <div class="layout">
-        <div class="stage-col">
-          <div id="stage" class="stage" aria-hidden="true"></div>
-          <p id="stage-notice" class="notice" hidden></p>
-          <div id="controls" class="controls"></div>
-          <div id="compare" class="compare"></div>
-        </div>
-        <div class="story-col">
+  <main id="panel" class="panel" tabindex="-1">
+    <section id="slide" class="slide" aria-label="Slide" tabindex="-1">
+      <div id="stage" class="stage" aria-hidden="true"></div>
+      <div id="caption" class="caption" aria-live="polite" hidden></div>
+      <p id="scene-description" class="visually-hidden" aria-live="polite"></p>
+      <div class="slide-bar">
+        <p id="stage-notice" class="notice stage-notice" hidden></p>
+        <div id="compare" class="compare"></div>
+        <div id="controls" class="controls"></div>
+        <div class="progress-strip">
           <p id="progress" class="progress"></p>
-          <div id="lineage"></div>
-          <article id="story" class="story"></article>
-          <div id="bottom-line"></div>
-          <div id="deep"></div>
-          <section class="scene-description" aria-labelledby="scene-description-title">
-            <h3 id="scene-description-title">What the animation shows</h3>
-            <p id="scene-description" aria-live="polite"></p>
-          </section>
-          <div id="figures"></div>
-          <div id="scenario"></div>
-          <div id="extra"></div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-fill" class="progress-fill"></span></div>
         </div>
-      </div>
-      <div class="pager">
-        <button id="prev" class="pager-button" type="button">Previous</button>
-        <button id="next" class="pager-button pager-next" type="button">Next</button>
       </div>
     </section>
+
+    <aside id="notes" class="notes" aria-label="Notes for this step" hidden>
+      <div class="notes-header">
+        <h2 class="notes-title">Notes</h2>
+        <button id="notes-close" class="control" type="button">Close notes</button>
+      </div>
+      <div id="lineage"></div>
+      <article id="story" class="story"></article>
+      <div id="bottom-line"></div>
+      <div id="deep"></div>
+      <section class="scene-description" aria-labelledby="notes-description-title">
+        <h3 id="notes-description-title">What the animation shows</h3>
+        <p id="notes-description"></p>
+      </section>
+      <div id="figures"></div>
+      <div id="scenario"></div>
+      <div id="extra"></div>
+    </aside>
   </main>
 
   <div id="announcer" class="visually-hidden" aria-live="polite"></div>
   <div id="blank" class="blank-overlay" hidden></div>
 
   <noscript>
-    <p class="noscript">This explainer needs JavaScript to show its tabs and animations. Please enable JavaScript, or open the site in a current browser.</p>
+    <p class="noscript">This explainer needs JavaScript to show its slides and animations. Please enable JavaScript, or open the site in a current browser.</p>
   </noscript>
 
   <script defer src="app.js"></script>

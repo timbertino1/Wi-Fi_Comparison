@@ -48,6 +48,9 @@ const options = {
 
 fs.rmSync(dist, { recursive: true, force: true });
 copyStatic();
+// The speaker talk track is regenerated from content on every build, into docs/ (never dist/).
+const talkTrack = spawnSync(process.execPath, [path.join(root, 'scripts', 'talk-track.mjs')], { stdio: 'inherit' });
+if (talkTrack.status !== 0) process.exit(talkTrack.status ?? 1);
 
 if (watch) {
   const ctx = await esbuild.context({

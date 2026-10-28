@@ -21,6 +21,10 @@
     {
       "type": "problem",
       "heading": "Too many devices, too few lanes",
+      "caption": {
+        "headline": "Too many devices, too few lanes",
+        "takeaway": "Adding more access points in crowded bands eventually stops helping; capacity is limited by the spectrum…"
+      },
       "body": "On a busy medical-surgical floor, every badge, pump, monitor and workstation shares the 2.4 GHz and 5 GHz bands — along with older devices, guest phones and the unit next door.\n\nThose bands only fit a handful of wide channels, and older [[legacy-device|legacy devices]] slow every channel they share, because newer devices must fall back to methods the older ones understand.",
       "bottomLine": "Adding more access points in crowded bands eventually stops helping; capacity is limited by the spectrum itself.",
       "deepDive": null,
@@ -31,6 +35,10 @@
     {
       "type": "what",
       "heading": "A new band, and wider lanes inside it",
+      "caption": {
+        "headline": "A new band, and wider lanes inside it",
+        "takeaway": "6 GHz is the largest block of new Wi-Fi spectrum in a generation, and Wi-Fi 7…"
+      },
       "body": "Wi-Fi 6E opened the 6 GHz band to Wi-Fi {{wifi6e-6ghz-origin}}. In the United States it adds 1200 MHz of spectrum {{us-6ghz-total}}, running from 5925 to 7125 MHz {{us-6ghz-band-start}} {{us-6ghz-band-end}}.\n\nWi-Fi 7 adds 320 MHz channels, which are only available in the 6 GHz band {{320mhz-6ghz-only}}.",
       "bottomLine": "6 GHz is the largest block of new Wi-Fi spectrum in a generation, and Wi-Fi 7 is designed to make the most of it.",
       "deepDive": null,
@@ -41,6 +49,10 @@
     {
       "type": "how",
       "heading": "Room for more channels, and wider ones",
+      "caption": {
+        "headline": "Room for more channels, and wider ones",
+        "takeaway": "More, wider, uncongested channels means more capacity per [[access-point|access point]] and fewer devices competing on each…"
+      },
       "body": "With 1200 MHz available {{us-6ghz-total}}, the US 6 GHz band fits 59 channels of 20 MHz {{us-6ghz-channels-20}}, 29 of 40 MHz {{us-6ghz-channels-40}}, 14 of 80 MHz {{us-6ghz-channels-80}}, 7 of 160 MHz {{us-6ghz-channels-160}} or 3 non-overlapping channels of 320 MHz {{us-6ghz-channels-320}}.\n\nThe band is also clean: only Wi-Fi 6E and newer devices can operate there {{6ghz-no-legacy}}, so no [[legacy-device|legacy devices]] slow it down. Low-power indoor access points can use the whole band {{fcc-lpi}}.",
       "bottomLine": "More, wider, uncongested channels means more capacity per access point and fewer devices competing on each channel.",
       "deepDive": "Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz {{6ghz-ch1-lower-edge}}; each count is recomputed from those inputs. [[lpi|LPI]] access points may operate across the band without coordination {{fcc-lpi}}. [[channel-width|Channel width]] is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighbouring [[access-point|access points]] must avoid each other. Availability differs by [[regulatory-domain]]: the European harmonised band covers 5945–6425 MHz {{eu-6ghz-band}}.",
@@ -51,6 +63,10 @@
     {
       "type": "improvement",
       "heading": "Twice the widest channel",
+      "caption": {
+        "headline": "Twice the widest channel",
+        "takeaway": "For data-heavy areas such as imaging and procedure rooms, Wi-Fi 7 can move large files markedly…"
+      },
       "body": "Wi-Fi 6E's widest channel is 160 MHz {{he-max-width}}. Wi-Fi 7 doubles it to 320 MHz {{eht-max-width}} {{width-320-vs-160}}, so a single transmission can carry roughly twice as much data under the same conditions.\n\nWi-Fi 5 and earlier cannot use 6 GHz at all {{6ghz-no-legacy}}.",
       "bottomLine": "For data-heavy areas such as imaging and procedure rooms, Wi-Fi 7 can move large files markedly faster on the same spectrum.",
       "deepDive": "Doubling channel width doubles the data subcarriers per symbol (3920 in 320 MHz versus 1960 in 160 MHz) {{eht-nsd-320}} {{he-nsd-160}}. In practice, 320 MHz channels {{eht-max-width}} suit lightly shared areas; dense floors often use narrower channels so neighbouring access points can reuse spectrum, with [[preamble-puncturing|preamble puncturing]] helping wide channels survive interference (see the next tab).",
@@ -61,6 +77,10 @@
     {
       "type": "why",
       "heading": "Big files and live video, in the right places",
+      "caption": {
+        "headline": "Big files and live video, in the right…",
+        "takeaway": "6 GHz adds capacity where it is needed most, but it requires a site survey and…"
+      },
       "body": "Imaging transfers, telehealth video and remote consults benefit most from wide, clean channels. They can move to 6 GHz, leaving 2.4 GHz and 5 GHz for devices that cannot.\n\nThere is a trade-off: walls and building materials weaken 6 GHz signals {{6ghz-building-loss}}, so coverage needs planning, and rules differ between countries {{eu-6ghz-band}}.",
       "bottomLine": "6 GHz adds capacity where it is needed most, but it requires a site survey and may change access-point placement; check the rules for each country you operate in.",
       "deepDive": null,

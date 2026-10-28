@@ -13,7 +13,7 @@ const featureTabs = fs.readdirSync(tabsDir)
 
 for (const tab of featureTabs) {
   test(`scenario card: ${tab.id}`, async ({ page }) => {
-    await page.goto(fileUrl(`#/${tab.id}/1`));
+    await page.goto(fileUrl(`#/${tab.id}/1?notes`));
     const card = page.locator('#scenario .scenario-card');
     await expect(card).toHaveCount(tab.scenarioIds.length);
     const s = scenarios.find((x) => x.id === tab.scenarioIds[0]);

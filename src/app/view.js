@@ -2,7 +2,7 @@
 // switching never re-mounts the scene or changes the current tab or beat.
 import * as prefs from './preferences.js';
 import * as router from './router.js';
-import { announce } from './tabs.js';
+import { announce } from './chapter-menu.js';
 
 const LABELS = { leadership: 'Leadership', technical: 'Technical' };
 const group = document.getElementById('audience');

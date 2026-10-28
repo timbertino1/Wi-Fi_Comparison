@@ -12,11 +12,12 @@ const featureTabs = fs.readdirSync(path.join(root, 'content', 'tabs')).map((f) =
 
 for (const tab of featureTabs) {
   test(`provenance: every citation and figure on ${tab.id} opens its source`, async ({ page }) => {
-    test.setTimeout(90000);
-    await page.goto(fileUrl(`#/${tab.id}/1?view=technical`));
+    // Visits every step of the chapter; under parallel software-WebGL load that can exceed 90 s.
+    test.setTimeout(180000);
+    await page.goto(fileUrl(`#/${tab.id}/1?view=technical&notes`));
     const triggers = [];
     for (let b = 1; b <= tab.beats.length; b++) {
-      await page.goto(fileUrl(`#/${tab.id}/${b}?view=technical`));
+      await page.goto(fileUrl(`#/${tab.id}/${b}?view=technical&notes`));
       for (const t of await page.locator('#story .cite, #deep .cite, .figures-table .figure-value').all()) {
         triggers.push([b, await t.getAttribute('data-claim')]);
       }
@@ -27,8 +28,8 @@ for (const tab of featureTabs) {
     for (const [b, id] of triggers) {
       if (seen.has(id)) continue;
       seen.add(id);
-      await page.goto(fileUrl(`#/${tab.id}/${b}?view=technical`));
-      await page.locator(`[data-claim="${id}"]`).first().click();
+      await page.goto(fileUrl(`#/${tab.id}/${b}?view=technical&notes`));
+      await page.locator(`#notes [data-claim="${id}"]`).first().click();
       const dialog = page.getByRole('dialog');
       const claim = claims.find((c) => c.id === id);
       await expect(dialog).toContainText(claim.statement);
@@ -47,7 +48,7 @@ for (const tab of featureTabs) {
 }
 
 test('Leadership view shows the short form with a "How we know this" expander', async ({ page }) => {
-  await page.goto(fileUrl('#/bandwidth-poe/2?view=leadership'));
+  await page.goto(fileUrl('#/bandwidth-poe/2?view=leadership&notes'));
   await page.locator('#story .cite').first().click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.locator('.prov-short')).toContainText('Source:');
@@ -57,14 +58,14 @@ test('Leadership view shows the short form with a "How we know this" expander', 
 });
 
 test('derivation inputs link to their own claims, and the register link highlights the claim', async ({ page }) => {
-  await page.goto(fileUrl('#/bandwidth-poe/2?view=technical'));
+  await page.goto(fileUrl('#/bandwidth-poe/2?view=technical&notes'));
   await page.locator('.figures-table td[data-gen="wifi7"] .figure-value').first().click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.locator('.prov-input')).toHaveCount(6);
   await dialog.locator('.prov-input').first().click();
   await expect(page.getByRole('dialog')).toContainText('maximum spatial streams');
   await page.getByRole('dialog').getByRole('link', { name: 'In the claims register' }).click();
-  await expect(page.locator('#tab-references')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#chapter-list a[data-chapter="references"]')).toHaveAttribute('aria-current', 'step');
   await expect(page.locator('#claim-eht-max-nss')).toHaveClass(/is-highlighted/);
 });
 

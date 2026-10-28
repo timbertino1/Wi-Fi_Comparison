@@ -20,6 +20,10 @@
     {
       "type": "problem",
       "heading": "The call that breaks up between units",
+      "caption": {
+        "headline": "The call that breaks up between units",
+        "takeaway": "Choppy or dropped badge calls cost clinical time and create repeat pages — a reliability problem…"
+      },
       "body": "A nurse takes a call on a [[voice-badge]] while walking to the next unit. The badge is connected to the nearest [[access-point]] on a single band — and on that band, an imaging cart has just started a large upload.\n\nThe call's small voice packets now wait in line behind the image. The nurse hears gaps and repeats themselves, or the call drops.",
       "bottomLine": "Choppy or dropped badge calls cost clinical time and create repeat pages — a reliability problem for care teams, not just an IT inconvenience.",
       "deepDive": null,
@@ -30,6 +34,10 @@
     {
       "type": "what",
       "heading": "One connection, several radio lanes",
+      "caption": {
+        "headline": "One connection, several radio lanes",
+        "takeaway": "[[mlo|MLO]] gives each connection spare lanes, so a busy band no longer has to mean a…"
+      },
       "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form a single connection that uses more than one band at the same time {{mlo-defined-be}}. A Wi-Fi 7 connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands {{mlo-bands}}.\n\nThink of it as one conversation that can use several lanes of a highway instead of being stuck in one.",
       "bottomLine": "MLO gives each connection spare lanes, so a busy band no longer has to mean a stalled device.",
       "deepDive": null,
@@ -40,6 +48,10 @@
     {
       "type": "how",
       "heading": "Spread the load, keep a spare lane",
+      "caption": {
+        "headline": "Spread the load, keep a spare lane",
+        "takeaway": "Urgent traffic can sidestep congestion automatically instead of waiting for it to clear."
+      },
       "body": "With several links available, traffic can be **spread** across them for more throughput, **sent on whichever link is free** when one band is busy, or **duplicated** on two links when it must get through.\n\nBecause the device stays connected on every link, moving traffic to another band does not mean reconnecting first.",
       "bottomLine": "Urgent traffic can sidestep congestion automatically instead of waiting for it to clear.",
       "deepDive": "Both ends are [[mld|multi-link devices]] (MLDs): an AP MLD is a set of affiliated access points, one per link. The client associates once and keeps a single security context across links; traffic identifiers can be mapped to particular links (TID-to-link mapping) {{mlo-tid-mapping}}. Each link still contends for the medium independently, which is what lets frames move to whichever link wins access first.",
@@ -50,6 +62,10 @@
     {
       "type": "improvement",
       "heading": "Earlier Wi-Fi: one lane at a time",
+      "caption": {
+        "headline": "Earlier Wi-Fi: one lane at a time",
+        "takeaway": "The same building and access points carry voice and urgent data more steadily, because traffic no…"
+      },
       "body": "Before Wi-Fi 7, a device was connected on one band at a time. If that band became busy, it could only wait or move to another band — which meant reconnecting, briefly pausing traffic.\n\nWith Wi-Fi 7, the other lanes are already open. Traffic moves without a pause {{mlo-defined-be}}.",
       "bottomLine": "The same building and access points carry voice and urgent data more steadily, because traffic no longer waits for one congested band.",
       "deepDive": "Earlier band steering and roaming move a client by disassociating and reassociating on another band or access point, so traffic pauses during the change. MLO keeps all links associated under one security context {{mlo-tid-mapping}}. Password-based authentication over Wi-Fi 7 multi-link connections requires [[wpa3|WPA3]] {{wpa3-mlo-required}}.",
@@ -60,6 +76,10 @@
     {
       "type": "why",
       "heading": "Steadier calls and monitoring on the move",
+      "caption": {
+        "headline": "Steadier calls and monitoring on the move",
+        "takeaway": "Plan MLO alongside device refresh: the access points enable it, but each clinical device model determines…"
+      },
       "body": "Clinicians move constantly, and the traffic that matters most — voice calls, alerts, [[telemetry|telemetry]] — is small but time-sensitive. MLO helps that traffic route around a busy band instead of waiting behind it.\n\nThe benefit depends on both ends: badges, phones and monitors must support Wi-Fi 7 multi-link operation, and how much they gain depends on which multi-link mode they use (see **MLO modes** below).",
       "bottomLine": "Plan MLO alongside device refresh: the access points enable it, but each clinical device model determines how much benefit it actually receives.",
       "deepDive": null,

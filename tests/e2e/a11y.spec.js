@@ -14,8 +14,9 @@ for (const scheme of ['light', 'dark']) {
     test.use({ colorScheme: scheme, reducedMotion: 'reduce' });
     for (const tab of tabs) {
       test(`axe: ${tab.id}`, async ({ page }) => {
-        await page.goto(fileUrl(`#/${tab.id}/${Math.min(2, tab.beats.length || 1)}`));
-        await page.waitForSelector('[role="tab"][aria-selected="true"]');
+        // ?notes opens the step's notes drawer so its text is audited with the slide.
+        await page.goto(fileUrl(`#/${tab.id}/${Math.min(2, tab.beats.length || 1)}?notes`));
+        await page.waitForSelector(`#chapter-list a[aria-current="step"][data-chapter="${tab.id}"]`, { state: 'attached' });
         // Open technical detail so it is audited too.
         for (const summary of await page.locator('details summary').all()) await summary.click();
         const results = await new AxeBuilder({ page }).withTags(TAGS).exclude('.stage-labels').analyze();
@@ -26,8 +27,8 @@ for (const scheme of ['light', 'dark']) {
   });
 }
 
-test('keyboard only: reach the tabs, controls, comparison and figures', async ({ page }) => {
-  await page.goto(fileUrl('#/mlo/2'));
+test('keyboard only: reach the menus, slide controls, comparison, notes and figures', async ({ page }) => {
+  await page.goto(fileUrl('#/mlo/2?notes'));
   const reached = new Set();
   for (let i = 0; i < 60; i++) {
     await page.keyboard.press('Tab');
@@ -38,7 +39,7 @@ test('keyboard only: reach the tabs, controls, comparison and figures', async ({
     reached.add(String(id));
   }
   const all = [...reached].join(' ');
-  for (const expected of ['tab-mlo', 'step-forward', 'play', 'replay', 'figure-value', 'term']) expect(all).toContain(expected);
+  for (const expected of ['chapter-menu-toggle', 'settings-toggle', 'step-forward', 'play', 'replay', 'notes-close', 'figure-value', 'term']) expect(all).toContain(expected);
 });
 
 test('scene description is a live region that updates with each beat', async ({ page }) => {

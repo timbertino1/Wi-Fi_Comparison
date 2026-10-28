@@ -1,4 +1,7 @@
-/* Layout and components. Colours come from tokens.css. */
+/* Layout and components. Colours come from tokens.css.
+   Performance rule (research P11): never put backdrop-filter, box-shadow or filter on DOM that moves
+   every frame (stage labels, hotspot markers). The browser recomposites them each frame, which
+   costs real frame time on software-rendered GPUs. Static panels (caption, drawer) may use them. */
 *,
 *::before,
 *::after {
@@ -162,56 +165,70 @@ button {
   box-shadow: var(--focus-ring);
 }
 
-/* Tabs */
-.tabs-nav {
+/* Menus (chapter menu, settings) */
+.menu {
+  position: relative;
+}
+
+.menu-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  z-index: 20;
+  min-width: 15rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: var(--space-2);
+  border-radius: var(--radius);
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 5;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
-.tablist {
+.menu-panel[hidden] {
+  display: none;
+}
+
+.settings-panel {
   display: flex;
+  flex-direction: column;
   gap: var(--space-1);
-  overflow-x: auto;
-  padding: var(--space-2) var(--space-5);
-  scrollbar-width: thin;
 }
 
-.tab {
-  flex: 0 0 auto;
+.menu-item,
+.chapter-link {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 40px;
+  width: 100%;
+  min-height: 44px;
   padding: var(--space-1) var(--space-3);
-  border: 1px solid transparent;
+  border: 0;
   border-radius: var(--radius-sm);
   background: transparent;
-  color: var(--fg-muted);
+  color: var(--fg);
   font-size: var(--text-sm);
-  white-space: nowrap;
+  text-align: left;
+  text-decoration: none;
 }
 
-.tab:hover {
-  color: var(--fg);
+.menu-item:hover,
+.chapter-link:hover {
   background: var(--surface-2);
 }
 
-.tab[aria-selected="true"] {
-  color: var(--fg);
-  background: var(--surface-2);
-  border-color: var(--border);
-  font-weight: 600;
-  box-shadow: inset 0 -3px 0 var(--accent);
+.chapter-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.tab-number {
+.chapter-number {
   display: inline-grid;
   place-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  flex: 0 0 auto;
+  width: 1.6rem;
+  height: 1.6rem;
   border-radius: 50%;
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -219,43 +236,42 @@ button {
   font-variant-numeric: tabular-nums;
 }
 
-.tab[aria-selected="true"] .tab-number {
+.chapter-link[aria-current="step"] {
+  font-weight: 700;
+}
+
+.chapter-link[aria-current="step"] .chapter-number {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-fg);
 }
 
-/* Panel */
+/* Panel and slide (research P1): one 16:9 box, letterboxed, sized from the viewport. */
 .panel {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: var(--space-5);
+  display: grid;
+  place-items: center;
+  padding: var(--space-3);
 }
 
-.panel:focus {
+.panel:focus,
+.slide:focus {
   outline: none;
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: var(--space-5);
-  align-items: start;
-}
-
-.stage-col {
-  position: sticky;
-  top: 70px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.slide {
+  --slide-w: min(calc(100vw - 2 * var(--space-3)), calc((100vh - 72px - 2 * var(--space-3)) * 16 / 9));
+  --slide-h: calc(var(--slide-w) * 9 / 16);
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  min-height: 240px;
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 260px;
+  position: absolute;
+  inset: 0;
   border-radius: var(--radius);
   /* A faint dot grid over a soft spotlight gradient, with an inner vignette for depth. */
   background:
@@ -264,6 +280,154 @@ button {
   border: 1px solid var(--border);
   box-shadow: var(--shadow), inset 0 0 80px color-mix(in srgb, var(--fg) 6%, transparent);
   overflow: hidden;
+}
+
+/* Caption (research P2): sized from slide height so a projector shows the rehearsed composition. */
+.caption {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--slide-h) * 0.04);
+  z-index: 3;
+  max-width: 78%;
+  padding: calc(var(--slide-h) * 0.018) calc(var(--slide-h) * 0.03);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  color: var(--fg);
+  text-align: center;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.caption[hidden] {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.caption-headline {
+  margin: 0;
+  font-size: calc(var(--slide-h) * 0.044);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.caption-takeaway {
+  margin: calc(var(--slide-h) * 0.008) 0 0;
+  font-size: calc(var(--slide-h) * 0.033);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.caption-technical {
+  margin: calc(var(--slide-h) * 0.008) 0 0;
+  color: var(--fg-muted);
+  font-size: calc(var(--slide-h) * 0.028);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.caption .term,
+.caption .cite {
+  font-size: inherit;
+}
+
+/* The no-WebGL notice is the bar's first, full-width row, so it never covers the controls however the bar wraps. */
+.stage-notice {
+  flex: 1 0 100%;
+}
+
+/* Bottom bar: comparison switch, controls and progress, over the slide's lower edge. */
+.slide-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  background: linear-gradient(to top, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface) 0%, transparent));
+}
+
+.progress-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 12rem;
+  margin-left: auto;
+}
+
+.progress {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.progress-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+/* Notes drawer (FR-021): closed by default, over the right of the slide. */
+.notes {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: min(40vw, 640px);
+  padding: var(--space-4) var(--space-5);
+  overflow-y: auto;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.notes[hidden] {
+  display: none;
+}
+
+.notes > * {
+  min-width: 0;
+}
+
+.notes-header {
+  position: sticky;
+  top: calc(-1 * var(--space-4));
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-5)) 0;
+  padding: var(--space-3) var(--space-5);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.notes-title {
+  margin: 0;
+  font-size: var(--text-md);
 }
 
 .stage-canvas,
@@ -324,20 +488,6 @@ button {
   background: var(--warn-bg);
   color: var(--warn-fg);
   font-size: var(--text-sm);
-}
-
-.story-col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  min-width: 0;
-}
-
-.progress {
-  margin: 0;
-  color: var(--fg-muted);
-  font-size: var(--text-sm);
-  font-variant-numeric: tabular-nums;
 }
 
 .story h2 {
@@ -422,35 +572,6 @@ button {
   font-size: var(--text-md);
 }
 
-/* Pager */
-.pager {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-top: var(--space-6);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--border);
-}
-
-.pager-button {
-  min-height: 44px;
-  padding: var(--space-2) var(--space-5);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  font-weight: 600;
-}
-
-.pager-next {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-fg);
-}
-
-.pager-button[hidden] {
-  display: none;
-}
-
 .blank-overlay {
   position: fixed;
   inset: 0;
@@ -464,33 +585,57 @@ button {
   padding: var(--space-4);
 }
 
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr);
+@media (max-width: 600px) {
+  /* Narrow screens: the slide keeps 16:9 and the caption moves below it (research P1). */
+  .slide {
+    --slide-w: calc(100vw - 2 * var(--space-3));
+    height: auto;
+    overflow: visible;
   }
 
-  .stage-col {
+  .stage {
+    position: relative;
+    height: calc(var(--slide-w) * 9 / 16);
+  }
+
+  .caption {
     position: static;
+    max-width: none;
+    margin-top: var(--space-2);
+    transform: none;
   }
 
-  .panel {
-    padding: var(--space-4);
+  .caption-headline {
+    font-size: var(--text-lg);
   }
 
-  .site-header,
-  .tablist {
+  .caption-takeaway,
+  .caption-technical {
+    font-size: var(--text-md);
+  }
+
+  .slide-bar {
+    position: static;
+    background: none;
+    padding: var(--space-2) 0;
+  }
+
+  .progress-strip {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .notes {
+    top: auto;
+    width: 100%;
+    max-height: 70vh;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .site-header {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
-  }
-}
-
-@media (max-width: 520px) {
-  .stage {
-    aspect-ratio: 4 / 3;
-  }
-
-  .story h2 {
-    font-size: var(--text-lg);
   }
 
   .header-controls {
@@ -566,29 +711,6 @@ button {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-fg);
-}
-
-.beat-dots {
-  display: flex;
-  gap: var(--space-1);
-  margin-left: auto;
-}
-
-.beat-dot {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--surface);
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-}
-
-.beat-dot[aria-current="step"] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-fg);
-  font-weight: 700;
 }
 
 /* Disclosures */
@@ -932,14 +1054,33 @@ button {
   content: " · Technical view";
 }
 
-/* References tab: no animation, full-width reading layout */
-[data-tab="references"] .stage-col {
+/* References: no slide; the notes area becomes a full-width reading page. */
+[data-tab="references"] .slide {
   display: none;
 }
 
-[data-tab="references"] .layout {
-  grid-template-columns: minmax(0, 1fr);
+[data-tab="references"] .panel {
+  display: block;
   max-width: 980px;
+  margin: 0 auto;
+  padding: var(--space-5);
+}
+
+[data-tab="references"] .notes {
+  position: static;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+}
+
+[data-tab="references"] .notes-header,
+[data-tab="references"] .notes .scene-description {
+  display: none;
 }
 
 .references {
@@ -1144,10 +1285,6 @@ a {
   color: var(--accent);
 }
 
-[data-tab="references"] .scene-description {
-  display: none;
-}
-
 .prov-inputs {
   list-style: none;
   padding-left: 0;
@@ -1172,4 +1309,27 @@ a {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-fg);
+}
+
+/* Slide extras (feature 002) */
+[data-view="leadership"] .caption-technical {
+  display: none;
+}
+
+.control-next {
+  min-width: 6rem;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+.control-play {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--fg);
+}
+
+.route-notice {
+  width: var(--slide-w, 100%);
+  margin-bottom: var(--space-2);
 }

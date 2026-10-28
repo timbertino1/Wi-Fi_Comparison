@@ -16,7 +16,7 @@ test.describe('performance', () => {
   test('first beat text is visible within 3 seconds', async ({ page }) => {
     const start = Date.now();
     await page.goto(fileUrl());
-    await page.locator('#story h3').waitFor();
+    await page.locator('#caption .caption-headline').waitFor();
     expect(Date.now() - start).toBeLessThan(3000);
   });
 
