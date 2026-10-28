@@ -34,7 +34,7 @@ Open `dist/index.html` by double-clicking. The talk track is `docs/talk-track.md
 | V13 | Reduced motion | Enable OS reduced motion; step across chapters | No camera moves; ≤ 200 ms fade or instant; captions appear immediately |
 | V14 | No WebGL | `npm run test:e2e -- nowebgl` | Stills with numbered badges, captions, numbered hotspot list; all steps reachable |
 | V15 | Projector legibility (SC-007) | Project at 1920×1080; read captions from 8 m | Headline and takeaway readable |
-| V16 | Performance (SC-009, research P11) | Uncapped frame-time script on each scene and on transitions vs `main` | Within 1 ms median per frame of `main`; capped rate holds 60 fps on reference hardware |
+| V16 | Performance (SC-009, research P11) | Uncapped frame-time script on each scene and on transitions vs the MVP slide build (fc36db8) | Within 1 ms median per frame of that build; capped rate holds 60 fps on reference hardware |
 | V17 | Kept guarantees (FR-028) | Full e2e suite: a11y, security/CSP, offline, provenance, resilience | All pass in three browsers |
 
 ## Editable talk-track copy

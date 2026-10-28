@@ -135,7 +135,7 @@ with US5 brought forward because it is P1).
 - [ ] T040 [US2] Frame copy and camera dolly helpers in src/stage/renderer.js: synchronous copy of the just-rendered frame to a 2D overlay canvas; dolly from/to a framing relative to the `ap` anchor
 - [ ] T041 [US2] Transition controller in src/app/transition.js: out (≈ 700 ms) → crossfade (≈ 600 ms, unmount old, mount new at `shots.wide`, anchor screen-position match) → in (≈ 900 ms); skip-to-end on press; reduced-motion variants (research P4)
 - [ ] T042 [US2] Replace the instant chapter change in src/app/sequencer.js with the transition controller and its states
-- [ ] T043 [US2] Run `npm run frame-budget` against a main build for all scenes and transitions; record results in specs/002-presentation-first-redesign/research.md under P11
+- [ ] T043 [US2] Run `npm run frame-budget` against an fc36db8 (MVP slide) build for all scenes and transitions; record results in specs/002-presentation-first-redesign/research.md under P11
 
 **Checkpoint**: Chapters flow into each other
 
@@ -246,7 +246,7 @@ with US5 brought forward because it is P1).
 
 - [ ] T074 [P] Update tests/e2e/a11y.spec.js: axe on every step in both depths with drawer and a card open; keyboard-only walk of the full talk (SC-008)
 - [ ] T075 [P] Update tests/e2e/security.spec.js: zero CSP violations across the talk, transitions, cards, drawer and presenter window (FR-028)
-- [ ] T076 [P] Update tests/e2e/performance.spec.js busiest list for the slide and add a transition frame-time sample; run `npm run frame-budget` and confirm within 1 ms of main (SC-009)
+- [ ] T076 [P] Update tests/e2e/performance.spec.js busiest list for the slide and add a transition frame-time sample; run `npm run frame-budget` and confirm within 1 ms of the fc36db8 MVP slide build (SC-009, research P11)
 - [ ] T077 [P] Update tests/e2e/resilience.spec.js for the slide (context loss keeps chapter/step; hidden page stops the loop during and after transitions)
 - [ ] T078 [P] Update README.md "Viewing it" and "Presenting" sections: clicker keys, Notes, presenter view, talk track location
 - [ ] T079 [P] Mark feature 001's superseded navigation/presentation requirements as replaced in specs/001-wifi7-healthcare-explainer/contracts/ui-navigation.md (header note linking to this feature's slide-navigation contract)
@@ -316,5 +316,5 @@ T062 … T071 (one chapter file each) and T072 glossary, then T073
 ## Notes
 
 - Keep every change behind passing `npm run validate`, `npm test` and the e2e suite; compare frame
-  times against `main` with the uncapped script before merging any scene or overlay change (P11).
+  times against the fc36db8 MVP slide build with the uncapped script before merging any scene or overlay change (P11).
 - Commit per task or logical group; never edit docs/talk-track.md by hand.

@@ -42,8 +42,8 @@ static host)
 **Project Type**: Static single-page web application (no backend)
 
 **Performance Goals**: As 001 (60 fps on integrated GPU; first slide < 3 s; bundle ≤ 500 KB gz).
-Chapter transition ≤ 2.5 s end to end. Uncapped median frame time within 1 ms of `main` per scene
-(research P11).
+Chapter transition ≤ 2.5 s end to end. Uncapped median frame time within 1 ms of the MVP slide build
+(fc36db8) per scene (research P11).
 
 **Constraints**: As 001 (offline, `file://`, zero network, CSP, no `eval`/inline script, escaping
 renderer, vendor neutrality). Additionally: no `backdrop-filter`/`box-shadow`/`filter` on

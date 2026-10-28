@@ -187,6 +187,28 @@ the main branch for every scene and for transitions.
 **Rationale**: On 2026-10-27, label blur/shadows and an environment map each added measurable
 frame time on software rendering and caused CI timeouts; capped frame rates hid the cost.
 
+**Measured after the MVP (2026-10-28, fc36db8 vs 98da236, 1280×860 viewport, software WebGL)**:
+
+| Scene | Before (ms) | Slide (ms) |
+|---|---|---|
+| overview/2 | 17.6 | 36.4 |
+| spectrum/2 | 32.0 | 31.8 |
+| mlo/2 | 7.4 | 15.2 |
+| qam-puncturing/2 | 31.6 | 31.9 |
+| security/2 | 8.0 | 14.1 |
+| twt/2 | 17.7 | 31.8 |
+| density/2 | 16.9 | 33.7 |
+| latency/2 | 17.8 | 32.0 |
+| bandwidth-poe/2 | 4.9 | 14.0 |
+| wifi8/2 | 6.0 | 11.9 |
+
+The full-width stage renders 1254×705 px against 692×432 before (about 3× the pixels), and
+software rendering cost scales with pixel count. Frame time roughly doubled, so per-pixel cost
+fell; the rise is the intended larger stage, not overlay styling. **Accepted.** From here on the
+"within 1 ms" comparison uses the MVP slide build (fc36db8) as its baseline, not `main`, so it
+keeps catching added per-frame cost at equal stage size. SC-009 (60 fps capped on reference
+hardware) is unchanged.
+
 ## P12. Migration of feature 001 UI and content
 
 **Decision**:
