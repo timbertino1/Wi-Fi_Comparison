@@ -334,12 +334,9 @@ button {
   font-size: inherit;
 }
 
+/* The no-WebGL notice is the bar's first, full-width row, so it never covers the controls however the bar wraps. */
 .stage-notice {
-  position: absolute;
-  left: var(--space-3);
-  right: var(--space-3);
-  bottom: calc(var(--slide-h) * 0.16);
-  z-index: 4;
+  flex: 1 0 100%;
 }
 
 /* Bottom bar: comparison switch, controls and progress, over the slide's lower edge. */
