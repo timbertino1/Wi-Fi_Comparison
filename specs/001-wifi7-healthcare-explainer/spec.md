@@ -553,7 +553,7 @@ with a failing test — merge blocked.
   other regions.
 - Wi-Fi 7 is described per IEEE 802.11be and Wi-Fi Alliance Wi-Fi CERTIFIED 7; Wi-Fi 8 per the
   current IEEE 802.11bn project status as of authoring, clearly marked as forward-looking.
-- Supported browsers: current evergreen Chrome, Edge, Firefox, and Safari.
+- Supported browsers: current evergreen Chrome and Edge (both Chromium). Narrowed on 2026-10-29 by the presenter, who uses only these; Firefox and Safari are no longer tested.
 - Healthcare scenarios are illustrative composites; no real facilities, patients, or PHI.
 - three.js is the chosen 3D engine (a stakeholder decision recorded in the constitution); the
   remaining technical approach is decided at planning.

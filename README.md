@@ -54,7 +54,7 @@ npm test                     # validation + content/security unit tests
 npm run build                # bundle to dist/ and render the no-WebGL fallback stills
 npm run build:fast           # bundle only
 npm run watch                # rebuild on change
-npm run test:e2e             # Playwright on file:// in Chromium, Firefox and WebKit
+npm run test:e2e             # Playwright on file:// in Chromium (Chrome and Edge)
 npm run provenance           # regenerate docs/provenance-report.md (CI checks it is current)
 ```
 
@@ -65,7 +65,7 @@ To change a fact, edit `content/` only (never `dist/`), then run `npm run valida
 ## Contributing and security
 
 - `main` is protected: changes arrive only through pull requests that pass every required
-  check (validation, build, end-to-end tests in three browsers, `npm audit`, dependency review
+  check (validation, build, end-to-end tests in Chromium, `npm audit`, dependency review
   and CodeQL). Merge with **Squash** or **Rebase**; history on `main` is linear.
 - Dependencies are pinned to exact versions. Dependabot proposes updates weekly, and secret
   scanning with push protection is enabled.
