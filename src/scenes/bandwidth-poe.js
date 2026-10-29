@@ -1,12 +1,15 @@
-// Bandwidth, peak rates and PoE: the wired chain behind each access point, peak PHY rates drawn to
-// linear scale from claims, and PoE classes at the switch port.
-const PEAKS = [
-  { gen: 'wifi4', claim: 'wifi4-peak-phy' },
-  { gen: 'wifi5', claim: 'wifi5-peak-phy' },
-  { gen: 'wifi6', claim: 'wifi6-peak-phy' },
-  { gen: 'wifi7', claim: 'wifi7-peak-phy' }
-];
+// Bandwidth and PoE as a sprinkler system. Each access point is a sprinkler head on the ceiling,
+// fed from the wiring closet by one pipe that carries both the water (data, the uplink) and the
+// pressure (power, PoE). On an old 1 Gb/s port the pipe is thin and the spray weak; with a power
+// budget below what the access point needs, some nozzles (radios) stay dry. Multi-gigabit ports and
+// higher PoE classes open every nozzle. Peak rates are a "rated maximum" ghost spray. Figures shown
+// come from claims; spray sizes are illustrative.
 const POE = ['poe-type1-pse', 'poe-type2-pse', 'poe-type3-pse', 'poe-type4-pse'];
+const PEAKS = { wifi4: 'wifi4-peak-phy', wifi5: 'wifi5-peak-phy', wifi6: 'wifi6-peak-phy', wifi7: 'wifi7-peak-phy' };
+const GAUGE_H = 1.6;
+const NEEDS = 0.62; // power the Wi-Fi 7 access point needs, as a fraction of the gauge (illustrative)
+const DROPS = 10;
+const RED = '#c0392b';
 
 export default {
   id: 'bandwidth-poe',
@@ -18,185 +21,273 @@ export default {
     const genName = (id) => ctx.generations.find((g) => g.id === id)?.name ?? id;
     const fmt = (c) => `${c.value} ${c.unit}`;
     let compareGen = 'wifi6';
-
-    /** A switch → cable → access point chain with a power gauge. */
-    function chain(genId, x) {
-      const group = new THREE.Group();
-      group.position.x = x;
-      scene.add(group);
-      const sw = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.5, 1.2), new THREE.MeshStandardMaterial({ color: neutral.device }));
-      sw.position.set(-2.5, 0.25, 0);
-      const { group: ap } = kit.accessPoint({ color: '#f2f5f9', ledColor: palette[genId] });
-      ap.position.set(2.5, 3, 0);
-      const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(-1.4, 0.4, 0), new THREE.Vector3(0.6, 0.6, 0), new THREE.Vector3(2.5, 1.6, 0), new THREE.Vector3(2.5, 2.85, 0)]);
-      const cableMaterial = new THREE.MeshStandardMaterial({ color: palette[genId], transparent: true, opacity: 0.85 });
-      const cable = new THREE.Mesh(new THREE.TubeGeometry(curve, 60, 0.07, 10, false), cableMaterial);
-      const cableWide = new THREE.Mesh(new THREE.TubeGeometry(curve, 60, 0.22, 16, false), cableMaterial);
-      const gaugeFrame = new THREE.Mesh(new THREE.BoxGeometry(0.5, 2.4, 0.5), new THREE.MeshStandardMaterial({ color: neutral.grid, transparent: true, opacity: 0.35 }));
-      gaugeFrame.position.set(-4.2, 1.2, 0);
-      const fillGeometry = new THREE.BoxGeometry(0.42, 1, 0.42);
-      fillGeometry.translate(0, 0.5, 0);
-      const gauge = new THREE.Mesh(fillGeometry, new THREE.MeshStandardMaterial({ color: palette[genId] }));
-      gauge.position.set(-4.2, 0, 0);
-      gauge.scale.y = 1.2;
-      group.add(sw, ap, cable, cableWide, gaugeFrame, gauge);
-      labels.add(sw, 'Switch', { className: 'muted', offset: [0, 0.6, 0] });
-      labels.add(gaugeFrame, 'PoE budget', { className: 'muted', offset: [0, 1.5, 0] });
-      const cableLabel = labels.add(cable, '', { className: 'muted', offset: [0.6, 1.1, 0] });
-      const title = labels.add(ap, genName(genId), { className: 'big', offset: [0, 0.8, 0] });
-      const packets = Array.from({ length: 6 }, (_, i) => {
-        const p = kit.packet({ color: palette[genId], size: 0.16 });
-        p.userData.t = i / 6;
-        group.add(p);
-        return p;
-      });
-      return { group, cable, cableWide, cableMaterial, gauge, curve, packets, cableLabel, title, genId, wide: false };
-    }
-
-    const main = chain('wifi7', 0);
-    const old = chain(compareGen, -5.5);
-    old.group.visible = false;
-
-    // --- Peak-rate towers (linear scale).
-    const towers = new THREE.Group();
-    scene.add(towers);
-    const maxRate = claim('wifi7-peak-phy').value * 1000;
-    const peakBars = PEAKS.map(({ gen, claim: id }, i) => {
-      const c = claim(id);
-      const mbps = c.unit === 'Gbps' ? c.value * 1000 : c.value;
-      const height = Math.max(0.05, (mbps / maxRate) * 5.5);
-      const geometry = new THREE.CylinderGeometry(0.55, 0.55, 1, 32);
-      geometry.translate(0, 0.5, 0);
-      const theoretical = gen === 'wifi7';
-      const bar = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: palette[gen], transparent: theoretical, opacity: theoretical ? 0.45 : 1 }));
-      bar.position.x = (i - 1.5) * 2.2;
-      bar.scale.y = 0.001;
-      bar.userData.h = height;
-      towers.add(bar);
-      const anchor = new THREE.Object3D();
-      anchor.position.set(bar.position.x, i < 3 ? 0.9 + i * 0.8 : height + 0.5, 0);
-      towers.add(anchor);
-      const label = labels.add(anchor, `${genName(gen)}: ${fmt(c)}${theoretical ? ' (theoretical)' : ''}`, { className: 'big' });
-      label.element.style.opacity = '0';
-      return { bar, label };
-    });
-    const towerNote = new THREE.Object3D();
-    towerNote.position.set(0, -0.5, 1.6);
-    towers.add(towerNote);
-    const towerLabel = labels.add(towerNote, 'Theoretical peak PHY rates, linear scale', { className: 'muted' });
-
-    // --- PoE classes.
-    const poe = new THREE.Group();
-    poe.position.set(-8.6, 0, -2.5);
-    scene.add(poe);
-    const poeBars = POE.map((id, i) => {
-      const c = claim(id);
-      const height = (c.value / 90) * 3;
-      const geometry = new THREE.BoxGeometry(0.55, 1, 0.55);
-      geometry.translate(0, 0.5, 0);
-      const bar = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: i >= 2 ? palette.wifi7 : neutral.device }));
-      bar.position.x = i * 0.85;
-      bar.scale.y = 0.001;
-      bar.userData.h = height;
-      poe.add(bar);
-      const anchor = new THREE.Object3D();
-      anchor.position.set(bar.position.x, height + 0.3, 0);
-      poe.add(anchor);
-      const label = labels.add(anchor, fmt(c), { className: 'muted' });
-      label.element.style.opacity = '0';
-      return { bar, label };
-    });
-
-    // --- Floor of access points for the outcome.
-    const floor = new THREE.Group();
-    scene.add(floor);
-    floor.visible = false;
-    const closet = new THREE.Mesh(new THREE.BoxGeometry(1.6, 1.2, 1.2), new THREE.MeshStandardMaterial({ color: neutral.device }));
-    closet.position.set(-6, 0.6, 0);
-    floor.add(closet);
-    labels.add(closet, 'Wiring closet', { className: 'muted', offset: [0, 1, 0] });
-    [[-2, -2], [1.5, 2], [4.5, -1.5], [6.5, 2.2]].forEach(([x, z]) => {
-      const { group: ap } = kit.accessPoint({ color: '#f2f5f9', ledColor: palette.wifi7 });
-      ap.position.set(x, 2.4, z);
-      floor.add(ap);
-      const { mesh } = kit.linkBeam(new THREE.Vector3(-6, 1.1, 0), new THREE.Vector3(x, 2.3, z), { color: palette.wifi7, arch: 0.2, radius: 0.08 });
-      floor.add(mesh);
-    });
-
-    const multigig = claim('multigig-2-5-5');
-    const tenGig = claim('multigig-10');
-    const oneGig = claim('gigabit-1');
-
-    function setCable(c, wide, text) {
-      c.wide = wide;
-      c.cable.visible = !wide;
-      c.cableWide.visible = wide;
-      labels.setText(c.cableLabel, text);
-    }
-
     let mode = 'old-closet';
     let time = 0;
+    const WATER = '#4fb3e8';
+    const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.5, ...extra });
+    const box = (w, h, d, color, extra) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat(color, extra));
+    const tag = (object, text, offset, className = 'muted') => {
+      const l = labels.add(object, text, { className, offset });
+      l.element.style.opacity = '0';
+      return l;
+    };
+    const dropGeometry = new THREE.SphereGeometry(0.05, 6, 4);
+    const tmp = new THREE.Matrix4();
+
+    /** A sprinkler head (access point) with its nozzles, spray cones and falling drops. */
+    function head(group, x, nozzles, ledColor) {
+      const { group: ap } = kit.accessPoint({ color: '#f2f5f9', ledColor });
+      ap.position.set(x, 3.4, 0);
+      group.add(ap);
+      const ring = nozzles === 1 ? [[0, 0]] : Array.from({ length: nozzles }, (_, i) => {
+        const a = (i / nozzles) * Math.PI * 2 + Math.PI / 4;
+        return [Math.cos(a) * 0.32, Math.sin(a) * 0.32];
+      });
+      const sprays = ring.map(([dx, dz]) => {
+        const nozzle = box(0.1, 0.12, 0.1, neutral.device);
+        nozzle.position.set(x + dx, 3.22, dz);
+        const geometry = new THREE.ConeGeometry(0.55, 2.8, 20, 1, true);
+        geometry.translate(0, -1.4, 0);
+        const cone = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: WATER, transparent: true, opacity: 0.32, side: THREE.DoubleSide, depthWrite: false }));
+        cone.position.set(x + dx, 3.16, dz);
+        const ghostGeometry = new THREE.ConeGeometry(0.55, 2.8, 20, 1, true);
+        ghostGeometry.translate(0, -1.4, 0);
+        const ghost = new THREE.Mesh(ghostGeometry, new THREE.MeshBasicMaterial({ color: WATER, wireframe: true, transparent: true, opacity: 0.35 }));
+        ghost.position.copy(cone.position);
+        ghost.visible = false;
+        const dry = box(0.12, 0.04, 0.12, RED, { emissive: RED, emissiveIntensity: 0.5 });
+        dry.position.set(x + dx, 3.13, dz);
+        group.add(nozzle, cone, ghost, dry);
+        return { nozzle, cone, ghost, dry, strength: 1, x: x + dx, z: dz };
+      });
+      const drops = new THREE.InstancedMesh(dropGeometry, new THREE.MeshStandardMaterial({ color: WATER }), sprays.length * DROPS);
+      group.add(drops);
+      return { ap, sprays, drops };
+    }
+
+    /** One closet with a power gauge, and pipes up to one or more heads. */
+    function supply({ heads, nozzles, ledColor }) {
+      const group = new THREE.Group();
+      scene.add(group);
+      const floor = box(heads.at(-1) + 5.5, 0.04, 3, neutral.grid);
+      floor.position.set((heads.at(-1) - 3) / 2, -0.02, 0);
+      const closet = box(1.4, 2.2, 0.9, neutral.device);
+      closet.position.set(-3, 1.1, 0);
+      group.add(floor, closet);
+      labels.add(closet, 'Wiring closet · switch', { className: 'muted', offset: [0, 1.5, 0] });
+      const frame = box(0.34, GAUGE_H + 0.08, 0.06, '#d5dce6');
+      frame.position.set(-3.35, 0.25 + GAUGE_H / 2, 0.5);
+      const fillGeometry = new THREE.BoxGeometry(0.26, 1, 0.08);
+      fillGeometry.translate(0, 0.5, 0);
+      const fill = new THREE.Mesh(fillGeometry, mat('#e6b422', { emissive: '#e6b422', emissiveIntensity: 0.3 }));
+      fill.position.set(-3.35, 0.25, 0.52);
+      const need = box(0.5, 0.04, 0.1, RED);
+      need.position.set(-3.35, 0.25 + NEEDS * GAUGE_H, 0.56);
+      group.add(frame, fill, need);
+      const gaugeAnchor = new THREE.Object3D();
+      gaugeAnchor.position.set(-3.35, 0.25, 0.55);
+      group.add(gaugeAnchor);
+      const pipes = heads.map((hx) => {
+        const curve = new THREE.CatmullRomCurve3([
+          new THREE.Vector3(-2.6, 2.2, 0), new THREE.Vector3(-2, 3.3, 0), new THREE.Vector3(hx - 0.8, 3.45, 0), new THREE.Vector3(hx, 3.5, 0)
+        ]);
+        const pipeMat = mat('#9aa6b8', { metalness: 0.3 });
+        const thin = new THREE.Mesh(new THREE.TubeGeometry(curve, 60, 0.05, 8, false), pipeMat);
+        const wide = new THREE.Mesh(new THREE.TubeGeometry(curve, 60, 0.17, 14, false), pipeMat);
+        group.add(thin, wide);
+        const packets = Array.from({ length: 8 }, (_, i) => {
+          const p = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), mat(WATER, { emissive: WATER, emissiveIntensity: 0.3 }));
+          p.userData.t = i / 8;
+          group.add(p);
+          return p;
+        });
+        const anchor = new THREE.Object3D();
+        anchor.position.copy(curve.getPoint(0.45));
+        group.add(anchor);
+        return { curve, thin, wide, packets, anchor, head: head(group, hx, nozzles, ledColor) };
+      });
+      return { group, fill, need, gaugeAnchor, pipes, level: 0.3 };
+    }
+
+    const main = supply({ heads: [2.4, 5.4, 8.4], nozzles: 4, ledColor: palette.wifi7 });
+    const older = supply({ heads: [2.4], nozzles: 2, ledColor: palette[compareGen] });
+
+    // --- Labels.
+    const oneGig = claim('gigabit-1');
+    const multigig = claim('multigig-2-5-5');
+    const tenGig = claim('multigig-10');
+    const multiText = `${String(multigig.value).split('/')[0].trim()}–${tenGig.value} ${tenGig.unit}`;
+    const first = main.pipes[0];
+    const lPipe = tag(first.anchor, '', [-1.2, 0.45, 0]);
+    const lPower = tag(main.gaugeAnchor, '', [-1.25, GAUGE_H / 2, 0]);
+    const lHead = tag(first.head.ap, 'Wi-Fi 7 access point', [0, 0.65, 0], 'big');
+    const lRated = tag(first.head.ap, '', [0, -3.4, 1.2], 'big');
+    const lActual = tag(first.head.ap, 'Real devices get far less', [2.1, -1.4, 0]);
+    const lOldRated = tag(first.head.ap, '', [0, -3.95, 1.2]);
+    const lFloor = tag(main.pipes[1].head.ap, 'Every access point at full flow', [0, 0.65, 0], 'big');
+    const lOlderTitle = tag(older.pipes[0].head.ap, '', [0, 0.65, 0], 'big');
+    const lOlderPipe = tag(older.pipes[0].anchor, `${fmt(oneGig)} port: enough for its time`, [-1.2, 0.45, 0]);
+    const ticks = POE.map((id) => {
+      const c = claim(id);
+      const anchor = new THREE.Object3D();
+      anchor.position.set(-3.35, 0.25 + (c.value / 90) * GAUGE_H, 0.55);
+      main.group.add(anchor);
+      return tag(anchor, fmt(c), [0.55, 0, 0]);
+    });
+    const peak7 = claim(PEAKS.wifi7);
+    const ratedText = () => `${genName(compareGen)} rated maximum: ${fmt(claim(PEAKS[compareGen]))}`;
+
+    // Per state: pipe width, power level, spray strength per nozzle, and what is shown.
+    function config(name) {
+      if (name === 'old-closet') return { wide: false, level: 0.36, spray: [0.45, 0.45, 0, 0], heads: 1 };
+      if (name === 'peak-rates') return { wide: true, level: 0.85, spray: [0.75, 0.75, 0.75, 0.75], heads: 1, ghost: true };
+      if (name === 'clinical-outcome') return { wide: true, level: 0.85, spray: [1, 1, 1, 1], heads: 3 };
+      return { wide: true, level: 0.85, spray: [1, 1, 1, 1], heads: 1 };
+    }
+    const layout = {
+      'old-closet': { main: 0, older: null, cam: [0.6, 3.4, 9], look: [0.4, 2, 0] },
+      'peak-rates': { main: 0, older: null, cam: [1.4, 3, 8.5], look: [1.6, 1.9, 0] },
+      'wired-chain': { main: 0, older: null, cam: [0.4, 3.4, 9], look: [0.2, 2, 0] },
+      'gen-compare': { main: 3.5, older: -5, cam: [0, 4.4, 14], look: [0, 2, 0] },
+      'clinical-outcome': { main: -2.4, older: null, cam: [0.6, 4.8, 13], look: [0.6, 2, 0] }
+    };
+    const lookTarget = { x: 0.4, y: 2, z: 0 };
+    const look = new THREE.Vector3();
+    const anchorSets = {
+      'old-closet': { ap: first.head.ap, pipe: first.anchor, power: main.gaugeAnchor },
+      'peak-rates': { ap: first.head.ap },
+      'wired-chain': { ap: first.head.ap, pipe: first.anchor, power: main.gaugeAnchor },
+      'gen-compare': { ap: first.head.ap, pipe: older.pipes[0].anchor },
+      'clinical-outcome': { ap: main.pipes[1].head.ap }
+    };
+
+    function applySpray(s, strength, ghost) {
+      s.strength = strength;
+      s.cone.visible = strength > 0;
+      s.cone.scale.set(Math.max(0.001, strength), Math.max(0.001, 0.4 + 0.6 * strength), Math.max(0.001, strength));
+      s.dry.visible = strength === 0;
+      s.ghost.visible = !!ghost;
+      if (ghost) s.ghost.scale.set(2.1, 1, 2.1);
+    }
+
+    function drawDrops(h) {
+      let i = 0;
+      for (const s of h.sprays) {
+        for (let d = 0; d < DROPS; d++, i++) {
+          if (s.strength === 0) {
+            tmp.makeScale(0, 0, 0);
+          } else {
+            const f = (time * (0.5 + s.strength) + d / DROPS) % 1;
+            const fall = f * 2.8 * (0.4 + 0.6 * s.strength);
+            const a = d * 2.4;
+            const r = f * 0.5 * s.strength;
+            tmp.makeTranslation(s.x + Math.cos(a) * r, 3.1 - fall, s.z + Math.sin(a) * r);
+          }
+          h.drops.setMatrixAt(i, tmp);
+        }
+      }
+      h.drops.instanceMatrix.needsUpdate = true;
+    }
+    function drawPackets(p, wide) {
+      p.packets.forEach((pk, i) => {
+        // A thin pipe bunches packets near the closet; a wide one keeps them flowing.
+        const t = wide ? (time * 0.35 + i / p.packets.length) % 1 : Math.min(0.3, ((time * 0.35 + i / p.packets.length) % 1) * 0.35);
+        pk.position.copy(p.curve.getPoint(t));
+      });
+    }
+    function drawAll() {
+      for (const s of [main, older]) {
+        if (!s.group.visible) continue;
+        for (const p of s.pipes) {
+          if (!p.thin.visible && !p.wide.visible) continue;
+          drawPackets(p, p.wide.visible);
+          drawDrops(p.head);
+        }
+      }
+    }
 
     return {
       async setState(name, { animate = true, signal } = {}) {
         mode = name;
-        const chainVisible = name === 'old-closet' || name === 'wired-chain' || name === 'gen-compare';
-        main.group.visible = chainVisible;
-        old.group.visible = name === 'gen-compare';
-        towers.visible = name === 'peak-rates';
-        towerLabel.element.style.opacity = name === 'peak-rates' ? '1' : '0';
-        poe.visible = name === 'wired-chain';
-        floor.visible = name === 'clinical-outcome';
+        const c = config(name);
+        const l = layout[name];
+        main.group.visible = l.main !== null;
+        older.group.visible = l.older !== null;
+        if (l.main !== null) main.group.position.x = l.main;
+        if (l.older !== null) older.group.position.x = l.older;
+        for (const [i, p] of main.pipes.entries()) {
+          const on = i < c.heads;
+          p.thin.visible = on && !c.wide;
+          p.wide.visible = on && c.wide;
+          for (const pk of p.packets) pk.visible = on;
+          p.head.ap.visible = on;
+          p.head.drops.visible = on;
+          for (const [n, s] of p.head.sprays.entries()) {
+            applySpray(s, on ? c.spray[n] : 0, c.ghost && i === 0);
+            s.nozzle.visible = on;
+            if (!on) s.dry.visible = false;
+          }
+        }
+        // The older generation's access point needs less power, so all its nozzles run on 1 Gb/s.
+        const op = older.pipes[0];
+        op.thin.visible = true;
+        op.wide.visible = false;
+        for (const s of op.head.sprays) applySpray(s, 0.6, false);
+        older.need.position.y = 0.25 + 0.32 * GAUGE_H;
 
-        const multiText = `${String(multigig.value).split('/')[0].trim()}–${tenGig.value} ${tenGig.unit}`;
-        if (name === 'old-closet') setCable(main, false, `${oneGig.value} ${oneGig.unit}`);
-        else setCable(main, true, multiText);
-        setCable(old, false, `${oneGig.value} ${oneGig.unit}`);
-        main.group.position.x = name === 'gen-compare' ? 4.5 : name === 'wired-chain' ? 1.5 : 0;
-        old.group.position.x = -4.5;
-        labels.setText(main.title, genName('wifi7'));
+        labels.setText(lPipe, c.wide ? `Multi-gigabit port: ${multiText}` : `Old ${fmt(oneGig)} port: thin pipe`);
+        labels.setText(lPower, c.level < NEEDS ? 'Power below what it needs: some radios off' : 'Enough power for every radio (PoE)');
+        labels.setText(lRated, `Rated maximum: ${fmt(peak7)} (theoretical)`);
+        labels.setText(lOldRated, ratedText());
+        labels.setText(lOlderTitle, genName(compareGen));
+        const on = (label, states) => {
+          label.element.style.opacity = states.includes(name) ? '1' : '0';
+        };
+        on(lPipe, ['old-closet', 'wired-chain', 'gen-compare']);
+        on(lPower, ['old-closet', 'wired-chain']);
+        on(lHead, ['old-closet', 'wired-chain', 'gen-compare', 'peak-rates']);
+        on(lRated, ['peak-rates']);
+        on(lActual, ['peak-rates']);
+        on(lOldRated, ['peak-rates']);
+        on(lFloor, ['clinical-outcome']);
+        on(lOlderTitle, ['gen-compare']);
+        on(lOlderPipe, ['gen-compare']);
+        for (const t of ticks) on(t, ['wired-chain']);
 
-        const jobs = [
-          animateTo([[main.gauge.scale, 'y', name === 'old-closet' ? 2.3 : 1.4]], { durationMs: 800, animate, signal }),
-          animateTo([[old.gauge.scale, 'y', 0.9]], { durationMs: 800, animate, signal }),
-          animateTo(peakBars.map(({ bar }) => [bar.scale, 'y', name === 'peak-rates' ? bar.userData.h : 0.001]), { durationMs: 1200, animate, signal }),
-          animateTo(poeBars.map(({ bar }) => [bar.scale, 'y', name === 'wired-chain' ? bar.userData.h : 0.001]), { durationMs: 1000, animate, signal })
-        ];
-        for (const { label } of peakBars) label.element.style.opacity = name === 'peak-rates' ? '1' : '0';
-        for (const { label } of poeBars) label.element.style.opacity = name === 'wired-chain' ? '1' : '0';
-        const cam = name === 'peak-rates' ? [0, 5, 13] : name === 'gen-compare' ? [0, 6.5, 16] : name === 'clinical-outcome' ? [0, 9, 11] : [0, 5.5, 13.5];
-        jobs.push(animateTo([[camera.position, 'x', cam[0]], [camera.position, 'y', cam[1]], [camera.position, 'z', cam[2]]], { durationMs: 1000, animate, signal }));
-        await Promise.all(jobs);
-        camera.lookAt(0, 1.6, 0);
+        drawAll();
+        await Promise.all([
+          animateTo([[main.fill.scale, 'y', c.level * GAUGE_H], [older.fill.scale, 'y', 0.5 * GAUGE_H]], { durationMs: 900, animate, signal }),
+          animateTo([
+            [camera.position, 'x', l.cam[0]], [camera.position, 'y', l.cam[1]], [camera.position, 'z', l.cam[2]],
+            [lookTarget, 'x', l.look[0]], [lookTarget, 'y', l.look[1]], [lookTarget, 'z', l.look[2]]
+          ], { durationMs: 1100, animate, signal })
+        ]);
+        this.update(0);
         ctx.requestRender();
       },
       setGeneration(genId) {
         if (genId === 'wifi7') return;
         compareGen = genId;
-        old.cableMaterial.color.set(palette[genId]);
-        old.gauge.material.color.set(palette[genId]);
-        labels.setText(old.title, genName(genId));
+        labels.setText(lOlderTitle, genName(genId));
+        labels.setText(lOldRated, ratedText());
         ctx.requestRender();
       },
       update(dt) {
-        camera.lookAt(0, 1.6, 0);
-        if (!motionFull) return;
+        look.set(lookTarget.x, lookTarget.y, lookTarget.z);
+        camera.lookAt(look);
+        if (!motionFull || !dt) return;
         time += dt;
-        for (const c of [main, old]) {
-          if (!c.group.visible) continue;
-          const wide = c.wide;
-          c.packets.forEach((p, i) => {
-            // Narrow cables bunch packets near the switch; wide ones keep them flowing.
-            const t = wide ? (time * 0.3 + i / c.packets.length) % 1 : Math.min(0.25, ((time * 0.3 + i / c.packets.length) % 1) * 0.3);
-            p.position.copy(c.curve.getPoint(t));
-          });
-        }
+        drawAll();
       },
       isIdle() {
         return !motionFull;
       },
+      anchors() {
+        return anchorSets[mode];
+      },
+      shots: { wide: { position: [0.6, 5, 14], target: [0.6, 2, 0] } },
       resize(width, height) {
-        camera.fov = width / height < 1 ? 66 : 46;
+        camera.fov = width / height < 1 ? 64 : 44;
         camera.updateProjectionMatrix();
       },
       dispose() {}
