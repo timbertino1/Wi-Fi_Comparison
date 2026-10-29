@@ -7,6 +7,11 @@ let tabIds = [];
 let defaultTab = 'overview';
 let current = null;
 let resolvedHash = null; // the hash the app last acted on, so a duplicate hashchange is ignored
+// In-place URL updates are throttled: WebKit throws after 100 replaceState calls in 10 s, which a
+// fast clicker walk can exceed. The route itself (current) still changes at once.
+const REPLACE_EVERY_MS = 150;
+let lastReplace = -Infinity;
+let pendingReplace = null;
 
 export function parse(hash) {
   const raw = (hash ?? '').replace(/^#\/?/, '');
@@ -28,7 +33,24 @@ export function serialize({ tabId, beat, params }) {
   return query ? `${hash}?${query}` : hash;
 }
 
+function cancelReplace() {
+  clearTimeout(pendingReplace);
+  pendingReplace = null;
+}
+
+function writeReplace() {
+  cancelReplace();
+  if (!current) return;
+  // The URL changed from outside (a link, Back, a typed address) since we last wrote or read it:
+  // that navigation wins, and its hashchange will resolve the new route.
+  if (location.hash !== resolvedHash) return;
+  lastReplace = performance.now();
+  history.replaceState(history.state, '', serialize({ tabId: current.tabId, beat: current.beat, params: current.params }));
+  resolvedHash = location.hash;
+}
+
 function resolve() {
+  cancelReplace();
   resolvedHash = location.hash;
   const parsed = parse(location.hash);
   const notFound = !!parsed.tabId && !tabIds.includes(parsed.tabId);
@@ -46,6 +68,8 @@ function resolve() {
 export function init({ tabs, fallback = 'overview' }) {
   tabIds = tabs;
   defaultTab = fallback;
+  // Keep the address current if the page is closed or reloaded between throttled writes.
+  window.addEventListener('pagehide', () => pendingReplace && writeReplace());
   window.addEventListener('hashchange', () => {
     if (location.hash !== resolvedHash) resolve();
   });
@@ -75,6 +99,7 @@ export function goTab(tabId, beat = null, extra = {}) {
   for (const k of PERSISTENT) if (current?.params.has(k)) params.set(k, current.params.get(k));
   for (const [k, v] of Object.entries(extra)) if (v !== null && v !== undefined) params.set(k, String(v));
   const hash = serialize({ tabId, beat, params });
+  cancelReplace(); // superseded by this navigation
   // Assigning the hash adds a history entry (Back moves between chapters); resolving at once keeps
   // rapid clicker presses in order instead of waiting for the asynchronous hashchange event.
   if (location.hash !== hash) location.hash = hash;
@@ -88,6 +113,8 @@ export function replace({ beat, set = {}, remove = [] } = {}) {
   for (const [k, v] of Object.entries(set)) params.set(k, String(v));
   for (const k of remove) params.delete(k);
   current = { ...current, beat: beat ?? current.beat, params };
-  history.replaceState(history.state, '', serialize({ tabId: current.tabId, beat: current.beat, params }));
-  resolvedHash = location.hash;
+  if (pendingReplace) return; // the scheduled write will use the latest route
+  const wait = lastReplace + REPLACE_EVERY_MS - performance.now();
+  if (wait <= 0) writeReplace();
+  else pendingReplace = setTimeout(writeReplace, wait);
 }
