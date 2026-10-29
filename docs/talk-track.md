@@ -1182,7 +1182,13 @@ Hundreds of devices sharing the air in a crowded unit without slowing each other
 
 ### Step 1 — Shift change in the emergency department
 
-**On screen:** Shift change in the emergency department / Crowded units fail from too little airtime per device, not from weak signal. An emergency department floor fills with hundreds of device dots around the treatment bays. Above the access point, a channel timeline shows one device transmitting at a time, with empty gaps between turns while others wait.
+**On screen:** Shift change in the emergency department / Crowded units fail from too little airtime per device, not from weak signal. Shift change, shown as hospital lifts. Devices queue in the lobby waiting to send, and each lift trip stands for one transmission. With one device per trip, new devices join faster than the lift can carry them, so the queue grows and the devices that have waited longest turn amber, then red. Hotspots: Access point, Contention, Airtime.
+
+**Callout — Why crowded units slow down:**
+
+- Devices take turns, one per transmission [S6]
+- At shift change, devices arrive faster than turns come round
+- Small urgent messages wait as long as big downloads
 
 **Say (leadership):** Shift change in the emergency department.
 
@@ -1198,6 +1204,8 @@ With Wi-Fi 5 and earlier, devices on a channel take turns, sending one at a time
 
 - Voice badge — A small wearable communicator that lets clinicians call and message each other hands-free over Wi-Fi.
 - Airtime — The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime.
+- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
+- Contention — How Wi-Fi devices take turns: each listens, waits a random time, then transmits if the channel is free. More devices means more waiting.
 
 **Figures:**
 
@@ -1211,7 +1219,13 @@ With Wi-Fi 5 and earlier, devices on a channel take turns, sending one at a time
 
 ### Step 2 — Every device shares the same airtime
 
-**On screen:** Every device shares the same airtime / Plan capacity, not just coverage: peak device counts decide how a unit performs. The channel timeline above the access point is highlighted. The time spent waiting and taking turns is shaded, showing how much airtime is lost as more devices compete for it.
+**On screen:** Every device shares the same airtime / Plan capacity, not just coverage: peak device counts decide how a unit performs. The same lift, labelled as the access point’s airtime: one lift shared by every device in the unit. The queue keeps growing and turning red, because every device draws on the same trips. Hotspots: Airtime.
+
+**Callout — Capacity is airtime:**
+
+- Every device on an access point shares its airtime
+- More devices means a longer wait for each one
+- Plan for peak device counts, not floor area
 
 **Say (leadership):** Every device shares the same airtime.
 
@@ -1236,7 +1250,13 @@ No figures cited on this step.
 
 ### Step 3 — Serve many devices in each transmission
 
-**On screen:** Serve many devices in each transmission / OFDMA serves several devices at once [S7, S4]; Wi-Fi 7 also spreads them across bands [S8, S15]. The channel timeline changes: each transmission is now divided into several horizontal slices, each slice serving a different device, so several device dots on the floor light up at the same moment.
+**On screen:** Serve many devices in each transmission / OFDMA serves several devices at once [S7, S4]; Wi-Fi 7 also spreads them across bands [S8, S15]. The lift now carries several devices on every trip, one per seat, standing for OFDMA serving several devices in one transmission. The queue in the lobby shrinks trip by trip and the red devices clear. Hotspots: OFDMA, Resource unit.
+
+**Callout — Several devices per trip:**
+
+- OFDMA serves several devices in one transmission [S7, S4]
+- Each device gets its own share of the channel
+- The queue clears instead of growing
 
 **Say (leadership):** Serve many devices in each transmission.
 
@@ -1278,7 +1298,13 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 ### Step 4 — One at a time, then many at once
 
-**On screen:** One at a time, then many at once / Wi-Fi 5 serves one device per transmission [S6]; Wi-Fi 6 several [S7, S4]; Wi-Fi 7 adds multiple bands [S8, S15]. Two channel timelines are stacked. The earlier generation's timeline shows devices taking turns. The Wi-Fi 7 timeline shows two links, each split into several slices, serving many devices at the same time.
+**On screen:** One at a time, then many at once / Wi-Fi 5 serves one device per transmission [S6]; Wi-Fi 6 several [S7, S4]; Wi-Fi 7 adds multiple bands [S8, S15]. Two lobbies side by side with the same crowd arriving. On the left, the earlier generation: one lift, carrying one device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, and the queue empties almost at once. Hotspots: MLO, Contention.
+
+**Callout — Lifts by generation:**
+
+- Wi-Fi 5: one device per trip [S6]
+- Wi-Fi 6: several devices per trip [S7, S4]
+- Wi-Fi 7: several per trip, across several bands [S8, S15]
 
 **Say (leadership):** One at a time, several at once, across bands.
 
@@ -1287,6 +1313,11 @@ Wi-Fi 5 serves one device per transmission [S6]. Wi-Fi 6 serves several at once 
 **Bottom line:** Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.
 
 **Technical depth:** Older clients still contend for the full channel [S6], so mixed fleets see partial gains until refreshed. Gains depend on device support: OFDMA and multi-link benefits apply to clients that support Wi-Fi 6 and Wi-Fi 7 respectively. Older clients still use contention and full-channel transmissions [S6], so mixed device fleets see partial gains until devices are refreshed.
+
+**Terms:**
+
+- MLO — A Wi-Fi 7 feature that lets one connection use links in more than one band at the same time, or switch between them without reconnecting.
+- Contention — How Wi-Fi devices take turns: each listens, waits a random time, then transmits if the channel is free. More devices means more waiting.
 
 **Figures:**
 
@@ -1303,7 +1334,13 @@ Wi-Fi 5 serves one device per transmission [S6]. Wi-Fi 6 serves several at once 
 
 ### Step 5 — Staying responsive at the busiest moments
 
-**On screen:** Staying responsive at the busiest moments / Size each unit for peak device counts; Wi-Fi 7 raises the ceiling, but placement still matters. The emergency department stays full of devices, but many dots light up together as the multi-link, sliced channel timelines serve them, and none are left waiting for long.
+**On screen:** Staying responsive at the busiest moments / Size each unit for peak device counts; Wi-Fi 7 raises the ceiling, but placement still matters. The Wi-Fi 7 lobby at the busiest moment: the crowd keeps arriving, three lifts carry several devices each trip, and hardly anyone is waiting. Rates are illustrative. Hotspots: MLO.
+
+**Callout — What to plan:**
+
+- Count devices per bed and per staff member at peak
+- Older devices still take turns until refreshed [S6]
+- Placement and channel planning still matter
 
 **Say (leadership):** Staying responsive at the busiest moments.
 
@@ -1315,9 +1352,16 @@ Design for peak density: count devices per bed and per staff member, not just sq
 
 **Technical depth:** No extra technical layer on this step.
 
+**Terms:**
+
+- MLO — A Wi-Fi 7 feature that lets one connection use links in more than one band at the same time, or switch between them without reconnecting.
+
 **Figures:**
 
-No figures cited on this step.
+| Figure | Value | Source | Where |
+|---|---|---|---|
+| Before OFDMA, devices on a Wi-Fi channel contend for the medium and transmit one at a time, using the full channel for each transmission | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
+| A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 
 **Likely questions:**
 
@@ -1344,7 +1388,13 @@ Getting alarms, voice and video through on time, every time, not just on average
 
 ### Step 1 — The alarm stuck behind a download
 
-**On screen:** The alarm stuck behind a download / For alarms, voice and remote procedures, the rare slow message matters more than the typical one. A monitor on the left sends a small red alarm packet toward an access point and on to the nurses' station on the right. Large grey blocks from a download sit in its path, and the alarm packet waits in line behind them.
+**On screen:** The alarm stuck behind a download / For alarms, voice and remote procedures, the rare slow message matters more than the typical one. A road runs from a bedside monitor to the nurses’ station. Each alarm is an ambulance; a large download is a line of grey lorries on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a lorry. Each arrival adds a block to an arrivals board behind the road, and the late ones are red. Hotspots: Access point, Patient monitor, Latency.
+
+**Callout — Why alarms sometimes wait:**
+
+- Alarms share the channel with large downloads
+- Usually the road is clear and the alarm is instant
+- Now and then it is stuck behind a download
 
 **Say (leadership):** The alarm stuck behind a download.
 
@@ -1356,6 +1406,12 @@ Most of the time the alarm gets through almost instantly. Occasionally it waits 
 
 **Technical depth:** No extra technical layer on this step.
 
+**Terms:**
+
+- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
+- Patient monitor — A bedside or wearable monitor that tracks vital signs such as heart rhythm and oxygen levels and sends readings and alarms to the nurses’ station over Wi-Fi.
+- Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
+
 **Figures:**
 
 No figures cited on this step.
@@ -1366,7 +1422,13 @@ No figures cited on this step.
 
 ### Step 2 — Fast on average is not enough
 
-**On screen:** Fast on average is not enough / Latency has a long tail; Wi-Fi 7 explicitly targets the worst-case delays [S8]. A histogram of delivery times rises from the floor. Most bars cluster on the left, where messages arrive quickly, but a long low tail stretches to the right, showing occasional very slow deliveries. The chart is labelled illustrative.
+**On screen:** Fast on average is not enough / Latency has a long tail; Wi-Fi 7 explicitly targets the worst-case delays [S8]. The camera moves to the arrivals board. A tall green column on the left shows most alarms arriving on time; a thin trail of red blocks stretches to the right, showing the few that arrived very late: the tail. The board is labelled illustrative. Hotspots: Tail latency, Jitter.
+
+**Callout — The average hides the tail:**
+
+- Most alarms arrive on time
+- A few arrive very late, and those are the ones that matter
+- Wi-Fi 7 was designed to cut the worst-case delays [S8]
 
 **Say (leadership):** Fast on average is not enough.
 
@@ -1396,7 +1458,13 @@ Wi-Fi 7 was designed with this in mind: the scope of IEEE 802.11be includes impr
 
 ### Step 3 — Three ways to avoid waiting
 
-**On screen:** Three ways to avoid waiting / Multi-link, protected TWT slots and Multi-RU each remove a different reason urgent messages wait [S8]. The download blocks shift aside as three labels appear over the path — multi-link, restricted TWT and Multi-RU — and the red alarm packet travels straight through to the nurses' station without waiting.
+**On screen:** Three ways to avoid waiting / Multi-link, protected TWT slots and Multi-RU each remove a different reason urgent messages wait [S8]. Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance takes whichever lane has no download ahead. At regular protected slots the lorries pull over onto the shoulder and stop, so any ambulance passes straight through. The new arrivals board fills with green blocks on the left and almost no red. Hotspots: MLO, Restricted TWT, Multi-RU.
+
+**Callout — Three ways to avoid waiting:**
+
+- Multi-link: take whichever band is free [S8, S15]
+- Restricted TWT: downloads pause in protected slots [S8]
+- Multi-RU: urgent traffic fits into spare room [S8, S7]
 
 **Say (leadership):** Three ways to avoid waiting.
 
@@ -1431,7 +1499,13 @@ Wi-Fi 7 combines three features to cut the long waits:
 
 ### Step 4 — A shorter tail, not just a faster average
 
-**On screen:** A shorter tail, not just a faster average / The goal is predictability: urgent traffic arriving on time, consistently [S8]. Two histograms stand side by side. The earlier generation's chart has a long tail stretching to the right. The Wi-Fi 7 chart is tightly bunched on the left with almost no tail. Both are labelled illustrative.
+**On screen:** A shorter tail, not just a faster average / The goal is predictability: urgent traffic arriving on time, consistently [S8]. Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board is bunched on the left with almost no tail. Both boards are labelled illustrative. Hotspots: Tail latency.
+
+**Callout — A shorter tail:**
+
+- Earlier Wi-Fi: fast on average, with some late alarms
+- Wi-Fi 7: the late tail almost disappears [S8]
+- Results vary with load and devices, so pilot first
 
 **Say (leadership):** A shorter tail, not just a faster average.
 
@@ -1442,6 +1516,10 @@ The charts here show the shape of the change, not measured values [S8].
 **Bottom line:** The goal is predictability: urgent traffic arriving on time consistently, which is what clinical workflows depend on.
 
 **Technical depth:** Results vary with load, device mix and configuration; pilot latency-sensitive applications before rollout [S8]. Worst-case latency depends on deployment: channel load, device mix, client support for MLO and restricted TWT, and configuration of traffic classes. No figures are shown here because results vary by environment; evaluate latency-sensitive applications in a pilot before rollout [S8].
+
+**Terms:**
+
+- Tail latency — The delay experienced by the slowest packets, such as the worst one in a hundred. It decides whether urgent messages are ever late.
 
 **Figures:**
 
@@ -1456,7 +1534,13 @@ The charts here show the shape of the change, not measured values [S8].
 
 ### Step 5 — Alarms and calls that arrive on time
 
-**On screen:** Alarms and calls that arrive on time / Include worst-case latency in Wi-Fi 7 acceptance tests for alarm, voice and video. Alarm and voice packets flow steadily from the monitor through the access point to the nurses' station, while the Wi-Fi 7 histogram beside them stays tightly bunched. The chart is labelled illustrative.
+**On screen:** Alarms and calls that arrive on time / Include worst-case latency in Wi-Fi 7 acceptance tests for alarm, voice and video. The Wi-Fi 7 road at a busy moment: downloads keep flowing, ambulances keep arriving on time, and the arrivals board stays bunched on the left. The board is labelled illustrative. Hotspots: Latency.
+
+**Callout — What to test:**
+
+- Worst-case delay for alarms, voice and video, not just averages
+- Busy-hour tests with real downloads running
+- Alarm systems in their manufacturers’ validated configurations
 
 **Say (leadership):** Alarms and calls that arrive on time.
 
@@ -1467,6 +1551,10 @@ Wireless networks remain one part of the alarm chain, so clinical alarm systems 
 **Bottom line:** Include worst-case latency in Wi-Fi 7 acceptance testing for alarm, voice and video applications, not only average throughput.
 
 **Technical depth:** No extra technical layer on this step.
+
+**Terms:**
+
+- Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
 
 **Figures:**
 
@@ -1497,7 +1585,13 @@ What faster Wi-Fi asks of the switches, cabling and power behind every access po
 
 ### Step 1 — New access points, old wiring closets
 
-**On screen:** New access points, old wiring closets / A Wi-Fi 7 project is also a wired-network project: budget switches, power and cabling together. A switch in a wiring closet connects through a cable to an access point on the ceiling. The cable is drawn narrow and data packets bunch up at the switch end, while a power gauge beside the switch sits near its limit.
+**On screen:** New access points, old wiring closets / A Wi-Fi 7 project is also a wired-network project: budget switches, power and cabling together. The access point is drawn as a sprinkler head on the ceiling, fed from the wiring closet by one pipe that carries both data and power. On an old 1 Gb/s port [S12] the pipe is thin and the spray from two nozzles is weak. The power gauge on the closet sits below the red line showing what the access point needs, so two nozzles, standing for radios, stay dry. Hotspots: Access point, Uplink, PoE.
+
+**Callout — Old closets hold back new radios:**
+
+- Each access point gets data and power through one switch port
+- An old 1 Gb/s port is a thin pipe [S12]
+- Too little power, and some radios switch off
 
 **Say (leadership):** New access points, old wiring closets.
 
@@ -1512,6 +1606,8 @@ If the switch ports are 1 Gb/s [S12] and the power budget was sized for older ac
 **Terms:**
 
 - Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
+- Uplink — The wired connection from an access point back to the network switch. All of the access point's traffic shares it.
+- PoE — Delivering electrical power to an access point over the same Ethernet cable that carries its data.
 
 **Figures:**
 
@@ -1525,7 +1621,13 @@ If the switch ports are 1 Gb/s [S12] and the power budget was sized for older ac
 
 ### Step 2 — Peak rates are a ceiling, not a forecast
 
-**On screen:** Peak rates are a ceiling, not a forecast / Wi-Fi 7’s theoretical peak is 46.1 Gbps [S8]; real devices and networks achieve far less. Four towers rise in a row, one per generation, each in its own colour and labelled with its theoretical peak rate. The Wi-Fi 7 tower is drawn translucent and marked as theoretical, because it assumes sixteen spatial streams, the most the standard allows.
+**On screen:** Peak rates are a ceiling, not a forecast / Wi-Fi 7’s theoretical peak is 46.1 Gbps [S8]; real devices and networks achieve far less. A close view of the sprinkler head. A large wireframe spray shows its rated maximum, labelled with Wi-Fi 7’s theoretical peak rate [S8], and the earlier generation’s rated maximum is noted beneath. The solid spray inside it, much smaller, is what real devices actually get. Hotspots: PHY rate.
+
+**Callout — The number on the box:**
+
+- Wi-Fi 7’s rated maximum is 46.1 Gbps [S8]
+- That assumes 16 spatial streams, more than devices have [S8]
+- Ask vendors for tested throughput instead
 
 **Say (leadership):** Peak rates by generation.
 
@@ -1559,7 +1661,13 @@ These are theoretical maximums with every option at its limit, including 16 spat
 
 ### Step 3 — Faster uplinks and more power per port
 
-**On screen:** Faster uplinks and more power per port / Multi-gigabit uplinks [S14, S12] and higher PoE classes, up to 90 W [S12, S13], become planning items. The cable between switch and access point widens into a multi-gigabit pipe and packets flow freely. Beside the switch, four power gauges for the PoE classes stand side by side, each labelled with its power at the switch port.
+**On screen:** Faster uplinks and more power per port / Multi-gigabit uplinks [S14, S12] and higher PoE classes, up to 90 W [S12, S13], become planning items. The pipe widens into a multi-gigabit port, labelled with its speeds [S14, S12] [S12], and water flows freely along it. The power gauge rises above the red line, with the PoE classes marked beside it from 15.4 W [S12] to 90 W [S12, S13]. All four nozzles spray at full strength. Hotspots: Multi-gigabit Ethernet, PoE.
+
+**Callout — A wider pipe and more power:**
+
+- Multi-gigabit ports run 2.5 or 5 Gb/s on existing cable [S14, S12]
+- Higher PoE classes deliver up to 90 W per port [S12, S13]
+- Check each model’s documented power class
 
 **Say (leadership):** Faster uplinks and more power per port.
 
@@ -1601,7 +1709,13 @@ Power over Ethernet comes in classes: 15.4 W [S12], 30 W [S12], 60 W [S12, S13] 
 
 ### Step 4 — What changes in the wired network
 
-**On screen:** What changes in the wired network / 1 Gb/s ports [S12] can cap new access points; expect to upgrade access-layer switches alongside. Two wired chains sit side by side. The earlier generation's chain uses a thin 1 Gb/s cable [S12] and a smaller power gauge; the Wi-Fi 7 chain uses a wide multi-gigabit cable and a larger power gauge.
+**On screen:** What changes in the wired network / 1 Gb/s ports [S12] can cap new access points; expect to upgrade access-layer switches alongside. Two closets side by side. On the left, the earlier generation’s access point has two nozzles and runs fully on a thin 1 Gb/s pipe [S12], because it needed less. On the right, the Wi-Fi 7 access point has four nozzles on a wide multi-gigabit pipe with a fuller power gauge. Hotspots: Uplink, Access point.
+
+**Callout — What changes in the closet:**
+
+- Older access points ran fine on 1 Gb/s ports [S12]
+- Wi-Fi 7 needs multi-gigabit ports [S14, S12] and more power [S12, S13]
+- Expect to upgrade access-layer switches alongside
 
 **Say (leadership):** What changes in the wired network.
 
@@ -1616,6 +1730,8 @@ Check each model's documented power class and uplink speed, and size switch powe
 **Terms:**
 
 - Subcarrier — One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others.
+- Uplink — The wired connection from an access point back to the network switch. All of the access point's traffic shares it.
+- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
 
 **Figures:**
 
@@ -1633,7 +1749,13 @@ Check each model's documented power class and uplink speed, and size switch powe
 
 ### Step 5 — Plan closets, budgets and timelines early
 
-**On screen:** Plan closets, budgets and timelines early / Put switching, PoE budgets and cabling checks in the business case from the start. A hospital floor plan shows several access points, each connected by a wide multi-gigabit cable to an upgraded switch in the closet, with power gauges comfortably within budget.
+**On screen:** Plan closets, budgets and timelines early / Put switching, PoE budgets and cabling checks in the business case from the start. An upgraded wiring closet feeds three sprinkler heads across the floor through wide pipes, with the power gauge above the line, and every nozzle sprays at full strength. Hotspots: PoE.
+
+**Callout — What to put in the plan:**
+
+- Switch upgrades and multi-gigabit ports for every access point
+- A PoE power budget for every port on the floor
+- Cabling checks and clinical-area maintenance windows
 
 **Say (leadership):** Planning closets, budgets and timelines.
 
@@ -1644,6 +1766,10 @@ Planning these early avoids installing new access points that are throttled by o
 **Bottom line:** Include switching, PoE budget and cabling verification in the Wi-Fi 7 business case and project timeline from the start.
 
 **Technical depth:** No extra technical layer on this step.
+
+**Terms:**
+
+- PoE — Delivering electrical power to an access point over the same Ethernet cable that carries its data.
 
 **Figures:**
 
@@ -1669,7 +1795,13 @@ IEEE 802.11bn is being written now, with reliability as its goal.
 
 ### Step 1 — The next generation is in development
 
-**On screen:** The next generation is in development / Don’t wait for Wi-Fi 8: it is unfinished [S10] and expected to build on Wi-Fi 7. The generation timeline continues past Wi-Fi 7. A new pillar for Wi-Fi 8 appears at the end, drawn only as a dashed violet outline and labelled as in development, because the standard is not finished.
+**On screen:** The next generation is in development / Don’t wait for Wi-Fi 8: it is unfinished [S10] and expected to build on Wi-Fi 7. The generations as stretches of one road: Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 are open road, with Wi-Fi 7 marked as certified today. Beyond it, the Wi-Fi 8 stretch is only a dashed violet outline behind traffic cones, labelled as still being designed and not yet approved. Hotspots: UHR.
+
+**Callout — Where Wi-Fi 8 stands:**
+
+- IEEE 802.11bn is still in development [S10]
+- Wi-Fi 7 is the current, certified generation
+- Wi-Fi 8 is expected to build on Wi-Fi 7
 
 **Say (leadership):** The next amendment is in development.
 
@@ -1697,7 +1829,13 @@ Everything in this chapter is forward-looking and subject to change.
 
 ### Step 2 — From faster to more reliable
 
-**On screen:** From faster to more reliable / Its stated goal is dependable delivery: fewer lost messages and steadier performance [S11]. A link from an access point to a device passes through bursts of interference. In the Wi-Fi 7 colour it occasionally flickers; in the dashed Wi-Fi 8 outline it is shown holding steady, illustrating the reliability goal rather than any measured result.
+**On screen:** From faster to more reliable / Its stated goal is dependable delivery: fewer lost messages and steadier performance [S11]. Two lanes of delivery vans pass under storm clouds standing for interference and movement. On the Wi-Fi 7 lane, a few parcels have fallen by the roadside in red: lost messages. On the dashed violet Wi-Fi 8 lane, every van keeps its parcel, labelled as a goal, not a measured result. Hotspots: UHR, Latency.
+
+**Callout — From faster to more reliable:**
+
+- Goal: fewer lost messages, even with interference [S11]
+- Targets include 25% lower worst-case latency [S11]
+- These are project goals, not measured results
 
 **Say (leadership):** From faster to more reliable.
 
@@ -1713,6 +1851,7 @@ The project's goals include at least 25% more throughput than Wi-Fi 7 in at leas
 
 - Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
 - MPDU — A single Wi-Fi data frame as handled by the MAC layer. Reliability goals are often stated as how many MPDUs are lost.
+- UHR — The goal and name of the IEEE 802.11bn project, expected to become Wi-Fi 8: more dependable delivery of data, not just more speed.
 
 **Figures:**
 
@@ -1729,7 +1868,13 @@ The project's goals include at least 25% more throughput than Wi-Fi 7 in at leas
 
 ### Step 3 — What to do today
 
-**On screen:** What to do today / Wired upgrades and new-band designs made for Wi-Fi 7 are expected to carry forward. The Wi-Fi 7 pillar glows steadily while the dashed Wi-Fi 8 outline beside it gently pulses, suggesting a path forward that builds on today's generation.
+**On screen:** What to do today / Wired upgrades and new-band designs made for Wi-Fi 7 are expected to carry forward. A cutaway of the road shows its foundations: multi-gigabit switching, PoE power budgets and 6 GHz-capable designs, laid under the Wi-Fi 7 stretch and running on under the dashed Wi-Fi 8 stretch, labelled built today, carried forward. Hotspots: Multi-gigabit Ethernet, PoE.
+
+**Callout — What carries forward:**
+
+- Multi-gigabit switching in every closet
+- PoE budgets with headroom
+- 6 GHz-capable designs and current clinical devices
 
 **Say (leadership):** What to do today.
 
