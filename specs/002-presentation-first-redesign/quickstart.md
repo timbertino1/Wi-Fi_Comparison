@@ -15,6 +15,8 @@ npm run test:e2e      # Playwright in Chromium, Firefox, WebKit
 
 Open `dist/index.html` by double-clicking. The talk track is `docs/talk-track.md`.
 
+**To share or present on another machine**, copy just `dist/wifi7-explainer.html` (about 4 MB). The build writes it every time (`npm run build:single` rebuilds it alone). It has the bundle, styles and still images inlined, runs offline from any folder, and keeps the same strict security policy: inline code is allowed only by its SHA-256 hash. `npm run build:fast` leaves out the still images, so only the full build makes the copy that works in browsers without 3D support.
+
 ## Validation scenarios
 
 | # | Scenario | Steps | Expected |

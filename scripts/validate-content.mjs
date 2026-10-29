@@ -1,4 +1,4 @@
-// Validates content/ against data-model.md "Validation rules" 1–19 (feature 001) and 20–23 (feature 002).
+// Validates content/ against data-model.md "Validation rules" 1–19 (feature 001) and 20–25 (feature 002).
 // Usage: node scripts/validate-content.mjs [--release]
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,6 +10,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BEAT_ORDER = ['problem', 'what', 'how', 'improvement', 'why'];
 const NARRATIVE_BEATS = ['intro', 'context', 'outlook'];
 export const CAPTION_LIMITS = { headline: 8, takeaway: 16, technical: 20 };
+export const CALLOUT_LIMITS = { title: 6, point: 14, minPoints: 2, maxPoints: 4 };
+export const OPENER_LIMITS = { promise: 10, problem: 16 };
 const HOTSPOT_DEFINITION_MAX = 30;
 const GUARANTEE_PHRASES =['ensures compliance', 'guarantee', 'guarantees', 'guaranteed', 'eliminates risk', 'hipaa compliant', 'prevents patient harm'];
 
@@ -59,11 +61,14 @@ function* strings(value, at) {
 function tabTextFields(tab) {
   const out = [];
   out.push([`${tab._file}.summary`, tab.summary]);
+  for (const f of ['promise', 'problem']) if (tab.opener?.[f]) out.push([`${tab._file}.opener.${f}`, tab.opener[f]]);
   if (tab.wifi7Adds) out.push([`${tab._file}.wifi7Adds`, tab.wifi7Adds]);
   for (const [i, b] of (tab.beats ?? []).entries()) {
     const at = `${tab._file}.beats[${i}]`;
     for (const f of ['heading', 'body', 'bottomLine', 'deepDive', 'sceneDescription']) if (b[f]) out.push([`${at}.${f}`, b[f]]);
     for (const f of ['headline', 'takeaway', 'technical']) if (b.caption?.[f]) out.push([`${at}.caption.${f}`, b.caption[f]]);
+    if (b.callout?.title) out.push([`${at}.callout.title`, b.callout.title]);
+    for (const [j, p] of (b.callout?.points ?? []).entries()) out.push([`${at}.callout.points[${j}]`, p]);
     for (const [j, h] of (b.hotspots ?? []).entries()) if (h.technical) out.push([`${at}.hotspots[${j}].technical`, h.technical]);
     for (const [j, q] of (b.questions ?? []).entries()) for (const f of ['q', 'a']) if (q[f]) out.push([`${at}.questions[${j}].${f}`, q[f]]);
   }
@@ -162,6 +167,23 @@ export async function validateContent({ release = false, content = loadContent()
       err(20, `${at}: captionAtMs must be an integer from 0 to durationMs`);
     }
 
+    // Rule 24: an optional callout card (FR-005a).
+    if (b.callout !== undefined) {
+      const { title, points, atMs } = b.callout ?? {};
+      if (!title?.trim()) err(24, `${at}: callout.title required`);
+      else if (words(stripMarkup(title)) > CALLOUT_LIMITS.title) err(24, `${at}: callout.title has ${words(stripMarkup(title))} words (max ${CALLOUT_LIMITS.title})`);
+      if (matchAll(title, CLAIM_RE).length || matchAll(title, REF_RE).length) err(24, `${at}: callout.title must not contain citations`);
+      if (!Array.isArray(points) || points.length < CALLOUT_LIMITS.minPoints || points.length > CALLOUT_LIMITS.maxPoints) {
+        err(24, `${at}: callout needs ${CALLOUT_LIMITS.minPoints}–${CALLOUT_LIMITS.maxPoints} points`);
+      }
+      for (const [j, p] of (Array.isArray(points) ? points : []).entries()) {
+        const n = words(stripMarkup(p));
+        if (!p?.trim()) err(24, `${at}: callout point ${j + 1} is empty`);
+        else if (n > CALLOUT_LIMITS.point) err(24, `${at}: callout point ${j + 1} has ${n} words (max ${CALLOUT_LIMITS.point})`);
+      }
+      if (atMs !== undefined && !(Number.isInteger(atMs) && atMs >= 0 && atMs <= (b.durationMs ?? 0))) err(24, `${at}: callout.atMs must be an integer from 0 to durationMs`);
+    }
+
     const hotspots = b.hotspots ?? [];
     const ids = new Set();
     for (const depth of ['all', 'technical']) {
@@ -203,9 +225,10 @@ export async function validateContent({ release = false, content = loadContent()
   const checkCaptionJargon = (tab) => {
     const defined = new Set();
     for (const [i, b] of (tab.beats ?? []).entries()) {
-      for (const f of ['headline', 'takeaway', 'technical']) for (const [, id] of matchAll(b.caption?.[f], TERM_RE)) defined.add(id);
+      const onScreen = [...['headline', 'takeaway', 'technical'].map((f) => b.caption?.[f]), b.callout?.title, ...(b.callout?.points ?? [])];
+      for (const text of onScreen) for (const [, id] of matchAll(text, TERM_RE)) defined.add(id);
       for (const h of b.hotspots ?? []) if (h.term) defined.add(h.term);
-      const plain = ['headline', 'takeaway', 'technical'].map((f) => stripMarkup(b.caption?.[f])).join(' \n ');
+      const plain = onScreen.map((t) => stripMarkup(t)).join(' \n ');
       for (const term of glossary) {
         const names = [term.term, term.expansion].filter(Boolean);
         const used = names.some((n) => new RegExp(`(?<![\\w-])${escapeRe(n)}(?![\\w-])`, 'i').test(plain));
@@ -231,6 +254,22 @@ export async function validateContent({ release = false, content = loadContent()
     if ((tab.title ?? '').length > 40) err(1, `${where}: title longer than 40 characters`);
     if (tab.shortTitle !== undefined && (tab.shortTitle ?? '').length > 24) err(1, `${where}: shortTitle longer than 24 characters`);
     if (!draft) checkCaptionJargon(tab);
+
+    // Rule 25: chapters in the clicker path open with a chapter opener (FR-011a).
+    if (tab.kind !== 'references' && tab.beats?.length) {
+      const o = tab.opener;
+      if (!o) {
+        if (!draft) err(25, `${tab.id}: opener required`);
+      } else {
+        for (const [field, max] of Object.entries(OPENER_LIMITS)) {
+          if (!o[field]?.trim()) { err(25, `${tab.id}: opener.${field} required`); continue; }
+          const n = words(stripMarkup(o[field]));
+          if (n > max) err(25, `${tab.id}: opener.${field} has ${n} words (max ${max})`);
+          if (matchAll(o[field], TERM_RE).length) err(25, `${tab.id}: opener.${field} must not contain term links`);
+        }
+        if (o.badge !== undefined && o.badge !== false) err(25, `${tab.id}: opener.badge may only be false`);
+      }
+    }
 
     for (const g of tab.compareGenerations ?? []) if (!genById.has(g)) err(2, `${where}: unknown generation "${g}"`);
     if (tab.defaultCompare && !genById.has(tab.defaultCompare)) err(2, `${where}: unknown defaultCompare "${tab.defaultCompare}"`);

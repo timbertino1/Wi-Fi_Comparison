@@ -77,7 +77,7 @@ export function setActiveChapter(tabId) {
 }
 
 /** Progress strip: "<chapter> · Chapter n of N · Step m of k" and a bar for the whole talk. */
-export function setProgress(tabId, beatIndex, beatCount) {
+export function setProgress(tabId, beatIndex, beatCount, { intro = false } = {}) {
   const chapters = talkChapters();
   const index = chapters.findIndex((t) => t.id === tabId);
   const tab = tabs.find((t) => t.id === tabId);
@@ -86,9 +86,9 @@ export function setProgress(tabId, beatIndex, beatCount) {
     progressFill.style.width = '0';
     return;
   }
-  const step = beatCount ? ` · Step ${beatIndex + 1} of ${beatCount}` : '';
+  const step = intro ? ' · Opener' : beatCount ? ` · Step ${beatIndex + 1} of ${beatCount}` : '';
   progress.textContent = `${tab.shortTitle ?? tab.title} · Chapter ${index + 1} of ${chapters.length}${step}`;
   const total = chapters.reduce((n, t) => n + t.beats.length, 0);
-  const done = chapters.slice(0, index).reduce((n, t) => n + t.beats.length, 0) + beatIndex + 1;
+  const done = chapters.slice(0, index).reduce((n, t) => n + t.beats.length, 0) + (intro ? 0 : beatIndex + 1);
   progressFill.style.width = `${(100 * done) / total}%`;
 }

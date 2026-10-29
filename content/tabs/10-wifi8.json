@@ -4,9 +4,16 @@
   "kind": "roadmap",
   "title": "What’s Next: Wi-Fi 8",
   "summary": "IEEE 802.11bn is being written now, with reliability as its goal.",
+  "opener": {
+    "promise": "The next generation aims for reliability, not just speed",
+    "problem": "Planning today means knowing what Wi-Fi 8 is expected to bring."
+  },
   "introducedIn": null,
   "wifi7Adds": null,
-  "compareGenerations": ["wifi7", "wifi8"],
+  "compareGenerations": [
+    "wifi7",
+    "wifi8"
+  ],
   "defaultCompare": "wifi7",
   "sceneId": "wifi8",
   "scenarioIds": [],
@@ -15,43 +22,115 @@
       "type": "intro",
       "heading": "The next amendment is in development",
       "caption": {
-        "headline": "The next amendment is in development",
-        "takeaway": "Wi-Fi 8 is not a reason to wait: Wi-Fi 7 is the current, certified generation, and…"
+        "headline": "The next generation is in development",
+        "takeaway": "Don’t wait for Wi-Fi 8: it is unfinished{{wifi8-status}} and expected to build on Wi-Fi 7."
       },
-      "body": "The IEEE is already working on the next generation: P802.11bn, \"Enhancements for [[uhr|Ultra High Reliability]]\", which is expected to become Wi-Fi 8. It is still in development and has not been approved {{wifi8-status}}.\n\nEverything on this tab is forward-looking and subject to change.",
+      "body": "The IEEE is already working on the next generation: P802.11bn, \"Enhancements for [[uhr|Ultra High Reliability]]\", which is expected to become Wi-Fi 8. It is still in development and has not been approved {{wifi8-status}}.\n\nEverything in this chapter is forward-looking and subject to change.",
       "bottomLine": "Wi-Fi 8 is not a reason to wait: Wi-Fi 7 is the current, certified generation, and Wi-Fi 8 is expected to build on it.",
       "deepDive": null,
       "sceneState": "roadmap",
-      "sceneDescription": "The generation timeline continues past Wi-Fi 7. A new pillar for Wi-Fi 8 appears at the end, drawn only as a dashed violet outline and labelled as in development, because the standard is not finished.",
-      "durationMs": 11000
+      "sceneDescription": "The generations as stretches of one road: Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 are open road, with Wi-Fi 7 marked as certified today. Beyond it, the Wi-Fi 8 stretch is only a dashed violet outline behind traffic cones, labelled as still being designed and not yet approved.",
+      "durationMs": 11000,
+      "questions": [
+        {
+          "q": "When will Wi-Fi 8 arrive?",
+          "a": "IEEE 802.11bn is still in development and not yet approved{{wifi8-status}}. Certified products follow the standard, so for current refreshes Wi-Fi 7 is the generation to deploy.",
+          "audience": "leadership"
+        }
+      ],
+      "callout": {
+        "title": "Where Wi-Fi 8 stands",
+        "points": [
+          "IEEE 802.11bn is still in development{{wifi8-status}}",
+          "Wi-Fi 7 is the current, certified generation",
+          "Wi-Fi 8 is expected to build on Wi-Fi 7"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "uhr",
+          "anchor": "wifi8",
+          "term": "uhr",
+          "claim": "wifi8-status"
+        }
+      ]
     },
     {
       "type": "context",
       "heading": "From faster to more reliable",
       "caption": {
         "headline": "From faster to more reliable",
-        "takeaway": "The next generation targets exactly the problems that matter most in clinical settings: dependable delivery, not…"
+        "takeaway": "Its stated goal is dependable delivery: fewer lost messages and steadier performance{{wifi8-reliability-def}}.",
+        "technical": "Project goals: 25% more throughput{{wifi8-throughput-goal}} and 25% lower 95th-percentile [[latency|latency]]{{wifi8-latency-goal}} than 802.11be."
       },
       "body": "Where Wi-Fi 7 focused on throughput and lower [[latency|latency]], the stated goal of 802.11bn is reliability: fewer lost messages and more consistent performance, including with interference and movement {{wifi8-reliability-def}}.\n\nThe project's goals include at least 25% more throughput than Wi-Fi 7 in at least one mode {{wifi8-throughput-goal}} and 25% lower latency for the slowest 5% of messages {{wifi8-latency-goal}}.",
       "bottomLine": "The next generation targets exactly the problems that matter most in clinical settings: dependable delivery, not just speed.",
       "deepDive": "The P802.11bn PAR defines reliability improvements in terms of throughput, latency and [[mpdu|MPDU]] loss {{wifi8-reliability-def}}, with targets of at least 25% higher throughput {{wifi8-throughput-goal}} and 25% lower 95th-percentile latency {{wifi8-latency-goal}} than 802.11be in at least one mode. These are project goals, not measured results; the technical mechanisms are still being decided in task group TGbn {{wifi8-status}}.",
       "sceneState": "reliability",
-      "sceneDescription": "A link from an access point to a device passes through bursts of interference. In the Wi-Fi 7 colour it occasionally flickers; in the dashed Wi-Fi 8 outline it is shown holding steady, illustrating the reliability goal rather than any measured result.",
-      "durationMs": 13000
+      "sceneDescription": "Two lanes of delivery vans pass under storm clouds standing for interference and movement. On the Wi-Fi 7 lane, a few parcels have fallen by the roadside in red: lost messages. On the dashed violet Wi-Fi 8 lane, every van keeps its parcel, labelled as a goal, not a measured result.",
+      "durationMs": 13000,
+      "callout": {
+        "title": "From faster to more reliable",
+        "points": [
+          "Goal: fewer lost messages, even with interference{{wifi8-reliability-def}}",
+          "Targets include 25% lower worst-case latency{{wifi8-latency-goal}}",
+          "These are project goals, not measured results"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "uhr",
+          "anchor": "goal",
+          "term": "uhr",
+          "claim": "wifi8-reliability-def"
+        },
+        {
+          "id": "latency",
+          "anchor": "storm",
+          "term": "latency",
+          "claim": "wifi8-latency-goal"
+        }
+      ]
     },
     {
       "type": "outlook",
       "heading": "What to do today",
       "caption": {
         "headline": "What to do today",
-        "takeaway": "Investments in wired infrastructure and 6 GHz design for Wi-Fi 7 are expected to carry forward…"
+        "takeaway": "Wired upgrades and new-band designs made for Wi-Fi 7 are expected to carry forward."
       },
       "body": "Deploy Wi-Fi 7 where it solves today's problems, and make choices that carry forward: [[multigig|multi-gigabit]] switching, sufficient [[poe|PoE]] budgets, 6 GHz-capable designs and clinical devices with current Wi-Fi support.\n\nWe will update this page as 802.11bn progresses {{wifi8-status}}.",
       "bottomLine": "Investments in wired infrastructure and 6 GHz design for Wi-Fi 7 are expected to carry forward to the next generation.",
       "deepDive": null,
       "sceneState": "outlook",
-      "sceneDescription": "The Wi-Fi 7 pillar glows steadily while the dashed Wi-Fi 8 outline beside it gently pulses, suggesting a path forward that builds on today's generation.",
-      "durationMs": 10000
+      "sceneDescription": "A cutaway of the road shows its foundations: multi-gigabit switching, PoE power budgets and 6 GHz-capable designs, laid under the Wi-Fi 7 stretch and running on under the dashed Wi-Fi 8 stretch, labelled built today, carried forward.",
+      "durationMs": 10000,
+      "questions": [
+        {
+          "q": "Will Wi-Fi 7 equipment be wasted when Wi-Fi 8 arrives?",
+          "a": "Unlikely. Multi-gigabit switching, PoE budgets and designs for the new band are expected to carry forward, and new generations have kept serving older devices. Access points would be refreshed on a normal cycle."
+        }
+      ],
+      "callout": {
+        "title": "What carries forward",
+        "points": [
+          "[[multigig|Multi-gigabit]] switching in every closet",
+          "[[poe|PoE]] budgets with headroom",
+          "6 GHz-capable designs and current clinical devices"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "multigig",
+          "anchor": "ap",
+          "term": "multigig"
+        },
+        {
+          "id": "poe",
+          "anchor": "wifi8",
+          "term": "poe"
+        }
+      ]
     }
   ],
   "keyFigures": [],

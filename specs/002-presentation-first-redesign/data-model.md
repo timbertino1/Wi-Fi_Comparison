@@ -14,10 +14,12 @@ existing links and content keep working.
 | `id`, `order`, `title` | existing FeatureTab | Chapter order = tab `order` |
 | `kind` | existing | `overview`, `feature`, `roadmap` are in the clicker path; `references` is not (FR-010) |
 | `shortTitle` | **new**, optional, ≤ 24 characters | Shown in the progress strip and chapter menu; defaults to `title` |
+| `opener` | **new**, required for chapters in the clicker path | `{ promise, problem, badge? }`: promise ≤ 10 words, problem ≤ 16 words, plain text plus `{{claim-id}}` (no term links); `badge: false` hides the lineage badge (FR-011a). Tag, number, title and badge text are derived from `kind`, `order`, `title` and `introducedIn` |
 | `beats` | existing | Each beat is a Step (below) |
 
 Validation:
 - `shortTitle` length ≤ 24.
+- Rule 25: every chapter in the clicker path has an `opener` within the limits above.
 - Every chapter in the clicker path has a scene whose instance publishes an `ap` anchor (checked by
   the scene contract test, not by content).
 
@@ -30,6 +32,7 @@ Validation:
 | `caption.takeaway` | **new, required** | ≤ 16 words; may contain `{{claim-id}}` (rendered as a source button) |
 | `caption.technical` | **new, optional** | ≤ 20 words; shown only in Technical depth |
 | `captionAtMs` | **new, optional** | 0–`durationMs`; default 600 |
+| `callout` | **new, optional** | `{ title, points[], atMs? }`: title ≤ 6 words, 2–4 points of ≤ 14 words; points may contain `[[term]]` and `{{claim-id}}`; `atMs` (0–`durationMs`, default caption time + 1200) is when it slides in (FR-005a) |
 | `hotspots` | **new, optional** | Array of Hotspot (below); ≤ 4 per depth per step |
 | `questions` | **new, optional** | Array of LikelyQuestion (below) |
 

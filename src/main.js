@@ -5,6 +5,9 @@ import * as router from './app/router.js';
 import { initChapterMenu, setActiveChapter, setProgress, announce } from './app/chapter-menu.js';
 import { initSequencer, consumeSettle, talkChapters } from './app/sequencer.js';
 import { initCaption } from './app/caption.js';
+import { initCallout } from './app/callout.js';
+import { initHotspots } from './app/hotspots.js';
+import { initOpener } from './app/opener.js';
 import { initNotes } from './app/notes.js';
 import { initSettingsMenu } from './app/settings-menu.js';
 import * as story from './app/story.js';
@@ -112,8 +115,11 @@ function boot() {
   initChapterMenu();
   initOverview();
   initControls({ test: testMode });
-  initSequencer();
+  initSequencer({ stage });
   initCaption({ stage });
+  initCallout({ stage });
+  initHotspots({ stage });
+  initOpener();
   initNotes();
   initSettingsMenu();
   initGlossary();
@@ -126,8 +132,8 @@ function boot() {
   initPresentation();
   initPreferenceToggles();
 
-  story.on('beat', ({ tabId, beatIndex, beatCount }) => {
-    setProgress(tabId, beatIndex, beatCount);
+  story.on('beat', ({ tabId, beatIndex, beatCount, intro }) => {
+    setProgress(tabId, beatIndex, beatCount, { intro });
     if (router.getRoute()?.tabId === tabId && beatCount) router.replace({ beat: beatIndex + 1 });
   });
 
@@ -141,7 +147,7 @@ function boot() {
     const beatIndex = route.beat ? route.beat - 1 : 0;
     // A Back across chapters lands settled; a forward chapter change plays its first step.
     const settle = consumeSettle();
-    story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged && !settle, generation: route.params.get('gen') });
+    story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged && !settle, generation: route.params.get('gen'), intro: route.params.has('intro') });
     if (tabChanged && !firstRoute) {
       const tab = tabs.find((t) => t.id === route.tabId);
       const chapters = talkChapters();

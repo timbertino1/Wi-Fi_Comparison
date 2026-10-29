@@ -22,8 +22,13 @@ test('event-handler injection through labels is escaped', () => {
 });
 
 test('glossary terms render as buttons', () => {
-  assert.equal(renderMarkup('Uses [[mlo]].', ctx), '<p>Uses <button type="button" class="term" data-term="mlo" aria-haspopup="dialog">MLO</button>.</p>');
+  assert.equal(renderMarkup('Uses [[mlo]] here', ctx), '<p>Uses <button type="button" class="term" data-term="mlo" aria-haspopup="dialog">MLO</button> here</p>');
   assert.match(renderMarkup('[[mlo|multi-link]]', ctx), />multi-link<\/button>/);
+});
+
+test('a term or citation keeps the punctuation after it on the same line', () => {
+  assert.equal(renderMarkup('Uses [[mlo]].', ctx), '<p>Uses <span class="nowrap"><button type="button" class="term" data-term="mlo" aria-haspopup="dialog">MLO</button>.</span></p>');
+  assert.match(renderMarkup('46.1 Gbps {{wifi7-peak-phy}};', ctx), /<span class="nowrap"><sup><button [^>]+>\[1\]<\/button><\/sup>;<\/span>/);
 });
 
 test('claim citations render as numbered buttons with escaped labels', () => {

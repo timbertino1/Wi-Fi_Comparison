@@ -32,11 +32,11 @@ function hide() {
   story.setCaptionShown(false);
 }
 
-function render({ beat, animated }) {
+function render({ beat, animated, intro }) {
   hide();
   root.replaceChildren();
   const caption = beat?.caption;
-  if (!caption) return;
+  if (!caption || intro) return; // the chapter opener stands alone
   root.append(line('caption-headline', caption.headline), line('caption-takeaway', caption.takeaway));
   if (caption.technical) root.append(line('caption-technical', caption.technical));
   if (!animated || prefs.effectiveMotion() === 'reduced') show();

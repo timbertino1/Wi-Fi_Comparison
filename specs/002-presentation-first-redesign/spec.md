@@ -239,6 +239,11 @@ with the clicker, and confirm both windows show the same step.
   projector (at least the size defined for presentation mode in feature 001).
 - **FR-005**: A slim indicator MUST show the current chapter (by name) and progress through the
   talk at all times.
+- **FR-005a**: A step MAY declare a callout: a short titled card (≤ 6-word title, 2–4 points of
+  ≤ 14 words each) that slides in after the caption to carry context the presenter wants on screen.
+  It closes on the next step, follows the same sourcing rules as captions, and appears at once with
+  reduced motion. *(Added 2026-10-28 from the presenter's review of chapters 1–2: "pop up some text",
+  "more text is fine".)*
 
 **Navigation**
 
@@ -261,6 +266,15 @@ with the clicker, and confirm both windows show the same step.
 - **FR-011**: Moving between chapters MUST use a transition of: the view moving out from the current
   scene, a crossfade to the next scene, and the view moving in to the first step, completing within
   2.5 seconds.
+- **FR-011a**: Each chapter MUST open with a chapter opener, its own click in the talk: after the
+  transition's move-out and crossfade, a title card over the chapter's wide shot shows the chapter
+  number, a tag (Wi-Fi 7 feature, Why it matters, or What's next), the chapter title, a one-line
+  promise (≤ 10 words), the hospital problem it solves (≤ 16 words) and, for features, a lineage
+  badge (New in Wi-Fi 7, or Improved in Wi-Fi 7 with the generation that introduced it). Next from
+  the opener plays step 1 from the wide shot (the transition's move-in); Back from step 1 returns
+  to the opener, and Back from an opener goes to the previous chapter's last step. The opener is
+  deep-linkable as `#/<chapter>/1?intro`. *(Added 2026-10-28 from the presenter's feedback: "some
+  sort of slide to break up the chapters, introducing the next chapter and its Wi-Fi 7 feature".)*
 - **FR-012**: Each chapter's scene MUST include an access point that is visible at the end of the
   chapter and at the start of the next, so the transition reads as one continuous place.
 - **FR-013**: Each feature chapter MUST keep the five-part narrative arc of constitution Principle
@@ -347,7 +361,8 @@ with the clicker, and confirm both windows show the same step.
 - **Chapter**: one part of the talk (the opening, one per feature, "What's next"); has a name, its
   scene, its steps, and the access point's position at its start and end for transitions.
 - **Step**: one click in the talk; has a caption (headline, takeaway, optional technical line), the
-  scene state it shows, the moment the caption appears, its hotspots, and its talk-track notes.
+  scene state it shows, the moment the caption appears, an optional callout, its hotspots, and its
+  talk-track notes.
 - **Hotspot**: an info marker on a scene object; has the object it is attached to, a definition, an
   optional claim-backed figure, an optional technical line, and the depth(s) it appears in.
 - **Talk-track entry**: the speaker material for one step: on screen, leadership script, technical
@@ -361,8 +376,9 @@ with the clicker, and confirm both windows show the same step.
 
 - **SC-001**: A presenter can deliver the full talk, from the opening chapter to "What's next",
   using only a clicker, with zero mouse or keyboard actions other than the clicker's keys.
-- **SC-002**: On every step, visible text on the slide (excluding scene labels and closed hotspot
-  markers) is at most 24 words in Leadership depth.
+- **SC-002**: On every step, the caption on the slide is at most 24 words in Leadership depth
+  (scene labels, closed hotspot markers and a step's callout are counted separately; a callout is
+  at most 62 words: title plus four points).
 - **SC-003**: Every chapter transition completes within 2.5 seconds, and in a rehearsal no viewer
   reports a jarring cut or a blank frame between chapters.
 - **SC-004**: 100% of the text shown on the page in feature 001 appears in the generated talk track,

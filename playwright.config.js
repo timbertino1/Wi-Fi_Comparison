@@ -14,8 +14,7 @@ export default defineConfig({
     trace: 'retain-on-failure'
   },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } }
+    // The explainer is presented in Chrome and Edge (both Chromium), so only Chromium is tested.
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } }
   ]
 });

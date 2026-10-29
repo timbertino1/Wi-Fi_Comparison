@@ -2,8 +2,12 @@
   "id": "qam-puncturing",
   "order": 4,
   "kind": "feature",
-  "title": "4K-QAM, Puncturing & Multi-RU",
-  "summary": "Packing more bits into every signal and working around interference instead of giving up channel width.",
+  "title": "More From Every Channel",
+  "summary": "Wi-Fi 7 keeps most of a wide channel working when part of it is busy, and carries fuller loads close to the access point.",
+  "opener": {
+    "promise": "Puncturing, Multi-RU and 4K-QAM: more from each channel",
+    "problem": "A small patch of interference forces the whole channel to shrink."
+  },
   "introducedIn": "wifi6",
   "wifi7Adds": "Preamble puncturing existed in Wi-Fi 6 for multi-user transmissions only {{puncturing-ax}}; Wi-Fi 7 extends it to all transmissions {{puncturing-be}} and adds 4096-QAM {{eht-4096qam-bits}} and multiple resource units per device {{multi-ru-be}}.",
   "compareGenerations": [
@@ -19,73 +23,156 @@
   "beats": [
     {
       "type": "problem",
-      "heading": "One busy slice shrinks the whole channel",
+      "heading": "One busy lane closes most of the road",
       "caption": {
-        "headline": "One busy slice shrinks the whole channel",
-        "takeaway": "Interference in a small part of the spectrum can cut wireless capacity in a room far…"
+        "headline": "One busy lane closes most of the road",
+        "takeaway": "On older Wi-Fi, interference in one slice forces the whole channel to shrink."
       },
-      "body": "A wide Wi-Fi channel is made of many narrower slices. In an imaging suite, another system or a neighbouring network is busy in just one of those slices.\n\nWith earlier Wi-Fi, the [[access-point|access point]] has to avoid the busy slice by dropping to a much narrower channel — giving up most of its capacity to dodge a small piece of interference.",
+      "body": "Picture one wide Wi-Fi channel as a road with many lanes leading from the [[access-point|access point]]. In an imaging suite, a neighbouring network is busy in just one of those lanes.\n\nOlder Wi-Fi has to avoid it by dropping to a much narrower channel: traffic squeezes into the few lanes before the busy one, and the rest of the road sits empty.",
       "bottomLine": "Interference in a small part of the spectrum can cut wireless capacity in a room far more than its size suggests.",
       "deepDive": null,
-      "sceneState": "interferer",
-      "sceneDescription": "A wide channel is drawn as a row of equal slices. A red block of interference sits on one slice. In the earlier generation's colour, only the few slices before the interference stay lit, and the rest of the channel goes dark and unused.",
-      "durationMs": 12000
+      "sceneState": "blocked-legacy",
+      "sceneDescription": "A wide road of eight lanes leaves an access point. One lane is blocked by red barriers for a neighbouring network. On older Wi-Fi, the lanes from the blocked one onwards are greyed out and closed, and traffic squeezes slowly into the two lanes that remain.",
+      "durationMs": 12000,
+      "callout": {
+        "title": "Why one busy slice hurts",
+        "points": [
+          "A wide channel is built from many narrower slices",
+          "Neighbouring networks and equipment often occupy just one of them",
+          "Older Wi-Fi then falls back to a much narrower channel",
+          "Most of the capacity in the room goes unused"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "busy-lane",
+          "anchor": "busy-lane",
+          "term": "channel-width",
+          "technical": "A wide channel is built from narrower subchannels; older Wi-Fi gives up the whole stretch around a busy one."
+        }
+      ]
     },
     {
       "type": "what",
-      "heading": "Three ways to get more from the same spectrum",
+      "heading": "Close only the busy lane",
       "caption": {
-        "headline": "Three ways to get more from the same…",
-        "takeaway": "These features raise both peak speed and resilience to interference, without needing new spectrum."
+        "headline": "Wi-Fi 7 closes only the busy lane",
+        "takeaway": "[[preamble-puncturing|Puncturing]] skips the busy slice; one device can use lanes on both sides{{multi-ru-be}}."
       },
-      "body": "Wi-Fi 7 combines three techniques:\n\n**4K-QAM** packs 12 bits into each [[subcarrier|subcarrier]] instead of 10 {{eht-4096qam-bits}} {{he-1024qam-bits}}. **[[preamble-puncturing|Preamble puncturing]]** skips only the busy slice of a wide channel {{puncturing-be}}. **[[multi-ru|Multi-RU]]** lets one device use several separate pieces of the channel at once {{multi-ru-be}}.",
-      "bottomLine": "These features raise both peak speed and resilience to interference, without needing new spectrum.",
-      "deepDive": null,
-      "sceneState": "constellation-grow",
-      "sceneDescription": "Three square grids of dots rise side by side, one per generation. Each grid has four times as many dots as the one before, showing how each newer modulation can tell apart more signal states and so carry more bits.",
-      "durationMs": 12000
+      "body": "Wi-Fi 7 keeps the wide channel and skips just the busy slice. This is called [[preamble-puncturing|preamble puncturing]], and Wi-Fi 7 can use it for every transmission {{puncturing-be}}.\n\nIt also lets one device use several separate pieces of the channel at once, so its traffic flows in the lanes on both sides of the busy one. This is [[multi-ru|Multi-RU]] {{multi-ru-be}}.",
+      "bottomLine": "Most of the channel keeps working when part of it is busy, so a noisy neighbour costs one lane, not most of the road.",
+      "deepDive": "In 802.11ax, preamble puncturing applies only to multi-user transmissions, and each station receives a single [[resource-unit|resource unit]] {{puncturing-ax}} {{multi-ru-be}}. 802.11be signals the punctured 20 MHz subchannels in the preamble for single-user and multi-user transmissions {{puncturing-be}}, and defines multiple resource units: combinations of RUs, even non-adjacent ones, assigned to one station {{multi-ru-be}}.",
+      "sceneState": "punctured",
+      "sceneDescription": "The same road in the Wi-Fi 7 colour. Only the blocked lane stays closed; traffic flows in all the other lanes, and one device’s convoy, highlighted, travels in the lanes on both sides of the blocked one at once.",
+      "durationMs": 12000,
+      "callout": {
+        "title": "What Wi-Fi 7 changes",
+        "points": [
+          "Only the busy slice is skipped; the rest stays in use{{puncturing-be}}",
+          "One device can use pieces on both sides of the busy slice{{multi-ru-be}}",
+          "Wi-Fi 6 could only do this when sharing a transmission{{puncturing-ax}}"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "puncturing",
+          "anchor": "busy-lane",
+          "term": "preamble-puncturing",
+          "claim": "puncturing-be"
+        },
+        {
+          "id": "multi-ru",
+          "anchor": "convoy",
+          "term": "multi-ru",
+          "claim": "multi-ru-be"
+        }
+      ],
+      "questions": [
+        {
+          "q": "How is this different from OFDMA in Wi-Fi 6?",
+          "a": "Wi-Fi 6 OFDMA gives each device one resource unit per transmission{{multi-ru-be}}. Wi-Fi 7 can give a device several, including non-adjacent ones, and can puncture single-user transmissions too{{puncturing-be}}.",
+          "audience": "technical"
+        }
+      ]
     },
     {
       "type": "how",
-      "heading": "More bits per signal, and skipping the busy slice",
+      "heading": "Fuller loads close to the access point",
       "caption": {
-        "headline": "More bits per signal, and skipping the busy…",
-        "takeaway": "Devices close to an [[access-point|access point]] get faster transfers; every device keeps more of the channel…"
+        "headline": "Fuller loads close to the access point",
+        "takeaway": "Near the [[access-point|access point]], 4K-QAM carries about a fifth more per trip{{qam-4k-gain}}.",
+        "technical": "4096-QAM: 12 bits per [[subcarrier|subcarrier]] versus 10{{eht-4096qam-bits}}{{he-1024qam-bits}}; it needs a stricter [[evm|EVM]]{{eht-4kqam-evm}}."
       },
-      "body": "[[qam|QAM]] encodes bits as points on a grid; more points mean more bits per signal. Going from 1024 to 4096 points adds two bits per subcarrier, raising the peak rate by 20% {{qam-4k-gain}}. The points sit closer together, so 4K-QAM needs a very clean, strong signal — typically a device near its access point {{eht-4kqam-evm}}.\n\nWith puncturing, the access point marks the busy slice as unused and transmits on all the others {{puncturing-be}}.",
-      "bottomLine": "Devices close to an access point get faster transfers; every device keeps more of the channel when interference appears.",
-      "deepDive": "4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM {{eht-4096qam-bits}} {{he-1024qam-bits}}, and 802.11be sets a stricter [[evm|EVM]] limit for it {{eht-4kqam-evm}}. Puncturing is signalled in the preamble so receivers ignore the punctured 20 MHz subchannels {{puncturing-be}}.",
-      "sceneState": "puncture",
-      "sceneDescription": "The wide channel returns with the red interference on one slice. This time, in the Wi-Fi 7 colour, every slice except the busy one stays lit, leaving a single gap where the interference is.",
-      "durationMs": 14000
+      "body": "Each Wi-Fi transmission is a trip down the road. With [[qam|4K-QAM]], Wi-Fi 7 packs more into every trip, up to 20% more {{qam-4k-gain}}, by encoding 12 bits into each slice of the signal instead of 10 {{eht-4096qam-bits}} {{he-1024qam-bits}}.\n\nThat needs a very clean, strong signal, so in practice the fuller loads go to devices close to their access point {{eht-4kqam-evm}}, such as a workstation in the same room.",
+      "bottomLine": "Devices close to an access point finish transfers faster; devices further away carry their usual loads.",
+      "deepDive": "4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM {{eht-4096qam-bits}} {{he-1024qam-bits}}, and 802.11be sets a stricter [[evm|EVM]] limit for it {{eht-4kqam-evm}}. The gain applies only at the highest modulation, which needs a strong signal and little noise.",
+      "sceneState": "fuller-loads",
+      "sceneDescription": "Traffic flows on the Wi-Fi 7 road. The stretch nearest the access point is highlighted; vehicles there stand taller with fuller loads, while those further down the road carry normal loads. A label gives the peak-rate gain {{qam-4k-gain}}.",
+      "durationMs": 14000,
+      "callout": {
+        "title": "Why loads are fuller nearby",
+        "points": [
+          "4K-QAM packs 12 bits into each slice of the signal, not 10{{eht-4096qam-bits}}",
+          "That needs a strong, clean signal{{eht-4kqam-evm}}, so mostly nearby devices benefit",
+          "Devices further away carry their usual loads"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "qam",
+          "anchor": "near-ap",
+          "term": "qam",
+          "claim": "qam-4k-gain"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Will every device get the 4K-QAM speed-up?",
+          "a": "No. 4096-QAM needs a very clean, strong signal{{eht-4kqam-evm}}, so mainly devices close to their access point benefit, such as a workstation in the same room. Devices further away use lower modulation as before."
+        }
+      ]
     },
     {
       "type": "improvement",
-      "heading": "From one piece per device to several",
+      "heading": "Same road, same interference, more traffic",
       "caption": {
-        "headline": "From one piece per device to several",
-        "takeaway": "The access point can fit traffic around interference and give busy devices more of the channel…"
+        "headline": "Same road, same interference, more traffic",
+        "takeaway": "Older Wi-Fi squeezes into two lanes; Wi-Fi 7 uses the rest, with fuller loads nearby."
       },
-      "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits a channel into [[resource-unit|resource units]] so several devices can share one transmission {{ofdma-ax}}. But each device got just one resource unit, and puncturing was limited to multi-user transmissions {{puncturing-ax}}.\n\nWi-Fi 7 can give one device several resource units, even non-adjacent ones {{multi-ru-be}}, and can puncture any transmission {{puncturing-be}}.",
+      "body": "Side by side, with the same neighbouring network in the same lane: older Wi-Fi gives up most of the channel, and every device waits in the few lanes left. Wi-Fi 6 could puncture only shared, multi-user transmissions {{puncturing-ax}}.\n\nWi-Fi 7 keeps every other lane busy {{puncturing-be}}, lets one device use several pieces at once {{multi-ru-be}}, and adds fuller loads close to the access point {{qam-4k-gain}}.",
       "bottomLine": "The access point can fit traffic around interference and give busy devices more of the channel, so less capacity is wasted.",
       "deepDive": "In 802.11ax, each station in an MU transmission receives a single RU {{multi-ru-be}}. 802.11be defines multiple resource units (MRUs): combinations of RUs assigned to one station, which also make puncturing practical for single-user transmissions {{puncturing-be}}. The top modulation rises from 1024-QAM to 4096-QAM {{qam-4k-gain}}.",
-      "sceneState": "ru-compare",
-      "sceneDescription": "Two rows of resource units are shown. In the earlier generation's row, each device gets exactly one block. In the Wi-Fi 7 row, one device is given several separate blocks spread across the channel, skipping a busy one.",
+      "sceneState": "side-by-side",
+      "sceneDescription": "Two roads, one behind the other, each with the same blocked lane. On the front road, older Wi-Fi traffic squeezes into two lanes while the rest is closed. On the back road, Wi-Fi 7 traffic flows in every other lane, standing taller near the access point. The roads are illustrative.",
       "durationMs": 14000
     },
     {
       "type": "why",
       "heading": "Capacity that survives a busy neighbourhood",
       "caption": {
-        "headline": "Capacity that survives a busy neighbourhood",
-        "takeaway": "Wi-Fi 7 delivers more usable capacity in the real, cluttered radio environment of a hospital, not…"
+        "headline": "Big images, even next to a busy neighbour",
+        "takeaway": "An imaging workstation by its access point gets fuller loads and keeps most of the channel."
       },
       "body": "Hospitals are dense radio environments: neighbouring networks, building systems and wireless clinical equipment all share the air. Puncturing and Multi-RU let wide channels keep working when part of the spectrum is busy, and 4K-QAM speeds up transfers for devices near an access point, such as an imaging workstation in the same room.",
       "bottomLine": "Wi-Fi 7 delivers more usable capacity in the real, cluttered radio environment of a hospital, not only in ideal conditions.",
       "deepDive": null,
-      "sceneState": "clinical-outcome",
-      "sceneDescription": "An imaging workstation and several other devices share a punctured channel. The red interference block stays on its slice while data keeps flowing in all the other slices, and the workstation near the access point receives its data quickly.",
-      "durationMs": 11000
+      "sceneState": "imaging-suite",
+      "sceneDescription": "Close to the access point, an imaging workstation sits beside the road. Its traffic flows fast in the open lanes with fuller loads, while the neighbouring network’s barriers stay in their one lane.",
+      "durationMs": 11000,
+      "callout": {
+        "title": "What it means for the hospital",
+        "points": [
+          "A neighbouring network costs one slice of a channel, not most of it",
+          "Imaging files near an access point finish sooner",
+          "No new spectrum needed: the same channels carry more"
+        ]
+      },
+      "questions": [
+        {
+          "q": "What causes this interference in a hospital?",
+          "a": "Neighbouring Wi-Fi networks, building systems and wireless clinical equipment share the same air. Puncturing lets an access point skip only the busy part of a wide channel{{puncturing-be}} instead of giving up most of it."
+        }
+      ]
     }
   ],
   "keyFigures": [

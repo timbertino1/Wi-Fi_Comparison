@@ -3,56 +3,87 @@
     {
       "id": "med-surg-crowded-bands",
       "location": "Medical-surgical floor at a busy hour",
-      "deviceTypes": ["voice badge", "infusion pump", "telemetry monitor", "mobile workstation"],
+      "deviceTypes": [
+        "voice badge",
+        "infusion pump",
+        "telemetry monitor",
+        "mobile workstation"
+      ],
       "problem": "Every device shares the 2.4 GHz and 5 GHz bands with older equipment and neighbouring units, so capacity runs short when the floor is busiest.",
       "outcomeSupported": "Moving capable devices to 6 GHz frees capacity in the older bands and gives imaging and video wider, cleaner channels."
     },
     {
       "id": "voice-badge-hallway",
       "location": "Corridor between two inpatient units",
-      "deviceTypes": ["voice badge", "imaging cart"],
+      "deviceTypes": [
+        "voice badge",
+        "imaging cart"
+      ],
       "problem": "A nurse's badge call stutters when a large imaging upload fills the one band the badge is connected to.",
       "outcomeSupported": "With multi-link operation, the call's packets can use a less busy band, supporting steadier calls on the move."
     },
     {
       "id": "imaging-suite-interference",
       "location": "Imaging suite",
-      "deviceTypes": ["imaging workstation", "access point"],
+      "deviceTypes": [
+        "imaging workstation",
+        "access point"
+      ],
       "problem": "Another system is busy in one small slice of the wide channel, and the access point has to fall back to a much narrower channel.",
       "outcomeSupported": "Puncturing and Multi-RU let the access point keep using most of the channel, supporting faster image transfers in the room."
     },
     {
       "id": "shared-passphrase-risk",
-      "location": "Clinical device network",
-      "deviceTypes": ["infusion pump", "telemetry monitor", "voice badge"],
-      "problem": "Devices share a long-lived WPA2 passphrase; a recorded sign-in could be attacked offline without anyone noticing.",
-      "outcomeSupported": "WPA3 sign-in and per-session keys make offline guessing ineffective and limit what a leaked password exposes, supporting the organisation's wider security programme."
+      "location": "Clinical device and staff networks",
+      "deviceTypes": [
+        "infusion pump",
+        "clinical workstation",
+        "voice badge"
+      ],
+      "problem": "Devices share a long-lived WPA2 password that a recorded sign-in could crack offline, and staff devices could be fooled by a fake access point.",
+      "outcomeSupported": "WPA3 makes offline guessing ineffective on shared-password networks and makes staff devices check they are on the real network, supporting the organisation’s wider security programme."
     },
     {
       "id": "badge-battery-shift",
       "location": "Inpatient unit across a long shift",
-      "deviceTypes": ["voice badge", "location tag", "wearable monitor"],
+      "deviceTypes": [
+        "voice badge",
+        "location tag",
+        "wearable monitor"
+      ],
       "problem": "Small battery-powered devices keep their radios listening and need recharging or swapping before the shift ends.",
       "outcomeSupported": "Target Wake Time lets devices sleep between agreed wake-ups, and Restricted TWT protects time for voice and telemetry, supporting longer battery life and dependable delivery."
     },
     {
       "id": "ed-shift-change",
       "location": "Emergency department at shift change",
-      "deviceTypes": ["staff phone", "voice badge", "bedside monitor", "infusion pump", "workstation on wheels"],
+      "deviceTypes": [
+        "staff phone",
+        "voice badge",
+        "bedside monitor",
+        "infusion pump",
+        "workstation on wheels"
+      ],
       "problem": "Two shifts of staff devices plus patient equipment and visitors' phones all compete for the same airtime at once.",
       "outcomeSupported": "Serving several devices per transmission and spreading them across bands supports a responsive network at the unit's busiest moments."
     },
     {
       "id": "telemetry-alarm-delay",
       "location": "Cardiac telemetry unit",
-      "deviceTypes": ["bedside monitor", "nurses' station workstation"],
+      "deviceTypes": [
+        "bedside monitor",
+        "nurses' station workstation"
+      ],
       "problem": "Occasionally an alarm message waits behind a large download before reaching the nurses' station.",
       "outcomeSupported": "Multi-link operation, Restricted TWT and Multi-RU target those worst-case waits, supporting more consistent delivery of alarms and voice."
     },
     {
       "id": "new-wing-closet",
       "location": "New inpatient wing",
-      "deviceTypes": ["access point", "network switch"],
+      "deviceTypes": [
+        "access point",
+        "network switch"
+      ],
       "problem": "New access points are planned for switch ports and power budgets that were sized for earlier generations.",
       "outcomeSupported": "Planning multi-gigabit uplinks and PoE budgets with the access points supports getting the full benefit of Wi-Fi 7 from day one."
     }

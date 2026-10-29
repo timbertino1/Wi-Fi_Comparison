@@ -26,8 +26,8 @@ const deepBeatEl = document.createElement('div');
 const sectionsEl = document.createElement('div');
 deepEl.append(deepBeatEl, sectionsEl);
 
-const listeners = { tab: new Set(), beat: new Set(), generation: new Set() };
-const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null, animated: false, phase: 'settled', captionShown: false };
+const listeners = { tab: new Set(), beat: new Set(), generation: new Set(), settled: new Set() };
+const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null, animated: false, phase: 'settled', captionShown: false, calloutShown: false, hotspots: [], hotspotOpen: null, intro: false };
 let stage = null;
 let fallback = null;
 let testHook = false;
@@ -51,7 +51,8 @@ export function snapshot() {
     beatCount: tab?.beats?.length ?? 0,
     generation: state.generation,
     instance: state.instance,
-    animated: state.animated
+    animated: state.animated,
+    intro: state.intro
   };
 }
 
@@ -63,6 +64,22 @@ export function setPhase(phase) {
 
 export function setCaptionShown(shown) {
   state.captionShown = shown;
+  updateTestHook();
+}
+
+export function setCalloutShown(shown) {
+  state.calloutShown = shown;
+  updateTestHook();
+}
+
+/** Records the hotspot markers on the slide and the open card (by hotspot id) for the `?test` hook. */
+export function setHotspots(ids) {
+  state.hotspots = ids;
+  updateTestHook();
+}
+
+export function setHotspotOpen(id) {
+  state.hotspotOpen = id;
   updateTestHook();
 }
 
@@ -82,6 +99,10 @@ function updateTestHook() {
     generation: state.generation,
     phase: state.phase,
     captionShown: state.captionShown,
+    calloutShown: state.calloutShown,
+    intro: state.intro,
+    hotspots: state.hotspots,
+    hotspotOpen: state.hotspotOpen,
     get anchors() {
       return Object.keys(state.instance?.anchors?.() ?? {});
     },
@@ -258,16 +279,27 @@ async function applySceneState({ animate }) {
   state.phase = animate ? 'animating' : 'settled';
   updateTestHook();
   await state.instance.setState(beat.sceneState, { generation: state.generation, animate, signal: controller.signal });
-  if (state.transition === controller) setPhase('settled');
+  if (state.transition === controller) {
+    // On a chapter opener the first step is set up but framed on the scene's wide shot.
+    if (state.intro) stage?.holdShot(state.instance.shots?.wide);
+    setPhase('settled');
+    emit('settled');
+  }
 }
 
-/** Shows a tab at a beat. `animate: false` jumps straight to the end state (deep links). */
-export function showTab(tabId, beatIndex = 0, { animate = false, generation = null } = {}) {
+/**
+ * Shows a tab at a beat. `animate: false` jumps straight to the end state (deep links). `intro`
+ * shows the chapter opener instead: the first step's state, settled, on the scene's wide shot.
+ */
+export function showTab(tabId, beatIndex = 0, { animate = false, generation = null, intro = false } = {}) {
   const tab = tabById.get(tabId);
   const changed = state.tab?.id !== tabId;
   state.tab = tab;
-  state.beatIndex = clampBeat(beatIndex);
-  state.animated = animate;
+  state.intro = intro;
+  if (!intro) stage?.releaseShot();
+  state.beatIndex = intro ? 0 : clampBeat(beatIndex);
+  state.animated = intro ? false : animate;
+  if (intro) animate = false;
   state.generation = (generation && tab.compareGenerations.includes(generation) ? generation : null) ?? tab.defaultCompare ?? null;
   if (changed) {
     mountScene(tab);
@@ -287,8 +319,37 @@ function clampBeat(i) {
   return Math.min(Math.max(0, i), count - 1);
 }
 
+/** Back from a chapter's first step: shows its opener (first step settled, wide shot). */
+export function enterIntro() {
+  if (!state.tab) return Promise.resolve();
+  state.intro = true;
+  state.beatIndex = 0;
+  state.animated = false;
+  renderText();
+  emit('beat');
+  updateTestHook();
+  return applySceneState({ animate: false });
+}
+
+/** Next from a chapter opener: plays the first step, moving in from the wide shot. */
+export function leaveIntro() {
+  if (!state.tab || !state.intro) return Promise.resolve();
+  state.intro = false;
+  stage?.releaseShot();
+  state.beatIndex = 0;
+  state.animated = true;
+  renderText();
+  emit('beat');
+  updateTestHook();
+  return applySceneState({ animate: true });
+}
+
 export function goTo(index, { animate = true } = {}) {
   if (!state.tab) return Promise.resolve();
+  if (state.intro) {
+    state.intro = false;
+    stage?.releaseShot();
+  }
   const next = clampBeat(index);
   if (next === state.beatIndex && state.sceneName) return Promise.resolve();
   state.beatIndex = next;

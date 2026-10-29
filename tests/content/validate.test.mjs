@@ -20,6 +20,7 @@ function featureTab(overrides = {}) {
   });
   return {
     id: 'fixture', order: 3, kind: 'feature', title: 'Fixture', summary: 'A fixture.', introducedIn: 'wifi7', wifi7Adds: null,
+    opener: { promise: 'A short promise', problem: 'The problem this chapter solves, in a sentence.' },
     compareGenerations: ['wifi6', 'wifi7'], defaultCompare: 'wifi6', sceneId: null, scenarioIds: [], sections: [],
     beats: ['problem', 'what', 'how', 'improvement', 'why'].map(beat), keyFigures: [], _file: 'tabs/fixture.json',
     ...overrides

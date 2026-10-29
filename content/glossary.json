@@ -287,6 +287,54 @@
       "term": "MAC layer",
       "expansion": "Medium access control layer",
       "definition": "The part of Wi-Fi that decides when devices may transmit and packages data into frames, above the radio (PHY) layer."
+    },
+    {
+      "id": "infusion-pump",
+      "term": "Smart infusion pump",
+      "expansion": null,
+      "definition": "A bedside pump that delivers medication at a set rate and uses Wi-Fi to receive drug libraries and orders and to report alerts and history."
+    },
+    {
+      "id": "patient-monitor",
+      "term": "Patient monitor",
+      "expansion": null,
+      "definition": "A bedside or wearable monitor that tracks vital signs such as heart rhythm and oxygen levels and sends readings and alarms to the nurses’ station over Wi-Fi."
+    },
+    {
+      "id": "workstation-on-wheels",
+      "term": "Workstation on wheels",
+      "expansion": null,
+      "definition": "A mobile cart with a computer and scanner that clinicians push from room to room to chart, scan medications and look up records over Wi-Fi."
+    },
+    {
+      "id": "clinical-smartphone",
+      "term": "Clinical smartphone",
+      "expansion": null,
+      "definition": "A hospital-managed phone that staff use for calls, secure messages, alarm notifications and barcode scanning over Wi-Fi."
+    },
+    {
+      "id": "wpa-personal",
+      "term": "WPA-Personal",
+      "expansion": null,
+      "definition": "Wi-Fi sign-in with one shared password for every device on the network, common for clinical devices that cannot hold their own credentials."
+    },
+    {
+      "id": "wpa-enterprise",
+      "term": "WPA-Enterprise",
+      "expansion": null,
+      "definition": "Wi-Fi sign-in where each person or device uses its own credentials, checked by the hospital’s sign-in server, instead of one shared password."
+    },
+    {
+      "id": "server-certificate",
+      "term": "Server certificate",
+      "expansion": null,
+      "definition": "A digital certificate the hospital’s sign-in server presents so devices can check they are talking to the real network, not an impostor."
+    },
+    {
+      "id": "fake-access-point",
+      "term": "Fake access point",
+      "expansion": null,
+      "definition": "A rogue radio set up to imitate the hospital network, so devices connect to it and hand over sign-in details or traffic."
     }
   ]
 }
