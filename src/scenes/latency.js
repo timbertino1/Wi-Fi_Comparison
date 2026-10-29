@@ -1,174 +1,311 @@
-// Low and predictable latency: an alarm packet stuck behind bulk traffic, the three Wi-Fi 7 tools
-// that clear its path, and illustrative delivery-time histograms (shape only, no figures).
+// Low and predictable latency as a road from the bedside monitor to the nurses' station. Alarms are
+// ambulances; a large download is grey lorries. Every ambulance that arrives adds a block to an
+// arrivals board behind the road, so the late "tail" builds up live: most alarms arrive on time,
+// a few get stuck behind a lorry. Wi-Fi 7 adds a second lane (another band, multi-link) and
+// protected slots in which the lorries pull over (Restricted TWT). Timings are illustrative.
+const ROAD_X0 = -4.5;
+const ROAD_X1 = 4.5;
+const LANE_W = 0.95;
+const LORRY = { len: 1.6, speed: 2.5 };
+const AMB = { len: 0.9, speed: 6 };
+const BUCKETS = 12;
+const BUCKET_S = 0.3;
+const NOMINAL_S = (ROAD_X1 - ROAD_X0) / AMB.speed;
+const LATE_BUCKET = 4;
+const KEEP = 50; // arrivals kept on the board
+const SLOT_EVERY = 3; // protected slot cadence (Wi-Fi 7)
+const SLOT_LEN = 1;
+const PREFILL_S = 70; // simulated before showing, so the board is already populated
 const ALARM = '#c0392b';
-const BARS = 18;
-
-// Illustrative distribution shapes (relative heights only).
-function shape(kind) {
-  return Array.from({ length: BARS }, (_, i) => {
-    if (kind === 'tight') return i <= 5 ? Math.exp(-((i - 2) ** 2) / 1.6) : 0;
-    return Math.exp(-((i - 3) ** 2) / 4) * 0.85 + (i >= 5 ? 0.3 * Math.exp(-(i - 5) / 8) : 0);
-  });
-}
 
 export default {
   id: 'latency',
   states: ['alarm-delay', 'latency-what', 'latency-tools', 'gen-compare', 'clinical-outcome'],
 
   create(ctx) {
-    const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo } = ctx;
+    const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo, seeded } = ctx;
     const motionFull = ctx.motion === 'full';
     const genName = (id) => ctx.generations.find((g) => g.id === id)?.name ?? id;
     let compareGen = 'wifi6';
-
-    // --- Path: monitor → access point → nurses' station.
-    const path = new THREE.Group();
-    scene.add(path);
-    const monitor = kit.client('telemetry-monitor', { color: neutral.device });
-    monitor.position.set(-5, 0, 0);
-    monitor.scale.setScalar(1.4);
-    const { group: ap } = kit.accessPoint({ color: '#f2f5f9', ledColor: palette.wifi7 });
-    ap.position.set(0, 2.6, 0);
-    const station = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.8, 1), new THREE.MeshStandardMaterial({ color: neutral.device }));
-    station.position.set(5, 0.4, 0);
-    path.add(monitor, ap, station);
-    labels.add(monitor, 'Bedside monitor', { className: 'muted', offset: [0, 1.4, 0] });
-    labels.add(station, 'Nurses’ station', { className: 'muted', offset: [0, 0.8, 0] });
-    const up = kit.linkBeam(new THREE.Vector3(-5, 1.2, 0), new THREE.Vector3(0, 2.45, 0), { color: palette.wifi7, arch: 0.5 });
-    const down = kit.linkBeam(new THREE.Vector3(0, 2.45, 0), new THREE.Vector3(5, 0.9, 0), { color: palette.wifi7, arch: 0.5 });
-    path.add(up.mesh, down.mesh);
-
-    const bulk = Array.from({ length: 3 }, (_, i) => {
-      const b = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.45, 0.45), new THREE.MeshStandardMaterial({ color: neutral.device }));
-      b.userData.t = 0.45 + i * 0.16;
-      path.add(b);
-      return b;
-    });
-    const alarm = new THREE.Mesh(new THREE.SphereGeometry(0.2, 18, 12), new THREE.MeshStandardMaterial({ color: ALARM, emissive: ALARM, emissiveIntensity: 0.5 }));
-    path.add(alarm);
-
-    const tools = ['Multi-link', 'Restricted TWT', 'Multi-RU'].map((text, i) => {
-      const anchor = new THREE.Object3D();
-      anchor.position.set(-3 + i * 3, 4.2, 0);
-      path.add(anchor);
-      const label = labels.add(anchor, text, { className: 'big' });
-      label.element.style.opacity = '0';
-      return label;
-    });
-
-    // --- Histograms.
-    function histogram(kind, genId) {
-      const group = new THREE.Group();
-      const heights = shape(kind);
-      const bars = heights.map((h, i) => {
-        const geometry = new THREE.BoxGeometry(0.32, 1, 0.5);
-        geometry.translate(0, 0.5, 0);
-        const bar = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: palette[genId] }));
-        bar.position.x = (i - (BARS - 1) / 2) * 0.38;
-        bar.userData.h = Math.max(0.001, h * 3);
-        bar.visible = h > 0.01;
-        bar.scale.y = 0.001;
-        group.add(bar);
-        return bar;
-      });
-      const axis = new THREE.Mesh(new THREE.BoxGeometry(BARS * 0.38, 0.03, 0.03), new THREE.MeshBasicMaterial({ color: neutral.grid }));
-      group.add(axis);
-      const fast = new THREE.Object3D();
-      fast.position.set(-(BARS / 2) * 0.38, -0.35, 0.5);
-      const slow = new THREE.Object3D();
-      slow.position.set((BARS / 2) * 0.38, -0.35, 0.5);
-      const titleAnchor = new THREE.Object3D();
-      titleAnchor.position.set(0, 3.4, 0);
-      group.add(fast, slow, titleAnchor);
-      const labelEls = [
-        labels.add(fast, 'Fast', { className: 'muted' }),
-        labels.add(slow, 'Slow (tail)', { className: 'muted' }),
-        labels.add(titleAnchor, genName(genId), { className: 'big' })
-      ];
-      scene.add(group);
-      return { group, bars, labelEls };
-    }
-    const histCompare = histogram('tail', compareGen);
-    const histWifi7 = histogram('tight', 'wifi7');
-    const illustrative = new THREE.Object3D();
-    illustrative.position.set(0, 4.6, 0);
-    scene.add(illustrative);
-    const illustrativeLabel = labels.add(illustrative, 'Illustrative — shape only, no measured values', { className: 'muted' });
-
     let mode = 'alarm-delay';
-    let time = 0;
+    const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.5, ...extra });
+    const box = (w, h, d, color, extra) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat(color, extra));
 
-    function setHist(h, visible, x) {
-      h.group.visible = visible;
-      h.group.position.set(x, 0, 0);
-      for (const l of h.labelEls) l.element.style.opacity = visible ? '1' : '0';
+    function ambulanceMesh() {
+      const g = new THREE.Group();
+      const body = box(AMB.len, 0.42, 0.55, '#f4f6f9');
+      body.position.y = 0.26;
+      const stripe = box(AMB.len + 0.01, 0.1, 0.56, ALARM);
+      stripe.position.y = 0.26;
+      const light = box(0.16, 0.1, 0.24, ALARM, { emissive: ALARM, emissiveIntensity: 0.8 });
+      light.position.set(0.15, 0.52, 0);
+      g.add(body, stripe, light);
+      return g;
+    }
+    function lorryMesh() {
+      const g = new THREE.Group();
+      const trailer = box(1.15, 0.62, 0.62, '#8a94a6');
+      trailer.position.set(-0.22, 0.36, 0);
+      const cab = box(0.4, 0.46, 0.6, '#5b6b82');
+      cab.position.set(0.58, 0.28, 0);
+      g.add(trailer, cab);
+      return g;
     }
 
-    function placeAlarm(t) {
-      const p = t < 0.5 ? up.curve.getPoint(t * 2) : down.curve.getPoint((t - 0.5) * 2);
-      alarm.position.copy(p);
-    }
+    // A corridor: monitor → road (lanes) → nurses' station, an access point over it and an
+    // arrivals board behind it. It runs its own small traffic simulation.
+    function corridor({ lanes, pullOver, seed }) {
+      const group = new THREE.Group();
+      scene.add(group);
+      const width = lanes * LANE_W;
+      const laneZ = (i) => (i - (lanes - 1) / 2) * LANE_W;
+      const road = box(ROAD_X1 - ROAD_X0, 0.05, width + 0.2, '#4a5466');
+      road.position.y = 0.02;
+      group.add(road);
+      for (let i = 1; i < lanes; i++) {
+        const line = box(ROAD_X1 - ROAD_X0, 0.06, 0.05, '#ffffff');
+        line.position.set(0, 0.03, (laneZ(i) + laneZ(i - 1)) / 2);
+        group.add(line);
+      }
+      const shoulderZ = width / 2 + 0.55;
+      const shoulder = box(ROAD_X1 - ROAD_X0, 0.03, 0.8, neutral.grid);
+      shoulder.position.set(0, 0.01, shoulderZ);
+      shoulder.visible = pullOver;
+      group.add(shoulder);
 
-    function placeBulk(blocked) {
-      bulk.forEach((b, i) => {
-        if (blocked) b.position.copy(up.curve.getPoint(0.55 + i * 0.14));
-        else b.position.set(-1.5 + i * 1.2, 3.6, -1.6);
+      const monitor = kit.client('telemetry-monitor', { color: '#e9eef5' });
+      monitor.scale.setScalar(1.5);
+      monitor.position.set(ROAD_X0 - 0.9, 0, 0);
+      const station = box(1.2, 0.9, 1.2, neutral.device);
+      station.position.set(ROAD_X1 + 0.9, 0.45, 0);
+      group.add(monitor, station);
+      labels.add(monitor, 'Bedside monitor', { className: 'muted', offset: [0, 1.65, 0] });
+      labels.add(station, 'Nurses’ station', { className: 'muted', offset: [0, 0.85, 0] });
+      const { group: ap } = kit.accessPoint({ color: '#f2f5f9', ledColor: palette.wifi7 });
+      ap.scale.setScalar(0.7);
+      ap.position.set(-2.6, 2.1, 0);
+      group.add(ap);
+
+      // Arrivals board: one column per arrival time, stacked blocks, late columns in red.
+      const board = new THREE.Group();
+      board.position.set(0.8, 0.35, -1.6);
+      group.add(board);
+      const panel = box(5.6, 2.3, 0.06, '#f2f5f9');
+      panel.position.set(0, 1.05, -0.06);
+      board.add(panel);
+      const colW = 0.42;
+      const blockH = 0.085;
+      const maxStack = 24;
+      const blocks = [];
+      for (let c = 0; c < BUCKETS; c++) {
+        const col = [];
+        for (let r = 0; r < maxStack; r++) {
+          const b = box(colW - 0.06, blockH - 0.03, 0.08, c >= LATE_BUCKET ? ALARM : palette.wifi7);
+          b.position.set((c - (BUCKETS - 1) / 2) * colW, 0.1 + r * blockH, 0);
+          b.visible = false;
+          board.add(b);
+          col.push(b);
+        }
+        blocks.push(col);
+      }
+      const onTime = new THREE.Object3D();
+      onTime.position.set(-((BUCKETS - 1) / 2) * colW, 0, 0);
+      const late = new THREE.Object3D();
+      late.position.set(((BUCKETS - 1) / 2) * colW, 0, 0);
+      board.add(onTime, late);
+      labels.add(onTime, 'On time', { className: 'muted', offset: [0.2, -0.2, 0] });
+      labels.add(late, 'Late', { className: 'muted', offset: [-0.2, -0.2, 0] });
+      const boardTitle = labels.add(board, 'Alarm arrival times (illustrative)', { className: 'muted', offset: [0, 2.45, 0] });
+
+      const lorryPool = Array.from({ length: 4 * lanes }, () => {
+        const m = lorryMesh();
+        m.visible = false;
+        group.add(m);
+        return m;
       });
+      const ambPool = Array.from({ length: 8 }, () => {
+        const m = ambulanceMesh();
+        m.visible = false;
+        group.add(m);
+        return m;
+      });
+      const laneAnchor = new THREE.Object3D();
+      laneAnchor.position.set(2.8, 0.1, laneZ(lanes - 1));
+      const shoulderAnchor = new THREE.Object3D();
+      shoulderAnchor.position.set(-2.2, 0.1, shoulderZ);
+      group.add(laneAnchor, shoulderAnchor);
+
+      return { group, lanes, laneZ, shoulderZ, pullOver, seed, ap, monitor, station, board, boardTitle, blocks, maxStack, lorryPool, ambPool, laneAnchor, shoulderAnchor };
+    }
+
+    function reset(c) {
+      c.rand = seeded(c.seed);
+      c.time = 0;
+      c.lorries = [];
+      c.ambs = [];
+      c.arrivals = [];
+      c.nextLorry = Array.from({ length: c.lanes }, (_, i) => 0.5 + i * 4.5);
+      c.nextAmb = 0.3;
+    }
+    const slotOn = (c) => c.pullOver && c.time % SLOT_EVERY < SLOT_LEN;
+    const entryClear = (c, lane) => !c.lorries.some((v) => v.lane === lane && v.x < ROAD_X0 + LORRY.len + 0.4) && !c.ambs.some((v) => v.lane === lane && v.x < ROAD_X0 + 1);
+
+    function step(c, dt) {
+      c.time += dt;
+      for (let lane = 0; lane < c.lanes; lane++) {
+        if (c.time >= c.nextLorry[lane] && entryClear(c, lane)) {
+          c.lorries.push({ x: ROAD_X0 + LORRY.len / 2, lane, z: c.laneZ(lane), aside: false, ...LORRY });
+          c.nextLorry[lane] = c.time + 2 + c.rand() * 5;
+        }
+      }
+      if (c.time >= c.nextAmb) {
+        // With more than one lane, the alarm takes the lane with no download ahead (multi-link).
+        let lane = 0;
+        if (c.lanes > 1) {
+          const ahead = (l) => c.lorries.some((v) => v.lane === l && !v.aside);
+          lane = [...Array(c.lanes).keys()].find((l) => !ahead(l)) ?? 0;
+        }
+        if (entryClear(c, lane)) {
+          c.ambs.push({ x: ROAD_X0 + AMB.len / 2, lane, t0: c.time, ...AMB });
+          c.nextAmb = c.time + 1.3 + c.rand() * 1.1;
+        }
+      }
+      // Protected slot: downloads pull over to the shoulder and stop; afterwards they rejoin.
+      const slot = slotOn(c);
+      for (const v of c.lorries) {
+        v.aside = slot;
+        const targetZ = slot ? c.shoulderZ : c.laneZ(v.lane);
+        v.z += (targetZ - v.z) * Math.min(1, dt * 8);
+      }
+      for (let lane = 0; lane < c.lanes; lane++) {
+        const inLane = [...c.lorries.filter((v) => v.lane === lane && !v.aside), ...c.ambs.filter((v) => v.lane === lane)].sort((a, b) => b.x - a.x);
+        let limit = Infinity;
+        for (const v of inLane) {
+          v.x = Math.min(v.x + v.speed * dt, limit - v.len / 2 - 0.25);
+          limit = v.x - v.len / 2;
+        }
+      }
+      c.lorries = c.lorries.filter((v) => v.x - v.len / 2 < ROAD_X1);
+      for (const v of c.ambs) {
+        if (v.x - v.len / 2 >= ROAD_X1) {
+          c.arrivals.push(c.time - v.t0);
+          if (c.arrivals.length > KEEP) c.arrivals.shift();
+        }
+      }
+      c.ambs = c.ambs.filter((v) => v.x - v.len / 2 < ROAD_X1);
+    }
+
+    function draw(c) {
+      for (const [i, m] of c.lorryPool.entries()) {
+        const v = c.lorries[i];
+        m.visible = !!v;
+        if (v) m.position.set(v.x, 0.04, v.z);
+      }
+      for (const [i, m] of c.ambPool.entries()) {
+        const v = c.ambs[i];
+        m.visible = !!v;
+        if (v) m.position.set(v.x, 0.04, c.laneZ(v.lane));
+      }
+      const counts = new Array(BUCKETS).fill(0);
+      for (const t of c.arrivals) counts[Math.max(0, Math.min(BUCKETS - 1, Math.floor((t - NOMINAL_S) / BUCKET_S)))]++;
+      for (const [col, stack] of c.blocks.entries()) for (const [r, b] of stack.entries()) b.visible = r < Math.min(counts[col], c.maxStack);
+    }
+
+    const older = corridor({ lanes: 1, pullOver: false, seed: 41 });
+    const seven = corridor({ lanes: 2, pullOver: true, seed: 41 });
+    const corridors = [older, seven];
+
+    const tag = (object, text, offset, className = 'muted') => {
+      const l = labels.add(object, text, { className, offset });
+      l.element.style.opacity = '0';
+      return l;
+    };
+    const lLegend = tag(older.monitor, 'Ambulance = the alarm · lorry = a large download', [2.6, -0.45, 1]);
+    const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 2.8, 0], 'big');
+    const lLane = tag(seven.laneAnchor, 'Second band free: multi-link', [0, 0.5, 0.3]);
+    const lSlot = tag(seven.shoulderAnchor, 'Protected slot: downloads pull over', [0, 0.5, 0.3]);
+    const lOlderTitle = tag(older.ap, '', [0, 0.65, 0], 'big');
+    const lSevenTitle = tag(seven.ap, 'Wi-Fi 7', [0, 0.65, 0], 'big');
+    const lOnTime = tag(seven.board, 'Alarms arrive on time, consistently', [0, 2.8, 0], 'big');
+
+    const layout = {
+      'alarm-delay': { older: [0, 0], seven: null, cam: [0, 3.8, 9], look: [0, 1, -0.4] },
+      'latency-what': { older: [0, 0], seven: null, cam: [0.8, 3.6, 8.5], look: [0.8, 1.4, -1.4] },
+      'latency-tools': { older: null, seven: [0, 0], cam: [0, 3.8, 9], look: [0, 1, -0.4] },
+      'gen-compare': { older: [3.9, -3.2], seven: [0, 0], cam: [0, 6.2, 13.5], look: [0, 2.2, -1.2] },
+      'clinical-outcome': { older: null, seven: [0, 0], cam: [0, 3.8, 9], look: [0, 1, -0.4] }
+    };
+    const labelStates = [
+      [lLegend, ['alarm-delay']],
+      [lTail, ['latency-what']],
+      [lLane, ['latency-tools']],
+      [lSlot, ['latency-tools']],
+      [lOlderTitle, ['gen-compare']],
+      [lSevenTitle, ['gen-compare']],
+      [lOnTime, ['clinical-outcome']]
+    ];
+    const lookTarget = { x: 0, y: 1, z: -0.4 };
+    const look = new THREE.Vector3();
+    const anchorSets = {
+      'alarm-delay': { ap: older.ap, monitor: older.monitor, station: older.station },
+      'latency-what': { ap: older.ap, board: older.board },
+      'latency-tools': { ap: seven.ap, lane: seven.laneAnchor, shoulder: seven.shoulderAnchor },
+      'gen-compare': { ap: seven.ap, board: seven.board },
+      'clinical-outcome': { ap: seven.ap, board: seven.board }
+    };
+    let live = false;
+
+    function restart(name) {
+      mode = name;
+      const l = layout[name];
+      for (const [c, key] of [[older, 'older'], [seven, 'seven']]) {
+        c.group.visible = l[key] !== null;
+        if (l[key]) c.group.position.set(0, l[key][0], l[key][1]);
+        reset(c);
+        for (let t = 0; t < PREFILL_S; t += 1 / 30) step(c, 1 / 30);
+        draw(c);
+      }
+      labels.setText(lOlderTitle, genName(compareGen));
+      for (const [label, states] of labelStates) label.element.style.opacity = states.includes(name) ? '1' : '0';
     }
 
     return {
       async setState(name, { animate = true, signal } = {}) {
-        mode = name;
-        const onPath = name === 'alarm-delay' || name === 'latency-tools' || name === 'clinical-outcome';
-        path.visible = onPath;
-        const histMode = { 'latency-what': [true, false], 'gen-compare': [true, true], 'clinical-outcome': [false, true] }[name] ?? [false, false];
-        if (name === 'clinical-outcome') {
-          path.position.x = -3;
-          setHist(histCompare, false, 0);
-          setHist(histWifi7, true, 6.5);
-        } else {
-          path.position.x = 0;
-          setHist(histCompare, histMode[0], histMode[1] ? -4.4 : 0);
-          setHist(histWifi7, histMode[1], histMode[0] ? 4.4 : 0);
-        }
-        illustrativeLabel.element.style.opacity = histMode[0] || histMode[1] ? '1' : '0';
-        for (const label of tools) label.element.style.opacity = name === 'latency-tools' ? '1' : '0';
-        placeBulk(name === 'alarm-delay');
-        placeAlarm(name === 'alarm-delay' ? 0.2 : 0.95);
-
-        const jobs = [];
-        for (const h of [histCompare, histWifi7]) {
-          jobs.push(animateTo(h.bars.map((b) => [b.scale, 'y', h.group.visible ? b.userData.h : 0.001]), { durationMs: 1000, animate, signal }));
-        }
-        const cam = name === 'gen-compare' ? [0, 5.5, 14.5] : name === 'clinical-outcome' ? [0, 6.5, 14] : [0, 5.5, 12];
-        jobs.push(animateTo([[camera.position, 'x', cam[0]], [camera.position, 'y', cam[1]], [camera.position, 'z', cam[2]]], { durationMs: 1000, animate, signal }));
-        await Promise.all(jobs);
-        camera.lookAt(0, 1.6, 0);
+        restart(name);
+        live = animate && motionFull;
+        const l = layout[name];
+        await animateTo([
+          [camera.position, 'x', l.cam[0]], [camera.position, 'y', l.cam[1]], [camera.position, 'z', l.cam[2]],
+          [lookTarget, 'x', l.look[0]], [lookTarget, 'y', l.look[1]], [lookTarget, 'z', l.look[2]]
+        ], { durationMs: 1100, animate, signal });
+        this.update(0);
         ctx.requestRender();
       },
       setGeneration(genId) {
         if (genId === 'wifi7') return;
         compareGen = genId;
-        for (const b of histCompare.bars) b.material.color.set(palette[genId]);
-        labels.setText(histCompare.labelEls[2], genName(genId));
+        labels.setText(lOlderTitle, genName(compareGen));
         ctx.requestRender();
       },
       update(dt) {
-        camera.lookAt(0, 1.6, 0);
-        if (!motionFull || !path.visible) return;
-        time += dt;
-        if (mode === 'alarm-delay') {
-          // The alarm creeps up behind the bulk traffic and waits.
-          placeAlarm(Math.min(0.26, 0.05 + (time % 6) * 0.04));
-        } else {
-          placeAlarm((time * 0.35) % 1);
+        look.set(lookTarget.x, lookTarget.y, lookTarget.z);
+        camera.lookAt(look);
+        if (!live || !dt) return;
+        for (const c of corridors) {
+          if (!c.group.visible) continue;
+          step(c, Math.min(dt, 0.1));
+          draw(c);
         }
       },
       isIdle() {
-        return !(motionFull && path.visible);
+        return !live;
       },
+      anchors() {
+        return anchorSets[mode];
+      },
+      shots: { wide: { position: [0, 6, 14], target: [0, 1, -0.4] } },
       resize(width, height) {
-        camera.fov = width / height < 1 ? 66 : 46;
+        camera.fov = width / height < 1 ? 64 : 44;
         camera.updateProjectionMatrix();
       },
       dispose() {}

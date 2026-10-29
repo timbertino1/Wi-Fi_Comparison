@@ -31,8 +31,33 @@
       "bottomLine": "For alarms, voice and remote procedures, the rare slow message matters more than the typical one.",
       "deepDive": null,
       "sceneState": "alarm-delay",
-      "sceneDescription": "A monitor on the left sends a small red alarm packet toward an access point and on to the nurses' station on the right. Large grey blocks from a download sit in its path, and the alarm packet waits in line behind them.",
-      "durationMs": 12000
+      "sceneDescription": "A road runs from a bedside monitor to the nurses’ station. Each alarm is an ambulance; a large download is a line of grey lorries on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a lorry. Each arrival adds a block to an arrivals board behind the road, and the late ones are red.",
+      "durationMs": 12000,
+      "callout": {
+        "title": "Why alarms sometimes wait",
+        "points": [
+          "Alarms share the channel with large downloads",
+          "Usually the road is clear and the alarm is instant",
+          "Now and then it is stuck behind a download"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "access-point",
+          "anchor": "ap",
+          "term": "access-point"
+        },
+        {
+          "id": "patient-monitor",
+          "anchor": "monitor",
+          "term": "patient-monitor"
+        },
+        {
+          "id": "latency",
+          "anchor": "station",
+          "term": "latency"
+        }
+      ]
     },
     {
       "type": "what",
@@ -46,12 +71,33 @@
       "bottomLine": "Wi-Fi 7 is the first generation that explicitly targets the worst-case delays that make real-time clinical communication unreliable.",
       "deepDive": null,
       "sceneState": "latency-what",
-      "sceneDescription": "A histogram of delivery times rises from the floor. Most bars cluster on the left, where messages arrive quickly, but a long low tail stretches to the right, showing occasional very slow deliveries. The chart is labelled illustrative.",
+      "sceneDescription": "The camera moves to the arrivals board. A tall green column on the left shows most alarms arriving on time; a thin trail of red blocks stretches to the right, showing the few that arrived very late: the tail. The board is labelled illustrative.",
       "durationMs": 12000,
       "questions": [
         {
           "q": "How much lower is Wi-Fi 7 latency?",
           "a": "There is no single figure: worst-case delay depends on load, device mix and configuration. The standard targets improved worst-case latency and jitter{{be-latency-objective}}; measure it in a pilot with your own alarm and voice systems."
+        }
+      ],
+      "callout": {
+        "title": "The average hides the tail",
+        "points": [
+          "Most alarms arrive on time",
+          "A few arrive very late, and those are the ones that matter",
+          "Wi-Fi 7 was designed to cut the worst-case delays{{be-latency-objective}}"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "tail-latency",
+          "anchor": "board",
+          "term": "tail-latency",
+          "claim": "be-latency-objective"
+        },
+        {
+          "id": "jitter",
+          "anchor": "ap",
+          "term": "jitter"
         }
       ]
     },
@@ -67,13 +113,41 @@
       "bottomLine": "These features work together to remove the specific situations that make urgent messages wait.",
       "deepDive": "MLO lets traffic move to the link that gains channel access first, with TID-to-link mapping steering traffic classes {{mlo-tid-mapping}}. Restricted TWT service periods require supporting stations to end transmissions before the period starts {{rtwt-protect}}. Multi-RU allows flexible RU combinations per station {{multi-ru-be}}. Each one addresses a different cause of queuing delay.",
       "sceneState": "latency-tools",
-      "sceneDescription": "The download blocks shift aside as three labels appear over the path — multi-link, restricted TWT and Multi-RU — and the red alarm packet travels straight through to the nurses' station without waiting.",
+      "sceneDescription": "Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance takes whichever lane has no download ahead. At regular protected slots the lorries pull over onto the shoulder and stop, so any ambulance passes straight through. The new arrivals board fills with green blocks on the left and almost no red.",
       "durationMs": 14000,
       "questions": [
         {
           "q": "Which feature helps latency most?",
           "a": "It depends on the cause. MLO helps when one band is congested{{mlo-tid-mapping}}, Restricted TWT when long transmissions block urgent traffic{{rtwt-protect}}, and Multi-RU when the channel has spare fragments{{multi-ru-be}}.",
           "audience": "technical"
+        }
+      ],
+      "callout": {
+        "title": "Three ways to avoid waiting",
+        "points": [
+          "[[mlo|Multi-link]]: take whichever band is free{{mlo-bands}}",
+          "[[restricted-twt|Restricted TWT]]: downloads pause in protected slots{{rtwt-protect}}",
+          "[[multi-ru|Multi-RU]]: urgent traffic fits into spare room{{multi-ru-be}}"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "mlo",
+          "anchor": "lane",
+          "term": "mlo",
+          "claim": "mlo-bands"
+        },
+        {
+          "id": "restricted-twt",
+          "anchor": "shoulder",
+          "term": "restricted-twt",
+          "claim": "rtwt-protect"
+        },
+        {
+          "id": "multi-ru",
+          "anchor": "ap",
+          "term": "multi-ru",
+          "claim": "multi-ru-be"
         }
       ]
     },
@@ -89,8 +163,24 @@
       "bottomLine": "The goal is predictability: urgent traffic arriving on time consistently, which is what clinical workflows depend on.",
       "deepDive": "Worst-case latency depends on deployment: channel load, device mix, client support for MLO and restricted TWT, and configuration of traffic classes. No figures are shown here because results vary by environment; evaluate latency-sensitive applications in a pilot before rollout {{latency-histogram-illustrative}}.",
       "sceneState": "gen-compare",
-      "sceneDescription": "Two histograms stand side by side. The earlier generation's chart has a long tail stretching to the right. The Wi-Fi 7 chart is tightly bunched on the left with almost no tail. Both are labelled illustrative.",
-      "durationMs": 14000
+      "sceneDescription": "Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board is bunched on the left with almost no tail. Both boards are labelled illustrative.",
+      "durationMs": 14000,
+      "callout": {
+        "title": "A shorter tail",
+        "points": [
+          "Earlier Wi-Fi: fast on average, with some late alarms",
+          "Wi-Fi 7: the late tail almost disappears{{latency-histogram-illustrative}}",
+          "Results vary with load and devices, so pilot first"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "tail-latency",
+          "anchor": "board",
+          "term": "tail-latency",
+          "claim": "latency-histogram-illustrative"
+        }
+      ]
     },
     {
       "type": "why",
@@ -103,13 +193,28 @@
       "bottomLine": "Include worst-case latency in Wi-Fi 7 acceptance testing for alarm, voice and video applications, not only average throughput.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
-      "sceneDescription": "Alarm and voice packets flow steadily from the monitor through the access point to the nurses' station, while the Wi-Fi 7 histogram beside them stays tightly bunched. The chart is labelled illustrative.",
+      "sceneDescription": "The Wi-Fi 7 road at a busy moment: downloads keep flowing, ambulances keep arriving on time, and the arrivals board stays bunched on the left. The board is labelled illustrative.",
       "durationMs": 11000,
       "questions": [
         {
           "q": "Can we rely on Wi-Fi 7 for clinical alarms?",
           "a": "Wi-Fi is one link in the alarm chain. Wi-Fi 7 improves consistency, but alarm systems should still follow their manufacturers’ validated configurations and your clinical engineering testing.",
           "audience": "leadership"
+        }
+      ],
+      "callout": {
+        "title": "What to test",
+        "points": [
+          "Worst-case delay for alarms, voice and video, not just averages",
+          "Busy-hour tests with real downloads running",
+          "Alarm systems in their manufacturers’ validated configurations"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "latency",
+          "anchor": "board",
+          "term": "latency"
         }
       ]
     }
