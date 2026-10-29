@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { fileUrl } from './helpers.js';
 
 // FR-028: with WebGL unavailable, every animated tab falls back to build-time still images.
@@ -41,4 +42,14 @@ test('the still-image notice leaves the comparison and slide controls uncovered'
   }
   await page.locator('#step-forward').click();
   await expect(page.locator('#progress')).toContainText('Step 2 of');
+});
+
+test('the single-file copy, opened on its own, shows its inlined still images', async ({ page }) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'wifi7-single-'));
+  const copy = path.join(dir, 'wifi7-explainer.html');
+  fs.copyFileSync(path.join(root, 'dist', 'wifi7-explainer.html'), copy);
+  await page.goto(pathToFileURL(copy).href + '#/twt/2');
+  const img = page.locator('#stage img.stage-fallback');
+  await expect(img).toHaveAttribute('src', /^data:image\/jpeg;base64,/);
+  await expect.poll(() => img.evaluate((el) => el.complete && el.naturalWidth > 0)).toBe(true);
 });

@@ -17,7 +17,9 @@ export function createFallback(stageEl, noticeEl) {
     show(tabId, key, description) {
       stageEl.querySelector('.stage-empty')?.remove();
       if (!img.isConnected) stageEl.append(img);
-      img.src = `fallback/${tabId}/${key}.jpg`;
+      // The single-file build inlines the stills; the multi-file site loads them from fallback/.
+      const file = `fallback/${tabId}/${key}.jpg`;
+      img.src = globalThis.__FALLBACK_IMAGES__?.[file] ?? file;
       img.alt = description ?? '';
     },
     hide() {

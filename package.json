@@ -12,6 +12,7 @@
     "provenance": "node scripts/provenance-report.mjs",
     "build": "node scripts/build.mjs",
     "build:fast": "node scripts/build.mjs --no-snapshots",
+    "build:single": "node scripts/single-file.mjs",
     "watch": "node scripts/build.mjs --watch --no-snapshots",
     "test": "npm run validate && node --test \"tests/content/*.test.mjs\"",
     "test:e2e": "npm run build:fast && playwright test",
