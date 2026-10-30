@@ -95,14 +95,14 @@
       "heading": "Serve many devices in each transmission",
       "caption": {
         "headline": "Serve many devices in each transmission",
-        "takeaway": "[[ofdma|OFDMA]] serves several devices at once{{ofdma-ax}}; Wi-Fi 7 also spreads them across bands{{mlo-bands}}.",
+        "takeaway": "[[ofdma|OFDMA]], new in Wi-Fi 6, splits each transmission so several devices share it{{ofdma-ax}}.",
         "technical": "Before OFDMA, [[contention|contention]] gives one station the whole channel{{contention-dcf}}; [[bss-coloring|BSS coloring]] aids spatial reuse{{bss-coloring-ax}}."
       },
       "body": "Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once {{ofdma-ax}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighbouring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, [[mlo|multi-link operation]] spreads devices across bands {{mlo-bands}}, and [[multi-ru|Multi-RU]] and puncturing use spectrum that would otherwise go idle {{multi-ru-be}} {{puncturing-be}}.",
       "bottomLine": "The same access point can serve more devices with less waiting, which is how dense units stay responsive.",
       "deepDive": "Before OFDMA, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], in both directions {{ofdma-ax}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}.",
       "sceneState": "ofdma-slices",
-      "sceneDescription": "The lift now carries several devices on every trip, one per seat, standing for OFDMA serving several devices in one transmission. The queue in the lobby shrinks trip by trip and the red devices clear.",
+      "sceneDescription": "The lift now carries several devices on every trip, one per seat, labelled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear.",
       "durationMs": 14000,
       "questions": [
         {
@@ -116,10 +116,11 @@
         }
       ],
       "callout": {
-        "title": "Several devices per trip",
+        "title": "What OFDMA does",
         "points": [
-          "[[ofdma|OFDMA]] serves several devices in one transmission{{ofdma-ax}}",
-          "Each device gets its own share of the channel",
+          "Introduced with Wi-Fi 6 (802.11ax){{ofdma-ax}}",
+          "Splits one transmission into slices called resource units",
+          "Each device gets its own slice, so several are served per trip",
           "The queue clears instead of growing"
         ]
       },
@@ -143,21 +144,22 @@
       "heading": "One at a time, several at once, across bands",
       "caption": {
         "headline": "One at a time, then many at once",
-        "takeaway": "Wi-Fi 5 serves one device per transmission{{contention-dcf}}; Wi-Fi 6 several{{ofdma-ax}}; Wi-Fi 7 adds multiple bands{{mlo-bands}}.",
+        "takeaway": "Wi-Fi 6 fills each trip{{ofdma-ax}}; Wi-Fi 7 also gives each device lifts in three bands{{mlo-bands}}.",
         "technical": "Older clients still contend for the full channel{{contention-dcf}}, so mixed fleets see partial gains until refreshed."
       },
-      "body": "Wi-Fi 5 serves one device per transmission {{contention-dcf}}. Wi-Fi 6 serves several at once {{ofdma-ax}}. Wi-Fi 7 adds wider channels and more than one link, so the access point can split traffic across bands as well as within each transmission {{mlo-bands}} {{eht-max-width}}.",
+      "body": "Wi-Fi 5 serves one device per transmission {{contention-dcf}}. Wi-Fi 6 serves several at once {{ofdma-ax}}.\n\nWi-Fi 7 keeps that and adds two things. With [[mlo|multi-link operation]], one device can hold links in the 2.4, 5 and 6 GHz bands at the same time {{mlo-bands}}, under a single connection {{mlo-tid-mapping}}, so the access point can send its traffic on whichever band has room. And in 6 GHz its channels can be 320 MHz wide {{eht-max-width}}, so each transmission has room for more devices.",
       "bottomLine": "Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.",
       "deepDive": "Gains depend on device support: OFDMA and multi-link benefits apply to clients that support Wi-Fi 6 and Wi-Fi 7 respectively. Older clients still use contention and full-channel transmissions {{contention-dcf}}, so mixed device fleets see partial gains until devices are refreshed.",
       "sceneState": "gen-compare",
-      "sceneDescription": "Two lobbies side by side with the same crowd arriving. On the left, the earlier generation: one lift, carrying one device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, and the queue empties almost at once.",
+      "sceneDescription": "Two lobbies side by side with the same crowd arriving. On the left, the earlier generation: one lift, carrying one device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, labelled one device, any of three lifts. The Wi-Fi 7 queue empties almost at once.",
       "durationMs": 14000,
       "callout": {
-        "title": "Lifts by generation",
+        "title": "How each generation does it",
         "points": [
           "Wi-Fi 5: one device per trip{{contention-dcf}}",
-          "Wi-Fi 6: several devices per trip{{ofdma-ax}}",
-          "Wi-Fi 7: several per trip, across several bands{{mlo-bands}}"
+          "Wi-Fi 6: several devices per trip with OFDMA{{ofdma-ax}}",
+          "Wi-Fi 7: each device can use lifts in three bands at once{{mlo-bands}}",
+          "One connection across all its bands{{mlo-tid-mapping}}; wider channels fit more per trip{{eht-max-width}}"
         ]
       },
       "hotspots": [

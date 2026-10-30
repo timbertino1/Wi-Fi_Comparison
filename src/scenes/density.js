@@ -65,7 +65,7 @@ export default {
       const queueAnchor = new THREE.Object3D();
       queueAnchor.position.set(0, 0.2, 2.9);
       group.add(queueAnchor);
-      const titleLabel = labels.add(ap, title, { className: 'big', offset: [0, 0.75, 0] });
+      const titleLabel = labels.add(ap, title, { className: 'big', offset: [0, 1.15, 0] });
       return { group, lifts, ap, queueMesh, queueAnchor, titleLabel, capacity: 1, queue: [], time: 0, carry: 0 };
     }
 
@@ -126,7 +126,7 @@ export default {
     }
 
     const one = bank({ bands: [null], title: '' });
-    const seven = bank({ bands: ['2.4 GHz', '5 GHz', '6 GHz'], title: 'Wi-Fi 7: many per trip, several lifts' });
+    const seven = bank({ bands: ['2.4 GHz', '5 GHz', '6 GHz'], title: 'Wi-Fi 7: one device, any of three lifts' });
     const banks = [one, seven];
 
     const tag = (object, text, offset, className = 'muted') => {
@@ -137,7 +137,7 @@ export default {
     const lQueue = tag(one.queueAnchor, 'Devices waiting to send · red = waiting longest', [0, 1.1, -0.2]);
     const lTrip = tag(one.lifts[0].shaft, 'Each trip = one transmission', [1.7, 1.4, 0]);
     const lShare = tag(one.ap, 'One lift shared by every device: its airtime', [0, 1.35, 0]);
-    const lSeats = tag(one.lifts[0].car, 'Several devices per trip (OFDMA)', [1.8, 0.9, 0]);
+    const lSeats = tag(one.lifts[0].car, 'OFDMA (Wi-Fi 6): several devices per trip', [1.8, 0.9, 0]);
     const lQueue7 = tag(seven.queueAnchor, 'Hardly anyone waiting', [0, 0.9, -0.2]);
 
     // Per state: what the single bank stands for, and where each bank sits.
