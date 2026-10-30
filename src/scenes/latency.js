@@ -1,12 +1,12 @@
 // Low and predictable latency as a road from the bedside monitor to the nurses' station. Alarms are
-// ambulances; a large download is grey lorries. Every ambulance that arrives adds a block to an
+// ambulances; a large download is grey trucks. Every ambulance that arrives adds a block to an
 // arrivals board behind the road, so the late "tail" builds up live: most alarms arrive on time,
-// a few get stuck behind a lorry. Wi-Fi 7 adds a second lane (another band, multi-link) and
-// protected slots in which the lorries pull over (Restricted TWT). Timings are illustrative.
+// a few get stuck behind a truck. Wi-Fi 7 adds a second lane (another band, multi-link) and
+// protected slots in which the trucks pull over (Restricted TWT). Timings are illustrative.
 const ROAD_X0 = -4.5;
 const ROAD_X1 = 4.5;
 const LANE_W = 0.95;
-const LORRY = { len: 1.6, speed: 2.5 };
+const TRUCK = { len: 1.6, speed: 2.5 };
 const AMB = { len: 0.9, speed: 6 };
 const BUCKETS = 12;
 const BUCKET_S = 0.3;
@@ -20,7 +20,7 @@ const ALARM = '#c0392b';
 
 export default {
   id: 'latency',
-  states: ['alarm-delay', 'latency-what', 'latency-tools', 'gen-compare', 'clinical-outcome'],
+  states: ['alarm-delay', 'latency-tools', 'gen-compare'],
 
   create(ctx) {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo, seeded } = ctx;
@@ -42,7 +42,7 @@ export default {
       g.add(body, stripe, light);
       return g;
     }
-    function lorryMesh() {
+    function truckMesh() {
       const g = new THREE.Group();
       const trailer = box(1.15, 0.62, 0.62, '#8a94a6');
       trailer.position.set(-0.22, 0.36, 0);
@@ -117,8 +117,8 @@ export default {
       labels.add(late, 'Late', { className: 'muted', offset: [-0.2, -0.2, 0] });
       const boardTitle = labels.add(board, 'Alarm arrival times (illustrative)', { className: 'muted', offset: [0, 2.45, 0] });
 
-      const lorryPool = Array.from({ length: 4 * lanes }, () => {
-        const m = lorryMesh();
+      const truckPool = Array.from({ length: 4 * lanes }, () => {
+        const m = truckMesh();
         m.visible = false;
         group.add(m);
         return m;
@@ -135,34 +135,34 @@ export default {
       shoulderAnchor.position.set(-2.2, 0.1, shoulderZ);
       group.add(laneAnchor, shoulderAnchor);
 
-      return { group, lanes, laneZ, shoulderZ, pullOver, seed, ap, monitor, station, board, boardTitle, blocks, maxStack, lorryPool, ambPool, laneAnchor, shoulderAnchor };
+      return { group, lanes, laneZ, shoulderZ, pullOver, seed, ap, monitor, station, board, boardTitle, blocks, maxStack, truckPool, ambPool, laneAnchor, shoulderAnchor };
     }
 
     function reset(c) {
       c.rand = seeded(c.seed);
       c.time = 0;
-      c.lorries = [];
+      c.trucks = [];
       c.ambs = [];
       c.arrivals = [];
-      c.nextLorry = Array.from({ length: c.lanes }, (_, i) => 0.5 + i * 4.5);
+      c.nextTruck = Array.from({ length: c.lanes }, (_, i) => 0.5 + i * 4.5);
       c.nextAmb = 0.3;
     }
     const slotOn = (c) => c.pullOver && c.time % SLOT_EVERY < SLOT_LEN;
-    const entryClear = (c, lane) => !c.lorries.some((v) => v.lane === lane && v.x < ROAD_X0 + LORRY.len + 0.4) && !c.ambs.some((v) => v.lane === lane && v.x < ROAD_X0 + 1);
+    const entryClear = (c, lane) => !c.trucks.some((v) => v.lane === lane && v.x < ROAD_X0 + TRUCK.len + 0.4) && !c.ambs.some((v) => v.lane === lane && v.x < ROAD_X0 + 1);
 
     function step(c, dt) {
       c.time += dt;
       for (let lane = 0; lane < c.lanes; lane++) {
-        if (c.time >= c.nextLorry[lane] && entryClear(c, lane)) {
-          c.lorries.push({ x: ROAD_X0 + LORRY.len / 2, lane, z: c.laneZ(lane), aside: false, ...LORRY });
-          c.nextLorry[lane] = c.time + 2 + c.rand() * 5;
+        if (c.time >= c.nextTruck[lane] && entryClear(c, lane)) {
+          c.trucks.push({ x: ROAD_X0 + TRUCK.len / 2, lane, z: c.laneZ(lane), aside: false, ...TRUCK });
+          c.nextTruck[lane] = c.time + 2 + c.rand() * 5;
         }
       }
       if (c.time >= c.nextAmb) {
         // With more than one lane, the alarm takes the lane with no download ahead (multi-link).
         let lane = 0;
         if (c.lanes > 1) {
-          const ahead = (l) => c.lorries.some((v) => v.lane === l && !v.aside);
+          const ahead = (l) => c.trucks.some((v) => v.lane === l && !v.aside);
           lane = [...Array(c.lanes).keys()].find((l) => !ahead(l)) ?? 0;
         }
         if (entryClear(c, lane)) {
@@ -172,20 +172,20 @@ export default {
       }
       // Protected slot: downloads pull over to the shoulder and stop; afterwards they rejoin.
       const slot = slotOn(c);
-      for (const v of c.lorries) {
+      for (const v of c.trucks) {
         v.aside = slot;
         const targetZ = slot ? c.shoulderZ : c.laneZ(v.lane);
         v.z += (targetZ - v.z) * Math.min(1, dt * 8);
       }
       for (let lane = 0; lane < c.lanes; lane++) {
-        const inLane = [...c.lorries.filter((v) => v.lane === lane && !v.aside), ...c.ambs.filter((v) => v.lane === lane)].sort((a, b) => b.x - a.x);
+        const inLane = [...c.trucks.filter((v) => v.lane === lane && !v.aside), ...c.ambs.filter((v) => v.lane === lane)].sort((a, b) => b.x - a.x);
         let limit = Infinity;
         for (const v of inLane) {
           v.x = Math.min(v.x + v.speed * dt, limit - v.len / 2 - 0.25);
           limit = v.x - v.len / 2;
         }
       }
-      c.lorries = c.lorries.filter((v) => v.x - v.len / 2 < ROAD_X1);
+      c.trucks = c.trucks.filter((v) => v.x - v.len / 2 < ROAD_X1);
       for (const v of c.ambs) {
         if (v.x - v.len / 2 >= ROAD_X1) {
           c.arrivals.push(c.time - v.t0);
@@ -196,8 +196,8 @@ export default {
     }
 
     function draw(c) {
-      for (const [i, m] of c.lorryPool.entries()) {
-        const v = c.lorries[i];
+      for (const [i, m] of c.truckPool.entries()) {
+        const v = c.trucks[i];
         m.visible = !!v;
         if (v) m.position.set(v.x, 0.04, v.z);
       }
@@ -220,38 +220,34 @@ export default {
       l.element.style.opacity = '0';
       return l;
     };
-    const lLegend = tag(older.monitor, 'Ambulance = the alarm · lorry = a large download', [2.6, -0.45, 1]);
+    const lLegend = tag(older.monitor, 'Ambulance = an alarm · truck = a large download', [2.6, -0.45, 1]);
     const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 2.8, 0], 'big');
     const lLane = tag(seven.laneAnchor, 'Second band free: multi-link', [0, 0.5, 0.3]);
     const lSlot = tag(seven.shoulderAnchor, 'Protected slot: downloads pull over', [0, 0.5, 0.3]);
     const lOlderTitle = tag(older.ap, '', [0, 0.65, 0], 'big');
     const lSevenTitle = tag(seven.ap, 'Wi-Fi 7', [0, 0.65, 0], 'big');
-    const lOnTime = tag(seven.board, 'Alarms arrive on time, consistently', [0, 2.8, 0], 'big');
+    const lOnTime = tag(seven.board, 'Alarms arrive on time, consistently', [0, -1.15, 3], 'big');
 
     const layout = {
       'alarm-delay': { older: [0, 0], seven: null, cam: [0, 3.8, 9], look: [0, 1, -0.4] },
-      'latency-what': { older: [0, 0], seven: null, cam: [0.8, 3.6, 8.5], look: [0.8, 1.4, -1.4] },
       'latency-tools': { older: null, seven: [0, 0], cam: [0, 3.8, 9], look: [0, 1, -0.4] },
-      'gen-compare': { older: [3.9, -3.2], seven: [0, 0], cam: [0, 6.2, 13.5], look: [0, 2.2, -1.2] },
-      'clinical-outcome': { older: null, seven: [0, 0], cam: [0, 3.8, 9], look: [0, 1, -0.4] }
+      'gen-compare': { older: [3.9, -3.2], seven: [0, 0], cam: [0, 6.2, 13.5], look: [0, 2.2, -1.2] }
     };
     const labelStates = [
       [lLegend, ['alarm-delay']],
-      [lTail, ['latency-what']],
+      [lTail, ['alarm-delay']],
       [lLane, ['latency-tools']],
       [lSlot, ['latency-tools']],
       [lOlderTitle, ['gen-compare']],
       [lSevenTitle, ['gen-compare']],
-      [lOnTime, ['clinical-outcome']]
+      [lOnTime, ['gen-compare']]
     ];
     const lookTarget = { x: 0, y: 1, z: -0.4 };
     const look = new THREE.Vector3();
     const anchorSets = {
-      'alarm-delay': { ap: older.ap, monitor: older.monitor, station: older.station },
-      'latency-what': { ap: older.ap, board: older.board },
+      'alarm-delay': { ap: older.ap, monitor: older.monitor, board: older.board },
       'latency-tools': { ap: seven.ap, lane: seven.laneAnchor, shoulder: seven.shoulderAnchor },
-      'gen-compare': { ap: seven.ap, board: seven.board },
-      'clinical-outcome': { ap: seven.ap, board: seven.board }
+      'gen-compare': { ap: seven.ap, board: seven.board }
     };
     let live = false;
 

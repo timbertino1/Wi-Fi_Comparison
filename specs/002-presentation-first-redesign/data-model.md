@@ -33,6 +33,7 @@ Validation:
 | `caption.technical` | **new, optional** | ≤ 20 words; shown only in Technical depth |
 | `captionAtMs` | **new, optional** | 0–`durationMs`; default 600 |
 | `callout` | **new, optional** | `{ title, points[], atMs? }`: title ≤ 6 words, 2–4 points of ≤ 14 words; points may contain `[[term]]` and `{{claim-id}}`; `atMs` (0–`durationMs`, default caption time + 1200) is when it slides in (FR-005a) |
+| `covers` | **new, optional** | Feature chapters: extra arc parts this step also carries, after its `type` (e.g. `type: "problem"`, `covers: ["what"]`). Across the chapter, `type` + `covers` must give problem → what → how → improvement → why exactly once each, in 3–5 steps (rule 3, FR-013a) |
 | `hotspots` | **new, optional** | Array of Hotspot (below); ≤ 4 per depth per step |
 | `questions` | **new, optional** | Array of LikelyQuestion (below) |
 

@@ -279,6 +279,9 @@ with the clicker, and confirm both windows show the same step.
   chapter and at the start of the next, so the transition reads as one continuous place.
 - **FR-013**: Each feature chapter MUST keep the five-part narrative arc of constitution Principle
   II, expressed through its steps, captions and animation rather than through on-page paragraphs.
+- **FR-013a**: A feature chapter MAY tell the arc in 3–5 steps: a step can cover more than one arc
+  part (its `type` plus `covers`), as long as all five parts appear once, in order. Added
+  2026-10-29 when the presenter asked for a shorter, more direct latency chapter.
 
 **Generational comparison**
 

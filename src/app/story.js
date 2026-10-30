@@ -173,7 +173,7 @@ function renderText() {
   const tab = state.tab;
   const beat = tab.beats?.[state.beatIndex];
   const parts = [];
-  if (beat) parts.push(`<p class="beat-kicker">${BEAT_LABELS[beat.type] ?? ''}</p>`);
+  if (beat) parts.push(`<p class="beat-kicker">${[beat.type, ...(beat.covers ?? [])].map((t) => BEAT_LABELS[t] ?? '').join(' · ')}</p>`);
   parts.push(`<h2 id="tab-heading">${renderInline(tab.title, markupContext)}</h2>`);
   if (beat) {
     parts.push(`<h3>${renderInline(beat.heading, markupContext)}</h3>`);

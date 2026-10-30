@@ -1388,63 +1388,31 @@ Getting alarms, voice and video through on time, every time, not just on average
 
 ### Step 1 — The alarm stuck behind a download
 
-**On screen:** The alarm stuck behind a download / For alarms, voice and remote procedures, the rare slow message matters more than the typical one. A road runs from a bedside monitor to the nurses’ station. Each alarm is an ambulance; a large download is a line of grey lorries on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a lorry. Each arrival adds a block to an arrivals board behind the road, and the late ones are red. Hotspots: Access point, Patient monitor, Latency.
+**On screen:** The alarm stuck behind a download / Most alarms arrive at once; a few wait behind downloads, and those late ones matter most. A road runs from a bedside monitor to the nurses’ station. Each alarm is an ambulance; a large download is a line of grey trucks on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a truck. Each arrival adds a block to an arrivals board behind the road: a tall green column on the left for alarms on time, and a trail of red blocks to the right for the few that arrived late, labelled the tail. The board is labelled illustrative. Hotspots: Access point, Patient monitor, Tail latency.
 
-**Callout — Why alarms sometimes wait:**
+**Callout — Why some alarms arrive late:**
 
 - Alarms share the channel with large downloads
-- Usually the road is clear and the alarm is instant
-- Now and then it is stuck behind a download
+- Most arrive at once; a few wait behind a download
+- Those late alarms are the ones that matter [S8]
 
 **Say (leadership):** The alarm stuck behind a download.
 
-A bedside monitor raises an alarm. Its message is tiny, but the channel is busy: a workstation is pulling a large image and dozens of devices are taking turns.
+A bedside monitor raises an alarm. Its message is tiny, but it shares the channel with a workstation pulling a large image. Most of the time it gets through almost instantly; now and then it waits much longer.
 
-Most of the time the alarm gets through almost instantly. Occasionally it waits much longer — and the same happens to voice calls and to the video in a remotely supported procedure.
+Those rare late messages, the tail, are what matter for alarms, voice and remote procedures. Wi-Fi 7 was designed to cut them: the scope of IEEE 802.11be includes improved worst-case latency and jitter [S8].
 
 **Bottom line:** For alarms, voice and remote procedures, the rare slow message matters more than the typical one.
-
-**Technical depth:** No extra technical layer on this step.
-
-**Terms:**
-
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-- Patient monitor — A bedside or wearable monitor that tracks vital signs such as heart rhythm and oxygen levels and sends readings and alarms to the nurses’ station over Wi-Fi.
-- Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
-
-**Figures:**
-
-No figures cited on this step.
-
-**Likely questions:**
-
-- None written yet.
-
-### Step 2 — Fast on average is not enough
-
-**On screen:** Fast on average is not enough / Latency has a long tail; Wi-Fi 7 explicitly targets the worst-case delays [S8]. The camera moves to the arrivals board. A tall green column on the left shows most alarms arriving on time; a thin trail of red blocks stretches to the right, showing the few that arrived very late: the tail. The board is labelled illustrative. Hotspots: Tail latency, Jitter.
-
-**Callout — The average hides the tail:**
-
-- Most alarms arrive on time
-- A few arrive very late, and those are the ones that matter
-- Wi-Fi 7 was designed to cut the worst-case delays [S8]
-
-**Say (leadership):** Fast on average is not enough.
-
-Latency is how long a message takes to arrive. Two things matter: the typical delay, and how much it varies — Jitter and tail latency, the delay of the slowest messages.
-
-Wi-Fi 7 was designed with this in mind: the scope of IEEE 802.11be includes improved worst-case latency and jitter [S8].
-
-**Bottom line:** Wi-Fi 7 is the first generation that explicitly targets the worst-case delays that make real-time clinical communication unreliable.
 
 **Technical depth:** 802.11be’s scope includes improved worst-case latency and jitter [S8]; tail latency is the slowest messages’ delay.
 
 **Terms:**
 
+- Tail latency — The delay experienced by the slowest packets, such as the worst one in a hundred. It decides whether urgent messages are ever late.
 - Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
 - Jitter — Variation in latency from one packet to the next. High jitter makes calls choppy even when average latency is low.
-- Tail latency — The delay experienced by the slowest packets, such as the worst one in a hundred. It decides whether urgent messages are ever late.
+- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
+- Patient monitor — A bedside or wearable monitor that tracks vital signs such as heart rhythm and oxygen levels and sends readings and alarms to the nurses’ station over Wi-Fi.
 
 **Figures:**
 
@@ -1456,23 +1424,21 @@ Wi-Fi 7 was designed with this in mind: the scope of IEEE 802.11be includes impr
 
 - **Q (both):** How much lower is Wi-Fi 7 latency? **A:** There is no single figure: worst-case delay depends on load, device mix and configuration. The standard targets improved worst-case latency and jitter [S8]; measure it in a pilot with your own alarm and voice systems.
 
-### Step 3 — Three ways to avoid waiting
+### Step 2 — Wi-Fi 7 clears the way
 
-**On screen:** Three ways to avoid waiting / Multi-link, protected TWT slots and Multi-RU each remove a different reason urgent messages wait [S8]. Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance takes whichever lane has no download ahead. At regular protected slots the lorries pull over onto the shoulder and stop, so any ambulance passes straight through. The new arrivals board fills with green blocks on the left and almost no red. Hotspots: MLO, Restricted TWT, Multi-RU.
+**On screen:** Wi-Fi 7 clears the way / A second band and protected TWT slots keep downloads out of the alarm’s path [S8]. Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance takes whichever lane has no download ahead. At regular protected slots the trucks pull over onto the shoulder and stop, so any ambulance passes straight through. The new arrivals board fills with green blocks on the left and almost no red. Hotspots: MLO, Restricted TWT, Multi-RU.
 
-**Callout — Three ways to avoid waiting:**
+**Callout — How Wi-Fi 7 clears the way:**
 
 - Multi-link: take whichever band is free [S8, S15]
 - Restricted TWT: downloads pause in protected slots [S8]
 - Multi-RU: urgent traffic fits into spare room [S8, S7]
 
-**Say (leadership):** Three ways to avoid waiting.
+**Say (leadership):** Wi-Fi 7 clears the way.
 
-Wi-Fi 7 combines three features to cut the long waits:
+Wi-Fi 7 removes the reasons an alarm waits. **Multi-link operation** sends it on whichever band is free [S8, S15]. **Restricted TWT**, a form of Target Wake Time, reserves protected time, and other devices pause before it starts [S8]. **Multi-RU** fits urgent traffic into spare parts of the channel [S8, S7].
 
-**Multi-link operation** sends the alarm on whichever band is free [S8, S15]. **Restricted TWT**, a form of Target Wake Time, reserves protected time for latency-sensitive traffic [S8]. **Multi-RU** fits urgent traffic into spare parts of the channel [S8, S7].
-
-**Bottom line:** These features work together to remove the specific situations that make urgent messages wait.
+**Bottom line:** Each feature removes a different reason urgent messages wait.
 
 **Technical depth:** MLO uses whichever link wins access first [S8]; restricted service periods clear the air [S8]. MLO lets traffic move to the link that gains channel access first, with TID-to-link mapping steering traffic classes [S8]. Restricted TWT service periods require supporting stations to end transmissions before the period starts [S8]. Multi-RU allows flexible RU combinations per station [S8, S7]. Each one addresses a different cause of queuing delay.
 
@@ -1491,29 +1457,28 @@ Wi-Fi 7 combines three features to cut the long waits:
 | During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, restricted TWT operation |
 | 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
 | 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
-| Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, restricted TWT subclause |
 
 **Likely questions:**
 
 - **Q (technical):** Which feature helps latency most? **A:** It depends on the cause. MLO helps when one band is congested [S8], Restricted TWT when long transmissions block urgent traffic [S8], and Multi-RU when the channel has spare fragments [S8, S7].
 
-### Step 4 — A shorter tail, not just a faster average
+### Step 3 — A shorter tail, alarms on time
 
-**On screen:** A shorter tail, not just a faster average / The goal is predictability: urgent traffic arriving on time, consistently [S8]. Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board is bunched on the left with almost no tail. Both boards are labelled illustrative. Hotspots: Tail latency.
+**On screen:** A shorter tail, alarms on time / Wi-Fi 7 cuts the late tail [S8]; test worst-case delay before rollout. Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board is bunched on the left with almost no tail, labelled alarms arrive on time, consistently. Both boards are labelled illustrative. Hotspots: Tail latency.
 
-**Callout — A shorter tail:**
+**Callout — What to test:**
 
-- Earlier Wi-Fi: fast on average, with some late alarms
-- Wi-Fi 7: the late tail almost disappears [S8]
-- Results vary with load and devices, so pilot first
+- Worst-case delay for alarms, voice and video, not averages
+- Busy-hour tests with real downloads running
+- Alarm systems in their manufacturers’ validated configurations
 
-**Say (leadership):** A shorter tail, not just a faster average.
+**Say (leadership):** A shorter tail, alarms on time.
 
-Earlier generations improved typical speed but left the slow tail: a busy band, a long transmission or a crowded channel could still hold up a message. Wi-Fi 7 targets that tail directly [S8].
+Side by side, with the same alarms and downloads: the earlier generation leaves a trail of late alarms; Wi-Fi 7 keeps them bunched on time. The boards show the shape of the change, not measured values [S8].
 
-The charts here show the shape of the change, not measured values [S8].
+Wireless is one link in the alarm chain, so include worst-case delay in acceptance tests and keep alarm systems in their manufacturers’ validated configurations.
 
-**Bottom line:** The goal is predictability: urgent traffic arriving on time consistently, which is what clinical workflows depend on.
+**Bottom line:** Include worst-case latency in Wi-Fi 7 acceptance testing for alarm, voice and video, not only average throughput.
 
 **Technical depth:** Results vary with load, device mix and configuration; pilot latency-sensitive applications before rollout [S8]. Worst-case latency depends on deployment: channel load, device mix, client support for MLO and restricted TWT, and configuration of traffic classes. No figures are shown here because results vary by environment; evaluate latency-sensitive applications in a pilot before rollout [S8].
 
@@ -1525,40 +1490,8 @@ The charts here show the shape of the change, not measured values [S8].
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| The scope of IEEE 802.11be includes at least one mode of operation with improved worst-case latency and jitter | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope |
 | The latency histograms show the shape of the improvement Wi-Fi 7 targets (a shorter worst-case tail), not measured values | — (illustrative) | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope (worst-case latency and jitter objective) |
-
-**Likely questions:**
-
-- None written yet.
-
-### Step 5 — Alarms and calls that arrive on time
-
-**On screen:** Alarms and calls that arrive on time / Include worst-case latency in Wi-Fi 7 acceptance tests for alarm, voice and video. The Wi-Fi 7 road at a busy moment: downloads keep flowing, ambulances keep arriving on time, and the arrivals board stays bunched on the left. The board is labelled illustrative. Hotspots: Latency.
-
-**Callout — What to test:**
-
-- Worst-case delay for alarms, voice and video, not just averages
-- Busy-hour tests with real downloads running
-- Alarm systems in their manufacturers’ validated configurations
-
-**Say (leadership):** Alarms and calls that arrive on time.
-
-Clinical alarms, nurse calls, voice and remotely supported procedures need consistent delivery, not just a good average. Wi-Fi 7's latency features support that consistency on busy networks.
-
-Wireless networks remain one part of the alarm chain, so clinical alarm systems should still follow their manufacturers' validated configurations.
-
-**Bottom line:** Include worst-case latency in Wi-Fi 7 acceptance testing for alarm, voice and video applications, not only average throughput.
-
-**Technical depth:** No extra technical layer on this step.
-
-**Terms:**
-
-- Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
-
-**Figures:**
-
-No figures cited on this step.
+| The scope of IEEE 802.11be includes at least one mode of operation with improved worst-case latency and jitter | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope |
 
 **Likely questions:**
 
