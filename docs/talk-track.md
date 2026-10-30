@@ -1250,12 +1250,13 @@ No figures cited on this step.
 
 ### Step 3 — Serve many devices in each transmission
 
-**On screen:** Serve many devices in each transmission / OFDMA serves several devices at once [S7, S4]; Wi-Fi 7 also spreads them across bands [S8, S15]. The lift now carries several devices on every trip, one per seat, standing for OFDMA serving several devices in one transmission. The queue in the lobby shrinks trip by trip and the red devices clear. Hotspots: OFDMA, Resource unit.
+**On screen:** Serve many devices in each transmission / OFDMA, new in Wi-Fi 6, splits each transmission so several devices share it [S7, S4]. The lift now carries several devices on every trip, one per seat, labelled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear. Hotspots: OFDMA, Resource unit.
 
-**Callout — Several devices per trip:**
+**Callout — What OFDMA does:**
 
-- OFDMA serves several devices in one transmission [S7, S4]
-- Each device gets its own share of the channel
+- Introduced with Wi-Fi 6 (802.11ax) [S7, S4]
+- Splits one transmission into slices called resource units
+- Each device gets its own slice, so several are served per trip
 - The queue clears instead of growing
 
 **Say (leadership):** Serve many devices in each transmission.
@@ -1298,17 +1299,20 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 ### Step 4 — One at a time, then many at once
 
-**On screen:** One at a time, then many at once / Wi-Fi 5 serves one device per transmission [S6]; Wi-Fi 6 several [S7, S4]; Wi-Fi 7 adds multiple bands [S8, S15]. Two lobbies side by side with the same crowd arriving. On the left, the earlier generation: one lift, carrying one device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, and the queue empties almost at once. Hotspots: MLO, Contention.
+**On screen:** One at a time, then many at once / Wi-Fi 6 fills each trip [S7, S4]; Wi-Fi 7 also gives each device lifts in three bands [S8, S15]. Two lobbies side by side with the same crowd arriving. On the left, the earlier generation: one lift, carrying one device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, labelled one device, any of three lifts. The Wi-Fi 7 queue empties almost at once. Hotspots: MLO, Contention.
 
-**Callout — Lifts by generation:**
+**Callout — How each generation does it:**
 
 - Wi-Fi 5: one device per trip [S6]
-- Wi-Fi 6: several devices per trip [S7, S4]
-- Wi-Fi 7: several per trip, across several bands [S8, S15]
+- Wi-Fi 6: several devices per trip with OFDMA [S7, S4]
+- Wi-Fi 7: each device can use lifts in three bands at once [S8, S15]
+- One connection across all its bands [S8]; wider channels fit more per trip [S8, S15]
 
 **Say (leadership):** One at a time, several at once, across bands.
 
-Wi-Fi 5 serves one device per transmission [S6]. Wi-Fi 6 serves several at once [S7, S4]. Wi-Fi 7 adds wider channels and more than one link, so the access point can split traffic across bands as well as within each transmission [S8, S15] [S8, S15].
+Wi-Fi 5 serves one device per transmission [S6]. Wi-Fi 6 serves several at once [S7, S4].
+
+Wi-Fi 7 keeps that and adds two things. With multi-link operation, one device can hold links in the 2.4, 5 and 6 GHz bands at the same time [S8, S15], under a single connection [S8], so the access point can send its traffic on whichever band has room. And in 6 GHz its channels can be 320 MHz wide [S8, S15], so each transmission has room for more devices.
 
 **Bottom line:** Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.
 
@@ -1326,6 +1330,7 @@ Wi-Fi 5 serves one device per transmission [S6]. Wi-Fi 6 serves several at once 
 | Before OFDMA, devices on a Wi-Fi channel contend for the medium and transmit one at a time, using the full channel for each transmission | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
 | OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
+| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 
 **Likely questions:**
