@@ -72,6 +72,17 @@ test('rule 3: feature beats out of order', async () => {
   assert.match(await errorsFor(withTab(t)), /\[rule 3\]/);
 });
 
+test('rule 3: a step can cover several arc parts, in order, in 3 or more steps', async () => {
+  const t = featureTab();
+  const [problem, what, how, improvement] = t.beats;
+  t.beats = [{ ...problem, covers: ['what'] }, how, { ...improvement, covers: ['why'] }];
+  assert.doesNotMatch(await errorsFor(withTab(t)), /[rule 3]/);
+  t.beats = [{ ...problem, covers: ['how'] }, what, { ...improvement, covers: ['why'] }];
+  assert.match(await errorsFor(withTab(t)), /[rule 3]/);
+  t.beats = [{ ...problem, covers: ['what', 'how'] }, { ...improvement, covers: ['why'] }];
+  assert.match(await errorsFor(withTab(t)), /at least 3 steps/);
+});
+
 test('rule 4: scene states must be declared by the scene module', async () => {
   const t = featureTab({ sceneId: 'mlo' });
   const e = await errorsFor(withTab(t), { sceneDir: new URL('./fixtures/scenes', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1') });

@@ -289,8 +289,11 @@ export async function validateContent({ release = false, content = loadContent()
     const beats = tab.beats ?? [];
     if (!draft) {
       if (tab.kind === 'feature') {
-        const types = beats.map((b) => b.type).join(',');
-        if (types !== BEAT_ORDER.join(',')) err(3, `${where}: feature beats must be ${BEAT_ORDER.join(' → ')}; found ${types || 'none'}`);
+        // Each step carries its `type` plus any arc parts it also `covers`, so a chapter can tell
+        // the five-part arc in fewer, fuller steps (FR-013a).
+        const types = beats.flatMap((b) => [b.type, ...(b.covers ?? [])]).join(',');
+        if (types !== BEAT_ORDER.join(',')) err(3, `${where}: feature steps must cover ${BEAT_ORDER.join(' → ')} in order; found ${types || 'none'}`);
+        if (beats.length < 3) err(3, `${where}: feature chapters need at least 3 steps; found ${beats.length}`);
       } else if (tab.kind === 'overview' || tab.kind === 'roadmap') {
         if (beats.length < 3 || beats.length > 6) err(3, `${where}: needs 3–6 beats; found ${beats.length}`);
         for (const b of beats) if (!NARRATIVE_BEATS.includes(b.type)) err(3, `${where}: beat type "${b.type}" must be one of ${NARRATIVE_BEATS.join('/')}`);
