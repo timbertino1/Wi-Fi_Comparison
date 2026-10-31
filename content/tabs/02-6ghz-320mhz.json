@@ -3,9 +3,9 @@
   "order": 2,
   "kind": "feature",
   "title": "6 GHz Spectrum & 320 MHz Channels",
-  "summary": "A wide, uncrowded band and channels twice as wide as Wi-Fi 6E allows.",
+  "summary": "A wide band free of older devices, and channels twice as wide as Wi-Fi 6E allows.",
   "opener": {
-    "promise": "A wide, clean new band with much wider channels",
+    "promise": "A wide new band, free of older devices",
     "problem": "Crowded older bands cap capacity, however many access points you add."
   },
   "introducedIn": "wifi6e",
@@ -27,9 +27,10 @@
       "heading": "Too many devices, too few lanes",
       "caption": {
         "headline": "Too many devices, too few lanes",
-        "takeaway": "Older bands are crowded and slowed by [[legacy-device|legacy devices]]; adding access points eventually stops helping."
+        "takeaway": "Older bands are crowded and slowed by [[legacy-device|legacy devices]]; adding access points eventually stops helping.",
+        "technical": "Slow legacy devices use more [[airtime|airtime]] for the same data, and mixed networks add compatibility overhead."
       },
-      "body": "On a busy medical-surgical floor, every badge, pump, monitor and workstation shares the 2.4 GHz and 5 GHz bands — along with older devices, guest phones and the unit next door.\n\nThose bands only fit a handful of wide channels, and older [[legacy-device|legacy devices]] slow every channel they share, because newer devices must fall back to methods the older ones understand.",
+      "body": "On a busy medical-surgical floor, every badge, pump, monitor and workstation shares the 2.4 GHz and 5 GHz bands — along with older devices, guest phones and the unit next door.\n\nThose bands only fit a handful of wide channels. Older [[legacy-device|legacy devices]] send more slowly, so they hold the channel longer for the same data, and mixed networks add compatibility overhead that every device on the channel pays for.",
       "bottomLine": "Adding more access points in crowded bands eventually stops helping; capacity is limited by the spectrum itself.",
       "deepDive": null,
       "sceneState": "crowded-legacy",
@@ -39,7 +40,7 @@
         "title": "Why the old bands run out",
         "points": [
           "The 2.4 and 5 GHz bands fit only a handful of wide channels",
-          "[[legacy-device|Older devices]] make everyone sharing their channel slow down",
+          "[[legacy-device|Older devices]] send slowly and hold the channel longer",
           "Guest phones and neighbouring units crowd the same channels",
           "More access points stop helping once every channel is taken"
         ]
@@ -49,7 +50,7 @@
           "id": "legacy-device",
           "anchor": "legacy-truck",
           "term": "legacy-device",
-          "technical": "Newer devices on the same channel must fall back to older, slower ways of sharing it."
+          "technical": "Protection exchanges let older devices notice newer transmissions, at a cost in airtime for everyone on the channel."
         }
       ]
     },
@@ -76,7 +77,7 @@
         "title": "What 6 GHz adds",
         "points": [
           "1200 MHz of new spectrum for Wi-Fi in the US{{us-6ghz-total}}",
-          "Only Wi-Fi 6E and newer devices can use it{{6ghz-no-legacy}}: no legacy slowdowns",
+          "Only Wi-Fi 6E and newer devices can use it{{6ghz-no-legacy}}: no older devices",
           "Room for channels too wide to fit in the older bands{{320mhz-6ghz-only}}"
         ]
       },
@@ -95,12 +96,12 @@
       "heading": "Room for more channels, and wider ones",
       "caption": {
         "headline": "Room for more channels, and wider ones",
-        "takeaway": "The US band fits 59 channels of 20 MHz{{us-6ghz-channels-20}} or three of 320 MHz{{us-6ghz-channels-320}}.",
-        "technical": "Only Wi-Fi 6E and newer devices operate there{{6ghz-no-legacy}}; [[lpi|low-power indoor]] access points may use the whole band{{fcc-lpi}}."
+        "takeaway": "Indoors, the US band fits 59 channels of 20 MHz{{us-6ghz-channels-20}} or three of 320 MHz{{us-6ghz-channels-320}}.",
+        "technical": "Full-band counts apply to [[lpi|low-power indoor]] access points{{fcc-lpi}}; standard power is limited to U-NII-5 and U-NII-7{{fcc-sp-afc}}."
       },
-      "body": "With 1200 MHz available {{us-6ghz-total}}, the US 6 GHz band fits 59 channels of 20 MHz {{us-6ghz-channels-20}}, 29 of 40 MHz {{us-6ghz-channels-40}}, 14 of 80 MHz {{us-6ghz-channels-80}}, 7 of 160 MHz {{us-6ghz-channels-160}} or 3 non-overlapping channels of 320 MHz {{us-6ghz-channels-320}}.\n\nThe band is also clean: only Wi-Fi 6E and newer devices can operate there {{6ghz-no-legacy}}, so no [[legacy-device|legacy devices]] slow it down. Low-power indoor access points can use the whole band {{fcc-lpi}}.",
-      "bottomLine": "More, wider, uncongested channels means more capacity per access point and fewer devices competing on each channel.",
-      "deepDive": "Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz {{6ghz-ch1-lower-edge}}; each count is recomputed from those inputs. [[lpi|LPI]] access points may operate across the band without coordination {{fcc-lpi}}. [[channel-width|Channel width]] is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighbouring [[access-point|access points]] must avoid each other. Availability differs by [[regulatory-domain]]: the European harmonised band covers 5945–6425 MHz {{eu-6ghz-band}}.",
+      "body": "With 1200 MHz available {{us-6ghz-total}}, the US 6 GHz band fits 59 channels of 20 MHz {{us-6ghz-channels-20}}, 29 of 40 MHz {{us-6ghz-channels-40}}, 14 of 80 MHz {{us-6ghz-channels-80}}, 7 of 160 MHz {{us-6ghz-channels-160}} or 3 non-overlapping channels of 320 MHz {{us-6ghz-channels-320}}. Those counts are for [[lpi|low-power indoor]] access points, which may use the whole band {{fcc-lpi}}; standard-power access points use only part of it, under automated frequency coordination {{fcc-sp-afc}}.\n\nOnly Wi-Fi 6E and newer devices can operate there {{6ghz-no-legacy}}, so no [[legacy-device|legacy devices]] slow it down. It is not empty: neighbouring Wi-Fi 6E and 7 networks share it, so channel planning still matters.",
+      "bottomLine": "More and wider channels, free of older devices, means more capacity per access point and fewer devices competing on each channel.",
+      "deepDive": "Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz {{6ghz-ch1-lower-edge}}; each count is recomputed from those inputs. [[lpi|LPI]] access points may operate across the band without coordination {{fcc-lpi}}; standard-power access points are limited to U-NII-5 and U-NII-7 under AFC {{fcc-sp-afc}}, so a standard-power design has fewer channels. [[channel-width|Channel width]] is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighbouring [[access-point|access points]] must avoid each other. Availability differs by [[regulatory-domain]]: the CEPT harmonised band covers 5945–6425 MHz {{eu-6ghz-band}}.",
       "sceneState": "channels-fill",
       "sceneDescription": "Lane markings divide the 6 GHz road into four stretches: many narrow 20 MHz lanes, then 80 MHz and 160 MHz lanes, and finally three wide 320 MHz lanes, each stretch labelled with how many lanes fit {{us-6ghz-channels-20}} {{us-6ghz-channels-80}} {{us-6ghz-channels-160}} {{us-6ghz-channels-320}}. Traffic flows freely in every lane.",
       "durationMs": 15000,
@@ -108,6 +109,11 @@
         {
           "q": "Why not use the widest channels everywhere?",
           "a": "Only three fit in the US band{{us-6ghz-channels-320}}, so neighbouring access points would overlap. Dense floors usually run narrower channels and keep the widest ones for lightly shared areas such as imaging rooms.",
+          "audience": "technical"
+        },
+        {
+          "q": "Do these channel counts apply to every access point?",
+          "a": "No. They are for low-power indoor access points, which may use the whole band{{fcc-lpi}}. Standard-power access points use only U-NII-5 and U-NII-7, under automated frequency coordination{{fcc-sp-afc}}.",
           "audience": "technical"
         }
       ],
@@ -117,7 +123,7 @@
           "Neighbouring access points each get their own channel and stop competing",
           "Fewer devices share each channel, so each one waits less",
           "Narrow channels serve many small devices; wide ones move big files fast",
-          "The US band fits three 320 MHz channels{{us-6ghz-channels-320}}"
+          "Indoors, the US band fits three 320 MHz channels{{us-6ghz-channels-320}}"
         ]
       },
       "hotspots": [
@@ -134,11 +140,11 @@
       "heading": "Twice the widest channel",
       "caption": {
         "headline": "Twice the widest channel",
-        "takeaway": "Large imaging files move markedly faster when each channel is twice as wide{{width-320-vs-160}}.",
+        "takeaway": "On 320 MHz-capable devices, large imaging files move faster on channels twice as wide{{width-320-vs-160}}.",
         "technical": "3920 data subcarriers in 320 MHz versus 1960 in 160 MHz{{eht-nsd-320}}{{he-nsd-160}}."
       },
-      "body": "Wi-Fi 6E's widest channel is 160 MHz {{he-max-width}}. Wi-Fi 7 doubles it to 320 MHz {{eht-max-width}} {{width-320-vs-160}}, so a single transmission can carry roughly twice as much data under the same conditions.\n\nWi-Fi 5 and earlier cannot use 6 GHz at all {{6ghz-no-legacy}}.",
-      "bottomLine": "For data-heavy areas such as imaging and procedure rooms, Wi-Fi 7 can move large files markedly faster on the same spectrum.",
+      "body": "Wi-Fi 6E's widest channel is 160 MHz {{he-max-width}}. Wi-Fi 7 doubles it to 320 MHz {{eht-max-width}} {{width-320-vs-160}}, so a single transmission can carry roughly twice as much data under the same conditions, for devices that support 320 MHz, where such a channel is available.\n\nWi-Fi 5 and earlier cannot use 6 GHz at all {{6ghz-no-legacy}}.",
+      "bottomLine": "For data-heavy areas such as imaging and procedure rooms, 320 MHz channels {{eht-max-width}} can move large files markedly faster; on dense floors, narrower channels usually serve better.",
       "deepDive": "Doubling channel width doubles the data subcarriers per symbol (3920 in 320 MHz versus 1960 in 160 MHz) {{eht-nsd-320}} {{he-nsd-160}}. In practice, 320 MHz channels {{eht-max-width}} suit lightly shared areas; dense floors often use narrower channels so neighbouring access points can reuse spectrum, with [[preamble-puncturing|preamble puncturing]] helping wide channels survive interference (see the next chapter).",
       "sceneState": "gen-compare",
       "sceneDescription": "The 6 GHz road is split in two. On the left, the earlier generation’s seven 160 MHz lanes {{us-6ghz-channels-160}} carry mid-sized vehicles; on the right, Wi-Fi 7’s three 320 MHz lanes {{us-6ghz-channels-320}} carry trucks twice as wide. Choosing Wi-Fi 5 or Wi-Fi 6 closes the left half, because those devices cannot use 6 GHz.",
@@ -148,7 +154,7 @@
         "points": [
           "Its widest channel is twice as wide as Wi-Fi 6E’s{{width-320-vs-160}}",
           "Twice the width carries about twice the data per transmission{{eht-nsd-320}}{{he-nsd-160}}",
-          "Imaging files and video consults finish sooner, freeing [[airtime|airtime]] for others",
+          "Imaging files finish sooner on 320 MHz-capable devices{{eht-max-width}}, freeing [[airtime|airtime]]",
           "Wi-Fi 5 and Wi-Fi 6 devices cannot use 6 GHz at all{{6ghz-no-legacy}}"
         ]
       },
@@ -168,9 +174,9 @@
       "caption": {
         "headline": "Big files and video, in the right places",
         "takeaway": "6 GHz fades through walls{{6ghz-building-loss}}: plan coverage with a site survey and check local rules.",
-        "technical": "Rules differ by [[regulatory-domain|regulatory domain]]: Europe harmonises only 5945–6425 MHz{{eu-6ghz-band}}."
+        "technical": "Rules differ by [[regulatory-domain|regulatory domain]]: the CEPT harmonised band is 5945–6425 MHz{{eu-6ghz-band}}."
       },
-      "body": "Imaging transfers, telehealth video and remote consults benefit most from wide, clean channels. They can move to 6 GHz, leaving 2.4 GHz and 5 GHz for devices that cannot.\n\nThere is a trade-off: walls and building materials weaken 6 GHz signals {{6ghz-building-loss}}, so coverage needs planning, and rules differ between countries {{eu-6ghz-band}}.",
+      "body": "Imaging transfers, telehealth video and remote consults benefit most from wide channels. They can move to 6 GHz, leaving 2.4 GHz and 5 GHz for devices that cannot.\n\nThere is a trade-off: walls and building materials weaken 6 GHz signals {{6ghz-building-loss}}, so coverage needs planning, and rules differ between countries {{eu-6ghz-band}}.",
       "bottomLine": "6 GHz adds capacity where it is needed most, but it requires a site survey and may change access-point placement; check the rules for each country you operate in.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
@@ -183,7 +189,7 @@
         },
         {
           "q": "Does this work outside the United States?",
-          "a": "Rules vary by country. Europe harmonises the lower part of the band, 5945–6425 MHz{{eu-6ghz-band}}, so fewer wide channels fit. Check each country’s regulator before designing."
+          "a": "Rules vary by country. The CEPT harmonised band in Europe is the lower part, 5945–6425 MHz{{eu-6ghz-band}}, so fewer wide channels fit; national implementation varies, so check each regulator before designing."
         }
       ],
       "hotspots": [

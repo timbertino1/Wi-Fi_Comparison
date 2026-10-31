@@ -14,7 +14,20 @@ export function openerParts(tab, number, genById) {
   let badge = null;
   if (tab.kind === 'feature' && tab.opener?.badge !== false) {
     const first = genById.get(tab.introducedIn);
-    badge = !tab.introducedIn || tab.introducedIn === 'wifi7' || !first ? 'New in Wi-Fi 7' : `Improved in Wi-Fi 7 · first in ${first.name}`;
+    if (tab.lineage?.badge) badge = `Improved in Wi-Fi 7 · ${tab.lineage.badge}`;
+    else badge = !tab.introducedIn || tab.introducedIn === 'wifi7' || !first ? 'New in Wi-Fi 7' : `Improved in Wi-Fi 7 · first in ${first.name}`;
   }
   return { label: `Chapter ${number}`, tag, badge };
+}
+
+/**
+ * Opening words of a feature's lineage note ("First introduced in …"), or null for features new in
+ * Wi-Fi 7. A chapter can override it with `lineage.lead` when its history is not one generation's
+ * (WPA3 is its own programme; TWT began in 802.11ah).
+ */
+export function lineageLead(tab, genById) {
+  if (tab.kind !== 'feature' || !tab.introducedIn || tab.introducedIn === 'wifi7') return null;
+  if (tab.lineage?.lead) return tab.lineage.lead;
+  const g = genById.get(tab.introducedIn);
+  return g ? `First introduced in ${g.name} (${g.ieee}). ` : null;
 }

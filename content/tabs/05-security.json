@@ -3,13 +3,13 @@
   "order": 5,
   "kind": "feature",
   "title": "Security: WPA3 and Wi-Fi 7",
-  "summary": "WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in (Enterprise) networks, and Wi-Fi 7 and 6 GHz require it.",
+  "summary": "WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in (Enterprise) networks, and Wi-Fi 7 and 6 GHz require it for secured networks.",
   "opener": {
     "promise": "Stronger sign-in for shared-password and staff networks alike",
-    "problem": "Older WPA2 networks can be cracked offline or fooled by a fake access point."
+    "problem": "A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points."
   },
   "introducedIn": "wifi6",
-  "wifi7Adds": "WPA3 arrived alongside Wi-Fi 6 {{wpa3-mandatory-cert}}; Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, the 6 GHz band does not permit WPA2-Personal {{wpa3-6ghz-required}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.",
+  "wifi7Adds": "WPA3 launched as its own certification in 2018 {{wpa3-launched}} and is now required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}. Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, the 6 GHz band allows only WPA3 or Enhanced Open {{6ghz-security-options}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.",
   "compareGenerations": [
     "wifi5",
     "wifi6",
@@ -26,9 +26,9 @@
       "heading": "WPA2: two doors, two weak points",
       "caption": {
         "headline": "[[wpa2|WPA2]]: two doors, two weak points",
-        "takeaway": "A recorded sign-in can be cracked offline; devices can be fooled by a [[fake-access-point|fake access point]]."
+        "takeaway": "A guessable shared password can be cracked offline; a [[fake-access-point|fake access point]] can fool devices."
       },
-      "body": "Hospitals run two kinds of Wi-Fi sign-in through the same [[access-point|access points]]. Many clinical device networks use one shared password: [[wpa-personal|WPA2-Personal]]. Staff devices usually sign in with their own credentials: [[wpa-enterprise|WPA2-Enterprise]].\n\nEach has a weak point. Someone in the car park can record the moment a device joins the shared-password network, take the recording away and try millions of guesses offline, unseen {{wpa3-sae}}. On the staff network, nothing in WPA2 obliges a device to check the sign-in server’s certificate, which WPA3 makes mandatory {{wpa3-ent-cert-validation}}, so a [[fake-access-point|fake access point]] can try to collect credentials; and protecting control messages is optional {{wpa2-ent-pmf-optional}}.",
+      "body": "Hospitals run two kinds of Wi-Fi sign-in through the same [[access-point|access points]]. Many clinical device networks use one shared password: [[wpa-personal|WPA2-Personal]]. Staff devices usually sign in with their own credentials: [[wpa-enterprise|WPA2-Enterprise]].\n\nEach has a weak point. On the shared-password network, someone in the car park can record the moment a device joins, take the recording away and try millions of password guesses offline, unseen; a guessable password falls quickly {{wpa3-sae}}. On the staff network, WPA2 leaves checking the sign-in server’s certificate to each device’s configuration, which WPA3 makes mandatory {{wpa3-ent-cert-validation}}, so a misconfigured device can be fooled by a [[fake-access-point|fake access point]]; and protecting control messages is optional {{wpa2-ent-pmf-optional}}.",
       "bottomLine": "Both kinds of WPA2 network can be attacked quietly: one through a recorded sign-in, the other through a convincing fake.",
       "deepDive": null,
       "sceneState": "wpa2-risks",
@@ -37,8 +37,8 @@
       "callout": {
         "title": "WPA2’s two weak points",
         "points": [
-          "Shared password: one recorded sign-in can be guessed at offline{{wpa3-sae}}",
-          "Staff sign-in: devices need not check the server is genuine{{wpa3-ent-cert-validation}}",
+          "Shared password: a recorded sign-in lets attackers guess offline{{wpa3-sae}}",
+          "Staff sign-in: certificate checks depend on device configuration{{wpa3-ent-cert-validation}}",
           "Control messages can be forged when protection is left off{{wpa2-ent-pmf-optional}}"
         ]
       },
@@ -118,11 +118,11 @@
       "heading": "WPA3-Enterprise: no fooling the staff door",
       "caption": {
         "headline": "[[wpa3|WPA3]]-Enterprise: no fooling the staff door",
-        "takeaway": "Devices must check the server’s certificate{{wpa3-ent-cert-validation}}, and control messages must be protected{{wpa3-ent-pmf-required}}.",
-        "technical": "SHA-256 sign-in replaces SHA-1{{wpa3-ent-sha256}}; an optional 192-bit mode uses GCMP-256{{wpa3-ent-192}}."
+        "takeaway": "Devices must check the server’s certificate{{wpa3-ent-cert-validation}}; Only mode also requires protected control messages{{wpa3-ent-pmf-required}}.",
+        "technical": "Only mode: SHA-256 sign-in replaces SHA-1{{wpa3-ent-sha256}}; Transition mode offers both{{wpa3-ent-transition}}."
       },
-      "body": "On the staff network, [[wpa3|WPA3]]-Enterprise closes the fake-reader gap: a device must validate the sign-in server’s [[server-certificate|certificate]] before trusting it {{wpa3-ent-cert-validation}}, so a [[fake-access-point|fake access point]] cannot simply pose as the hospital.\n\nIt also makes [[pmf|protected management frames]] mandatory {{wpa3-ent-pmf-required}}, so attackers cannot forge the control messages that knock devices off the network, and it uses a stronger SHA-256 sign-in in place of SHA-1 {{wpa3-ent-sha256}}. For the most sensitive networks there is a 192-bit mode with the strongest encryption suites {{wpa3-ent-192}}.",
-      "bottomLine": "Staff devices keep their credentials for the real network, and a fake access point or forged disconnect no longer works.",
+      "body": "On the staff network, [[wpa3|WPA3]]-Enterprise closes the fake-reader gap: a device signing in with EAP-TLS, EAP-TTLS or PEAP must validate the sign-in server’s [[server-certificate|certificate]] before trusting it {{wpa3-ent-cert-validation}}, so a [[fake-access-point|fake access point]] cannot simply pose as the hospital.\n\nWPA3-Enterprise has two modes. **Only mode** makes [[pmf|protected management frames]] mandatory {{wpa3-ent-pmf-required}}, so attackers cannot forge the control messages that knock devices off the network, and uses a stronger SHA-256 sign-in in place of SHA-1 {{wpa3-ent-sha256}}. **Transition mode** offers both sign-ins so WPA2- and WPA3-Enterprise devices can share one network during migration {{wpa3-ent-transition}}. Separately, a 192-bit mode serves the most sensitive networks {{wpa3-ent-192}}.",
+      "bottomLine": "Staff devices keep their credentials for the real network; in Only mode, a forged disconnect no longer works either.",
       "deepDive": "In WPA3-Enterprise Only Mode the access point enables the 802.1X SHA-256 [[akm|AKM]] (00-0F-AC:5), disables the SHA-1 AKM and sets PMF Required {{wpa3-ent-sha256}} {{wpa3-ent-pmf-required}}. Server certificate validation is mandatory for EAP-TLS, EAP-TTLS and EAP-PEAP {{wpa3-ent-cert-validation}}. The 192-bit mode uses only the Suite B 192-bit AKM with GCMP-256 and BIP-GMAC-256, and does not interoperate with other modes {{wpa3-ent-192}}.",
       "sceneState": "wpa3-enterprise",
       "sceneDescription": "At the staff door, the real badge reader shows a gold certificate seal, and the fake access point is gone because the device no longer trusts it. A shield above the link shows that control messages are protected, and the workstation gets its own key.",
@@ -131,9 +131,9 @@
         "title": "What WPA3-Enterprise changes",
         "points": [
           "Devices must check the sign-in server is genuine{{wpa3-ent-cert-validation}}",
-          "Protected control messages are mandatory{{wpa3-ent-pmf-required}}",
-          "Stronger SHA-256 sign-in replaces SHA-1{{wpa3-ent-sha256}}",
-          "Optional 192-bit mode for the most sensitive networks{{wpa3-ent-192}}"
+          "Only mode: protected control messages are mandatory{{wpa3-ent-pmf-required}}",
+          "Only mode: SHA-256 sign-in replaces SHA-1{{wpa3-ent-sha256}}",
+          "Transition mode lets WPA2 and WPA3 devices share a network{{wpa3-ent-transition}}"
         ]
       },
       "hotspots": [
@@ -153,11 +153,16 @@
       "questions": [
         {
           "q": "We already use WPA2-Enterprise. What do we gain from WPA3?",
-          "a": "Mandatory certificate checks{{wpa3-ent-cert-validation}}, mandatory protected control messages{{wpa3-ent-pmf-required}} and SHA-256 sign-in{{wpa3-ent-sha256}}. Your sign-in server and credentials usually carry over; devices and access points need WPA3 support."
+          "a": "Mandatory certificate checks{{wpa3-ent-cert-validation}}, and in Only mode mandatory protected control messages{{wpa3-ent-pmf-required}} and SHA-256 sign-in{{wpa3-ent-sha256}}. Your sign-in server and credentials usually carry over; devices and access points need WPA3 support."
         },
         {
           "q": "Should we turn on 192-bit mode?",
           "a": "Only where policy demands the strongest suites. 192-bit mode uses its own sign-in and encryption suites and does not interoperate with other modes{{wpa3-ent-192}}, so every device on that network must support it.",
+          "audience": "technical"
+        },
+        {
+          "q": "Only mode or Transition mode?",
+          "a": "Transition mode lets WPA2- and WPA3-Enterprise devices share one network on 2.4 and 5 GHz{{wpa3-ent-transition}}. Wi-Fi 7 and 6 GHz associations do not use the SHA-1 sign-in{{wpa3-ent-6ghz-eht}}, so plan Only mode there.",
           "audience": "technical"
         }
       ]
@@ -166,21 +171,22 @@
       "type": "improvement",
       "heading": "Required where it matters most",
       "caption": {
-        "headline": "Wi-Fi 7 and 6 GHz: WPA3 only",
-        "takeaway": "Both doors require WPA3 there{{wpa3-6ghz-required}}{{wpa3-ent-6ghz-eht}}; older devices use a separate network meanwhile{{wpa3-dual-ssid-legacy}}."
+        "headline": "Wi-Fi 7 and 6 GHz: WPA3 sign-in",
+        "takeaway": "Both doors need WPA3 there{{wpa3-6ghz-required}}{{wpa3-ent-6ghz-eht}}; a separate older network is one migration option{{wpa3-dual-ssid-legacy}}.",
+        "technical": "Open guest networks in 6 GHz use Wi-Fi Enhanced Open instead{{6ghz-security-options}}."
       },
-      "body": "With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. In the 6 GHz band and on Wi-Fi 7, that choice goes away for both kinds of network: WPA2-Personal is not permitted in 6 GHz {{wpa3-6ghz-required}}, Wi-Fi 7 multi-link connections require WPA3 {{wpa3-mlo-required}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.\n\nDevices that cannot do WPA3 keep working on a separate, older network while they are replaced, a set-up Wi-Fi Alliance guidance describes {{wpa3-dual-ssid-legacy}}.",
+      "body": "With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. In the 6 GHz band and on Wi-Fi 7, that choice goes away for both kinds of network: WPA2-Personal is not permitted in 6 GHz {{wpa3-6ghz-required}}, Wi-Fi 7 multi-link connections require WPA3 {{wpa3-mlo-required}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}. Open guest networks there use Wi-Fi Enhanced Open {{6ghz-security-options}}.\n\nDevices that cannot do WPA3 can keep working on a separate, older network while they are replaced, one migration option that Wi-Fi Alliance guidance describes {{wpa3-dual-ssid-legacy}}. On 2.4 and 5 GHz, transition modes are another {{wpa3-ent-transition}}.",
       "bottomLine": "Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become the baseline rather than an option someone has to remember.",
       "deepDive": "For networks with EHT enabled, the WPA3 deployment guide marks as mandatory: the SAE-GDH [[akm|AKM]] (suite 24), PMF required, SAE hash-to-element only, beacon protection, and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
       "sceneState": "wpa3-only",
-      "sceneDescription": "Above both doors, the access point is labelled Wi-Fi 7 and 6 GHz, WPA3 only. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door for a separate network for older devices. A note shows what the earlier generation accepted.",
+      "sceneDescription": "Above both doors, the access point is labelled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labelled as one migration option. A note shows what the earlier generation accepted.",
       "durationMs": 14000,
       "callout": {
         "title": "What changes on Wi-Fi 7",
         "points": [
           "Shared-password networks in 6 GHz must use WPA3{{wpa3-6ghz-required}}",
           "Staff networks on Wi-Fi 7 or 6 GHz use WPA3-Enterprise{{wpa3-ent-6ghz-eht}}",
-          "Older devices move to a separate network until replaced{{wpa3-dual-ssid-legacy}}"
+          "Older devices: a separate network is one migration option{{wpa3-dual-ssid-legacy}}"
         ]
       },
       "hotspots": [
@@ -194,7 +200,7 @@
       "questions": [
         {
           "q": "Will our older clinical devices still connect?",
-          "a": "Devices without WPA3 cannot join 6 GHz networks{{wpa3-6ghz-required}} or Wi-Fi 7 multi-link connections{{wpa3-mlo-required}}. Many sites run a separate network name for older devices during the transition and retire it as devices are replaced."
+          "a": "Devices without WPA3 cannot join 6 GHz networks{{wpa3-6ghz-required}} or Wi-Fi 7 multi-link connections{{wpa3-mlo-required}}. Many long-lived clinical devices will stay on 2.4 and 5 GHz for years, on a separate network name{{wpa3-dual-ssid-legacy}} or a transition-mode network{{wpa3-ent-transition}}, until they are replaced."
         }
       ]
     },
@@ -203,9 +209,9 @@
       "heading": "Protecting clinical and device traffic",
       "caption": {
         "headline": "Protecting clinical and staff traffic",
-        "takeaway": "Every device has its own key; the side door closes as older devices are replaced."
+        "takeaway": "Every WPA3 device has its own key; benefits arrive as devices migrate."
       },
-      "body": "Hospital networks carry clinical messages, device [[telemetry|telemetry]] and staff communications. Stronger sign-in and per-session encryption make it much harder to eavesdrop on or impersonate that traffic.\n\nWPA3 is one layer of security, not a complete programme: it complements network segmentation, device management and your organisation's security and compliance processes.",
+      "body": "Hospital networks carry clinical messages, device [[telemetry|telemetry]] and staff communications. Stronger sign-in and per-session encryption make it much harder to eavesdrop on or impersonate that traffic, on the devices that use WPA3.\n\nWPA3 is one layer of security, not a complete programme: it complements network segmentation, device management and your organisation's security and compliance processes.",
       "bottomLine": "Plan WPA3 alongside clinical device refresh: some older devices may not support it, so 6 GHz and Wi-Fi 7 networks may need separate network names during the transition.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
@@ -216,7 +222,7 @@
         "points": [
           "List which clinical devices support WPA3",
           "Move staff networks to WPA3-Enterprise with certificate checks on{{wpa3-ent-cert-validation}}",
-          "Give older devices a separate network, with a date to retire it{{wpa3-dual-ssid-legacy}}"
+          "If older devices need one, a separate network with a retirement date{{wpa3-dual-ssid-legacy}}"
         ]
       },
       "questions": [
@@ -238,7 +244,7 @@
         "wifi6": "Cannot use 6 GHz",
         "wifi7": "Not permitted"
       },
-      "qualifier": "normative",
+      "qualifier": "certification",
       "regulatoryDomain": null,
       "note": null,
       "headline": true,
@@ -258,7 +264,7 @@
         "wifi6": null,
         "wifi7": "Yes"
       },
-      "qualifier": "normative",
+      "qualifier": "certification",
       "regulatoryDomain": null,
       "note": "Earlier generations have no multi-link operation.",
       "headline": true,
@@ -268,5 +274,9 @@
       }
     }
   ],
-  "sections": []
+  "sections": [],
+  "lineage": {
+    "badge": "WPA3 since 2018",
+    "lead": "A separate Wi-Fi Alliance security program, not part of one generation. "
+  }
 }

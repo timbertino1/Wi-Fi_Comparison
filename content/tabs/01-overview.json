@@ -89,7 +89,7 @@
           "Two shifts of staff devices plus patients’ and visitors’ phones share one unit’s [[airtime|airtime]]",
           "Devices take turns on a channel{{contention-dcf}}, so each new one adds waiting",
           "Small urgent messages, such as alarms and calls, queue behind large downloads",
-          "Wi-Fi 7 spreads devices across bands{{mlo-bands}} and serves many per transmission{{ofdma-ax}}"
+          "Wi-Fi 7 spreads devices across bands{{mlo-bands}}; Wi-Fi 6 and 7 serve many per transmission{{ofdma-ax}}"
         ]
       },
       "hotspots": [
@@ -142,7 +142,7 @@
         "headline": "Each chapter: a hospital problem, then the fix",
         "takeaway": "Every chapter follows one pattern: the problem, the feature, how it works, and why it matters."
       },
-      "body": "Each chapter tells one part of the story in a few steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care. The last chapter brings it together.\n\nUse the **Audience** switch at the top for a leadership summary or the full technical detail. Every figure links to its source — select any small number in brackets to see where it came from and how it was calculated.",
+      "body": "Each chapter tells one part of the story in a few steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care. The last chapter brings it together.\n\nEvery figure links to its source — select any small number in brackets to see where it came from and how it was calculated.",
       "bottomLine": "Start with the chapters that match your current pain points; each one stands on its own.",
       "deepDive": null,
       "sceneState": "timeline-wifi7",

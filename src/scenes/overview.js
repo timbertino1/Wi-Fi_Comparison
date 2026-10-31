@@ -102,10 +102,10 @@ export default {
     const WINS = {
       'voice-badge': 'Steadier calls · multi-link',
       'infusion-pump': 'Safer sign-in · WPA3',
-      'telemetry-monitor': 'Alarms on time',
-      phone: 'Room for everyone · OFDMA',
-      'workstation-cart': 'Big files fast · 6 GHz',
-      'rtls-tag': 'Battery lasts the shift · TWT'
+      'telemetry-monitor': 'Alarms wait less',
+      phone: 'Room for more · OFDMA',
+      'workstation-cart': 'Faster big files · 6 GHz',
+      'rtls-tag': 'Longer battery life · TWT'
     };
     const winLabels = Object.entries(WINS).map(([id, text]) => {
       const l = labels.add(typeAnchors[id], text, { className: 'big', offset: [0, 0.55, 0] });
@@ -139,7 +139,9 @@ export default {
       pillar.scale.y = 0.001;
       timeline.add(pillar);
       const year = ctx.claim(gen.yearClaimId).value;
-      const label = labels.add(pillar, `${gen.name} · ${year}`, { className: 'big', offset: [0, height + 0.45, 0] });
+      // Years mix IEEE publication (Wi-Fi 4, 5) and Wi-Fi Alliance certification launch (6 onwards).
+      const kind = gen.yearClaimId.endsWith('-published') ? 'IEEE' : 'certified';
+      const label = labels.add(pillar, `${gen.name} · ${kind} ${year}`, { className: 'big', offset: [0, height + 0.45, 0] });
       label.element.style.opacity = '0';
       labels.add(pillar, gen.ieee, { className: 'muted', offset: [0, -0.35, 0.6] }).element.style.opacity = '0';
       return { pillar, height, label, gen };

@@ -13,6 +13,8 @@ const TAGS = { feature: 'Wi-Fi 7 feature', overview: 'Why it matters', roadmap: 
 function expectedBadge(tab) {
   if (tab.kind !== 'feature' || tab.opener.badge === false) return null;
   if (!tab.introducedIn || tab.introducedIn === 'wifi7') return 'New in Wi-Fi 7';
+  // A chapter whose history is not one generation's names it itself (WPA3, TWT).
+  if (tab.lineage?.badge) return `Improved in Wi-Fi 7 · ${tab.lineage.badge}`;
   return `Improved in Wi-Fi 7 · first in ${generations.find((g) => g.id === tab.introducedIn).name}`;
 }
 
