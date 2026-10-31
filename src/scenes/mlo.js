@@ -173,6 +173,9 @@ export default {
       }
     }
 
+    // Close-ups aim a little higher, so the access point's title sits clear of the caption.
+    const lookY = () => (mode === 'modes-compare' || mode === 'gen-compare' ? 1.4 : 1.9);
+
     return {
       async setState(name, { animate = true, signal } = {}) {
         mode = name;
@@ -191,7 +194,7 @@ export default {
         layoutPackets(single, 0);
         layoutPackets(multi, 0);
         layoutModes(0);
-        camera.lookAt(0, 1.4, 0);
+        camera.lookAt(0, lookY(), 0);
         ctx.requestRender();
       },
       setGeneration(genId) {
@@ -201,7 +204,7 @@ export default {
         ctx.requestRender();
       },
       update(dt) {
-        camera.lookAt(0, 1.4, 0);
+        camera.lookAt(0, lookY(), 0);
         if (!motionFull) return;
         time += dt;
         if (mode === 'clinical-outcome') multi.flows[1].busy = Math.floor(time / 4) % 2 === 0;

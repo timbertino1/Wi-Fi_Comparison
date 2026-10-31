@@ -53,7 +53,8 @@ export default {
           return seat;
         });
         group.add(shaft, car);
-        if (band) labels.add(shaft, band, { className: 'muted', offset: [0, 1.95, 0] });
+        // The middle band's label sits lower, so neighbouring labels never meet.
+        if (band) labels.add(shaft, band, { className: 'muted', offset: [0, 1.95 - (i % 2) * 0.6, 0] });
         return { shaft, car, cab, seats, phase: i / bands.length, boarded: 0 };
       });
       const { group: ap } = kit.accessPoint({ color: '#f2f5f9', ledColor: palette.wifi7 });

@@ -221,7 +221,7 @@ export default {
       return l;
     };
     const lLegend = tag(older.monitor, 'Ambulance = an alarm · truck = a large download', [2.6, -0.45, 1]);
-    const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 3.2, 0], 'big'); // above the board's title
+    const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 2.45, 0], 'big'); // in place of the board's title
     const lLane = tag(seven.laneAnchor, 'Second band free: multi-link', [0.6, 0.1, 1.4]); // in front, clear of Late
     const lSlot = tag(seven.shoulderAnchor, 'Protected slot: downloads pull over', [0, 0.5, 0.3]);
     // Generation names sit under each access point, in the open air above the road.
@@ -233,7 +233,7 @@ export default {
       // Aimed a little right of the road, so the nurses' station clears the callout.
       'alarm-delay': { older: [0, 0], seven: null, cam: [0.7, 3.8, 9], look: [0.7, 1, -0.4] },
       'latency-tools': { older: null, seven: [0, 0], cam: [0.7, 3.8, 9], look: [0.7, 1, -0.4] },
-      'gen-compare': { older: [3.9, -3.2], seven: [0, 0], cam: [0, 6.2, 13.5], look: [0, 2.2, -1.2] }
+      'gen-compare': { older: [3.9, -3.2], seven: [0, 0], cam: [0, 6.2, 13.5], look: [0, 2.6, -1.2] }
     };
     const labelStates = [
       [lLegend, ['alarm-delay']],
@@ -265,6 +265,8 @@ export default {
       }
       labels.setText(lOlderTitle, genName(compareGen));
       for (const [label, states] of labelStates) label.element.style.opacity = states.includes(name) ? '1' : '0';
+      // On the first step the tail label takes the board title's place.
+      older.boardTitle.element.style.opacity = name === 'alarm-delay' ? '0' : '1';
     }
 
     return {

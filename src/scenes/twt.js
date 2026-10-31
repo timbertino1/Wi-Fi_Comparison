@@ -4,9 +4,9 @@
 // sleep in between and last the shift. Restricted TWT adds a busy laptop that pauses for protected
 // slots so the badge's call gets through. Battery levels are illustrative (no figures).
 const DEVICES = [
-  { id: 'badge', type: 'voice-badge', label: 'Voice badge', scale: 2.4, x: -4.2, awake: 1.55, twt: 0.42, offset: 0 },
+  { id: 'badge', type: 'voice-badge', label: 'Voice badge', scale: 2.4, x: -4.4, awake: 1.55, twt: 0.42, offset: 0 },
   { id: 'tag', type: 'rtls-tag', label: 'Location tag', scale: 3, x: -1.6, awake: 1.2, twt: 0.28, offset: 0.035 },
-  { id: 'monitor', type: 'telemetry-monitor', label: 'Patient monitor', scale: 1.5, x: 1, awake: 1.35, twt: 0.36, offset: 0.07 }
+  { id: 'monitor', type: 'telemetry-monitor', label: 'Patient monitor', scale: 1.5, x: 1.2, awake: 1.35, twt: 0.36, offset: 0.07 }
 ];
 const WAKES = [0.1, 0.3, 0.5, 0.7, 0.9]; // agreed wake-ups, as fractions of the shift
 const WAKE_LEN = 0.04;
@@ -101,12 +101,12 @@ export default {
     laptop.scale.setScalar(1.4);
     laptop.position.y = 0.7;
     laptopGroup.add(laptopPlinth, laptop);
-    const lLaptop = labels.add(laptopGroup, 'Laptop downloading', { className: 'big', offset: [0.4, 1.9, 0] }); // a little right, clear of the monitor's battery
+    const lLaptop = labels.add(laptopGroup, 'Laptop downloading', { className: 'big', offset: [0.7, 1.9, 0] }); // a little right, clear of the monitor's battery
     let laptopText = 'Laptop downloading';
     const { mesh: laptopBeam } = kit.linkBeam(new THREE.Vector3(3.9, 1.3, 0), ap.position.clone().add(new THREE.Vector3(0, -0.15, 0)), { color: neutral.device, arch: 0.5, radius: 0.11 });
     scene.add(laptopBeam);
     const lCall = tag(devices[0].battery, 'Protected slot: the call goes through', [0, 1.15, 0]);
-    const lCompare = tag(laptopGroup, '', [0.4, 2.5, 0]);
+    const lCompare = tag(laptopGroup, '', [0.7, 1.35, 0]); // under the laptop's own label
     const compareText = () => `${genName(compareGen)}: no protected time slots`;
 
     // --- The shift bar along the front: it fills as the shift goes by.

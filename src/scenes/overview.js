@@ -59,9 +59,9 @@ export default {
       // floor, clear of the callout card on the right.
       { id: 'voice-badge', scale: 0.62, where: 'any', spot: [-5.2, 1.9] },
       { id: 'infusion-pump', scale: 0.38, where: 'room', spot: [-3.0, -2.4] },
-      { id: 'telemetry-monitor', scale: 0.5, where: 'room', spot: [-0.5, 2.6] },
+      { id: 'telemetry-monitor', scale: 0.5, where: 'room', spot: [-0.4, 3.4] },
       { id: 'phone', scale: 0.55, where: 'any', spot: [2.6, 2.2] },
-      { id: 'workstation-cart', scale: 0.42, where: 'corridor', spot: [-2.4, 0.6] },
+      { id: 'workstation-cart', scale: 0.42, where: 'corridor', spot: [-3.2, 0.6] },
       { id: 'rtls-tag', scale: 0.85, where: 'any', spot: [-3.4, 2.8] }
     ];
     const genColor = new THREE.Color(palette.wifi7);
