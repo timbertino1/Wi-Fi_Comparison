@@ -46,8 +46,8 @@ export default {
       const sign = new THREE.Object3D();
       sign.position.set(0, 2.45, 0.2);
       group.add(sign);
-      labels.add(sign, label, { className: 'big' });
-      return { group, panel, sign };
+      const signLabel = labels.add(sign, label, { className: 'big' });
+      return { group, panel, sign, signLabel };
     }
     const personalDoor = door(-3, 'Shared password · Personal');
     const enterpriseDoor = door(3, 'Staff sign-in · Enterprise');
@@ -120,6 +120,8 @@ export default {
     // --- The side door for older devices, and an older device sent to it.
     const sideDoor = door(6.4, 'Older devices · separate network');
     sideDoor.group.scale.setScalar(0.8);
+    // Its sign rides above the wall, clear of the staff door's sign beside it.
+    sideDoor.sign.position.y = 4;
     const oldDevice = kit.client('phone', { color: neutral.device });
     oldDevice.scale.setScalar(0.9);
     ward.add(oldDevice);
@@ -133,16 +135,17 @@ export default {
       return l;
     };
     const lOutsider = tag(outsider, 'Outsider', [0, 1.75, 0]);
-    const lCracked = tag(deskLock.group, 'Recorded sign-in, cracked at a desk', [0, 0.55, 0]);
-    const lSealed = tag(deskLock.group, 'Recording is useless: nothing to test', [0, 0.55, 0]);
+    // The desk's labels sit below it, in front, so they clear the outsider's label and the slide edge.
+    const lCracked = tag(deskLock.group, 'Recorded sign-in, cracked at a desk', [1, -1.25, 0.4]);
+    const lSealed = tag(deskLock.group, 'Recording is useless: nothing to test', [1, -1.25, 0.4]);
     const lLive = tag(keypad, 'Every guess must be live, at the door', [1.1, -0.75, 0.3]);
     const lFake = tag(fake, 'Fake access point', [0, 2.6, 0]);
     const lCert = tag(seal, 'Device checks the certificate', [1.4, 0.05, 0.3]);
     const lShield = tag(shield, 'Control messages protected', [0, 0.75, 0]);
     const lKeys = tag(pumpKey.group, 'Each device gets its own key', [0, 0.45, 0]);
     const lOnly = tag(ap, 'Wi-Fi 7 · 6 GHz: WPA3 only', [0, 0.65, 0], 'big');
-    const lOlder = tag(ap, '', [0, 1.15, 0]);
-    const lRetire = tag(sideDoor.sign, 'Retire as devices are replaced', [0, -0.95, 0]);
+    const lOlder = tag(ap, '', [0, 1.3, 0]);
+    const lRetire = tag(sideDoor.sign, 'Retire as devices are replaced', [0, -1.9, 0]);
     const olderText = () => `${genName(compareGen)}: WPA2 or WPA3 accepted`;
     labels.setText(lOlder, olderText());
 
@@ -211,6 +214,11 @@ export default {
         realLink.visible = !risks;
         seal.visible = enterprise || only || outcome;
         shield.visible = enterprise || outcome;
+
+        // A close-up on one door leaves the other at the slide edge or under the callout: its sign
+        // steps back.
+        personalDoor.signLabel.element.style.opacity = enterprise ? '0' : '1';
+        enterpriseDoor.signLabel.element.style.opacity = personal ? '0' : '1';
 
         // Each device's own key appears once its door is WPA3.
         pumpKey.group.visible = !risks;

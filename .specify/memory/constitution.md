@@ -1,3 +1,12 @@
+<!--
+Sync Impact Report (2.0.0, 2026-10-30)
+- Removed required feature coverage item 7, Bandwidth and PoE / wired-infrastructure impact.
+  Reason: the presenter dropped the Bandwidth & PoE and Wi-Fi 8 chapters and asked for a closing
+  recap instead (feature 002, FR-011b). MAJOR because a required-coverage item was removed.
+- Principle II: technical depth is now always shown after the plain-language core, not "on
+  demand" (feature 002, FR-020: the Leadership/Technical switch was removed).
+- Templates: no changes needed.
+-->
 # Wi-Fi 7 Explained: A Healthcare Story Constitution
 
 ## Core Principles
@@ -42,7 +51,8 @@ on neutrality and on numbers that hold up to scrutiny.
   4. **How it improves** — explicit before/after versus Wi-Fi 6/6E and earlier.
   5. **Why it matters in healthcare** — the outcome for clinicians, patients, or IT.
 - Copy MUST be written for a mixed audience (clinical leadership, biomed, and network
-  engineers): lead with plain language, then offer technical depth on demand.
+  engineers): lead with plain language, then give the technical depth (shown alongside it since
+  2026-10-30, at the presenter's request; earlier it was behind a switch).
 - Audience depth MUST be layered within one story, not split into separate versions: a shared
   plain-language core seen by everyone, a leadership layer (impact, risk, cost, planning), and a
   technical layer (mechanism and protocol detail). Every layer draws on the same facts and
@@ -149,7 +159,10 @@ trustworthy to deploy, and its repository must resist accidental or malicious ch
 4. WPA3 and Wi-Fi 7 security requirements
 5. Target Wake Time (TWT) and client battery life
 6. Client density and its healthcare implications
-7. Bandwidth and Power over Ethernet (PoE) / wired-infrastructure impact
+
+Bandwidth and Power over Ethernet (PoE) is no longer a required chapter (removed 2026-10-30 at
+the presenter's request); wired-infrastructure planning is covered as one item in the closing
+chapter instead.
 
 Additional chapters MAY be added through the spec process, provided they meet all principles. An
 overview/introduction and a references section are expected in addition to feature chapters.
@@ -195,4 +208,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 1.3.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-27
+**Version**: 2.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-30

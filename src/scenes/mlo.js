@@ -1,9 +1,9 @@
 // Multi-Link Operation: one link that clogs versus several links that share the load, plus the four
 // multi-link modes defined in 802.11be.
 const BANDS = [
-  { id: '6', label: '6 GHz', arch: 1.6, bend: -3.2 },
-  { id: '5', label: '5 GHz', arch: 1.6, bend: 0 },
-  { id: '2.4', label: '2.4 GHz', arch: 1.6, bend: 3.2 }
+  { id: '6', label: '6 GHz', arch: 1.6, bend: -3.2, at: 0.4 },
+  { id: '5', label: '5 GHz', arch: 1.6, bend: 0, at: 0.5 },
+  { id: '2.4', label: '2.4 GHz', arch: 1.6, bend: 3.2, at: 0.6 }
 ];
 const VOICE = 6;
 const BULK = 4;
@@ -40,7 +40,7 @@ export default {
         mesh.material.opacity = 0.85;
         group.add(mesh);
         const anchor = new THREE.Object3D();
-        anchor.position.copy(curve.getPoint(0.5));
+        anchor.position.copy(curve.getPoint(band.at)); // staggered so the three labels do not stack
         anchor.position.y += 0.35;
         group.add(anchor);
         const label = labels.add(anchor, band.label, { className: 'muted' });

@@ -16,7 +16,7 @@ test('navigation, deep links and the story work over HTTP with hardening headers
     if (!req.url().startsWith(server.url) && !/^(data|blob):/.test(req.url())) external.push(req.url());
   });
   await page.goto(server.url);
-  await expect(page.locator('#chapter-list a')).toHaveCount(11);
+  await expect(page.locator('#chapter-list a')).toHaveCount(10);
   await page.goto(`${server.url}#/overview/4`);
   await page.locator('#step-forward').click();
   await expect(page.locator('#chapter-list a[data-chapter="spectrum"]')).toHaveAttribute('aria-current', 'step');

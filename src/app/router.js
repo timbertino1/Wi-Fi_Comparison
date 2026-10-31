@@ -1,7 +1,7 @@
 // Hash routing per contracts/ui-navigation.md: #/<tabId>/<beat>?gen=…&view=…&present&ref=…&claim=…&test
 // Works identically from file:// and a static host.
 
-const PERSISTENT = ['view', 'present', 'test']; // carried across tab changes
+const PERSISTENT = ['present', 'test']; // carried across tab changes
 const listeners = new Set();
 let tabIds = [];
 let defaultTab = 'overview';

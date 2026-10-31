@@ -143,9 +143,6 @@ export function initHotspots(options) {
   // Markers follow the step; the scene publishes the anchors for its state once it is set.
   story.on('beat', () => clearMarkers());
   story.on('settled', renderMarkers);
-  document.addEventListener('viewchange', () => {
-    if (story.snapshot().instance) renderMarkers();
-  });
   document.addEventListener('click', (e) => {
     if (openMarker && !card.contains(e.target) && !e.target.closest('.hotspot-marker, [role="dialog"]:not(#hotspot-card)')) closeCard({ focus: false });
   });

@@ -8,7 +8,7 @@ const enforce = !process.env.CI;
 
 test.use({ launchOptions: { args: ['--enable-gpu', '--ignore-gpu-blocklist', '--use-angle=default'] } });
 test.describe.configure({ mode: 'serial' });
-const BUSIEST = [['overview', 2], ['mlo', 3], ['density', 3], ['latency', 3], ['twt', 3], ['bandwidth-poe', 3]];
+const BUSIEST = [['overview', 2], ['mlo', 3], ['density', 3], ['latency', 3], ['twt', 3], ['security', 3]];
 
 test.describe('performance', () => {
   test.skip(({ browserName }) => browserName !== 'chromium', 'Measured in Chromium only');

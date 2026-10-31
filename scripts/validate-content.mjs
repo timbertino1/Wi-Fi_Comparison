@@ -124,7 +124,7 @@ export async function validateContent({ release = false, content = loadContent()
   for (const c of claims) if (refById.has(c.id)) err(1, `claim id "${c.id}" collides with a reference id`);
   const orders = tabs.map((t) => t.order).sort((a, b) => a - b);
   orders.forEach((o, i) => { if (o !== i + 1) err(1, `tab order must be contiguous from 1; found ${orders.join(',')}`); });
-  if (tabs.length !== 11) err(1, `expected 11 tabs, found ${tabs.length}`);
+  if (tabs.length !== 10) err(1, `expected 10 tabs, found ${tabs.length}`);
 
   // Usage tracking for orphan checks (rules 10, 18).
   const citedRefs = new Set();
@@ -297,6 +297,10 @@ export async function validateContent({ release = false, content = loadContent()
       } else if (tab.kind === 'overview' || tab.kind === 'roadmap') {
         if (beats.length < 3 || beats.length > 6) err(3, `${where}: needs 3–6 beats; found ${beats.length}`);
         for (const b of beats) if (!NARRATIVE_BEATS.includes(b.type)) err(3, `${where}: beat type "${b.type}" must be one of ${NARRATIVE_BEATS.join('/')}`);
+      } else if (tab.kind === 'closing') {
+        // The closing recap is short by design (FR-011b).
+        if (beats.length < 2 || beats.length > 4) err(3, `${where}: needs 2–4 beats; found ${beats.length}`);
+        for (const b of beats) if (!NARRATIVE_BEATS.includes(b.type)) err(3, `${where}: beat type "${b.type}" must be one of ${NARRATIVE_BEATS.join('/')}`);
       }
     }
 
@@ -441,7 +445,11 @@ export async function validateContent({ release = false, content = loadContent()
   }
 
   // Rules 10, 18: orphans.
-  for (const r of references) if (!citedRefs.has(r.id)) releaseOrWarn(10, `reference ${r.id} is never cited`);
+  // Retired references stay in the list only so talk-track source numbers (S1, S2…) never shift.
+  for (const r of references) {
+    if (r.retired && citedRefs.has(r.id)) err(10, `reference ${r.id} is retired but still cited`);
+    else if (!r.retired && !citedRefs.has(r.id)) releaseOrWarn(10, `reference ${r.id} is never cited`);
+  }
   for (const c of claims) if (!usedClaims.has(c.id)) releaseOrWarn(18, `claim ${c.id} is never used`);
 
   // Rule 7: vendor denylist over every string; rule 8: guarantee wording.

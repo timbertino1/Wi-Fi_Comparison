@@ -13,8 +13,7 @@ Source markers such as [S3] refer to the References section at the end.
 6. Target Wake Time & Battery Life
 7. Client Density
 8. Low & Predictable Latency
-9. Bandwidth, Peak Rates & PoE
-10. What’s Next: Wi-Fi 8
+9. Bringing it together
 - Generations · Glossary · Claims register · References
 
 ## 1. Why Wi-Fi 7, and why now
@@ -117,7 +116,7 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 
 **Bottom line:** Wi-Fi 7 is the current generation: devices and access points are certified and shipping, so it belongs in today's refresh plans.
 
-**Technical depth:** Wi-Fi 4 to 6 map to IEEE 802.11n, ac and ax [S3]; 802.11be was approved in September 2024 [S8]. Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be [S3]. IEEE approved 802.11be on 2024-09-26 [S8] and published it on 2025-07-22 [S8].
+**Technical depth:** Wi-Fi 4 to 6 map to IEEE 802.11n, ac and ax [S3]; 802.11be was approved in September 2024 [S8]. Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be [S3]. IEEE approved 802.11be on 2024-09-26 [S8] and published it on 2025-07-22 [S8]. Theoretical peak rates rose from 600 Mbps for Wi-Fi 4 [S6] to 6.93 Gbps for Wi-Fi 5 [S6], 9.61 Gbps for Wi-Fi 6 [S7] and 46.1 Gbps for Wi-Fi 7 [S8]; these assume every option at its maximum, and real devices reach far less.
 
 **Terms:**
 
@@ -135,6 +134,10 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 | Wi-Fi CERTIFIED 7 program launched | 2024 year | S16 Wi-Fi Alliance introduces Wi-Fi CERTIFIED 7 | Press release, 2024-01-08 |
 | IEEE 802.11be approved by the IEEE SA Standards Board | 2024-09-26 date | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: board approval date |
 | IEEE 802.11be published | 2025-07-22 date | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: published date |
+| Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval | 600 Mbps | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 19, HT MCS 31 rate table |
+| Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval | 6.93 Gbps | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21, VHT-MCS 9 rate table |
+| Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval | 9.61 Gbps | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE-MCS 11 rate table |
+| Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval | 46.1 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 13 rate table |
 
 **Likely questions:**
 
@@ -146,7 +149,7 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 
 **Say (leadership):** How to use this story.
 
-Each chapter tells one part of the story in five steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care.
+Each chapter tells one part of the story in a few steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care. The last chapter brings it together.
 
 Use the **Audience** switch at the top for a leadership summary or the full technical detail. Every figure links to its source — select any small number in brackets to see where it came from and how it was calculated.
 
@@ -1510,334 +1513,87 @@ Wireless is one link in the alarm chain, so include worst-case delay in acceptan
 | Restricted TWT | n/a | Yes | required by the standard | [S8] |
 | Multiple resource units per device | n/a | Yes | required by the standard | [S8, S7] |
 
-## 9. Bandwidth, Peak Rates & PoE
+## 9. Bringing it together
 
-What faster Wi-Fi asks of the switches, cabling and power behind every access point.
+The same hospital floor, now on Wi-Fi 7: what changes for each device, and what to plan.
 
-**Opener** (its own click): Chapter 9 · Wi-Fi 7 feature — Bandwidth, Peak Rates & PoE. Switches, cabling and power that let Wi-Fi 7 deliver. The problem: New access points on old switch ports and power budgets cannot reach their potential.
+**Opener** (its own click): Chapter 9 · In summary — Bringing it together. What Wi-Fi 7 changes on the floor, in one view. The problem: Eight chapters of features; the decision needs one picture and a short plan.
 
-**Healthcare scenario — New inpatient wing** (devices: access point, network switch)
+### Step 1 — The same hospital, on Wi-Fi 7
 
-- Problem: New access points are planned for switch ports and power budgets that were sized for earlier generations.
-- What Wi-Fi 7 supports: Planning multi-gigabit uplinks and PoE budgets with the access points supports getting the full benefit of Wi-Fi 7 from day one.
+**On screen:** The same hospital, on Wi-Fi 7 / Every kind of device on the floor gains something different from Wi-Fi 7. The hospital floor from the first chapter, full of devices and busy with traffic flowing to the access points. A label above one of each kind of device names its gain: voice badges, steadier calls with multi-link; infusion pumps, safer sign-in with WPA3; patient monitors, alarms on time; phones, room for everyone with OFDMA; workstations, big files fast on 6 GHz; location tags, batteries that last the shift with TWT.
 
-### Step 1 — New access points, old wiring closets
+**Callout — What Wi-Fi 7 brings:**
 
-**On screen:** New access points, old wiring closets / A Wi-Fi 7 project is also a wired-network project: budget switches, power and cabling together. The access point is drawn as a sprinkler head on the ceiling, fed from the wiring closet by one pipe that carries both data and power. On an old 1 Gb/s port [S12] the pipe is thin and the spray from two nozzles is weak. The power gauge on the closet sits below the red line showing what the access point needs, so two nozzles, standing for radios, stay dry. Hotspots: Access point, Uplink, PoE.
+- Wide, clean 6 GHz channels, twice as wide as before [S8, S7]
+- One connection across several bands [S8, S15]
+- Longer battery life and alarms that wait less [S9, S7]
+- WPA3 as the baseline, not an option [S19, S25]
 
-**Callout — Old closets hold back new radios:**
+**Say (leadership):** The same hospital, on Wi-Fi 7.
 
-- Each access point gets data and power through one switch port
-- An old 1 Gb/s port is a thin pipe [S12]
-- Too little power, and some radios switch off
+Back on the floor where we started. Badges keep calls steady by using more than one band [S8, S15]. Location tags and badges sleep between agreed wake-ups, so batteries last the shift [S9, S7]. Pumps and staff devices sign in with WPA3, which Wi-Fi 7 and the 6 GHz band require [S19, S25] [S19].
 
-**Say (leadership):** New access points, old wiring closets.
+Workstations move large images faster on wide 6 GHz channels [S8, S7], crowded units serve many devices per transmission [S7, S4], and alarms are designed to wait less behind other traffic [S8].
 
-A hospital plans a Wi-Fi 7 refresh for a new wing. The wireless side looks fast — but each access point still plugs into a switch port, through a cable, drawing its power from that switch.
-
-If the switch ports are 1 Gb/s [S12] and the power budget was sized for older access points, the new radios cannot deliver what they promise.
-
-**Bottom line:** A Wi-Fi 7 project is also a wired-network project; budget for switches, power and cabling at the same time.
+**Bottom line:** Wi-Fi 7 is not one feature: each chapter fixes a different problem on the same floor.
 
 **Technical depth:** No extra technical layer on this step.
 
 **Terms:**
 
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-- Uplink — The wired connection from an access point back to the network switch. All of the access point's traffic shares it.
-- PoE — Delivering electrical power to an access point over the same Ethernet cable that carries its data.
+- WPA3 — The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options.
 
 **Figures:**
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| 1000BASE-T Ethernet carries 1 Gb/s over twisted-pair cabling | 1 Gb/s | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 40 (1000BASE-T) |
+| A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
+| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
+| WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
+| Password-based authentication over Wi-Fi 7 MLO requires WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites) |
+| A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel | 2 × | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 |
+| OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
+| The scope of IEEE 802.11be includes at least one mode of operation with improved worst-case latency and jitter | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope |
 
 **Likely questions:**
 
-- None written yet.
+- **Q (both):** Which chapter matters most for us? **A:** Start with today's biggest pain point: crowded units point to density and 6 GHz, dropped calls to multi-link, battery swaps to Target Wake Time, and audit findings to WPA3.
 
-### Step 2 — Peak rates are a ceiling, not a forecast
+### Step 2 — What to plan
 
-**On screen:** Peak rates are a ceiling, not a forecast / Wi-Fi 7’s theoretical peak is 46.1 Gbps [S8]; real devices and networks achieve far less. A close view of the sprinkler head. A large wireframe spray shows its rated maximum, labelled with Wi-Fi 7’s theoretical peak rate [S8], and the earlier generation’s rated maximum is noted beneath. The solid spray inside it, much smaller, is what real devices actually get. Hotspots: PHY rate.
+**On screen:** What to plan / Check devices, survey for 6 GHz, ready the wired side, and pilot before rollout. The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the planning checklist appears beside it.
 
-**Callout — The number on the box:**
+**Callout — Before you roll out:**
 
-- Wi-Fi 7’s rated maximum is 46.1 Gbps [S8]
-- That assumes 16 spatial streams, more than devices have [S8]
-- Ask vendors for tested throughput instead
+- List which devices support Wi-Fi 7, WPA3 and TWT
+- Survey for 6 GHz before placing access points [S21]
+- Plan switch ports and power for new access points
+- Pilot alarms, voice and imaging on a busy unit
 
-**Say (leadership):** Peak rates by generation.
+**Say (leadership):** What to plan.
 
-Each generation raised the theoretical PHY rate — the raw over-the-air signalling speed. Wi-Fi 4 tops out at 600 Mbps [S6], Wi-Fi 5 at 6.93 Gbps [S6], Wi-Fi 6 at 9.61 Gbps [S7] and Wi-Fi 7 at 46.1 Gbps [S8].
+The gains arrive as devices that support them join the network, so start with an inventory: which badges, pumps, monitors and phones support Wi-Fi 7, WPA3 and Target Wake Time.
 
-These are theoretical maximums with every option at its limit, including 16 spatial streams for Wi-Fi 7 [S8]. A device with fewer streams has a proportionally lower peak, and usable throughput is lower still [S8].
+Then survey before placing access points, because walls weaken 6 GHz signals more than the older bands [S21]. Plan switch ports and power for the new access points alongside the wireless design, and pilot alarm, voice and imaging traffic on a busy unit before rolling out.
 
-**Bottom line:** Treat peak rates as a ceiling, not a forecast: the meaningful number is the throughput your devices and environment actually achieve.
-
-**Technical depth:** Assumes 16 spatial streams [S8]; the PHY rate is raw signalling, and MAC throughput is lower [S8].
-
-**Terms:**
-
-- PHY rate — The raw speed at which bits are sent over the air. Usable throughput is always lower because of protocol overhead and sharing.
-- Spatial stream — An independent data stream sent over its own antenna path at the same time as others. More streams multiply the peak rate.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval | 600 Mbps | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 19, HT MCS 31 rate table |
-| Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval | 6.93 Gbps | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21, VHT-MCS 9 rate table |
-| Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval | 9.61 Gbps | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE-MCS 11 rate table |
-| Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval | 46.1 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 13 rate table |
-| Wi-Fi 7 (EHT) maximum spatial streams defined in the standard | 16 streams | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY), EHT-MCS tables |
-| IEEE 802.11be's scope targets a maximum throughput of at least 30 Gb/s measured at the MAC data service access point — below the 46 Gb/s PHY rate, because of protocol overhead | 30 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope |
-
-**Likely questions:**
-
-- **Q (leadership):** Why show a theoretical peak that no device reaches? **A:** It is the standard’s ceiling with 16 spatial streams [S8], useful only to compare generations. Real throughput depends on device streams, channel width and sharing; ask vendors for tested throughput instead.
-
-### Step 3 — Faster uplinks and more power per port
-
-**On screen:** Faster uplinks and more power per port / Multi-gigabit uplinks [S14, S12] and higher PoE classes, up to 90 W [S12, S13], become planning items. The pipe widens into a multi-gigabit port, labelled with its speeds [S14, S12] [S12], and water flows freely along it. The power gauge rises above the red line, with the PoE classes marked beside it from 15.4 W [S12] to 90 W [S12, S13]. All four nozzles spray at full strength. Hotspots: Multi-gigabit Ethernet, PoE.
-
-**Callout — A wider pipe and more power:**
-
-- Multi-gigabit ports run 2.5 or 5 Gb/s on existing cable [S14, S12]
-- Higher PoE classes deliver up to 90 W per port [S12, S13]
-- Check each model’s documented power class
-
-**Say (leadership):** Faster uplinks and more power per port.
-
-Even below its PHY rate, a Wi-Fi 7 access point can move more traffic than a 1 Gb/s link carries: 802.11be targets at least 30 Gb/s at the MAC layer [S8]. Multi-gigabit Ethernet — 2.5 and 5 Gb/s [S14, S12] or 10 Gb/s [S12] — gives the Uplink headroom over existing twisted-pair cabling.
-
-Power over Ethernet comes in classes: 15.4 W [S12], 30 W [S12], 60 W [S12, S13] and 90 W [S12, S13] at the switch port.
-
-**Bottom line:** Plan switch ports and power budgets from each access point model's specifications, not from the previous generation's.
-
-**Technical depth:** Power at the device is lower after cable loss: 71.3 W for Type 4 [S12]. Power figures are at the power-sourcing equipment (switch port). After cable losses, the powered device receives about 12.95 W [S12], 25.5 W [S12], 51 W [S12] or 71.3 W [S12]. Types 1–2 come from 802.3af/at and Types 3–4 from 802.3bt, all consolidated in IEEE 802.3-2022 [S12, S13]. Multi-gigabit PHYs are 2.5GBASE-T and 5GBASE-T [S14, S12] and 10GBASE-T [S12].
-
-**Terms:**
-
-- MAC layer — The part of Wi-Fi that decides when devices may transmit and packages data into frames, above the radio (PHY) layer.
-- Multi-gigabit Ethernet — Ethernet links faster than 1 Gb/s over ordinary twisted-pair cabling, such as 2.5GBASE-T, 5GBASE-T and 10GBASE-T.
-- Uplink — The wired connection from an access point back to the network switch. All of the access point's traffic shares it.
-- PoE — Delivering electrical power to an access point over the same Ethernet cable that carries its data.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| IEEE 802.11be's scope targets a maximum throughput of at least 30 Gb/s measured at the MAC data service access point — below the 46 Gb/s PHY rate, because of protocol overhead | 30 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope |
-| 2.5GBASE-T and 5GBASE-T run 2.5 and 5 Gb/s over twisted-pair structured cabling | 2.5 / 5 Gb/s | S14 IEEE 802.3bz-2016: 2.5 Gb/s and 5 Gb/s Operation, Types 2.5GBASE-T and 5GBASE-T | Clause 126 |
-| 10GBASE-T runs 10 Gb/s over twisted-pair cabling | 10 Gb/s | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 55 |
-| IEEE 802.3af (Type 1) minimum power at the switch port (PSE) | 15.4 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 33, PSE output power table |
-| IEEE 802.3at (Type 2) minimum power at the switch port (PSE) | 30 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 33, PSE output power table |
-| IEEE 802.3bt Type 3 power at the switch port (PSE) | 60 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 145, PSE power classes table |
-| IEEE 802.3bt Type 4 power at the switch port (PSE) | 90 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 145, PSE power classes table |
-| IEEE 802.3af (Type 1) power available at the device (PD) | 12.95 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 33, PD power classification table |
-| IEEE 802.3at (Type 2) power available at the device (PD) | 25.5 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 33, PD power classification table |
-| IEEE 802.3bt Type 3 power available at the device (PD) | 51 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 145, PD power classes table |
-| IEEE 802.3bt Type 4 power available at the device (PD) | 71.3 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 145, PD power classes table |
-
-**Likely questions:**
-
-- **Q (both):** Do we need to recable for Wi-Fi 7? **A:** Often not. 2.5GBASE-T and 5GBASE-T run multi-gigabit speeds over existing twisted-pair cabling [S14, S12]; verify cable runs during the survey, and plan 10 Gb/s [S12] only where it is needed.
-- **Q (both):** How much PoE does a Wi-Fi 7 access point need? **A:** It varies by model and enabled features. Classes range from 15.4 W [S12] to 90 W [S12, S13] at the switch port; check each model’s documented class, and whether features switch off at lower power.
-
-### Step 4 — What changes in the wired network
-
-**On screen:** What changes in the wired network / 1 Gb/s ports [S12] can cap new access points; expect to upgrade access-layer switches alongside. Two closets side by side. On the left, the earlier generation’s access point has two nozzles and runs fully on a thin 1 Gb/s pipe [S12], because it needed less. On the right, the Wi-Fi 7 access point has four nozzles on a wide multi-gigabit pipe with a fuller power gauge. Hotspots: Uplink, Access point.
-
-**Callout — What changes in the closet:**
-
-- Older access points ran fine on 1 Gb/s ports [S12]
-- Wi-Fi 7 needs multi-gigabit ports [S14, S12] and more power [S12, S13]
-- Expect to upgrade access-layer switches alongside
-
-**Say (leadership):** What changes in the wired network.
-
-Access points from the Wi-Fi 5 era commonly ran on 1 Gb/s ports [S12]. With Wi-Fi 7's higher capacity, multi-gigabit uplinks [S14, S12] and higher PoE classes [S12, S13] become planning considerations for each access point model.
-
-Check each model's documented power class and uplink speed, and size switch power budgets for every port on the floor.
-
-**Bottom line:** Expect to refresh or upgrade access-layer switches alongside Wi-Fi 7; leaving old switches in place can cap the benefit of new access points.
-
-**Technical depth:** Peak rate is streams × subcarriers × bits × coding rate ÷ symbol time [S8]. Peak PHY rates are derived from IEEE parameters: streams × data subcarriers × bits per subcarrier × coding rate ÷ symbol time [S8]. Usable MAC throughput is lower [S8], and an access point's uplink carries the sum of its radios' traffic. Exact power draw depends on the radios and features enabled; access points may disable features at lower PoE classes, so confirm behaviour per model.
-
-**Terms:**
-
-- Subcarrier — One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others.
-- Uplink — The wired connection from an access point back to the network switch. All of the access point's traffic shares it.
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| 1000BASE-T Ethernet carries 1 Gb/s over twisted-pair cabling | 1 Gb/s | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 40 (1000BASE-T) |
-| 2.5GBASE-T and 5GBASE-T run 2.5 and 5 Gb/s over twisted-pair structured cabling | 2.5 / 5 Gb/s | S14 IEEE 802.3bz-2016: 2.5 Gb/s and 5 Gb/s Operation, Types 2.5GBASE-T and 5GBASE-T | Clause 126 |
-| IEEE 802.3bt Type 3 power at the switch port (PSE) | 60 W | S12 IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs) | Clause 145, PSE power classes table |
-| Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval | 46.1 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 13 rate table |
-| IEEE 802.11be's scope targets a maximum throughput of at least 30 Gb/s measured at the MAC data service access point — below the 46 Gb/s PHY rate, because of protocol overhead | 30 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Standard listing: Scope |
-
-**Likely questions:**
-
-- None written yet.
-
-### Step 5 — Plan closets, budgets and timelines early
-
-**On screen:** Plan closets, budgets and timelines early / Put switching, PoE budgets and cabling checks in the business case from the start. An upgraded wiring closet feeds three sprinkler heads across the floor through wide pipes, with the power gauge above the line, and every nozzle sprays at full strength. Hotspots: PoE.
-
-**Callout — What to put in the plan:**
-
-- Switch upgrades and multi-gigabit ports for every access point
-- A PoE power budget for every port on the floor
-- Cabling checks and clinical-area maintenance windows
-
-**Say (leadership):** Planning closets, budgets and timelines.
-
-For a hospital floor, the wired side often decides the schedule and the budget: switch replacements, power supplies, cabling checks and maintenance windows in clinical areas.
-
-Planning these early avoids installing new access points that are throttled by old switch ports or unable to power all of their features.
-
-**Bottom line:** Include switching, PoE budget and cabling verification in the Wi-Fi 7 business case and project timeline from the start.
+**Bottom line:** Plan Wi-Fi 7 with the device refresh, the wired upgrades and a pilot on a real unit, not as an access-point swap alone.
 
 **Technical depth:** No extra technical layer on this step.
 
 **Terms:**
 
-- PoE — Delivering electrical power to an access point over the same Ethernet cable that carries its data.
-
-**Figures:**
-
-No figures cited on this step.
-
-**Likely questions:**
-
-- None written yet.
-
-### Key figures
-
-| Figure | Wi-Fi 4 (IEEE 802.11n) | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
-|---|---|---|---|---|---|---|
-| Theoretical peak PHY rate — Raw signalling rates with every option at its maximum; real throughput is lower. | 600 | 6.93 | 9.61 | 46.1 | theoretical maximum | [S6, S7, S8] |
-| Maximum spatial streams in the standard | 4 streams | 8 streams | 8 streams | 16 streams | required by the standard | [S6, S7, S8] |
-| Widest channel | 40 MHz | 160 MHz | 160 MHz | 320 MHz | required by the standard | [S6, S7, S8, S15] |
-
-## 10. What’s Next: Wi-Fi 8
-
-IEEE 802.11bn is being written now, with reliability as its goal.
-
-**Opener** (its own click): Chapter 10 · What’s next — What’s Next: Wi-Fi 8. The next generation aims for reliability, not just speed. The problem: Planning today means knowing what Wi-Fi 8 is expected to bring.
-
-### Step 1 — The next generation is in development
-
-**On screen:** The next generation is in development / Don’t wait for Wi-Fi 8: it is unfinished [S10] and expected to build on Wi-Fi 7. The generations as stretches of one road: Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 are open road, with Wi-Fi 7 marked as certified today. Beyond it, the Wi-Fi 8 stretch is only a dashed violet outline behind traffic cones, labelled as still being designed and not yet approved. Hotspots: UHR.
-
-**Callout — Where Wi-Fi 8 stands:**
-
-- IEEE 802.11bn is still in development [S10]
-- Wi-Fi 7 is the current, certified generation
-- Wi-Fi 8 is expected to build on Wi-Fi 7
-
-**Say (leadership):** The next amendment is in development.
-
-The IEEE is already working on the next generation: P802.11bn, "Enhancements for Ultra High Reliability", which is expected to become Wi-Fi 8. It is still in development and has not been approved [S10].
-
-Everything in this chapter is forward-looking and subject to change.
-
-**Bottom line:** Wi-Fi 8 is not a reason to wait: Wi-Fi 7 is the current, certified generation, and Wi-Fi 8 is expected to build on it.
-
-**Technical depth:** No extra technical layer on this step.
-
-**Terms:**
-
-- UHR — The goal and name of the IEEE 802.11bn project, expected to become Wi-Fi 8: more dependable delivery of data, not just more speed.
+- TWT — An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
 
 **Figures:**
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in development and not yet approved | — | S10 IEEE P802.11 Task Group BN (Ultra High Reliability) — Group Information Update | TGbn status and timeline section |
+| Building walls and materials attenuate 6 GHz signals; the FCC relied on this building entry loss when permitting low-power indoor operation | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, building entry loss analysis |
 
 **Likely questions:**
 
-- **Q (leadership):** When will Wi-Fi 8 arrive? **A:** IEEE 802.11bn is still in development and not yet approved [S10]. Certified products follow the standard, so for current refreshes Wi-Fi 7 is the generation to deploy.
-
-### Step 2 — From faster to more reliable
-
-**On screen:** From faster to more reliable / Its stated goal is dependable delivery: fewer lost messages and steadier performance [S11]. Two lanes of delivery vans pass under storm clouds standing for interference and movement. On the Wi-Fi 7 lane, a few parcels have fallen by the roadside in red: lost messages. On the dashed violet Wi-Fi 8 lane, every van keeps its parcel, labelled as a goal, not a measured result. Hotspots: UHR, Latency.
-
-**Callout — From faster to more reliable:**
-
-- Goal: fewer lost messages, even with interference [S11]
-- Targets include 25% lower worst-case latency [S11]
-- These are project goals, not measured results
-
-**Say (leadership):** From faster to more reliable.
-
-Where Wi-Fi 7 focused on throughput and lower latency, the stated goal of 802.11bn is reliability: fewer lost messages and more consistent performance, including with interference and movement [S11].
-
-The project's goals include at least 25% more throughput than Wi-Fi 7 in at least one mode [S11] and 25% lower latency for the slowest 5% of messages [S11].
-
-**Bottom line:** The next generation targets exactly the problems that matter most in clinical settings: dependable delivery, not just speed.
-
-**Technical depth:** Project goals: 25% more throughput [S11] and 25% lower 95th-percentile latency [S11] than 802.11be. The P802.11bn PAR defines reliability improvements in terms of throughput, latency and MPDU loss [S11], with targets of at least 25% higher throughput [S11] and 25% lower 95th-percentile latency [S11] than 802.11be in at least one mode. These are project goals, not measured results; the technical mechanisms are still being decided in task group TGbn [S10].
-
-**Terms:**
-
-- Latency — How long data takes to get from one device to another. For alarms and voice, lower is better.
-- MPDU — A single Wi-Fi data frame as handled by the MAC layer. Reliability goals are often stated as how many MPDUs are lost.
-- UHR — The goal and name of the IEEE 802.11bn project, expected to become Wi-Fi 8: more dependable delivery of data, not just more speed.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| The P802.11bn project defines reliability improvements in terms of throughput, latency and the loss of data units (MPDUs), including in the presence of interference and mobility | — | S11 P802.11bn Project Authorization Request: Enhancements for Ultra High Reliability | PAR item 5.2.b (Scope) and 5.5 (Need for the Project) |
-| P802.11bn goal: at least 25% higher throughput than 802.11be in at least one mode | 25 % | S11 P802.11bn Project Authorization Request: Enhancements for Ultra High Reliability | PAR item 5.2.b (Scope) |
-| P802.11bn goal: at least 25% lower 95th-percentile latency than 802.11be in at least one mode | 25 % | S11 P802.11bn Project Authorization Request: Enhancements for Ultra High Reliability | PAR item 5.2.b (Scope) |
-| IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in development and not yet approved | — | S10 IEEE P802.11 Task Group BN (Ultra High Reliability) — Group Information Update | TGbn status and timeline section |
-
-**Likely questions:**
-
-- None written yet.
-
-### Step 3 — What to do today
-
-**On screen:** What to do today / Wired upgrades and new-band designs made for Wi-Fi 7 are expected to carry forward. A cutaway of the road shows its foundations: multi-gigabit switching, PoE power budgets and 6 GHz-capable designs, laid under the Wi-Fi 7 stretch and running on under the dashed Wi-Fi 8 stretch, labelled built today, carried forward. Hotspots: Multi-gigabit Ethernet, PoE.
-
-**Callout — What carries forward:**
-
-- Multi-gigabit switching in every closet
-- PoE budgets with headroom
-- 6 GHz-capable designs and current clinical devices
-
-**Say (leadership):** What to do today.
-
-Deploy Wi-Fi 7 where it solves today's problems, and make choices that carry forward: multi-gigabit switching, sufficient PoE budgets, 6 GHz-capable designs and clinical devices with current Wi-Fi support.
-
-We will update this page as 802.11bn progresses [S10].
-
-**Bottom line:** Investments in wired infrastructure and 6 GHz design for Wi-Fi 7 are expected to carry forward to the next generation.
-
-**Technical depth:** No extra technical layer on this step.
-
-**Terms:**
-
-- Multi-gigabit Ethernet — Ethernet links faster than 1 Gb/s over ordinary twisted-pair cabling, such as 2.5GBASE-T, 5GBASE-T and 10GBASE-T.
-- PoE — Delivering electrical power to an access point over the same Ethernet cable that carries its data.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in development and not yet approved | — | S10 IEEE P802.11 Task Group BN (Ultra High Reliability) — Group Information Update | TGbn status and timeline section |
-
-**Likely questions:**
-
-- **Q (both):** Will Wi-Fi 7 equipment be wasted when Wi-Fi 8 arrives? **A:** Unlikely. Multi-gigabit switching, PoE budgets and designs for the new band are expected to carry forward, and new generations have kept serving older devices. Access points would be refreshed on a normal cycle.
+- **Q (both):** Should we wait for Wi-Fi 8? **A:** No. Wi-Fi 8 (IEEE 802.11bn) is still in development [S10]; Wi-Fi 7 is the certified generation today, and device, survey and wired work done now carries forward.
 
 ## References & Glossary
 
@@ -1991,34 +1747,10 @@ IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in developmen
 - [S10] TGbn status and timeline section
 - Verification: not yet verified (Re-check status at every verification; forward-looking.)
 
-### wifi8-throughput-goal
-
-P802.11bn goal: at least 25% higher throughput than 802.11be in at least one mode — value: 25 %; method: stated; kind: technical.
-- [S11] PAR item 5.2.b (Scope)
-- Verification: not yet verified (Project goal, not a measured result.)
-
-### wifi8-latency-goal
-
-P802.11bn goal: at least 25% lower 95th-percentile latency than 802.11be in at least one mode — value: 25 %; method: stated; kind: technical.
-- [S11] PAR item 5.2.b (Scope)
-- Verification: not yet verified (Project goal, not a measured result.)
-
-### wifi8-reliability-def
-
-The P802.11bn project defines reliability improvements in terms of throughput, latency and the loss of data units (MPDUs), including in the presence of interference and mobility — value: —; method: stated; kind: technical.
-- [S11] PAR item 5.2.b (Scope) and 5.5 (Need for the Project)
-- Verification: not yet verified (Forward-looking project scope; re-check against the current PAR and TGbn status at each verification.)
-
 ### ht-max-nss
 
 Wi-Fi 4 (HT) maximum spatial streams — value: 4 streams; method: stated; kind: technical.
 - [S6] Clause 19 (HT PHY), HT MCS tables
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### ht-max-width
-
-Wi-Fi 4 (HT) widest channel — value: 40 MHz; method: stated; kind: technical.
-- [S6] Clause 19 (HT PHY)
 - Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
 
 ### ht-nsd-40
@@ -2463,81 +2195,6 @@ WEP, TKIP and WPA (version 1) are disallowed in all WPA3 and Wi-Fi Enhanced Open
 - [S19] Table 4, Legacy Security Parameters
 - Verification: not yet verified (Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.)
 
-### poe-type1-pse
-
-IEEE 802.3af (Type 1) minimum power at the switch port (PSE) — value: 15.4 W; method: stated; kind: technical.
-- [S12] Clause 33, PSE output power table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type2-pse
-
-IEEE 802.3at (Type 2) minimum power at the switch port (PSE) — value: 30 W; method: stated; kind: technical.
-- [S12] Clause 33, PSE output power table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type3-pse
-
-IEEE 802.3bt Type 3 power at the switch port (PSE) — value: 60 W; method: stated; kind: technical.
-- [S12] Clause 145, PSE power classes table
-- [S13] Clause 145
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type4-pse
-
-IEEE 802.3bt Type 4 power at the switch port (PSE) — value: 90 W; method: stated; kind: technical.
-- [S12] Clause 145, PSE power classes table
-- [S13] Clause 145
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type1-pd
-
-IEEE 802.3af (Type 1) power available at the device (PD) — value: 12.95 W; method: stated; kind: technical.
-- [S12] Clause 33, PD power classification table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type2-pd
-
-IEEE 802.3at (Type 2) power available at the device (PD) — value: 25.5 W; method: stated; kind: technical.
-- [S12] Clause 33, PD power classification table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type3-pd
-
-IEEE 802.3bt Type 3 power available at the device (PD) — value: 51 W; method: stated; kind: technical.
-- [S12] Clause 145, PD power classes table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### poe-type4-pd
-
-IEEE 802.3bt Type 4 power available at the device (PD) — value: 71.3 W; method: stated; kind: technical.
-- [S12] Clause 145, PD power classes table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### multigig-2-5-5
-
-2.5GBASE-T and 5GBASE-T run 2.5 and 5 Gb/s over twisted-pair structured cabling — value: 2.5 / 5 Gb/s; method: stated; kind: technical.
-- [S14] Clause 126
-- [S12] Clause 126
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### multigig-10
-
-10GBASE-T runs 10 Gb/s over twisted-pair cabling — value: 10 Gb/s; method: stated; kind: technical.
-- [S12] Clause 55
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### be-mac-throughput-goal
-
-IEEE 802.11be's scope targets a maximum throughput of at least 30 Gb/s measured at the MAC data service access point — below the 46 Gb/s PHY rate, because of protocol overhead — value: 30 Gbps; method: stated; kind: technical.
-- [S8] Standard listing: Scope
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
-### gigabit-1
-
-1000BASE-T Ethernet carries 1 Gb/s over twisted-pair cabling — value: 1 Gb/s; method: stated; kind: technical.
-- [S12] Clause 40 (1000BASE-T)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
-
 ### wpa3-ent-pmf-required
 
 In WPA3-Enterprise Only Mode, protected management frames are required (PMF Required) on the access point and the device — value: —; method: stated; kind: technical.
@@ -2596,9 +2253,6 @@ Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configur
 - **S9** IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time). IEEE Std 802.11ah-2016, 2016, 2017-05-05 (current, paywalled). https://standards.ieee.org/ieee/802.11ah/4960/
 - **S10** IEEE P802.11 Task Group BN (Ultra High Reliability) — Group Information Update. IEEE 802.11 TGbn status page, 2026 (current, open). https://www.ieee802.org/11/Reports/tgbn_update.htm
 - **S11** P802.11bn Project Authorization Request: Enhancements for Ultra High Reliability. P802.11bn PAR, 2023 (current, open). https://www.ieee802.org/11/PARs/P802.11bn_PAR.pdf
-- **S12** IEEE Standard for Ethernet (consolidates Power over Ethernet clauses from 802.3af, 802.3at and 802.3bt, and the 2.5/5/10GBASE-T PHYs). IEEE Std 802.3-2022, 2022 revision, 2022-07-29 (current, paywalled). https://standards.ieee.org/ieee/802.3/10422/
-- **S13** IEEE 802.3bt-2018: Physical Layer and Management Parameters for Power over Ethernet over 4 Pairs. IEEE Std 802.3bt-2018, 2018, 2019-01-31 (superseded, paywalled). https://standards.ieee.org/ieee/802.3bt/6749/
-- **S14** IEEE 802.3bz-2016: 2.5 Gb/s and 5 Gb/s Operation, Types 2.5GBASE-T and 5GBASE-T. IEEE Std 802.3bz-2016, 2016, 2016-10-18 (superseded, paywalled). https://standards.ieee.org/ieee/802.3bz/6130/
 - **S15** Wi-Fi CERTIFIED 7. Wi-Fi CERTIFIED 7 program page, 2024 (current, open). https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7
 - **S16** Wi-Fi Alliance introduces Wi-Fi CERTIFIED 7. Wi-Fi Alliance press release, 2024-01-08 (current, open). https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-7
 - **S17** Wi-Fi Alliance delivers Wi-Fi 6E certification program. Wi-Fi Alliance press release, 2021-01-07 (current, open). https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program

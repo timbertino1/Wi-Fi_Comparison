@@ -101,6 +101,7 @@ runtime persistence other than viewer preferences.
 | `edition` | string \| null | Version, amendment, or revision cited |
 | `date` | string (YYYY or YYYY-MM-DD) | Publication date |
 | `status` | enum `current` \| `superseded` | Claims using a superseded source need a reason in `verification.notes` |
+| `retired` | optional boolean | Kept in place so talk-track source numbers never shift; hidden from the site and the reference list, and must not be cited (rule 10). Added 2026-10-30 when the Bandwidth & PoE chapter was removed |
 | `access` | enum `open` \| `paywalled` | Shown so reviewers know whether they can check it directly |
 | `url` | `https:` URL | Host MUST match one of the publisher's `domains`; opens in a new tab; the site works without following it |
 

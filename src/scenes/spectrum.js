@@ -175,7 +175,7 @@ export default {
       return ring;
     });
     const illustrative = new THREE.Object3D();
-    illustrative.position.set(0, 2.2, -3.5);
+    illustrative.position.set(0, 0.3, 2.6); // low between the walls, clear of the caption
     coverage.add(illustrative);
     labels.add(illustrative, 'Illustrative', { className: 'muted' });
 

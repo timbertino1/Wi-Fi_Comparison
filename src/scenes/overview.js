@@ -1,11 +1,12 @@
-// Overview: a hospital floor that fills with wireless devices, then a timeline of generations.
+// Overview: a hospital floor that fills with wireless devices, then a timeline of generations. The
+// closing chapter returns to the same floor on Wi-Fi 7, each device labelled with what it gains.
 const GENS = ['wifi4', 'wifi5', 'wifi6', 'wifi6e', 'wifi7'];
 const MAX_DEVICES = 180;
 const QUIET_DEVICES = 18;
 
 export default {
   id: 'overview',
-  states: ['floor-quiet', 'floor-crowded', 'timeline', 'timeline-wifi7'],
+  states: ['floor-quiet', 'floor-crowded', 'timeline', 'timeline-wifi7', 'floor-wifi7', 'floor-plan'],
 
   create(ctx) {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo, seeded } = ctx;
@@ -48,7 +49,7 @@ export default {
       floor.add(group);
       return group;
     });
-    labels.add(aps[2], 'Access point', { className: 'muted', offset: [0, 0.6, 0] });
+    const apLabel = labels.add(aps[2], 'Access point', { className: 'muted', offset: [0, 0.6, 0] });
 
     // Devices: one instanced crowd per typical clinical client; device i is of type i % types, so
     // how many are visible tells the story and every type is present from the quiet floor on.
@@ -58,8 +59,8 @@ export default {
       // floor, clear of the callout card on the right.
       { id: 'voice-badge', scale: 0.62, where: 'any', spot: [-5.2, 1.9] },
       { id: 'infusion-pump', scale: 0.38, where: 'room', spot: [-3.0, -2.4] },
-      { id: 'telemetry-monitor', scale: 0.5, where: 'room', spot: [-0.9, 2.6] },
-      { id: 'phone', scale: 0.55, where: 'any', spot: [1.4, 2.2] },
+      { id: 'telemetry-monitor', scale: 0.5, where: 'room', spot: [-0.5, 2.6] },
+      { id: 'phone', scale: 0.55, where: 'any', spot: [2.6, 2.2] },
       { id: 'workstation-cart', scale: 0.42, where: 'corridor', spot: [-2.4, 0.6] },
       { id: 'rtls-tag', scale: 0.85, where: 'any', spot: [-3.4, 2.8] }
     ];
@@ -97,6 +98,20 @@ export default {
         typeAnchors[crowd.id] = anchor;
       }
     }
+    // Closing recap: what Wi-Fi 7 does for each kind of device, one chapter each.
+    const WINS = {
+      'voice-badge': 'Steadier calls · multi-link',
+      'infusion-pump': 'Safer sign-in · WPA3',
+      'telemetry-monitor': 'Alarms on time',
+      phone: 'Room for everyone · OFDMA',
+      'workstation-cart': 'Big files fast · 6 GHz',
+      'rtls-tag': 'Battery lasts the shift · TWT'
+    };
+    const winLabels = Object.entries(WINS).map(([id, text]) => {
+      const l = labels.add(typeAnchors[id], text, { className: 'big', offset: [0, 0.55, 0] });
+      l.element.style.opacity = '0';
+      return l;
+    });
     const visibleOf = (n, t) => (n > t ? Math.floor((n - 1 - t) / TYPES.length) + 1 : 0);
     for (const [t, c] of crowds.entries()) c.mesh.count = visibleOf(QUIET_DEVICES, t);
 
@@ -137,6 +152,8 @@ export default {
 
     const cameraFloor = { x: 0, y: 9.5, z: 9.5 };
     const cameraTimeline = { x: 0, y: 4.2, z: 12.5 };
+    const cameraPlan = { x: 0, y: 11.5, z: 12.5 };
+    const flowing = (name) => name === 'floor-crowded' || name === 'floor-wifi7' || name === 'floor-plan';
     const counter = { n: QUIET_DEVICES };
     let shown = QUIET_DEVICES;
     function applyCount() {
@@ -162,11 +179,12 @@ export default {
       for (const { pillar } of pillars) {
         for (const child of pillar.children) if (child.element) child.element.style.opacity = visible ? '1' : '0';
       }
-      stationLabel.element.style.opacity = visible ? '0' : '1';
+      // The floor's own labels would sit behind the pillars' labels on the timeline.
+      for (const l of [stationLabel, apLabel]) l.element.style.opacity = visible ? '0' : '1';
     }
 
     function lookTarget() {
-      camera.lookAt(0, mode.startsWith('timeline') ? 1.4 : 0, 0);
+      camera.lookAt(0, mode.startsWith('timeline') ? 1.9 : 0, 0); // pillars sit low, under the caption
     }
 
     return {
@@ -174,22 +192,23 @@ export default {
         mode = name;
         const toTimeline = name.startsWith('timeline');
         if (toTimeline) timeline.visible = true;
-        const cam = toTimeline ? cameraTimeline : cameraFloor;
+        const cam = toTimeline ? cameraTimeline : name === 'floor-plan' ? cameraPlan : cameraFloor;
         const deviceTarget = name === 'floor-quiet' ? QUIET_DEVICES : MAX_DEVICES;
         const jobs = [
           animateTo([[camera.position, 'x', cam.x], [camera.position, 'y', cam.y], [camera.position, 'z', cam.z]], { durationMs: 1400, animate, signal }),
           animateTo([[floor.position, 'z', toTimeline ? -3.5 : 0], [floor.scale, 'x', toTimeline ? 0.8 : 1], [floor.scale, 'z', toTimeline ? 0.8 : 1]], { durationMs: 1200, animate, signal }),
           animateTo([[counter, 'n', deviceTarget]], { durationMs: 2200, animate, signal })
         ];
-        jobs.push(...pillars.map(({ pillar }, i) => animateTo([[pillar.scale, 'y', toTimeline ? (name === 'timeline-wifi7' && i === pillars.length - 1 ? 1.35 : 1) : 0.001]], {
+        jobs.push(...pillars.map(({ pillar }, i) => animateTo([[pillar.scale, 'y', toTimeline ? (name === 'timeline-wifi7' && i === pillars.length - 1 ? 1.15 : 1) : 0.001]], {
           durationMs: 900, delayMs: toTimeline ? i * 180 : 0, animate, signal, ease: ctx.easing.easeOutBack
         })));
         jobs.push(animateTo([[halo.material, 'opacity', name === 'timeline-wifi7' ? 0.95 : 0]], { durationMs: 800, animate, signal }));
         setLabelsVisible(toTimeline);
+        for (const l of winLabels) l.element.style.opacity = name === 'floor-wifi7' ? '1' : '0';
         const finished = await Promise.all(jobs);
         if (!toTimeline && finished.every(Boolean)) timeline.visible = false;
         applyCount();
-        for (const p of packets) p.visible = motionFull && name === 'floor-crowded';
+        for (const p of packets) p.visible = motionFull && flowing(name);
         lookTarget();
         ctx.requestRender();
       },
@@ -199,7 +218,7 @@ export default {
       update(dt) {
         applyCount();
         lookTarget();
-        if (!(motionFull && mode === 'floor-crowded')) return;
+        if (!(motionFull && flowing(mode))) return;
         time += dt;
         for (const p of packets) {
           const t = (time * 0.35 + p.userData.phase) % 1;
@@ -209,7 +228,7 @@ export default {
         }
       },
       isIdle() {
-        return !(motionFull && mode === 'floor-crowded');
+        return !(motionFull && flowing(mode));
       },
       anchors() {
         return mode.startsWith('timeline') ? timelineAnchors : floorAnchors;

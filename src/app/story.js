@@ -226,7 +226,7 @@ function renderDeepDive(beat) {
   if (!beat?.deepDive) return;
   const details = document.createElement('details');
   details.className = 'deep-dive card';
-  details.open = !!wasOpen || document.documentElement.dataset.view === 'technical';
+  details.open = wasOpen ?? true;
   const summary = document.createElement('summary');
   summary.textContent = 'Under the hood';
   const body = document.createElement('div');
@@ -243,7 +243,10 @@ function renderSections(tab) {
     const details = document.createElement('details');
     details.className = 'deep-section card';
     details.dataset.section = section.id;
-    details.open = document.documentElement.dataset.view === 'technical';
+    // Text sections start open (the technical layer is always shown); a section that drives the
+    // animation starts closed, so opening it is what switches the scene.
+    if (section.sceneState) details.dataset.scene = section.sceneState;
+    details.open = !section.sceneState;
     const summary = document.createElement('summary');
     summary.textContent = section.heading;
     const body = document.createElement('div');

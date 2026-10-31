@@ -129,47 +129,6 @@ button {
   border-color: var(--accent);
 }
 
-.segmented {
-  display: inline-flex;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 2px;
-  background: var(--surface-2);
-}
-
-.segmented:empty {
-  display: none;
-}
-
-.segmented label {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 0 var(--space-3);
-  border-radius: 999px;
-  font-size: var(--text-sm);
-  cursor: pointer;
-}
-
-.segmented input {
-  position: absolute;
-  opacity: 0;
-  inset: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.segmented label:has(input:checked) {
-  background: var(--accent);
-  color: var(--accent-fg);
-  font-weight: 600;
-}
-
-.segmented label:has(input:focus-visible) {
-  box-shadow: var(--focus-ring);
-}
-
 /* Menus (chapter menu, settings) */
 .menu {
   position: relative;
@@ -294,10 +253,13 @@ button {
 .caption {
   position: absolute;
   left: 50%;
-  top: calc(var(--slide-h) * 0.04);
+  top: calc(var(--slide-h) * 0.03);
   z-index: 3;
-  max-width: 78%;
-  padding: calc(var(--slide-h) * 0.018) calc(var(--slide-h) * 0.03);
+  /* Sized to its text (left: 50% alone would cap it at half the slide), wide enough that most
+     headlines fit one line, so the caption covers less of the scene. */
+  width: max-content;
+  max-width: min(84%, calc(var(--slide-h) * 1.45));
+  padding: calc(var(--slide-h) * 0.014) calc(var(--slide-h) * 0.03);
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -317,7 +279,7 @@ button {
 
 .caption-headline {
   margin: 0;
-  font-size: calc(var(--slide-h) * 0.044);
+  font-size: calc(var(--slide-h) * 0.042);
   font-weight: 700;
   line-height: 1.15;
 }
@@ -667,13 +629,15 @@ button {
   pointer-events: none;
 }
 
+/* Labels scale with the slide like the caption and callout, so a smaller window shrinks them with the
+   scene instead of crowding it; sizes match the rehearsed 1600 × 900 composition. */
 .stage-label {
-  padding: 3px 10px;
+  padding: 0.23em 0.77em;
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
   color: var(--fg);
-  font-size: var(--text-xs);
+  font-size: clamp(10px, calc(var(--slide-h) * 0.0162), 22px);
   font-weight: 600;
   letter-spacing: 0.01em;
   white-space: nowrap;
@@ -685,7 +649,7 @@ button {
 }
 
 .stage-label.big {
-  font-size: var(--text-sm);
+  font-size: clamp(11px, calc(var(--slide-h) * 0.0187), 25px);
 }
 
 .stage-fallback {
@@ -825,6 +789,7 @@ button {
 
   .caption {
     position: static;
+    width: auto;
     max-width: none;
     margin-top: var(--space-2);
     transform: none;
@@ -1149,14 +1114,6 @@ button {
   font-weight: 600;
 }
 
-.show-all-figures {
-  margin-top: var(--space-3);
-}
-
-[data-view="leadership"] .figures[data-show-all="false"] tr[data-headline="false"] {
-  display: none;
-}
-
 /* Scenario card */
 .scenario-kicker {
   margin: 0;
@@ -1259,24 +1216,10 @@ button {
   margin: 0;
 }
 
-[data-view="leadership"] .bottom-line {
-  border-left: 5px solid var(--accent);
-  box-shadow: var(--shadow);
-  font-size: var(--text-md);
-}
-
 [data-view="technical"] .bottom-line {
   border-style: dashed;
   font-size: var(--text-sm);
   color: var(--fg-muted);
-}
-
-[data-view="leadership"] #progress::after {
-  content: " · Leadership view";
-}
-
-[data-view="technical"] #progress::after {
-  content: " · Technical view";
 }
 
 /* References: no slide; the notes area becomes a full-width reading page. */
@@ -1537,10 +1480,6 @@ a {
 }
 
 /* Slide extras (feature 002) */
-[data-view="leadership"] .caption-technical {
-  display: none;
-}
-
 .control-next {
   min-width: 6rem;
   background: var(--accent);

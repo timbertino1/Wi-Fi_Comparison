@@ -221,16 +221,18 @@ export default {
       return l;
     };
     const lLegend = tag(older.monitor, 'Ambulance = an alarm · truck = a large download', [2.6, -0.45, 1]);
-    const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 2.8, 0], 'big');
-    const lLane = tag(seven.laneAnchor, 'Second band free: multi-link', [0, 0.5, 0.3]);
+    const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 3.2, 0], 'big'); // above the board's title
+    const lLane = tag(seven.laneAnchor, 'Second band free: multi-link', [0.6, 0.1, 1.4]); // in front, clear of Late
     const lSlot = tag(seven.shoulderAnchor, 'Protected slot: downloads pull over', [0, 0.5, 0.3]);
-    const lOlderTitle = tag(older.ap, '', [0, 0.65, 0], 'big');
-    const lSevenTitle = tag(seven.ap, 'Wi-Fi 7', [0, 0.65, 0], 'big');
+    // Generation names sit under each access point, in the open air above the road.
+    const lOlderTitle = tag(older.ap, '', [0, -0.6, 0], 'big');
+    const lSevenTitle = tag(seven.ap, 'Wi-Fi 7', [0, -0.6, 0], 'big');
     const lOnTime = tag(seven.board, 'Alarms arrive on time, consistently', [0, -1.15, 3], 'big');
 
     const layout = {
-      'alarm-delay': { older: [0, 0], seven: null, cam: [0, 3.8, 9], look: [0, 1, -0.4] },
-      'latency-tools': { older: null, seven: [0, 0], cam: [0, 3.8, 9], look: [0, 1, -0.4] },
+      // Aimed a little right of the road, so the nurses' station clears the callout.
+      'alarm-delay': { older: [0, 0], seven: null, cam: [0.7, 3.8, 9], look: [0.7, 1, -0.4] },
+      'latency-tools': { older: null, seven: [0, 0], cam: [0.7, 3.8, 9], look: [0.7, 1, -0.4] },
       'gen-compare': { older: [3.9, -3.2], seven: [0, 0], cam: [0, 6.2, 13.5], look: [0, 2.2, -1.2] }
     };
     const labelStates = [

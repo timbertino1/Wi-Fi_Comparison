@@ -101,12 +101,12 @@ export default {
     laptop.scale.setScalar(1.4);
     laptop.position.y = 0.7;
     laptopGroup.add(laptopPlinth, laptop);
-    const lLaptop = labels.add(laptopGroup, 'Laptop downloading', { className: 'big', offset: [0, 1.9, 0] });
+    const lLaptop = labels.add(laptopGroup, 'Laptop downloading', { className: 'big', offset: [0.4, 1.9, 0] }); // a little right, clear of the monitor's battery
     let laptopText = 'Laptop downloading';
     const { mesh: laptopBeam } = kit.linkBeam(new THREE.Vector3(3.9, 1.3, 0), ap.position.clone().add(new THREE.Vector3(0, -0.15, 0)), { color: neutral.device, arch: 0.5, radius: 0.11 });
     scene.add(laptopBeam);
     const lCall = tag(devices[0].battery, 'Protected slot: the call goes through', [0, 1.15, 0]);
-    const lCompare = tag(laptopGroup, '', [0, 2.45, 0]);
+    const lCompare = tag(laptopGroup, '', [0.4, 2.5, 0]);
     const compareText = () => `${genName(compareGen)}: no protected time slots`;
 
     // --- The shift bar along the front: it fills as the shift goes by.

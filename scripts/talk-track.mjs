@@ -223,7 +223,7 @@ export function buildTalkTrack(content = loadContent()) {
   for (const tier of [1, 2]) {
     line(`### Tier ${tier}`);
     line();
-    for (const r of references.filter((x) => x.tier === tier)) {
+    for (const r of references.filter((x) => x.tier === tier && !x.retired)) {
       line(`- **S${sourceNo.get(r.id)}** ${r.title}. ${[r.identifier, r.edition, r.date].filter(Boolean).join(', ')} (${r.status}, ${r.access}). ${r.url}`);
     }
     line();

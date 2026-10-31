@@ -29,7 +29,7 @@ async function check(url) {
 }
 
 const failures = [];
-for (const r of references) {
+for (const r of references.filter((x) => !x.retired)) {
   const result = await check(r.url);
   console.log(`${result.ok ? 'ok  ' : 'FAIL'} ${result.status} ${r.id} ${r.url}`);
   if (!result.ok) failures.push({ ...r, status: result.status });

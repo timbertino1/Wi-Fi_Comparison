@@ -76,16 +76,6 @@
       ],
       "problem": "Occasionally an alarm message waits behind a large download before reaching the nurses' station.",
       "outcomeSupported": "Multi-link operation, Restricted TWT and Multi-RU target those worst-case waits, supporting more consistent delivery of alarms and voice."
-    },
-    {
-      "id": "new-wing-closet",
-      "location": "New inpatient wing",
-      "deviceTypes": [
-        "access point",
-        "network switch"
-      ],
-      "problem": "New access points are planned for switch ports and power budgets that were sized for earlier generations.",
-      "outcomeSupported": "Planning multi-gigabit uplinks and PoE budgets with the access points supports getting the full benefit of Wi-Fi 7 from day one."
     }
   ]
 }

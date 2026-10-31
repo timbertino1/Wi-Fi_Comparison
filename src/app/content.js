@@ -13,19 +13,19 @@ import tab05 from '../../content/tabs/05-security.json';
 import tab06 from '../../content/tabs/06-twt.json';
 import tab07 from '../../content/tabs/07-density.json';
 import tab08 from '../../content/tabs/08-latency.json';
-import tab09 from '../../content/tabs/09-bandwidth-poe.json';
-import tab10 from '../../content/tabs/10-wifi8.json';
-import tab11 from '../../content/tabs/11-references.json';
+import tab09 from '../../content/tabs/09-closing.json';
+import tab10 from '../../content/tabs/10-references.json';
 
 const index = (list) => new Map(list.map((x) => [x.id, x]));
 
-export const tabs = [tab01, tab02, tab03, tab04, tab05, tab06, tab07, tab08, tab09, tab10, tab11].sort((a, b) => a.order - b.order);
+export const tabs = [tab01, tab02, tab03, tab04, tab05, tab06, tab07, tab08, tab09, tab10].sort((a, b) => a.order - b.order);
 export const tabById = index(tabs);
 export const generations = generationsJson.generations;
 export const genById = index(generations);
 export const glossary = glossaryJson.terms;
 export const termById = index(glossary);
-export const references = referencesJson.references;
+// Retired references keep their place in the file (stable talk-track numbering) but are not shown.
+export const references = referencesJson.references.filter((r) => !r.retired);
 export const refById = index(references);
 export const scenarios = scenariosJson.scenarios;
 export const scenarioById = index(scenarios);

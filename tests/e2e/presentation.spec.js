@@ -32,10 +32,3 @@ test('B and . blank and unblank the screen without moving the story', async ({ p
   await expect(page.locator('#blank')).toBeHidden();
   await expect(page.locator('#progress')).toContainText('Step 3 of 5');
 });
-
-test('the audience view can be switched on the slide without moving the story', async ({ page }) => {
-  await page.goto(fileUrl('#/mlo/3'));
-  await page.keyboard.press('v');
-  await expect(page.locator('html')).toHaveAttribute('data-view', 'technical');
-  await expect(page.locator('#progress')).toContainText('Step 3 of 5');
-});

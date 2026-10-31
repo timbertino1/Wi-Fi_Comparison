@@ -37,7 +37,6 @@ function cellText(figure, genId) {
   return unit ? `${value} ${unit}` : String(value);
 }
 
-let showAll = false;
 
 function render({ tab, generation }) {
   root.replaceChildren();
@@ -120,30 +119,10 @@ function render({ tab, generation }) {
   wrap.append(table);
   card.append(wrap);
 
-  // Leadership view shows headline figures only, with a toggle for the rest (US8).
-  const hidden = figures.filter((f) => !f.headline).length;
-  if (hidden) {
-    const toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'show-all-figures control';
-    toggle.setAttribute('aria-expanded', String(showAll));
-    toggle.textContent = showAll ? 'Show headline figures only' : `Show all figures (${figures.length})`;
-    toggle.addEventListener('click', () => {
-      showAll = !showAll;
-      render(story.snapshot());
-      root.querySelector('.show-all-figures')?.focus();
-    });
-    card.append(toggle);
-  }
-  card.dataset.showAll = String(showAll);
   root.append(card);
 }
 
 export function initFigures() {
-  story.on('tab', (snap) => {
-    showAll = false;
-    render(snap);
-  });
+  story.on('tab', render);
   story.on('generation', render);
-  document.addEventListener('viewchange', () => render(story.snapshot()));
 }

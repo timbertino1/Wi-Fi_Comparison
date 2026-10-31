@@ -1,13 +1,12 @@
-// Viewer preferences: theme, motion and audience view. Stored under one localStorage key; nothing
+// Viewer preferences: theme and motion. Stored under one localStorage key; nothing
 // else is ever stored (FR-041). Every storage access tolerates storage being unavailable.
 
 const KEY = 'wifi7-explainer:prefs';
 const ALLOWED = {
   theme: ['system', 'light', 'dark'],
-  motion: ['system', 'full', 'reduced'],
-  view: ['leadership', 'technical']
+  motion: ['system', 'full', 'reduced']
 };
-const DEFAULTS = { theme: 'system', motion: 'system', view: 'leadership' };
+const DEFAULTS = { theme: 'system', motion: 'system' };
 
 let state = { ...DEFAULTS };
 const listeners = new Set();

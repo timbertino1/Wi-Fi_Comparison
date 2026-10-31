@@ -208,6 +208,9 @@ export default {
         main.convoy.mesh.visible = name === 'punctured';
         cmp.group.visible = compare;
         imaging.visible = name === 'imaging-suite';
+        // The close-up beside the workstation keeps the far end of the road under the callout, so the
+        // busy lane is labelled nearer the access point there.
+        main.busyAnchor.position.x = ROAD_X0 + ROAD_LENGTH * (name === 'imaging-suite' ? 0.32 : 0.62);
         // Side by side: older Wi-Fi's road in front, Wi-Fi 7's behind.
         jobs.push(animateTo([[main.group.position, 'z', compare ? -2.9 : 0], [cmp.group.position, 'z', compare ? 2.9 : 0]], { durationMs: 1000, animate, signal }));
         const near = name === 'fuller-loads' || compare || name === 'imaging-suite';
