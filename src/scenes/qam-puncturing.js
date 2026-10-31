@@ -100,7 +100,7 @@ export default {
       // Side by side, both roads are labelled in the gap between them (far edge of the front road,
       // near edge of the back one), offset along the road so the two labels do not meet.
       const nearLabel = new THREE.Object3D();
-      nearLabel.position.set(ROAD_X0 + ROAD_LENGTH * 0.28, 0.3, top + 0.45);
+      nearLabel.position.set(ROAD_X0 + ROAD_LENGTH * 0.24, 0.3, top + 0.45);
       group.add(nearLabel);
       return { group, lanes, busy, barriers, busyAnchor, closed, old, w7, convoy, convoyAnchor, roadLabel, nearLabel };
     }
@@ -108,7 +108,7 @@ export default {
     const main = road({ legacy: false });
     const cmp = road({ legacy: true });
     cmp.group.visible = false;
-    cmp.roadLabel.position.x = ROAD_X0 + ROAD_LENGTH * 0.72;
+    cmp.roadLabel.position.x = ROAD_X0 + ROAD_LENGTH * 0.76;
 
     // Fuller loads near the access point: the strong-signal stretch of road, marked on the surface.
     const nearZone = new THREE.Mesh(new THREE.BoxGeometry(NEAR, 0.06, LANES * LANE_W), new THREE.MeshStandardMaterial({ color: '#29d3be', transparent: true, opacity: 0 }));
@@ -208,6 +208,9 @@ export default {
         main.convoy.mesh.visible = name === 'punctured';
         cmp.group.visible = compare;
         imaging.visible = name === 'imaging-suite';
+        // The close-up beside the workstation keeps the far end of the road under the callout, so the
+        // busy lane is labelled nearer the access point there.
+        main.busyAnchor.position.x = ROAD_X0 + ROAD_LENGTH * (name === 'imaging-suite' ? 0.32 : 0.62);
         // Side by side: older Wi-Fi's road in front, Wi-Fi 7's behind.
         jobs.push(animateTo([[main.group.position, 'z', compare ? -2.9 : 0], [cmp.group.position, 'z', compare ? 2.9 : 0]], { durationMs: 1000, animate, signal }));
         const near = name === 'fuller-loads' || compare || name === 'imaging-suite';

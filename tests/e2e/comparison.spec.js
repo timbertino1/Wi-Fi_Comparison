@@ -66,10 +66,3 @@ test('generation colours are identical on every tab', async ({ page }) => {
   }
   expect(colours.size).toBe(1);
 });
-
-test('46 Gbps is labelled as specified in the standard but not in current devices', async ({ page }) => {
-  await open(page, 'bandwidth-poe');
-  const cell = page.locator('.figures-table td[data-gen="wifi7"]').first();
-  await expect(cell).toContainText('46.1 Gbps');
-  await expect(cell).toContainText('In the standard; not in current devices');
-});

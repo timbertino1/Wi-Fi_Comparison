@@ -8,7 +8,6 @@ const SHORTCUTS = [
   ['K', 'Play or pause'],
   ['R', 'Replay from the first step of the chapter'],
   ['G', 'Change the generation compared with Wi-Fi 7'],
-  ['V', 'Switch between Leadership and Technical view'],
   ['F or P', 'Full screen on or off'],
   ['B or .', 'Blank the screen'],
   ['Esc', 'Close notes, a menu or a dialog; else leave full screen'],

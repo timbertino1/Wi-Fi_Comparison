@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const generations = JSON.parse(fs.readFileSync(path.join(root, 'content', 'generations.json'), 'utf8')).generations;
 const chapters = talkChapters();
-const TAGS = { feature: 'Wi-Fi 7 feature', overview: 'Why it matters', roadmap: 'What’s next' };
+const TAGS = { feature: 'Wi-Fi 7 feature', overview: 'Why it matters', roadmap: 'What’s next', closing: 'In summary' };
 
 function expectedBadge(tab) {
   if (tab.kind !== 'feature' || tab.opener.badge === false) return null;

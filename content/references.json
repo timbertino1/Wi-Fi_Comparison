@@ -142,7 +142,8 @@
       "date": "2022-07-29",
       "status": "current",
       "access": "paywalled",
-      "url": "https://standards.ieee.org/ieee/802.3/10422/"
+      "url": "https://standards.ieee.org/ieee/802.3/10422/",
+      "retired": true
     },
     {
       "id": "ieee-8023bt",
@@ -154,7 +155,8 @@
       "date": "2019-01-31",
       "status": "superseded",
       "access": "paywalled",
-      "url": "https://standards.ieee.org/ieee/802.3bt/6749/"
+      "url": "https://standards.ieee.org/ieee/802.3bt/6749/",
+      "retired": true
     },
     {
       "id": "ieee-8023bz",
@@ -166,7 +168,8 @@
       "date": "2016-10-18",
       "status": "superseded",
       "access": "paywalled",
-      "url": "https://standards.ieee.org/ieee/802.3bz/6130/"
+      "url": "https://standards.ieee.org/ieee/802.3bz/6130/",
+      "retired": true
     },
     {
       "id": "wfa-wifi7",

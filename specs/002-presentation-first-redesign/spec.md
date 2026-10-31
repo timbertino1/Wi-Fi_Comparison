@@ -261,11 +261,16 @@ with the clicker, and confirm both windows show the same step.
 **Story flow and transitions**
 
 - **FR-010**: The talk MUST open with the "why Wi-Fi 7 matters to healthcare" chapter, then proceed
-  through the feature chapters in the order of feature 001, then "What's next" (Wi-Fi 8). References
+  through the feature chapters in the order of feature 001, then a closing chapter (FR-011b). References
   and the glossary MUST remain reachable from the chapter menu but are not part of the clicker path.
 - **FR-011**: Moving between chapters MUST use a transition of: the view moving out from the current
   scene, a crossfade to the next scene, and the view moving in to the first step, completing within
   2.5 seconds.
+- **FR-011b**: The talk MUST end with a short closing chapter (2–4 steps, tag "In summary") that
+  returns to the opening hospital floor, shows what Wi-Fi 7 gives each kind of device, and lists
+  what to plan; references and the glossary follow it. *(Added 2026-10-30: the presenter dropped
+  the Bandwidth & PoE and Wi-Fi 8 chapters and asked to "end with some sort of review/closing, then
+  the glossary/references".)*
 - **FR-011a**: Each chapter MUST open with a chapter opener, its own click in the talk: after the
   transition's move-out and crossfade, a title card over the chapter's wide shot shows the chapter
   number, a tag (Wi-Fi 7 feature, Why it matters, or What's next), the chapter title, a one-line
@@ -307,9 +312,11 @@ with the clicker, and confirm both windows show the same step.
 
 **Audience depth**
 
-- **FR-020**: The Leadership/Technical switch MUST remain on the slide. Technical depth MUST add a
-  second caption line, technical hotspots, and an on-screen figures overlay on comparison steps;
-  switching MUST NOT change the step or animation state.
+- **FR-020**: ~~The Leadership/Technical switch MUST remain on the slide.~~ *Changed 2026-10-30 at
+  the presenter's request ("remove the toggle for Leadership/Technical and just keep the technical
+  track content for the entire document"):* there is no audience switch. Every step always shows
+  the technical layer: the second caption line, technical hotspot lines, all key figures and open
+  technical sections in the notes. Old `view=` links are ignored.
 
 **Viewing without a presenter**
 
@@ -379,7 +386,8 @@ with the clicker, and confirm both windows show the same step.
 
 - **SC-001**: A presenter can deliver the full talk, from the opening chapter to "What's next",
   using only a clicker, with zero mouse or keyboard actions other than the clicker's keys.
-- **SC-002**: On every step, the caption on the slide is at most 24 words in Leadership depth
+- **SC-002**: On every step, the caption headline and takeaway are at most 24 words (the technical
+  line, at most 20 words, shows beneath them since 2026-10-30)
   (scene labels, closed hotspot markers and a step's callout are counted separately; a callout is
   at most 62 words: title plus four points).
 - **SC-003**: Every chapter transition completes within 2.5 seconds, and in a rehearsal no viewer

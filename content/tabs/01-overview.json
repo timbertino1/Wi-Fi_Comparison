@@ -123,7 +123,7 @@
       },
       "body": "Wi-Fi is defined by the [[ieee-802-11]] standards; the Wi-Fi Alliance gives each generation a simple name {{gen-naming}}.\n\n**Wi-Fi 4** (802.11n) arrived in 2009 {{wifi4-published}}. **Wi-Fi 5** (802.11ac) followed in 2013 {{wifi5-published}}. **Wi-Fi 6** (802.11ax) certification began in 2019 {{wifi6-cert-launch}}, and **Wi-Fi 6E** brought it into the new 6 GHz band in 2021 {{wifi6e-cert-launch}}. **Wi-Fi 7** (802.11be) certification launched in 2024 {{wifi7-cert-launch}}.",
       "bottomLine": "Wi-Fi 7 is the current generation: devices and access points are certified and shipping, so it belongs in today's refresh plans.",
-      "deepDive": "Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be {{gen-naming}}. IEEE approved 802.11be on 2024-09-26 {{wifi7-ieee-approved}} and published it on 2025-07-22 {{wifi7-ieee-published}}.",
+      "deepDive": "Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be {{gen-naming}}. IEEE approved 802.11be on 2024-09-26 {{wifi7-ieee-approved}} and published it on 2025-07-22 {{wifi7-ieee-published}}. Theoretical peak rates rose from 600 Mbps for Wi-Fi 4 {{wifi4-peak-phy}} to 6.93 Gbps for Wi-Fi 5 {{wifi5-peak-phy}}, 9.61 Gbps for Wi-Fi 6 {{wifi6-peak-phy}} and 46.1 Gbps for Wi-Fi 7 {{wifi7-peak-phy}}; these assume every option at its maximum, and real devices reach far less.",
       "sceneState": "timeline",
       "sceneDescription": "A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own colour and labelled with its name and year.",
       "durationMs": 13000,
@@ -142,7 +142,7 @@
         "headline": "Each chapter: a hospital problem, then the fix",
         "takeaway": "Every chapter follows one pattern: the problem, the feature, how it works, and why it matters."
       },
-      "body": "Each chapter tells one part of the story in five steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care.\n\nUse the **Audience** switch at the top for a leadership summary or the full technical detail. Every figure links to its source — select any small number in brackets to see where it came from and how it was calculated.",
+      "body": "Each chapter tells one part of the story in a few steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care. The last chapter brings it together.\n\nUse the **Audience** switch at the top for a leadership summary or the full technical detail. Every figure links to its source — select any small number in brackets to see where it came from and how it was calculated.",
       "bottomLine": "Start with the chapters that match your current pain points; each one stands on its own.",
       "deepDive": null,
       "sceneState": "timeline-wifi7",

@@ -7,7 +7,7 @@ import { fileUrl } from './helpers.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const read = (f) => JSON.parse(fs.readFileSync(path.join(root, 'content', f), 'utf8'));
 const claims = read('claims.json').claims;
-const references = read('references.json').references;
+const references = read('references.json').references.filter((r) => !r.retired);
 const featureTabs = fs.readdirSync(path.join(root, 'content', 'tabs')).map((f) => read(`tabs/${f}`)).filter((t) => t.kind === 'feature');
 
 for (const tab of featureTabs) {
@@ -29,7 +29,10 @@ for (const tab of featureTabs) {
       if (seen.has(id)) continue;
       seen.add(id);
       await page.goto(fileUrl(`#/${tab.id}/${b}?view=technical&notes`));
-      await page.locator(`#notes [data-claim="${id}"]`).first().click();
+      const trigger = page.locator(`#notes [data-claim="${id}"]`).first();
+      // Scene-switching sections (MLO modes) start closed; open them without switching the scene.
+      await trigger.evaluate((el) => { const d = el.closest('details'); if (d) d.open = true; });
+      await trigger.click();
       const dialog = page.getByRole('dialog');
       const claim = claims.find((c) => c.id === id);
       await expect(dialog).toContainText(claim.statement);
@@ -47,26 +50,16 @@ for (const tab of featureTabs) {
   });
 }
 
-test('Leadership view shows the short form with a "How we know this" expander', async ({ page }) => {
-  await page.goto(fileUrl('#/bandwidth-poe/2?view=leadership&notes'));
-  await page.locator('#story .cite').first().click();
-  const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('.prov-short')).toContainText('Source:');
-  await expect(dialog.locator('details.prov-more')).not.toHaveAttribute('open', '');
-  await dialog.getByText('How we know this', { exact: true }).last().click();
-  await expect(dialog.locator('details.prov-more')).toHaveAttribute('open', '');
-});
-
 test('derivation inputs link to their own claims, and the register link highlights the claim', async ({ page }) => {
-  await page.goto(fileUrl('#/bandwidth-poe/2?view=technical&notes'));
-  await page.locator('.figures-table td[data-gen="wifi7"] .figure-value').first().click();
+  await page.goto(fileUrl('#/spectrum/3?view=technical&notes'));
+  await page.locator('.figures-table .figure-value[data-claim="us-6ghz-channels-320"]').click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('.prov-input')).toHaveCount(6);
+  await expect(dialog.locator('.prov-input')).toHaveCount(3);
   await dialog.locator('.prov-input').first().click();
-  await expect(page.getByRole('dialog')).toContainText('maximum spatial streams');
+  await expect(page.getByRole('dialog')).toContainText('Lower edge of the US 6 GHz');
   await page.getByRole('dialog').getByRole('link', { name: 'In the claims register' }).click();
   await expect(page.locator('#chapter-list a[data-chapter="references"]')).toHaveAttribute('aria-current', 'step');
-  await expect(page.locator('#claim-eht-max-nss')).toHaveClass(/is-highlighted/);
+  await expect(page.locator('#claim-us-6ghz-band-start')).toHaveClass(/is-highlighted/);
 });
 
 test('References tab lists the source policy, every reference, the register and the glossary', async ({ page }) => {

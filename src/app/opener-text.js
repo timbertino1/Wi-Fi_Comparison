@@ -1,7 +1,7 @@
 // Chapter opener wording (FR-011a), shared by the slide (opener.js) and the talk-track generator so
 // the tag and lineage badge read the same in both. Pure: no DOM.
 
-const TAGS = { feature: 'Wi-Fi 7 feature', overview: 'Why it matters', roadmap: 'What’s next' };
+const TAGS = { feature: 'Wi-Fi 7 feature', overview: 'Why it matters', roadmap: 'What’s next', closing: 'In summary' };
 
 /**
  * @param {object} tab        A chapter from content/tabs.

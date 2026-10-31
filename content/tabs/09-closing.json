@@ -1,0 +1,79 @@
+{
+  "id": "closing",
+  "order": 9,
+  "kind": "closing",
+  "title": "Bringing it together",
+  "summary": "The same hospital floor, now on Wi-Fi 7: what changes for each device, and what to plan.",
+  "opener": {
+    "promise": "What Wi-Fi 7 changes on the floor, in one view",
+    "problem": "Eight chapters of features; the decision needs one picture and a short plan."
+  },
+  "introducedIn": null,
+  "wifi7Adds": null,
+  "compareGenerations": [],
+  "defaultCompare": null,
+  "sceneId": "overview",
+  "scenarioIds": [],
+  "beats": [
+    {
+      "type": "context",
+      "heading": "The same hospital, on Wi-Fi 7",
+      "caption": {
+        "headline": "The same hospital, on Wi-Fi 7",
+        "takeaway": "Every kind of device on the floor gains something different from Wi-Fi 7."
+      },
+      "body": "Back on the floor where we started. Badges keep calls steady by using more than one band {{mlo-bands}}. Location tags and badges sleep between agreed wake-ups, so batteries last the shift {{twt-what}}. Pumps and staff devices sign in with [[wpa3|WPA3]], which Wi-Fi 7 and the 6 GHz band require {{wpa3-6ghz-required}} {{wpa3-mlo-required}}.\n\nWorkstations move large images faster on wide 6 GHz channels {{width-320-vs-160}}, crowded units serve many devices per transmission {{ofdma-ax}}, and alarms are designed to wait less behind other traffic {{be-latency-objective}}.",
+      "bottomLine": "Wi-Fi 7 is not one feature: each chapter fixes a different problem on the same floor.",
+      "deepDive": null,
+      "sceneState": "floor-wifi7",
+      "sceneDescription": "The hospital floor from the first chapter, full of devices and busy with traffic flowing to the access points. A label above one of each kind of device names its gain: voice badges, steadier calls with multi-link; infusion pumps, safer sign-in with WPA3; patient monitors, alarms on time; phones, room for everyone with OFDMA; workstations, big files fast on 6 GHz; location tags, batteries that last the shift with TWT.",
+      "durationMs": 14000,
+      "callout": {
+        "title": "What Wi-Fi 7 brings",
+        "points": [
+          "Wide, clean 6 GHz channels, twice as wide as before{{width-320-vs-160}}",
+          "One connection across several bands{{mlo-bands}}",
+          "Longer battery life and alarms that wait less{{twt-what}}",
+          "[[wpa3|WPA3]] as the baseline, not an option{{wpa3-6ghz-required}}"
+        ]
+      },
+      "questions": [
+        {
+          "q": "Which chapter matters most for us?",
+          "a": "Start with today's biggest pain point: crowded units point to density and 6 GHz, dropped calls to multi-link, battery swaps to Target Wake Time, and audit findings to WPA3."
+        }
+      ]
+    },
+    {
+      "type": "outlook",
+      "heading": "What to plan",
+      "caption": {
+        "headline": "What to plan",
+        "takeaway": "Check devices, survey for 6 GHz, ready the wired side, and pilot before rollout."
+      },
+      "body": "The gains arrive as devices that support them join the network, so start with an inventory: which badges, pumps, monitors and phones support Wi-Fi 7, WPA3 and Target Wake Time.\n\nThen survey before placing access points, because walls weaken 6 GHz signals more than the older bands {{6ghz-building-loss}}. Plan switch ports and power for the new access points alongside the wireless design, and pilot alarm, voice and imaging traffic on a busy unit before rolling out.",
+      "bottomLine": "Plan Wi-Fi 7 with the device refresh, the wired upgrades and a pilot on a real unit, not as an access-point swap alone.",
+      "deepDive": null,
+      "sceneState": "floor-plan",
+      "sceneDescription": "The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the planning checklist appears beside it.",
+      "durationMs": 12000,
+      "callout": {
+        "title": "Before you roll out",
+        "points": [
+          "List which devices support Wi-Fi 7, WPA3 and [[twt|TWT]]",
+          "Survey for 6 GHz before placing access points{{6ghz-building-loss}}",
+          "Plan switch ports and power for new access points",
+          "Pilot alarms, voice and imaging on a busy unit"
+        ]
+      },
+      "questions": [
+        {
+          "q": "Should we wait for Wi-Fi 8?",
+          "a": "No. Wi-Fi 8 (IEEE 802.11bn) is still in development{{wifi8-status}}; Wi-Fi 7 is the certified generation today, and device, survey and wired work done now carries forward."
+        }
+      ]
+    }
+  ],
+  "keyFigures": [],
+  "sections": []
+}

@@ -9,10 +9,10 @@ const words = (s) => s.trim().split(/\s+/).filter(Boolean).length;
 test.describe('slide content', () => {
   test.use({ reducedMotion: 'reduce', viewport: { width: 1920, height: 1080 } });
 
-  test('every step: caption from content, ≤ 24 words in Leadership, no side text, progress shown', async ({ page }) => {
+  test('every step: caption from content, headline and takeaway ≤ 24 words, no side text, progress shown', async ({ page }) => {
     test.setTimeout(120000);
     for (const { chapter, step, tab, beat } of path) {
-      await page.goto(fileUrl(`#/${chapter}/${step}?view=leadership&test`));
+      await page.goto(fileUrl(`#/${chapter}/${step}?test`));
       await page.waitForFunction(([c, s]) => window.__stage?.tab === c && window.__stage?.beat === s, [chapter, step]);
       const caption = page.locator('#caption');
       await expect(caption).toBeVisible();
@@ -25,7 +25,10 @@ test.describe('slide content', () => {
         return copy.textContent.replace(/\s+/g, ' ').trim();
       })).toBe(plainMarkup(beat.caption.takeaway).replace(/\s+/g, ' ').trim());
       await expect(takeaway.locator('.cite')).toHaveCount((beat.caption.takeaway.match(/\{\{[^}]+\}\}/g) ?? []).length);
-      expect(words(await caption.innerText()), `${chapter}/${step}`).toBeLessThanOrEqual(24);
+      // The technical line always shows now; the headline and takeaway keep the 24-word budget (SC-002).
+      const main = (await caption.locator('.caption-headline').innerText()) + ' ' + (await takeaway.innerText());
+      expect(words(main), `${chapter}/${step}`).toBeLessThanOrEqual(24);
+      await expect(caption.locator('.caption-technical')).toHaveCount(beat.caption.technical ? 1 : 0);
       await expect(page.locator('#notes')).toBeHidden();
       const order = chapters.findIndex((c) => c.id === chapter) + 1;
       await expect(page.locator('#progress')).toContainText(`Chapter ${order} of ${chapters.length} · Step ${step} of ${tab.beats.length}`);

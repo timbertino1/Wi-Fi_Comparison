@@ -91,6 +91,7 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
     instance?.resize?.(viewW, viewH);
     applied.value = NaN;
     renderOnce();
+    unclutterPins();
   }
 
   // A held framing (the chapter opener's wide shot) overrides the scene's own camera every frame
@@ -156,6 +157,12 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
     renderOnce();
     frameListener?.(dt);
     const busy = tweens.hasActiveTweens() || (instance && !instance.isIdle());
+    // Pins are tidied once the camera and tweens rest; scenes that loop forever (moving packets)
+    // still rest their labels, so a few checks a second suffice.
+    if (!tweens.hasActiveTweens() && (!busy || now - lastUnclutter > 300)) {
+      lastUnclutter = now;
+      unclutterPins();
+    }
     if (busy && !hidden) rafId = requestAnimationFrame(frame);
     else last = 0;
   }
@@ -217,12 +224,36 @@ export function createStage(container, { onContextLost = () => {}, isDark = () =
     const pin = new CSS2DObject(element);
     pin.position.set(...offset);
     object.add(pin);
+    pins.push(element);
     wake();
     return () => {
       pin.parent?.remove(pin);
       element.remove();
+      pins = pins.filter((p) => p !== element);
       wake();
     };
+  }
+
+  // A pin that lands on a scene label would hide its text, so once the picture settles each such pin
+  // moves to the label's top-left corner, like a badge. CSS `translate` composes with the label
+  // layer's own transform, so this stays a transform-only change (P11).
+  let pins = [];
+  let lastUnclutter = 0;
+  const shown = (el) => el.isConnected && el.style.display !== 'none' && el.style.opacity !== '0';
+  function unclutterPins() {
+    if (!pins.length) return;
+    const visible = labels.map((l) => l.element).filter((el) => shown(el) && el.textContent.trim());
+    for (const pin of pins) pin.style.translate = '';
+    const boxes = visible.map((el) => el.getBoundingClientRect());
+    for (const pin of pins) {
+      if (!shown(pin)) continue;
+      const r = pin.getBoundingClientRect();
+      const hit = boxes.find((b) => r.left < b.right && r.right > b.left && r.top < b.bottom && r.bottom > b.top);
+      if (!hit) continue;
+      const dx = hit.left - (r.left + r.width / 2);
+      const dy = hit.top - (r.top + r.height / 2);
+      pin.style.translate = `${Math.round(dx)}px ${Math.round(dy)}px`;
+    }
   }
 
   function addLights(target) {

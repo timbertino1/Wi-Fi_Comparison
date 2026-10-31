@@ -1,9 +1,9 @@
 // Multi-Link Operation: one link that clogs versus several links that share the load, plus the four
 // multi-link modes defined in 802.11be.
 const BANDS = [
-  { id: '6', label: '6 GHz', arch: 1.6, bend: -3.2 },
-  { id: '5', label: '5 GHz', arch: 1.6, bend: 0 },
-  { id: '2.4', label: '2.4 GHz', arch: 1.6, bend: 3.2 }
+  { id: '6', label: '6 GHz', arch: 1.6, bend: -3.2, at: 0.4 },
+  { id: '5', label: '5 GHz', arch: 1.6, bend: 0, at: 0.5 },
+  { id: '2.4', label: '2.4 GHz', arch: 1.6, bend: 3.2, at: 0.6 }
 ];
 const VOICE = 6;
 const BULK = 4;
@@ -40,7 +40,7 @@ export default {
         mesh.material.opacity = 0.85;
         group.add(mesh);
         const anchor = new THREE.Object3D();
-        anchor.position.copy(curve.getPoint(0.5));
+        anchor.position.copy(curve.getPoint(band.at)); // staggered so the three labels do not stack
         anchor.position.y += 0.35;
         group.add(anchor);
         const label = labels.add(anchor, band.label, { className: 'muted' });
@@ -173,6 +173,9 @@ export default {
       }
     }
 
+    // Close-ups aim a little higher, so the access point's title sits clear of the caption.
+    const lookY = () => (mode === 'modes-compare' || mode === 'gen-compare' ? 1.4 : 1.9);
+
     return {
       async setState(name, { animate = true, signal } = {}) {
         mode = name;
@@ -191,7 +194,7 @@ export default {
         layoutPackets(single, 0);
         layoutPackets(multi, 0);
         layoutModes(0);
-        camera.lookAt(0, 1.4, 0);
+        camera.lookAt(0, lookY(), 0);
         ctx.requestRender();
       },
       setGeneration(genId) {
@@ -201,7 +204,7 @@ export default {
         ctx.requestRender();
       },
       update(dt) {
-        camera.lookAt(0, 1.4, 0);
+        camera.lookAt(0, lookY(), 0);
         if (!motionFull) return;
         time += dt;
         if (mode === 'clinical-outcome') multi.flows[1].busy = Math.floor(time / 4) % 2 === 0;

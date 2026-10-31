@@ -54,11 +54,10 @@ test('only app.js is loaded as script, and storage holds only preferences', asyn
   await page.locator('#settings-toggle').click();
   await page.locator('#theme-toggle').click();
   await page.locator('#motion-toggle').click();
-  await page.getByRole('radio', { name: 'Technical' }).check({ force: true });
   const keys = await page.evaluate(() => Object.keys(localStorage));
   expect(keys).toEqual(['wifi7-explainer:prefs']);
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('wifi7-explainer:prefs')));
-  expect(Object.keys(stored).sort()).toEqual(['motion', 'theme', 'view']);
+  expect(Object.keys(stored).sort()).toEqual(['motion', 'theme']);
 });
 
 test('external links open safely', async ({ page }) => {

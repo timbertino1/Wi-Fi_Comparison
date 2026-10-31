@@ -191,12 +191,21 @@ test('rule 17: numbers with units need a claim citation in the same sentence', a
 test('rules 10 and 18: orphans are warnings in draft and errors in release', async () => {
   const c = clone(base);
   c.claims.push({ id: 'unused-claim', statement: 'x', value: null, unit: null, kind: 'technical', method: 'stated', sources: [{ referenceId: 'ieee-80211be', locator: 'Clause 1' }], derivation: null, verification: {} });
-  c.tabs[10].draft = true;
+  c.tabs.at(-1).draft = true;
   const { warnings } = await validateContent({ content: c, denylist: [] });
   assert.ok(warnings.some((w) => w.includes('[rule 18] claim unused-claim')));
   const e = await errorsFor(c, { release: true });
   assert.match(e, /\[rule 18\] claim unused-claim/);
   assert.match(e, /\[rule 3\] .*still marked draft/);
+});
+
+test('rule 10: retired references are skipped, but must not be cited', async () => {
+  const c = clone(base);
+  const retired = c.references.find((r) => r.retired);
+  assert.ok(retired, 'expected a retired reference in content');
+  assert.doesNotMatch(await errorsFor(c, { release: true }), new RegExp(`reference ${retired.id} is never cited`));
+  c.claims.find((x) => x.id === 'mlo-bands').sources.push({ referenceId: retired.id, locator: 'Clause 1' });
+  assert.match(await errorsFor(c), new RegExp(`reference ${retired.id} is retired but still cited`));
 });
 
 test('rule 19: release requires recent verification', async () => {

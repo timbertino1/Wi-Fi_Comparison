@@ -56,7 +56,7 @@ function* pageText({ tabs, scenarios, glossary, references, claims, generations 
     for (const [i, d] of s.deviceTypes.entries()) yield [`scenarios/${s.id}.deviceTypes[${i}]`, d];
   }
   for (const g of glossary) for (const f of ['term', 'expansion', 'definition', 'short']) if (g[f]) yield [`glossary/${g.id}.${f}`, g[f]];
-  for (const r of references) yield [`references/${r.id}.title`, r.title];
+  for (const r of references.filter((x) => !x.retired)) yield [`references/${r.id}.title`, r.title]; // retired ones are not on the page
   for (const c of claims) {
     yield [`claims/${c.id}.statement`, c.statement];
     for (const [i, s] of c.sources.entries()) {

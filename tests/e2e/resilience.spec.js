@@ -64,7 +64,7 @@ test('hiding the page stops the render loop', async ({ page }) => {
 for (const [width, height] of [[360, 740], [768, 1024], [1920, 1080], [3840, 2160]]) {
   test(`no horizontal scroll at ${width}×${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height });
-    for (const id of ['overview', 'bandwidth-poe', 'references']) {
+    for (const id of ['overview', 'density', 'references']) {
       await page.goto(fileUrl(`#/${id}`));
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(overflow, `${id} at ${width}px`).toBeLessThanOrEqual(0);

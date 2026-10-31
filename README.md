@@ -1,9 +1,9 @@
 # Wi-Fi 7 Explained: A Healthcare Story
 
 A vendor-neutral, animated explainer of Wi-Fi 7 and how it improves on earlier Wi-Fi, told through
-hospital scenarios. Eleven tabs cover 6 GHz and 320 MHz channels, Multi-Link Operation, 4K-QAM,
-puncturing and Multi-RU, WPA3, Target Wake Time, client density, latency, bandwidth and PoE, and
-what's next with Wi-Fi 8. Every figure links to the reputable source it came from.
+hospital scenarios. Nine chapters cover why it matters, 6 GHz and 320 MHz channels, Multi-Link
+Operation, 4K-QAM, puncturing and Multi-RU, WPA3, Target Wake Time, client density and latency,
+then a closing recap, followed by references and a glossary. Every figure links to the reputable source it came from.
 
 ## Viewing it
 
