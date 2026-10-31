@@ -148,7 +148,7 @@
       "heading": "Protected time for urgent traffic",
       "caption": {
         "headline": "Protected time for urgent traffic",
-        "takeaway": "Optional [[restricted-twt|Restricted TWT]] reserves protected slots for voice and alarms{{rtwt-be}}{{rtwt-optional}}.",
+        "takeaway": "Optional [[restricted-twt|Restricted TWT]] gives voice and alarms better-protected slots{{rtwt-be}}{{rtwt-optional}}.",
         "technical": "Supporting stations end their transmissions before each restricted service period begins{{rtwt-protect}}."
       },
       "body": "TWT saves power, but it does not stop a busy laptop from occupying the air just when a voice packet is due. Wi-Fi 7 adds [[restricted-twt|Restricted TWT]], which reserves protected service periods for latency-sensitive traffic {{rtwt-be}}. It is optional: only access points and devices that support it take part {{rtwt-optional}}.\n\nDevices that support it are expected to finish transmitting before a protected period begins {{rtwt-protect}}. Devices that do not, and interference from outside the network, are not held back.",
@@ -171,7 +171,7 @@
       "callout": {
         "title": "What Wi-Fi 7 adds",
         "points": [
-          "Optional [[restricted-twt|Restricted TWT]] reserves protected slots for urgent traffic{{rtwt-optional}}",
+          "Optional [[restricted-twt|Restricted TWT]] better protects slots for urgent traffic{{rtwt-optional}}",
           "Supporting devices pause before each slot begins{{rtwt-protect}}",
           "Check support in each access point, device and firmware"
         ]

@@ -128,3 +128,41 @@ These rest on clause-level content of IEEE 802.11-2020, 802.11ax, 802.11be or 80
 | emlmr-what | In EMLMR mode, a multi-link device moves its transmit and receive spatial streams between links as traffic requires | Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation. |
 | puncturing-patterns | 802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured | Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions. |
 | rtwt-optional | Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT. |
+
+## Peer review of the claims, 2026-10-31
+
+The 53 claims not fully confirmed above, and a spot check of the 43 confirmed ones, were reviewed by a second model (GPT, High Thinking, with web search). Its verdicts are recorded in each claim's verification notes. It reported 3 Wrong, 13 Imprecise, 1 Wrong locator and the rest Correct; each finding was checked before applying.
+
+**Wrong, corrected:**
+
+- **eht-max-nss:** the final 802.11be standard defines up to 8 spatial streams, not 16. Sixteen appeared in drafts but not in the published amendment.
+- **wifi7-peak-phy:** recomputed with 8 streams. The Wi-Fi 7 single-link theoretical peak is **23.1 Gbps** (8 × 2882.4 Mb/s), not 46.1 Gbps. This puts it on the same footing as 600 Mbps, 6.93 Gbps and 9.61 Gbps for Wi-Fi 4–6. The 802.11be scope's "at least 30 Gbit/s at the MAC SAP" is met through multi-link aggregation, not a single link.
+- **contention-dcf:** "using the whole channel" removed. The claim now states the TXOP access rule only.
+
+**Imprecise, reworded:**
+
+- **MLO modes:** STR and NSTR describe pairs of links; EMLSR and EMLMR are enhanced modes. Affected claims: mlo-modes-be, str-what, emlmr-what.
+- **TID-to-link mapping:** security is described as coordinated across links. Affected claim: mlo-tid-mapping.
+- **Association before Wi-Fi 7:** association is per BSS, not per band. Affected claim: single-link-pre-be.
+- **Puncturing signalling:** described as preamble signalling plus a BSS disabled-subchannel bitmap. Affected claim: puncturing-be.
+- **BSS coloring:** coloring identifies the network; the spatial-reuse rules use that. Affected claim: bss-coloring-ax.
+- **Restricted TWT:** it improves protection, but airtime is not exclusive. Affected claims: rtwt-be, rtwt-protect.
+- **TWT:** individual TWT is negotiated per device; broadcast TWT is a shared schedule. Affected claim: twt-what.
+- **802.11ac uplink:** it defined no uplink multi-user transmission. Affected claim: vht-dl-mu-mimo.
+- **6 GHz security:** secured networks use WPA3 and open networks use Enhanced Open. Affected claims: wpa3-6ghz-required, 6ghz-security-options.
+
+**Locators:** 802.11be clause and table numbers were updated where the reviewer gave them with high confidence:
+- 35.3.16–35.3.18 (MLO)
+- 35.8 (restricted TWT)
+- 35.15.2 and Table 36-30 (puncturing)
+- Tables 36-51, 36-65 and 36-86
+
+The reviewer read these from a copy of the standard. They should still be confirmed against the official IEEE text when it is available.
+
+**Content changed to match:**
+- Chapter 1 step 3 (peak rates).
+- Chapter 3 MLO modes section.
+- Chapter 5 lineage note.
+- Chapter 6 step 4.
+- Chapter 9 step 1.
+- Glossary entries for STR, NSTR and Restricted TWT.

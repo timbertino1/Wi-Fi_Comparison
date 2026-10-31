@@ -164,8 +164,8 @@ test('rule 14: technical claims need Tier 1 sources and locators', async () => {
 
 test('rule 15: derived claims must recompute from their inputs', async () => {
   const c = clone(base);
-  c.claims.find((x) => x.id === 'eht-max-nss').value = 8;
-  assert.match(await errorsFor(c), /wifi7-peak-phy: recomputes to 23.1, but the claim says 46.1/);
+  c.claims.find((x) => x.id === 'eht-max-nss').value = 16;
+  assert.match(await errorsFor(c), /wifi7-peak-phy: recomputes to 46.1, but the claim says 23.1/);
 });
 
 test('rule 16: key figures must match their claims', async () => {
@@ -176,7 +176,7 @@ test('rule 16: key figures must match their claims', async () => {
     ]
   });
   const e = await errorsFor(withTab(t));
-  assert.match(e, /shows 40 but claim "wifi7-peak-phy" says 46.1/);
+  assert.match(e, /shows 40 but claim "wifi7-peak-phy" says 23.1/);
   assert.match(e, /value for wifi7 has no claimIds entry/);
 });
 
@@ -211,6 +211,7 @@ test('rule 10: retired references are skipped, but must not be cited', async () 
 test('rule 19: release requires recent verification', async () => {
   const c = clone(base);
   c.claims[0].verification = { verifiedOn: '2025-01-01', verifiedBy: 'TB', notes: null };
+  c.claims[1].verification = { verifiedOn: null, verifiedBy: null, notes: null };
   const e = await errorsFor(c, { release: true, today: new Date('2026-10-26') });
   assert.match(e, new RegExp(`claim ${c.claims[0].id}: verified 2025-01-01, more than 365 days ago`));
   assert.match(e, new RegExp(`claim ${c.claims[1].id}: not verified`));
