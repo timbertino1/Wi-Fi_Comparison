@@ -119,7 +119,7 @@
       "bottomLine": "Access points can coordinate many low-power devices at once, which matters on floors with large numbers of tags and badges.",
       "deepDive": "802.11ax supports individual TWT agreements negotiated per station and broadcast TWT schedules advertised by the AP for groups of stations {{twt-types-ax}}. The agreed parameters include the target wake time, the wake interval and the minimum wake duration, which together define each service period {{twt-what}}.",
       "sceneState": "twt-sleep",
-      "sceneDescription": "The access point announces one wake-up time for the whole group. At each mark on the shift bar, all three devices wake together, exchange data and go back to sleep, and the access point glows as it serves them in one go. Batteries stay high.",
+      "sceneDescription": "The access point announces one wake-up time for the whole group. At each mark on the shift bar, all three devices wake together, exchange data and go back to sleep, and the access point glows as it serves them in one go. Batteries drain slowly.",
       "durationMs": 13000,
       "callout": {
         "title": "One schedule, many devices",
@@ -193,7 +193,7 @@
     },
     {
       "type": "why",
-      "heading": "Longer battery life and dependable calls",
+      "heading": "Longer battery life, more predictable calls",
       "caption": {
         "headline": "Longer battery life, more predictable calls",
         "takeaway": "Gains need support in each device, so ask vendors about TWT and Restricted TWT."

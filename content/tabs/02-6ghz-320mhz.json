@@ -27,7 +27,8 @@
       "heading": "Too many devices, too few lanes",
       "caption": {
         "headline": "Too many devices, too few lanes",
-        "takeaway": "Older bands are crowded and slowed by [[legacy-device|legacy devices]]; adding access points eventually stops helping."
+        "takeaway": "Older bands are crowded and slowed by [[legacy-device|legacy devices]]; adding access points eventually stops helping.",
+        "technical": "Slow legacy devices use more [[airtime|airtime]] for the same data, and mixed networks add compatibility overhead."
       },
       "body": "On a busy medical-surgical floor, every badge, pump, monitor and workstation shares the 2.4 GHz and 5 GHz bands — along with older devices, guest phones and the unit next door.\n\nThose bands only fit a handful of wide channels. Older [[legacy-device|legacy devices]] send more slowly, so they hold the channel longer for the same data, and mixed networks add compatibility overhead that every device on the channel pays for.",
       "bottomLine": "Adding more access points in crowded bands eventually stops helping; capacity is limited by the spectrum itself.",
@@ -49,7 +50,7 @@
           "id": "legacy-device",
           "anchor": "legacy-truck",
           "term": "legacy-device",
-          "technical": "Newer devices on the same channel must fall back to older, slower ways of sharing it."
+          "technical": "Protection exchanges let older devices notice newer transmissions, at a cost in airtime for everyone on the channel."
         }
       ]
     },

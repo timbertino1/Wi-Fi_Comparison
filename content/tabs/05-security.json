@@ -244,9 +244,9 @@
         "wifi6": "Cannot use 6 GHz",
         "wifi7": "Not permitted"
       },
-      "qualifier": "typical",
+      "qualifier": "certification",
       "regulatoryDomain": null,
-      "note": "Wi-Fi Alliance certification and deployment rules, not IEEE 802.11be requirements.",
+      "note": null,
       "headline": true,
       "cellQualifiers": {},
       "claimIds": {
@@ -264,9 +264,9 @@
         "wifi6": null,
         "wifi7": "Yes"
       },
-      "qualifier": "typical",
+      "qualifier": "certification",
       "regulatoryDomain": null,
-      "note": "A Wi-Fi Alliance security requirement, not an IEEE 802.11be rule. Earlier generations have no multi-link operation.",
+      "note": "Earlier generations have no multi-link operation.",
       "headline": true,
       "cellQualifiers": {},
       "claimIds": {

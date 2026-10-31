@@ -19,7 +19,8 @@ const QUALIFIER_LABEL = {
   illustrative: 'illustrative',
   regulatory: 'regulatory limit',
   normative: 'defined in the standard', // defined, not necessarily mandatory for every device
-  typical: 'typical'
+  typical: 'typical',
+  certification: 'Wi-Fi Alliance requirement, not IEEE'
 };
 
 export function buildTalkTrack(content = loadContent()) {

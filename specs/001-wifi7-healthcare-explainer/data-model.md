@@ -73,7 +73,7 @@ runtime persistence other than viewer preferences.
 | `unit` | string \| null | e.g., "MHz", "Gbps", "W"; `null` = use each cell's claim unit (e.g., Mbps vs Gbps) or no unit for text values |
 | `cellQualifiers` | map Generation id → qualifier | Optional per-cell override, e.g., the Wi-Fi 7 peak rate is `specified-not-shipping` while the row is `theoretical` |
 | `values` | map Generation id → number \| string \| null | null = "not supported" |
-| `qualifier` | enum `theoretical` \| `typical` \| `optional` \| `regulatory` \| `specified-not-shipping` \| `normative` | Peak rates MUST be `theoretical`; 46 Gbps MUST be `specified-not-shipping` |
+| `qualifier` | enum `theoretical` \| `typical` \| `optional` \| `regulatory` \| `specified-not-shipping` \| `normative` \| `certification` | Peak rates MUST be `theoretical`; 46 Gbps MUST be `specified-not-shipping`; `certification` marks a Wi-Fi Alliance rule, not an IEEE requirement |
 | `regulatoryDomain` | string \| null | Required when `qualifier` = `regulatory` (e.g., "US (FCC)") |
 | `note` | string \| null | Short caveat shown with the figure |
 | `headline` | boolean | Shown in Leadership view; `feature` tabs MUST have 2–3 headline figures |

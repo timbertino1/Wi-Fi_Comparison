@@ -199,11 +199,12 @@ Those bands only fit a handful of wide channels. Older legacy devices send more 
 
 **Bottom line:** Adding more access points in crowded bands eventually stops helping; capacity is limited by the spectrum itself.
 
-**Technical depth:** Newer devices on the same channel must fall back to older, slower ways of sharing it.
+**Technical depth:** Slow legacy devices use more airtime for the same data, and mixed networks add compatibility overhead. Protection exchanges let older devices notice newer transmissions, at a cost in airtime for everyone on the channel.
 
 **Terms:**
 
 - Legacy device — A device built for an older Wi-Fi generation. Slow devices take longer to send the same data, so they use more of a shared channel’s airtime.
+- Airtime — The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime.
 
 **Figures:**
 
@@ -456,7 +457,7 @@ Think of it as one conversation with several lanes open to it. Whether the devic
 
 **On screen:** Busy band? Traffic takes another lane / Voice packets can move to another link without reconnecting [S8]. Grey upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.
 
-**Say (leadership):** Spread the load, keep a spare lane.
+**Say (leadership):** Busy band? Traffic moves to another lane.
 
 With several links available, traffic can be **moved to another link** when one band is busy, without the device reconnecting first [S8]. Devices that can use several links at once can also **spread** traffic across them for more throughput [S8].
 
@@ -531,7 +532,7 @@ How much it helps depends on both ends. A device in STR mode can use links at th
 **Terms:**
 
 - Telemetry — Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station.
-- STR — A multi-link mode where a device can send on one link while receiving on another, using separate radios.
+- STR — A multi-link mode where a device can send on one link while receiving on another at the same time.
 - EMLSR — A multi-link mode where a device listens on several links but exchanges data on only one link at a time.
 
 **Figures:**
@@ -600,7 +601,7 @@ Without puncturing, as on Wi-Fi 5 and for Wi-Fi 6 single-user transmissions [S7]
 
 **Bottom line:** Interference in a small part of the spectrum can cut wireless capacity in a room far more than its size suggests.
 
-**Technical depth:** A wide channel is built from narrower subchannels; older Wi-Fi gives up the whole stretch around a busy one.
+**Technical depth:** A wide channel is built from narrower subchannels; without puncturing, the access point gives up the whole stretch around a busy one.
 
 **Terms:**
 
@@ -986,8 +987,8 @@ WPA3 is one layer of security, not a complete programme: it complements network 
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
-| WPA2-Personal in the 6 GHz band — Wi-Fi Alliance certification and deployment rules, not IEEE 802.11be requirements. | Cannot use 6 GHz | Cannot use 6 GHz | Not permitted | typical | [S7, S17, S19, S25] |
-| WPA3 required for multi-link connections — A Wi-Fi Alliance security requirement, not an IEEE 802.11be rule. Earlier generations have no multi-link operation. | n/a | n/a | Yes | typical | [S19] |
+| WPA2-Personal in the 6 GHz band | Cannot use 6 GHz | Cannot use 6 GHz | Not permitted | Wi-Fi Alliance requirement, not IEEE | [S7, S17, S19, S25] |
+| WPA3 required for multi-link connections — Earlier generations have no multi-link operation. | n/a | n/a | Yes | Wi-Fi Alliance requirement, not IEEE | [S19] |
 
 ## 6. Target Wake Time & Battery Life
 
@@ -1000,7 +1001,7 @@ Scheduled wake-ups that let badges and sensors sleep, plus protected time slots 
 **Healthcare scenario — Inpatient unit across a long shift** (devices: voice badge, location tag, wearable monitor)
 
 - Problem: Small battery-powered devices keep their radios listening and need recharging or swapping before the shift ends.
-- What Wi-Fi 7 supports: Target Wake Time lets devices sleep between agreed wake-ups, and Restricted TWT protects time for voice and telemetry, supporting longer battery life and dependable delivery.
+- What Wi-Fi 7 supports: Target Wake Time lets devices sleep between agreed wake-ups, and optional Restricted TWT can protect time for voice and telemetry on devices that support it, so batteries can last longer and timing can be more predictable.
 
 ### Step 1 — Always listening, flat by mid-shift
 
@@ -1074,7 +1075,7 @@ With Target Wake Time, each device and its access point agree on when the device
 
 ### Step 3 — Schedules for one device or a whole group
 
-**On screen:** Schedules for one device or a whole group / Access points can coordinate groups of tags and badges with shared wake schedules [S7]. The access point announces one wake-up time for the whole group. At each mark on the shift bar, all three devices wake together, exchange data and go back to sleep, and the access point glows as it serves them in one go. Batteries stay high. Hotspots: Service period, RTLS.
+**On screen:** Schedules for one device or a whole group / Access points can coordinate groups of tags and badges with shared wake schedules [S7]. The access point announces one wake-up time for the whole group. At each mark on the shift bar, all three devices wake together, exchange data and go back to sleep, and the access point glows as it serves them in one go. Batteries drain slowly. Hotspots: Service period, RTLS.
 
 **Callout — One schedule, many devices:**
 
@@ -1156,7 +1157,7 @@ Devices that support it are expected to finish transmitting before a protected p
 - Battery data with TWT on, tested with our own traffic
 - Restricted TWT support for voice badges and monitors
 
-**Say (leadership):** Longer battery life and dependable calls.
+**Say (leadership):** Longer battery life, more predictable calls.
 
 For care teams, TWT can mean fewer battery changes and devices that stay reachable through a shift, while Restricted TWT, where supported, can make voice and telemetry timing more predictable [S8].
 
@@ -1419,7 +1420,7 @@ Tools that can cut the rare long delays for alarms, voice and video, to validate
 **Healthcare scenario — Cardiac telemetry unit** (devices: bedside monitor, nurses' station workstation)
 
 - Problem: Occasionally an alarm message waits behind a large download before reaching the nurses' station.
-- What Wi-Fi 7 supports: Multi-link operation, Restricted TWT and Multi-RU target those worst-case waits, supporting more consistent delivery of alarms and voice.
+- What Wi-Fi 7 supports: Multi-link operation, optional Restricted TWT and Multi-RU target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot.
 
 ### Step 1 — The alarm stuck behind a download
 
@@ -1715,7 +1716,7 @@ A reviewer checks each claim against its source and records the date and their i
 - **Service period**: The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
 - **Smart infusion pump**: A bedside pump that delivers medication at a set rate and uses Wi-Fi to receive drug libraries and orders and to report alerts and history.
 - **Spatial stream**: An independent data stream sent over its own antenna path at the same time as others. More streams multiply the peak rate.
-- **STR** (Simultaneous transmit and receive): A multi-link mode where a device can send on one link while receiving on another, using separate radios.
+- **STR** (Simultaneous transmit and receive): A multi-link mode where a device can send on one link while receiving on another at the same time.
 - **Subcarrier**: One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others.
 - **Tail latency**: The delay experienced by the slowest packets, such as the worst one in a hundred. It decides whether urgent messages are ever late.
 - **Telemetry**: Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station.

@@ -52,7 +52,7 @@
         "wearable monitor"
       ],
       "problem": "Small battery-powered devices keep their radios listening and need recharging or swapping before the shift ends.",
-      "outcomeSupported": "Target Wake Time lets devices sleep between agreed wake-ups, and Restricted TWT protects time for voice and telemetry, supporting longer battery life and dependable delivery."
+      "outcomeSupported": "Target Wake Time lets devices sleep between agreed wake-ups, and optional Restricted TWT can protect time for voice and telemetry on devices that support it, so batteries can last longer and timing can be more predictable."
     },
     {
       "id": "ed-shift-change",
@@ -75,7 +75,7 @@
         "nurses' station workstation"
       ],
       "problem": "Occasionally an alarm message waits behind a large download before reaching the nurses' station.",
-      "outcomeSupported": "Multi-link operation, Restricted TWT and Multi-RU target those worst-case waits, supporting more consistent delivery of alarms and voice."
+      "outcomeSupported": "Multi-link operation, optional Restricted TWT and Multi-RU target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot."
     }
   ]
 }

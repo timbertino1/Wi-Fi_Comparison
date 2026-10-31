@@ -58,7 +58,7 @@
     },
     {
       "type": "how",
-      "heading": "Spread the load, keep a spare lane",
+      "heading": "Busy band? Traffic moves to another lane",
       "caption": {
         "headline": "Busy band? Traffic takes another lane",
         "takeaway": "Voice packets can move to another link without reconnecting{{mlo-tid-mapping}}.",

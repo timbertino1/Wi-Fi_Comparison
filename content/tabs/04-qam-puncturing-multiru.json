@@ -48,7 +48,7 @@
           "id": "busy-lane",
           "anchor": "busy-lane",
           "term": "channel-width",
-          "technical": "A wide channel is built from narrower subchannels; older Wi-Fi gives up the whole stretch around a busy one."
+          "technical": "A wide channel is built from narrower subchannels; without puncturing, the access point gives up the whole stretch around a busy one."
         }
       ]
     },

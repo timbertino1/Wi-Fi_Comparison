@@ -11,6 +11,7 @@ export const QUALIFIER_TEXT = {
   'specified-not-shipping': 'In the standard; not in current devices',
   optional: 'Optional',
   typical: 'Typical',
+  certification: 'Wi-Fi Alliance requirement',
   normative: null
 };
 

@@ -46,7 +46,7 @@
       "id": "str",
       "term": "STR",
       "expansion": "Simultaneous transmit and receive",
-      "definition": "A multi-link mode where a device can send on one link while receiving on another, using separate radios."
+      "definition": "A multi-link mode where a device can send on one link while receiving on another at the same time."
     },
     {
       "id": "nstr",
