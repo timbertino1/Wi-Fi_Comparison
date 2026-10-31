@@ -15,7 +15,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11n-2009, 2009 — **Standard listing: published date** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11n-2009.html>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S1: IEEE listing: board approval 2009-09-11, published 2009-10-29.
 
 #### `wifi5-published`
 
@@ -24,7 +24,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ac-2013, 2013 — **Standard listing: published date** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11ac-2013.html>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S2: IEEE listing: board approval 2013-12-11, published 2013-12-18.
 
 #### `wifi6-cert-launch`
 
@@ -33,7 +33,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2019-09-16** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-certified-6-delivers-new-wi-fi-era>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S5: Press release 2019-09-16: “The Wi-Fi CERTIFIED 6 certification program from Wi-Fi Alliance is now available”.
 
 #### `wifi6e-cert-launch`
 
@@ -42,7 +42,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2021-01-07** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”.
 
 #### `wifi7-cert-launch`
 
@@ -51,7 +51,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2024-01-08** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-7>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S16: Press release dated 2024-01-08 introducing Wi-Fi CERTIFIED 7.
 
 #### `wifi8-status`
 
@@ -60,7 +60,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE 802.11 TGbn status page — **TGbn status and timeline section** — Tier 1 (standards body / regulator) — open — <https://www.ieee802.org/11/Reports/tgbn_update.htm>
-- **Verification:** not yet verified — Re-check status at every verification; forward-looking.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S10: TGbn timeline: D2.0 WG letter ballot done; remaining milestones “Upcoming”, RevCom/SASB approval projected May 2028.
 
 ## 1. Why Wi-Fi 7, and why now
 
@@ -73,7 +73,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clauses 19 and 21, MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables.
 
 #### `contention-dcf`
 
@@ -82,7 +82,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 10, distributed coordination function (DCF) and EDCA** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA.
 
 #### `eht-4096qam-bits`
 
@@ -91,7 +91,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS 12–13 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters.
 
 #### `eht-max-nss`
 
@@ -100,7 +100,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36 (EHT PHY), EHT-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Defined in the standard; current certified devices support fewer streams. Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables.
 
 #### `eht-nsd-320`
 
@@ -109,7 +109,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD).
 
 #### `gen-naming`
 
@@ -118,7 +118,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2018-10-03** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-6>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S3: Press release 2018-10-03: “Wi-Fi 6” to identify devices that support 802.11ax technology (likewise Wi-Fi 5 = 802.11ac, Wi-Fi 4 = 802.11n).
 
 #### `he-1024qam-bits`
 
@@ -127,7 +127,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS 10–11 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters.
 
 #### `he-eht-min-gi-us`
 
@@ -137,7 +137,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, guard interval durations** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, guard interval durations** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations.
 
 #### `he-eht-symbol-us`
 
@@ -147,7 +147,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, timing-related constants** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, timing-related constants** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants.
 
 #### `he-max-nss`
 
@@ -156,7 +156,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27 (HE PHY), HE-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables.
 
 #### `he-nsd-160`
 
@@ -165,7 +165,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD).
 
 #### `ht-64qam-bits`
 
@@ -174,7 +174,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 19, HT modulation-dependent parameters table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table.
 
 #### `ht-max-nss`
 
@@ -183,7 +183,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 19 (HT PHY), HT MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables.
 
 #### `ht-nsd-40`
 
@@ -192,7 +192,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 19, HT timing-related constants table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table.
 
 #### `mlo-bands`
 
@@ -202,7 +202,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
 
 #### `ofdm-symbol-ht-vht-us`
 
@@ -211,7 +211,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clauses 19 and 21, timing-related constants (T_DFT)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT).
 
 #### `ofdma-ax`
 
@@ -221,7 +221,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE MU PPDU and RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Feature list (OFDMA)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-certified-6-coming-in-2019>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features.
 
 #### `short-gi-ht-vht-us`
 
@@ -230,7 +230,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clauses 19 and 21, timing-related constants (T_GI,S)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S).
 
 #### `vht-256qam-bits`
 
@@ -239,7 +239,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21, VHT modulation-dependent parameters table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table.
 
 #### `vht-max-nss`
 
@@ -248,7 +248,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21 (VHT PHY), VHT MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables.
 
 #### `vht-nsd-160`
 
@@ -257,7 +257,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21, VHT timing-related constants table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table.
 
 #### `wifi4-peak-phy`
 
@@ -269,7 +269,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 4 streams (`ht-max-nss`); nsd = 108 subcarriers (`ht-nsd-40`); bits = 6 bits (`ht-64qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 3.2 µs (`ofdm-symbol-ht-vht-us`); giUs = 0.4 µs (`short-gi-ht-vht-us`)
   - Recomputed: 600 Mbps
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table.
 
 #### `wifi4-published`
 
@@ -278,7 +278,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11n-2009, 2009 — **Standard listing: published date** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11n-2009.html>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S1: IEEE listing: board approval 2009-09-11, published 2009-10-29.
 
 #### `wifi5-peak-phy`
 
@@ -290,7 +290,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 8 streams (`vht-max-nss`); nsd = 468 subcarriers (`vht-nsd-160`); bits = 8 bits (`vht-256qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 3.2 µs (`ofdm-symbol-ht-vht-us`); giUs = 0.4 µs (`short-gi-ht-vht-us`)
   - Recomputed: 6.93 Gbps
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table.
 
 #### `wifi5-published`
 
@@ -299,7 +299,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ac-2013, 2013 — **Standard listing: published date** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11ac-2013.html>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S2: IEEE listing: board approval 2013-12-11, published 2013-12-18.
 
 #### `wifi6-cert-launch`
 
@@ -308,7 +308,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2019-09-16** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-certified-6-delivers-new-wi-fi-era>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S5: Press release 2019-09-16: “The Wi-Fi CERTIFIED 6 certification program from Wi-Fi Alliance is now available”.
 
 #### `wifi6-peak-phy`
 
@@ -320,7 +320,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 8 streams (`he-max-nss`); nsd = 1960 subcarriers (`he-nsd-160`); bits = 10 bits (`he-1024qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 12.8 µs (`he-eht-symbol-us`); giUs = 0.8 µs (`he-eht-min-gi-us`)
   - Recomputed: 9.61 Gbps
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table.
 
 #### `wifi6e-cert-launch`
 
@@ -329,7 +329,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2021-01-07** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”.
 
 #### `wifi7-cert-launch`
 
@@ -338,7 +338,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2024-01-08** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-7>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S16: Press release dated 2024-01-08 introducing Wi-Fi CERTIFIED 7.
 
 #### `wifi7-ieee-approved`
 
@@ -347,7 +347,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Standard listing: board approval date** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S8: IEEE listing: board approval 2024-09-26; status Active Standard.
 
 #### `wifi7-ieee-published`
 
@@ -356,7 +356,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Standard listing: published date** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S8: IEEE listing: published 2025-07-22.
 
 #### `wifi7-peak-phy`
 
@@ -368,7 +368,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 16 streams (`eht-max-nss`); nsd = 3920 subcarriers (`eht-nsd-320`); bits = 12 bits (`eht-4096qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 12.8 µs (`he-eht-symbol-us`); giUs = 0.8 µs (`he-eht-min-gi-us`)
   - Recomputed: 46.1 Gbps
-- **Verification:** not yet verified — Specified in the standard; not in current certified devices.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table.
 
 #### `wifi8-status`
 
@@ -377,7 +377,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE 802.11 TGbn status page — **TGbn status and timeline section** — Tier 1 (standards body / regulator) — open — <https://www.ieee802.org/11/Reports/tgbn_update.htm>
-- **Verification:** not yet verified — Re-check status at every verification; forward-looking.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S10: TGbn timeline: D2.0 WG letter ballot done; remaining milestones “Upcoming”, RevCom/SASB approval projected May 2028.
 
 ## 2. 6 GHz Spectrum & 320 MHz Channels
 
@@ -389,7 +389,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"320 MHz channels" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: 320 MHz channels are “available in countries that make the 6 GHz band available to Wi-Fi”.
 
 #### `6ghz-building-loss`
 
@@ -398,7 +398,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, building entry loss analysis** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified — Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.
+    > The median signal loss from a traditionally constructed building is 17 dB
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order: signals “will be significantly attenuated when passing through the walls of buildings. The median signal loss from a traditionally constructed building is 17 dB”.
 
 #### `6ghz-ch1-lower-edge`
 
@@ -407,7 +408,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E, 6 GHz band operating classes and channel numbering** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering.
 
 #### `6ghz-no-legacy`
 
@@ -417,7 +418,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E and 6 GHz operation subclauses (HE operation only)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
-- **Verification:** not yet verified — Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable.
 
 #### `eht-max-width`
 
@@ -427,7 +428,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36 (EHT PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"320 MHz channels" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “320 MHz channels available in the 6 GHz band provide twice the throughput of Wi-Fi 6.”
 
 #### `eht-nsd-320`
 
@@ -436,7 +437,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD).
 
 #### `eu-6ghz-band`
 
@@ -445,7 +446,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - ECC / CEPT — ECC/DEC/(20)01, Approved 2020-11-20, amended 2024-11-08 — **Decision, Annex 1** — Tier 1 (standards body / regulator) — open — <https://docdb.cept.org/document/16737>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S22: ECC/DEC/(20)01 “on the harmonised use of the frequency band 5945-6425 MHz” for WAS/RLAN.
 
 #### `fcc-lpi`
 
@@ -453,8 +454,9 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, low-power indoor operation section** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified — Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.
+  - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, Section III.B (Low-Power Indoor Operations Across the Entire 6 GHz Band)** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
+    > We also authorize indoor low-power access points across the entire 6 GHz band.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order summary: “We also authorize indoor low-power access points across the entire 6 GHz band.” Section III.B: Low-Power Indoor Operations Across the Entire 6 GHz Band.
 
 #### `fcc-sp-afc`
 
@@ -462,8 +464,9 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, standard-power access point operation and AFC; 47 CFR 15.407** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+  - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
+    > We authorize standard-power access points using an automated frequency coordination (AFC) system.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands.
 
 #### `he-max-width`
 
@@ -472,7 +475,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27 (HE PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY).
 
 #### `he-nsd-160`
 
@@ -481,7 +484,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD).
 
 #### `us-6ghz-band-end`
 
@@ -490,7 +493,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, paragraph 1 / §15.407 rules** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order: unlicensed use “in the 5.925-7.125 GHz (6 GHz) band”.
 
 #### `us-6ghz-band-start`
 
@@ -499,7 +502,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, paragraph 1 / §15.407 rules** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order: unlicensed use “in the 5.925-7.125 GHz (6 GHz) band”.
 
 #### `us-6ghz-channels-160`
 
@@ -512,7 +515,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 160 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 160
   - Recomputed: 7 channels
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
 
 #### `us-6ghz-channels-20`
 
@@ -525,7 +528,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 20
   - Recomputed: 59 channels
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build.
 
 #### `us-6ghz-channels-320`
 
@@ -538,7 +541,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 320 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 320
   - Recomputed: 3 channels
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
 
 #### `us-6ghz-channels-40`
 
@@ -551,7 +554,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 40
   - Recomputed: 29 channels
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
 
 #### `us-6ghz-channels-80`
 
@@ -564,7 +567,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 80 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 80
   - Recomputed: 14 channels
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
 
 #### `us-6ghz-total`
 
@@ -573,7 +576,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, paragraph 1** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified
+    > the entire 6 GHz band—a massive 1,200 megahertz
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order (statements): “the entire 6 GHz band—a massive 1,200 megahertz … available for unlicensed use”.
 
 #### `vht-max-width`
 
@@ -582,7 +586,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21 (VHT PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY).
 
 #### `width-320-vs-160`
 
@@ -595,7 +599,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `ratio` — 320 ÷ 160
   - Inputs: a = 320 MHz (`eht-max-width`); b = 160 MHz (`he-max-width`)
   - Recomputed: 2 ×
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: the 320 MHz channels double the widest current channel size.
 
 #### `wifi6e-6ghz-origin`
 
@@ -605,7 +609,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E (6 GHz operation)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”.
 
 ## 3. Multi-Link Operation (MLO)
 
@@ -616,7 +620,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link multi-radio (EMLMR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation.
 
 #### `emlsr-what`
 
@@ -625,7 +629,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link single-radio (EMLSR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.
 
 #### `mlo-bands`
 
@@ -635,7 +639,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
 
 #### `mlo-defined-be`
 
@@ -644,7 +648,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35 (EHT MAC), multi-link operation subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses.
 
 #### `mlo-modes-be`
 
@@ -653,7 +657,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device operation and EMLSR/EMLMR subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses.
 
 #### `mlo-tid-mapping`
 
@@ -662,7 +666,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
 
 #### `single-link-pre-be`
 
@@ -672,7 +676,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 11, association and reassociation procedures** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device introduction** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction.
 
 #### `str-what`
 
@@ -681,7 +685,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link operation: STR and NSTR link pairs** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs.
 
 #### `wpa3-mlo-required`
 
@@ -690,7 +694,9 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
-- **Verification:** not yet verified — Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+  - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
+    > AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains.
 
 ## 4. More From Every Channel
 
@@ -701,7 +707,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS 12–13 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters.
 
 #### `eht-4kqam-evm`
 
@@ -710,7 +716,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, transmit constellation error (EVM) requirements table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table.
 
 #### `he-1024qam-bits`
 
@@ -719,7 +725,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS 10–11 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters.
 
 #### `multi-ru-be`
 
@@ -729,7 +735,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, MRU definitions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.
 
 #### `puncturing-ax`
 
@@ -738,7 +744,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE MU PPDU preamble puncturing** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing.
 
 #### `puncturing-be`
 
@@ -747,7 +753,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, preamble puncturing** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing.
 
 #### `puncturing-patterns`
 
@@ -756,7 +762,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, allowed puncturing patterns for non-OFDMA transmissions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions.
 
 #### `qam-4k-gain`
 
@@ -769,7 +775,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `percentGain` — (12 ÷ 10 − 1) × 100
   - Inputs: a = 12 bits (`eht-4096qam-bits`); b = 10 bits (`he-1024qam-bits`)
   - Recomputed: 20 %
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “4K QAM achieves 20% higher transmission rates” than 1024 QAM.
 
 #### `vht-256qam-bits`
 
@@ -778,7 +784,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21, VHT modulation-dependent parameters table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table.
 
 ## 5. Security: WPA3 and Wi-Fi 7
 
@@ -790,17 +796,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E and 6 GHz operation subclauses (HE operation only)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
-- **Verification:** not yet verified — Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable.
 
 #### `6ghz-security-options`
 
-- **Statement:** In the 6 GHz band, networks must use WPA3 (Personal or Enterprise) or Wi-Fi Enhanced Open; WPA2 and unencrypted open networks are not permitted
+- **Statement:** In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2 configuration notes on 6 GHz operation** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
+  - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
   - Wi-Fi Alliance — WPA3 Deployment Options Highlights, 2026-02 — **Page 1** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode.
 
 #### `legacy-security-disallowed`
 
@@ -809,7 +815,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Table 4, Legacy Security Parameters** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
-- **Verification:** not yet verified — Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide Table 4 (all WPA3 and Enhanced Open modes): WEP, TKIP and WPA v1 DISALLOW for every AP and STA row.
 
 #### `mlo-tid-mapping`
 
@@ -818,7 +824,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
 
 #### `owe-what`
 
@@ -828,17 +834,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 1 and Wi-Fi Enhanced Open mode tables** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
   - Wi-Fi Alliance — Security overview page — **Wi-Fi Enhanced Open section** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/security>
-- **Verification:** not yet verified — Locator is best-known; confirm wording at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S20: Security page: Wi-Fi Enhanced Open provides “unauthenticated data encryption”; “there are no public passphrases to maintain, share, or manage”.
 
 #### `wifi7-eht-security`
 
-- **Statement:** Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection, protected management frames, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption mandatory
+- **Statement:** Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection mandatory in every WPA3 mode, and in WPA3-Personal Only Mode also PMF Required, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Tables 4–5 (pages 13–14), rows for "AP: EHT enabled on BSS"** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
+  - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Table 4 (all modes) and Table 8 (WPA3-Personal Only Mode), rows for "AP: EHT enabled on BSS"** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > Beacon Protection AP: EHT enabled on BSS MAND
-- **Verification:** not yet verified — Deployment guidance; the guide notes its guidelines are not certification requirements. Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide Table 4: Beacon Protection “AP: EHT enabled on BSS MAND”; Table 8 (WPA3-Personal Only Mode, EHT enabled): SAE-GDH MAND, PMF Required MAND, GCMP-256 and CCMP-128 MAND, H2E Only MAND in 6 GHz.
 
 #### `wpa2-ent-pmf-optional`
 
@@ -848,7 +854,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2.8, note on WPA3-Enterprise Transition Mode, page 21** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled ("Capable"), and support for SHA-256 AKM (in addition to SHA-1 AKM) is required.
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide: “WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled (Capable) …”.
 
 #### `wpa3-6ghz-required`
 
@@ -859,7 +865,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2, WPA3-Personal configuration notes (note 5)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.
   - Wi-Fi Alliance — WPA3 Deployment Options Highlights, 2026-02 — **Page 1** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf>
-- **Verification:** not yet verified — Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”.
 
 #### `wpa3-dual-ssid-legacy`
 
@@ -869,7 +875,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide 3.2.1: “The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.”
 
 #### `wpa3-ent-192`
 
@@ -879,7 +885,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 3.5 (WPA3-Enterprise 192-bit mode), AP items 1–3, page 16** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
     > well suited for deployments in sensitive enterprise environments to further protect Wi-Fi networks with higher security requirements
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec 3.5: 192-bit mode is for networks “with higher security requirements”.
 
 #### `wpa3-ent-6ghz-eht`
 
@@ -891,7 +897,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
     > AKM suite selector 00-0F-AC:1 (IEEE 802.1X with SHA-1) is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band.
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 3.1.2 (recommended Enterprise configuration), page 27** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > For BSSs in 6 GHz and sub-1 GHz bands: WPA3-Enterprise Only Mode.
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec 3.3 note: 00-0F-AC:1 “is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band”.
 
 #### `wpa3-ent-cert-validation`
 
@@ -901,7 +907,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 5.1 (Failure Conditions for Server Certificate Validation), page 21** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
     > A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1 EAP methods.
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec 5.1: “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1”.
 
 #### `wpa3-ent-pmf-required`
 
@@ -911,7 +917,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 3.2 (WPA3-Enterprise Only Mode), AP item 3 and STA item 3, page 15** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
     > The AP’s BSS Configuration shall be PMF Required
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “The AP’s BSS Configuration shall be PMF Required”.
 
 #### `wpa3-ent-sha256`
 
@@ -921,7 +927,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 3.2 (WPA3-Enterprise Only Mode), AP items 1–2, page 15** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
     > shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)”.
 
 #### `wpa3-ent-transition`
 
@@ -930,7 +936,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 3.3 (WPA3-Enterprise Transition Mode), AP items, page 16** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec 3.3: the AP “shall enable at least AKM suite selectors 00-0F-AC:1 (IEEE 802.1X with SHA-1) and 00-0F-AC:5” and “shall be PMF Capable”.
 
 #### `wpa3-forward-secrecy`
 
@@ -939,7 +945,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Technology overview, January 2021, 2021-01 — **WPA3-Personal section** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/Wi-Fi_CERTIFIED_WPA3_Technology_Overview_202101.pdf>
-- **Verification:** not yet verified — Locator is best-known; confirm wording at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S24: Technology Overview: “forward secrecy is provided because the SAE handshake assures the PMK cannot be recovered if the password” is later learned.
 
 #### `wpa3-launched`
 
@@ -948,7 +954,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, 2018-06-25** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-wpa3-security>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S23: Press release dated 2018-06-25 introducing Wi-Fi CERTIFIED WPA3.
 
 #### `wpa3-mandatory-cert`
 
@@ -957,7 +963,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Security overview page — **WPA3 section** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/security>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S20: Security page: “WPA3 is mandatory for Wi-Fi CERTIFIED devices.” Highlights PDF: required “since 2020”.
 
 #### `wpa3-mlo-required`
 
@@ -966,7 +972,9 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
-- **Verification:** not yet verified — Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+  - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
+    > AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains.
 
 #### `wpa3-sae`
 
@@ -976,7 +984,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release, WPA3-Personal paragraph** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-wpa3-security>
   - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **SAE requirements section** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S24: Technology Overview: SAE credentials cannot be obtained “by a passive attack, active attack, or offline dictionary attack”; launch release: SAE gives “stronger protections … against password guessing attempts”.
 
 ## 6. Target Wake Time & Battery Life
 
@@ -987,7 +995,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT subclause** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause.
 
 #### `rtwt-optional`
 
@@ -996,7 +1004,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT.
 
 #### `rtwt-protect`
 
@@ -1005,7 +1013,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation.
 
 #### `twt-origin`
 
@@ -1014,7 +1022,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ah-2016, 2016 — **TWT subclause (MAC)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ah/4960/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC).
 
 #### `twt-types-ax`
 
@@ -1023,7 +1031,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, individual and broadcast TWT subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses.
 
 #### `twt-what`
 
@@ -1033,7 +1041,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ah-2016, 2016 — **TWT subclause (MAC)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ah/4960/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation.
 
 #### `twt-wifi6`
 
@@ -1042,7 +1050,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Feature list** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-certified-6-coming-in-2019>
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Target wake time (TWT)” among Wi-Fi 6 features.
 
 ## 7. Client Density
 
@@ -1053,7 +1061,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, BSS color and spatial reuse operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation.
 
 #### `contention-dcf`
 
@@ -1062,7 +1070,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 10, distributed coordination function (DCF) and EDCA** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA.
 
 #### `eht-max-width`
 
@@ -1072,7 +1080,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36 (EHT PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"320 MHz channels" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “320 MHz channels available in the 6 GHz band provide twice the throughput of Wi-Fi 6.”
 
 #### `emlsr-what`
 
@@ -1081,7 +1089,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link single-radio (EMLSR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.
 
 #### `he-ul-mu`
 
@@ -1090,7 +1098,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, trigger frame and uplink multi-user (UL MU) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation.
 
 #### `mlo-bands`
 
@@ -1100,7 +1108,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
 
 #### `mlo-tid-mapping`
 
@@ -1109,7 +1117,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
 
 #### `multi-ru-be`
 
@@ -1119,7 +1127,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, MRU definitions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.
 
 #### `ofdma-ax`
 
@@ -1129,7 +1137,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE MU PPDU and RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Feature list (OFDMA)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-certified-6-coming-in-2019>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features.
 
 #### `puncturing-be`
 
@@ -1138,7 +1146,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, preamble puncturing** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing.
 
 #### `vht-dl-mu-mimo`
 
@@ -1147,8 +1155,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ac-2013, 2013 — **Scope: downlink multi-user MIMO** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11ac-2013.html>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users).
 
 ## 8. Lower, More Predictable Latency
 
@@ -1159,7 +1166,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Standard listing: Scope** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+    > This amendment defines at least one mode of operation capable of improved worst case latency and jitter.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S8: IEEE listing scope: “This amendment defines at least one mode of operation capable of improved worst case latency and jitter.”
 
 #### `emlsr-what`
 
@@ -1168,7 +1176,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link single-radio (EMLSR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.
 
 #### `latency-histogram-illustrative`
 
@@ -1177,7 +1185,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Illustrative
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Standard listing: Scope (worst-case latency and jitter objective)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Illustrative: no figures are shown. Confirm the scope wording at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S8: Scope sentence as for be-latency-objective; the histograms are labelled illustrative and carry no measured values.
 
 #### `mlo-bands`
 
@@ -1187,7 +1195,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
 
 #### `mlo-defined-be`
 
@@ -1196,7 +1204,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35 (EHT MAC), multi-link operation subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses.
 
 #### `mlo-tid-mapping`
 
@@ -1205,7 +1213,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
 
 #### `multi-ru-be`
 
@@ -1215,7 +1223,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, MRU definitions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.
 
 #### `rtwt-be`
 
@@ -1224,7 +1232,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT subclause** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause.
 
 #### `rtwt-optional`
 
@@ -1233,7 +1241,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT.
 
 #### `rtwt-protect`
 
@@ -1242,7 +1250,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation.
 
 ## 9. Bringing it together
 
@@ -1253,7 +1261,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - US Federal Communications Commission (FCC) — FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order — **Report and Order, building entry loss analysis** — Tier 1 (standards body / regulator) — open — <https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf>
-- **Verification:** not yet verified — Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.
+    > The median signal loss from a traditionally constructed building is 17 dB
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S21: Report and Order: signals “will be significantly attenuated when passing through the walls of buildings. The median signal loss from a traditionally constructed building is 17 dB”.
 
 #### `be-latency-objective`
 
@@ -1262,7 +1271,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Standard listing: Scope** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+    > This amendment defines at least one mode of operation capable of improved worst case latency and jitter.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S8: IEEE listing scope: “This amendment defines at least one mode of operation capable of improved worst case latency and jitter.”
 
 #### `eht-max-width`
 
@@ -1272,7 +1282,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36 (EHT PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"320 MHz channels" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “320 MHz channels available in the 6 GHz band provide twice the throughput of Wi-Fi 6.”
 
 #### `he-max-width`
 
@@ -1281,7 +1291,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27 (HE PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY).
 
 #### `mlo-bands`
 
@@ -1291,7 +1301,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
 
 #### `ofdma-ax`
 
@@ -1301,7 +1311,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE MU PPDU and RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Feature list (OFDMA)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-certified-6-coming-in-2019>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features.
 
 #### `twt-what`
 
@@ -1311,7 +1321,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ah-2016, 2016 — **TWT subclause (MAC)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ah/4960/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Locator is best-known; exact table/subclause to confirm at the accuracy gate.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation.
 
 #### `width-320-vs-160`
 
@@ -1324,7 +1334,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `ratio` — 320 ÷ 160
   - Inputs: a = 320 MHz (`eht-max-width`); b = 160 MHz (`he-max-width`)
   - Recomputed: 2 ×
-- **Verification:** not yet verified
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: the 320 MHz channels double the widest current channel size.
 
 #### `wifi8-status`
 
@@ -1333,7 +1343,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE 802.11 TGbn status page — **TGbn status and timeline section** — Tier 1 (standards body / regulator) — open — <https://www.ieee802.org/11/Reports/tgbn_update.htm>
-- **Verification:** not yet verified — Re-check status at every verification; forward-looking.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S10: TGbn timeline: D2.0 WG letter ballot done; remaining milestones “Upcoming”, RevCom/SASB approval projected May 2028.
 
 #### `wpa3-6ghz-required`
 
@@ -1344,7 +1354,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2, WPA3-Personal configuration notes (note 5)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.
   - Wi-Fi Alliance — WPA3 Deployment Options Highlights, 2026-02 — **Page 1** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf>
-- **Verification:** not yet verified — Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”.
 
 #### `wpa3-dual-ssid-legacy`
 
@@ -1354,7 +1364,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.
-- **Verification:** not yet verified — Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide 3.2.1: “The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.”
 
 #### `wpa3-mlo-required`
 
@@ -1363,4 +1373,6 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
-- **Verification:** not yet verified — Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.
+  - Wi-Fi Alliance — WPA3 Specification v3.5, v3.5 — **Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf>
+    > AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains.

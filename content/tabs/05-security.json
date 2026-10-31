@@ -9,7 +9,7 @@
     "problem": "A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points."
   },
   "introducedIn": "wifi6",
-  "wifi7Adds": "WPA3 launched as its own certification in 2018 {{wpa3-launched}} and is now required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}. Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, the 6 GHz band allows only WPA3 or Enhanced Open {{6ghz-security-options}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.",
+  "wifi7Adds": "WPA3 launched as its own certification in 2018 {{wpa3-launched}} and is now required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}. Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, the 6 GHz band requires WPA3 and uses Enhanced Open for open access {{6ghz-security-options}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.",
   "compareGenerations": [
     "wifi5",
     "wifi6",
@@ -177,7 +177,7 @@
       },
       "body": "With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. In the 6 GHz band and on Wi-Fi 7, that choice goes away for both kinds of network: WPA2-Personal is not permitted in 6 GHz {{wpa3-6ghz-required}}, Wi-Fi 7 multi-link connections require WPA3 {{wpa3-mlo-required}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}. Open guest networks there use Wi-Fi Enhanced Open {{6ghz-security-options}}.\n\nDevices that cannot do WPA3 can keep working on a separate, older network while they are replaced, one migration option that Wi-Fi Alliance guidance describes {{wpa3-dual-ssid-legacy}}. On 2.4 and 5 GHz, transition modes are another {{wpa3-ent-transition}}.",
       "bottomLine": "Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become the baseline rather than an option someone has to remember.",
-      "deepDive": "For networks with EHT enabled, the WPA3 deployment guide marks as mandatory: the SAE-GDH [[akm|AKM]] (suite 24), PMF required, SAE hash-to-element only, beacon protection, and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
+      "deepDive": "For networks with EHT enabled, the WPA3 deployment guide makes beacon protection mandatory in every mode; in WPA3-Personal Only mode it also marks as mandatory the SAE-GDH [[akm|AKM]] (suite 24), PMF required, SAE hash-to-element and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
       "sceneState": "wpa3-only",
       "sceneDescription": "Above both doors, the access point is labelled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labelled as one migration option. A note shows what the earlier generation accepted.",
       "durationMs": 14000,

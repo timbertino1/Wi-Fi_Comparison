@@ -249,7 +249,7 @@ Wi-Fi 7 adds 320 MHz channels, which are only available in the 6 GHz band [S15, 
 | 320 MHz channels are only available where the 6 GHz band is open to Wi-Fi | — | S15 Wi-Fi CERTIFIED 7 | "320 MHz channels" feature description |
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 | Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E and 6 GHz operation subclauses (HE operation only) |
-| In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, low-power indoor operation section |
+| In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, Section III.B (Low-Power Indoor Operations Across the Entire 6 GHz Band) |
 
 **Likely questions:**
 
@@ -294,8 +294,8 @@ Only Wi-Fi 6E and newer devices can operate there [S7, S17], so no legacy device
 | Non-overlapping 80 MHz channels in the US 6 GHz band | 14 channels | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Band edges |
 | Non-overlapping 160 MHz channels in the US 6 GHz band | 7 channels | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Band edges |
 | Non-overlapping 320 MHz channels in the US 6 GHz band | 3 channels | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Band edges |
-| In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, low-power indoor operation section |
-| In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC) | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, standard-power access point operation and AFC; 47 CFR 15.407 |
+| In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, Section III.B (Low-Power Indoor Operations Across the Entire 6 GHz Band) |
+| In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC) | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407 |
 | Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E and 6 GHz operation subclauses (HE operation only) |
 | Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz) | 5945 MHz | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E, 6 GHz band operating classes and channel numbering |
 | European harmonised 6 GHz band for Wi-Fi (lower 6 GHz) | 5945–6425 MHz | S22 ECC Decision (20)01 on the harmonised use of the frequency band 5945-6425 MHz for WAS/RLAN | Decision, Annex 1 |
@@ -496,7 +496,7 @@ With Wi-Fi 7, the other links are already set up, so traffic can move without re
 
 **Bottom line:** The same building and access points carry voice and urgent data more steadily, because traffic no longer waits for one congested band.
 
-**Technical depth:** Password-based sign-in over multi-link connections requires WPA3 [S19]. Earlier band steering and roaming move a client by disassociating and reassociating on another band or access point, so traffic pauses during the change. MLO keeps all links associated under one security context [S8]. Password-based authentication over Wi-Fi 7 multi-link connections requires WPA3 [S19].
+**Technical depth:** Password-based sign-in over multi-link connections requires WPA3 [S19, S18]. Earlier band steering and roaming move a client by disassociating and reassociating on another band or access point, so traffic pauses during the change. MLO keeps all links associated under one security context [S8]. Password-based authentication over Wi-Fi 7 multi-link connections requires WPA3 [S19, S18].
 
 **Terms:**
 
@@ -513,7 +513,7 @@ With Wi-Fi 7, the other links are already set up, so traffic can move without re
 **Likely questions:**
 
 - **Q (technical):** Does MLO replace roaming between access points? **A:** No. MLO links one device to one multi-link access point across its bands [S8]. Moving between access points is still roaming, so roaming design still matters.
-- **Q (both):** What security does MLO need? **A:** Password-based sign-in over Wi-Fi 7 multi-link connections requires WPA3 [S19], so plan the WPA3 migration together with the MLO rollout.
+- **Q (both):** What security does MLO need? **A:** Password-based sign-in over Wi-Fi 7 multi-link connections requires WPA3 [S19, S18], so plan the WPA3 migration together with the MLO rollout.
 
 ### Step 5 — Gains depend on each device’s mode
 
@@ -770,7 +770,7 @@ WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in
 
 **Opener** (its own click): Chapter 5 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · WPA3 since 2018 — Security: WPA3 and Wi-Fi 7. Stronger sign-in for shared-password and staff networks alike. The problem: A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points.
 
-**Lineage:** A separate Wi-Fi Alliance security program, not part of one generation. What Wi-Fi 7 adds: WPA3 launched as its own certification in 2018 [S23] and is now required for new Wi-Fi CERTIFIED devices [S20]. Wi-Fi 7 multi-link connections require it [S19], the 6 GHz band allows only WPA3 or Enhanced Open [S19, S25], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19].
+**Lineage:** A separate Wi-Fi Alliance security program, not part of one generation. What Wi-Fi 7 adds: WPA3 launched as its own certification in 2018 [S23] and is now required for new Wi-Fi CERTIFIED devices [S20]. Wi-Fi 7 multi-link connections require it [S19, S18], the 6 GHz band requires WPA3 and uses Enhanced Open for open access [S19, S25], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19].
 
 **Healthcare scenario — Clinical device and staff networks** (devices: infusion pump, clinical workstation, voice badge)
 
@@ -852,7 +852,7 @@ Each device also agrees a fresh key for every session, so if the password leaks 
 | WPA3 is required for new Wi-Fi CERTIFIED devices | — | S20 Wi-Fi Alliance: Security | WPA3 section |
 | WPA3-Personal provides forward secrecy: capturing traffic now and learning the password later does not expose that earlier traffic | — | S24 Wi-Fi CERTIFIED WPA3 Technology Overview | WPA3-Personal section |
 | WEP, TKIP and WPA (version 1) are disallowed in all WPA3 and Wi-Fi Enhanced Open configurations | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Table 4, Legacy Security Parameters |
-| Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection, protected management frames, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption mandatory | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 4–5 (pages 13–14), rows for "AP: EHT enabled on BSS" |
+| Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection mandatory in every WPA3 mode, and in WPA3-Personal Only Mode also PMF Required, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Table 4 (all modes) and Table 8 (WPA3-Personal Only Mode), rows for "AP: EHT enabled on BSS" |
 
 **Likely questions:**
 
@@ -916,13 +916,13 @@ WPA3-Enterprise has two modes. **Only mode** makes protected management frames m
 
 **Say (leadership):** Required where it matters most.
 
-With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. In the 6 GHz band and on Wi-Fi 7, that choice goes away for both kinds of network: WPA2-Personal is not permitted in 6 GHz [S19, S25], Wi-Fi 7 multi-link connections require WPA3 [S19], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19]. Open guest networks there use Wi-Fi Enhanced Open [S19, S25].
+With earlier Wi-Fi, WPA3 was optional and many networks stayed on WPA2. In the 6 GHz band and on Wi-Fi 7, that choice goes away for both kinds of network: WPA2-Personal is not permitted in 6 GHz [S19, S25], Wi-Fi 7 multi-link connections require WPA3 [S19, S18], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19]. Open guest networks there use Wi-Fi Enhanced Open [S19, S25].
 
 Devices that cannot do WPA3 can keep working on a separate, older network while they are replaced, one migration option that Wi-Fi Alliance guidance describes [S19]. On 2.4 and 5 GHz, transition modes are another [S18].
 
 **Bottom line:** Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become the baseline rather than an option someone has to remember.
 
-**Technical depth:** Open guest networks in 6 GHz use Wi-Fi Enhanced Open instead [S19, S25]. For networks with EHT enabled, the WPA3 deployment guide marks as mandatory: the SAE-GDH AKM (suite 24), PMF required, SAE hash-to-element only, beacon protection, and both GCMP-256 and CCMP-128 pairwise ciphers [S19]. A multi-link device negotiates one security association that applies to all of its links [S8]. Beacon protection lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.
+**Technical depth:** Open guest networks in 6 GHz use Wi-Fi Enhanced Open instead [S19, S25]. For networks with EHT enabled, the WPA3 deployment guide makes beacon protection mandatory in every mode; in WPA3-Personal Only mode it also marks as mandatory the SAE-GDH AKM (suite 24), PMF required, SAE hash-to-element and both GCMP-256 and CCMP-128 pairwise ciphers [S19]. A multi-link device negotiates one security association that applies to all of its links [S8]. Beacon protection lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.
 
 **Terms:**
 
@@ -938,15 +938,15 @@ Devices that cannot do WPA3 can keep working on a separate, older network while 
 | WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
 | Password-based authentication over Wi-Fi 7 MLO requires WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites) |
 | The WPA2-Enterprise sign-in (802.1X with SHA-1) is not used in associations that use Wi-Fi 7 (EHT or MLO) or the 6 GHz band; 6 GHz Enterprise networks run WPA3-Enterprise Only Mode | — | S18 WPA3 Specification | Section 3.3 (WPA3-Enterprise Transition Mode), STA item 1 note, page 16 |
-| In the 6 GHz band, networks must use WPA3 (Personal or Enterprise) or Wi-Fi Enhanced Open; WPA2 and unencrypted open networks are not permitted | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2 configuration notes on 6 GHz operation |
+| In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz) |
 | Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configuration so older devices that cannot use WPA3 keep connecting during the transition | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30 |
 | WPA3-Enterprise Transition Mode enables both the SHA-1 and SHA-256 802.1X sign-ins and sets PMF Capable rather than PMF Required, so WPA2- and WPA3-Enterprise devices can share one network | — | S18 WPA3 Specification | Section 3.3 (WPA3-Enterprise Transition Mode), AP items, page 16 |
-| Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection, protected management frames, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption mandatory | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 4–5 (pages 13–14), rows for "AP: EHT enabled on BSS" |
+| Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection mandatory in every WPA3 mode, and in WPA3-Personal Only Mode also PMF Required, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Table 4 (all modes) and Table 8 (WPA3-Personal Only Mode), rows for "AP: EHT enabled on BSS" |
 | 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
 
 **Likely questions:**
 
-- **Q (both):** Will our older clinical devices still connect? **A:** Devices without WPA3 cannot join 6 GHz networks [S19, S25] or Wi-Fi 7 multi-link connections [S19]. Many long-lived clinical devices will stay on 2.4 and 5 GHz for years, on a separate network name [S19] or a transition-mode network [S18], until they are replaced.
+- **Q (both):** Will our older clinical devices still connect? **A:** Devices without WPA3 cannot join 6 GHz networks [S19, S25] or Wi-Fi 7 multi-link connections [S19, S18]. Many long-lived clinical devices will stay on 2.4 and 5 GHz for years, on a separate network name [S19] or a transition-mode network [S18], until they are replaced.
 
 ### Step 5 — Protecting clinical and staff traffic
 
@@ -988,7 +988,7 @@ WPA3 is one layer of security, not a complete programme: it complements network 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
 | WPA2-Personal in the 6 GHz band | Cannot use 6 GHz | Cannot use 6 GHz | Not permitted | Wi-Fi Alliance requirement, not IEEE | [S7, S17, S19, S25] |
-| WPA3 required for multi-link connections — Earlier generations have no multi-link operation. | n/a | n/a | Yes | Wi-Fi Alliance requirement, not IEEE | [S19] |
+| WPA3 required for multi-link connections — Earlier generations have no multi-link operation. | n/a | n/a | Yes | Wi-Fi Alliance requirement, not IEEE | [S19, S18] |
 
 ## 6. Target Wake Time & Battery Life
 
@@ -1218,7 +1218,7 @@ Hundreds of devices sharing the air in a crowded unit without slowing each other
 
 At shift change, an emergency department fills with devices: two shifts of staff phones and badges, bedside monitors, infusion pumps, workstations on wheels, plus patients' and visitors' phones.
 
-With Wi-Fi 5 and earlier, devices sending to the access point take turns, one at a time [S6]; Wi-Fi 5 can send to a few devices at once only in the other direction [S6, S2]. The more devices there are, the longer each one waits — and small, urgent messages wait just as long as large downloads.
+With Wi-Fi 5 and earlier, devices sending to the access point take turns, one at a time [S6]; Wi-Fi 5 can send to a few devices at once only in the other direction [S6]. The more devices there are, the longer each one waits — and small, urgent messages wait just as long as large downloads.
 
 **Bottom line:** In crowded areas, Wi-Fi often fails from too many devices sharing too little airtime, not from weak signal.
 
@@ -1286,13 +1286,13 @@ No figures cited on this step.
 
 **Say (leadership):** Serve many devices in each transmission.
 
-Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO [S6, S2], but devices sending to it still took turns. Wi-Fi 6 introduced OFDMA, which splits each transmission into resource units so several devices are served at once, in both directions [S7, S4] [S7], and BSS coloring, which helps devices ignore distant neighbouring networks [S7].
+Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO [S6], but devices sending to it still took turns. Wi-Fi 6 introduced OFDMA, which splits each transmission into resource units so several devices are served at once, in both directions [S7, S4] [S7], and BSS coloring, which helps devices ignore distant neighbouring networks [S7].
 
 Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi-link operation gives devices links in several bands [S8, S15], and Multi-RU and puncturing use spectrum that would otherwise go idle [S8, S7] [S8].
 
 **Bottom line:** The same access point can serve more devices with less waiting, which is how dense units stay responsive.
 
-**Technical depth:** Wi-Fi 5 sends to several devices only downlink [S6, S2]; Wi-Fi 6 also lets several devices send at once [S7]. Outside multi-user transmissions, the Contention-based access defined in 802.11 lets one station use the whole channel per transmission opportunity [S6]. 802.11ac added downlink MU-MIMO to up to four stations [S6, S2]. OFDMA assigns RUs to multiple stations in one PPDU, and 802.11ax adds triggered multi-user transmission from stations to the AP [S7, S4] [S7]. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse [S7]. Wi-Fi 7 adds multi-link traffic steering per link [S8] and multiple RUs per station [S8, S7]. These are efficiency tools; which traffic goes first still depends on QoS classification.
+**Technical depth:** Wi-Fi 5 sends to several devices only downlink [S6]; Wi-Fi 6 also lets several devices send at once [S7]. Outside multi-user transmissions, the Contention-based access defined in 802.11 lets one station use the whole channel per transmission opportunity [S6]. 802.11ac added downlink MU-MIMO to up to four stations [S6]. OFDMA assigns RUs to multiple stations in one PPDU, and 802.11ax adds triggered multi-user transmission from stations to the AP [S7, S4] [S7]. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse [S7]. Wi-Fi 7 adds multi-link traffic steering per link [S8] and multiple RUs per station [S8, S7]. These are efficiency tools; which traffic goes first still depends on QoS classification.
 
 **Terms:**
 
@@ -1323,7 +1323,7 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 - **Q (both):** Do older devices benefit from OFDMA? **A:** No. Devices from before Wi-Fi 6 still take turns using the whole channel when they send [S6]. They benefit indirectly when newer devices finish sooner, but the full gains arrive as devices are refreshed.
 - **Q (technical):** What does BSS coloring do on a dense floor? **A:** It tags each network’s transmissions so a device can tell its own network from a neighbour’s [S7], and reuse the channel more often instead of deferring to distant traffic.
-- **Q (technical):** Didn’t Wi-Fi 5 already serve several devices at once? **A:** Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together [S6, S2]. Devices sending to the access point still took turns until Wi-Fi 6 let several send at once with OFDMA [S7] [S7, S4].
+- **Q (technical):** Didn’t Wi-Fi 5 already serve several devices at once? **A:** Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together [S6]. Devices sending to the access point still took turns until Wi-Fi 6 let several send at once with OFDMA [S7] [S7, S4].
 
 ### Step 4 — Taking turns, then sharing each trip
 
@@ -1331,20 +1331,20 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 **Callout — How each generation does it:**
 
-- Wi-Fi 5: senders one per trip; downlink can share [S6, S2]
+- Wi-Fi 5: senders one per trip; downlink can share [S6]
 - Wi-Fi 6: several devices per trip, both ways, with OFDMA [S7, S4]
 - Wi-Fi 7: links in up to three bands, use depends on mode [S8, S15]
 - One connection across its bands [S8]; wider channels fit more [S8, S15]
 
 **Say (leadership):** One at a time, several at once, across bands.
 
-For devices sending to the access point, Wi-Fi 5 serves one per transmission [S6]; it can send to a few at once only downlink [S6, S2]. Wi-Fi 6 serves several at once in both directions [S7, S4] [S7].
+For devices sending to the access point, Wi-Fi 5 serves one per transmission [S6]; it can send to a few at once only downlink [S6]. Wi-Fi 6 serves several at once in both directions [S7, S4] [S7].
 
 Wi-Fi 7 keeps that and adds two things. With multi-link operation, one device can hold links in the 2.4, 5 and 6 GHz bands under a single connection [S8, S15] [S8], so the access point can send its traffic on a band with room; how many links a device uses at once depends on its mode [S8]. And in 6 GHz its channels can be 320 MHz wide [S8, S15], so each transmission has room for more devices.
 
 **Bottom line:** Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.
 
-**Technical depth:** Wi-Fi 5 shares only downlink trips [S6, S2]. Older clients still contend for the channel [S6]. Gains depend on device support: OFDMA and multi-link benefits apply to clients that support Wi-Fi 6 and Wi-Fi 7 respectively. Older clients still use contention and full-channel transmissions [S6], so mixed device fleets see partial gains until devices are refreshed.
+**Technical depth:** Wi-Fi 5 shares only downlink trips [S6]. Older clients still contend for the channel [S6]. Gains depend on device support: OFDMA and multi-link benefits apply to clients that support Wi-Fi 6 and Wi-Fi 7 respectively. Older clients still use contention and full-channel transmissions [S6], so mixed device fleets see partial gains until devices are refreshed.
 
 **Terms:**
 
@@ -1407,7 +1407,7 @@ Design for peak density: count devices per bed and per staff member, not just sq
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
-| Devices served per transmission | Several when the AP sends (MU-MIMO); one when devices send | Several, both directions (OFDMA) | Several, across multiple links | defined in the standard | [S6, S2, S7, S8, S15] |
+| Devices served per transmission | Several when the AP sends (MU-MIMO); one when devices send | Several, both directions (OFDMA) | Several, across multiple links | defined in the standard | [S6, S7, S8, S15] |
 | BSS coloring | n/a | Yes | Yes | defined in the standard | [S7] |
 | Resource units per device | n/a | One | Several | defined in the standard | [S8, S7] |
 
@@ -1566,7 +1566,7 @@ The same hospital floor, now on Wi-Fi 7: what changes for each device, and what 
 
 **Say (leadership):** The same hospital, on Wi-Fi 7.
 
-Back on the floor where we started. Badges that support multi-link can keep calls steadier by using more than one band [S8, S15]. Location tags and badges that use Target Wake Time sleep between agreed wake-ups, which can extend battery life [S9, S7]. Pumps and staff devices sign in with WPA3, which Wi-Fi 7 and the 6 GHz band require [S19, S25] [S19].
+Back on the floor where we started. Badges that support multi-link can keep calls steadier by using more than one band [S8, S15]. Location tags and badges that use Target Wake Time sleep between agreed wake-ups, which can extend battery life [S9, S7]. Pumps and staff devices sign in with WPA3, which Wi-Fi 7 and the 6 GHz band require [S19, S25] [S19, S18].
 
 Workstations with 320 MHz support can move large images faster on wide 6 GHz channels [S8, S15] [S8, S7], crowded units can serve many devices per transmission [S7, S4], and Wi-Fi 7 adds tools that can reduce how long alarms wait [S8]. Each gain needs client support, so it grows as devices are refreshed.
 
@@ -1736,172 +1736,172 @@ A reviewer checks each claim against its source and records the date and their i
 
 Wi-Fi Alliance names 802.11n, 802.11ac and 802.11ax as Wi-Fi 4, Wi-Fi 5 and Wi-Fi 6 — value: —; method: stated; kind: technical.
 - [S3] Press release, 2018-10-03
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S3: Press release 2018-10-03: “Wi-Fi 6” to identify devices that support 802.11ax technology (likewise Wi-Fi 5 = 802.11ac, Wi-Fi 4 = 802.11n).)
 
 ### wifi4-published
 
 IEEE 802.11n (Wi-Fi 4) published — value: 2009 year; method: stated; kind: technical.
 - [S1] Standard listing: published date
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S1: IEEE listing: board approval 2009-09-11, published 2009-10-29.)
 
 ### wifi5-published
 
 IEEE 802.11ac (Wi-Fi 5) published — value: 2013 year; method: stated; kind: technical.
 - [S2] Standard listing: published date
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S2: IEEE listing: board approval 2013-12-11, published 2013-12-18.)
 
 ### wifi6-cert-launch
 
 Wi-Fi CERTIFIED 6 program launched — value: 2019 year; method: stated; kind: technical.
 - [S5] Press release, 2019-09-16
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S5: Press release 2019-09-16: “The Wi-Fi CERTIFIED 6 certification program from Wi-Fi Alliance is now available”.)
 
 ### wifi6e-cert-launch
 
 Wi-Fi 6E certification program launched (Wi-Fi 6 in the 6 GHz band) — value: 2021 year; method: stated; kind: technical.
 - [S17] Press release, 2021-01-07
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”.)
 
 ### wifi7-cert-launch
 
 Wi-Fi CERTIFIED 7 program launched — value: 2024 year; method: stated; kind: technical.
 - [S16] Press release, 2024-01-08
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S16: Press release dated 2024-01-08 introducing Wi-Fi CERTIFIED 7.)
 
 ### wifi7-ieee-approved
 
 IEEE 802.11be approved by the IEEE SA Standards Board — value: 2024-09-26 date; method: stated; kind: technical.
 - [S8] Standard listing: board approval date
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S8: IEEE listing: board approval 2024-09-26; status Active Standard.)
 
 ### wifi7-ieee-published
 
 IEEE 802.11be published — value: 2025-07-22 date; method: stated; kind: technical.
 - [S8] Standard listing: published date
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S8: IEEE listing: published 2025-07-22.)
 
 ### wifi8-status
 
 IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in development and not yet approved — value: —; method: stated; kind: technical.
 - [S10] TGbn status and timeline section
-- Verification: not yet verified (Re-check status at every verification; forward-looking.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S10: TGbn timeline: D2.0 WG letter ballot done; remaining milestones “Upcoming”, RevCom/SASB approval projected May 2028.)
 
 ### ht-max-nss
 
 Wi-Fi 4 (HT) maximum spatial streams — value: 4 streams; method: stated; kind: technical.
 - [S6] Clause 19 (HT PHY), HT MCS tables
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables.)
 
 ### ht-nsd-40
 
 Data subcarriers in a 40 MHz HT channel — value: 108 subcarriers; method: stated; kind: technical.
 - [S6] Clause 19, HT timing-related constants table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table.)
 
 ### ht-64qam-bits
 
 Bits per subcarrier at 64-QAM (Wi-Fi 4 highest modulation) — value: 6 bits; method: stated; kind: technical.
 - [S6] Clause 19, HT modulation-dependent parameters table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table.)
 
 ### vht-max-nss
 
 Wi-Fi 5 (VHT) maximum spatial streams — value: 8 streams; method: stated; kind: technical.
 - [S6] Clause 21 (VHT PHY), VHT MCS tables
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables.)
 
 ### vht-max-width
 
 Wi-Fi 5 (VHT) widest channel — value: 160 MHz; method: stated; kind: technical.
 - [S6] Clause 21 (VHT PHY)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY).)
 
 ### vht-nsd-160
 
 Data subcarriers in a 160 MHz VHT channel — value: 468 subcarriers; method: stated; kind: technical.
 - [S6] Clause 21, VHT timing-related constants table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table.)
 
 ### vht-256qam-bits
 
 Bits per subcarrier at 256-QAM (Wi-Fi 5 highest modulation) — value: 8 bits; method: stated; kind: technical.
 - [S6] Clause 21, VHT modulation-dependent parameters table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table.)
 
 ### ofdm-symbol-ht-vht-us
 
 OFDM symbol duration (without guard interval) for HT and VHT — value: 3.2 µs; method: stated; kind: technical.
 - [S6] Clauses 19 and 21, timing-related constants (T_DFT)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT).)
 
 ### short-gi-ht-vht-us
 
 Short guard interval for HT and VHT — value: 0.4 µs; method: stated; kind: technical.
 - [S6] Clauses 19 and 21, timing-related constants (T_GI,S)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S).)
 
 ### he-max-nss
 
 Wi-Fi 6 (HE) maximum spatial streams — value: 8 streams; method: stated; kind: technical.
 - [S7] Clause 27 (HE PHY), HE-MCS tables
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables.)
 
 ### he-max-width
 
 Wi-Fi 6 / 6E (HE) widest channel — value: 160 MHz; method: stated; kind: technical.
 - [S7] Clause 27 (HE PHY)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY).)
 
 ### he-nsd-160
 
 Data subcarriers in a 160 MHz HE channel (2×996-tone RU) — value: 1960 subcarriers; method: stated; kind: technical.
 - [S7] Clause 27, HE-MCS rate tables (N_SD)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD).)
 
 ### he-1024qam-bits
 
 Bits per subcarrier at 1024-QAM (Wi-Fi 6 highest modulation) — value: 10 bits; method: stated; kind: technical.
 - [S7] Clause 27, HE-MCS 10–11 parameters
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters.)
 
 ### he-eht-symbol-us
 
 OFDM symbol duration (without guard interval) for HE and EHT — value: 12.8 µs; method: stated; kind: technical.
 - [S7] Clause 27, timing-related constants
 - [S8] Clause 36, timing-related constants
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants.)
 
 ### he-eht-min-gi-us
 
 Shortest guard interval for HE and EHT — value: 0.8 µs; method: stated; kind: technical.
 - [S7] Clause 27, guard interval durations
 - [S8] Clause 36, guard interval durations
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations.)
 
 ### eht-max-nss
 
 Wi-Fi 7 (EHT) maximum spatial streams defined in the standard — value: 16 streams; method: stated; kind: technical.
 - [S8] Clause 36 (EHT PHY), EHT-MCS tables
-- Verification: not yet verified (Defined in the standard; current certified devices support fewer streams. Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables.)
 
 ### eht-max-width
 
 Wi-Fi 7 (EHT) widest channel, 6 GHz only — value: 320 MHz; method: stated; kind: technical.
 - [S8] Clause 36 (EHT PHY)
 - [S15] "320 MHz channels" feature description
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “320 MHz channels available in the 6 GHz band provide twice the throughput of Wi-Fi 6.”)
 
 ### eht-nsd-320
 
 Data subcarriers in a 320 MHz EHT channel (4×996-tone RU) — value: 3920 subcarriers; method: stated; kind: technical.
 - [S8] Clause 36, EHT-MCS rate tables (N_SD)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD).)
 
 ### eht-4096qam-bits
 
 Bits per subcarrier at 4096-QAM (Wi-Fi 7 highest modulation) — value: 12 bits; method: stated; kind: technical.
 - [S8] Clause 36, EHT-MCS 12–13 parameters
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters.)
 
 ### coding-rate-max
 
@@ -1909,35 +1909,35 @@ Highest coding rate used at the top MCS of Wi-Fi 4 through Wi-Fi 7 — value: 0.
 - [S6] Clauses 19 and 21, MCS tables
 - [S7] Clause 27, HE-MCS tables
 - [S8] Clause 36, EHT-MCS tables
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables.)
 
 ### wifi4-peak-phy
 
 Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval — value: 600 Mbps; method: derived; kind: technical.
 - [S6] Clause 19, HT MCS 31 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table.)
 
 ### wifi5-peak-phy
 
 Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval — value: 6.93 Gbps; method: derived; kind: technical.
 - [S6] Clause 21, VHT-MCS 9 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table.)
 
 ### wifi6-peak-phy
 
 Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval — value: 9.61 Gbps; method: derived; kind: technical.
 - [S7] Clause 27, HE-MCS 11 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table.)
 
 ### wifi7-peak-phy
 
 Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval — value: 46.1 Gbps; method: derived; kind: technical.
 - [S8] Clause 36, EHT-MCS 13 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified (Specified in the standard; not in current certified devices.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table.)
 
 ### qam-4k-gain
 
@@ -1945,7 +1945,7 @@ Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier) — valu
 - [S8] Clause 36, EHT-MCS 12–13
 - [S15] "4K QAM" feature description
 - Derivation: (12 ÷ 10 − 1) × 100
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “4K QAM achieves 20% higher transmission rates” than 1024 QAM.)
 
 ### width-320-vs-160
 
@@ -1953,31 +1953,31 @@ A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel — va
 - [S8] Clause 36
 - [S7] Clause 27
 - Derivation: 320 ÷ 160
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: the 320 MHz channels double the widest current channel size.)
 
 ### us-6ghz-band-start
 
 Lower edge of the US 6 GHz unlicensed band — value: 5925 MHz; method: stated; kind: technical.
 - [S21] Report and Order, paragraph 1 / §15.407 rules
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S21: Report and Order: unlicensed use “in the 5.925-7.125 GHz (6 GHz) band”.)
 
 ### us-6ghz-band-end
 
 Upper edge of the US 6 GHz unlicensed band — value: 7125 MHz; method: stated; kind: technical.
 - [S21] Report and Order, paragraph 1 / §15.407 rules
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S21: Report and Order: unlicensed use “in the 5.925-7.125 GHz (6 GHz) band”.)
 
 ### us-6ghz-total
 
 Spectrum made available for unlicensed use in the US 6 GHz band — value: 1200 MHz; method: stated; kind: technical.
-- [S21] Report and Order, paragraph 1
-- Verification: not yet verified
+- [S21] Report and Order, paragraph 1 — “the entire 6 GHz band—a massive 1,200 megahertz”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S21: Report and Order (statements): “the entire 6 GHz band—a massive 1,200 megahertz … available for unlicensed use”.)
 
 ### 6ghz-ch1-lower-edge
 
 Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz) — value: 5945 MHz; method: stated; kind: technical.
 - [S7] Annex E, 6 GHz band operating classes and channel numbering
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering.)
 
 ### us-6ghz-channels-20
 
@@ -1985,7 +1985,7 @@ Non-overlapping 20 MHz channels in the US 6 GHz band — value: 59 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build.)
 
 ### us-6ghz-channels-40
 
@@ -1993,7 +1993,7 @@ Non-overlapping 40 MHz channels in the US 6 GHz band — value: 29 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
 
 ### us-6ghz-channels-80
 
@@ -2001,7 +2001,7 @@ Non-overlapping 80 MHz channels in the US 6 GHz band — value: 14 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 80 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
 
 ### us-6ghz-channels-160
 
@@ -2009,7 +2009,7 @@ Non-overlapping 160 MHz channels in the US 6 GHz band — value: 7 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 160 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
 
 ### us-6ghz-channels-320
 
@@ -2017,333 +2017,333 @@ Non-overlapping 320 MHz channels in the US 6 GHz band — value: 3 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 320 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
 
 ### eu-6ghz-band
 
 European harmonised 6 GHz band for Wi-Fi (lower 6 GHz) — value: 5945–6425 MHz; method: stated; kind: technical.
 - [S22] Decision, Annex 1
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S22: ECC/DEC/(20)01 “on the harmonised use of the frequency band 5945-6425 MHz” for WAS/RLAN.)
 
 ### wifi6e-6ghz-origin
 
 6 GHz operation first became available to Wi-Fi with Wi-Fi 6E (802.11ax in 6 GHz) — value: —; method: stated; kind: technical.
 - [S17] Press release
 - [S7] Annex E (6 GHz operation)
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”.)
 
 ### 320mhz-6ghz-only
 
 320 MHz channels are only available where the 6 GHz band is open to Wi-Fi — value: —; method: stated; kind: technical.
 - [S15] "320 MHz channels" feature description
 - [S8] Clause 36
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: 320 MHz channels are “available in countries that make the 6 GHz band available to Wi-Fi”.)
 
 ### 6ghz-no-legacy
 
 Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it — value: —; method: stated; kind: technical.
 - [S7] Annex E and 6 GHz operation subclauses (HE operation only)
 - [S17] Press release
-- Verification: not yet verified (Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable.)
 
 ### fcc-lpi
 
 In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination — value: —; method: stated; kind: technical.
-- [S21] Report and Order, low-power indoor operation section
-- Verification: not yet verified (Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.)
+- [S21] Report and Order, Section III.B (Low-Power Indoor Operations Across the Entire 6 GHz Band) — “We also authorize indoor low-power access points across the entire 6 GHz band.”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S21: Report and Order summary: “We also authorize indoor low-power access points across the entire 6 GHz band.” Section III.B: Low-Power Indoor Operations Across the Entire 6 GHz Band.)
 
 ### 6ghz-building-loss
 
 Building walls and materials attenuate 6 GHz signals; the FCC relied on this building entry loss when permitting low-power indoor operation — value: —; method: stated; kind: technical.
-- [S21] Report and Order, building entry loss analysis
-- Verification: not yet verified (Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate.)
+- [S21] Report and Order, building entry loss analysis — “The median signal loss from a traditionally constructed building is 17 dB”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S21: Report and Order: signals “will be significantly attenuated when passing through the walls of buildings. The median signal loss from a traditionally constructed building is 17 dB”.)
 
 ### mlo-defined-be
 
 Multi-Link Operation (MLO) is defined in IEEE 802.11be — value: —; method: stated; kind: technical.
 - [S8] Clause 35 (EHT MAC), multi-link operation subclauses
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses.)
 
 ### mlo-modes-be
 
 IEEE 802.11be defines STR, NSTR, EMLSR and EMLMR multi-link modes — value: —; method: stated; kind: technical.
 - [S8] Clause 35, multi-link device operation and EMLSR/EMLMR subclauses
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses.)
 
 ### mlo-bands
 
 A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands — value: —; method: stated; kind: technical.
 - [S8] Clause 35, multi-link device (MLD) operation
 - [S15] "Multi-Link Operation" feature description
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.)
 
 ### mlo-tid-mapping
 
 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links — value: —; method: stated; kind: technical.
 - [S8] Clause 35, TID-to-link mapping and MLD association subclauses
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.)
 
 ### single-link-pre-be
 
 Before 802.11be, a device is associated with an access point on one band (link) at a time; moving to another band requires a new association — value: —; method: stated; kind: technical.
 - [S6] Clause 11, association and reassociation procedures
 - [S8] Clause 35, multi-link device introduction
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction.)
 
 ### puncturing-ax
 
 Preamble puncturing was introduced in 802.11ax for multi-user transmissions — value: —; method: stated; kind: technical.
 - [S7] Clause 27, HE MU PPDU preamble puncturing
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing.)
 
 ### puncturing-be
 
 802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap — value: —; method: stated; kind: technical.
 - [S8] Clause 36, preamble puncturing
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing.)
 
 ### multi-ru-be
 
 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station — value: —; method: stated; kind: technical.
 - [S8] Clause 36, MRU definitions
 - [S7] Clause 27, RU allocation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.)
 
 ### ofdma-ax
 
 OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) — value: —; method: stated; kind: technical.
 - [S7] Clause 27, HE MU PPDU and RU allocation
 - [S4] Feature list (OFDMA)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features.)
 
 ### bss-coloring-ax
 
 802.11ax BSS coloring marks each network's transmissions so devices can tell their own network from a neighbour's and reuse the channel more often — value: —; method: stated; kind: technical.
 - [S7] Clause 26, BSS color and spatial reuse operation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation.)
 
 ### contention-dcf
 
 Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel — value: —; method: stated; kind: technical.
 - [S6] Clause 10, distributed coordination function (DCF) and EDCA
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA.)
 
 ### eht-4kqam-evm
 
 4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it — value: —; method: stated; kind: technical.
 - [S8] Clause 36, transmit constellation error (EVM) requirements table
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table.)
 
 ### twt-origin
 
 Target Wake Time was first defined in IEEE 802.11ah — value: —; method: stated; kind: technical.
 - [S9] TWT subclause (MAC)
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC).)
 
 ### twt-wifi6
 
 Target Wake Time is one of the features of Wi-Fi CERTIFIED 6 — value: —; method: stated; kind: technical.
 - [S4] Feature list
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Target wake time (TWT)” among Wi-Fi 6 features.)
 
 ### rtwt-be
 
 Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic — value: —; method: stated; kind: technical.
 - [S8] Clause 35, restricted TWT subclause
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause.)
 
 ### twt-what
 
 With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between — value: —; method: stated; kind: technical.
 - [S9] TWT subclause (MAC)
 - [S7] Clause 26, TWT operation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation.)
 
 ### twt-types-ax
 
 802.11ax defines both individual TWT agreements (per device) and broadcast TWT schedules (shared by groups of devices) — value: —; method: stated; kind: technical.
 - [S7] Clause 26, individual and broadcast TWT subclauses
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses.)
 
 ### rtwt-protect
 
 During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium — value: —; method: stated; kind: technical.
 - [S8] Clause 35, restricted TWT operation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation.)
 
 ### be-latency-objective
 
 The scope of IEEE 802.11be includes at least one mode of operation with improved worst-case latency and jitter — value: —; method: stated; kind: technical.
-- [S8] Standard listing: Scope
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- [S8] Standard listing: Scope — “This amendment defines at least one mode of operation capable of improved worst case latency and jitter.”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S8: IEEE listing scope: “This amendment defines at least one mode of operation capable of improved worst case latency and jitter.”)
 
 ### latency-histogram-illustrative
 
 The latency histograms show the shape of the improvement Wi-Fi 7 targets (a shorter worst-case tail), not measured values — value: —; method: illustrative; kind: technical.
 - [S8] Standard listing: Scope (worst-case latency and jitter objective)
-- Verification: not yet verified (Illustrative: no figures are shown. Confirm the scope wording at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S8: Scope sentence as for be-latency-objective; the histograms are labelled illustrative and carry no measured values.)
 
 ### wpa3-mandatory-cert
 
 WPA3 is required for new Wi-Fi CERTIFIED devices — value: —; method: stated; kind: technical.
 - [S20] WPA3 section
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S20: Security page: “WPA3 is mandatory for Wi-Fi CERTIFIED devices.” Highlights PDF: required “since 2020”.)
 
 ### wpa3-6ghz-required
 
 WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there — value: —; method: stated; kind: technical.
 - [S19] Section 2, WPA3-Personal configuration notes (note 5) — “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.”
 - [S25] Page 1
-- Verification: not yet verified (Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”.)
 
 ### wpa3-mlo-required
 
 Password-based authentication over Wi-Fi 7 MLO requires WPA3 — value: —; method: stated; kind: technical.
 - [S19] Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites)
-- Verification: not yet verified (Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.)
+- [S18] Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9 — “AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains.)
 
 ### wpa3-sae
 
 WPA3-Personal uses Simultaneous Authentication of Equals (SAE), which resists offline password guessing — value: —; method: stated; kind: technical.
 - [S23] Press release, WPA3-Personal paragraph
 - [S18] SAE requirements section
-- Verification: not yet verified
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S24: Technology Overview: SAE credentials cannot be obtained “by a passive attack, active attack, or offline dictionary attack”; launch release: SAE gives “stronger protections … against password guessing attempts”.)
 
 ### wpa3-forward-secrecy
 
 WPA3-Personal provides forward secrecy: capturing traffic now and learning the password later does not expose that earlier traffic — value: —; method: stated; kind: technical.
 - [S24] WPA3-Personal section
-- Verification: not yet verified (Locator is best-known; confirm wording at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S24: Technology Overview: “forward secrecy is provided because the SAE handshake assures the PMK cannot be recovered if the password” is later learned.)
 
 ### owe-what
 
 Wi-Fi Enhanced Open (OWE) encrypts traffic on open networks, such as guest Wi-Fi, without requiring a password — value: —; method: stated; kind: technical.
 - [S19] Section 1 and Wi-Fi Enhanced Open mode tables
 - [S20] Wi-Fi Enhanced Open section
-- Verification: not yet verified (Locator is best-known; confirm wording at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S20: Security page: Wi-Fi Enhanced Open provides “unauthenticated data encryption”; “there are no public passphrases to maintain, share, or manage”.)
 
 ### wifi7-eht-security
 
-Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection, protected management frames, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption mandatory — value: —; method: stated; kind: technical.
-- [S19] Tables 4–5 (pages 13–14), rows for "AP: EHT enabled on BSS" — “Beacon Protection AP: EHT enabled on BSS MAND”
-- Verification: not yet verified (Deployment guidance; the guide notes its guidelines are not certification requirements. Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.)
+Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection mandatory in every WPA3 mode, and in WPA3-Personal Only Mode also PMF Required, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption — value: —; method: stated; kind: technical.
+- [S19] Table 4 (all modes) and Table 8 (WPA3-Personal Only Mode), rows for "AP: EHT enabled on BSS" — “Beacon Protection AP: EHT enabled on BSS MAND”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide Table 4: Beacon Protection “AP: EHT enabled on BSS MAND”; Table 8 (WPA3-Personal Only Mode, EHT enabled): SAE-GDH MAND, PMF Required MAND, GCMP-256 and CCMP-128 MAND, H2E Only MAND in 6 GHz.)
 
 ### legacy-security-disallowed
 
 WEP, TKIP and WPA (version 1) are disallowed in all WPA3 and Wi-Fi Enhanced Open configurations — value: —; method: stated; kind: technical.
 - [S19] Table 4, Legacy Security Parameters
-- Verification: not yet verified (Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide Table 4 (all WPA3 and Enhanced Open modes): WEP, TKIP and WPA v1 DISALLOW for every AP and STA row.)
 
 ### wpa3-ent-pmf-required
 
 In WPA3-Enterprise Only Mode, protected management frames are required (PMF Required) on the access point and the device — value: —; method: stated; kind: technical.
 - [S18] Section 3.2 (WPA3-Enterprise Only Mode), AP item 3 and STA item 3, page 15 — “The AP’s BSS Configuration shall be PMF Required”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “The AP’s BSS Configuration shall be PMF Required”.)
 
 ### wpa3-ent-sha256
 
 WPA3-Enterprise Only Mode uses the IEEE 802.1X sign-in with SHA-256 and does not enable the SHA-1 version used by WPA2-Enterprise — value: —; method: stated; kind: technical.
 - [S18] Section 3.2 (WPA3-Enterprise Only Mode), AP items 1–2, page 15 — “shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)”.)
 
 ### wpa2-ent-pmf-optional
 
 WPA2-Enterprise does not require protected management frames: WPA3-Enterprise transition mode differs from it by disallowing TKIP, enabling PMF and requiring SHA-256 sign-in — value: —; method: stated; kind: technical.
 - [S19] Section 2.8, note on WPA3-Enterprise Transition Mode, page 21 — “WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled ("Capable"), and support for SHA-256 AKM (in addition to SHA-1 AKM) is required.”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide: “WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled (Capable) …”.)
 
 ### wpa3-ent-cert-validation
 
 A WPA3 device must validate the authentication server’s certificate when it signs in with EAP-TLS, EAP-TTLS or EAP-PEAP — value: —; method: stated; kind: technical.
 - [S18] Section 5.1 (Failure Conditions for Server Certificate Validation), page 21 — “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1 EAP methods.”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec 5.1: “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1”.)
 
 ### wpa3-ent-192
 
 WPA3-Enterprise 192-bit mode, intended for networks with higher security requirements, uses only the Suite B 192-bit sign-in, requires PMF, and uses GCMP-256 and BIP-GMAC-256 encryption — value: —; method: stated; kind: technical.
 - [S18] Section 3.5 (WPA3-Enterprise 192-bit mode), AP items 1–3, page 16 — “well suited for deployments in sensitive enterprise environments to further protect Wi-Fi networks with higher security requirements”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec 3.5: 192-bit mode is for networks “with higher security requirements”.)
 
 ### wpa3-ent-6ghz-eht
 
 The WPA2-Enterprise sign-in (802.1X with SHA-1) is not used in associations that use Wi-Fi 7 (EHT or MLO) or the 6 GHz band; 6 GHz Enterprise networks run WPA3-Enterprise Only Mode — value: —; method: stated; kind: technical.
 - [S18] Section 3.3 (WPA3-Enterprise Transition Mode), STA item 1 note, page 16 — “AKM suite selector 00-0F-AC:1 (IEEE 802.1X with SHA-1) is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band.”
 - [S19] Section 3.1.2 (recommended Enterprise configuration), page 27 — “For BSSs in 6 GHz and sub-1 GHz bands: WPA3-Enterprise Only Mode.”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec 3.3 note: 00-0F-AC:1 “is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band”.)
 
 ### wpa3-dual-ssid-legacy
 
 Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configuration so older devices that cannot use WPA3 keep connecting during the transition — value: —; method: stated; kind: technical.
 - [S19] Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30 — “The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.”
-- Verification: not yet verified (Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide 3.2.1: “The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.”)
 
 ### vht-dl-mu-mimo
 
 802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time — value: —; method: stated; kind: technical.
 - [S6] Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)
-- [S2] Scope: downlink multi-user MIMO
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users).)
 
 ### he-ul-mu
 
 802.11ax (Wi-Fi 6) adds uplink multi-user transmission: the access point triggers several devices to send at once, using OFDMA or MU-MIMO — value: —; method: stated; kind: technical.
 - [S7] Clause 26, trigger frame and uplink multi-user (UL MU) operation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation.)
 
 ### str-what
 
 In STR mode, a multi-link device can transmit on one link while receiving on another at the same time — value: —; method: stated; kind: technical.
 - [S8] Clause 35, multi-link operation: STR and NSTR link pairs
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs.)
 
 ### emlsr-what
 
 In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has — value: —; method: stated; kind: technical.
 - [S8] Clause 35, enhanced multi-link single-radio (EMLSR) operation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.)
 
 ### emlmr-what
 
 In EMLMR mode, a multi-link device moves its transmit and receive spatial streams between links as traffic requires — value: —; method: stated; kind: technical.
 - [S8] Clause 35, enhanced multi-link multi-radio (EMLMR) operation
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation.)
 
 ### fcc-sp-afc
 
 In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC) — value: —; method: stated; kind: technical.
-- [S21] Report and Order, standard-power access point operation and AFC; 47 CFR 15.407
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- [S21] Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407 — “We authorize standard-power access points using an automated frequency coordination (AFC) system.”
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands.)
 
 ### puncturing-patterns
 
 802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured — value: —; method: stated; kind: technical.
 - [S8] Clause 36, allowed puncturing patterns for non-OFDMA transmissions
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions.)
 
 ### wpa3-launched
 
 Wi-Fi Alliance launched WPA3 certification as its own security program — value: 2018 year; method: stated; kind: technical.
 - [S23] Press release, 2018-06-25
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S23: Press release dated 2018-06-25 introducing Wi-Fi CERTIFIED WPA3.)
 
 ### wpa3-ent-transition
 
 WPA3-Enterprise Transition Mode enables both the SHA-1 and SHA-256 802.1X sign-ins and sets PMF Capable rather than PMF Required, so WPA2- and WPA3-Enterprise devices can share one network — value: —; method: stated; kind: technical.
 - [S18] Section 3.3 (WPA3-Enterprise Transition Mode), AP items, page 16
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S18: Spec 3.3: the AP “shall enable at least AKM suite selectors 00-0F-AC:1 (IEEE 802.1X with SHA-1) and 00-0F-AC:5” and “shall be PMF Capable”.)
 
 ### 6ghz-security-options
 
-In the 6 GHz band, networks must use WPA3 (Personal or Enterprise) or Wi-Fi Enhanced Open; WPA2 and unencrypted open networks are not permitted — value: —; method: stated; kind: technical.
-- [S19] Section 2 configuration notes on 6 GHz operation
+In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there — value: —; method: stated; kind: technical.
+- [S19] Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)
 - [S25] Page 1
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode.)
 
 ### rtwt-optional
 
 Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part — value: —; method: stated; kind: technical.
 - [S8] Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT
-- Verification: not yet verified (Locator is best-known; exact table/subclause to confirm at the accuracy gate.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT.)
 
 ## References
 

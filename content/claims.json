@@ -18,7 +18,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S3: Press release 2018-10-03: “Wi-Fi 6” to identify devices that support 802.11ax technology (likewise Wi-Fi 5 = 802.11ac, Wi-Fi 4 = 802.11n)."
       }
     },
     {
@@ -39,7 +39,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S1: IEEE listing: board approval 2009-09-11, published 2009-10-29."
       }
     },
     {
@@ -60,7 +60,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S2: IEEE listing: board approval 2013-12-11, published 2013-12-18."
       }
     },
     {
@@ -81,7 +81,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S5: Press release 2019-09-16: “The Wi-Fi CERTIFIED 6 certification program from Wi-Fi Alliance is now available”."
       }
     },
     {
@@ -102,7 +102,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”."
       }
     },
     {
@@ -123,7 +123,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S16: Press release dated 2024-01-08 introducing Wi-Fi CERTIFIED 7."
       }
     },
     {
@@ -144,7 +144,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S8: IEEE listing: board approval 2024-09-26; status Active Standard."
       }
     },
     {
@@ -165,7 +165,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S8: IEEE listing: published 2025-07-22."
       }
     },
     {
@@ -186,7 +186,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Re-check status at every verification; forward-looking."
+        "notes": "Fact-check 2026-10-31: Confirmed. S10: TGbn timeline: D2.0 WG letter ballot done; remaining milestones “Upcoming”, RevCom/SASB approval projected May 2028."
       }
     },
     {
@@ -207,7 +207,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables."
       }
     },
     {
@@ -228,7 +228,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table."
       }
     },
     {
@@ -249,7 +249,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table."
       }
     },
     {
@@ -270,7 +270,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables."
       }
     },
     {
@@ -291,7 +291,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY)."
       }
     },
     {
@@ -312,7 +312,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table."
       }
     },
     {
@@ -333,7 +333,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table."
       }
     },
     {
@@ -354,7 +354,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT)."
       }
     },
     {
@@ -375,7 +375,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S)."
       }
     },
     {
@@ -396,7 +396,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables."
       }
     },
     {
@@ -417,7 +417,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY)."
       }
     },
     {
@@ -438,7 +438,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD)."
       }
     },
     {
@@ -459,7 +459,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters."
       }
     },
     {
@@ -485,7 +485,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants."
       }
     },
     {
@@ -511,7 +511,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations."
       }
     },
     {
@@ -532,7 +532,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Defined in the standard; current certified devices support fewer streams. Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables."
       }
     },
     {
@@ -558,7 +558,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “320 MHz channels available in the 6 GHz band provide twice the throughput of Wi-Fi 6.”"
       }
     },
     {
@@ -579,7 +579,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD)."
       }
     },
     {
@@ -600,7 +600,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters."
       }
     },
     {
@@ -631,7 +631,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables."
       }
     },
     {
@@ -667,7 +667,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table."
       }
     },
     {
@@ -704,7 +704,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table."
       }
     },
     {
@@ -741,7 +741,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table."
       }
     },
     {
@@ -778,7 +778,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Specified in the standard; not in current certified devices."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table."
       }
     },
     {
@@ -815,7 +815,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “4K QAM achieves 20% higher transmission rates” than 1024 QAM."
       }
     },
     {
@@ -852,7 +852,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: the 320 MHz channels double the widest current channel size."
       }
     },
     {
@@ -873,7 +873,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: unlicensed use “in the 5.925-7.125 GHz (6 GHz) band”."
       }
     },
     {
@@ -894,7 +894,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: unlicensed use “in the 5.925-7.125 GHz (6 GHz) band”."
       }
     },
     {
@@ -908,14 +908,14 @@
         {
           "referenceId": "fcc-20-51",
           "locator": "Report and Order, paragraph 1",
-          "excerpt": null
+          "excerpt": "the entire 6 GHz band—a massive 1,200 megahertz"
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order (statements): “the entire 6 GHz band—a massive 1,200 megahertz … available for unlicensed use”."
       }
     },
     {
@@ -936,7 +936,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering."
       }
     },
     {
@@ -976,7 +976,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build."
       }
     },
     {
@@ -1016,7 +1016,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
       }
     },
     {
@@ -1056,7 +1056,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
       }
     },
     {
@@ -1096,7 +1096,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
       }
     },
     {
@@ -1136,7 +1136,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
       }
     },
     {
@@ -1157,7 +1157,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S22: ECC/DEC/(20)01 “on the harmonised use of the frequency band 5945-6425 MHz” for WAS/RLAN."
       }
     },
     {
@@ -1183,7 +1183,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S17: Press release 2021-01-07: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”."
       }
     },
     {
@@ -1209,7 +1209,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S16: Press release 2024-01-08: 320 MHz channels are “available in countries that make the 6 GHz band available to Wi-Fi”."
       }
     },
     {
@@ -1235,7 +1235,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable."
       }
     },
     {
@@ -1248,15 +1248,15 @@
       "sources": [
         {
           "referenceId": "fcc-20-51",
-          "locator": "Report and Order, low-power indoor operation section",
-          "excerpt": null
+          "locator": "Report and Order, Section III.B (Low-Power Indoor Operations Across the Entire 6 GHz Band)",
+          "excerpt": "We also authorize indoor low-power access points across the entire 6 GHz band."
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order summary: “We also authorize indoor low-power access points across the entire 6 GHz band.” Section III.B: Low-Power Indoor Operations Across the Entire 6 GHz Band."
       }
     },
     {
@@ -1270,14 +1270,14 @@
         {
           "referenceId": "fcc-20-51",
           "locator": "Report and Order, building entry loss analysis",
-          "excerpt": null
+          "excerpt": "The median signal loss from a traditionally constructed building is 17 dB"
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact paragraph/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: signals “will be significantly attenuated when passing through the walls of buildings. The median signal loss from a traditionally constructed building is 17 dB”."
       }
     },
     {
@@ -1298,7 +1298,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses."
       }
     },
     {
@@ -1319,7 +1319,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses."
       }
     },
     {
@@ -1345,7 +1345,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35."
       }
     },
     {
@@ -1366,7 +1366,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses."
       }
     },
     {
@@ -1392,7 +1392,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction."
       }
     },
     {
@@ -1413,7 +1413,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing."
       }
     },
     {
@@ -1434,7 +1434,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing."
       }
     },
     {
@@ -1460,7 +1460,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation."
       }
     },
     {
@@ -1486,7 +1486,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features."
       }
     },
     {
@@ -1507,7 +1507,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation."
       }
     },
     {
@@ -1528,7 +1528,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA."
       }
     },
     {
@@ -1549,7 +1549,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table."
       }
     },
     {
@@ -1570,7 +1570,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC)."
       }
     },
     {
@@ -1591,7 +1591,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Target wake time (TWT)” among Wi-Fi 6 features."
       }
     },
     {
@@ -1612,7 +1612,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause."
       }
     },
     {
@@ -1638,7 +1638,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation."
       }
     },
     {
@@ -1659,7 +1659,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses."
       }
     },
     {
@@ -1680,7 +1680,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation."
       }
     },
     {
@@ -1694,14 +1694,14 @@
         {
           "referenceId": "ieee-80211be",
           "locator": "Standard listing: Scope",
-          "excerpt": null
+          "excerpt": "This amendment defines at least one mode of operation capable of improved worst case latency and jitter."
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S8: IEEE listing scope: “This amendment defines at least one mode of operation capable of improved worst case latency and jitter.”"
       }
     },
     {
@@ -1721,7 +1721,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Illustrative: no figures are shown. Confirm the scope wording at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S8: Scope sentence as for be-latency-objective; the histograms are labelled illustrative and carry no measured values."
       },
       "derivation": null
     },
@@ -1743,7 +1743,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S20: Security page: “WPA3 is mandatory for Wi-Fi CERTIFIED devices.” Highlights PDF: required “since 2020”."
       }
     },
     {
@@ -1769,7 +1769,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”."
       }
     },
     {
@@ -1784,13 +1784,18 @@
           "referenceId": "wfa-wpa3-deploy",
           "locator": "Tables 5–7, rows for \"AP: EHT enabled on BSS\" (AKM suites)",
           "excerpt": null
+        },
+        {
+          "referenceId": "wfa-wpa3-spec",
+          "locator": "Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9",
+          "excerpt": "AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO"
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains."
       }
     },
     {
@@ -1816,7 +1821,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": null
+        "notes": "Fact-check 2026-10-31: Confirmed. S24: Technology Overview: SAE credentials cannot be obtained “by a passive attack, active attack, or offline dictionary attack”; launch release: SAE gives “stronger protections … against password guessing attempts”."
       }
     },
     {
@@ -1837,7 +1842,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; confirm wording at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S24: Technology Overview: “forward secrecy is provided because the SAE handshake assures the PMK cannot be recovered if the password” is later learned."
       }
     },
     {
@@ -1863,12 +1868,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; confirm wording at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S20: Security page: Wi-Fi Enhanced Open provides “unauthenticated data encryption”; “there are no public passphrases to maintain, share, or manage”."
       }
     },
     {
       "id": "wifi7-eht-security",
-      "statement": "Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection, protected management frames, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption mandatory",
+      "statement": "Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection mandatory in every WPA3 mode, and in WPA3-Personal Only Mode also PMF Required, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1876,7 +1881,7 @@
       "sources": [
         {
           "referenceId": "wfa-wpa3-deploy",
-          "locator": "Tables 4–5 (pages 13–14), rows for \"AP: EHT enabled on BSS\"",
+          "locator": "Table 4 (all modes) and Table 8 (WPA3-Personal Only Mode), rows for \"AP: EHT enabled on BSS\"",
           "excerpt": "Beacon Protection AP: EHT enabled on BSS MAND"
         }
       ],
@@ -1884,7 +1889,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Deployment guidance; the guide notes its guidelines are not certification requirements. Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide Table 4: Beacon Protection “AP: EHT enabled on BSS MAND”; Table 8 (WPA3-Personal Only Mode, EHT enabled): SAE-GDH MAND, PMF Required MAND, GCMP-256 and CCMP-128 MAND, H2E Only MAND in 6 GHz."
       }
     },
     {
@@ -1905,7 +1910,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the guide on 2026-10-26 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide Table 4 (all WPA3 and Enhanced Open modes): WEP, TKIP and WPA v1 DISALLOW for every AP and STA row."
       }
     },
     {
@@ -1926,7 +1931,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “The AP’s BSS Configuration shall be PMF Required”."
       }
     },
     {
@@ -1947,7 +1952,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)”."
       }
     },
     {
@@ -1968,7 +1973,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide: “WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled (Capable) …”."
       }
     },
     {
@@ -1989,7 +1994,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 5.1: “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1”."
       }
     },
     {
@@ -2010,7 +2015,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.5: 192-bit mode is for networks “with higher security requirements”."
       }
     },
     {
@@ -2036,7 +2041,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.3 note: 00-0F-AC:1 “is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band”."
       }
     },
     {
@@ -2057,7 +2062,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Text checked against the Wi-Fi Alliance PDF on 2026-10-28 (excerpt recorded); awaiting human verification."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide 3.2.1: “The Dual-SSID configuration for legacy STA interoperability is defined in Table 16.”"
       }
     },
     {
@@ -2072,18 +2077,13 @@
           "referenceId": "ieee-80211-2020",
           "locator": "Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)",
           "excerpt": null
-        },
-        {
-          "referenceId": "ieee-80211ac",
-          "locator": "Scope: downlink multi-user MIMO",
-          "excerpt": null
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)."
       }
     },
     {
@@ -2104,7 +2104,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation."
       }
     },
     {
@@ -2125,7 +2125,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs."
       }
     },
     {
@@ -2146,7 +2146,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation."
       }
     },
     {
@@ -2167,7 +2167,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation."
       }
     },
     {
@@ -2180,15 +2180,15 @@
       "sources": [
         {
           "referenceId": "fcc-20-51",
-          "locator": "Report and Order, standard-power access point operation and AFC; 47 CFR 15.407",
-          "excerpt": null
+          "locator": "Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407",
+          "excerpt": "We authorize standard-power access points using an automated frequency coordination (AFC) system."
         }
       ],
       "derivation": null,
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands."
       }
     },
     {
@@ -2209,7 +2209,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions."
       }
     },
     {
@@ -2230,7 +2230,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S23: Press release dated 2018-06-25 introducing Wi-Fi CERTIFIED WPA3."
       }
     },
     {
@@ -2251,12 +2251,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.3: the AP “shall enable at least AKM suite selectors 00-0F-AC:1 (IEEE 802.1X with SHA-1) and 00-0F-AC:5” and “shall be PMF Capable”."
       }
     },
     {
       "id": "6ghz-security-options",
-      "statement": "In the 6 GHz band, networks must use WPA3 (Personal or Enterprise) or Wi-Fi Enhanced Open; WPA2 and unencrypted open networks are not permitted",
+      "statement": "In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -2264,7 +2264,7 @@
       "sources": [
         {
           "referenceId": "wfa-wpa3-deploy",
-          "locator": "Section 2 configuration notes on 6 GHz operation",
+          "locator": "Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)",
           "excerpt": null
         },
         {
@@ -2277,7 +2277,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode."
       }
     },
     {
@@ -2298,7 +2298,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Locator is best-known; exact table/subclause to confirm at the accuracy gate."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT."
       }
     }
   ]
