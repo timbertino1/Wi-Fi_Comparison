@@ -34,7 +34,7 @@
       "id": "mlo",
       "term": "MLO",
       "expansion": "Multi-Link Operation",
-      "definition": "A Wi-Fi 7 feature that lets one connection use links in more than one band at the same time, or switch between them without reconnecting."
+      "definition": "A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting."
     },
     {
       "id": "mld",
@@ -46,7 +46,7 @@
       "id": "str",
       "term": "STR",
       "expansion": "Simultaneous transmit and receive",
-      "definition": "A multi-link mode where a device can send on one link while receiving on another, using separate radios."
+      "definition": "A multi-link mode where a device can send on one link while receiving on another at the same time."
     },
     {
       "id": "nstr",
@@ -58,13 +58,13 @@
       "id": "emlsr",
       "term": "EMLSR",
       "expansion": "Enhanced multi-link single radio",
-      "definition": "A multi-link mode where a device listens on several links and moves its one full radio to whichever link has traffic."
+      "definition": "A multi-link mode where a device listens on several links but exchanges data on only one link at a time."
     },
     {
       "id": "emlmr",
       "term": "EMLMR",
       "expansion": "Enhanced multi-link multi-radio",
-      "definition": "A multi-link mode where a device with several radios reassigns them between links as traffic needs."
+      "definition": "A multi-link mode where a device moves its transmit and receive streams between links as traffic needs."
     },
     {
       "id": "channel-width",
@@ -76,7 +76,7 @@
       "id": "legacy-device",
       "term": "Legacy device",
       "expansion": null,
-      "definition": "A device built for an older Wi-Fi generation. It can slow a shared channel because everyone must fall back to methods it understands."
+      "definition": "A device built for an older Wi-Fi generation. Slow devices take longer to send the same data, so they use more of a shared channel’s airtime."
     },
     {
       "id": "regulatory-domain",
@@ -172,7 +172,7 @@
       "id": "restricted-twt",
       "term": "Restricted TWT",
       "expansion": null,
-      "definition": "A Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry."
+      "definition": "An optional Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry, on devices that support it."
     },
     {
       "id": "service-period",

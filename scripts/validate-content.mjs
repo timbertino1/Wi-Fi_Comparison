@@ -13,7 +13,8 @@ export const CAPTION_LIMITS = { headline: 8, takeaway: 16, technical: 20 };
 export const CALLOUT_LIMITS = { title: 6, point: 14, minPoints: 2, maxPoints: 4 };
 export const OPENER_LIMITS = { promise: 10, problem: 16 };
 const HOTSPOT_DEFINITION_MAX = 30;
-const GUARANTEE_PHRASES =['ensures compliance', 'guarantee', 'guarantees', 'guaranteed', 'eliminates risk', 'hipaa compliant', 'prevents patient harm'];
+// Outcome promises the standards do not make (peer review, 2026-10-31) count as guarantee wording too.
+const GUARANTEE_PHRASES = ['ensures compliance', 'guarantee', 'guarantees', 'guaranteed', 'eliminates risk', 'hipaa compliant', 'prevents patient harm', 'on time', 'last the shift', 'lasts the shift'];
 
 export const TERM_RE = /\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g;
 export const CLAIM_RE = /\{\{([a-z0-9-]+)\}\}/g;

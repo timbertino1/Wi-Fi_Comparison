@@ -3,9 +3,9 @@
   "order": 3,
   "kind": "feature",
   "title": "Multi-Link Operation (MLO)",
-  "summary": "One connection that uses several bands at once, or switches between them instantly.",
+  "summary": "One connection that holds links in several bands, and moves traffic between them without reconnecting.",
   "opener": {
-    "promise": "One connection that uses several bands at once",
+    "promise": "One connection with links in several bands",
     "problem": "Badge calls break up when the one band a device uses gets busy."
   },
   "introducedIn": "wifi7",
@@ -40,35 +40,35 @@
       "heading": "One connection, several radio lanes",
       "caption": {
         "headline": "One connection, several radio lanes",
-        "takeaway": "[[mlo|Multi-Link Operation]] lets one connection use 2.4, 5 and 6 GHz together{{mlo-bands}}."
+        "takeaway": "[[mlo|Multi-Link Operation]] lets one connection hold links in 2.4, 5 and 6 GHz{{mlo-bands}}."
       },
-      "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form a single connection that uses more than one band at the same time {{mlo-defined-be}}. A Wi-Fi 7 connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands {{mlo-bands}}.\n\nThink of it as one conversation that can use several lanes of a highway instead of being stuck in one.",
+      "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form a single connection with links in more than one band {{mlo-defined-be}}. A Wi-Fi 7 connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands {{mlo-bands}}.\n\nThink of it as one conversation with several lanes open to it. Whether the device uses them at the same time or one at a time depends on its multi-link mode, which comes later in this chapter.",
       "bottomLine": "MLO gives each connection spare lanes, so a busy band no longer has to mean a stalled device.",
       "deepDive": null,
       "sceneState": "what-is-mlo",
-      "sceneDescription": "Two more arched links appear between the access point and the badge, so there are three in total, labelled with their bands. All three belong to the same connection and glow in the Wi-Fi 7 colour.",
+      "sceneDescription": "Two more arched links appear between the access point and the badge, so there are three in total, labelled with their bands. All three belong to the same connection; the voice packets travel on one of them, while the other two stand ready.",
       "durationMs": 11000,
       "questions": [
         {
           "q": "Is MLO just bonding bands together for speed?",
-          "a": "Speed is one use, but the bigger gain for clinical traffic is resilience: a device stays connected on several bands{{mlo-bands}}, so urgent packets use whichever band is free instead of waiting.",
+          "a": "Speed is one use, but the bigger gain for clinical traffic is resilience: a device keeps links in several bands{{mlo-bands}}, so urgent packets can move to a free band without reconnecting.",
           "audience": "leadership"
         }
       ]
     },
     {
       "type": "how",
-      "heading": "Spread the load, keep a spare lane",
+      "heading": "Busy band? Traffic moves to another lane",
       "caption": {
         "headline": "Busy band? Traffic takes another lane",
-        "takeaway": "Voice packets sidestep congestion automatically, without reconnecting{{mlo-tid-mapping}}.",
+        "takeaway": "Voice packets can move to another link without reconnecting{{mlo-tid-mapping}}.",
         "technical": "Both ends are [[mld|multi-link devices]] with one association across links; traffic classes can map to links{{mlo-tid-mapping}}."
       },
-      "body": "With several links available, traffic can be **spread** across them for more throughput, **sent on whichever link is free** when one band is busy, or **duplicated** on two links when it must get through.\n\nBecause the device stays connected on every link, moving traffic to another band does not mean reconnecting first.",
-      "bottomLine": "Urgent traffic can sidestep congestion automatically instead of waiting for it to clear.",
-      "deepDive": "Both ends are [[mld|multi-link devices]] (MLDs): an AP MLD is a set of affiliated access points, one per link. The client associates once and keeps a single security context across links; traffic identifiers can be mapped to particular links (TID-to-link mapping) {{mlo-tid-mapping}}. Each link still contends for the medium independently, which is what lets frames move to whichever link wins access first.",
+      "body": "With several links available, traffic can be **moved to another link** when one band is busy, without the device reconnecting first {{mlo-tid-mapping}}. Devices that can use several links at once can also **spread** traffic across them for more throughput {{str-what}}.\n\nWhich link is used is the access point’s and device’s scheduling decision, so results depend on the products and how they are configured.",
+      "bottomLine": "Urgent traffic gets another chance at the air on a different band, instead of only waiting for one band to clear.",
+      "deepDive": "Both ends are [[mld|multi-link devices]] (MLDs): an AP MLD is a set of affiliated access points, one per link. The client associates once and keeps a single security context across links; traffic identifiers can be mapped to particular links (TID-to-link mapping) {{mlo-tid-mapping}}. Each link contends for the medium independently, which gives traffic another access opportunity on a less busy link; a device in [[emlsr|EMLSR]] mode exchanges frames on one link at a time {{emlsr-what}}.",
       "sceneState": "links-aggregate",
-      "sceneDescription": "Packets flow along all three links at once. When grey upload traffic fills the 5 GHz link, the voice packets shift onto the 6 GHz and 2.4 GHz links and keep arriving at the badge without waiting.",
+      "sceneDescription": "Grey upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.",
       "durationMs": 14000
     },
     {
@@ -79,11 +79,11 @@
         "takeaway": "Before Wi-Fi 7, switching bands meant reconnecting{{single-link-pre-be}}; with MLO the other lanes are already open.",
         "technical": "Password-based sign-in over multi-link connections requires [[wpa3|WPA3]]{{wpa3-mlo-required}}."
       },
-      "body": "Before Wi-Fi 7, a device was connected on one band at a time. If that band became busy, it could only wait or move to another band — which meant reconnecting, briefly pausing traffic.\n\nWith Wi-Fi 7, the other lanes are already open. Traffic moves without a pause {{mlo-defined-be}}.",
+      "body": "Before Wi-Fi 7, a device was connected on one band at a time. If that band became busy, it could only wait or move to another band — which meant reconnecting, briefly pausing traffic.\n\nWith Wi-Fi 7, the other links are already set up, so traffic can move without reconnecting first {{mlo-tid-mapping}}.",
       "bottomLine": "The same building and access points carry voice and urgent data more steadily, because traffic no longer waits for one congested band.",
       "deepDive": "Earlier band steering and roaming move a client by disassociating and reassociating on another band or access point, so traffic pauses during the change. MLO keeps all links associated under one security context {{mlo-tid-mapping}}. Password-based authentication over Wi-Fi 7 multi-link connections requires [[wpa3|WPA3]] {{wpa3-mlo-required}}.",
       "sceneState": "gen-compare",
-      "sceneDescription": "The view splits in two. On the left, an earlier-generation connection uses a single link that clogs with upload traffic while voice packets wait. On the right, the Wi-Fi 7 connection keeps three links open and the voice packets keep flowing.",
+      "sceneDescription": "The view splits in two. On the left, an earlier-generation connection uses a single link that clogs with upload traffic while voice packets wait. On the right, the Wi-Fi 7 connection has three links open, and the voice packets move to the free one and keep flowing.",
       "durationMs": 14000,
       "questions": [
         {
@@ -99,22 +99,22 @@
     },
     {
       "type": "why",
-      "heading": "Steadier calls and monitoring on the move",
+      "heading": "How much a device gains depends on its mode",
       "caption": {
-        "headline": "Steadier calls and monitoring on the move",
-        "takeaway": "Gains depend on each device’s multi-link mode, so plan MLO alongside device refresh.",
-        "technical": "Modes range from [[str|STR]], with the most benefit, to [[emlsr|EMLSR]], one radio at lower cost{{mlo-modes-be}}."
+        "headline": "Gains depend on each device’s mode",
+        "takeaway": "Some devices use several links at once; others switch between them. Check each model before buying.",
+        "technical": "[[str|STR]] sends and receives on links at once{{str-what}}; [[emlsr|EMLSR]] listens on several, exchanging data on one{{emlsr-what}}."
       },
-      "body": "Clinicians move constantly, and the traffic that matters most — voice calls, alerts, [[telemetry|telemetry]] — is small but time-sensitive. MLO helps that traffic route around a busy band instead of waiting behind it.\n\nThe benefit depends on both ends: badges, phones and monitors must support Wi-Fi 7 multi-link operation, and how much they gain depends on which multi-link mode they use (see **MLO modes** below).",
+      "body": "Clinicians move constantly, and the traffic that matters most — voice calls, alerts, [[telemetry|telemetry]] — is small but time-sensitive. MLO helps that traffic route around a busy band instead of waiting behind it.\n\nHow much it helps depends on both ends. A device in [[str|STR]] mode can use links at the same time {{str-what}}; one in [[emlsr|EMLSR]] mode listens on several links but exchanges data on one at a time {{emlsr-what}}. Current client devices differ, so check the mode, link count and firmware of each badge, phone and laptop model (see **MLO modes** below).",
       "bottomLine": "Plan MLO alongside device refresh: the access points enable it, but each clinical device model determines how much benefit it actually receives.",
       "deepDive": null,
-      "sceneState": "clinical-outcome",
-      "sceneDescription": "The badge stays connected over all three links. Upload traffic comes and goes on the 5 GHz link, yet the voice packets keep arriving steadily over the other links, with no gaps in the stream.",
+      "sceneState": "modes-compare",
+      "sceneDescription": "Four small panels, one per multi-link mode, each with an access point, a device and two links. STR: both links active at once. NSTR: the links take turns. EMLSR: the device listens on both but exchanges data on one at a time. EMLMR: both links active, with the device’s radio streams shifting between them.",
       "durationMs": 11000,
       "questions": [
         {
           "q": "Will our current badges and phones get MLO?",
-          "a": "Only if they support Wi-Fi 7 multi-link operation, which needs new hardware. Ask vendors which multi-link mode each model supports{{mlo-modes-be}}; it decides how much benefit the device sees."
+          "a": "Only if they support Wi-Fi 7 multi-link operation, which needs new hardware. Ask vendors which multi-link mode each model supports, how many links it uses and with which firmware{{mlo-modes-be}}; it decides how much benefit the device sees."
         }
       ]
     }
@@ -122,7 +122,7 @@
   "keyFigures": [
     {
       "id": "links",
-      "metric": "Bands one connection can use at once",
+      "metric": "Bands one connection can hold links in",
       "unit": null,
       "values": {
         "wifi5": "One",
@@ -131,7 +131,7 @@
       },
       "qualifier": "normative",
       "regulatoryDomain": null,
-      "note": "Actual number depends on the device and its multi-link mode.",
+      "note": "How many links carry traffic at the same time depends on the device’s multi-link mode.",
       "headline": true,
       "cellQualifiers": {},
       "claimIds": {
@@ -165,7 +165,7 @@
     {
       "id": "mlo-modes",
       "heading": "MLO modes: STR, NSTR, EMLSR and EMLMR",
-      "body": "IEEE 802.11be defines several ways a device can use multiple links {{mlo-modes-be}}:\n\n**[[str|STR]] (simultaneous transmit and receive)** — separate radios send on one link while receiving on another. This gives the most benefit but needs multiple full radios and good isolation between bands.\n\n**[[nstr|NSTR]] (non-simultaneous)** — the device has multiple links but cannot send on one while receiving on another, so their timing is coordinated.\n\n**[[emlsr|EMLSR]] (enhanced multi-link single radio)** — the device listens on several links and moves its single full radio to whichever link has traffic. It is designed for devices with one main radio, trading some throughput for lower cost and power.\n\n**[[emlmr|EMLMR]] (enhanced multi-link multi-radio)** — several radios are reassigned between links as traffic needs.\n\nWhich mode a badge, phone, laptop or access point supports is a product decision, so check device specifications during procurement.",
+      "body": "IEEE 802.11be defines several ways a device can use multiple links {{mlo-modes-be}}. Each is a behaviour, not a radio count:\n\n**[[str|STR]] (simultaneous transmit and receive)** — the device can send on one link while receiving on another {{str-what}}. It gives the most concurrency but needs good isolation between bands.\n\n**[[nstr|NSTR]] (non-simultaneous)** — the device has multiple links but cannot send on one while receiving on another, so their timing is coordinated.\n\n**[[emlsr|EMLSR]] (enhanced multi-link single radio)** — the device listens on several links but exchanges frames on only one at a time {{emlsr-what}}. It suits devices with one main radio, though the mode does not fix how many radios a device has.\n\n**[[emlmr|EMLMR]] (enhanced multi-link multi-radio)** — the device moves its transmit and receive spatial streams between links as traffic needs {{emlmr-what}}.\n\nThese modes are not a simple ladder from cheap to best. Which one a badge, phone, laptop or access point supports is a product decision, so check the mode, link count and firmware during procurement.",
       "sceneState": "modes-compare"
     }
   ]
