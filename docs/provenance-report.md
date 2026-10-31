@@ -73,16 +73,16 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clauses 19 and 21, MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `contention-dcf`
 
-- **Statement:** Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel
+- **Statement:** Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 10, distributed coordination function (DCF) and EDCA** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 10.3 (DCF) and 10.23 (HCF/EDCA)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated ("whole channel"); reworded to the TXOP access rule. Medium.
 
 #### `eht-4096qam-bits`
 
@@ -90,17 +90,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** 12 bits
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS 12–13 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, Table 36-51 (4096-QAM) and Table 36-86** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `eht-max-nss`
 
-- **Statement:** Wi-Fi 7 (EHT) maximum spatial streams defined in the standard
-- **Value:** 16 streams
+- **Statement:** Wi-Fi 7 (EHT) maximum spatial streams in the 802.11be standard
+- **Value:** 8 streams
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36 (EHT PHY), EHT-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36.1.1 (EHT PHY introduction); EHT-MCS and NSS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Wrong as 16; corrected to 8 (16 streams appeared in drafts, not the final amendment). High.
 
 #### `eht-nsd-320`
 
@@ -108,8 +108,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** 3920 subcarriers
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD).
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, Table 36-86 (N_SD = 3920)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `gen-naming`
 
@@ -127,7 +127,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS 10–11 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `he-eht-min-gi-us`
 
@@ -137,7 +137,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, guard interval durations** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, guard interval durations** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations. Peer review 2026-10-31 (GPT, High Thinking): Correct (High (EHT), Medium (HE)).
 
 #### `he-eht-symbol-us`
 
@@ -147,7 +147,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, timing-related constants** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, timing-related constants** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants. Peer review 2026-10-31 (GPT, High Thinking): Correct (High (EHT), Medium (HE)).
 
 #### `he-max-nss`
 
@@ -156,7 +156,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27 (HE PHY), HE-MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `he-nsd-160`
 
@@ -165,7 +165,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `ht-64qam-bits`
 
@@ -174,7 +174,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 19, HT modulation-dependent parameters table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `ht-max-nss`
 
@@ -183,7 +183,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 19 (HT PHY), HT MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `ht-nsd-40`
 
@@ -192,7 +192,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 19, HT timing-related constants table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `mlo-bands`
 
@@ -202,7 +202,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `ofdm-symbol-ht-vht-us`
 
@@ -211,7 +211,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clauses 19 and 21, timing-related constants (T_DFT)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `ofdma-ax`
 
@@ -230,7 +230,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clauses 19 and 21, timing-related constants (T_GI,S)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `vht-256qam-bits`
 
@@ -239,7 +239,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21, VHT modulation-dependent parameters table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `vht-max-nss`
 
@@ -248,7 +248,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21 (VHT PHY), VHT MCS tables** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `vht-nsd-160`
 
@@ -257,7 +257,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21, VHT timing-related constants table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `wifi4-peak-phy`
 
@@ -269,7 +269,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 4 streams (`ht-max-nss`); nsd = 108 subcarriers (`ht-nsd-40`); bits = 6 bits (`ht-64qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 3.2 µs (`ofdm-symbol-ht-vht-us`); giUs = 0.4 µs (`short-gi-ht-vht-us`)
   - Recomputed: 600 Mbps
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `wifi4-published`
 
@@ -290,7 +290,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 8 streams (`vht-max-nss`); nsd = 468 subcarriers (`vht-nsd-160`); bits = 8 bits (`vht-256qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 3.2 µs (`ofdm-symbol-ht-vht-us`); giUs = 0.4 µs (`short-gi-ht-vht-us`)
   - Recomputed: 6.93 Gbps
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `wifi5-published`
 
@@ -320,7 +320,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
   - Inputs: nss = 8 streams (`he-max-nss`); nsd = 1960 subcarriers (`he-nsd-160`); bits = 10 bits (`he-1024qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 12.8 µs (`he-eht-symbol-us`); giUs = 0.8 µs (`he-eht-min-gi-us`)
   - Recomputed: 9.61 Gbps
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `wifi6e-cert-launch`
 
@@ -360,15 +360,15 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `wifi7-peak-phy`
 
-- **Statement:** Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval
-- **Value:** 46.1 Gbps
+- **Statement:** Wi-Fi 7 theoretical peak PHY rate on one link: 8 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval
+- **Value:** 23.1 Gbps
 - **Kind / method:** technical · Derived
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS 13 rate table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS rate table for the 4×996-tone RU (2882.4 Mb/s per stream at MCS 13)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
 - **Derivation:** `phyRate` — Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-  - Inputs: nss = 16 streams (`eht-max-nss`); nsd = 3920 subcarriers (`eht-nsd-320`); bits = 12 bits (`eht-4096qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 12.8 µs (`he-eht-symbol-us`); giUs = 0.8 µs (`he-eht-min-gi-us`)
-  - Recomputed: 46.1 Gbps
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table.
+  - Inputs: nss = 8 streams (`eht-max-nss`); nsd = 3920 subcarriers (`eht-nsd-320`); bits = 12 bits (`eht-4096qam-bits`); codingRate = 0.833333 ratio (5/6) (`coding-rate-max`); symbolUs = 12.8 µs (`he-eht-symbol-us`); giUs = 0.8 µs (`he-eht-min-gi-us`)
+  - Recomputed: 23.1 Gbps
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table. Peer review 2026-10-31 (GPT, High Thinking): Wrong at 46.1 (assumed 16 streams); corrected to 23.1 Gb/s single-link. High.
 
 #### `wifi8-status`
 
@@ -408,7 +408,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E, 6 GHz band operating classes and channel numbering** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `6ghz-no-legacy`
 
@@ -418,7 +418,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E and 6 GHz operation subclauses (HE operation only)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `eht-max-width`
 
@@ -436,8 +436,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** 3920 subcarriers
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD).
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, Table 36-86 (N_SD = 3920)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `eu-6ghz-band`
 
@@ -475,7 +475,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27 (HE PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `he-nsd-160`
 
@@ -484,7 +484,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS rate tables (N_SD)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `us-6ghz-band-end`
 
@@ -515,7 +515,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 160 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 160
   - Recomputed: 7 channels
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `us-6ghz-channels-20`
 
@@ -528,7 +528,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 20
   - Recomputed: 59 channels
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `us-6ghz-channels-320`
 
@@ -541,7 +541,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 320 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 320
   - Recomputed: 3 channels
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `us-6ghz-channels-40`
 
@@ -554,7 +554,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 40
   - Recomputed: 29 channels
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `us-6ghz-channels-80`
 
@@ -567,7 +567,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Derivation:** `channelCount` — Whole 80 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
   - Inputs: bandStartMHz = 5925 MHz (`us-6ghz-band-start`); bandEndMHz = 7125 MHz (`us-6ghz-band-end`); firstEdgeMHz = 5945 MHz (`6ghz-ch1-lower-edge`); widthMHz = 80
   - Recomputed: 14 channels
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `us-6ghz-total`
 
@@ -586,7 +586,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21 (VHT PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `width-320-vs-160`
 
@@ -615,12 +615,12 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `emlmr-what`
 
-- **Statement:** In EMLMR mode, a multi-link device moves its transmit and receive spatial streams between links as traffic requires
+- **Statement:** In EMLMR mode, a multi-radio multi-link device operates on several links at once and redistributes its spatial streams among them as traffic requires
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link multi-radio (EMLMR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3.18** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `emlsr-what`
 
@@ -628,8 +628,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link single-radio (EMLSR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3.17** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `mlo-bands`
 
@@ -639,7 +639,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `mlo-defined-be`
 
@@ -647,45 +647,45 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35 (EHT MAC), multi-link operation subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3 (Multi-link operation)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `mlo-modes-be`
 
-- **Statement:** IEEE 802.11be defines STR, NSTR, EMLSR and EMLMR multi-link modes
+- **Statement:** IEEE 802.11be defines STR and NSTR operation for pairs of links, plus the EMLSR and EMLMR enhanced multi-link modes
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device operation and EMLSR/EMLMR subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3.16.3 (STR), 35.3.16.4 (NSTR), 35.3.17 (EMLSR), 35.3.18 (EMLMR)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `mlo-tid-mapping`
 
-- **Statement:** 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links
+- **Statement:** 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `single-link-pre-be`
 
-- **Statement:** Before 802.11be, a device is associated with an access point on one band (link) at a time; moving to another band requires a new association
+- **Statement:** Before 802.11be, a device is associated with one access point (BSS) at a time; moving to another BSS, such as the same access point’s radio in another band, requires reassociation
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 11, association and reassociation procedures** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device introduction** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `str-what`
 
-- **Statement:** In STR mode, a multi-link device can transmit on one link while receiving on another at the same time
+- **Statement:** For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link operation: STR and NSTR link pairs** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3.16.3** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `wpa3-mlo-required`
 
@@ -706,8 +706,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** 12 bits
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, EHT-MCS 12–13 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, Table 36-51 (4096-QAM) and Table 36-86** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `eht-4kqam-evm`
 
@@ -715,8 +715,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, transmit constellation error (EVM) requirements table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `he-1024qam-bits`
 
@@ -725,7 +725,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE-MCS 10–11 parameters** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `multi-ru-be`
 
@@ -735,7 +735,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, MRU definitions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `puncturing-ax`
 
@@ -744,16 +744,16 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, HE MU PPDU preamble puncturing** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `puncturing-be`
 
-- **Statement:** 802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap
+- **Statement:** 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, preamble puncturing** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `puncturing-patterns`
 
@@ -761,8 +761,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, allowed puncturing patterns for non-OFDMA transmissions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions. Peer review 2026-10-31 (GPT, High Thinking): Correct; locator corrected. High.
 
 #### `qam-4k-gain`
 
@@ -784,7 +784,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21, VHT modulation-dependent parameters table** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 ## 5. Security: WPA3 and Wi-Fi 7
 
@@ -796,17 +796,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Annex E and 6 GHz operation subclauses (HE operation only)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
   - Wi-Fi Alliance — Wi-Fi Alliance press release — **Press release** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `6ghz-security-options`
 
-- **Statement:** In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there
+- **Statement:** In the 6 GHz band, WPA2-Personal is not permitted: secured networks use WPA3, and open networks use Wi-Fi Enhanced Open under Wi-Fi Alliance guidance
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
   - Wi-Fi Alliance — WPA3 Deployment Options Highlights, 2026-02 — **Page 1** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `legacy-security-disallowed`
 
@@ -819,12 +819,12 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `mlo-tid-mapping`
 
-- **Statement:** 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links
+- **Statement:** 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `owe-what`
 
@@ -858,14 +858,14 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `wpa3-6ghz-required`
 
-- **Statement:** WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there
+- **Statement:** WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2, WPA3-Personal configuration notes (note 5)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.
   - Wi-Fi Alliance — WPA3 Deployment Options Highlights, 2026-02 — **Page 1** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `wpa3-dual-ssid-legacy`
 
@@ -990,12 +990,12 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `rtwt-be`
 
-- **Statement:** Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic
+- **Statement:** Restricted TWT (r-TWT) in 802.11be adds protection and reservation mechanisms for latency-sensitive traffic during scheduled service periods; it improves predictability, but the airtime is not exclusive
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT subclause** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.8.1** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `rtwt-optional`
 
@@ -1003,17 +1003,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `rtwt-protect`
 
-- **Statement:** During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium
+- **Statement:** Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.8.4.1** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `twt-origin`
 
@@ -1022,7 +1022,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ah-2016, 2016 — **TWT subclause (MAC)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ah/4960/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `twt-types-ax`
 
@@ -1031,17 +1031,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, individual and broadcast TWT subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `twt-what`
 
-- **Statement:** With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between
+- **Statement:** With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ah-2016, 2016 — **TWT subclause (MAC)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ah/4960/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `twt-wifi6`
 
@@ -1056,21 +1056,21 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `bss-coloring-ax`
 
-- **Statement:** 802.11ax BSS coloring marks each network's transmissions so devices can tell their own network from a neighbour's and reuse the channel more often
+- **Statement:** 802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, BSS color and spatial reuse operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `contention-dcf`
 
-- **Statement:** Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel
+- **Statement:** Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 10, distributed coordination function (DCF) and EDCA** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 10.3 (DCF) and 10.23 (HCF/EDCA)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated ("whole channel"); reworded to the TXOP access rule. Medium.
 
 #### `eht-max-width`
 
@@ -1088,8 +1088,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link single-radio (EMLSR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3.17** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `he-ul-mu`
 
@@ -1098,7 +1098,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, trigger frame and uplink multi-user (UL MU) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `mlo-bands`
 
@@ -1108,16 +1108,16 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `mlo-tid-mapping`
 
-- **Statement:** 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links
+- **Statement:** 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `multi-ru-be`
 
@@ -1127,7 +1127,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, MRU definitions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `ofdma-ax`
 
@@ -1141,21 +1141,21 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `puncturing-be`
 
-- **Statement:** 802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap
+- **Statement:** 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, preamble puncturing** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `vht-dl-mu-mimo`
 
-- **Statement:** 802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time
+- **Statement:** 802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11-2020, 2020 revision — **Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/standard/802_11-2020.html>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users). Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 ## 8. Lower, More Predictable Latency
 
@@ -1175,8 +1175,8 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, enhanced multi-link single-radio (EMLSR) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3.17** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `latency-histogram-illustrative`
 
@@ -1195,7 +1195,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `mlo-defined-be`
 
@@ -1203,17 +1203,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35 (EHT MAC), multi-link operation subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3 (Multi-link operation)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `mlo-tid-mapping`
 
-- **Statement:** 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links
+- **Statement:** 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, TID-to-link mapping and MLD association subclauses** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `multi-ru-be`
 
@@ -1223,16 +1223,16 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 36, MRU definitions** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27, RU allocation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `rtwt-be`
 
-- **Statement:** Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic
+- **Statement:** Restricted TWT (r-TWT) in 802.11be adds protection and reservation mechanisms for latency-sensitive traffic during scheduled service periods; it improves predictability, but the airtime is not exclusive
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT subclause** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.8.1** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `rtwt-optional`
 
@@ -1240,17 +1240,17 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `rtwt-protect`
 
-- **Statement:** During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium
+- **Statement:** Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
-  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, restricted TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation.
+  - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35.8.4.1** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 ## 9. Bringing it together
 
@@ -1291,7 +1291,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 27 (HE PHY)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY).
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).
 
 #### `mlo-bands`
 
@@ -1301,7 +1301,7 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11be-2024, 2024 (approved 2024-09-26) — **Clause 35, multi-link device (MLD) operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11be/7516/>
   - Wi-Fi Alliance — Wi-Fi CERTIFIED 7 program page — **"Multi-Link Operation" feature description** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).
 
 #### `ofdma-ax`
 
@@ -1315,13 +1315,13 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `twt-what`
 
-- **Statement:** With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between
+- **Statement:** With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ah-2016, 2016 — **TWT subclause (MAC)** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ah/4960/>
   - IEEE (Standards Association and 802 working groups) — IEEE Std 802.11ax-2021, 2021 — **Clause 26, TWT operation** — Tier 1 (standards body / regulator) — paywalled — <https://standards.ieee.org/ieee/802.11ax/7180/>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `width-320-vs-160`
 
@@ -1347,14 +1347,14 @@ Source policy: technical claims require a Tier 1 source (standards bodies and re
 
 #### `wpa3-6ghz-required`
 
-- **Statement:** WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there
+- **Statement:** WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3
 - **Value:** —
 - **Kind / method:** technical · Stated in source
 - **Sources:**
   - Wi-Fi Alliance — Deployment Guide v1.1, v1.1 — **Section 2, WPA3-Personal configuration notes (note 5)** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf>
     > Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.
   - Wi-Fi Alliance — WPA3 Deployment Options Highlights, 2026-02 — **Page 1** — Tier 1 (standards body / regulator) — open — <https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf>
-- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”.
+- **Verification:** not yet verified — Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.
 
 #### `wpa3-dual-ssid-legacy`
 

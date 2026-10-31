@@ -46,13 +46,13 @@
       "id": "str",
       "term": "STR",
       "expansion": "Simultaneous transmit and receive",
-      "definition": "A multi-link mode where a device can send on one link while receiving on another at the same time."
+      "definition": "A way two links of a multi-link device can work: sending on one while receiving on the other at the same time."
     },
     {
       "id": "nstr",
       "term": "NSTR",
       "expansion": "Non-simultaneous transmit and receive",
-      "definition": "A multi-link mode where a device cannot send on one link while receiving on another, so link timing is coordinated."
+      "definition": "A pair of links that cannot send on one while receiving on the other, so their timing is coordinated."
     },
     {
       "id": "emlsr",
@@ -172,7 +172,7 @@
       "id": "restricted-twt",
       "term": "Restricted TWT",
       "expansion": null,
-      "definition": "An optional Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry, on devices that support it."
+      "definition": "An optional Wi-Fi 7 form of Target Wake Time that better protects scheduled slots for latency-sensitive traffic such as voice and telemetry, on devices that support it."
     },
     {
       "id": "service-period",

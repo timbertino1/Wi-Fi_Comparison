@@ -96,7 +96,7 @@ When the network gets crowded, the urgent traffic waits in line behind everythin
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
+| Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 | OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
 
@@ -116,7 +116,7 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 
 **Bottom line:** Wi-Fi 7 is the current generation: devices and access points are certified and shipping, so it belongs in today's refresh plans.
 
-**Technical depth:** Wi-Fi 4 to 6 map to IEEE 802.11n, ac and ax [S3]; 802.11be was approved in September 2024 [S8]. Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be [S3]. IEEE approved 802.11be on 2024-09-26 [S8] and published it on 2025-07-22 [S8]. Theoretical peak rates rose from 600 Mbps for Wi-Fi 4 [S6] to 6.93 Gbps for Wi-Fi 5 [S6], 9.61 Gbps for Wi-Fi 6 [S7] and 46.1 Gbps for Wi-Fi 7 [S8]; these assume every option at its maximum, and real devices reach far less.
+**Technical depth:** Wi-Fi 4 to 6 map to IEEE 802.11n, ac and ax [S3]; 802.11be was approved in September 2024 [S8]. Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be [S3]. IEEE approved 802.11be on 2024-09-26 [S8] and published it on 2025-07-22 [S8]. Theoretical peak rates rose from 600 Mbps for Wi-Fi 4 [S6] to 6.93 Gbps for Wi-Fi 5 [S6], 9.61 Gbps for Wi-Fi 6 [S7] and 23.1 Gbps for Wi-Fi 7 on a single link [S8]; these assume every option at its maximum, and real devices reach far less.
 
 **Terms:**
 
@@ -137,7 +137,7 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 | Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval | 600 Mbps | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 19, HT MCS 31 rate table |
 | Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval | 6.93 Gbps | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21, VHT-MCS 9 rate table |
 | Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval | 9.61 Gbps | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE-MCS 11 rate table |
-| Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval | 46.1 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 13 rate table |
+| Wi-Fi 7 theoretical peak PHY rate on one link: 8 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval | 23.1 Gbps | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS rate table for the 4×996-tone RU (2882.4 Mb/s per stream at MCS 13) |
 
 **Likely questions:**
 
@@ -340,7 +340,7 @@ Wi-Fi 5 and earlier cannot use 6 GHz at all [S7, S17].
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 | A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel | 2 × | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 |
 | Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E and 6 GHz operation subclauses (HE operation only) |
-| Data subcarriers in a 320 MHz EHT channel (4×996-tone RU) | 3920 subcarriers | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS rate tables (N_SD) |
+| Data subcarriers in a 320 MHz EHT channel (4×996-tone RU) | 3920 subcarriers | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, Table 36-86 (N_SD = 3920) |
 | Data subcarriers in a 160 MHz HE channel (2×996-tone RU) | 1960 subcarriers | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE-MCS rate tables (N_SD) |
 
 **Likely questions:**
@@ -446,7 +446,7 @@ Think of it as one conversation with several lanes open to it. Whether the devic
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Multi-Link Operation (MLO) is defined in IEEE 802.11be | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35 (EHT MAC), multi-link operation subclauses |
+| Multi-Link Operation (MLO) is defined in IEEE 802.11be | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3 (Multi-link operation) |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 
 **Likely questions:**
@@ -476,9 +476,9 @@ Which link is used is the access point’s and device’s scheduling decision, s
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
-| In STR mode, a multi-link device can transmit on one link while receiving on another at the same time | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link operation: STR and NSTR link pairs |
-| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, enhanced multi-link single-radio (EMLSR) operation |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
+| For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.16.3 |
+| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.17 |
 
 **Likely questions:**
 
@@ -506,9 +506,9 @@ With Wi-Fi 7, the other links are already set up, so traffic can move without re
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 | Password-based authentication over Wi-Fi 7 MLO requires WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites) |
-| Before 802.11be, a device is associated with an access point on one band (link) at a time; moving to another band requires a new association | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 11, association and reassociation procedures |
+| Before 802.11be, a device is associated with one access point (BSS) at a time; moving to another BSS, such as the same access point’s radio in another band, requires reassociation | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 11, association and reassociation procedures |
 
 **Likely questions:**
 
@@ -532,15 +532,15 @@ How much it helps depends on both ends. A device in STR mode can use links at th
 **Terms:**
 
 - Telemetry — Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station.
-- STR — A multi-link mode where a device can send on one link while receiving on another at the same time.
+- STR — A way two links of a multi-link device can work: sending on one while receiving on the other at the same time.
 - EMLSR — A multi-link mode where a device listens on several links but exchanges data on only one link at a time.
 
 **Figures:**
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| In STR mode, a multi-link device can transmit on one link while receiving on another at the same time | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link operation: STR and NSTR link pairs |
-| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, enhanced multi-link single-radio (EMLSR) operation |
+| For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.16.3 |
+| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.17 |
 
 **Likely questions:**
 
@@ -557,15 +557,15 @@ How much it helps depends on both ends. A device in STR mode can use links at th
 
 #### MLO modes: STR, NSTR, EMLSR and EMLMR
 
-IEEE 802.11be defines several ways a device can use multiple links [S8]. Each is a behaviour, not a radio count:
+IEEE 802.11be defines STR and NSTR operation for pairs of links, plus two enhanced multi-link modes, EMLSR and EMLMR [S8]. Each is a behaviour, not a radio count:
 
-**STR (simultaneous transmit and receive)** — the device can send on one link while receiving on another [S8]. It gives the most concurrency but needs good isolation between bands.
+**STR (simultaneous transmit and receive)** — on a pair of STR links, the device can send on one while receiving on the other [S8]. It gives the most concurrency but needs good isolation between bands.
 
 **NSTR (non-simultaneous)** — the device has multiple links but cannot send on one while receiving on another, so their timing is coordinated.
 
 **EMLSR (enhanced multi-link single radio)** — the device listens on several links but exchanges frames on only one at a time [S8]. It suits devices with one main radio, though the mode does not fix how many radios a device has.
 
-**EMLMR (enhanced multi-link multi-radio)** — the device moves its transmit and receive spatial streams between links as traffic needs [S8].
+**EMLMR (enhanced multi-link multi-radio)** — a multi-radio device works on several links at once and shifts its spatial streams among them as traffic needs [S8].
 
 These modes are not a simple ladder from cheap to best. Which one a badge, phone, laptop or access point supports is a product decision, so check the mode, link count and firmware during procurement.
 
@@ -648,8 +648,8 @@ It also lets one device use several separate pieces of the channel at once, so i
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| 802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, preamble puncturing |
-| 802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, allowed puncturing patterns for non-OFDMA transmissions |
+| 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns) |
+| 802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns) |
 | 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
 | Preamble puncturing was introduced in 802.11ax for multi-user transmissions | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU preamble puncturing |
 
@@ -690,9 +690,9 @@ That needs a very clean, strong signal [S8], typically a device close to its acc
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier) | 20 % | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 12–13 |
-| Bits per subcarrier at 4096-QAM (Wi-Fi 7 highest modulation) | 12 bits | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 12–13 parameters |
+| Bits per subcarrier at 4096-QAM (Wi-Fi 7 highest modulation) | 12 bits | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, Table 36-51 (4096-QAM) and Table 36-86 |
 | Bits per subcarrier at 1024-QAM (Wi-Fi 6 highest modulation) | 10 bits | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE-MCS 10–11 parameters |
-| 4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, transmit constellation error (EVM) requirements table |
+| 4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM) |
 
 **Likely questions:**
 
@@ -717,7 +717,7 @@ Wi-Fi 7 keeps every other lane busy [S8], lets one device use several pieces at 
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | Preamble puncturing was introduced in 802.11ax for multi-user transmissions | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU preamble puncturing |
-| 802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, preamble puncturing |
+| 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns) |
 | 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
 | Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier) | 20 % | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 12–13 |
 
@@ -770,7 +770,7 @@ WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in
 
 **Opener** (its own click): Chapter 5 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · WPA3 since 2018 — Security: WPA3 and Wi-Fi 7. Stronger sign-in for shared-password and staff networks alike. The problem: A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points.
 
-**Lineage:** A separate Wi-Fi Alliance security program, not part of one generation. What Wi-Fi 7 adds: WPA3 launched as its own certification in 2018 [S23] and is now required for new Wi-Fi CERTIFIED devices [S20]. Wi-Fi 7 multi-link connections require it [S19, S18], the 6 GHz band requires WPA3 and uses Enhanced Open for open access [S19, S25], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19].
+**Lineage:** A separate Wi-Fi Alliance security program, not part of one generation. What Wi-Fi 7 adds: WPA3 launched as its own certification in 2018 [S23] and is now required for new Wi-Fi CERTIFIED devices [S20]. Wi-Fi 7 multi-link connections require it [S19, S18], secured 6 GHz networks require WPA3, and open ones use Enhanced Open [S19, S25], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19].
 
 **Healthcare scenario — Clinical device and staff networks** (devices: infusion pump, clinical workstation, voice badge)
 
@@ -935,14 +935,14 @@ Devices that cannot do WPA3 can keep working on a separate, older network while 
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
+| WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
 | Password-based authentication over Wi-Fi 7 MLO requires WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites) |
 | The WPA2-Enterprise sign-in (802.1X with SHA-1) is not used in associations that use Wi-Fi 7 (EHT or MLO) or the 6 GHz band; 6 GHz Enterprise networks run WPA3-Enterprise Only Mode | — | S18 WPA3 Specification | Section 3.3 (WPA3-Enterprise Transition Mode), STA item 1 note, page 16 |
-| In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz) |
+| In the 6 GHz band, WPA2-Personal is not permitted: secured networks use WPA3, and open networks use Wi-Fi Enhanced Open under Wi-Fi Alliance guidance | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz) |
 | Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configuration so older devices that cannot use WPA3 keep connecting during the transition | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30 |
 | WPA3-Enterprise Transition Mode enables both the SHA-1 and SHA-256 802.1X sign-ins and sets PMF Capable rather than PMF Required, so WPA2- and WPA3-Enterprise devices can share one network | — | S18 WPA3 Specification | Section 3.3 (WPA3-Enterprise Transition Mode), AP items, page 16 |
 | Wi-Fi Alliance deployment guidance for Wi-Fi 7 (EHT) networks makes beacon protection mandatory in every WPA3 mode, and in WPA3-Personal Only Mode also PMF Required, SAE hash-to-element, the SAE-GDH key management suite and GCMP-256 encryption | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Table 4 (all modes) and Table 8 (WPA3-Personal Only Mode), rows for "AP: EHT enabled on BSS" |
-| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 
 **Likely questions:**
 
@@ -1064,7 +1064,7 @@ With Target Wake Time, each device and its access point agree on when the device
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
+| With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
 | Target Wake Time was first defined in IEEE 802.11ah | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
 | Target Wake Time is one of the features of Wi-Fi CERTIFIED 6 | — | S4 Wi-Fi CERTIFIED 6 coming in 2019 | Feature list |
 
@@ -1101,7 +1101,7 @@ A device can negotiate its own schedule, or join a schedule the access point ann
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | 802.11ax defines both individual TWT agreements (per device) and broadcast TWT schedules (shared by groups of devices) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26, individual and broadcast TWT subclauses |
-| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
+| With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
 
 **Likely questions:**
 
@@ -1109,11 +1109,11 @@ A device can negotiate its own schedule, or join a schedule the access point ann
 
 ### Step 4 — Protected time for urgent traffic
 
-**On screen:** Protected time for urgent traffic / Optional Restricted TWT reserves protected slots for voice and alarms [S8] [S8]. A laptop that supports Restricted TWT joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups. Hotspots: Restricted TWT, Service period.
+**On screen:** Protected time for urgent traffic / Optional Restricted TWT gives voice and alarms better-protected slots [S8] [S8]. A laptop that supports Restricted TWT joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups. Hotspots: Restricted TWT, Service period.
 
 **Callout — What Wi-Fi 7 adds:**
 
-- Optional Restricted TWT reserves protected slots for urgent traffic [S8]
+- Optional Restricted TWT better protects slots for urgent traffic [S8]
 - Supporting devices pause before each slot begins [S8]
 - Check support in each access point, device and firmware
 
@@ -1129,17 +1129,17 @@ Devices that support it are expected to finish transmitting before a protected p
 
 **Terms:**
 
-- Restricted TWT — An optional Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
+- Restricted TWT — An optional Wi-Fi 7 form of Target Wake Time that better protects scheduled slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
 - Service period — The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
 
 **Figures:**
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, restricted TWT subclause |
-| Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT |
-| During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, restricted TWT operation |
-| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
+| Restricted TWT (r-TWT) in 802.11be adds protection and reservation mechanisms for latency-sensitive traffic during scheduled service periods; it improves predictability, but the airtime is not exclusive | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.1 |
+| Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support) |
+| Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.4.1 |
+| With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
 | 802.11ax defines both individual TWT agreements (per device) and broadcast TWT schedules (shared by groups of devices) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26, individual and broadcast TWT subclauses |
 
 **Likely questions:**
@@ -1177,8 +1177,8 @@ The gains depend on support in each device and in the access points, so include 
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT |
-| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
+| Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support) |
+| With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
 
 **Likely questions:**
 
@@ -1235,8 +1235,8 @@ With Wi-Fi 5 and earlier, devices sending to the access point take turns, one at
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
-| 802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
+| Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
+| 802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
 
 **Likely questions:**
 
@@ -1308,16 +1308,16 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| 802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
+| 802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
 | OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
 | 802.11ax (Wi-Fi 6) adds uplink multi-user transmission: the access point triggers several devices to send at once, using OFDMA or MU-MIMO | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26, trigger frame and uplink multi-user (UL MU) operation |
-| 802.11ax BSS coloring marks each network's transmissions so devices can tell their own network from a neighbour's and reuse the channel more often | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26, BSS color and spatial reuse operation |
+| 802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse) |
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 | 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
-| 802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, preamble puncturing |
-| Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
-| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
+| 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns) |
+| Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 
 **Likely questions:**
 
@@ -1355,13 +1355,13 @@ Wi-Fi 7 keeps that and adds two things. With multi-link operation, one device ca
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
-| 802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
+| Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
+| 802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
 | OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
 | 802.11ax (Wi-Fi 6) adds uplink multi-user transmission: the access point triggers several devices to send at once, using OFDMA or MU-MIMO | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26, trigger frame and uplink multi-user (UL MU) operation |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
-| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
-| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, enhanced multi-link single-radio (EMLSR) operation |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
+| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.17 |
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 
 **Likely questions:**
@@ -1396,7 +1396,7 @@ Design for peak density: count devices per bed and per staff member, not just sq
 
 | Figure | Value | Source | Where |
 |---|---|---|---|
-| Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10, distributed coordination function (DCF) and EDCA |
+| Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 
 **Likely questions:**
@@ -1483,7 +1483,7 @@ None of them knows a message is clinically urgent: that still depends on how tra
 **Terms:**
 
 - MLO — A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting.
-- Restricted TWT — An optional Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
+- Restricted TWT — An optional Wi-Fi 7 form of Target Wake Time that better protects scheduled slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
 - TWT — An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
 - Multi-RU — A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other.
 - EMLSR — A multi-link mode where a device listens on several links but exchanges data on only one link at a time.
@@ -1493,11 +1493,11 @@ None of them knows a message is clinically urgent: that still depends on how tra
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
-| During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, restricted TWT operation |
-| Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT |
+| Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.4.1 |
+| Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support) |
 | 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
-| 802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, TID-to-link mapping and MLD association subclauses |
-| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, enhanced multi-link single-radio (EMLSR) operation |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
+| In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.17 |
 
 **Likely questions:**
 
@@ -1566,7 +1566,7 @@ The same hospital floor, now on Wi-Fi 7: what changes for each device, and what 
 
 **Say (leadership):** The same hospital, on Wi-Fi 7.
 
-Back on the floor where we started. Badges that support multi-link can keep calls steadier by using more than one band [S8, S15]. Location tags and badges that use Target Wake Time sleep between agreed wake-ups, which can extend battery life [S9, S7]. Pumps and staff devices sign in with WPA3, which Wi-Fi 7 and the 6 GHz band require [S19, S25] [S19, S18].
+Back on the floor where we started. Badges that support multi-link can keep calls steadier by using more than one band [S8, S15]. Location tags and badges that use Target Wake Time sleep between agreed wake-ups, which can extend battery life [S9, S7]. Pumps and staff devices sign in with WPA3, which Wi-Fi 7 and secured 6 GHz networks require [S19, S25] [S19, S18].
 
 Workstations with 320 MHz support can move large images faster on wide 6 GHz channels [S8, S15] [S8, S7], crowded units can serve many devices per transmission [S7, S4], and Wi-Fi 7 adds tools that can reduce how long alarms wait [S8]. Each gain needs client support, so it grows as devices are refreshed.
 
@@ -1583,8 +1583,8 @@ Workstations with 320 MHz support can move large images faster on wide 6 GHz cha
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
-| With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
-| WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
+| With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
+| WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
 | Password-based authentication over Wi-Fi 7 MLO requires WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites) |
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 | A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel | 2 × | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 |
@@ -1697,7 +1697,7 @@ A reviewer checks each claim against its source and records the date and their i
 - **MPDU** (MAC protocol data unit): A single Wi-Fi data frame as handled by the MAC layer. Reliability goals are often stated as how many MPDUs are lost.
 - **Multi-gigabit Ethernet**: Ethernet links faster than 1 Gb/s over ordinary twisted-pair cabling, such as 2.5GBASE-T, 5GBASE-T and 10GBASE-T.
 - **Multi-RU** (Multiple resource units): A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other.
-- **NSTR** (Non-simultaneous transmit and receive): A multi-link mode where a device cannot send on one link while receiving on another, so link timing is coordinated.
+- **NSTR** (Non-simultaneous transmit and receive): A pair of links that cannot send on one while receiving on the other, so their timing is coordinated.
 - **OFDMA** (Orthogonal frequency-division multiple access): A Wi-Fi 6 technique that divides a channel into resource units so several devices can send or receive in the same transmission.
 - **OWE** (Opportunistic Wireless Encryption (Wi-Fi Enhanced Open)): Encryption for open networks, such as guest Wi-Fi, that protects each device's traffic without needing a password.
 - **Patient monitor**: A bedside or wearable monitor that tracks vital signs such as heart rhythm and oxygen levels and sends readings and alarms to the nurses’ station over Wi-Fi.
@@ -1709,14 +1709,14 @@ A reviewer checks each claim against its source and records the date and their i
 - **QAM** (Quadrature amplitude modulation): The way Wi-Fi encodes bits into a radio signal. Higher orders, such as 4096-QAM, pack more bits into each signal but need a cleaner, stronger signal.
 - **Regulatory domain**: The country or region whose radio rules apply. Each one decides which frequencies Wi-Fi may use and at what power.
 - **Resource unit**: A block of subcarriers within a channel that an access point assigns to one device for a transmission. Also called an RU.
-- **Restricted TWT**: An optional Wi-Fi 7 form of Target Wake Time that reserves protected time slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
+- **Restricted TWT**: An optional Wi-Fi 7 form of Target Wake Time that better protects scheduled slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
 - **RTLS** (Real-time location system): Small battery-powered tags on staff or equipment that report their location so teams can find pumps, wheelchairs or colleagues quickly.
 - **SAE** (Simultaneous Authentication of Equals): The WPA3 sign-in exchange. Both sides prove they know the password without revealing anything an eavesdropper could test offline.
 - **Server certificate**: A digital certificate the hospital’s sign-in server presents so devices can check they are talking to the real network, not an impostor.
 - **Service period**: The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
 - **Smart infusion pump**: A bedside pump that delivers medication at a set rate and uses Wi-Fi to receive drug libraries and orders and to report alerts and history.
 - **Spatial stream**: An independent data stream sent over its own antenna path at the same time as others. More streams multiply the peak rate.
-- **STR** (Simultaneous transmit and receive): A multi-link mode where a device can send on one link while receiving on another at the same time.
+- **STR** (Simultaneous transmit and receive): A way two links of a multi-link device can work: sending on one while receiving on the other at the same time.
 - **Subcarrier**: One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others.
 - **Tail latency**: The delay experienced by the slowest packets, such as the worst one in a hundred. It decides whether urgent messages are ever late.
 - **Telemetry**: Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station.
@@ -1790,99 +1790,99 @@ IEEE P802.11bn (Ultra High Reliability, expected to be Wi-Fi 8) is in developmen
 
 Wi-Fi 4 (HT) maximum spatial streams — value: 4 streams; method: stated; kind: technical.
 - [S6] Clause 19 (HT PHY), HT MCS tables
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### ht-nsd-40
 
 Data subcarriers in a 40 MHz HT channel — value: 108 subcarriers; method: stated; kind: technical.
 - [S6] Clause 19, HT timing-related constants table
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### ht-64qam-bits
 
 Bits per subcarrier at 64-QAM (Wi-Fi 4 highest modulation) — value: 6 bits; method: stated; kind: technical.
 - [S6] Clause 19, HT modulation-dependent parameters table
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### vht-max-nss
 
 Wi-Fi 5 (VHT) maximum spatial streams — value: 8 streams; method: stated; kind: technical.
 - [S6] Clause 21 (VHT PHY), VHT MCS tables
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### vht-max-width
 
 Wi-Fi 5 (VHT) widest channel — value: 160 MHz; method: stated; kind: technical.
 - [S6] Clause 21 (VHT PHY)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### vht-nsd-160
 
 Data subcarriers in a 160 MHz VHT channel — value: 468 subcarriers; method: stated; kind: technical.
 - [S6] Clause 21, VHT timing-related constants table
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### vht-256qam-bits
 
 Bits per subcarrier at 256-QAM (Wi-Fi 5 highest modulation) — value: 8 bits; method: stated; kind: technical.
 - [S6] Clause 21, VHT modulation-dependent parameters table
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### ofdm-symbol-ht-vht-us
 
 OFDM symbol duration (without guard interval) for HT and VHT — value: 3.2 µs; method: stated; kind: technical.
 - [S6] Clauses 19 and 21, timing-related constants (T_DFT)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### short-gi-ht-vht-us
 
 Short guard interval for HT and VHT — value: 0.4 µs; method: stated; kind: technical.
 - [S6] Clauses 19 and 21, timing-related constants (T_GI,S)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### he-max-nss
 
 Wi-Fi 6 (HE) maximum spatial streams — value: 8 streams; method: stated; kind: technical.
 - [S7] Clause 27 (HE PHY), HE-MCS tables
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### he-max-width
 
 Wi-Fi 6 / 6E (HE) widest channel — value: 160 MHz; method: stated; kind: technical.
 - [S7] Clause 27 (HE PHY)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### he-nsd-160
 
 Data subcarriers in a 160 MHz HE channel (2×996-tone RU) — value: 1960 subcarriers; method: stated; kind: technical.
 - [S7] Clause 27, HE-MCS rate tables (N_SD)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### he-1024qam-bits
 
 Bits per subcarrier at 1024-QAM (Wi-Fi 6 highest modulation) — value: 10 bits; method: stated; kind: technical.
 - [S7] Clause 27, HE-MCS 10–11 parameters
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### he-eht-symbol-us
 
 OFDM symbol duration (without guard interval) for HE and EHT — value: 12.8 µs; method: stated; kind: technical.
 - [S7] Clause 27, timing-related constants
 - [S8] Clause 36, timing-related constants
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants. Peer review 2026-10-31 (GPT, High Thinking): Correct (High (EHT), Medium (HE)).)
 
 ### he-eht-min-gi-us
 
 Shortest guard interval for HE and EHT — value: 0.8 µs; method: stated; kind: technical.
 - [S7] Clause 27, guard interval durations
 - [S8] Clause 36, guard interval durations
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations. Peer review 2026-10-31 (GPT, High Thinking): Correct (High (EHT), Medium (HE)).)
 
 ### eht-max-nss
 
-Wi-Fi 7 (EHT) maximum spatial streams defined in the standard — value: 16 streams; method: stated; kind: technical.
-- [S8] Clause 36 (EHT PHY), EHT-MCS tables
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables.)
+Wi-Fi 7 (EHT) maximum spatial streams in the 802.11be standard — value: 8 streams; method: stated; kind: technical.
+- [S8] Clause 36.1.1 (EHT PHY introduction); EHT-MCS and NSS tables
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Wrong as 16; corrected to 8 (16 streams appeared in drafts, not the final amendment). High.)
 
 ### eht-max-width
 
@@ -1894,14 +1894,14 @@ Wi-Fi 7 (EHT) widest channel, 6 GHz only — value: 320 MHz; method: stated; kin
 ### eht-nsd-320
 
 Data subcarriers in a 320 MHz EHT channel (4×996-tone RU) — value: 3920 subcarriers; method: stated; kind: technical.
-- [S8] Clause 36, EHT-MCS rate tables (N_SD)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD).)
+- [S8] Clause 36, Table 36-86 (N_SD = 3920)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### eht-4096qam-bits
 
 Bits per subcarrier at 4096-QAM (Wi-Fi 7 highest modulation) — value: 12 bits; method: stated; kind: technical.
-- [S8] Clause 36, EHT-MCS 12–13 parameters
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters.)
+- [S8] Clause 36, Table 36-51 (4096-QAM) and Table 36-86
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### coding-rate-max
 
@@ -1909,35 +1909,35 @@ Highest coding rate used at the top MCS of Wi-Fi 4 through Wi-Fi 7 — value: 0.
 - [S6] Clauses 19 and 21, MCS tables
 - [S7] Clause 27, HE-MCS tables
 - [S8] Clause 36, EHT-MCS tables
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### wifi4-peak-phy
 
 Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval — value: 600 Mbps; method: derived; kind: technical.
 - [S6] Clause 19, HT MCS 31 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### wifi5-peak-phy
 
 Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval — value: 6.93 Gbps; method: derived; kind: technical.
 - [S6] Clause 21, VHT-MCS 9 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### wifi6-peak-phy
 
 Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval — value: 9.61 Gbps; method: derived; kind: technical.
 - [S7] Clause 27, HE-MCS 11 rate table
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### wifi7-peak-phy
 
-Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval — value: 46.1 Gbps; method: derived; kind: technical.
-- [S8] Clause 36, EHT-MCS 13 rate table
+Wi-Fi 7 theoretical peak PHY rate on one link: 8 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval — value: 23.1 Gbps; method: derived; kind: technical.
+- [S8] Clause 36, EHT-MCS rate table for the 4×996-tone RU (2882.4 Mb/s per stream at MCS 13)
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table. Peer review 2026-10-31 (GPT, High Thinking): Wrong at 46.1 (assumed 16 streams); corrected to 23.1 Gb/s single-link. High.)
 
 ### qam-4k-gain
 
@@ -1977,7 +1977,7 @@ Spectrum made available for unlicensed use in the US 6 GHz band — value: 1200 
 
 Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz) — value: 5945 MHz; method: stated; kind: technical.
 - [S7] Annex E, 6 GHz band operating classes and channel numbering
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### us-6ghz-channels-20
 
@@ -1985,7 +1985,7 @@ Non-overlapping 20 MHz channels in the US 6 GHz band — value: 59 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### us-6ghz-channels-40
 
@@ -1993,7 +1993,7 @@ Non-overlapping 40 MHz channels in the US 6 GHz band — value: 29 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### us-6ghz-channels-80
 
@@ -2001,7 +2001,7 @@ Non-overlapping 80 MHz channels in the US 6 GHz band — value: 14 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 80 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### us-6ghz-channels-160
 
@@ -2009,7 +2009,7 @@ Non-overlapping 160 MHz channels in the US 6 GHz band — value: 7 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 160 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### us-6ghz-channels-320
 
@@ -2017,7 +2017,7 @@ Non-overlapping 320 MHz channels in the US 6 GHz band — value: 3 channels; met
 - [S21] Band edges
 - [S7] Annex E, channel numbering
 - Derivation: Whole 320 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### eu-6ghz-band
 
@@ -2044,7 +2044,7 @@ European harmonised 6 GHz band for Wi-Fi (lower 6 GHz) — value: 5945–6425 MH
 Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it — value: —; method: stated; kind: technical.
 - [S7] Annex E and 6 GHz operation subclauses (HE operation only)
 - [S17] Press release
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### fcc-lpi
 
@@ -2061,53 +2061,53 @@ Building walls and materials attenuate 6 GHz signals; the FCC relied on this bui
 ### mlo-defined-be
 
 Multi-Link Operation (MLO) is defined in IEEE 802.11be — value: —; method: stated; kind: technical.
-- [S8] Clause 35 (EHT MAC), multi-link operation subclauses
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses.)
+- [S8] Clause 35.3 (Multi-link operation)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### mlo-modes-be
 
-IEEE 802.11be defines STR, NSTR, EMLSR and EMLMR multi-link modes — value: —; method: stated; kind: technical.
-- [S8] Clause 35, multi-link device operation and EMLSR/EMLMR subclauses
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses.)
+IEEE 802.11be defines STR and NSTR operation for pairs of links, plus the EMLSR and EMLMR enhanced multi-link modes — value: —; method: stated; kind: technical.
+- [S8] Clause 35.3.16.3 (STR), 35.3.16.4 (NSTR), 35.3.17 (EMLSR), 35.3.18 (EMLMR)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### mlo-bands
 
 A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands — value: —; method: stated; kind: technical.
 - [S8] Clause 35, multi-link device (MLD) operation
 - [S15] "Multi-Link Operation" feature description
-- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35.)
+- Verification: not yet verified (Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### mlo-tid-mapping
 
-802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links — value: —; method: stated; kind: technical.
-- [S8] Clause 35, TID-to-link mapping and MLD association subclauses
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses.)
+802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links — value: —; method: stated; kind: technical.
+- [S8] Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### single-link-pre-be
 
-Before 802.11be, a device is associated with an access point on one band (link) at a time; moving to another band requires a new association — value: —; method: stated; kind: technical.
+Before 802.11be, a device is associated with one access point (BSS) at a time; moving to another BSS, such as the same access point’s radio in another band, requires reassociation — value: —; method: stated; kind: technical.
 - [S6] Clause 11, association and reassociation procedures
 - [S8] Clause 35, multi-link device introduction
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### puncturing-ax
 
 Preamble puncturing was introduced in 802.11ax for multi-user transmissions — value: —; method: stated; kind: technical.
 - [S7] Clause 27, HE MU PPDU preamble puncturing
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### puncturing-be
 
-802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap — value: —; method: stated; kind: technical.
-- [S8] Clause 36, preamble puncturing
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing.)
+802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap — value: —; method: stated; kind: technical.
+- [S8] Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### multi-ru-be
 
 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station — value: —; method: stated; kind: technical.
 - [S8] Clause 36, MRU definitions
 - [S7] Clause 27, RU allocation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### ofdma-ax
 
@@ -2118,27 +2118,27 @@ OFDMA, which divides a channel into resource units shared by several devices at 
 
 ### bss-coloring-ax
 
-802.11ax BSS coloring marks each network's transmissions so devices can tell their own network from a neighbour's and reuse the channel more often — value: —; method: stated; kind: technical.
-- [S7] Clause 26, BSS color and spatial reuse operation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation.)
+802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often — value: —; method: stated; kind: technical.
+- [S7] Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### contention-dcf
 
-Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel — value: —; method: stated; kind: technical.
-- [S6] Clause 10, distributed coordination function (DCF) and EDCA
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA.)
+Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time — value: —; method: stated; kind: technical.
+- [S6] Clause 10.3 (DCF) and 10.23 (HCF/EDCA)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated ("whole channel"); reworded to the TXOP access rule. Medium.)
 
 ### eht-4kqam-evm
 
 4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it — value: —; method: stated; kind: technical.
-- [S8] Clause 36, transmit constellation error (EVM) requirements table
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table.)
+- [S8] Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### twt-origin
 
 Target Wake Time was first defined in IEEE 802.11ah — value: —; method: stated; kind: technical.
 - [S9] TWT subclause (MAC)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### twt-wifi6
 
@@ -2148,28 +2148,28 @@ Target Wake Time is one of the features of Wi-Fi CERTIFIED 6 — value: —; met
 
 ### rtwt-be
 
-Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic — value: —; method: stated; kind: technical.
-- [S8] Clause 35, restricted TWT subclause
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause.)
+Restricted TWT (r-TWT) in 802.11be adds protection and reservation mechanisms for latency-sensitive traffic during scheduled service periods; it improves predictability, but the airtime is not exclusive — value: —; method: stated; kind: technical.
+- [S8] Clause 35.8.1
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### twt-what
 
-With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between — value: —; method: stated; kind: technical.
+With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices — value: —; method: stated; kind: technical.
 - [S9] TWT subclause (MAC)
 - [S7] Clause 26, TWT operation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### twt-types-ax
 
 802.11ax defines both individual TWT agreements (per device) and broadcast TWT schedules (shared by groups of devices) — value: —; method: stated; kind: technical.
 - [S7] Clause 26, individual and broadcast TWT subclauses
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### rtwt-protect
 
-During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium — value: —; method: stated; kind: technical.
-- [S8] Clause 35, restricted TWT operation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation.)
+Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive — value: —; method: stated; kind: technical.
+- [S8] Clause 35.8.4.1
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### be-latency-objective
 
@@ -2191,10 +2191,10 @@ WPA3 is required for new Wi-Fi CERTIFIED devices — value: —; method: stated;
 
 ### wpa3-6ghz-required
 
-WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there — value: —; method: stated; kind: technical.
+WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 — value: —; method: stated; kind: technical.
 - [S19] Section 2, WPA3-Personal configuration notes (note 5) — “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.”
 - [S25] Page 1
-- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### wpa3-mlo-required
 
@@ -2280,33 +2280,33 @@ Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configur
 
 ### vht-dl-mu-mimo
 
-802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time — value: —; method: stated; kind: technical.
+802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time — value: —; method: stated; kind: technical.
 - [S6] Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users).)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users). Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### he-ul-mu
 
 802.11ax (Wi-Fi 6) adds uplink multi-user transmission: the access point triggers several devices to send at once, using OFDMA or MU-MIMO — value: —; method: stated; kind: technical.
 - [S7] Clause 26, trigger frame and uplink multi-user (UL MU) operation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation.)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
 
 ### str-what
 
-In STR mode, a multi-link device can transmit on one link while receiving on another at the same time — value: —; method: stated; kind: technical.
-- [S8] Clause 35, multi-link operation: STR and NSTR link pairs
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs.)
+For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time — value: —; method: stated; kind: technical.
+- [S8] Clause 35.3.16.3
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### emlsr-what
 
 In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has — value: —; method: stated; kind: technical.
-- [S8] Clause 35, enhanced multi-link single-radio (EMLSR) operation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation.)
+- [S8] Clause 35.3.17
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### emlmr-what
 
-In EMLMR mode, a multi-link device moves its transmit and receive spatial streams between links as traffic requires — value: —; method: stated; kind: technical.
-- [S8] Clause 35, enhanced multi-link multi-radio (EMLMR) operation
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation.)
+In EMLMR mode, a multi-radio multi-link device operates on several links at once and redistributes its spatial streams among them as traffic requires — value: —; method: stated; kind: technical.
+- [S8] Clause 35.3.18
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### fcc-sp-afc
 
@@ -2317,8 +2317,8 @@ In the US, standard-power access points may use only the U-NII-5 (5925–6425 MH
 ### puncturing-patterns
 
 802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured — value: —; method: stated; kind: technical.
-- [S8] Clause 36, allowed puncturing patterns for non-OFDMA transmissions
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions.)
+- [S8] Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions. Peer review 2026-10-31 (GPT, High Thinking): Correct; locator corrected. High.)
 
 ### wpa3-launched
 
@@ -2334,16 +2334,16 @@ WPA3-Enterprise Transition Mode enables both the SHA-1 and SHA-256 802.1X sign-i
 
 ### 6ghz-security-options
 
-In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there — value: —; method: stated; kind: technical.
+In the 6 GHz band, WPA2-Personal is not permitted: secured networks use WPA3, and open networks use Wi-Fi Enhanced Open under Wi-Fi Alliance guidance — value: —; method: stated; kind: technical.
 - [S19] Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)
 - [S25] Page 1
-- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode.)
+- Verification: not yet verified (Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### rtwt-optional
 
 Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part — value: —; method: stated; kind: technical.
-- [S8] Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT
-- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT.)
+- [S8] Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support)
+- Verification: not yet verified (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ## References
 

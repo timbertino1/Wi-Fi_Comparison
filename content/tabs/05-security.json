@@ -9,7 +9,7 @@
     "problem": "A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points."
   },
   "introducedIn": "wifi6",
-  "wifi7Adds": "WPA3 launched as its own certification in 2018 {{wpa3-launched}} and is now required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}. Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, the 6 GHz band requires WPA3 and uses Enhanced Open for open access {{6ghz-security-options}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.",
+  "wifi7Adds": "WPA3 launched as its own certification in 2018 {{wpa3-launched}} and is now required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}. Wi-Fi 7 multi-link connections require it {{wpa3-mlo-required}}, secured 6 GHz networks require WPA3, and open ones use Enhanced Open {{6ghz-security-options}}, and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz {{wpa3-ent-6ghz-eht}}.",
   "compareGenerations": [
     "wifi5",
     "wifi6",

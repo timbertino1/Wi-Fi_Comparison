@@ -164,8 +164,8 @@ test('rule 14: technical claims need Tier 1 sources and locators', async () => {
 
 test('rule 15: derived claims must recompute from their inputs', async () => {
   const c = clone(base);
-  c.claims.find((x) => x.id === 'eht-max-nss').value = 8;
-  assert.match(await errorsFor(c), /wifi7-peak-phy: recomputes to 23.1, but the claim says 46.1/);
+  c.claims.find((x) => x.id === 'eht-max-nss').value = 16;
+  assert.match(await errorsFor(c), /wifi7-peak-phy: recomputes to 46.1, but the claim says 23.1/);
 });
 
 test('rule 16: key figures must match their claims', async () => {
@@ -176,7 +176,7 @@ test('rule 16: key figures must match their claims', async () => {
     ]
   });
   const e = await errorsFor(withTab(t));
-  assert.match(e, /shows 40 but claim "wifi7-peak-phy" says 46.1/);
+  assert.match(e, /shows 40 but claim "wifi7-peak-phy" says 23.1/);
   assert.match(e, /value for wifi7 has no claimIds entry/);
 });
 

@@ -149,7 +149,7 @@ accuracy review gate before its tab is done; items marked ⚠ are known to need 
 | Topic | Figure / statement | Primary source |
 |-------|-------------------|----------------|
 | Peak PHY (theoretical) | Wi-Fi 4 ≈ 600 Mbps; Wi-Fi 5 ≈ 6.9 Gbps; Wi-Fi 6/6E ≈ 9.6 Gbps; Wi-Fi 7 ≈ 46 Gbps | IEEE 802.11n/ac/ax/be; Wi-Fi Alliance |
-| 46 Gbps basis ⚠ | 16 spatial streams × 320 MHz × 4096-QAM; standard allows it, current certified devices do not | IEEE 802.11be |
+| 46 Gbps basis ⚠ (corrected 2026-10-31) | The final 802.11be standard defines up to 8 spatial streams, not 16; the single-link peak is 23.1 Gbps. 46 Gbps assumed draft-era 16 streams. | IEEE 802.11be |
 | Max channel width | 40 (n) / 160 (ac, ax) / 320 MHz (be, 6 GHz only) | IEEE amendments |
 | Modulation | 64-QAM (6 b/sym) → 256 (8) → 1024 (10) → 4096-QAM (12): +20% peak vs 1024 | IEEE 802.11be |
 | 6 GHz (US) | 5.925–7.125 GHz, 1200 MHz; 59×20, 29×40, 14×80, 7×160, 3 non-overlapping ×320 MHz | FCC 20-51 (2020) |
@@ -318,7 +318,7 @@ parameters (⚠) are confirmed against the standard's clause/table during the ac
 | Wi-Fi 4 (802.11n) | 4 | 40 MHz | 108 | 64-QAM (6) | 5/6 | 3.2 + 0.4 µs | 150.0 Mbps | **600 Mbps** |
 | Wi-Fi 5 (802.11ac) | 8 | 160 MHz | 468 | 256-QAM (8) | 5/6 | 3.2 + 0.4 µs | 866.7 Mbps | **6.93 Gbps** |
 | Wi-Fi 6/6E (802.11ax) | 8 | 160 MHz | 1960 | 1024-QAM (10) | 5/6 | 12.8 + 0.8 µs | 1,201 Mbps | **9.61 Gbps** |
-| Wi-Fi 7 (802.11be) | 16 | 320 MHz | 3920 | 4096-QAM (12) | 5/6 | 12.8 + 0.8 µs | 2,882 Mbps | **46.1 Gbps** |
+| Wi-Fi 7 (802.11be) | 8 | 320 MHz | 3920 | 4096-QAM (12) | 5/6 | 12.8 + 0.8 µs | 2,882 Mbps | **23.1 Gbps** (corrected 2026-10-31 from 46.1, which assumed 16 streams) |
 
 Other derived claims: 4096- vs 1024-QAM gain = 12/10 − 1 = 20%; US 6 GHz channel counts from the
 band edges (5.925–7.125 GHz) and channel width; "320 MHz is double 160 MHz".

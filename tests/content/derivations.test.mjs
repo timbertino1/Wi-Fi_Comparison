@@ -7,7 +7,7 @@ const gens = {
   wifi4: { nss: 4, nsd: 108, bits: 6, codingRate: 5 / 6, symbolUs: 3.2, giUs: 0.4, perStream: 150.0, peak: [600, { decimals: 0 }] },
   wifi5: { nss: 8, nsd: 468, bits: 8, codingRate: 5 / 6, symbolUs: 3.2, giUs: 0.4, perStream: 866.7, peak: [6.93, { decimals: 2, unit: 'Gbps' }] },
   wifi6: { nss: 8, nsd: 1960, bits: 10, codingRate: 5 / 6, symbolUs: 12.8, giUs: 0.8, perStream: 1201.0, peak: [9.61, { decimals: 2, unit: 'Gbps' }] },
-  wifi7: { nss: 16, nsd: 3920, bits: 12, codingRate: 5 / 6, symbolUs: 12.8, giUs: 0.8, perStream: 2882.4, peak: [46.1, { decimals: 1, unit: 'Gbps' }] }
+  wifi7: { nss: 8, nsd: 3920, bits: 12, codingRate: 5 / 6, symbolUs: 12.8, giUs: 0.8, perStream: 2882.4, peak: [23.1, { decimals: 1, unit: 'Gbps' }] }
 };
 
 for (const [gen, p] of Object.entries(gens)) {

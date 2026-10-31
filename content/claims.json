@@ -207,7 +207,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -228,7 +228,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -249,7 +249,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -270,7 +270,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -291,7 +291,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -312,7 +312,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -333,7 +333,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -354,7 +354,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -375,7 +375,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -396,7 +396,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY), HE-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -417,7 +417,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27 (HE PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -438,7 +438,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -459,7 +459,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 10–11 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -485,7 +485,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, timing-related constants; Clause 36, timing-related constants. Peer review 2026-10-31 (GPT, High Thinking): Correct (High (EHT), Medium (HE))."
       }
     },
     {
@@ -511,20 +511,20 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7, S8 is not openly readable (IEEE paywall); check Clause 27, guard interval durations; Clause 36, guard interval durations. Peer review 2026-10-31 (GPT, High Thinking): Correct (High (EHT), Medium (HE))."
       }
     },
     {
       "id": "eht-max-nss",
-      "statement": "Wi-Fi 7 (EHT) maximum spatial streams defined in the standard",
-      "value": 16,
+      "statement": "Wi-Fi 7 (EHT) maximum spatial streams in the 802.11be standard",
+      "value": 8,
       "unit": "streams",
       "kind": "technical",
       "method": "stated",
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36 (EHT PHY), EHT-MCS tables",
+          "locator": "Clause 36.1.1 (EHT PHY introduction); EHT-MCS and NSS tables",
           "excerpt": null
         }
       ],
@@ -532,7 +532,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36 (EHT PHY), EHT-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Wrong as 16; corrected to 8 (16 streams appeared in drafts, not the final amendment). High."
       }
     },
     {
@@ -571,7 +571,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36, EHT-MCS rate tables (N_SD)",
+          "locator": "Clause 36, Table 36-86 (N_SD = 3920)",
           "excerpt": null
         }
       ],
@@ -579,7 +579,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS rate tables (N_SD). Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -592,7 +592,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36, EHT-MCS 12–13 parameters",
+          "locator": "Clause 36, Table 36-51 (4096-QAM) and Table 36-86",
           "excerpt": null
         }
       ],
@@ -600,7 +600,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 12–13 parameters. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -631,7 +631,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S7, S8 is not openly readable (IEEE paywall); check Clauses 19 and 21, MCS tables; Clause 27, HE-MCS tables; Clause 36, EHT-MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -667,7 +667,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -704,7 +704,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -741,20 +741,20 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE-MCS 11 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
       "id": "wifi7-peak-phy",
-      "statement": "Wi-Fi 7 theoretical peak PHY rate: 16 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval",
-      "value": 46.1,
+      "statement": "Wi-Fi 7 theoretical peak PHY rate on one link: 8 streams, 320 MHz, 4096-QAM 5/6, 0.8 µs guard interval",
+      "value": 23.1,
       "unit": "Gbps",
       "kind": "technical",
       "method": "derived",
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36, EHT-MCS 13 rate table",
+          "locator": "Clause 36, EHT-MCS rate table for the 4×996-tone RU (2882.4 Mb/s per stream at MCS 13)",
           "excerpt": null
         }
       ],
@@ -778,7 +778,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table. Peer review 2026-10-31 (GPT, High Thinking): Wrong at 46.1 (assumed 16 streams); corrected to 23.1 Gb/s single-link. High."
       }
     },
     {
@@ -936,7 +936,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -976,7 +976,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1016,7 +1016,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1056,7 +1056,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1096,7 +1096,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1136,7 +1136,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1235,7 +1235,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Wi-Fi 6E launch release ties 6 GHz access to Wi-Fi 6E devices (“no congestion from legacy devices”); the IEEE 802.11ax Annex E rule itself is not openly readable. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -1290,7 +1290,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35 (EHT MAC), multi-link operation subclauses",
+          "locator": "Clause 35.3 (Multi-link operation)",
           "excerpt": null
         }
       ],
@@ -1298,12 +1298,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35 (EHT MAC), multi-link operation subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
       "id": "mlo-modes-be",
-      "statement": "IEEE 802.11be defines STR, NSTR, EMLSR and EMLMR multi-link modes",
+      "statement": "IEEE 802.11be defines STR and NSTR operation for pairs of links, plus the EMLSR and EMLMR enhanced multi-link modes",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1311,7 +1311,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, multi-link device operation and EMLSR/EMLMR subclauses",
+          "locator": "Clause 35.3.16.3 (STR), 35.3.16.4 (NSTR), 35.3.17 (EMLSR), 35.3.18 (EMLMR)",
           "excerpt": null
         }
       ],
@@ -1319,7 +1319,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -1345,12 +1345,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35."
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Wi-Fi Alliance confirms MLO lets devices “transmit and receive data simultaneously over multiple links”; the 2.4/5/6 GHz link combination rests on IEEE 802.11be Clause 35. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
       "id": "mlo-tid-mapping",
-      "statement": "802.11be lets traffic types be mapped to specific links (TID-to-link mapping), and a multi-link device keeps one association and security context across its links",
+      "statement": "802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1358,7 +1358,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, TID-to-link mapping and MLD association subclauses",
+          "locator": "Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association)",
           "excerpt": null
         }
       ],
@@ -1366,12 +1366,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, TID-to-link mapping and MLD association subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
       "id": "single-link-pre-be",
-      "statement": "Before 802.11be, a device is associated with an access point on one band (link) at a time; moving to another band requires a new association",
+      "statement": "Before 802.11be, a device is associated with one access point (BSS) at a time; moving to another BSS, such as the same access point’s radio in another band, requires reassociation",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1392,7 +1392,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -1413,12 +1413,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
       "id": "puncturing-be",
-      "statement": "802.11be extends preamble puncturing to single-user and multi-user transmissions using a puncturing bitmap",
+      "statement": "802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1426,7 +1426,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36, preamble puncturing",
+          "locator": "Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns)",
           "excerpt": null
         }
       ],
@@ -1434,7 +1434,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -1460,7 +1460,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1491,7 +1491,7 @@
     },
     {
       "id": "bss-coloring-ax",
-      "statement": "802.11ax BSS coloring marks each network's transmissions so devices can tell their own network from a neighbour's and reuse the channel more often",
+      "statement": "802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1499,7 +1499,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211ax",
-          "locator": "Clause 26, BSS color and spatial reuse operation",
+          "locator": "Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse)",
           "excerpt": null
         }
       ],
@@ -1507,12 +1507,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
       "id": "contention-dcf",
-      "statement": "Under 802.11 contention (DCF/EDCA), devices take turns for the medium; outside multi-user transmissions, one device sends at a time using the whole channel",
+      "statement": "Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1520,7 +1520,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211-2020",
-          "locator": "Clause 10, distributed coordination function (DCF) and EDCA",
+          "locator": "Clause 10.3 (DCF) and 10.23 (HCF/EDCA)",
           "excerpt": null
         }
       ],
@@ -1528,7 +1528,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated (\"whole channel\"); reworded to the TXOP access rule. Medium."
       }
     },
     {
@@ -1541,7 +1541,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36, transmit constellation error (EVM) requirements table",
+          "locator": "Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM)",
           "excerpt": null
         }
       ],
@@ -1549,7 +1549,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1570,7 +1570,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -1596,7 +1596,7 @@
     },
     {
       "id": "rtwt-be",
-      "statement": "Restricted TWT (r-TWT) in 802.11be reserves protected service periods for latency-sensitive traffic",
+      "statement": "Restricted TWT (r-TWT) in 802.11be adds protection and reservation mechanisms for latency-sensitive traffic during scheduled service periods; it improves predictability, but the airtime is not exclusive",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1604,7 +1604,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, restricted TWT subclause",
+          "locator": "Clause 35.8.1",
           "excerpt": null
         }
       ],
@@ -1612,12 +1612,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT subclause. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
       "id": "twt-what",
-      "statement": "With Target Wake Time, a device and access point agree on when the device will wake to exchange data, so the device can sleep in between",
+      "statement": "With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1638,7 +1638,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9, S7 is not openly readable (IEEE paywall); check TWT subclause (MAC); Clause 26, TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -1659,12 +1659,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, individual and broadcast TWT subclauses. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
       "id": "rtwt-protect",
-      "statement": "During a restricted TWT service period, other devices that support it are expected to end their transmissions before the period starts, so the protected traffic gets the medium",
+      "statement": "Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1672,7 +1672,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, restricted TWT operation",
+          "locator": "Clause 35.8.4.1",
           "excerpt": null
         }
       ],
@@ -1680,7 +1680,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -1748,7 +1748,7 @@
     },
     {
       "id": "wpa3-6ghz-required",
-      "statement": "WPA2-Personal networks are not permitted in the 6 GHz band; WPA3 is mandatory there",
+      "statement": "WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1769,7 +1769,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5: “Configuration of a WPA2-Personal BSS in the 6 GHz or Sub 1GHz bands is not permitted.” Highlights: WPA3 “use is mandatory in the 6 GHz band”. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -2067,7 +2067,7 @@
     },
     {
       "id": "vht-dl-mu-mimo",
-      "statement": "802.11ac (Wi-Fi 5) added downlink multi-user MIMO: an access point can send to up to four devices in one transmission, while devices still send to the access point one at a time",
+      "statement": "802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -2083,7 +2083,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users). Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -2104,12 +2104,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
       "id": "str-what",
-      "statement": "In STR mode, a multi-link device can transmit on one link while receiving on another at the same time",
+      "statement": "For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -2117,7 +2117,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, multi-link operation: STR and NSTR link pairs",
+          "locator": "Clause 35.3.16.3",
           "excerpt": null
         }
       ],
@@ -2125,7 +2125,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link operation: STR and NSTR link pairs. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -2138,7 +2138,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, enhanced multi-link single-radio (EMLSR) operation",
+          "locator": "Clause 35.3.17",
           "excerpt": null
         }
       ],
@@ -2146,12 +2146,12 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
       "id": "emlmr-what",
-      "statement": "In EMLMR mode, a multi-link device moves its transmit and receive spatial streams between links as traffic requires",
+      "statement": "In EMLMR mode, a multi-radio multi-link device operates on several links at once and redistributes its spatial streams among them as traffic requires",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -2159,7 +2159,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 35, enhanced multi-link multi-radio (EMLMR) operation",
+          "locator": "Clause 35.3.18",
           "excerpt": null
         }
       ],
@@ -2167,7 +2167,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -2201,7 +2201,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 36, allowed puncturing patterns for non-OFDMA transmissions",
+          "locator": "Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns)",
           "excerpt": null
         }
       ],
@@ -2209,7 +2209,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions. Peer review 2026-10-31 (GPT, High Thinking): Correct; locator corrected. High."
       }
     },
     {
@@ -2256,7 +2256,7 @@
     },
     {
       "id": "6ghz-security-options",
-      "statement": "In the 6 GHz band, WPA2-Personal is not permitted and WPA3 is mandatory; for open access, Wi-Fi Alliance guidance uses Wi-Fi Enhanced Open there",
+      "statement": "In the 6 GHz band, WPA2-Personal is not permitted: secured networks use WPA3, and open networks use Wi-Fi Enhanced Open under Wi-Fi Alliance guidance",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -2277,7 +2277,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode."
+        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -2290,7 +2290,7 @@
       "sources": [
         {
           "referenceId": "ieee-80211be",
-          "locator": "Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT",
+          "locator": "Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support)",
           "excerpt": null
         }
       ],
@@ -2298,7 +2298,7 @@
       "verification": {
         "verifiedOn": null,
         "verifiedBy": null,
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT."
+        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     }
   ]
