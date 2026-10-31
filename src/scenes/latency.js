@@ -1,8 +1,9 @@
 // Low and predictable latency as a road from the bedside monitor to the nurses' station. Alarms are
 // ambulances; a large download is grey trucks. Every ambulance that arrives adds a block to an
-// arrivals board behind the road, so the late "tail" builds up live: most alarms arrive on time,
+// arrivals board behind the road, so the late "tail" builds up live: most alarms arrive quickly,
 // a few get stuck behind a truck. Wi-Fi 7 adds a second lane (another band, multi-link) and
-// protected slots in which the trucks pull over (Restricted TWT). Timings are illustrative.
+// protected slots in which trucks that support them pull over (Restricted TWT, optional). Only some
+// do, so Wi-Fi 7's tail is shorter, not gone: there is no latency bound. Timings are illustrative.
 const ROAD_X0 = -4.5;
 const ROAD_X1 = 4.5;
 const LANE_W = 0.95;
@@ -15,6 +16,7 @@ const LATE_BUCKET = 4;
 const KEEP = 50; // arrivals kept on the board
 const SLOT_EVERY = 3; // protected slot cadence (Wi-Fi 7)
 const SLOT_LEN = 1;
+const RTWT_SHARE = 0.5; // share of downloads whose devices support Restricted TWT
 const PREFILL_S = 70; // simulated before showing, so the board is already populated
 const ALARM = '#c0392b';
 
@@ -113,7 +115,7 @@ export default {
       const late = new THREE.Object3D();
       late.position.set(((BUCKETS - 1) / 2) * colW, 0, 0);
       board.add(onTime, late);
-      labels.add(onTime, 'On time', { className: 'muted', offset: [0.2, -0.2, 0] });
+      labels.add(onTime, 'Quick', { className: 'muted', offset: [0.2, -0.2, 0] });
       labels.add(late, 'Late', { className: 'muted', offset: [-0.2, -0.2, 0] });
       const boardTitle = labels.add(board, 'Alarm arrival times (illustrative)', { className: 'muted', offset: [0, 2.45, 0] });
 
@@ -154,7 +156,7 @@ export default {
       c.time += dt;
       for (let lane = 0; lane < c.lanes; lane++) {
         if (c.time >= c.nextTruck[lane] && entryClear(c, lane)) {
-          c.trucks.push({ x: ROAD_X0 + TRUCK.len / 2, lane, z: c.laneZ(lane), aside: false, ...TRUCK });
+          c.trucks.push({ x: ROAD_X0 + TRUCK.len / 2, lane, z: c.laneZ(lane), aside: false, supports: c.rand() < RTWT_SHARE, ...TRUCK });
           c.nextTruck[lane] = c.time + 2 + c.rand() * 5;
         }
       }
@@ -170,10 +172,11 @@ export default {
           c.nextAmb = c.time + 1.3 + c.rand() * 1.1;
         }
       }
-      // Protected slot: downloads pull over to the shoulder and stop; afterwards they rejoin.
+      // Protected slot: downloads that support it pull over to the shoulder and stop; afterwards they
+      // rejoin. The others keep driving.
       const slot = slotOn(c);
       for (const v of c.trucks) {
-        v.aside = slot;
+        v.aside = slot && v.supports;
         const targetZ = slot ? c.shoulderZ : c.laneZ(v.lane);
         v.z += (targetZ - v.z) * Math.min(1, dt * 8);
       }
@@ -221,13 +224,13 @@ export default {
       return l;
     };
     const lLegend = tag(older.monitor, 'Ambulance = an alarm · truck = a large download', [2.6, -0.45, 1]);
-    const lTail = tag(older.board, 'Most arrive on time · a few very late: the tail', [0, 2.45, 0], 'big'); // in place of the board's title
+    const lTail = tag(older.board, 'Most arrive quickly · a few very late: the tail', [0, 2.45, 0], 'big'); // in place of the board's title
     const lLane = tag(seven.laneAnchor, 'Second band free: multi-link', [0.6, 0.1, 1.4]); // in front, clear of Late
-    const lSlot = tag(seven.shoulderAnchor, 'Protected slot: downloads pull over', [0, 0.5, 0.3]);
+    const lSlot = tag(seven.shoulderAnchor, 'Protected slot: supporting downloads pull over', [0, 0.5, 0.3]);
     // Generation names sit under each access point, in the open air above the road.
     const lOlderTitle = tag(older.ap, '', [0, -0.6, 0], 'big');
     const lSevenTitle = tag(seven.ap, 'Wi-Fi 7', [0, -0.6, 0], 'big');
-    const lOnTime = tag(seven.board, 'Alarms arrive on time, consistently', [0, -1.15, 3], 'big');
+    const lOnTime = tag(seven.board, 'Shorter tail: potential, deployment-dependent', [0, -1.15, 3], 'big');
 
     const layout = {
       // Aimed a little right of the road, so the nurses' station clears the callout.

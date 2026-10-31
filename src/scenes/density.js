@@ -1,5 +1,6 @@
 // Client density as hospital lifts at shift change. Devices queue in the lobby to send; each lift
-// trip is one transmission. With contention (Wi-Fi 5 and earlier) a trip carries one device, so the
+// trip is one transmission to the access point (uplink). With contention (Wi-Fi 5 and earlier) a trip
+// carries one sending device (Wi-Fi 5 shares only downlink trips, with MU-MIMO), so the
 // queue grows and devices wait longer (amber, then red). With OFDMA a trip carries several devices
 // at once, and Wi-Fi 7 adds more lifts (one per band), so the queue empties. Rates are illustrative.
 const ARRIVALS = 2.6; // devices joining the queue per second (shift change)
@@ -127,7 +128,7 @@ export default {
     }
 
     const one = bank({ bands: [null], title: '' });
-    const seven = bank({ bands: ['2.4 GHz', '5 GHz', '6 GHz'], title: 'Wi-Fi 7: one device, any of three lifts' });
+    const seven = bank({ bands: ['2.4 GHz', '5 GHz', '6 GHz'], title: 'Wi-Fi 7: links in up to three bands' });
     const banks = [one, seven];
 
     const tag = (object, text, offset, className = 'muted') => {
@@ -143,8 +144,8 @@ export default {
 
     // Per state: what the single bank stands for, and where each bank sits.
     const oneTitle = () => {
-      if (mode === 'gen-compare') return compareGen === 'wifi5' ? `${genName('wifi5')}: one per trip` : `${genName(compareGen)}: several per trip, one lift`;
-      return mode === 'ofdma-slices' ? 'Wi-Fi 6 and 7: several per trip' : 'Wi-Fi 5 and earlier: one per trip';
+      if (mode === 'gen-compare') return compareGen === 'wifi5' ? `${genName('wifi5')}: one sender per trip` : `${genName(compareGen)}: several per trip, one lift`;
+      return mode === 'ofdma-slices' ? 'Wi-Fi 6 and 7: several per trip' : 'Wi-Fi 5 and earlier: one sender per trip';
     };
     const oneCapacity = () => {
       if (mode === 'gen-compare') return compareGen === 'wifi5' ? 1 : SEATS;

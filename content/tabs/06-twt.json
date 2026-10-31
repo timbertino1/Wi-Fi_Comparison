@@ -5,11 +5,11 @@
   "title": "Target Wake Time & Battery Life",
   "summary": "Scheduled wake-ups that let badges and sensors sleep, plus protected time slots for urgent traffic.",
   "opener": {
-    "promise": "Devices sleep between agreed wake-ups, so batteries last the shift",
+    "promise": "Devices sleep between agreed wake-ups, so batteries can last longer",
     "problem": "Badges and tags drain their batteries listening for messages that rarely come."
   },
   "introducedIn": "wifi6",
-  "wifi7Adds": "Target Wake Time came to mainstream Wi-Fi with Wi-Fi 6 {{twt-wifi6}}; Wi-Fi 7 adds Restricted TWT, which protects time slots for latency-sensitive traffic {{rtwt-be}}.",
+  "wifi7Adds": "Target Wake Time was first defined in 802.11ah {{twt-origin}} and came to mainstream Wi-Fi with Wi-Fi 6 {{twt-wifi6}}; Wi-Fi 7 adds optional Restricted TWT, which protects time slots for latency-sensitive traffic {{rtwt-be}} {{rtwt-optional}}.",
   "compareGenerations": [
     "wifi5",
     "wifi6",
@@ -70,13 +70,13 @@
       "heading": "Agree when to wake, sleep in between",
       "caption": {
         "headline": "Agree when to wake, sleep in between",
-        "takeaway": "With [[twt|Target Wake Time]], devices sleep between agreed wake-ups{{twt-what}}, so batteries last the shift."
+        "takeaway": "With [[twt|Target Wake Time]], devices sleep between agreed wake-ups{{twt-what}}, so batteries can last longer."
       },
       "body": "With [[twt|Target Wake Time]], each device and its access point agree on when the device will wake up to exchange data, so it can sleep in between {{twt-what}}. TWT was first defined in IEEE 802.11ah {{twt-origin}} and became a core feature of Wi-Fi 6 {{twt-wifi6}}.",
       "bottomLine": "Battery-powered clinical devices spend more time asleep, so they can last longer between charges.",
       "deepDive": null,
       "sceneState": "twt-schedule",
-      "sceneDescription": "The same shift again, now with Target Wake Time. Marks on the shift bar show the agreed wake-ups. Each device stays dark and asleep, glowing and linking to the access point only briefly at its own wake-up times. The batteries drain slowly and are still green at the end of the shift.",
+      "sceneDescription": "The same shift again, now with Target Wake Time. Marks on the shift bar show the agreed wake-ups. Each device stays dark and asleep, glowing and linking to the access point only briefly at its own wake-up times. The batteries drain more slowly and have more charge left at the end of the shift. Battery levels are illustrative.",
       "durationMs": 11000,
       "questions": [
         {
@@ -112,11 +112,11 @@
       "heading": "Schedules for one device or a whole group",
       "caption": {
         "headline": "Schedules for one device or a whole group",
-        "takeaway": "Access points can coordinate hundreds of tags and badges with shared wake schedules{{twt-types-ax}}.",
+        "takeaway": "Access points can coordinate groups of tags and badges with shared wake schedules{{twt-types-ax}}.",
         "technical": "Individual and broadcast TWT{{twt-types-ax}}; each [[service-period|service period]] is set by wake time, interval and duration."
       },
       "body": "A device can negotiate its own schedule, or join a schedule the access point announces for a group of devices {{twt-types-ax}}. Between its wake windows, the device can switch its radio off; the access point holds traffic for it until the next [[service-period|service period]] {{twt-what}}.",
-      "bottomLine": "Access points can coordinate many low-power devices at once, which matters on floors with hundreds of tags and badges.",
+      "bottomLine": "Access points can coordinate many low-power devices at once, which matters on floors with large numbers of tags and badges.",
       "deepDive": "802.11ax supports individual TWT agreements negotiated per station and broadcast TWT schedules advertised by the AP for groups of stations {{twt-types-ax}}. The agreed parameters include the target wake time, the wake interval and the minimum wake duration, which together define each service period {{twt-what}}.",
       "sceneState": "twt-sleep",
       "sceneDescription": "The access point announces one wake-up time for the whole group. At each mark on the shift bar, all three devices wake together, exchange data and go back to sleep, and the access point glows as it serves them in one go. Batteries stay high.",
@@ -126,7 +126,7 @@
         "points": [
           "A device can agree its own wake-up times{{twt-types-ax}}",
           "Or join one schedule the access point shares with a group",
-          "Floors with hundreds of tags stay organised and save battery"
+          "Large groups of tags stay organised and save battery"
         ]
       },
       "hotspots": [
@@ -148,27 +148,32 @@
       "heading": "Protected time for urgent traffic",
       "caption": {
         "headline": "Protected time for urgent traffic",
-        "takeaway": "[[restricted-twt|Restricted TWT]] reserves protected slots so voice and alarms are not crowded out{{rtwt-be}}.",
+        "takeaway": "Optional [[restricted-twt|Restricted TWT]] reserves protected slots for voice and alarms{{rtwt-be}}{{rtwt-optional}}.",
         "technical": "Supporting stations end their transmissions before each restricted service period begins{{rtwt-protect}}."
       },
-      "body": "TWT saves power, but it does not stop a busy laptop from occupying the air just when a voice packet is due. Wi-Fi 7 adds [[restricted-twt|Restricted TWT]], which reserves protected service periods for latency-sensitive traffic {{rtwt-be}}.\n\nOther devices that support it are expected to finish transmitting before a protected period begins {{rtwt-protect}}.",
-      "bottomLine": "Voice and alarm traffic can get reliable time on the air, not just a best-effort chance, even on a busy network.",
+      "body": "TWT saves power, but it does not stop a busy laptop from occupying the air just when a voice packet is due. Wi-Fi 7 adds [[restricted-twt|Restricted TWT]], which reserves protected service periods for latency-sensitive traffic {{rtwt-be}}. It is optional: only access points and devices that support it take part {{rtwt-optional}}.\n\nDevices that support it are expected to finish transmitting before a protected period begins {{rtwt-protect}}. Devices that do not, and interference from outside the network, are not held back.",
+      "bottomLine": "Where access points and devices support it, voice and alarm traffic can get more predictable time on the air; check support model by model.",
       "deepDive": "Restricted TWT (r-TWT) builds on broadcast TWT: the AP advertises restricted service periods for specified traffic identifiers, and supporting stations end their transmission opportunities before each period starts {{rtwt-protect}}. Earlier generations without TWT keep devices awake {{twt-what}}; Wi-Fi 6 TWT schedules wake-ups but does not protect the medium during them {{twt-types-ax}}.",
       "sceneState": "rtwt",
-      "sceneDescription": "A laptop joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups.",
+      "sceneDescription": "A laptop that supports Restricted TWT joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups.",
       "durationMs": 14000,
       "questions": [
         {
           "q": "Will Restricted TWT slow down other users?",
           "a": "Slightly, during the protected slots: supporting devices pause before each one{{rtwt-protect}}. The slots are reserved only for traffic that needs them, such as voice and telemetry."
+        },
+        {
+          "q": "Is Restricted TWT widely supported today?",
+          "a": "Do not assume it. It is optional in 802.11be{{rtwt-optional}}, so confirm support for each access point, client model and firmware version before relying on it.",
+          "audience": "technical"
         }
       ],
       "callout": {
         "title": "What Wi-Fi 7 adds",
         "points": [
-          "[[restricted-twt|Restricted TWT]] reserves protected slots for urgent traffic{{rtwt-be}}",
-          "Other devices pause before each slot begins{{rtwt-protect}}",
-          "Calls and alarms arrive on time, and batteries still last"
+          "Optional [[restricted-twt|Restricted TWT]] reserves protected slots for urgent traffic{{rtwt-optional}}",
+          "Supporting devices pause before each slot begins{{rtwt-protect}}",
+          "Check support in each access point, device and firmware"
         ]
       },
       "hotspots": [
@@ -190,14 +195,14 @@
       "type": "why",
       "heading": "Longer battery life and dependable calls",
       "caption": {
-        "headline": "Batteries that last, calls that arrive",
+        "headline": "Longer battery life, more predictable calls",
         "takeaway": "Gains need support in each device, so ask vendors about TWT and Restricted TWT."
       },
-      "body": "For care teams, TWT can mean fewer battery changes and devices that stay reachable through a shift, while Restricted TWT helps voice and [[telemetry|telemetry]] traffic arrive on schedule.\n\nThe gains depend on support in each device and in the access points, so include TWT and Restricted TWT in device evaluations.",
+      "body": "For care teams, TWT can mean fewer battery changes and devices that stay reachable through a shift, while Restricted TWT, where supported, can make voice and [[telemetry|telemetry]] timing more predictable {{rtwt-optional}}.\n\nThe gains depend on support in each device and in the access points, so include TWT and Restricted TWT in device evaluations and ask for measured battery data.",
       "bottomLine": "Ask device vendors about TWT and Restricted TWT support; the access points enable them, but battery and [[latency|latency]] gains only appear on devices that use them.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
-      "sceneDescription": "The whole shift with both features on: the devices sleep between wake-ups, the laptop pauses for protected slots, and every battery is still green at the end of the shift.",
+      "sceneDescription": "The whole shift with both features on: the devices sleep between wake-ups, the laptop pauses for protected slots, and the batteries have more charge left at the end of the shift than without a schedule. Battery levels are illustrative.",
       "durationMs": 11000,
       "callout": {
         "title": "What to ask vendors",
@@ -246,7 +251,7 @@
         "wifi6": null,
         "wifi7": "Yes"
       },
-      "qualifier": "normative",
+      "qualifier": "optional",
       "regulatoryDomain": null,
       "note": null,
       "headline": true,
@@ -256,5 +261,9 @@
       }
     }
   ],
-  "sections": []
+  "sections": [],
+  "lineage": {
+    "badge": "first in 802.11ah, mainstream in Wi-Fi 6",
+    "lead": "First defined in IEEE 802.11ah; mainstream with Wi-Fi 6 (802.11ax). "
+  }
 }

@@ -10,7 +10,7 @@
         "mobile workstation"
       ],
       "problem": "Every device shares the 2.4 GHz and 5 GHz bands with older equipment and neighbouring units, so capacity runs short when the floor is busiest.",
-      "outcomeSupported": "Moving capable devices to 6 GHz frees capacity in the older bands and gives imaging and video wider, cleaner channels."
+      "outcomeSupported": "Moving capable devices to 6 GHz frees capacity in the older bands and gives imaging and video wider channels, free of older devices."
     },
     {
       "id": "voice-badge-hallway",
@@ -29,7 +29,7 @@
         "imaging workstation",
         "access point"
       ],
-      "problem": "Another system is busy in one small slice of the wide channel, and the access point has to fall back to a much narrower channel.",
+      "problem": "Another system is busy in one small slice of the wide channel, and without puncturing the access point has to fall back to a much narrower channel.",
       "outcomeSupported": "Puncturing and Multi-RU let the access point keep using most of the channel, supporting faster image transfers in the room."
     },
     {

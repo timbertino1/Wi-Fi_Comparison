@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadContent, TERM_RE, CLAIM_RE, REF_RE } from './validate-content.mjs';
-import { openerParts } from '../src/app/opener-text.js';
+import { openerParts, lineageLead } from '../src/app/opener-text.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const OUTPUT = 'docs/talk-track.md';
@@ -71,9 +71,9 @@ export function buildTalkTrack(content = loadContent()) {
       line(`**Opener** (its own click): ${o.label} · ${o.tag}${badge} — ${tab.title}. ${sentence(md(tab.opener.promise))} The problem: ${sentence(md(tab.opener.problem))}`);
       line();
     }
-    if (tab.introducedIn && tab.introducedIn !== 'wifi7' && genById.has(tab.introducedIn)) {
-      const g = genById.get(tab.introducedIn);
-      line(`**Lineage:** first introduced in ${g.name} (${g.ieee}). What Wi-Fi 7 adds: ${md(tab.wifi7Adds)}`);
+    const lead = lineageLead(tab, genById);
+    if (lead) {
+      line(`**Lineage:** ${lead}What Wi-Fi 7 adds: ${md(tab.wifi7Adds)}`);
       line();
     }
     for (const id of tab.scenarioIds ?? []) {

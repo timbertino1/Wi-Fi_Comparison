@@ -4,6 +4,7 @@ import { tabById, markupContext, generations, genById } from './content.js';
 import { renderMarkup, renderInline, plainText } from './markup.js';
 import { sceneFor } from '../scenes/index.js';
 import { claim } from './content.js';
+import { lineageLead } from './opener-text.js';
 
 const BEAT_LABELS = {
   problem: 'The problem',
@@ -207,12 +208,12 @@ function renderBottomLine(beat) {
 /** Lineage callout for features that existed before Wi-Fi 7 (Principle IV). */
 function renderLineage(tab) {
   lineageEl.replaceChildren();
-  if (tab.kind !== 'feature' || !tab.introducedIn || tab.introducedIn === 'wifi7') return;
-  const g = genById.get(tab.introducedIn);
+  const leadText = lineageLead(tab, genById);
+  if (!leadText) return;
   const p = document.createElement('div');
   p.className = 'lineage';
   const lead = document.createElement('strong');
-  lead.textContent = `First introduced in ${g.name} (${g.ieee}). `;
+  lead.textContent = leadText;
   const rest = document.createElement('span');
   rest.innerHTML = 'What Wi-Fi 7 adds: ' + renderInline(tab.wifi7Adds, markupContext); // safe: renderMarkup
   p.append(lead, rest);

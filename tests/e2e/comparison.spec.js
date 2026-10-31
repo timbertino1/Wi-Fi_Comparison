@@ -43,7 +43,7 @@ for (const tab of featureTabs) {
 
     // Lineage callout for features first introduced before Wi-Fi 7.
     if (tab.introducedIn && tab.introducedIn !== 'wifi7') {
-      await expect(page.locator('.lineage')).toContainText(`First introduced in ${genName(tab.introducedIn).name}`);
+      await expect(page.locator('.lineage')).toContainText(tab.lineage?.lead?.trim() ?? `First introduced in ${genName(tab.introducedIn).name}`);
     } else {
       await expect(page.locator('.lineage')).toHaveCount(0);
     }

@@ -1,7 +1,7 @@
 // Security as two doors on a ward: a shared-password keypad door (WPA2/WPA3-Personal) and a staff
 // sign-in badge door (WPA2/WPA3-Enterprise), under the ward's access point. WPA2's weak points are
 // shown first (a sign-in recorded and cracked away from the door; a device fooled by a fake access
-// point), then how WPA3 closes each one, then the Wi-Fi 7 / 6 GHz rule of WPA3 only, with a
+// point), then how WPA3 closes each one, then the Wi-Fi 7 / 6 GHz rule of WPA3 sign-in, with a
 // separate side door for older devices. The 192-bit option is left to the callout and tooltips.
 // Everything moves on state changes; nothing animates per frame.
 const OUTSIDER = '#c0392b';
@@ -118,7 +118,7 @@ export default {
     ward.add(fakeLink, realLink);
 
     // --- The side door for older devices, and an older device sent to it.
-    const sideDoor = door(6.4, 'Older devices · separate network');
+    const sideDoor = door(6.4, 'Older devices · one migration option');
     sideDoor.group.scale.setScalar(0.8);
     // Its sign rides above the wall, clear of the staff door's sign beside it.
     sideDoor.sign.position.y = 4;
@@ -143,7 +143,7 @@ export default {
     const lCert = tag(seal, 'Device checks the certificate', [1.4, 0.05, 0.3]);
     const lShield = tag(shield, 'Control messages protected', [0, 0.75, 0]);
     const lKeys = tag(pumpKey.group, 'Each device gets its own key', [0, 0.45, 0]);
-    const lOnly = tag(ap, 'Wi-Fi 7 · 6 GHz: WPA3 only', [0, 0.65, 0], 'big');
+    const lOnly = tag(ap, 'Wi-Fi 7 · 6 GHz: WPA3 sign-in', [0, 0.65, 0], 'big');
     const lOlder = tag(ap, '', [0, 1.3, 0]);
     const lRetire = tag(sideDoor.sign, 'Retire as devices are replaced', [0, -1.9, 0]);
     const olderText = () => `${genName(compareGen)}: WPA2 or WPA3 accepted`;
@@ -224,7 +224,7 @@ export default {
         pumpKey.group.visible = !risks;
         stationKey.group.visible = enterprise || only || outcome;
 
-        // Wi-Fi 7 / 6 GHz: WPA3 only; an older device is turned to the side door.
+        // Wi-Fi 7 / 6 GHz: WPA3 sign-in; an older device is turned to the side door.
         sideDoor.group.visible = only || outcome;
         oldDevice.visible = only || outcome;
         oldDevice.position.copy(only && animate ? oldAtMain : oldAtSide);

@@ -1,12 +1,12 @@
 // Target Wake Time as one ward over one shift: a voice badge, a location tag and a patient monitor,
 // each with its own battery, under the ward's access point. A shift bar fills across each step and
 // the batteries drain with it: always listening, they go flat mid-shift; with agreed wake-ups they
-// sleep in between and last the shift. Restricted TWT adds a busy laptop that pauses for protected
-// slots so the badge's call gets through. Battery levels are illustrative (no figures).
+// sleep in between and keep more charge. Restricted TWT (optional) adds a busy laptop that supports it
+// and pauses for protected slots so the badge's call gets through. Battery levels are illustrative.
 const DEVICES = [
-  { id: 'badge', type: 'voice-badge', label: 'Voice badge', scale: 2.4, x: -4.4, awake: 1.55, twt: 0.42, offset: 0 },
-  { id: 'tag', type: 'rtls-tag', label: 'Location tag', scale: 3, x: -1.6, awake: 1.2, twt: 0.28, offset: 0.035 },
-  { id: 'monitor', type: 'telemetry-monitor', label: 'Patient monitor', scale: 1.5, x: 1.2, awake: 1.35, twt: 0.36, offset: 0.07 }
+  { id: 'badge', type: 'voice-badge', label: 'Voice badge', scale: 2.4, x: -4.4, awake: 1.55, twt: 0.6, offset: 0 },
+  { id: 'tag', type: 'rtls-tag', label: 'Location tag', scale: 3, x: -1.6, awake: 1.2, twt: 0.5, offset: 0.035 },
+  { id: 'monitor', type: 'telemetry-monitor', label: 'Patient monitor', scale: 1.5, x: 1.2, awake: 1.35, twt: 0.55, offset: 0.07 }
 ];
 const WAKES = [0.1, 0.3, 0.5, 0.7, 0.9]; // agreed wake-ups, as fractions of the shift
 const WAKE_LEN = 0.04;
@@ -127,7 +127,7 @@ export default {
     shift.add(shiftStart, shiftEnd);
     labels.add(shiftStart, 'Start of shift', { className: 'muted', offset: [0, -0.4, 0] });
     labels.add(shiftEnd, 'End of shift', { className: 'muted', offset: [0, -0.4, 0] });
-    const lLasts = tag(devices[1].battery, 'Batteries last the shift', [0, 1.15, 0], 'big');
+    const lLasts = tag(devices[1].battery, 'More charge left at shift end', [0, 1.15, 0], 'big');
     labels.add(shift, 'Battery levels are illustrative', { className: 'muted', offset: [0, -0.4, 0] });
     // Marks for the agreed wake-ups along the shift bar.
     const marks = WAKES.map((w) => {

@@ -1,5 +1,7 @@
-// Multi-Link Operation: one link that clogs versus several links that share the load, plus the four
-// multi-link modes defined in 802.11be.
+// Multi-Link Operation: one link that clogs versus a connection with several links, where traffic moves
+// to a free link without reconnecting, plus the four multi-link modes defined in 802.11be. The Wi-Fi 7
+// rig carries voice on one link at a time, which every multi-link mode can do (peer review 2026-10-31);
+// the modes panels show which devices can use links at once.
 const BANDS = [
   { id: '6', label: '6 GHz', arch: 1.6, bend: -3.2, at: 0.4 },
   { id: '5', label: '5 GHz', arch: 1.6, bend: 0, at: 0.5 },
@@ -57,7 +59,7 @@ export default {
           group.add(p);
           return p;
         });
-        return { band, curve, mesh, voice, bulk, busy: false, label };
+        return { band, curve, mesh, voice, bulk, busy: false, active: true, label };
       });
 
       const title = labels.add(ap, genName(genId), { className: 'big', offset: [0, 0.9, 0] });
@@ -86,6 +88,8 @@ export default {
     const modes = new THREE.Group();
     scene.add(modes);
     const MODE_NAMES = ['STR', 'NSTR', 'EMLSR', 'EMLMR'];
+    // What each mode does, as behaviour rather than radio count.
+    const MODE_NOTES = { STR: 'Both links at once', NSTR: 'Links in step', EMLSR: 'Listens on both, one at a time', EMLMR: 'Streams shift between links' };
     const modePanels = MODE_NAMES.map((name, i) => {
       const panel = new THREE.Group();
       panel.position.x = (i - 1.5) * 3.4;
@@ -106,6 +110,7 @@ export default {
         return beam;
       });
       labels.add(ap, name, { className: 'big', offset: [0, 0.6, 0] });
+      labels.add(device, MODE_NOTES[name], { className: 'muted', offset: [0, -0.05, 0.4] });
       return { panel, beams, name };
     });
 
@@ -128,7 +133,13 @@ export default {
 
     function setBusy(name) {
       single.flows[0].busy = name === 'single-link-congested' || name === 'gen-compare';
-      for (const f of multi.flows) f.busy = f.band.id === '5' && ['links-aggregate', 'gen-compare', 'clinical-outcome'].includes(name);
+      const congested = ['links-aggregate', 'gen-compare', 'clinical-outcome'].includes(name);
+      for (const f of multi.flows) {
+        f.busy = f.band.id === '5' && congested;
+        // Voice uses one link: 5 GHz until it is busy, then 6 GHz; the 2.4 GHz link stands ready.
+        f.active = f.band.id === (congested ? '6' : '5');
+        f.mesh.material.opacity = f.active || f.busy ? 0.85 : 0.3;
+      }
     }
 
     function layoutPackets(rig, dt) {
@@ -145,8 +156,8 @@ export default {
             const cap = 0.22 - i * 0.03;
             p.userData.t = Math.min(cap, p.userData.t + dt * 0.05);
             if (p.userData.t >= 0.999) p.userData.t = 0;
-          } else if (f.busy) {
-            p.visible = false; // in Wi-Fi 7 the voice traffic moves to the other links
+          } else if (f.busy || !f.active) {
+            p.visible = false; // in Wi-Fi 7 the voice traffic moves to the free link
             return;
           } else {
             p.userData.t = (p.userData.t + dt * 0.42) % 1;
@@ -174,7 +185,7 @@ export default {
     }
 
     // Close-ups aim a little higher, so the access point's title sits clear of the caption.
-    const lookY = () => (mode === 'modes-compare' || mode === 'gen-compare' ? 1.4 : 1.9);
+    const lookY = () => (mode === 'modes-compare' ? 2.4 : mode === 'gen-compare' ? 1.4 : 1.9);
 
     return {
       async setState(name, { animate = true, signal } = {}) {
