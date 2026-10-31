@@ -96,11 +96,11 @@
       "caption": {
         "headline": "Serve many devices in each transmission",
         "takeaway": "[[ofdma|OFDMA]], new in Wi-Fi 6, splits each transmission so several devices share it{{ofdma-ax}}.",
-        "technical": "Wi-Fi 5 sends to several devices only downlink{{vht-dl-mu-mimo}}; Wi-Fi 6 adds [[uplink|uplink]] multi-user{{he-ul-mu}}."
+        "technical": "Wi-Fi 5 sends to several devices only downlink{{vht-dl-mu-mimo}}; Wi-Fi 6 also lets several devices send at once{{he-ul-mu}}."
       },
       "body": "Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO {{vht-dl-mu-mimo}}, but devices sending to it still took turns. Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once, in both directions {{ofdma-ax}} {{he-ul-mu}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighbouring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, [[mlo|multi-link operation]] gives devices links in several bands {{mlo-bands}}, and [[multi-ru|Multi-RU]] and puncturing use spectrum that would otherwise go idle {{multi-ru-be}} {{puncturing-be}}.",
       "bottomLine": "The same access point can serve more devices with less waiting, which is how dense units stay responsive.",
-      "deepDive": "Outside multi-user transmissions, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. 802.11ac added downlink MU-MIMO to up to four stations {{vht-dl-mu-mimo}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], and 802.11ax adds triggered uplink multi-user transmission {{ofdma-ax}} {{he-ul-mu}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}. These are efficiency tools; which traffic goes first still depends on QoS classification.",
+      "deepDive": "Outside multi-user transmissions, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. 802.11ac added downlink MU-MIMO to up to four stations {{vht-dl-mu-mimo}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], and 802.11ax adds triggered multi-user transmission from stations to the AP {{ofdma-ax}} {{he-ul-mu}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}. These are efficiency tools; which traffic goes first still depends on QoS classification.",
       "sceneState": "ofdma-slices",
       "sceneDescription": "The lift now carries several sending devices on every trip, one per seat, labelled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear.",
       "durationMs": 14000,
@@ -116,7 +116,7 @@
         },
         {
           "q": "Didn’t Wi-Fi 5 already serve several devices at once?",
-          "a": "Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together{{vht-dl-mu-mimo}}. Devices sending to the access point still took turns until Wi-Fi 6 added uplink multi-user and OFDMA{{he-ul-mu}}{{ofdma-ax}}.",
+          "a": "Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together{{vht-dl-mu-mimo}}. Devices sending to the access point still took turns until Wi-Fi 6 let several send at once with OFDMA{{he-ul-mu}}{{ofdma-ax}}.",
           "audience": "technical"
         }
       ],
@@ -226,7 +226,7 @@
       "metric": "Devices served per transmission",
       "unit": null,
       "values": {
-        "wifi5": "Several downlink (MU-MIMO); one uplink",
+        "wifi5": "Several when the AP sends (MU-MIMO); one when devices send",
         "wifi6": "Several, both directions (OFDMA)",
         "wifi7": "Several, across multiple links"
       },

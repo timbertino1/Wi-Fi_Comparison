@@ -380,8 +380,8 @@ There is a trade-off: walls and building materials weaken 6 GHz signals [S21], s
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 6E (IEEE 802.11ax (6 GHz)) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|---|
-| Widest channel | 160 MHz | 160 MHz | 160 MHz | 320 MHz | required by the standard | [S6, S7, S8, S15] |
-| Can use the 6 GHz band | No | No | Yes | Yes | required by the standard | [S7, S17, S15, S8] |
+| Widest channel | 160 MHz | 160 MHz | 160 MHz | 320 MHz | defined in the standard | [S6, S7, S8, S15] |
+| Can use the 6 GHz band | No | No | Yes | Yes | defined in the standard | [S7, S17, S15, S8] |
 | Non-overlapping widest channels in 6 GHz — Fewer, wider channels: 320 MHz channels [S8, S15] suit areas with few neighbouring access points. | n/a | n/a | 7 channels | 3 channels | regulatory limit | [S21, S7] |
 | 6 GHz spectrum available — Other regions allow less; Europe harmonises the lower part of the band. | n/a | n/a | 1200 MHz | 1200 MHz | regulatory limit | [S21] |
 
@@ -549,8 +549,8 @@ How much it helps depends on both ends. A device in STR mode can use links at th
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6E (IEEE 802.11ax (6 GHz)) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
-| Bands one connection can hold links in — How many links carry traffic at the same time depends on the device’s multi-link mode. | One | One | Up to 3 | required by the standard | [S6, S8, S15] |
-| Moves traffic between bands without reconnecting | No | No | Yes | required by the standard | [S6, S8] |
+| Bands one connection can hold links in — How many links carry traffic at the same time depends on the device’s multi-link mode. | One | One | Up to 3 | defined in the standard | [S6, S8, S15] |
+| Moves traffic between bands without reconnecting | No | No | Yes | defined in the standard | [S6, S8] |
 
 ### Deep sections (Technical)
 
@@ -758,10 +758,10 @@ No figures cited on this step.
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
-| Bits per subcarrier at the top modulation | 8 bits | 10 bits | 12 bits | required by the standard | [S6, S7, S8] |
+| Bits per subcarrier at the top modulation | 8 bits | 10 bits | 12 bits | defined in the standard | [S6, S7, S8] |
 | Best-case gain at the top modulation — Physical-layer best case; needs a very strong, clean signal. | n/a | n/a | 20 % | theoretical maximum | [S8, S15] |
-| Preamble puncturing | n/a | Multi-user only | Single-user and multi-user | required by the standard | [S7, S8] |
-| Resource units per device | n/a | One | Several | required by the standard | [S8, S7] |
+| Preamble puncturing | n/a | Multi-user only | Single-user and multi-user | defined in the standard | [S7, S8] |
+| Resource units per device | n/a | One | Several | defined in the standard | [S8, S7] |
 
 ## 5. Security: WPA3 and Wi-Fi 7
 
@@ -1187,7 +1187,7 @@ The gains depend on support in each device and in the access points, so include 
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
-| Target Wake Time | n/a | Individual and broadcast | Individual and broadcast | required by the standard | [S7] |
+| Target Wake Time | n/a | Individual and broadcast | Individual and broadcast | defined in the standard | [S7] |
 | Restricted TWT (protected time slots) | n/a | n/a | Yes | optional | [S8] |
 
 ## 7. Client Density
@@ -1291,7 +1291,7 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 **Bottom line:** The same access point can serve more devices with less waiting, which is how dense units stay responsive.
 
-**Technical depth:** Wi-Fi 5 sends to several devices only downlink [S6, S2]; Wi-Fi 6 adds uplink multi-user [S7]. Outside multi-user transmissions, the Contention-based access defined in 802.11 lets one station use the whole channel per transmission opportunity [S6]. 802.11ac added downlink MU-MIMO to up to four stations [S6, S2]. OFDMA assigns RUs to multiple stations in one PPDU, and 802.11ax adds triggered uplink multi-user transmission [S7, S4] [S7]. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse [S7]. Wi-Fi 7 adds multi-link traffic steering per link [S8] and multiple RUs per station [S8, S7]. These are efficiency tools; which traffic goes first still depends on QoS classification.
+**Technical depth:** Wi-Fi 5 sends to several devices only downlink [S6, S2]; Wi-Fi 6 also lets several devices send at once [S7]. Outside multi-user transmissions, the Contention-based access defined in 802.11 lets one station use the whole channel per transmission opportunity [S6]. 802.11ac added downlink MU-MIMO to up to four stations [S6, S2]. OFDMA assigns RUs to multiple stations in one PPDU, and 802.11ax adds triggered multi-user transmission from stations to the AP [S7, S4] [S7]. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse [S7]. Wi-Fi 7 adds multi-link traffic steering per link [S8] and multiple RUs per station [S8, S7]. These are efficiency tools; which traffic goes first still depends on QoS classification.
 
 **Terms:**
 
@@ -1302,7 +1302,6 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 - Multi-RU — A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other.
 - Contention — How Wi-Fi devices take turns: each listens, waits a random time, then transmits if the channel is free. More devices means more waiting.
 - PPDU — One complete over-the-air transmission, including its preamble and the frames it carries.
-- Uplink — The wired connection from an access point back to the network switch. All of the access point's traffic shares it.
 
 **Figures:**
 
@@ -1323,7 +1322,7 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 
 - **Q (both):** Do older devices benefit from OFDMA? **A:** No. Devices from before Wi-Fi 6 still take turns using the whole channel when they send [S6]. They benefit indirectly when newer devices finish sooner, but the full gains arrive as devices are refreshed.
 - **Q (technical):** What does BSS coloring do on a dense floor? **A:** It tags each network’s transmissions so a device can tell its own network from a neighbour’s [S7], and reuse the channel more often instead of deferring to distant traffic.
-- **Q (technical):** Didn’t Wi-Fi 5 already serve several devices at once? **A:** Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together [S6, S2]. Devices sending to the access point still took turns until Wi-Fi 6 added uplink multi-user and OFDMA [S7] [S7, S4].
+- **Q (technical):** Didn’t Wi-Fi 5 already serve several devices at once? **A:** Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together [S6, S2]. Devices sending to the access point still took turns until Wi-Fi 6 let several send at once with OFDMA [S7] [S7, S4].
 
 ### Step 4 — Taking turns, then sharing each trip
 
@@ -1407,9 +1406,9 @@ Design for peak density: count devices per bed and per staff member, not just sq
 
 | Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|---|
-| Devices served per transmission | Several downlink (MU-MIMO); one uplink | Several, both directions (OFDMA) | Several, across multiple links | required by the standard | [S6, S2, S7, S8, S15] |
-| BSS coloring | n/a | Yes | Yes | required by the standard | [S7] |
-| Resource units per device | n/a | One | Several | required by the standard | [S8, S7] |
+| Devices served per transmission | Several when the AP sends (MU-MIMO); one when devices send | Several, both directions (OFDMA) | Several, across multiple links | defined in the standard | [S6, S2, S7, S8, S15] |
+| BSS coloring | n/a | Yes | Yes | defined in the standard | [S7] |
+| Resource units per device | n/a | One | Several | defined in the standard | [S8, S7] |
 
 ## 8. Lower, More Predictable Latency
 
@@ -1543,9 +1542,9 @@ Wireless is one link in the alarm chain, alongside middleware, servers and alarm
 
 | Figure | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
 |---|---|---|---|---|
-| Multi-link operation | n/a | Yes | required by the standard | [S8] |
+| Multi-link operation | n/a | Yes | defined in the standard | [S8] |
 | Restricted TWT | n/a | Yes | optional | [S8] |
-| Multiple resource units per device | n/a | Yes | required by the standard | [S8, S7] |
+| Multiple resource units per device | n/a | Yes | defined in the standard | [S8, S7] |
 
 ## 9. Bringing it together
 

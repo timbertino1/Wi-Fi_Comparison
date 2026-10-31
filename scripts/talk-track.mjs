@@ -18,7 +18,7 @@ const QUALIFIER_LABEL = {
   optional: 'optional',
   illustrative: 'illustrative',
   regulatory: 'regulatory limit',
-  normative: 'required by the standard',
+  normative: 'defined in the standard', // defined, not necessarily mandatory for every device
   typical: 'typical'
 };
 
