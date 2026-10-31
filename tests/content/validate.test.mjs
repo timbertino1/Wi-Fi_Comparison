@@ -211,6 +211,7 @@ test('rule 10: retired references are skipped, but must not be cited', async () 
 test('rule 19: release requires recent verification', async () => {
   const c = clone(base);
   c.claims[0].verification = { verifiedOn: '2025-01-01', verifiedBy: 'TB', notes: null };
+  c.claims[1].verification = { verifiedOn: null, verifiedBy: null, notes: null };
   const e = await errorsFor(c, { release: true, today: new Date('2026-10-26') });
   assert.match(e, new RegExp(`claim ${c.claims[0].id}: verified 2025-01-01, more than 365 days ago`));
   assert.match(e, new RegExp(`claim ${c.claims[1].id}: not verified`));
