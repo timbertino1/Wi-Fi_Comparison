@@ -119,7 +119,7 @@
       "caption": {
         "headline": "[[wpa3|WPA3]]-Enterprise: no fooling the staff door",
         "takeaway": "Devices must check the server’s certificate{{wpa3-ent-cert-validation}}; Only mode also requires protected control messages{{wpa3-ent-pmf-required}}.",
-        "technical": "Only mode: SHA-256 sign-in replaces SHA-1{{wpa3-ent-sha256}}. Transition mode offers both{{wpa3-ent-transition}}. 192-bit is separate{{wpa3-ent-192}}."
+        "technical": "Only mode: SHA-256 sign-in replaces SHA-1{{wpa3-ent-sha256}}; Transition mode offers both{{wpa3-ent-transition}}."
       },
       "body": "On the staff network, [[wpa3|WPA3]]-Enterprise closes the fake-reader gap: a device signing in with EAP-TLS, EAP-TTLS or PEAP must validate the sign-in server’s [[server-certificate|certificate]] before trusting it {{wpa3-ent-cert-validation}}, so a [[fake-access-point|fake access point]] cannot simply pose as the hospital.\n\nWPA3-Enterprise has two modes. **Only mode** makes [[pmf|protected management frames]] mandatory {{wpa3-ent-pmf-required}}, so attackers cannot forge the control messages that knock devices off the network, and uses a stronger SHA-256 sign-in in place of SHA-1 {{wpa3-ent-sha256}}. **Transition mode** offers both sign-ins so WPA2- and WPA3-Enterprise devices can share one network during migration {{wpa3-ent-transition}}. Separately, a 192-bit mode serves the most sensitive networks {{wpa3-ent-192}}.",
       "bottomLine": "Staff devices keep their credentials for the real network; in Only mode, a forged disconnect no longer works either.",

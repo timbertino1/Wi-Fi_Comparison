@@ -878,7 +878,7 @@ WPA3-Enterprise has two modes. **Only mode** makes protected management frames m
 
 **Bottom line:** Staff devices keep their credentials for the real network; in Only mode, a forged disconnect no longer works either.
 
-**Technical depth:** Only mode: SHA-256 sign-in replaces SHA-1 [S18]. Transition mode offers both [S18]. 192-bit is separate [S18]. In WPA3-Enterprise Only Mode the access point enables the 802.1X SHA-256 AKM (00-0F-AC:5), disables the SHA-1 AKM and sets PMF Required [S18] [S18]. Server certificate validation is mandatory for EAP-TLS, EAP-TTLS and EAP-PEAP [S18]. The 192-bit mode uses only the Suite B 192-bit AKM with GCMP-256 and BIP-GMAC-256, and does not interoperate with other modes [S18].
+**Technical depth:** Only mode: SHA-256 sign-in replaces SHA-1 [S18]; Transition mode offers both [S18]. In WPA3-Enterprise Only Mode the access point enables the 802.1X SHA-256 AKM (00-0F-AC:5), disables the SHA-1 AKM and sets PMF Required [S18] [S18]. Server certificate validation is mandatory for EAP-TLS, EAP-TTLS and EAP-PEAP [S18]. The 192-bit mode uses only the Suite B 192-bit AKM with GCMP-256 and BIP-GMAC-256, and does not interoperate with other modes [S18].
 
 **Terms:**
 
@@ -1089,7 +1089,7 @@ A device can negotiate its own schedule, or join a schedule the access point ann
 
 **Bottom line:** Access points can coordinate many low-power devices at once, which matters on floors with large numbers of tags and badges.
 
-**Technical depth:** Individual and broadcast TWT [S7]; each service period is set by wake time, interval and duration. 802.11ax supports individual TWT agreements negotiated per station and broadcast TWT schedules advertised by the AP for groups of stations [S7]. The agreed parameters include the target wake time, the wake interval and the minimum wake duration, which together define each service period [S9, S7].
+**Technical depth:** Individual and broadcast TWT [S7]; a service period is the agreed wake window. 802.11ax supports individual TWT agreements negotiated per station and broadcast TWT schedules advertised by the AP for groups of stations [S7]. The agreed parameters include the target wake time, the wake interval and the minimum wake duration, which together define each service period [S9, S7].
 
 **Terms:**
 

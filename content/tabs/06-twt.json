@@ -113,7 +113,7 @@
       "caption": {
         "headline": "Schedules for one device or a whole group",
         "takeaway": "Access points can coordinate groups of tags and badges with shared wake schedules{{twt-types-ax}}.",
-        "technical": "Individual and broadcast TWT{{twt-types-ax}}; each [[service-period|service period]] is set by wake time, interval and duration."
+        "technical": "Individual and broadcast TWT{{twt-types-ax}}; a [[service-period|service period]] is the agreed wake window."
       },
       "body": "A device can negotiate its own schedule, or join a schedule the access point announces for a group of devices {{twt-types-ax}}. Between its wake windows, the device can switch its radio off; the access point holds traffic for it until the next [[service-period|service period]] {{twt-what}}.",
       "bottomLine": "Access points can coordinate many low-power devices at once, which matters on floors with large numbers of tags and badges.",
