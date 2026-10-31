@@ -167,7 +167,7 @@ export default {
       'wpa2-risks': { pos: [0, 5.2, 11.5], look: [0, 1.1, 0.6] },
       'wpa3-personal': { pos: [-3.2, 4.4, 9], look: [-3.4, 1.1, 1] },
       'wpa3-enterprise': { pos: [3.4, 4.4, 9], look: [3.6, 1.2, 0.6] },
-      'wpa3-only': { pos: [1.4, 5.2, 11.5], look: [1.4, 1.1, 0.4] },
+      'wpa3-only': { pos: [2, 5.2, 11.5], look: [2, 1.1, 0.4] }, // the side door's sign clears the callout
       'clinical-outcome': { pos: [0.8, 5.2, 11.5], look: [0.8, 1.1, 0.4] }
     };
     const anchorSets = {
