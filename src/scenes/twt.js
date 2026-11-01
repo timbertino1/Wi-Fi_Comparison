@@ -89,7 +89,7 @@ export default {
       dev.statusText = text;
       labels.setText(dev.status, text);
     };
-    const lFlat = tag(devices[0].battery, 'Flat before the shift ends', [0, 1.15, 0], 'big');
+    const lFlat = tag(devices[0].battery, 'Dead before the shift ends', [0, 1.15, 0], 'big');
 
     // --- The busy laptop (Restricted TWT steps).
     const laptopGroup = new THREE.Group();

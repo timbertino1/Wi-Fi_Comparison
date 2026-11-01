@@ -7,101 +7,169 @@
       "id": "ieee",
       "name": "IEEE (Standards Association and 802 working groups)",
       "tier": 1,
-      "domains": ["standards.ieee.org", "ieeexplore.ieee.org", "ieee802.org", "www.ieee802.org", "mentor.ieee.org", "grouper.ieee.org"],
+      "domains": [
+        "standards.ieee.org",
+        "ieeexplore.ieee.org",
+        "ieee802.org",
+        "www.ieee802.org",
+        "mentor.ieee.org",
+        "grouper.ieee.org"
+      ],
       "use": "IEEE 802.11 and 802.3 technical facts, project status of amendments in development"
     },
     {
       "id": "wfa",
       "name": "Wi-Fi Alliance",
       "tier": 1,
-      "domains": ["wi-fi.org", "www.wi-fi.org"],
+      "domains": [
+        "wi-fi.org",
+        "www.wi-fi.org"
+      ],
       "use": "Certification programs, security requirements, generation naming and launch dates"
     },
     {
       "id": "ietf",
       "name": "IETF / RFC Editor",
       "tier": 1,
-      "domains": ["ietf.org", "www.ietf.org", "datatracker.ietf.org", "rfc-editor.org", "www.rfc-editor.org"],
+      "domains": [
+        "ietf.org",
+        "www.ietf.org",
+        "datatracker.ietf.org",
+        "rfc-editor.org",
+        "www.rfc-editor.org"
+      ],
       "use": "Protocol and cryptography background"
     },
     {
       "id": "fcc",
       "name": "US Federal Communications Commission (FCC)",
       "tier": 1,
-      "domains": ["fcc.gov", "www.fcc.gov", "docs.fcc.gov"],
+      "domains": [
+        "fcc.gov",
+        "www.fcc.gov",
+        "docs.fcc.gov"
+      ],
       "use": "US 6 GHz allocation and operating rules"
     },
     {
       "id": "cept",
       "name": "ECC / CEPT",
       "tier": 1,
-      "domains": ["docdb.cept.org", "efis.cept.org", "cept.org"],
+      "domains": [
+        "docdb.cept.org",
+        "efis.cept.org",
+        "cept.org"
+      ],
       "use": "European 6 GHz decisions"
     },
     {
       "id": "etsi",
       "name": "ETSI",
       "tier": 1,
-      "domains": ["etsi.org", "www.etsi.org"],
-      "use": "European harmonised standards for radio equipment"
+      "domains": [
+        "etsi.org",
+        "www.etsi.org"
+      ],
+      "use": "European harmonized standards for radio equipment"
     },
     {
       "id": "ised",
       "name": "Innovation, Science and Economic Development Canada (ISED)",
       "tier": 1,
-      "domains": ["ised-isde.canada.ca"],
+      "domains": [
+        "ised-isde.canada.ca"
+      ],
       "use": "Canadian 6 GHz rules"
     },
     {
       "id": "ofcom",
       "name": "Ofcom (UK)",
       "tier": 1,
-      "domains": ["ofcom.org.uk", "www.ofcom.org.uk"],
+      "domains": [
+        "ofcom.org.uk",
+        "www.ofcom.org.uk"
+      ],
       "use": "UK 6 GHz rules"
     },
     {
       "id": "nist",
       "name": "US National Institute of Standards and Technology (NIST)",
       "tier": 1,
-      "domains": ["nist.gov", "www.nist.gov", "csrc.nist.gov"],
+      "domains": [
+        "nist.gov",
+        "www.nist.gov",
+        "csrc.nist.gov"
+      ],
       "use": "Cryptography and security background"
     },
     {
       "id": "peer-reviewed",
       "name": "Peer-reviewed publication (DOI required)",
       "tier": 2,
-      "domains": ["doi.org"],
+      "domains": [
+        "doi.org"
+      ],
       "use": "Corroboration and measured-performance context; never the only source for a technical figure"
     },
     {
       "id": "fda",
       "name": "US Food and Drug Administration (FDA)",
       "tier": 2,
-      "domains": ["fda.gov", "www.fda.gov"],
+      "domains": [
+        "fda.gov",
+        "www.fda.gov"
+      ],
       "use": "Wireless medical device context and guidance"
     },
     {
       "id": "aami",
       "name": "AAMI",
       "tier": 2,
-      "domains": ["aami.org", "www.aami.org"],
+      "domains": [
+        "aami.org",
+        "www.aami.org"
+      ],
       "use": "Healthcare technology management context"
     },
     {
       "id": "who",
       "name": "World Health Organization (WHO)",
       "tier": 2,
-      "domains": ["who.int", "www.who.int"],
+      "domains": [
+        "who.int",
+        "www.who.int"
+      ],
       "use": "Health system context"
     }
   ],
   "excluded": [
-    { "category": "Vendor material", "description": "Anything published by or for an equipment, chipset, or software vendor: marketing pages, blogs, white papers, datasheets, and webinars, wherever they are hosted." },
-    { "category": "Wikipedia and wikis", "description": "Community-edited encyclopedias and wikis, even when well referenced; cite their primary sources instead." },
-    { "category": "Blogs and forums", "description": "Personal or company blogs, forums, Q&A sites, and social media." },
-    { "category": "News and trade press", "description": "News sites and trade publications, which are secondary and frequently vendor-sourced." },
-    { "category": "Analyst marketing reports", "description": "Market forecasts and analyst reports, which are not standards or measurements." },
-    { "category": "AI-generated text", "description": "Text produced by AI systems, including summaries of real sources." },
-    { "category": "Uncredited infographics", "description": "Charts or tables with no traceable primary source." }
+    {
+      "category": "Vendor material",
+      "description": "Anything published by or for an equipment, chipset, or software vendor: marketing pages, blogs, white papers, datasheets, and webinars, wherever they are hosted."
+    },
+    {
+      "category": "Wikipedia and wikis",
+      "description": "Community-edited encyclopedias and wikis, even when well referenced; cite their primary sources instead."
+    },
+    {
+      "category": "Blogs and forums",
+      "description": "Personal or company blogs, forums, Q&A sites, and social media."
+    },
+    {
+      "category": "News and trade press",
+      "description": "News sites and trade publications, which are secondary and frequently vendor-sourced."
+    },
+    {
+      "category": "Analyst marketing reports",
+      "description": "Market forecasts and analyst reports, which are not standards or measurements."
+    },
+    {
+      "category": "AI-generated text",
+      "description": "Text produced by AI systems, including summaries of real sources."
+    },
+    {
+      "category": "Uncredited infographics",
+      "description": "Charts or tables with no traceable primary source."
+    }
   ]
 }

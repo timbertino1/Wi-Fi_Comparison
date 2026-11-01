@@ -782,43 +782,6 @@
       }
     },
     {
-      "id": "qam-4k-gain",
-      "statement": "Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier)",
-      "value": 20,
-      "unit": "%",
-      "kind": "technical",
-      "method": "derived",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 36, EHT-MCS 12–13",
-          "excerpt": null
-        },
-        {
-          "referenceId": "wfa-wifi7",
-          "locator": "\"4K QAM\" feature description",
-          "excerpt": null
-        }
-      ],
-      "derivation": {
-        "formula": "percentGain",
-        "inputs": {
-          "a": "eht-4096qam-bits",
-          "b": "he-1024qam-bits"
-        },
-        "constants": {},
-        "rounding": {
-          "decimals": 0
-        },
-        "explanation": "(12 ÷ 10 − 1) × 100"
-      },
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “4K QAM achieves 20% higher transmission rates” than 1024 QAM."
-      }
-    },
-    {
       "id": "width-320-vs-160",
       "statement": "A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel",
       "value": 2,
@@ -920,7 +883,7 @@
     },
     {
       "id": "6ghz-ch1-lower-edge",
-      "statement": "Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz)",
+      "statement": "Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centered on 5955 MHz)",
       "value": 5945,
       "unit": "MHz",
       "kind": "technical",
@@ -1141,7 +1104,7 @@
     },
     {
       "id": "eu-6ghz-band",
-      "statement": "European harmonised 6 GHz band for Wi-Fi (lower 6 GHz)",
+      "statement": "European harmonized 6 GHz band for Wi-Fi (lower 6 GHz)",
       "value": "5945–6425",
       "unit": "MHz",
       "kind": "technical",
@@ -1396,74 +1359,6 @@
       }
     },
     {
-      "id": "puncturing-ax",
-      "statement": "Preamble puncturing was introduced in 802.11ax for multi-user transmissions",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Clause 27, HE MU PPDU preamble puncturing",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "puncturing-be",
-      "statement": "802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
-      }
-    },
-    {
-      "id": "multi-ru-be",
-      "statement": "802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 36, MRU definitions",
-          "excerpt": null
-        },
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Clause 27, RU allocation",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
-      }
-    },
-    {
       "id": "ofdma-ax",
       "statement": "OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6)",
       "value": null,
@@ -1491,7 +1386,7 @@
     },
     {
       "id": "bss-coloring-ax",
-      "statement": "802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often",
+      "statement": "802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbor’s, which spatial-reuse rules then use to transmit more often",
       "value": null,
       "unit": null,
       "kind": "technical",
@@ -1529,27 +1424,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated (\"whole channel\"); reworded to the TXOP access rule. Medium."
-      }
-    },
-    {
-      "id": "eht-4kqam-evm",
-      "statement": "4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -2189,27 +2063,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands."
-      }
-    },
-    {
-      "id": "puncturing-patterns",
-      "statement": "802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions. Peer review 2026-10-31 (GPT, High Thinking): Correct; locator corrected. High."
       }
     },
     {

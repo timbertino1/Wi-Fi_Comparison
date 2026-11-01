@@ -138,13 +138,13 @@ export default {
     };
     const lQueue = tag(one.queueAnchor, 'Devices waiting to send · red = waiting longest', [0, 1.1, -0.2]);
     const lTrip = tag(one.lifts[0].shaft, 'Each trip = one transmission', [1.7, 1.4, 0]);
-    const lShare = tag(one.ap, 'One lift shared by every device: its airtime', [0, 1.8, 0]); // above the lift's title
+    const lShare = tag(one.ap, 'One elevator shared by every device: its airtime', [0, 1.8, 0]); // above the lift's title
     const lSeats = tag(one.lifts[0].car, 'OFDMA (Wi-Fi 6): several devices per trip', [1.8, 0.9, 0]);
     const lQueue7 = tag(seven.queueAnchor, 'Hardly anyone waiting', [0, 0.9, -0.2]);
 
     // Per state: what the single bank stands for, and where each bank sits.
     const oneTitle = () => {
-      if (mode === 'gen-compare') return compareGen === 'wifi5' ? `${genName('wifi5')}: one sender per trip` : `${genName(compareGen)}: several per trip, one lift`;
+      if (mode === 'gen-compare') return compareGen === 'wifi5' ? `${genName('wifi5')}: one sender per trip` : `${genName(compareGen)}: several per trip, one elevator`;
       return mode === 'ofdma-slices' ? 'Wi-Fi 6 and 7: several per trip' : 'Wi-Fi 5 and earlier: one sender per trip';
     };
     const oneCapacity = () => {

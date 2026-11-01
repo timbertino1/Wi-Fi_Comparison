@@ -1,5 +1,12 @@
 <!--
-Sync Impact Report (2.0.0, 2026-10-30)
+Sync Impact Report (3.0.0, 2026-11-01)
+- Removed required feature coverage item 3, 4K-QAM (4096-QAM) & Preamble Puncturing.
+  Reason: the presenter dropped that chapter to trim the talk; Multi-RU and puncturing are still
+  mentioned in the client density and latency chapters. MAJOR because a required-coverage item was
+  removed. Items renumbered.
+- Templates: no changes needed.
+
+Previous: Sync Impact Report (2.0.0, 2026-10-30)
 - Removed required feature coverage item 7, Bandwidth and PoE / wired-infrastructure impact.
   Reason: the presenter dropped the Bandwidth & PoE and Wi-Fi 8 chapters and asked for a closing
   recap instead (feature 002, FR-011b). MAJOR because a required-coverage item was removed.
@@ -155,14 +162,14 @@ trustworthy to deploy, and its repository must resist accidental or malicious ch
 
 1. 6 GHz spectrum (including channel availability and why clean spectrum matters)
 2. Multi-Link Operation (MLO)
-3. 4K-QAM (4096-QAM) & Preamble Puncturing
-4. WPA3 and Wi-Fi 7 security requirements
-5. Target Wake Time (TWT) and client battery life
-6. Client density and its healthcare implications
+3. WPA3 and Wi-Fi 7 security requirements
+4. Target Wake Time (TWT) and client battery life
+5. Client density and its healthcare implications
 
 Bandwidth and Power over Ethernet (PoE) is no longer a required chapter (removed 2026-10-30 at
 the presenter's request); wired-infrastructure planning is covered as one item in the closing
-chapter instead.
+chapter instead. 4K-QAM & Preamble Puncturing is no longer a required chapter either (removed
+2026-11-01 at the presenter's request, to trim the talk).
 
 Additional chapters MAY be added through the spec process, provided they meet all principles. An
 overview/introduction and a references section are expected in addition to feature chapters.
@@ -208,4 +215,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 2.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-10-30
+**Version**: 3.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-01

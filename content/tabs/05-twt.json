@@ -1,6 +1,6 @@
 {
   "id": "twt",
-  "order": 6,
+  "order": 5,
   "kind": "feature",
   "title": "Target Wake Time & Battery Life",
   "summary": "Scheduled wake-ups that let badges and sensors sleep, plus protected time slots for urgent traffic.",
@@ -23,23 +23,23 @@
   "beats": [
     {
       "type": "problem",
-      "heading": "Always listening, flat by mid-shift",
+      "heading": "Always listening, dead by mid-shift",
       "caption": {
-        "headline": "Always listening, flat by mid-shift",
+        "headline": "Always listening, dead by mid-shift",
         "takeaway": "Radios that never sleep drain batteries, leaving clinicians or equipment unreachable until recharged."
       },
       "body": "[[voice-badge|Voice badges]], [[rtls|location tags]] and wearable [[patient-monitor|patient monitors]] are small, battery-powered devices. Without a schedule, their radios stay ready to listen in case the [[access-point|access point]] has something for them, and listening costs power even when nothing arrives.\n\nThe result is batteries swapped or recharged mid-shift, and devices that go quiet when a battery runs out.",
       "bottomLine": "Battery swaps cost staff time and can leave clinicians or equipment unreachable until a device is recharged.",
       "deepDive": null,
       "sceneState": "always-awake",
-      "sceneDescription": "One ward over one shift. A voice badge, a location tag and a patient monitor stand under the access point, each with a large battery above it and its radio glowing to show it is always listening. As the shift bar along the front fills, every battery drains from green through amber to red, and the badge goes flat before the shift ends. Battery levels are labelled illustrative.",
+      "sceneDescription": "One hospital unit over one shift. A voice badge, a location tag and a patient monitor stand under the access point, each with a large battery above it and its radio glowing to show it is always listening. As the shift bar along the front fills, every battery drains from green through amber to red, and the badge goes dead before the shift ends. Battery levels are labeled illustrative.",
       "durationMs": 12000,
       "callout": {
         "title": "Why batteries run out",
         "points": [
           "Radios stay awake listening, even when nothing arrives",
           "Listening drains the battery all shift long",
-          "A flat badge or tag means an unreachable clinician or lost equipment"
+          "A dead badge or tag means an unreachable clinician or lost equipment"
         ]
       },
       "hotspots": [
@@ -126,7 +126,7 @@
         "points": [
           "A device can agree its own wake-up times{{twt-types-ax}}",
           "Or join one schedule the access point shares with a group",
-          "Large groups of tags stay organised and save battery"
+          "Large groups of tags stay organized and save battery"
         ]
       },
       "hotspots": [
@@ -155,7 +155,7 @@
       "bottomLine": "Where access points and devices support it, voice and alarm traffic can get more predictable time on the air; check support model by model.",
       "deepDive": "Restricted TWT (r-TWT) builds on broadcast TWT: the AP advertises restricted service periods for specified traffic identifiers, and supporting stations end their transmission opportunities before each period starts {{rtwt-protect}}. Earlier generations without TWT keep devices awake {{twt-what}}; Wi-Fi 6 TWT schedules wake-ups but does not protect the medium during them {{twt-types-ax}}.",
       "sceneState": "rtwt",
-      "sceneDescription": "A laptop that supports Restricted TWT joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups.",
+      "sceneDescription": "A laptop that supports Restricted TWT joins the unit, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups.",
       "durationMs": 14000,
       "questions": [
         {

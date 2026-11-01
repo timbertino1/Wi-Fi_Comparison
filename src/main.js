@@ -29,13 +29,12 @@ import { register } from './scenes/index.js';
 import overviewScene from './scenes/overview.js';
 import spectrumScene from './scenes/spectrum.js';
 import mloScene from './scenes/mlo.js';
-import qamScene from './scenes/qam-puncturing.js';
 import securityScene from './scenes/security.js';
 import twtScene from './scenes/twt.js';
 import densityScene from './scenes/density.js';
 import latencyScene from './scenes/latency.js';
 
-for (const scene of [overviewScene, spectrumScene, mloScene, qamScene, securityScene, twtScene, densityScene, latencyScene]) register(scene);
+for (const scene of [overviewScene, spectrumScene, mloScene, securityScene, twtScene, densityScene, latencyScene]) register(scene);
 
 const routeNotice = document.createElement('p');
 routeNotice.className = 'notice route-notice';

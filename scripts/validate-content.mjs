@@ -125,7 +125,7 @@ export async function validateContent({ release = false, content = loadContent()
   for (const c of claims) if (refById.has(c.id)) err(1, `claim id "${c.id}" collides with a reference id`);
   const orders = tabs.map((t) => t.order).sort((a, b) => a - b);
   orders.forEach((o, i) => { if (o !== i + 1) err(1, `tab order must be contiguous from 1; found ${orders.join(',')}`); });
-  if (tabs.length !== 10) err(1, `expected 10 tabs, found ${tabs.length}`);
+  if (tabs.length !== 9) err(1, `expected 9 tabs, found ${tabs.length}`);
 
   // Usage tracking for orphan checks (rules 10, 18).
   const citedRefs = new Set();

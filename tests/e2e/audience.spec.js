@@ -21,7 +21,7 @@ test('every visit shows the technical layer, with no audience switch', async ({ 
   await expect(page.locator('[data-section="mlo-modes"]')).not.toHaveAttribute('open', '');
   // Every key figure shows, with no "Show all figures" toggle.
   await open(page, '#/density/1?notes&test');
-  await expect(page.locator('.figures-table tbody tr:visible')).toHaveCount(3);
+  await expect(page.locator('.figures-table tbody tr:visible')).toHaveCount(2);
   await expect(page.locator('.show-all-figures')).toHaveCount(0);
 });
 

@@ -125,7 +125,7 @@
       "bottomLine": "Wi-Fi 7 is the current generation: devices and access points are certified and shipping, so it belongs in today's refresh plans.",
       "deepDive": "Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be {{gen-naming}}. IEEE approved 802.11be on 2024-09-26 {{wifi7-ieee-approved}} and published it on 2025-07-22 {{wifi7-ieee-published}}. Theoretical peak rates rose from 600 Mbps for Wi-Fi 4 {{wifi4-peak-phy}} to 6.93 Gbps for Wi-Fi 5 {{wifi5-peak-phy}}, 9.61 Gbps for Wi-Fi 6 {{wifi6-peak-phy}} and 23.1 Gbps for Wi-Fi 7 on a single link {{wifi7-peak-phy}}; these assume every option at its maximum, and real devices reach far less.",
       "sceneState": "timeline",
-      "sceneDescription": "A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own colour and labelled with its name and year.",
+      "sceneDescription": "A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own color and labeled with its name and year.",
       "durationMs": 13000,
       "questions": [
         {

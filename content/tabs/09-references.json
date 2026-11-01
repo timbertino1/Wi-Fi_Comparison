@@ -1,6 +1,6 @@
 {
   "id": "references",
-  "order": 10,
+  "order": 9,
   "kind": "references",
   "title": "References & Glossary",
   "summary": "Every source, every claim, and every term used on this site — and how each figure was checked.",
@@ -16,7 +16,7 @@
     {
       "id": "why-these-sources",
       "heading": "Why only standards bodies, regulators and peer-reviewed research",
-      "body": "This site informs decisions about hospital infrastructure, so every technical figure comes from the organisations that define Wi-Fi and its rules: IEEE, the Wi-Fi Alliance, IETF and national regulators such as the FCC. Healthcare context may also draw on peer-reviewed research and health authorities.\n\nWe never cite vendor material, Wikipedia, blogs, forums, news or AI-generated text — if one of those points to a useful fact, we find and cite the original source instead.",
+      "body": "This site informs decisions about hospital infrastructure, so every technical figure comes from the organizations that define Wi-Fi and its rules: IEEE, the Wi-Fi Alliance, IETF and national regulators such as the FCC. Healthcare context may also draw on peer-reviewed research and health authorities.\n\nWe never cite vendor material, Wikipedia, blogs, forums, news or AI-generated text — if one of those points to a useful fact, we find and cite the original source instead.",
       "sceneState": null
     },
     {
