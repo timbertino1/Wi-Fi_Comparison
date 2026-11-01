@@ -133,12 +133,15 @@ export default {
 
     function setBusy(name) {
       single.flows[0].busy = name === 'single-link-congested' || name === 'gen-compare';
+      labels.setText(single.flows[0].label, single.flows[0].busy ? `${single.flows[0].band.label} · busy` : single.flows[0].band.label);
       const congested = ['links-aggregate', 'gen-compare', 'clinical-outcome'].includes(name);
       for (const f of multi.flows) {
         f.busy = f.band.id === '5' && congested;
         // Voice uses one link: 5 GHz until it is busy, then 6 GHz; the 2.4 GHz link stands ready.
         f.active = f.band.id === (congested ? '6' : '5');
         f.mesh.material.opacity = f.active || f.busy ? 0.85 : 0.3;
+        // Say what each link is doing, so a dim link reads as connected, not off.
+        labels.setText(f.label, f.busy ? `${f.band.label} · busy` : f.active ? f.band.label : `${f.band.label} · ready`);
       }
     }
 
