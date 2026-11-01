@@ -1,6 +1,6 @@
 {
   "id": "security",
-  "order": 5,
+  "order": 4,
   "kind": "feature",
   "title": "Security: WPA3 and Wi-Fi 7",
   "summary": "WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in (Enterprise) networks, and Wi-Fi 7 and 6 GHz require it for secured networks.",
@@ -28,11 +28,11 @@
         "headline": "[[wpa2|WPA2]]: two doors, two weak points",
         "takeaway": "A guessable shared password can be cracked offline; a [[fake-access-point|fake access point]] can fool devices."
       },
-      "body": "Hospitals run two kinds of Wi-Fi sign-in through the same [[access-point|access points]]. Many clinical device networks use one shared password: [[wpa-personal|WPA2-Personal]]. Staff devices usually sign in with their own credentials: [[wpa-enterprise|WPA2-Enterprise]].\n\nEach has a weak point. On the shared-password network, someone in the car park can record the moment a device joins, take the recording away and try millions of password guesses offline, unseen; a guessable password falls quickly {{wpa3-sae}}. On the staff network, WPA2 leaves checking the sign-in server’s certificate to each device’s configuration, which WPA3 makes mandatory {{wpa3-ent-cert-validation}}, so a misconfigured device can be fooled by a [[fake-access-point|fake access point]]; and protecting control messages is optional {{wpa2-ent-pmf-optional}}.",
+      "body": "Hospitals run two kinds of Wi-Fi sign-in through the same [[access-point|access points]]. Many clinical device networks use one shared password: [[wpa-personal|WPA2-Personal]]. Staff devices usually sign in with their own credentials: [[wpa-enterprise|WPA2-Enterprise]].\n\nEach has a weak point. On the shared-password network, someone in the parking lot can record the moment a device joins, take the recording away and try millions of password guesses offline, unseen; a guessable password falls quickly {{wpa3-sae}}. On the staff network, WPA2 leaves checking the sign-in server’s certificate to each device’s configuration, which WPA3 makes mandatory {{wpa3-ent-cert-validation}}, so a misconfigured device can be fooled by a [[fake-access-point|fake access point]]; and protecting control messages is optional {{wpa2-ent-pmf-optional}}.",
       "bottomLine": "Both kinds of WPA2 network can be attacked quietly: one through a recorded sign-in, the other through a convincing fake.",
       "deepDive": null,
       "sceneState": "wpa2-risks",
-      "sceneDescription": "A ward wall with two doors under an access point: a keypad door for the shared-password network, with an infusion pump in front, and a badge door for staff sign-in, with a workstation. An outsider copies a recorded sign-in from the keypad and carries it to a desk, where the lock pops open. At the staff door, the workstation is linked to a red fake access point instead of the real one.",
+      "sceneDescription": "A hallway wall on a hospital unit with two doors under an access point: a keypad door for the shared-password network, with an infusion pump in front, and a badge door for staff sign-in, with a workstation. An outsider copies a recorded sign-in from the keypad and carries it to a desk, where the lock pops open. At the staff door, the workstation is linked to a red fake access point instead of the real one.",
       "durationMs": 13000,
       "callout": {
         "title": "WPA2’s two weak points",
@@ -77,7 +77,7 @@
       "bottomLine": "WPA3 closes the most common way attackers break shared-passphrase networks, and it is already built into current devices.",
       "deepDive": "SAE is a password-authenticated key exchange (the \"dragonfly\" handshake) followed by the standard 4-way handshake; each successful exchange yields a unique pairwise key {{wpa3-sae}}. WPA3 configurations require [[pmf|protected management frames (PMF)]], and WEP, TKIP and WPA version 1 are disallowed {{legacy-security-disallowed}}. Hash-to-element (H2E) derives the password element in constant time, closing side channels found in early SAE implementations {{wifi7-eht-security}}.",
       "sceneState": "wpa3-personal",
-      "sceneDescription": "Back at the keypad door. The outsider’s recording turns into a sealed grey box that gives nothing to test, and their single live guess at the real keypad is refused. The infusion pump gets its own key for the session.",
+      "sceneDescription": "Back at the keypad door. The outsider’s recording turns into a sealed gray box that gives nothing to test, and their single live guess at the real keypad is refused. The infusion pump gets its own key for the session.",
       "durationMs": 12000,
       "callout": {
         "title": "What WPA3-Personal changes",
@@ -179,7 +179,7 @@
       "bottomLine": "Moving to Wi-Fi 7 and 6 GHz is also a security upgrade: the strongest settings become the baseline rather than an option someone has to remember.",
       "deepDive": "For networks with EHT enabled, the WPA3 deployment guide makes beacon protection mandatory in every mode; in WPA3-Personal Only mode it also marks as mandatory the SAE-GDH [[akm|AKM]] (suite 24), PMF required, SAE hash-to-element and both GCMP-256 and CCMP-128 pairwise ciphers {{wifi7-eht-security}}. A [[mld|multi-link device]] negotiates one security association that applies to all of its links {{mlo-tid-mapping}}. [[beacon-protection|Beacon protection]] lets devices detect forged beacons. These are deployment requirements, not certification rules, so confirm configuration options with each product.",
       "sceneState": "wpa3-only",
-      "sceneDescription": "Above both doors, the access point is labelled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labelled as one migration option. A note shows what the earlier generation accepted.",
+      "sceneDescription": "Above both doors, the access point is labeled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labeled as one migration option. A note shows what the earlier generation accepted.",
       "durationMs": 14000,
       "callout": {
         "title": "What changes on Wi-Fi 7",
@@ -211,7 +211,7 @@
         "headline": "Protecting clinical and staff traffic",
         "takeaway": "Every WPA3 device has its own key; benefits arrive as devices migrate."
       },
-      "body": "Hospital networks carry clinical messages, device [[telemetry|telemetry]] and staff communications. Stronger sign-in and per-session encryption make it much harder to eavesdrop on or impersonate that traffic, on the devices that use WPA3.\n\nWPA3 is one layer of security, not a complete programme: it complements network segmentation, device management and your organisation's security and compliance processes.",
+      "body": "Hospital networks carry clinical messages, device [[telemetry|telemetry]] and staff communications. Stronger sign-in and per-session encryption make it much harder to eavesdrop on or impersonate that traffic, on the devices that use WPA3.\n\nWPA3 is one layer of security, not a complete program: it complements network segmentation, device management and your organization's security and compliance processes.",
       "bottomLine": "Plan WPA3 alongside clinical device refresh: some older devices may not support it, so 6 GHz and Wi-Fi 7 networks may need separate network names during the transition.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
@@ -228,7 +228,7 @@
       "questions": [
         {
           "q": "Does WPA3 make our network compliant?",
-          "a": "No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organisation’s security and compliance processes.",
+          "a": "No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organization’s security and compliance processes.",
           "audience": "leadership"
         }
       ]

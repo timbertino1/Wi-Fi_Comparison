@@ -34,14 +34,14 @@
       "bottomLine": "Adding more access points in crowded bands eventually stops helping; capacity is limited by the spectrum itself.",
       "deepDive": null,
       "sceneState": "crowded-legacy",
-      "sceneDescription": "Three roads leave an access point, one per band, each drawn as wide as its band. The narrow 2.4 GHz and 5 GHz roads are jammed: grey trucks for older devices crawl along and hold up the cars behind them, while the much wider 6 GHz road beside them sits unlit and empty.",
+      "sceneDescription": "Three roads leave an access point, one per band, each drawn as wide as its band. The narrow 2.4 GHz and 5 GHz roads are jammed: gray trucks for older devices crawl along and hold up the cars behind them, while the much wider 6 GHz road beside them sits unlit and empty.",
       "durationMs": 12000,
       "callout": {
         "title": "Why the old bands run out",
         "points": [
           "The 2.4 and 5 GHz bands fit only a handful of wide channels",
           "[[legacy-device|Older devices]] send slowly and hold the channel longer",
-          "Guest phones and neighbouring units crowd the same channels",
+          "Guest phones and neighboring units crowd the same channels",
           "More access points stop helping once every channel is taken"
         ]
       },
@@ -99,16 +99,16 @@
         "takeaway": "Indoors, the US band fits 59 channels of 20 MHz{{us-6ghz-channels-20}} or three of 320 MHz{{us-6ghz-channels-320}}.",
         "technical": "Full-band counts apply to [[lpi|low-power indoor]] access points{{fcc-lpi}}; standard power is limited to U-NII-5 and U-NII-7{{fcc-sp-afc}}."
       },
-      "body": "With 1200 MHz available {{us-6ghz-total}}, the US 6 GHz band fits 59 channels of 20 MHz {{us-6ghz-channels-20}}, 29 of 40 MHz {{us-6ghz-channels-40}}, 14 of 80 MHz {{us-6ghz-channels-80}}, 7 of 160 MHz {{us-6ghz-channels-160}} or 3 non-overlapping channels of 320 MHz {{us-6ghz-channels-320}}. Those counts are for [[lpi|low-power indoor]] access points, which may use the whole band {{fcc-lpi}}; standard-power access points use only part of it, under automated frequency coordination {{fcc-sp-afc}}.\n\nOnly Wi-Fi 6E and newer devices can operate there {{6ghz-no-legacy}}, so no [[legacy-device|legacy devices]] slow it down. It is not empty: neighbouring Wi-Fi 6E and 7 networks share it, so channel planning still matters.",
+      "body": "With 1200 MHz available {{us-6ghz-total}}, the US 6 GHz band fits 59 channels of 20 MHz {{us-6ghz-channels-20}}, 29 of 40 MHz {{us-6ghz-channels-40}}, 14 of 80 MHz {{us-6ghz-channels-80}}, 7 of 160 MHz {{us-6ghz-channels-160}} or 3 non-overlapping channels of 320 MHz {{us-6ghz-channels-320}}. Those counts are for [[lpi|low-power indoor]] access points, which may use the whole band {{fcc-lpi}}; standard-power access points use only part of it, under automated frequency coordination {{fcc-sp-afc}}.\n\nOnly Wi-Fi 6E and newer devices can operate there {{6ghz-no-legacy}}, so no [[legacy-device|legacy devices]] slow it down. It is not empty: neighboring Wi-Fi 6E and 7 networks share it, so channel planning still matters.",
       "bottomLine": "More and wider channels, free of older devices, means more capacity per access point and fewer devices competing on each channel.",
-      "deepDive": "Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz {{6ghz-ch1-lower-edge}}; each count is recomputed from those inputs. [[lpi|LPI]] access points may operate across the band without coordination {{fcc-lpi}}; standard-power access points are limited to U-NII-5 and U-NII-7 under AFC {{fcc-sp-afc}}, so a standard-power design has fewer channels. [[channel-width|Channel width]] is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighbouring [[access-point|access points]] must avoid each other. Availability differs by [[regulatory-domain]]: the CEPT harmonised band covers 5945–6425 MHz {{eu-6ghz-band}}.",
+      "deepDive": "Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz {{6ghz-ch1-lower-edge}}; each count is recomputed from those inputs. [[lpi|LPI]] access points may operate across the band without coordination {{fcc-lpi}}; standard-power access points are limited to U-NII-5 and U-NII-7 under AFC {{fcc-sp-afc}}, so a standard-power design has fewer channels. [[channel-width|Channel width]] is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighboring [[access-point|access points]] must avoid each other. Availability differs by [[regulatory-domain]]: the CEPT harmonized band covers 5945–6425 MHz {{eu-6ghz-band}}.",
       "sceneState": "channels-fill",
-      "sceneDescription": "Lane markings divide the 6 GHz road into four stretches: many narrow 20 MHz lanes, then 80 MHz and 160 MHz lanes, and finally three wide 320 MHz lanes, each stretch labelled with how many lanes fit {{us-6ghz-channels-20}} {{us-6ghz-channels-80}} {{us-6ghz-channels-160}} {{us-6ghz-channels-320}}. Traffic flows freely in every lane.",
+      "sceneDescription": "Lane markings divide the 6 GHz road into four stretches: many narrow 20 MHz lanes, then 80 MHz and 160 MHz lanes, and finally three wide 320 MHz lanes, each stretch labeled with how many lanes fit {{us-6ghz-channels-20}} {{us-6ghz-channels-80}} {{us-6ghz-channels-160}} {{us-6ghz-channels-320}}. Traffic flows freely in every lane.",
       "durationMs": 15000,
       "questions": [
         {
           "q": "Why not use the widest channels everywhere?",
-          "a": "Only three fit in the US band{{us-6ghz-channels-320}}, so neighbouring access points would overlap. Dense floors usually run narrower channels and keep the widest ones for lightly shared areas such as imaging rooms.",
+          "a": "Only three fit in the US band{{us-6ghz-channels-320}}, so neighboring access points would overlap. Dense floors usually run narrower channels and keep the widest ones for lightly shared areas such as imaging rooms.",
           "audience": "technical"
         },
         {
@@ -120,7 +120,7 @@
       "callout": {
         "title": "Why more channels help",
         "points": [
-          "Neighbouring access points each get their own channel and stop competing",
+          "Neighboring access points each get their own channel and stop competing",
           "Fewer devices share each channel, so each one waits less",
           "Narrow channels serve many small devices; wide ones move big files fast",
           "Indoors, the US band fits three 320 MHz channels{{us-6ghz-channels-320}}"
@@ -145,7 +145,7 @@
       },
       "body": "Wi-Fi 6E's widest channel is 160 MHz {{he-max-width}}. Wi-Fi 7 doubles it to 320 MHz {{eht-max-width}} {{width-320-vs-160}}, so a single transmission can carry roughly twice as much data under the same conditions, for devices that support 320 MHz, where such a channel is available.\n\nWi-Fi 5 and earlier cannot use 6 GHz at all {{6ghz-no-legacy}}.",
       "bottomLine": "For data-heavy areas such as imaging and procedure rooms, 320 MHz channels {{eht-max-width}} can move large files markedly faster; on dense floors, narrower channels usually serve better.",
-      "deepDive": "Doubling channel width doubles the data subcarriers per symbol (3920 in 320 MHz versus 1960 in 160 MHz) {{eht-nsd-320}} {{he-nsd-160}}. In practice, 320 MHz channels {{eht-max-width}} suit lightly shared areas; dense floors often use narrower channels so neighbouring access points can reuse spectrum, with [[preamble-puncturing|preamble puncturing]] helping wide channels survive interference (see the next chapter).",
+      "deepDive": "Doubling channel width doubles the data subcarriers per symbol (3920 in 320 MHz versus 1960 in 160 MHz) {{eht-nsd-320}} {{he-nsd-160}}. In practice, 320 MHz channels {{eht-max-width}} suit lightly shared areas; dense floors often use narrower channels so neighboring access points can reuse spectrum.",
       "sceneState": "gen-compare",
       "sceneDescription": "The 6 GHz road is split in two. On the left, the earlier generation’s seven 160 MHz lanes {{us-6ghz-channels-160}} carry mid-sized vehicles; on the right, Wi-Fi 7’s three 320 MHz lanes {{us-6ghz-channels-320}} carry trucks twice as wide. Choosing Wi-Fi 5 or Wi-Fi 6 closes the left half, because those devices cannot use 6 GHz.",
       "durationMs": 13000,
@@ -174,13 +174,13 @@
       "caption": {
         "headline": "Big files and video, in the right places",
         "takeaway": "6 GHz fades through walls{{6ghz-building-loss}}: plan coverage with a site survey and check local rules.",
-        "technical": "Rules differ by [[regulatory-domain|regulatory domain]]: the CEPT harmonised band is 5945–6425 MHz{{eu-6ghz-band}}."
+        "technical": "Rules differ by [[regulatory-domain|regulatory domain]]: the CEPT harmonized band is 5945–6425 MHz{{eu-6ghz-band}}."
       },
       "body": "Imaging transfers, telehealth video and remote consults benefit most from wide channels. They can move to 6 GHz, leaving 2.4 GHz and 5 GHz for devices that cannot.\n\nThere is a trade-off: walls and building materials weaken 6 GHz signals {{6ghz-building-loss}}, so coverage needs planning, and rules differ between countries {{eu-6ghz-band}}.",
       "bottomLine": "6 GHz adds capacity where it is needed most, but it requires a site survey and may change access-point placement; check the rules for each country you operate in.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
-      "sceneDescription": "An access point inside a room sends three coverage rings through the surrounding walls: the 2.4 GHz ring reaches furthest, the 5 GHz ring less far and the 6 GHz ring is the most contained. The rings are labelled as illustrative.",
+      "sceneDescription": "An access point inside a room sends three coverage rings through the surrounding walls: the 2.4 GHz ring reaches furthest, the 5 GHz ring less far and the 6 GHz ring is the most contained. The rings are labeled as illustrative.",
       "durationMs": 12000,
       "questions": [
         {
@@ -189,7 +189,7 @@
         },
         {
           "q": "Does this work outside the United States?",
-          "a": "Rules vary by country. The CEPT harmonised band in Europe is the lower part, 5945–6425 MHz{{eu-6ghz-band}}, so fewer wide channels fit; national implementation varies, so check each regulator before designing."
+          "a": "Rules vary by country. The CEPT harmonized band in Europe is the lower part, 5945–6425 MHz{{eu-6ghz-band}}, so fewer wide channels fit; national implementation varies, so check each regulator before designing."
         }
       ],
       "hotspots": [
@@ -259,7 +259,7 @@
       },
       "qualifier": "regulatory",
       "regulatoryDomain": "US (FCC)",
-      "note": "Fewer, wider channels: 320 MHz channels {{eht-max-width}} suit areas with few neighbouring access points.",
+      "note": "Fewer, wider channels: 320 MHz channels {{eht-max-width}} suit areas with few neighboring access points.",
       "headline": false,
       "cellQualifiers": {},
       "claimIds": {
@@ -279,7 +279,7 @@
       },
       "qualifier": "regulatory",
       "regulatoryDomain": "US (FCC)",
-      "note": "Other regions allow less; Europe harmonises the lower part of the band.",
+      "note": "Other regions allow less; Europe harmonizes the lower part of the band.",
       "headline": false,
       "cellQualifiers": {},
       "claimIds": {

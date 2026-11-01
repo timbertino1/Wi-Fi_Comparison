@@ -1,12 +1,12 @@
 {
   "id": "closing",
-  "order": 9,
+  "order": 8,
   "kind": "closing",
   "title": "Bringing it together",
   "summary": "The same hospital floor, now on Wi-Fi 7: what changes for each device, and what to plan.",
   "opener": {
     "promise": "What Wi-Fi 7 changes on the floor, in one view",
-    "problem": "Eight chapters of features; the decision needs one picture and a short plan."
+    "problem": "Seven chapters of features; the decision needs one picture and a short plan."
   },
   "introducedIn": null,
   "wifi7Adds": null,

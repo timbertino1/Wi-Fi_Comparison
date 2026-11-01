@@ -261,7 +261,8 @@ with the clicker, and confirm both windows show the same step.
 **Story flow and transitions**
 
 - **FR-010**: The talk MUST open with the "why Wi-Fi 7 matters to healthcare" chapter, then proceed
-  through the feature chapters in the order of feature 001, then a closing chapter (FR-011b). References
+  through the feature chapters in the order of feature 001, then a closing chapter (FR-011b). The
+  4K-QAM, puncturing and Multi-RU chapter was removed on 2026-11-01 to trim the talk. References
   and the glossary MUST remain reachable from the chapter menu but are not part of the clicker path.
 - **FR-011**: Moving between chapters MUST use a transition of: the view moving out from the current
   scene, a crossfade to the next scene, and the view moving in to the first step, completing within

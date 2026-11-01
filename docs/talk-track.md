@@ -8,12 +8,11 @@ Source markers such as [S3] refer to the References section at the end.
 1. Why Wi-Fi 7, and why now
 2. 6 GHz Spectrum & 320 MHz Channels
 3. Multi-Link Operation (MLO)
-4. More From Every Channel
-5. Security: WPA3 and Wi-Fi 7
-6. Target Wake Time & Battery Life
-7. Client Density
-8. Lower, More Predictable Latency
-9. Bringing it together
+4. Security: WPA3 and Wi-Fi 7
+5. Target Wake Time & Battery Life
+6. Client Density
+7. Lower, More Predictable Latency
+8. Bringing it together
 - Generations · Glossary · Claims register · References
 
 ## 1. Why Wi-Fi 7, and why now
@@ -106,7 +105,7 @@ When the network gets crowded, the urgent traffic waits in line behind everythin
 
 ### Step 3 — Five generations brought us here
 
-**On screen:** Five generations brought us here / Wi-Fi 7 certification launched in 2024 [S16]; it is the generation to plan around today. A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own colour and labelled with its name and year.
+**On screen:** Five generations brought us here / Wi-Fi 7 certification launched in 2024 [S16]; it is the generation to plan around today. A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own color and labeled with its name and year.
 
 **Say (leadership):** Five generations of Wi-Fi.
 
@@ -177,18 +176,18 @@ A wide band free of older devices, and channels twice as wide as Wi-Fi 6E allows
 
 **Healthcare scenario — Medical-surgical floor at a busy hour** (devices: voice badge, infusion pump, telemetry monitor, mobile workstation)
 
-- Problem: Every device shares the 2.4 GHz and 5 GHz bands with older equipment and neighbouring units, so capacity runs short when the floor is busiest.
+- Problem: Every device shares the 2.4 GHz and 5 GHz bands with older equipment and neighboring units, so capacity runs short when the floor is busiest.
 - What Wi-Fi 7 supports: Moving capable devices to 6 GHz frees capacity in the older bands and gives imaging and video wider channels, free of older devices.
 
 ### Step 1 — Too many devices, too few lanes
 
-**On screen:** Too many devices, too few lanes / Older bands are crowded and slowed by legacy devices; adding access points eventually stops helping. Three roads leave an access point, one per band, each drawn as wide as its band. The narrow 2.4 GHz and 5 GHz roads are jammed: grey trucks for older devices crawl along and hold up the cars behind them, while the much wider 6 GHz road beside them sits unlit and empty. Hotspots: Legacy device.
+**On screen:** Too many devices, too few lanes / Older bands are crowded and slowed by legacy devices; adding access points eventually stops helping. Three roads leave an access point, one per band, each drawn as wide as its band. The narrow 2.4 GHz and 5 GHz roads are jammed: gray trucks for older devices crawl along and hold up the cars behind them, while the much wider 6 GHz road beside them sits unlit and empty. Hotspots: Legacy device.
 
 **Callout — Why the old bands run out:**
 
 - The 2.4 and 5 GHz bands fit only a handful of wide channels
 - Older devices send slowly and hold the channel longer
-- Guest phones and neighbouring units crowd the same channels
+- Guest phones and neighboring units crowd the same channels
 - More access points stop helping once every channel is taken
 
 **Say (leadership):** Too many devices, too few lanes.
@@ -257,11 +256,11 @@ Wi-Fi 7 adds 320 MHz channels, which are only available in the 6 GHz band [S15, 
 
 ### Step 3 — Room for more channels, and wider ones
 
-**On screen:** Room for more channels, and wider ones / Indoors, the US band fits 59 channels of 20 MHz [S21, S7] or three of 320 MHz [S21, S7]. Lane markings divide the 6 GHz road into four stretches: many narrow 20 MHz lanes, then 80 MHz and 160 MHz lanes, and finally three wide 320 MHz lanes, each stretch labelled with how many lanes fit [S21, S7] [S21, S7] [S21, S7] [S21, S7]. Traffic flows freely in every lane. Hotspots: Channel width.
+**On screen:** Room for more channels, and wider ones / Indoors, the US band fits 59 channels of 20 MHz [S21, S7] or three of 320 MHz [S21, S7]. Lane markings divide the 6 GHz road into four stretches: many narrow 20 MHz lanes, then 80 MHz and 160 MHz lanes, and finally three wide 320 MHz lanes, each stretch labeled with how many lanes fit [S21, S7] [S21, S7] [S21, S7] [S21, S7]. Traffic flows freely in every lane. Hotspots: Channel width.
 
 **Callout — Why more channels help:**
 
-- Neighbouring access points each get their own channel and stop competing
+- Neighboring access points each get their own channel and stop competing
 - Fewer devices share each channel, so each one waits less
 - Narrow channels serve many small devices; wide ones move big files fast
 - Indoors, the US band fits three 320 MHz channels [S21, S7]
@@ -270,11 +269,11 @@ Wi-Fi 7 adds 320 MHz channels, which are only available in the 6 GHz band [S15, 
 
 With 1200 MHz available [S21], the US 6 GHz band fits 59 channels of 20 MHz [S21, S7], 29 of 40 MHz [S21, S7], 14 of 80 MHz [S21, S7], 7 of 160 MHz [S21, S7] or 3 non-overlapping channels of 320 MHz [S21, S7]. Those counts are for low-power indoor access points, which may use the whole band [S21]; standard-power access points use only part of it, under automated frequency coordination [S21].
 
-Only Wi-Fi 6E and newer devices can operate there [S7, S17], so no legacy devices slow it down. It is not empty: neighbouring Wi-Fi 6E and 7 networks share it, so channel planning still matters.
+Only Wi-Fi 6E and newer devices can operate there [S7, S17], so no legacy devices slow it down. It is not empty: neighboring Wi-Fi 6E and 7 networks share it, so channel planning still matters.
 
 **Bottom line:** More and wider channels, free of older devices, means more capacity per access point and fewer devices competing on each channel.
 
-**Technical depth:** Full-band counts apply to low-power indoor access points [S21]; standard power is limited to U-NII-5 and U-NII-7 [S21]. Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz [S7]; each count is recomputed from those inputs. LPI access points may operate across the band without coordination [S21]; standard-power access points are limited to U-NII-5 and U-NII-7 under AFC [S21], so a standard-power design has fewer channels. Channel width is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighbouring access points must avoid each other. Availability differs by Regulatory domain: the CEPT harmonised band covers 5945–6425 MHz [S22].
+**Technical depth:** Full-band counts apply to low-power indoor access points [S21]; standard power is limited to U-NII-5 and U-NII-7 [S21]. Channel counts follow from the band edges and the 6 GHz channel raster, which starts at 5945 MHz [S7]; each count is recomputed from those inputs. LPI access points may operate across the band without coordination [S21]; standard-power access points are limited to U-NII-5 and U-NII-7 under AFC [S21], so a standard-power design has fewer channels. Channel width is a trade-off: wider channels carry more per transmission, but fewer fit, which matters when neighboring access points must avoid each other. Availability differs by Regulatory domain: the CEPT harmonized band covers 5945–6425 MHz [S22].
 
 **Terms:**
 
@@ -297,12 +296,12 @@ Only Wi-Fi 6E and newer devices can operate there [S7, S17], so no legacy device
 | In the US, low-power indoor access points may operate across the entire 6 GHz band without automated frequency coordination | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, Section III.B (Low-Power Indoor Operations Across the Entire 6 GHz Band) |
 | In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC) | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407 |
 | Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E and 6 GHz operation subclauses (HE operation only) |
-| Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz) | 5945 MHz | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E, 6 GHz band operating classes and channel numbering |
-| European harmonised 6 GHz band for Wi-Fi (lower 6 GHz) | 5945–6425 MHz | S22 ECC Decision (20)01 on the harmonised use of the frequency band 5945-6425 MHz for WAS/RLAN | Decision, Annex 1 |
+| Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centered on 5955 MHz) | 5945 MHz | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E, 6 GHz band operating classes and channel numbering |
+| European harmonized 6 GHz band for Wi-Fi (lower 6 GHz) | 5945–6425 MHz | S22 ECC Decision (20)01 on the harmonised use of the frequency band 5945-6425 MHz for WAS/RLAN | Decision, Annex 1 |
 
 **Likely questions:**
 
-- **Q (technical):** Why not use the widest channels everywhere? **A:** Only three fit in the US band [S21, S7], so neighbouring access points would overlap. Dense floors usually run narrower channels and keep the widest ones for lightly shared areas such as imaging rooms.
+- **Q (technical):** Why not use the widest channels everywhere? **A:** Only three fit in the US band [S21, S7], so neighboring access points would overlap. Dense floors usually run narrower channels and keep the widest ones for lightly shared areas such as imaging rooms.
 - **Q (technical):** Do these channel counts apply to every access point? **A:** No. They are for low-power indoor access points, which may use the whole band [S21]. Standard-power access points use only U-NII-5 and U-NII-7, under automated frequency coordination [S21].
 
 ### Step 4 — Twice the widest channel
@@ -324,11 +323,10 @@ Wi-Fi 5 and earlier cannot use 6 GHz at all [S7, S17].
 
 **Bottom line:** For data-heavy areas such as imaging and procedure rooms, 320 MHz channels [S8, S15] can move large files markedly faster; on dense floors, narrower channels usually serve better.
 
-**Technical depth:** 3920 data subcarriers in 320 MHz versus 1960 in 160 MHz [S8] [S7]. Doubling channel width doubles the data subcarriers per symbol (3920 in 320 MHz versus 1960 in 160 MHz) [S8] [S7]. In practice, 320 MHz channels [S8, S15] suit lightly shared areas; dense floors often use narrower channels so neighbouring access points can reuse spectrum, with preamble puncturing helping wide channels survive interference (see the next chapter). A 320 MHz channel carries 3920 data subcarriers per symbol versus 1960 at 160 MHz [S8] [S7].
+**Technical depth:** 3920 data subcarriers in 320 MHz versus 1960 in 160 MHz [S8] [S7]. Doubling channel width doubles the data subcarriers per symbol (3920 in 320 MHz versus 1960 in 160 MHz) [S8] [S7]. In practice, 320 MHz channels [S8, S15] suit lightly shared areas; dense floors often use narrower channels so neighboring access points can reuse spectrum. A 320 MHz channel carries 3920 data subcarriers per symbol versus 1960 at 160 MHz [S8] [S7].
 
 **Terms:**
 
-- Preamble puncturing — Skipping a busy slice inside a wide channel so the rest of the channel can still be used, instead of falling back to a narrower channel.
 - Airtime — The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime.
 - Channel width — How much radio spectrum one Wi-Fi channel occupies. Wider channels carry more data at once, but fewer of them fit in a band.
 
@@ -349,7 +347,7 @@ Wi-Fi 5 and earlier cannot use 6 GHz at all [S7, S17].
 
 ### Step 5 — Big files and video, in the right places
 
-**On screen:** Big files and video, in the right places / 6 GHz fades through walls [S21]: plan coverage with a site survey and check local rules. An access point inside a room sends three coverage rings through the surrounding walls: the 2.4 GHz ring reaches furthest, the 5 GHz ring less far and the 6 GHz ring is the most contained. The rings are labelled as illustrative. Hotspots: Regulatory domain.
+**On screen:** Big files and video, in the right places / 6 GHz fades through walls [S21]: plan coverage with a site survey and check local rules. An access point inside a room sends three coverage rings through the surrounding walls: the 2.4 GHz ring reaches furthest, the 5 GHz ring less far and the 6 GHz ring is the most contained. The rings are labeled as illustrative. Hotspots: Regulatory domain.
 
 **Say (leadership):** Big files and live video, in the right places.
 
@@ -359,7 +357,7 @@ There is a trade-off: walls and building materials weaken 6 GHz signals [S21], s
 
 **Bottom line:** 6 GHz adds capacity where it is needed most, but it requires a site survey and may change access-point placement; check the rules for each country you operate in.
 
-**Technical depth:** Rules differ by regulatory domain: the CEPT harmonised band is 5945–6425 MHz [S22].
+**Technical depth:** Rules differ by regulatory domain: the CEPT harmonized band is 5945–6425 MHz [S22].
 
 **Terms:**
 
@@ -370,12 +368,12 @@ There is a trade-off: walls and building materials weaken 6 GHz signals [S21], s
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | Building walls and materials attenuate 6 GHz signals; the FCC relied on this building entry loss when permitting low-power indoor operation | — | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Report and Order, building entry loss analysis |
-| European harmonised 6 GHz band for Wi-Fi (lower 6 GHz) | 5945–6425 MHz | S22 ECC Decision (20)01 on the harmonised use of the frequency band 5945-6425 MHz for WAS/RLAN | Decision, Annex 1 |
+| European harmonized 6 GHz band for Wi-Fi (lower 6 GHz) | 5945–6425 MHz | S22 ECC Decision (20)01 on the harmonised use of the frequency band 5945-6425 MHz for WAS/RLAN | Decision, Annex 1 |
 
 **Likely questions:**
 
 - **Q (both):** Do we need more access points for the new band? **A:** Possibly in some areas. Walls weaken 6 GHz signals more than lower bands [S21], so a site survey decides placement. Many designs reuse existing locations; run the survey before you budget.
-- **Q (both):** Does this work outside the United States? **A:** Rules vary by country. The CEPT harmonised band in Europe is the lower part, 5945–6425 MHz [S22], so fewer wide channels fit; national implementation varies, so check each regulator before designing.
+- **Q (both):** Does this work outside the United States? **A:** Rules vary by country. The CEPT harmonized band in Europe is the lower part, 5945–6425 MHz [S22], so fewer wide channels fit; national implementation varies, so check each regulator before designing.
 
 ### Key figures
 
@@ -383,8 +381,8 @@ There is a trade-off: walls and building materials weaken 6 GHz signals [S21], s
 |---|---|---|---|---|---|---|
 | Widest channel | 160 MHz | 160 MHz | 160 MHz | 320 MHz | defined in the standard | [S6, S7, S8, S15] |
 | Can use the 6 GHz band | No | No | Yes | Yes | defined in the standard | [S7, S17, S15, S8] |
-| Non-overlapping widest channels in 6 GHz — Fewer, wider channels: 320 MHz channels [S8, S15] suit areas with few neighbouring access points. | n/a | n/a | 7 channels | 3 channels | regulatory limit | [S21, S7] |
-| 6 GHz spectrum available — Other regions allow less; Europe harmonises the lower part of the band. | n/a | n/a | 1200 MHz | 1200 MHz | regulatory limit | [S21] |
+| Non-overlapping widest channels in 6 GHz — Fewer, wider channels: 320 MHz channels [S8, S15] suit areas with few neighboring access points. | n/a | n/a | 7 channels | 3 channels | regulatory limit | [S21, S7] |
+| 6 GHz spectrum available — Other regions allow less; Europe harmonizes the lower part of the band. | n/a | n/a | 1200 MHz | 1200 MHz | regulatory limit | [S21] |
 
 ## 3. Multi-Link Operation (MLO)
 
@@ -399,7 +397,7 @@ One connection that holds links in several bands, and moves traffic between them
 
 ### Step 1 — The call that breaks up between units
 
-**On screen:** The call that breaks up between units / Choppy badge calls cost clinical time and create repeat pages: a care problem, not just IT. An access point on the left connects to a nurse's badge on the right with a single arched link. Large grey blocks from an imaging upload fill the link, and the badge's small voice packets bunch up behind them and stall.
+**On screen:** The call that breaks up between units / Choppy badge calls cost clinical time and create repeat pages: a care problem, not just IT. An access point on the left connects to a nurse's badge on the right with a single arched link. Large gray blocks from an imaging upload fill the link, and the badge's small voice packets bunch up behind them and stall.
 
 **Say (leadership):** The call that breaks up between units.
 
@@ -426,7 +424,7 @@ No figures cited on this step.
 
 ### Step 2 — One connection, several radio lanes
 
-**On screen:** One connection, several radio lanes / Multi-Link Operation lets one connection hold links in 2.4, 5 and 6 GHz [S8, S15]. Two more arched links appear between the access point and the badge, so there are three in total, labelled with their bands. All three belong to the same connection; the voice packets travel on one of them, while the other two stand ready.
+**On screen:** One connection, several radio lanes / Multi-Link Operation lets one connection hold links in 2.4, 5 and 6 GHz [S8, S15]. Two more arched links appear between the access point and the badge, so there are three in total, labeled with their bands. All three belong to the same connection; the voice packets travel on one of them, while the other two stand ready.
 
 **Say (leadership):** One connection, several radio lanes.
 
@@ -455,7 +453,7 @@ Think of it as one conversation with several lanes open to it. Whether the devic
 
 ### Step 3 — Busy band? Traffic takes another lane
 
-**On screen:** Busy band? Traffic takes another lane / Voice packets can move to another link without reconnecting [S8]. Grey upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.
+**On screen:** Busy band? Traffic takes another lane / Voice packets can move to another link without reconnecting [S8]. Gray upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.
 
 **Say (leadership):** Busy band? Traffic moves to another lane.
 
@@ -557,7 +555,7 @@ How much it helps depends on both ends. A device in STR mode can use links at th
 
 #### MLO modes: STR, NSTR, EMLSR and EMLMR
 
-IEEE 802.11be defines STR and NSTR operation for pairs of links, plus two enhanced multi-link modes, EMLSR and EMLMR [S8]. Each is a behaviour, not a radio count:
+IEEE 802.11be defines STR and NSTR operation for pairs of links, plus two enhanced multi-link modes, EMLSR and EMLMR [S8]. Each is a behavior, not a radio count:
 
 **STR (simultaneous transmit and receive)** — on a pair of STR links, the device can send on one while receiving on the other [S8]. It gives the most concurrency but needs good isolation between bands.
 
@@ -569,217 +567,22 @@ IEEE 802.11be defines STR and NSTR operation for pairs of links, plus two enhanc
 
 These modes are not a simple ladder from cheap to best. Which one a badge, phone, laptop or access point supports is a product decision, so check the mode, link count and firmware during procurement.
 
-## 4. More From Every Channel
-
-Wi-Fi 7 keeps most of a wide channel working when part of it is busy, and carries fuller loads close to the access point.
-
-**Opener** (its own click): Chapter 4 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in Wi-Fi 6 — More From Every Channel. Puncturing, Multi-RU and 4K-QAM: more from each channel. The problem: Without puncturing, a small patch of interference forces the whole channel to shrink.
-
-**Lineage:** First introduced in Wi-Fi 6 (IEEE 802.11ax). What Wi-Fi 7 adds: Preamble puncturing existed in Wi-Fi 6 for multi-user transmissions only [S7]; Wi-Fi 7 extends it to single-user transmissions [S8] and adds 4096-QAM [S8] and multiple resource units per device [S8, S7].
-
-**Healthcare scenario — Imaging suite** (devices: imaging workstation, access point)
-
-- Problem: Another system is busy in one small slice of the wide channel, and without puncturing the access point has to fall back to a much narrower channel.
-- What Wi-Fi 7 supports: Puncturing and Multi-RU let the access point keep using most of the channel, supporting faster image transfers in the room.
-
-### Step 1 — One busy lane closes most of the road
-
-**On screen:** One busy lane closes most of the road / Without puncturing, interference in one slice forces the whole channel to shrink. A wide road of eight lanes leaves an access point. One lane is blocked by red barriers for a neighbouring network. On older Wi-Fi, the lanes from the blocked one onwards are greyed out and closed, and traffic squeezes slowly into the two lanes that remain. Hotspots: Channel width.
-
-**Callout — Why one busy slice hurts:**
-
-- A wide channel is built from many narrower slices
-- Neighbouring networks and equipment often occupy just one of them
-- Without puncturing, Wi-Fi falls back to a much narrower channel
-- Most of the capacity in the room goes unused
-
-**Say (leadership):** One busy lane closes most of the road.
-
-Picture one wide Wi-Fi channel as a road with many lanes leading from the access point. In an imaging suite, a neighbouring network is busy in just one of those lanes.
-
-Without puncturing, as on Wi-Fi 5 and for Wi-Fi 6 single-user transmissions [S7], the access point has to avoid it by dropping to a much narrower channel: traffic squeezes into the few lanes before the busy one, and the rest of the road sits empty.
-
-**Bottom line:** Interference in a small part of the spectrum can cut wireless capacity in a room far more than its size suggests.
-
-**Technical depth:** A wide channel is built from narrower subchannels; without puncturing, the access point gives up the whole stretch around a busy one.
-
-**Terms:**
-
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-- Channel width — How much radio spectrum one Wi-Fi channel occupies. Wider channels carry more data at once, but fewer of them fit in a band.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| Preamble puncturing was introduced in 802.11ax for multi-user transmissions | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU preamble puncturing |
-
-**Likely questions:**
-
-- None written yet.
-
-### Step 2 — Wi-Fi 7 closes only the busy lane
-
-**On screen:** Wi-Fi 7 closes only the busy lane / Puncturing skips the busy slice; one device can use lanes on both sides [S8, S7]. The same road in the Wi-Fi 7 colour. Only the blocked lane stays closed; traffic flows in all the other lanes, and one device’s convoy, highlighted, travels in the lanes on both sides of the blocked one at once. Hotspots: Preamble puncturing, Multi-RU.
-
-**Callout — What Wi-Fi 7 changes:**
-
-- Only the busy slice is skipped, within allowed patterns [S8]
-- One device can use pieces on both sides of the busy slice [S8, S7]
-- Wi-Fi 6 could only do this when sharing a transmission [S7]
-
-**Say (leadership):** Close only the busy lane.
-
-Wi-Fi 7 can keep the wide channel and skip the busy slice. This is called preamble puncturing, and Wi-Fi 7 can use it for single-user as well as multi-user transmissions [S8], within a set of allowed patterns [S8].
-
-It also lets one device use several separate pieces of the channel at once, so its traffic flows in the lanes on both sides of the busy one. This is Multi-RU [S8, S7].
-
-**Bottom line:** More of the channel keeps working when part of it is busy, so a noisy neighbour can cost one slice instead of most of the road.
-
-**Technical depth:** In 802.11ax, preamble puncturing applies only to multi-user transmissions, and each station receives a single resource unit [S7] [S8, S7]. 802.11be signals the punctured 20 MHz subchannels in the preamble for single-user and multi-user transmissions [S8]; single-user puncturing uses a defined set of patterns, and the primary 20 MHz channel is never punctured [S8]. It also defines multiple resource units: defined combinations of RUs, even non-adjacent ones, assigned to one station [S8, S7].
-
-**Terms:**
-
-- Preamble puncturing — Skipping a busy slice inside a wide channel so the rest of the channel can still be used, instead of falling back to a narrower channel.
-- Multi-RU — A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other.
-- Resource unit — A block of subcarriers within a channel that an access point assigns to one device for a transmission. Also called an RU.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns) |
-| 802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns) |
-| 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
-| Preamble puncturing was introduced in 802.11ax for multi-user transmissions | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU preamble puncturing |
-
-**Likely questions:**
-
-- **Q (technical):** How is this different from OFDMA in Wi-Fi 6? **A:** Wi-Fi 6 OFDMA gives each device one resource unit per transmission [S8, S7]. Wi-Fi 7 can give a device several, including non-adjacent ones, and can puncture single-user transmissions too [S8].
-- **Q (technical):** Can any slice of the channel be punctured? **A:** No. Single-user puncturing uses a defined set of patterns, and the primary 20 MHz channel cannot be punctured [S8], so channel planning still decides how well it works.
-
-### Step 3 — Fuller loads close to the access point
-
-**On screen:** Fuller loads close to the access point / Near its access point, 4K-QAM can carry up to a fifth more at peak [S8, S15]. Traffic flows on the Wi-Fi 7 road. The stretch nearest the access point is highlighted; vehicles there stand taller with fuller loads, while those further down the road carry normal loads. A label gives the best-case gain at the top rate [S8, S15]. Hotspots: QAM.
-
-**Callout — Why loads are fuller nearby:**
-
-- 4K-QAM packs 12 bits into each slice of the signal, not 10 [S8]
-- That needs a very strong, clean signal [S8], so few devices qualify
-- Up to 20% more at the top rate [S8, S15], not for every transfer
-
-**Say (leadership):** Fuller loads close to the access point.
-
-Each Wi-Fi transmission is a trip down the road. With 4K-QAM, Wi-Fi 7 can pack more into a trip, up to 20% more at the top data rate [S8, S15], by encoding 12 bits into each slice of the signal instead of 10 [S8] [S7].
-
-That needs a very clean, strong signal [S8], typically a device close to its access point with little interference, such as a workstation in the same room. It is a best case at the physical layer, not an expected gain for every transfer.
-
-**Bottom line:** Devices with an excellent signal can finish transfers faster; most devices carry their usual loads.
-
-**Technical depth:** 4096-QAM: 12 bits per subcarrier versus 10 [S8] [S7]; it needs a stricter EVM [S8]. 4096-QAM carries 12 bits per subcarrier (2¹² points) versus 10 for 1024-QAM [S8] [S7], and 802.11be sets a stricter EVM limit for it [S8]. The gain applies only at the highest modulation, which needs a strong signal and little noise.
-
-**Terms:**
-
-- QAM — The way Wi-Fi encodes bits into a radio signal. Higher orders, such as 4096-QAM, pack more bits into each signal but need a cleaner, stronger signal.
-- EVM — A measure of how accurately a radio places each signal point. Higher-order modulation needs a lower (better) EVM.
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-- Subcarrier — One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier) | 20 % | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 12–13 |
-| Bits per subcarrier at 4096-QAM (Wi-Fi 7 highest modulation) | 12 bits | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, Table 36-51 (4096-QAM) and Table 36-86 |
-| Bits per subcarrier at 1024-QAM (Wi-Fi 6 highest modulation) | 10 bits | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE-MCS 10–11 parameters |
-| 4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM) |
-
-**Likely questions:**
-
-- **Q (both):** Will every device get the 4K-QAM speed-up? **A:** No. 4096-QAM needs a very clean, strong signal [S8], so mainly devices close to their access point benefit, such as a workstation in the same room. Devices further away use lower modulation as before.
-
-### Step 4 — Same road, same interference, more traffic
-
-**On screen:** Same road, same interference, more traffic / Without puncturing, traffic squeezes into two lanes; Wi-Fi 7 keeps more of the road busy. Two roads, one behind the other, each with the same blocked lane. On the front road, older Wi-Fi traffic squeezes into two lanes while the rest is closed. On the back road, Wi-Fi 7 traffic flows in every other lane, standing taller near the access point. The roads are illustrative.
-
-**Say (leadership):** Same road, same interference, more traffic.
-
-Side by side, with the same neighbouring network in the same lane: older Wi-Fi gives up most of the channel, and every device waits in the few lanes left. Wi-Fi 6 could puncture only shared, multi-user transmissions [S7].
-
-Wi-Fi 7 keeps every other lane busy [S8], lets one device use several pieces at once [S8, S7], and adds fuller loads close to the access point [S8, S15].
-
-**Bottom line:** The access point can fit traffic around interference and give busy devices more of the channel, so less capacity is wasted.
-
-**Technical depth:** In 802.11ax, each station in an MU transmission receives a single RU [S8, S7]. 802.11be defines multiple resource units (MRUs): combinations of RUs assigned to one station, which also make puncturing practical for single-user transmissions [S8]. The top modulation rises from 1024-QAM to 4096-QAM [S8, S15].
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| Preamble puncturing was introduced in 802.11ax for multi-user transmissions | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU preamble puncturing |
-| 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns) |
-| 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
-| Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier) | 20 % | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, EHT-MCS 12–13 |
-
-**Likely questions:**
-
-- None written yet.
-
-### Step 5 — Big images, even next to a busy neighbour
-
-**On screen:** Big images, even next to a busy neighbour / An imaging workstation by its access point can get fuller loads and keep more channel. Close to the access point, an imaging workstation sits beside the road. Its traffic flows fast in the open lanes with fuller loads, while the neighbouring network’s barriers stay in their one lane.
-
-**Callout — What it means for the hospital:**
-
-- A neighbouring network can cost one slice of a channel, not most of it
-- Imaging files near an access point finish sooner
-- No new spectrum needed: the same channels carry more
-
-**Say (leadership):** Capacity that survives a busy neighbourhood.
-
-Hospitals are dense radio environments: neighbouring networks, building systems and wireless clinical equipment all share the air. Puncturing and Multi-RU let wide channels keep working when part of the spectrum is busy, and 4K-QAM speeds up transfers for devices near an access point, such as an imaging workstation in the same room.
-
-**Bottom line:** Wi-Fi 7 delivers more usable capacity in the real, cluttered radio environment of a hospital, not only in ideal conditions.
-
-**Technical depth:** No extra technical layer on this step.
-
-**Terms:**
-
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-
-**Figures:**
-
-No figures cited on this step.
-
-**Likely questions:**
-
-- **Q (both):** What causes this interference in a hospital? **A:** Neighbouring Wi-Fi networks, building systems and wireless clinical equipment share the same air. Puncturing lets an access point skip only the busy part of a wide channel [S8] instead of giving up most of it.
-
-### Key figures
-
-| Figure | Wi-Fi 5 (IEEE 802.11ac) | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
-|---|---|---|---|---|---|
-| Bits per subcarrier at the top modulation | 8 bits | 10 bits | 12 bits | defined in the standard | [S6, S7, S8] |
-| Best-case gain at the top modulation — Physical-layer best case; needs a very strong, clean signal. | n/a | n/a | 20 % | theoretical maximum | [S8, S15] |
-| Preamble puncturing | n/a | Multi-user only | Single-user and multi-user | defined in the standard | [S7, S8] |
-| Resource units per device | n/a | One | Several | defined in the standard | [S8, S7] |
-
-## 5. Security: WPA3 and Wi-Fi 7
+## 4. Security: WPA3 and Wi-Fi 7
 
 WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in (Enterprise) networks, and Wi-Fi 7 and 6 GHz require it for secured networks.
 
-**Opener** (its own click): Chapter 5 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · WPA3 since 2018 — Security: WPA3 and Wi-Fi 7. Stronger sign-in for shared-password and staff networks alike. The problem: A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points.
+**Opener** (its own click): Chapter 4 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · WPA3 since 2018 — Security: WPA3 and Wi-Fi 7. Stronger sign-in for shared-password and staff networks alike. The problem: A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points.
 
 **Lineage:** A separate Wi-Fi Alliance security program, not part of one generation. What Wi-Fi 7 adds: WPA3 launched as its own certification in 2018 [S23] and is now required for new Wi-Fi CERTIFIED devices [S20]. Wi-Fi 7 multi-link connections require it [S19, S18], secured 6 GHz networks require WPA3, and open ones use Enhanced Open [S19, S25], and the WPA2-Enterprise sign-in is not used with Wi-Fi 7 or in 6 GHz [S18, S19].
 
 **Healthcare scenario — Clinical device and staff networks** (devices: infusion pump, clinical workstation, voice badge)
 
 - Problem: Devices share a long-lived WPA2 password that a recorded sign-in could crack offline, and staff devices could be fooled by a fake access point.
-- What Wi-Fi 7 supports: WPA3 makes offline guessing ineffective on shared-password networks and makes staff devices check they are on the real network, supporting the organisation’s wider security programme.
+- What Wi-Fi 7 supports: WPA3 makes offline guessing ineffective on shared-password networks and makes staff devices check they are on the real network, supporting the organization’s wider security program.
 
 ### Step 1 — WPA2: two doors, two weak points
 
-**On screen:** WPA2: two doors, two weak points / A guessable shared password can be cracked offline; a fake access point can fool devices. A ward wall with two doors under an access point: a keypad door for the shared-password network, with an infusion pump in front, and a badge door for staff sign-in, with a workstation. An outsider copies a recorded sign-in from the keypad and carries it to a desk, where the lock pops open. At the staff door, the workstation is linked to a red fake access point instead of the real one. Hotspots: Access point, WPA-Personal, WPA-Enterprise, Fake access point.
+**On screen:** WPA2: two doors, two weak points / A guessable shared password can be cracked offline; a fake access point can fool devices. A hallway wall on a hospital unit with two doors under an access point: a keypad door for the shared-password network, with an infusion pump in front, and a badge door for staff sign-in, with a workstation. An outsider copies a recorded sign-in from the keypad and carries it to a desk, where the lock pops open. At the staff door, the workstation is linked to a red fake access point instead of the real one. Hotspots: Access point, WPA-Personal, WPA-Enterprise, Fake access point.
 
 **Callout — WPA2’s two weak points:**
 
@@ -791,7 +594,7 @@ WPA3 closes WPA2’s weak points on shared-password (Personal) and staff sign-in
 
 Hospitals run two kinds of Wi-Fi sign-in through the same access points. Many clinical device networks use one shared password: WPA2-Personal. Staff devices usually sign in with their own credentials: WPA2-Enterprise.
 
-Each has a weak point. On the shared-password network, someone in the car park can record the moment a device joins, take the recording away and try millions of password guesses offline, unseen; a guessable password falls quickly [S23, S18]. On the staff network, WPA2 leaves checking the sign-in server’s certificate to each device’s configuration, which WPA3 makes mandatory [S18], so a misconfigured device can be fooled by a fake access point; and protecting control messages is optional [S19].
+Each has a weak point. On the shared-password network, someone in the parking lot can record the moment a device joins, take the recording away and try millions of password guesses offline, unseen; a guessable password falls quickly [S23, S18]. On the staff network, WPA2 leaves checking the sign-in server’s certificate to each device’s configuration, which WPA3 makes mandatory [S18], so a misconfigured device can be fooled by a fake access point; and protecting control messages is optional [S19].
 
 **Bottom line:** Both kinds of WPA2 network can be attacked quietly: one through a recorded sign-in, the other through a convincing fake.
 
@@ -819,7 +622,7 @@ Each has a weak point. On the shared-password network, someone in the car park c
 
 ### Step 2 — WPA3-Personal: nothing to take home
 
-**On screen:** WPA3-Personal: nothing to take home / A recording is useless for offline guessing; every guess must be tried live [S23, S18]. Back at the keypad door. The outsider’s recording turns into a sealed grey box that gives nothing to test, and their single live guess at the real keypad is refused. The infusion pump gets its own key for the session. Hotspots: SAE, Forward secrecy.
+**On screen:** WPA3-Personal: nothing to take home / A recording is useless for offline guessing; every guess must be tried live [S23, S18]. Back at the keypad door. The outsider’s recording turns into a sealed gray box that gives nothing to test, and their single live guess at the real keypad is refused. The infusion pump gets its own key for the session. Hotspots: SAE, Forward secrecy.
 
 **Callout — What WPA3-Personal changes:**
 
@@ -906,7 +709,7 @@ WPA3-Enterprise has two modes. **Only mode** makes protected management frames m
 
 ### Step 4 — Wi-Fi 7 and 6 GHz: WPA3 sign-in
 
-**On screen:** Wi-Fi 7 and 6 GHz: WPA3 sign-in / Both doors need WPA3 there [S19, S25] [S18, S19]; a separate older network is one migration option [S19]. Above both doors, the access point is labelled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labelled as one migration option. A note shows what the earlier generation accepted. Hotspots: Legacy device.
+**On screen:** Wi-Fi 7 and 6 GHz: WPA3 sign-in / Both doors need WPA3 there [S19, S25] [S18, S19]; a separate older network is one migration option [S19]. Above both doors, the access point is labeled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labeled as one migration option. A note shows what the earlier generation accepted. Hotspots: Legacy device.
 
 **Callout — What changes on Wi-Fi 7:**
 
@@ -962,7 +765,7 @@ Devices that cannot do WPA3 can keep working on a separate, older network while 
 
 Hospital networks carry clinical messages, device telemetry and staff communications. Stronger sign-in and per-session encryption make it much harder to eavesdrop on or impersonate that traffic, on the devices that use WPA3.
 
-WPA3 is one layer of security, not a complete programme: it complements network segmentation, device management and your organisation's security and compliance processes.
+WPA3 is one layer of security, not a complete program: it complements network segmentation, device management and your organization's security and compliance processes.
 
 **Bottom line:** Plan WPA3 alongside clinical device refresh: some older devices may not support it, so 6 GHz and Wi-Fi 7 networks may need separate network names during the transition.
 
@@ -981,7 +784,7 @@ WPA3 is one layer of security, not a complete programme: it complements network 
 
 **Likely questions:**
 
-- **Q (leadership):** Does WPA3 make our network compliant? **A:** No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organisation’s security and compliance processes.
+- **Q (leadership):** Does WPA3 make our network compliant? **A:** No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organization’s security and compliance processes.
 
 ### Key figures
 
@@ -990,11 +793,11 @@ WPA3 is one layer of security, not a complete programme: it complements network 
 | WPA2-Personal in the 6 GHz band | Cannot use 6 GHz | Cannot use 6 GHz | Not permitted | Wi-Fi Alliance requirement, not IEEE | [S7, S17, S19, S25] |
 | WPA3 required for multi-link connections — Earlier generations have no multi-link operation. | n/a | n/a | Yes | Wi-Fi Alliance requirement, not IEEE | [S19, S18] |
 
-## 6. Target Wake Time & Battery Life
+## 5. Target Wake Time & Battery Life
 
 Scheduled wake-ups that let badges and sensors sleep, plus protected time slots for urgent traffic.
 
-**Opener** (its own click): Chapter 6 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in 802.11ah, mainstream in Wi-Fi 6 — Target Wake Time & Battery Life. Devices sleep between agreed wake-ups, so batteries can last longer. The problem: Badges and tags drain their batteries listening for messages that rarely come.
+**Opener** (its own click): Chapter 5 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in 802.11ah, mainstream in Wi-Fi 6 — Target Wake Time & Battery Life. Devices sleep between agreed wake-ups, so batteries can last longer. The problem: Badges and tags drain their batteries listening for messages that rarely come.
 
 **Lineage:** First defined in IEEE 802.11ah; mainstream with Wi-Fi 6 (802.11ax). What Wi-Fi 7 adds: Target Wake Time was first defined in 802.11ah [S9] and came to mainstream Wi-Fi with Wi-Fi 6 [S4]; Wi-Fi 7 adds optional Restricted TWT, which protects time slots for latency-sensitive traffic [S8] [S8].
 
@@ -1003,17 +806,17 @@ Scheduled wake-ups that let badges and sensors sleep, plus protected time slots 
 - Problem: Small battery-powered devices keep their radios listening and need recharging or swapping before the shift ends.
 - What Wi-Fi 7 supports: Target Wake Time lets devices sleep between agreed wake-ups, and optional Restricted TWT can protect time for voice and telemetry on devices that support it, so batteries can last longer and timing can be more predictable.
 
-### Step 1 — Always listening, flat by mid-shift
+### Step 1 — Always listening, dead by mid-shift
 
-**On screen:** Always listening, flat by mid-shift / Radios that never sleep drain batteries, leaving clinicians or equipment unreachable until recharged. One ward over one shift. A voice badge, a location tag and a patient monitor stand under the access point, each with a large battery above it and its radio glowing to show it is always listening. As the shift bar along the front fills, every battery drains from green through amber to red, and the badge goes flat before the shift ends. Battery levels are labelled illustrative. Hotspots: Access point, Voice badge, RTLS, Patient monitor.
+**On screen:** Always listening, dead by mid-shift / Radios that never sleep drain batteries, leaving clinicians or equipment unreachable until recharged. One hospital unit over one shift. A voice badge, a location tag and a patient monitor stand under the access point, each with a large battery above it and its radio glowing to show it is always listening. As the shift bar along the front fills, every battery drains from green through amber to red, and the badge goes dead before the shift ends. Battery levels are labeled illustrative. Hotspots: Access point, Voice badge, RTLS, Patient monitor.
 
 **Callout — Why batteries run out:**
 
 - Radios stay awake listening, even when nothing arrives
 - Listening drains the battery all shift long
-- A flat badge or tag means an unreachable clinician or lost equipment
+- A dead badge or tag means an unreachable clinician or lost equipment
 
-**Say (leadership):** Always listening, flat by mid-shift.
+**Say (leadership):** Always listening, dead by mid-shift.
 
 Voice badges, location tags and wearable patient monitors are small, battery-powered devices. Without a schedule, their radios stay ready to listen in case the access point has something for them, and listening costs power even when nothing arrives.
 
@@ -1081,7 +884,7 @@ With Target Wake Time, each device and its access point agree on when the device
 
 - A device can agree its own wake-up times [S7]
 - Or join one schedule the access point shares with a group
-- Large groups of tags stay organised and save battery
+- Large groups of tags stay organized and save battery
 
 **Say (leadership):** Schedules for one device or a whole group.
 
@@ -1109,7 +912,7 @@ A device can negotiate its own schedule, or join a schedule the access point ann
 
 ### Step 4 — Protected time for urgent traffic
 
-**On screen:** Protected time for urgent traffic / Optional Restricted TWT gives voice and alarms better-protected slots [S8] [S8]. A laptop that supports Restricted TWT joins the ward, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups. Hotspots: Restricted TWT, Service period.
+**On screen:** Protected time for urgent traffic / Optional Restricted TWT gives voice and alarms better-protected slots [S8] [S8]. A laptop that supports Restricted TWT joins the unit, downloading over a thick link to the access point. Whenever the badge’s protected slot comes round, the laptop is marked paused, its link goes quiet, and the badge’s call goes through before the laptop resumes. A note shows that the earlier generation had no protected time slots. The badge still sleeps between wake-ups. Hotspots: Restricted TWT, Service period.
 
 **Callout — What Wi-Fi 7 adds:**
 
@@ -1191,13 +994,13 @@ The gains depend on support in each device and in the access points, so include 
 | Target Wake Time | n/a | Individual and broadcast | Individual and broadcast | defined in the standard | [S7] |
 | Restricted TWT (protected time slots) | n/a | n/a | Yes | optional | [S8] |
 
-## 7. Client Density
+## 6. Client Density
 
 Hundreds of devices sharing the air in a crowded unit without slowing each other down.
 
-**Opener** (its own click): Chapter 7 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in Wi-Fi 6 — Client Density. Serve many devices at once, across several bands. The problem: At shift change, hundreds of devices compete for the same radio time.
+**Opener** (its own click): Chapter 6 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · first in Wi-Fi 6 — Client Density. Serve many devices at once, across several bands. The problem: At shift change, hundreds of devices compete for the same radio time.
 
-**Lineage:** First introduced in Wi-Fi 6 (IEEE 802.11ax). What Wi-Fi 7 adds: Wi-Fi 6 introduced OFDMA [S7, S4] and BSS coloring [S7] for crowded spaces; Wi-Fi 7 adds wider channels [S8, S15], multi-link load balancing [S8, S15], Multi-RU [S8, S7] and broader puncturing [S8].
+**Lineage:** First introduced in Wi-Fi 6 (IEEE 802.11ax). What Wi-Fi 7 adds: Wi-Fi 6 introduced OFDMA [S7, S4] and BSS coloring [S7] for crowded spaces; Wi-Fi 7 adds wider channels [S8, S15] and multi-link load balancing [S8, S15].
 
 **Healthcare scenario — Emergency department at shift change** (devices: staff phone, voice badge, bedside monitor, infusion pump, workstation on wheels)
 
@@ -1206,7 +1009,7 @@ Hundreds of devices sharing the air in a crowded unit without slowing each other
 
 ### Step 1 — Shift change in the emergency department
 
-**On screen:** Shift change in the emergency department / Crowded units fail from too little airtime per device, not from weak signal. Shift change, shown as hospital lifts. Devices queue in the lobby waiting to send, and each lift trip stands for one transmission to the access point. With one sending device per trip, new devices join faster than the lift can carry them, so the queue grows and the devices that have waited longest turn amber, then red. Hotspots: Access point, Contention, Airtime.
+**On screen:** Shift change in the emergency department / Crowded units fail from too little airtime per device, not from weak signal. Shift change, shown as hospital elevators. Devices queue in the lobby waiting to send, and each elevator trip stands for one transmission to the access point. With one sending device per trip, new devices join faster than the elevator can carry them, so the queue grows and the devices that have waited longest turn amber, then red. Hotspots: Access point, Contention, Airtime.
 
 **Callout — Why crowded units slow down:**
 
@@ -1244,7 +1047,7 @@ With Wi-Fi 5 and earlier, devices sending to the access point take turns, one at
 
 ### Step 2 — Every device shares the same airtime
 
-**On screen:** Every device shares the same airtime / Plan capacity, not just coverage: peak device counts decide how a unit performs. The same lift, labelled as the access point’s airtime: one lift shared by every device in the unit. The queue keeps growing and turning red, because every device draws on the same trips. Hotspots: Airtime.
+**On screen:** Every device shares the same airtime / Plan capacity, not just coverage: peak device counts decide how a unit performs. The same elevator, labeled as the access point’s airtime: one elevator shared by every device in the unit. The queue keeps growing and turning red, because every device draws on the same trips. Hotspots: Airtime.
 
 **Callout — Capacity is airtime:**
 
@@ -1275,7 +1078,7 @@ No figures cited on this step.
 
 ### Step 3 — Serve many devices in each transmission
 
-**On screen:** Serve many devices in each transmission / OFDMA, new in Wi-Fi 6, splits each transmission so several devices share it [S7, S4]. The lift now carries several sending devices on every trip, one per seat, labelled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear. Hotspots: OFDMA, Resource unit.
+**On screen:** Serve many devices in each transmission / OFDMA, new in Wi-Fi 6, splits each transmission so several devices share it [S7, S4]. The elevator now carries several sending devices on every trip, one per seat, labeled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear. Hotspots: OFDMA, Resource unit.
 
 **Callout — What OFDMA does:**
 
@@ -1286,21 +1089,20 @@ No figures cited on this step.
 
 **Say (leadership):** Serve many devices in each transmission.
 
-Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO [S6], but devices sending to it still took turns. Wi-Fi 6 introduced OFDMA, which splits each transmission into resource units so several devices are served at once, in both directions [S7, S4] [S7], and BSS coloring, which helps devices ignore distant neighbouring networks [S7].
+Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO [S6], but devices sending to it still took turns. Wi-Fi 6 introduced OFDMA, which splits each transmission into resource units so several devices are served at once, in both directions [S7, S4] [S7], and BSS coloring, which helps devices ignore distant neighboring networks [S7].
 
-Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi-link operation gives devices links in several bands [S8, S15], and Multi-RU and puncturing use spectrum that would otherwise go idle [S8, S7] [S8].
+Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], and multi-link operation gives devices links in several bands [S8, S15].
 
 **Bottom line:** The same access point can serve more devices with less waiting, which is how dense units stay responsive.
 
-**Technical depth:** Wi-Fi 5 sends to several devices only downlink [S6]; Wi-Fi 6 also lets several devices send at once [S7]. Outside multi-user transmissions, the Contention-based access defined in 802.11 lets one station use the whole channel per transmission opportunity [S6]. 802.11ac added downlink MU-MIMO to up to four stations [S6]. OFDMA assigns RUs to multiple stations in one PPDU, and 802.11ax adds triggered multi-user transmission from stations to the AP [S7, S4] [S7]. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse [S7]. Wi-Fi 7 adds multi-link traffic steering per link [S8] and multiple RUs per station [S8, S7]. These are efficiency tools; which traffic goes first still depends on QoS classification.
+**Technical depth:** Wi-Fi 5 sends to several devices only downlink [S6]; Wi-Fi 6 also lets several devices send at once [S7]. Outside multi-user transmissions, the Contention-based access defined in 802.11 lets one station use the whole channel per transmission opportunity [S6]. 802.11ac added downlink MU-MIMO to up to four stations [S6]. OFDMA assigns RUs to multiple stations in one PPDU, and 802.11ax adds triggered multi-user transmission from stations to the AP [S7, S4] [S7]. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse [S7]. Wi-Fi 7 adds multi-link traffic steering per link [S8]. These are efficiency tools; which traffic goes first still depends on QoS classification.
 
 **Terms:**
 
 - OFDMA — A Wi-Fi 6 technique that divides a channel into resource units so several devices can send or receive in the same transmission.
 - Resource unit — A block of subcarriers within a channel that an access point assigns to one device for a transmission. Also called an RU.
-- BSS coloring — A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighbouring networks and transmit more often.
+- BSS coloring — A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighboring networks and transmit more often.
 - MLO — A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting.
-- Multi-RU — A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other.
 - Contention — How Wi-Fi devices take turns: each listens, waits a random time, then transmits if the channel is free. More devices means more waiting.
 - PPDU — One complete over-the-air transmission, including its preamble and the frames it carries.
 
@@ -1311,23 +1113,21 @@ Wi-Fi 7 builds on both. Wider channels hold more resource units [S8, S15], multi
 | 802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users) |
 | OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
 | 802.11ax (Wi-Fi 6) adds uplink multi-user transmission: the access point triggers several devices to send at once, using OFDMA or MU-MIMO | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26, trigger frame and uplink multi-user (UL MU) operation |
-| 802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse) |
+| 802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbor’s, which spatial-reuse rules then use to transmit more often | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse) |
 | Wi-Fi 7 (EHT) widest channel, 6 GHz only | 320 MHz | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 (EHT PHY) |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
-| 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
-| 802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns) |
 | Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
 | 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 
 **Likely questions:**
 
 - **Q (both):** Do older devices benefit from OFDMA? **A:** No. Devices from before Wi-Fi 6 still take turns using the whole channel when they send [S6]. They benefit indirectly when newer devices finish sooner, but the full gains arrive as devices are refreshed.
-- **Q (technical):** What does BSS coloring do on a dense floor? **A:** It tags each network’s transmissions so a device can tell its own network from a neighbour’s [S7], and reuse the channel more often instead of deferring to distant traffic.
+- **Q (technical):** What does BSS coloring do on a dense floor? **A:** It tags each network’s transmissions so a device can tell its own network from a neighbor’s [S7], and reuse the channel more often instead of deferring to distant traffic.
 - **Q (technical):** Didn’t Wi-Fi 5 already serve several devices at once? **A:** Yes, in one direction: downlink MU-MIMO lets a Wi-Fi 5 access point send to up to four devices together [S6]. Devices sending to the access point still took turns until Wi-Fi 6 let several send at once with OFDMA [S7] [S7, S4].
 
 ### Step 4 — Taking turns, then sharing each trip
 
-**On screen:** Taking turns, then sharing each trip / Wi-Fi 6 shares each trip both ways [S7, S4]; Wi-Fi 7 adds links in up to three bands [S8, S15]. Two lobbies side by side with the same crowd arriving to send. On the left, the earlier generation: one lift, carrying one sending device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, labelled links in up to three bands. The Wi-Fi 7 queue empties fastest. Hotspots: MLO, Contention.
+**On screen:** Taking turns, then sharing each trip / Wi-Fi 6 shares each trip both ways [S7, S4]; Wi-Fi 7 adds links in up to three bands [S8, S15]. Two lobbies side by side with the same crowd arriving to send. On the left, the earlier generation: one elevator, carrying one sending device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three elevators, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, labeled links in up to three bands. The Wi-Fi 7 queue empties fastest. Hotspots: MLO, Contention.
 
 **Callout — How each generation does it:**
 
@@ -1370,7 +1170,7 @@ Wi-Fi 7 keeps that and adds two things. With multi-link operation, one device ca
 
 ### Step 5 — Staying responsive at the busiest moments
 
-**On screen:** Staying responsive at the busiest moments / Size each unit for peak device counts; Wi-Fi 7 raises the ceiling, but placement still matters. The Wi-Fi 7 lobby at the busiest moment: the crowd keeps arriving, three lifts carry several devices each trip, and hardly anyone is waiting. Rates are illustrative. Hotspots: MLO.
+**On screen:** Staying responsive at the busiest moments / Size each unit for peak device counts; Wi-Fi 7 raises the ceiling, but placement still matters. The Wi-Fi 7 lobby at the busiest moment: the crowd keeps arriving, three elevators carry several devices each trip, and hardly anyone is waiting. Rates are illustrative. Hotspots: MLO.
 
 **Callout — What to plan:**
 
@@ -1382,7 +1182,7 @@ Wi-Fi 7 keeps that and adds two things. With multi-link operation, one device ca
 
 Shift changes, mass-casualty events and full waiting rooms are exactly when clinical communication matters most — and when device counts peak. Serving more devices per transmission helps alerts, calls and charting stay responsive when the unit is busiest.
 
-Design for peak density: count devices per bed and per staff member, not just square metres.
+Design for peak density: count devices per bed and per staff member, not just square feet.
 
 **Bottom line:** Plan wireless capacity around peak device counts in each unit; Wi-Fi 7 raises the ceiling, but placement and channel planning still matter.
 
@@ -1409,22 +1209,21 @@ Design for peak density: count devices per bed and per staff member, not just sq
 |---|---|---|---|---|---|
 | Devices served per transmission | Several when the AP sends (MU-MIMO); one when devices send | Several, both directions (OFDMA) | Several, across multiple links | defined in the standard | [S6, S7, S8, S15] |
 | BSS coloring | n/a | Yes | Yes | defined in the standard | [S7] |
-| Resource units per device | n/a | One | Several | defined in the standard | [S8, S7] |
 
-## 8. Lower, More Predictable Latency
+## 7. Lower, More Predictable Latency
 
 Tools that can cut the rare long delays for alarms, voice and video, to validate in a pilot.
 
-**Opener** (its own click): Chapter 8 · Wi-Fi 7 feature · New in Wi-Fi 7 — Lower, More Predictable Latency. Tools for lower and more predictable latency. The problem: Now and then an alarm waits behind a large download before reaching the nurses’ station.
+**Opener** (its own click): Chapter 7 · Wi-Fi 7 feature · New in Wi-Fi 7 — Lower, More Predictable Latency. Tools for lower and more predictable latency. The problem: Now and then an alarm waits behind a large download before reaching the nurses’ station.
 
 **Healthcare scenario — Cardiac telemetry unit** (devices: bedside monitor, nurses' station workstation)
 
 - Problem: Occasionally an alarm message waits behind a large download before reaching the nurses' station.
-- What Wi-Fi 7 supports: Multi-link operation, optional Restricted TWT and Multi-RU target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot.
+- What Wi-Fi 7 supports: Multi-link operation and optional Restricted TWT target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot.
 
 ### Step 1 — The alarm stuck behind a download
 
-**On screen:** The alarm stuck behind a download / Most alarm messages arrive at once; a few wait behind downloads, and those late ones matter. A road runs from a bedside monitor to the nurses’ station. Each alarm message is an ambulance; a large download is a line of grey trucks on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a truck. Each arrival adds a block to an arrivals board behind the road: a tall green column on the left for messages that arrived quickly, and a trail of red blocks to the right for the few that arrived late, labelled the tail. The board is labelled illustrative. Hotspots: Access point, Patient monitor, Tail latency.
+**On screen:** The alarm stuck behind a download / Most alarm messages arrive at once; a few wait behind downloads, and those late ones matter. A road runs from a bedside monitor to the nurses’ station. Each alarm message is an ambulance; a large download is a line of gray trucks on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a truck. Each arrival adds a block to an arrivals board behind the road: a tall green column on the left for messages that arrived quickly, and a trail of red blocks to the right for the few that arrived late, labeled the tail. The board is labeled illustrative. Hotspots: Access point, Patient monitor, Tail latency.
 
 **Callout — Why some alarms arrive late:**
 
@@ -1462,30 +1261,28 @@ Those rare late messages, the tail, are what matter for alarms, voice and remote
 
 ### Step 2 — Tools that can clear the way
 
-**On screen:** Tools that can clear the way / Another band and optional protected TWT slots can keep downloads out of the alarm’s path [S8]. Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance can take the lane with no download ahead. At regular protected slots, trucks that support them pull over onto the shoulder, so ambulances pass more often. The new arrivals board fills mostly with green blocks on the left, with a shorter red tail. Hotspots: MLO, Restricted TWT, Multi-RU.
+**On screen:** Tools that can clear the way / Another band and optional protected TWT slots can keep downloads out of the alarm’s path [S8]. Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance can take the lane with no download ahead. At regular protected slots, trucks that support them pull over onto the shoulder, so ambulances pass more often. The new arrivals board fills mostly with green blocks on the left, with a shorter red tail. Hotspots: MLO, Restricted TWT.
 
 **Callout — How Wi-Fi 7 clears the way:**
 
 - Multi-link: another band when one is busy [S8, S15]
 - Optional Restricted TWT: supporting devices pause in protected slots [S8]
-- Multi-RU: more flexible use of spare channel room [S8, S7]
 
 **Say (leadership):** Tools that can clear the way.
 
-Wi-Fi 7 adds tools that address different reasons an alarm waits. **Multi-link operation** can send it on another band when one is busy [S8, S15]. **Restricted TWT**, an optional form of Target Wake Time, reserves protected time, and devices that support it pause before it starts [S8] [S8]. **Multi-RU** gives the scheduler more flexibility to use spare parts of the channel [S8, S7].
+Wi-Fi 7 adds tools that address different reasons an alarm waits. **Multi-link operation** can send it on another band when one is busy [S8, S15]. **Restricted TWT**, an optional form of Target Wake Time, reserves protected time, and devices that support it pause before it starts [S8] [S8].
 
-None of them knows a message is clinically urgent: that still depends on how traffic is classified and prioritised.
+None of them knows a message is clinically urgent: that still depends on how traffic is classified and prioritized.
 
 **Bottom line:** Each tool addresses a different reason urgent messages wait, on devices and access points that support it.
 
-**Technical depth:** MLO offers another link to contend on [S8]; supporting devices clear restricted service periods [S8]. MLO lets traffic use the link that gains channel access first, with TID-to-link mapping steering traffic classes [S8]; an EMLSR device exchanges frames on one link at a time [S8]. Restricted TWT is optional [S8]; its service periods require supporting stations to end transmissions before the period starts [S8]. Multi-RU allows defined RU combinations per station [S8, S7]. Priority comes from QoS classification (WMM access categories), not from these mechanisms themselves.
+**Technical depth:** MLO offers another link to contend on [S8]; supporting devices clear restricted service periods [S8]. MLO lets traffic use the link that gains channel access first, with TID-to-link mapping steering traffic classes [S8]; an EMLSR device exchanges frames on one link at a time [S8]. Restricted TWT is optional [S8]; its service periods require supporting stations to end transmissions before the period starts [S8]. Priority comes from QoS classification (WMM access categories), not from these mechanisms themselves.
 
 **Terms:**
 
 - MLO — A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting.
 - Restricted TWT — An optional Wi-Fi 7 form of Target Wake Time that better protects scheduled slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
 - TWT — An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
-- Multi-RU — A Wi-Fi 7 feature that lets one device be given several resource units in the same transmission, including ones that are not next to each other.
 - EMLSR — A multi-link mode where a device listens on several links but exchanges data on only one link at a time.
 
 **Figures:**
@@ -1495,17 +1292,16 @@ None of them knows a message is clinically urgent: that still depends on how tra
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 | Devices that support restricted TWT follow channel-access rules that protect the start and use of a restricted service period; this improves predictability, but the airtime is not exclusive | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.4.1 |
 | Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabilities element; only devices that support it take part | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.8.1 and the EHT Capabilities element (Restricted TWT Support) |
-| 802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36, MRU definitions |
 | 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 | In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.17 |
 
 **Likely questions:**
 
-- **Q (technical):** Which feature helps latency most? **A:** It depends on the cause. MLO helps when one band is congested [S8], Restricted TWT when long transmissions block urgent traffic and the devices support it [S8], and Multi-RU when the channel has spare fragments [S8, S7]. Priority still comes from QoS settings.
+- **Q (technical):** Which feature helps latency most? **A:** It depends on the cause. MLO helps when one band is congested [S8], and Restricted TWT when long transmissions block urgent traffic and the devices support it [S8]. Priority still comes from QoS settings.
 
 ### Step 3 — A shorter tail, to test in a pilot
 
-**On screen:** A shorter tail, to test in a pilot / Wi-Fi 7 aims to shorten the late tail [S8]; measure worst-case delay before rollout. Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a long trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board has a shorter tail, labelled potential improvement, deployment-dependent. Both boards are labelled illustrative. Hotspots: Tail latency.
+**On screen:** A shorter tail, to test in a pilot / Wi-Fi 7 aims to shorten the late tail [S8]; measure worst-case delay before rollout. Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a long trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board has a shorter tail, labeled potential improvement, deployment-dependent. Both boards are labeled illustrative. Hotspots: Tail latency.
 
 **Callout — What to test:**
 
@@ -1545,13 +1341,12 @@ Wireless is one link in the alarm chain, alongside middleware, servers and alarm
 |---|---|---|---|---|
 | Multi-link operation | n/a | Yes | defined in the standard | [S8] |
 | Restricted TWT | n/a | Yes | optional | [S8] |
-| Multiple resource units per device | n/a | Yes | defined in the standard | [S8, S7] |
 
-## 9. Bringing it together
+## 8. Bringing it together
 
 The same hospital floor, now on Wi-Fi 7: what changes for each device, and what to plan.
 
-**Opener** (its own click): Chapter 9 · In summary — Bringing it together. What Wi-Fi 7 changes on the floor, in one view. The problem: Eight chapters of features; the decision needs one picture and a short plan.
+**Opener** (its own click): Chapter 8 · In summary — Bringing it together. What Wi-Fi 7 changes on the floor, in one view. The problem: Seven chapters of features; the decision needs one picture and a short plan.
 
 ### Step 1 — The same hospital, on Wi-Fi 7
 
@@ -1640,7 +1435,7 @@ Every source, every claim, and every term used on this site — and how each fig
 
 ### Why only standards bodies, regulators and peer-reviewed research
 
-This site informs decisions about hospital infrastructure, so every technical figure comes from the organisations that define Wi-Fi and its rules: IEEE, the Wi-Fi Alliance, IETF and national regulators such as the FCC. Healthcare context may also draw on peer-reviewed research and health authorities.
+This site informs decisions about hospital infrastructure, so every technical figure comes from the organizations that define Wi-Fi and its rules: IEEE, the Wi-Fi Alliance, IETF and national regulators such as the FCC. Healthcare context may also draw on peer-reviewed research and health authorities.
 
 We never cite vendor material, Wikipedia, blogs, forums, news or AI-generated text — if one of those points to a useful fact, we find and cite the original source instead.
 
@@ -1677,7 +1472,7 @@ A reviewer checks each claim against its source and records the date and their i
 - **Airtime**: The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime.
 - **AKM** (Authentication and key management suite): The method a network uses to authenticate devices and derive encryption keys, such as SAE for WPA3-Personal.
 - **Beacon protection**: A security feature that lets devices check that the access point announcements they hear are genuine, not forged.
-- **BSS coloring**: A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighbouring networks and transmit more often.
+- **BSS coloring**: A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighboring networks and transmit more often.
 - **Channel width**: How much radio spectrum one Wi-Fi channel occupies. Wider channels carry more data at once, but fewer of them fit in a band.
 - **Clinical smartphone**: A hospital-managed phone that staff use for calls, secure messages, alarm notifications and barcode scanning over Wi-Fi.
 - **Contention**: How Wi-Fi devices take turns: each listens, waits a random time, then transmits if the channel is free. More devices means more waiting.
@@ -1939,14 +1734,6 @@ Wi-Fi 7 theoretical peak PHY rate on one link: 8 streams, 320 MHz, 4096-QAM 5/6,
 - Derivation: Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, EHT-MCS 13 rate table. Peer review 2026-10-31 (GPT, High Thinking): Wrong at 46.1 (assumed 16 streams); corrected to 23.1 Gb/s single-link. High.)
 
-### qam-4k-gain
-
-Peak-rate gain of 4096-QAM over 1024-QAM (12 vs 10 bits per subcarrier) — value: 20 %; method: derived; kind: technical.
-- [S8] Clause 36, EHT-MCS 12–13
-- [S15] "4K QAM" feature description
-- Derivation: (12 ÷ 10 − 1) × 100
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S15: Wi-Fi CERTIFIED 7 page: “4K QAM achieves 20% higher transmission rates” than 1024 QAM.)
-
 ### width-320-vs-160
 
 A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel — value: 2 ×; method: derived; kind: technical.
@@ -1975,7 +1762,7 @@ Spectrum made available for unlicensed use in the US 6 GHz band — value: 1200 
 
 ### 6ghz-ch1-lower-edge
 
-Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centred on 5955 MHz) — value: 5945 MHz; method: stated; kind: technical.
+Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centered on 5955 MHz) — value: 5945 MHz; method: stated; kind: technical.
 - [S7] Annex E, 6 GHz band operating classes and channel numbering
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
@@ -2021,7 +1808,7 @@ Non-overlapping 320 MHz channels in the US 6 GHz band — value: 3 channels; met
 
 ### eu-6ghz-band
 
-European harmonised 6 GHz band for Wi-Fi (lower 6 GHz) — value: 5945–6425 MHz; method: stated; kind: technical.
+European harmonized 6 GHz band for Wi-Fi (lower 6 GHz) — value: 5945–6425 MHz; method: stated; kind: technical.
 - [S22] Decision, Annex 1
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S22: ECC/DEC/(20)01 “on the harmonised use of the frequency band 5945-6425 MHz” for WAS/RLAN.)
 
@@ -2090,25 +1877,6 @@ Before 802.11be, a device is associated with one access point (BSS) at a time; m
 - [S8] Clause 35, multi-link device introduction
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
-### puncturing-ax
-
-Preamble puncturing was introduced in 802.11ax for multi-user transmissions — value: —; method: stated; kind: technical.
-- [S7] Clause 27, HE MU PPDU preamble puncturing
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 27, HE MU PPDU preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium).)
-
-### puncturing-be
-
-802.11be extends preamble puncturing to single-user and multi-user transmissions; the punctured subchannels are signalled in the preamble and, for the BSS, in a disabled-subchannel bitmap — value: —; method: stated; kind: technical.
-- [S8] Clause 35.15.2 (BSS preamble puncturing) and Table 36-30 (puncturing patterns)
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, preamble puncturing. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
-
-### multi-ru-be
-
-802.11be allows one station to be assigned multiple resource units (MRU); 802.11ax assigns one RU per station — value: —; method: stated; kind: technical.
-- [S8] Clause 36, MRU definitions
-- [S7] Clause 27, RU allocation
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8, S7 is not openly readable (IEEE paywall); check Clause 36, MRU definitions; Clause 27, RU allocation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
-
 ### ofdma-ax
 
 OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) — value: —; method: stated; kind: technical.
@@ -2118,7 +1886,7 @@ OFDMA, which divides a channel into resource units shared by several devices at 
 
 ### bss-coloring-ax
 
-802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbour’s, which spatial-reuse rules then use to transmit more often — value: —; method: stated; kind: technical.
+802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbor’s, which spatial-reuse rules then use to transmit more often — value: —; method: stated; kind: technical.
 - [S7] Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse)
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
@@ -2127,12 +1895,6 @@ OFDMA, which divides a channel into resource units shared by several devices at 
 Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time — value: —; method: stated; kind: technical.
 - [S6] Clause 10.3 (DCF) and 10.23 (HCF/EDCA)
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated ("whole channel"); reworded to the TXOP access rule. Medium.)
-
-### eht-4kqam-evm
-
-4096-QAM requires a cleaner signal than 1024-QAM: 802.11be sets a stricter transmit modulation accuracy (EVM) limit for it — value: —; method: stated; kind: technical.
-- [S8] Clause 36, Table 36-65 (transmit EVM: −38 dB for 4096-QAM vs −35 dB for 1024-QAM)
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, transmit constellation error (EVM) requirements table. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### twt-origin
 
@@ -2313,12 +2075,6 @@ In EMLMR mode, a multi-radio multi-link device operates on several links at once
 In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC) — value: —; method: stated; kind: technical.
 - [S21] Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407 — “We authorize standard-power access points using an automated frequency coordination (AFC) system.”
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands.)
-
-### puncturing-patterns
-
-802.11be limits single-user preamble puncturing to a defined set of patterns, and the primary 20 MHz channel cannot be punctured — value: —; method: stated; kind: technical.
-- [S8] Clause 35.15.2 (primary 20 MHz not punctured) and Table 36-30 (allowed patterns)
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 36, allowed puncturing patterns for non-OFDMA transmissions. Peer review 2026-10-31 (GPT, High Thinking): Correct; locator corrected. High.)
 
 ### wpa3-launched
 

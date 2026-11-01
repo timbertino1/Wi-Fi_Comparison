@@ -1,6 +1,6 @@
 {
   "id": "latency",
-  "order": 8,
+  "order": 7,
   "kind": "feature",
   "title": "Lower, More Predictable Latency",
   "summary": "Tools that can cut the rare long delays for alarms, voice and video, to validate in a pilot.",
@@ -32,7 +32,7 @@
       "bottomLine": "For alarms, voice and remote procedures, the rare slow message matters more than the typical one.",
       "deepDive": null,
       "sceneState": "alarm-delay",
-      "sceneDescription": "A road runs from a bedside monitor to the nurses’ station. Each alarm message is an ambulance; a large download is a line of grey trucks on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a truck. Each arrival adds a block to an arrivals board behind the road: a tall green column on the left for messages that arrived quickly, and a trail of red blocks to the right for the few that arrived late, labelled the tail. The board is labelled illustrative.",
+      "sceneDescription": "A road runs from a bedside monitor to the nurses’ station. Each alarm message is an ambulance; a large download is a line of gray trucks on the same single lane. Most ambulances drive straight through, but now and then one gets stuck behind a truck. Each arrival adds a block to an arrivals board behind the road: a tall green column on the left for messages that arrived quickly, and a trail of red blocks to the right for the few that arrived late, labeled the tail. The board is labeled illustrative.",
       "durationMs": 14000,
       "callout": {
         "title": "Why some alarms arrive late",
@@ -78,16 +78,16 @@
         "takeaway": "Another band and optional protected [[twt|TWT]] slots can keep downloads out of the alarm’s path{{rtwt-optional}}.",
         "technical": "[[mlo|MLO]] offers another link to contend on{{mlo-tid-mapping}}; supporting devices clear restricted service periods{{rtwt-protect}}."
       },
-      "body": "Wi-Fi 7 adds tools that address different reasons an alarm waits. **[[mlo|Multi-link operation]]** can send it on another band when one is busy {{mlo-bands}}. **[[restricted-twt|Restricted TWT]]**, an optional form of [[twt|Target Wake Time]], reserves protected time, and devices that support it pause before it starts {{rtwt-protect}} {{rtwt-optional}}. **[[multi-ru|Multi-RU]]** gives the scheduler more flexibility to use spare parts of the channel {{multi-ru-be}}.\n\nNone of them knows a message is clinically urgent: that still depends on how traffic is classified and prioritised.",
+      "body": "Wi-Fi 7 adds tools that address different reasons an alarm waits. **[[mlo|Multi-link operation]]** can send it on another band when one is busy {{mlo-bands}}. **[[restricted-twt|Restricted TWT]]**, an optional form of [[twt|Target Wake Time]], reserves protected time, and devices that support it pause before it starts {{rtwt-protect}} {{rtwt-optional}}.\n\nNone of them knows a message is clinically urgent: that still depends on how traffic is classified and prioritized.",
       "bottomLine": "Each tool addresses a different reason urgent messages wait, on devices and access points that support it.",
-      "deepDive": "MLO lets traffic use the link that gains channel access first, with TID-to-link mapping steering traffic classes {{mlo-tid-mapping}}; an [[emlsr|EMLSR]] device exchanges frames on one link at a time {{emlsr-what}}. Restricted TWT is optional {{rtwt-optional}}; its service periods require supporting stations to end transmissions before the period starts {{rtwt-protect}}. Multi-RU allows defined RU combinations per station {{multi-ru-be}}. Priority comes from QoS classification (WMM access categories), not from these mechanisms themselves.",
+      "deepDive": "MLO lets traffic use the link that gains channel access first, with TID-to-link mapping steering traffic classes {{mlo-tid-mapping}}; an [[emlsr|EMLSR]] device exchanges frames on one link at a time {{emlsr-what}}. Restricted TWT is optional {{rtwt-optional}}; its service periods require supporting stations to end transmissions before the period starts {{rtwt-protect}}. Priority comes from QoS classification (WMM access categories), not from these mechanisms themselves.",
       "sceneState": "latency-tools",
       "sceneDescription": "Wi-Fi 7’s road has two lanes, standing for two bands. An ambulance can take the lane with no download ahead. At regular protected slots, trucks that support them pull over onto the shoulder, so ambulances pass more often. The new arrivals board fills mostly with green blocks on the left, with a shorter red tail.",
       "durationMs": 14000,
       "questions": [
         {
           "q": "Which feature helps latency most?",
-          "a": "It depends on the cause. MLO helps when one band is congested{{mlo-tid-mapping}}, Restricted TWT when long transmissions block urgent traffic and the devices support it{{rtwt-protect}}, and Multi-RU when the channel has spare fragments{{multi-ru-be}}. Priority still comes from QoS settings.",
+          "a": "It depends on the cause. MLO helps when one band is congested{{mlo-tid-mapping}}, and Restricted TWT when long transmissions block urgent traffic and the devices support it{{rtwt-protect}}. Priority still comes from QoS settings.",
           "audience": "technical"
         }
       ],
@@ -95,8 +95,7 @@
         "title": "How Wi-Fi 7 clears the way",
         "points": [
           "[[mlo|Multi-link]]: another band when one is busy{{mlo-bands}}",
-          "Optional [[restricted-twt|Restricted TWT]]: supporting devices pause in protected slots{{rtwt-protect}}",
-          "[[multi-ru|Multi-RU]]: more flexible use of spare channel room{{multi-ru-be}}"
+          "Optional [[restricted-twt|Restricted TWT]]: supporting devices pause in protected slots{{rtwt-protect}}"
         ]
       },
       "hotspots": [
@@ -111,12 +110,6 @@
           "anchor": "shoulder",
           "term": "restricted-twt",
           "claim": "rtwt-protect"
-        },
-        {
-          "id": "multi-ru",
-          "anchor": "ap",
-          "term": "multi-ru",
-          "claim": "multi-ru-be"
         }
       ]
     },
@@ -132,7 +125,7 @@
       "bottomLine": "Treat Wi-Fi 7’s latency tools as something to validate: include worst-case delay for alarm, voice and video in acceptance testing, not only average throughput.",
       "deepDive": "Worst-case latency depends on deployment: channel load, device mix, client support for MLO and restricted TWT, and configuration of traffic classes. 802.11be requires at least one mode capable of improved worst-case latency and jitter {{be-latency-objective}} but sets no latency bound. No figures are shown here because results vary by environment; evaluate latency-sensitive applications in a pilot before rollout {{latency-histogram-illustrative}}.",
       "sceneState": "gen-compare",
-      "sceneDescription": "Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a long trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board has a shorter tail, labelled potential improvement, deployment-dependent. Both boards are labelled illustrative.",
+      "sceneDescription": "Two roads, one above the other, with the same alarms and downloads. Above, the earlier generation: one lane, and its arrivals board has a long trail of red late arrivals. Below, Wi-Fi 7: two lanes and protected slots, and its board has a shorter tail, labeled potential improvement, deployment-dependent. Both boards are labeled illustrative.",
       "durationMs": 14000,
       "callout": {
         "title": "What to test",
@@ -200,23 +193,6 @@
       "cellQualifiers": {},
       "claimIds": {
         "wifi7": "rtwt-be"
-      }
-    },
-    {
-      "id": "multi-ru",
-      "metric": "Multiple resource units per device",
-      "unit": null,
-      "values": {
-        "wifi6": null,
-        "wifi7": "Yes"
-      },
-      "qualifier": "normative",
-      "regulatoryDomain": null,
-      "note": null,
-      "headline": false,
-      "cellQualifiers": {},
-      "claimIds": {
-        "wifi7": "multi-ru-be"
       }
     }
   ],

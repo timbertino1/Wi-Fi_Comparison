@@ -9,7 +9,7 @@
         "telemetry monitor",
         "mobile workstation"
       ],
-      "problem": "Every device shares the 2.4 GHz and 5 GHz bands with older equipment and neighbouring units, so capacity runs short when the floor is busiest.",
+      "problem": "Every device shares the 2.4 GHz and 5 GHz bands with older equipment and neighboring units, so capacity runs short when the floor is busiest.",
       "outcomeSupported": "Moving capable devices to 6 GHz frees capacity in the older bands and gives imaging and video wider channels, free of older devices."
     },
     {
@@ -23,16 +23,6 @@
       "outcomeSupported": "With multi-link operation, the call's packets can use a less busy band, supporting steadier calls on the move."
     },
     {
-      "id": "imaging-suite-interference",
-      "location": "Imaging suite",
-      "deviceTypes": [
-        "imaging workstation",
-        "access point"
-      ],
-      "problem": "Another system is busy in one small slice of the wide channel, and without puncturing the access point has to fall back to a much narrower channel.",
-      "outcomeSupported": "Puncturing and Multi-RU let the access point keep using most of the channel, supporting faster image transfers in the room."
-    },
-    {
       "id": "shared-passphrase-risk",
       "location": "Clinical device and staff networks",
       "deviceTypes": [
@@ -41,7 +31,7 @@
         "voice badge"
       ],
       "problem": "Devices share a long-lived WPA2 password that a recorded sign-in could crack offline, and staff devices could be fooled by a fake access point.",
-      "outcomeSupported": "WPA3 makes offline guessing ineffective on shared-password networks and makes staff devices check they are on the real network, supporting the organisation’s wider security programme."
+      "outcomeSupported": "WPA3 makes offline guessing ineffective on shared-password networks and makes staff devices check they are on the real network, supporting the organization’s wider security program."
     },
     {
       "id": "badge-battery-shift",
@@ -75,7 +65,7 @@
         "nurses' station workstation"
       ],
       "problem": "Occasionally an alarm message waits behind a large download before reaching the nurses' station.",
-      "outcomeSupported": "Multi-link operation, optional Restricted TWT and Multi-RU target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot."
+      "outcomeSupported": "Multi-link operation and optional Restricted TWT target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot."
     }
   ]
 }

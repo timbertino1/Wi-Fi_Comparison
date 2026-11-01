@@ -196,7 +196,7 @@
       "id": "bss-coloring",
       "term": "BSS coloring",
       "expansion": null,
-      "definition": "A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighbouring networks and transmit more often."
+      "definition": "A Wi-Fi 6 feature that tags each network's transmissions so devices can ignore distant neighboring networks and transmit more often."
     },
     {
       "id": "latency",

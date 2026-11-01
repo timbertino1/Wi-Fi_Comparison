@@ -1,6 +1,6 @@
 {
   "id": "density",
-  "order": 7,
+  "order": 6,
   "kind": "feature",
   "title": "Client Density",
   "summary": "Hundreds of devices sharing the air in a crowded unit without slowing each other down.",
@@ -9,7 +9,7 @@
     "problem": "At shift change, hundreds of devices compete for the same radio time."
   },
   "introducedIn": "wifi6",
-  "wifi7Adds": "Wi-Fi 6 introduced OFDMA {{ofdma-ax}} and BSS coloring {{bss-coloring-ax}} for crowded spaces; Wi-Fi 7 adds wider channels {{eht-max-width}}, multi-link load balancing {{mlo-bands}}, Multi-RU {{multi-ru-be}} and broader puncturing {{puncturing-be}}.",
+  "wifi7Adds": "Wi-Fi 6 introduced OFDMA {{ofdma-ax}} and BSS coloring {{bss-coloring-ax}} for crowded spaces; Wi-Fi 7 adds wider channels {{eht-max-width}} and multi-link load balancing {{mlo-bands}}.",
   "compareGenerations": [
     "wifi5",
     "wifi6",
@@ -32,7 +32,7 @@
       "bottomLine": "In crowded areas, Wi-Fi often fails from too many devices sharing too little airtime, not from weak signal.",
       "deepDive": null,
       "sceneState": "crowd-contention",
-      "sceneDescription": "Shift change, shown as hospital lifts. Devices queue in the lobby waiting to send, and each lift trip stands for one transmission to the access point. With one sending device per trip, new devices join faster than the lift can carry them, so the queue grows and the devices that have waited longest turn amber, then red.",
+      "sceneDescription": "Shift change, shown as hospital elevators. Devices queue in the lobby waiting to send, and each elevator trip stands for one transmission to the access point. With one sending device per trip, new devices join faster than the elevator can carry them, so the queue grows and the devices that have waited longest turn amber, then red.",
       "durationMs": 12000,
       "callout": {
         "title": "Why crowded units slow down",
@@ -72,7 +72,7 @@
       "bottomLine": "Capacity planning, not just coverage planning, decides how a unit performs at its busiest moments.",
       "deepDive": null,
       "sceneState": "crowd-airtime",
-      "sceneDescription": "The same lift, labelled as the access point’s airtime: one lift shared by every device in the unit. The queue keeps growing and turning red, because every device draws on the same trips.",
+      "sceneDescription": "The same elevator, labeled as the access point’s airtime: one elevator shared by every device in the unit. The queue keeps growing and turning red, because every device draws on the same trips.",
       "durationMs": 11000,
       "callout": {
         "title": "Capacity is airtime",
@@ -98,11 +98,11 @@
         "takeaway": "[[ofdma|OFDMA]], new in Wi-Fi 6, splits each transmission so several devices share it{{ofdma-ax}}.",
         "technical": "Wi-Fi 5 sends to several devices only downlink{{vht-dl-mu-mimo}}; Wi-Fi 6 also lets several devices send at once{{he-ul-mu}}."
       },
-      "body": "Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO {{vht-dl-mu-mimo}}, but devices sending to it still took turns. Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once, in both directions {{ofdma-ax}} {{he-ul-mu}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighbouring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, [[mlo|multi-link operation]] gives devices links in several bands {{mlo-bands}}, and [[multi-ru|Multi-RU]] and puncturing use spectrum that would otherwise go idle {{multi-ru-be}} {{puncturing-be}}.",
+      "body": "Wi-Fi 5 already let an access point send to up to four devices at once with downlink MU-MIMO {{vht-dl-mu-mimo}}, but devices sending to it still took turns. Wi-Fi 6 introduced [[ofdma|OFDMA]], which splits each transmission into [[resource-unit|resource units]] so several devices are served at once, in both directions {{ofdma-ax}} {{he-ul-mu}}, and [[bss-coloring|BSS coloring]], which helps devices ignore distant neighboring networks {{bss-coloring-ax}}.\n\nWi-Fi 7 builds on both. Wider channels hold more resource units {{eht-max-width}}, and [[mlo|multi-link operation]] gives devices links in several bands {{mlo-bands}}.",
       "bottomLine": "The same access point can serve more devices with less waiting, which is how dense units stay responsive.",
-      "deepDive": "Outside multi-user transmissions, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. 802.11ac added downlink MU-MIMO to up to four stations {{vht-dl-mu-mimo}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], and 802.11ax adds triggered multi-user transmission from stations to the AP {{ofdma-ax}} {{he-ul-mu}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}} and multiple RUs per station {{multi-ru-be}}. These are efficiency tools; which traffic goes first still depends on QoS classification.",
+      "deepDive": "Outside multi-user transmissions, the [[contention]]-based access defined in 802.11 lets one station use the whole channel per transmission opportunity {{contention-dcf}}. 802.11ac added downlink MU-MIMO to up to four stations {{vht-dl-mu-mimo}}. OFDMA assigns RUs to multiple stations in one [[ppdu|PPDU]], and 802.11ax adds triggered multi-user transmission from stations to the AP {{ofdma-ax}} {{he-ul-mu}}. BSS coloring lets a station treat inter-BSS frames differently for spatial reuse {{bss-coloring-ax}}. Wi-Fi 7 adds multi-link traffic steering per link {{mlo-tid-mapping}}. These are efficiency tools; which traffic goes first still depends on QoS classification.",
       "sceneState": "ofdma-slices",
-      "sceneDescription": "The lift now carries several sending devices on every trip, one per seat, labelled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear.",
+      "sceneDescription": "The elevator now carries several sending devices on every trip, one per seat, labeled OFDMA, introduced with Wi-Fi 6: each seat stands for a resource unit, a slice of the transmission given to one device. The queue in the lobby shrinks trip by trip and the red devices clear.",
       "durationMs": 14000,
       "questions": [
         {
@@ -111,7 +111,7 @@
         },
         {
           "q": "What does BSS coloring do on a dense floor?",
-          "a": "It tags each network’s transmissions so a device can tell its own network from a neighbour’s{{bss-coloring-ax}}, and reuse the channel more often instead of deferring to distant traffic.",
+          "a": "It tags each network’s transmissions so a device can tell its own network from a neighbor’s{{bss-coloring-ax}}, and reuse the channel more often instead of deferring to distant traffic.",
           "audience": "technical"
         },
         {
@@ -156,7 +156,7 @@
       "bottomLine": "Each generation serves more devices per unit of airtime; Wi-Fi 7 also lets crowded units use several bands for the same devices.",
       "deepDive": "Gains depend on device support: OFDMA and multi-link benefits apply to clients that support Wi-Fi 6 and Wi-Fi 7 respectively. Older clients still use contention and full-channel transmissions {{contention-dcf}}, so mixed device fleets see partial gains until devices are refreshed.",
       "sceneState": "gen-compare",
-      "sceneDescription": "Two lobbies side by side with the same crowd arriving to send. On the left, the earlier generation: one lift, carrying one sending device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three lifts, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, labelled links in up to three bands. The Wi-Fi 7 queue empties fastest.",
+      "sceneDescription": "Two lobbies side by side with the same crowd arriving to send. On the left, the earlier generation: one elevator, carrying one sending device per trip for Wi-Fi 5 or several for Wi-Fi 6. On the right, Wi-Fi 7: three elevators, one each for the 2.4, 5 and 6 GHz bands, each carrying several devices, labeled links in up to three bands. The Wi-Fi 7 queue empties fastest.",
       "durationMs": 14000,
       "callout": {
         "title": "How each generation does it",
@@ -189,11 +189,11 @@
         "headline": "Staying responsive at the busiest moments",
         "takeaway": "Size each unit for peak device counts; Wi-Fi 7 raises the ceiling, but placement still matters."
       },
-      "body": "Shift changes, mass-casualty events and full waiting rooms are exactly when clinical communication matters most — and when device counts peak. Serving more devices per transmission helps alerts, calls and charting stay responsive when the unit is busiest.\n\nDesign for peak density: count devices per bed and per staff member, not just square metres.",
+      "body": "Shift changes, mass-casualty events and full waiting rooms are exactly when clinical communication matters most — and when device counts peak. Serving more devices per transmission helps alerts, calls and charting stay responsive when the unit is busiest.\n\nDesign for peak density: count devices per bed and per staff member, not just square feet.",
       "bottomLine": "Plan wireless capacity around peak device counts in each unit; Wi-Fi 7 raises the ceiling, but placement and channel planning still matter.",
       "deepDive": null,
       "sceneState": "clinical-outcome",
-      "sceneDescription": "The Wi-Fi 7 lobby at the busiest moment: the crowd keeps arriving, three lifts carry several devices each trip, and hardly anyone is waiting. Rates are illustrative.",
+      "sceneDescription": "The Wi-Fi 7 lobby at the busiest moment: the crowd keeps arriving, three elevators carry several devices each trip, and hardly anyone is waiting. Rates are illustrative.",
       "durationMs": 11000,
       "questions": [
         {
@@ -253,30 +253,11 @@
       "qualifier": "normative",
       "regulatoryDomain": null,
       "note": null,
-      "headline": false,
+      "headline": true,
       "cellQualifiers": {},
       "claimIds": {
         "wifi6": "bss-coloring-ax",
         "wifi7": "bss-coloring-ax"
-      }
-    },
-    {
-      "id": "ru",
-      "metric": "Resource units per device",
-      "unit": null,
-      "values": {
-        "wifi5": null,
-        "wifi6": "One",
-        "wifi7": "Several"
-      },
-      "qualifier": "normative",
-      "regulatoryDomain": null,
-      "note": null,
-      "headline": true,
-      "cellQualifiers": {},
-      "claimIds": {
-        "wifi6": "multi-ru-be",
-        "wifi7": "multi-ru-be"
       }
     }
   ],
