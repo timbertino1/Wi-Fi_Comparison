@@ -59,7 +59,17 @@ export default {
           group.add(p);
           return p;
         });
-        return { band, curve, mesh, voice, bulk, busy: false, active: true, label };
+        // Name the traffic: the grey blocks are an imaging upload, the small packets a voice call.
+        const uploadAnchor = new THREE.Object3D();
+        uploadAnchor.position.copy(curve.getPoint(0.3));
+        uploadAnchor.position.y -= 0.5;
+        group.add(uploadAnchor);
+        const uploadLabel = labels.add(uploadAnchor, 'Imaging upload', { className: 'muted' });
+        const voiceAnchor = new THREE.Object3D();
+        group.add(voiceAnchor);
+        const voiceLabel = labels.add(voiceAnchor, 'Voice call', { className: 'muted' });
+        uploadLabel.element.style.opacity = voiceLabel.element.style.opacity = '0';
+        return { band, curve, mesh, voice, bulk, busy: false, active: true, label, uploadLabel, voiceAnchor, voiceLabel };
       });
 
       const title = labels.add(ap, genName(genId), { className: 'big', offset: [0, 0.9, 0] });
@@ -131,9 +141,25 @@ export default {
       return layouts[name];
     }
 
+    // The long form names the upload; the small side-by-side keeps the short one.
+    const busyText = (f, show) => (show ? `${f.band.label} · busy: imaging upload` : `${f.band.label} · busy`);
+    /** Shows the traffic labels on a link: the upload while it is busy, the call where it travels. */
+    function labelTraffic(f, { voice, waiting, show }) {
+      f.uploadLabel.element.style.opacity = show && f.busy ? '1' : '0';
+      f.voiceLabel.element.style.opacity = show && voice ? '1' : '0';
+      labels.setText(f.voiceLabel, waiting ? 'Voice call · waiting' : 'Voice call');
+      // A waiting call queues near the access point; a flowing one is labelled near the badge.
+      f.voiceAnchor.position.copy(f.curve.getPoint(waiting ? 0.12 : 0.85));
+      f.voiceAnchor.position.y += 0.45;
+    }
+
     function setBusy(name) {
-      single.flows[0].busy = name === 'single-link-congested' || name === 'gen-compare';
-      labels.setText(single.flows[0].label, single.flows[0].busy ? `${single.flows[0].band.label} · busy` : single.flows[0].band.label);
+      // The side-by-side comparison is small, and the traffic was named in the steps before it.
+      const show = name !== 'gen-compare';
+      const old = single.flows[0];
+      old.busy = name === 'single-link-congested' || name === 'gen-compare';
+      labels.setText(old.label, old.busy ? busyText(old, show) : old.band.label);
+      labelTraffic(old, { voice: true, waiting: old.busy, show });
       const congested = ['links-aggregate', 'gen-compare', 'clinical-outcome'].includes(name);
       for (const f of multi.flows) {
         f.busy = f.band.id === '5' && congested;
@@ -141,7 +167,8 @@ export default {
         f.active = f.band.id === (congested ? '6' : '5');
         f.mesh.material.opacity = f.active || f.busy ? 0.85 : 0.3;
         // Say what each link is doing, so a dim link reads as connected, not off.
-        labels.setText(f.label, f.busy ? `${f.band.label} · busy` : f.active ? f.band.label : `${f.band.label} · ready`);
+        labels.setText(f.label, f.busy ? busyText(f, show) : f.active ? f.band.label : `${f.band.label} · ready`);
+        labelTraffic(f, { voice: f.active, waiting: false, show });
       }
     }
 
