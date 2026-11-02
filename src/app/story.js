@@ -23,9 +23,8 @@ const stageEl = document.getElementById('stage');
 const deepEl = document.getElementById('deep');
 const lineageEl = document.getElementById('lineage');
 const bottomLineEl = document.getElementById('bottom-line');
-const deepBeatEl = document.createElement('div');
 const sectionsEl = document.createElement('div');
-deepEl.append(deepBeatEl, sectionsEl);
+deepEl.append(sectionsEl);
 
 const listeners = { tab: new Set(), beat: new Set(), generation: new Set(), settled: new Set() };
 const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null, animated: false, phase: 'settled', captionShown: false, calloutShown: false, hotspots: [], hotspotOpen: null, intro: false };
@@ -185,13 +184,28 @@ function renderText() {
   storyEl.innerHTML = parts.join(''); // safe: renderMarkup
   const description = beat?.sceneDescription ?? tab.summary;
   descriptionEl.textContent = plainText(description);
-  renderDeepDive(beat);
   renderBottomLine(beat);
 }
 
 /** Leadership layer: the beat's Bottom line (shown in both views, emphasised in Leadership view). */
+/** A Cisco platform note for the step (feature 003 FR-017): a named feature and one cited sentence. */
+function renderCisco(beat) {
+  if (!beat?.cisco) return;
+  const box = document.createElement('aside');
+  box.className = 'cisco-note';
+  box.setAttribute('aria-label', 'On Cisco networks');
+  const label = document.createElement('strong');
+  label.className = 'bottom-line-label';
+  label.textContent = `On Cisco networks: ${plainText(beat.cisco.feature)}`;
+  const text = document.createElement('p');
+  text.innerHTML = renderInline(beat.cisco.text, markupContext); // safe: renderMarkup
+  box.append(label, text);
+  bottomLineEl.append(box);
+}
+
 function renderBottomLine(beat) {
   bottomLineEl.replaceChildren();
+  renderCisco(beat);
   if (!beat?.bottomLine) return;
   const box = document.createElement('aside');
   box.className = 'bottom-line';
@@ -205,9 +219,32 @@ function renderBottomLine(beat) {
   bottomLineEl.append(box);
 }
 
+/** What each generation added since Wi-Fi 6 (feature 003 FR-005), one cited line per generation. */
+function renderSinceWifi6(tab) {
+  const box = document.createElement('div');
+  box.className = 'lineage since-wifi6';
+  const heading = document.createElement('strong');
+  heading.textContent = 'Since Wi-Fi 6';
+  const list = document.createElement('ul');
+  for (const id of ['wifi6', 'wifi6e', 'wifi7']) {
+    if (!tab.sinceWifi6[id]) continue;
+    const li = document.createElement('li');
+    li.dataset.gen = id;
+    const name = document.createElement('strong');
+    name.textContent = `${genById.get(id)?.name ?? id}: `;
+    const text = document.createElement('span');
+    text.innerHTML = renderInline(tab.sinceWifi6[id], markupContext); // safe: renderMarkup
+    li.append(name, text);
+    list.append(li);
+  }
+  box.append(heading, list);
+  lineageEl.append(box);
+}
+
 /** Lineage callout for features that existed before Wi-Fi 7 (Principle IV). */
 function renderLineage(tab) {
   lineageEl.replaceChildren();
+  if (tab.sinceWifi6) return renderSinceWifi6(tab);
   const leadText = lineageLead(tab, genById);
   if (!leadText) return;
   const p = document.createElement('div');
@@ -220,32 +257,15 @@ function renderLineage(tab) {
   lineageEl.append(p);
 }
 
-/** Technical layer for the current beat: an "Under the hood" disclosure. */
-function renderDeepDive(beat) {
-  const wasOpen = deepBeatEl.querySelector('details')?.open;
-  deepBeatEl.replaceChildren();
-  if (!beat?.deepDive) return;
-  const details = document.createElement('details');
-  details.className = 'deep-dive card';
-  details.open = wasOpen ?? true;
-  const summary = document.createElement('summary');
-  summary.textContent = 'Under the hood';
-  const body = document.createElement('div');
-  body.className = 'deep-body';
-  body.innerHTML = renderMarkup(beat.deepDive, markupContext); // safe: renderMarkup
-  details.append(summary, body);
-  deepBeatEl.append(details);
-}
-
-/** Deeper sections for the tab (e.g., MLO modes). Opening one shows its scene state. */
+/** Reading sections for the tab (the References page). A section with a scene state shows it when opened. */
 function renderSections(tab) {
   sectionsEl.replaceChildren();
   for (const section of tab.sections ?? []) {
     const details = document.createElement('details');
     details.className = 'deep-section card';
     details.dataset.section = section.id;
-    // Text sections start open (the technical layer is always shown); a section that drives the
-    // animation starts closed, so opening it is what switches the scene.
+    // Text sections start open; a section that drives the animation starts closed, so opening it
+    // is what switches the scene.
     if (section.sceneState) details.dataset.scene = section.sceneState;
     details.open = !section.sceneState;
     const summary = document.createElement('summary');

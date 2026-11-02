@@ -13,7 +13,6 @@ function tabWith(edit = () => {}) {
     heading: `Heading for ${type}`,
     body: 'Plain language body text.',
     bottomLine: 'A short leadership takeaway.',
-    deepDive: type === 'how' || type === 'improvement' ? 'Protocol detail.' : null,
     sceneState: `state-${type}`,
     sceneDescription: 'An access point and several clinical devices are shown on a hospital floor while packets move between them over the air.',
     durationMs: 10000,
@@ -25,6 +24,7 @@ function tabWith(edit = () => {}) {
     id: 'fixture', order: 3, kind: 'feature', title: 'Fixture', summary: 'A fixture.', introducedIn: 'wifi7', wifi7Adds: null,
     opener: { promise: 'A short promise', problem: 'The problem this chapter solves, in a sentence.' },
     compareGenerations: ['wifi6', 'wifi7'], defaultCompare: 'wifi6', sceneId: null, scenarioIds: [], sections: [],
+    sinceWifi6: { wifi6: 'Introduced{{twt-wifi6}}.', wifi7: 'Adds a mode{{rtwt-be}}.' },
     beats, keyFigures: [], _file: 'tabs/fixture.json'
   };
 }
@@ -61,12 +61,10 @@ test('caption word limits are enforced with counts in the message', async () => 
   const tab = tabWith((beats) => {
     beats[0].caption.headline = 'one two three four five six seven eight nine';
     beats[1].caption.takeaway = Array.from({ length: 17 }, (_, i) => `w${i}`).join(' ');
-    beats[2].caption.technical = Array.from({ length: 21 }, (_, i) => `t${i}`).join(' ');
   });
   const errors = await errorsFor(tab);
   assert.match(errors, /fixture\/1: caption\.headline has 9 words \(max 8\)/);
   assert.match(errors, /fixture\/2: caption\.takeaway has 17 words \(max 16\)/);
-  assert.match(errors, /fixture\/3: caption\.technical has 21 words \(max 20\)/);
 });
 
 test('markup does not count towards caption words', async () => {
@@ -120,13 +118,12 @@ test('chapter opener rules: required, word limits, no term links, badge (rule 25
   assert.equal(await errorsFor(noBadge), '');
 });
 
-test('hotspot rules: ids, anchor, term, depth and per-depth limit', async () => {
+test('hotspot rules: ids, anchor, term and per-step limit', async () => {
   const tab = tabWith((beats) => {
     beats[0].hotspots = [
       { id: 'Bad Id', anchor: 'ap', term: glossaryTerm.id },
       { id: 'dup', anchor: 'ap', term: glossaryTerm.id },
-      { id: 'dup', anchor: '', term: 'no-such-term' },
-      { id: 'deep', anchor: 'ap', term: glossaryTerm.id, depth: 'expert' }
+      { id: 'dup', anchor: '', term: 'no-such-term' }
     ];
     beats[1].hotspots = Array.from({ length: 5 }, (_, i) => ({ id: `h${i}`, anchor: 'ap', term: glossaryTerm.id }));
   });
@@ -134,8 +131,7 @@ test('hotspot rules: ids, anchor, term, depth and per-depth limit', async () => 
   assert.match(errors, /hotspot Bad Id: id must be kebab-case/);
   assert.match(errors, /hotspot dup: duplicate id/);
   assert.match(errors, /hotspot dup: anchor required/);
-  assert.match(errors, /hotspot deep: depth must be "all" or "technical"/);
-  assert.match(errors, /fixture\/2: 5 hotspots at depth "all" \(max 4\)/);
+  assert.match(errors, /fixture\/2: 5 hotspots \(max 4\)/);
 });
 
 test('hotspot terms with long definitions need a short definition', async () => {

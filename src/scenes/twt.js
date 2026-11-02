@@ -24,7 +24,7 @@ export default {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo } = ctx;
     const motionFull = ctx.motion === 'full';
     const genName = (id) => ctx.generations.find((g) => g.id === id)?.name ?? id;
-    let compareGen = 'wifi5';
+    let compareGen = 'wifi6';
     let mode = 'always-awake';
     let progress = 1;
     const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.5, ...extra });

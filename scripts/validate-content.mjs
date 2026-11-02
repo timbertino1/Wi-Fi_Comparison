@@ -1,4 +1,5 @@
-// Validates content/ against data-model.md "Validation rules" 1–19 (feature 001) and 20–25 (feature 002).
+// Validates content/ against data-model.md "Validation rules" 1–19 (feature 001), 20–25 (feature 002)
+// and the feature 003 changes (Cisco sources, platform claims, model names, plain-only content).
 // Usage: node scripts/validate-content.mjs [--release]
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,7 +10,10 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const BEAT_ORDER = ['problem', 'what', 'how', 'improvement', 'why'];
 const NARRATIVE_BEATS = ['intro', 'context', 'outlook'];
-export const CAPTION_LIMITS = { headline: 8, takeaway: 16, technical: 20 };
+export const CAPTION_LIMITS = { headline: 8, takeaway: 16 };
+export const FEATURE_STEPS = { min: 2, max: 4 };
+export const MAX_KEY_FIGURES = 3;
+export const TAB_COUNT = 8;
 export const CALLOUT_LIMITS = { title: 6, point: 14, minPoints: 2, maxPoints: 4 };
 export const OPENER_LIMITS = { promise: 10, problem: 16 };
 const HOTSPOT_DEFINITION_MAX = 30;
@@ -41,6 +45,12 @@ export function loadContent(dir = path.join(root, 'content')) {
   };
 }
 
+/** Regular expressions for Cisco hardware model names and numbers (feature 003, rule 7a). */
+export function loadModelPatterns(file = path.join(root, 'tests', 'content', 'model-patterns.txt')) {
+  if (!fs.existsSync(file)) return [];
+  return fs.readFileSync(file, 'utf8').split(/\r?\n/).map((l) => l.trim()).filter((l) => l && !l.startsWith('#')).map((l) => new RegExp(l, 'i'));
+}
+
 export function loadDenylist(file = path.join(root, 'tests', 'content', 'denylist.txt')) {
   if (!fs.existsSync(file)) return [];
   return fs.readFileSync(file, 'utf8').split(/\r?\n/).map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
@@ -64,6 +74,7 @@ function tabTextFields(tab) {
   out.push([`${tab._file}.summary`, tab.summary]);
   for (const f of ['promise', 'problem']) if (tab.opener?.[f]) out.push([`${tab._file}.opener.${f}`, tab.opener[f]]);
   if (tab.wifi7Adds) out.push([`${tab._file}.wifi7Adds`, tab.wifi7Adds]);
+  for (const [g, text] of Object.entries(tab.sinceWifi6 ?? {})) out.push([`${tab._file}.sinceWifi6.${g}`, text]);
   for (const [i, b] of (tab.beats ?? []).entries()) {
     const at = `${tab._file}.beats[${i}]`;
     for (const f of ['heading', 'body', 'bottomLine', 'deepDive', 'sceneDescription']) if (b[f]) out.push([`${at}.${f}`, b[f]]);
@@ -72,6 +83,7 @@ function tabTextFields(tab) {
     for (const [j, p] of (b.callout?.points ?? []).entries()) out.push([`${at}.callout.points[${j}]`, p]);
     for (const [j, h] of (b.hotspots ?? []).entries()) if (h.technical) out.push([`${at}.hotspots[${j}].technical`, h.technical]);
     for (const [j, q] of (b.questions ?? []).entries()) for (const f of ['q', 'a']) if (q[f]) out.push([`${at}.questions[${j}].${f}`, q[f]]);
+    if (b.cisco?.text) out.push([`${at}.cisco.text`, b.cisco.text]);
   }
   for (const [i, s] of (tab.sections ?? []).entries()) {
     for (const f of ['heading', 'body']) if (s[f]) out.push([`${tab._file}.sections[${i}].${f}`, s[f]]);
@@ -97,7 +109,7 @@ export function uncitedNumbers(text) {
   return problems;
 }
 
-export async function validateContent({ release = false, content = loadContent(), denylist = loadDenylist(), sceneDir = path.join(root, 'src', 'scenes'), today = new Date() } = {}) {
+export async function validateContent({ release = false, content = loadContent(), denylist = loadDenylist(), modelPatterns = loadModelPatterns(), sceneDir = path.join(root, 'src', 'scenes'), today = new Date() } = {}) {
   const errors = [];
   const warnings = [];
   const err = (rule, msg) => errors.push(`[rule ${rule}] ${msg}`);
@@ -125,7 +137,7 @@ export async function validateContent({ release = false, content = loadContent()
   for (const c of claims) if (refById.has(c.id)) err(1, `claim id "${c.id}" collides with a reference id`);
   const orders = tabs.map((t) => t.order).sort((a, b) => a - b);
   orders.forEach((o, i) => { if (o !== i + 1) err(1, `tab order must be contiguous from 1; found ${orders.join(',')}`); });
-  if (tabs.length !== 9) err(1, `expected 9 tabs, found ${tabs.length}`);
+  if (tabs.length !== TAB_COUNT) err(1, `expected ${TAB_COUNT} tabs, found ${tabs.length}`);
 
   // Usage tracking for orphan checks (rules 10, 18).
   const citedRefs = new Set();
@@ -153,7 +165,8 @@ export async function validateContent({ release = false, content = loadContent()
     if (!caption) {
       if (tab.draft !== true) err(20, `${at}: caption required`);
     } else {
-      for (const [field, max, required] of [['headline', CAPTION_LIMITS.headline, true], ['takeaway', CAPTION_LIMITS.takeaway, true], ['technical', CAPTION_LIMITS.technical, false]]) {
+      if (caption.technical !== undefined) err(11, `${at}: caption.technical is not allowed (plain language only)`);
+      for (const [field, max, required] of [['headline', CAPTION_LIMITS.headline, true], ['takeaway', CAPTION_LIMITS.takeaway, true]]) {
         const text = caption[field];
         if (!text?.trim()) {
           if (required) err(20, `${at}: caption.${field} required`);
@@ -166,6 +179,14 @@ export async function validateContent({ release = false, content = loadContent()
     }
     if (b.captionAtMs !== undefined && !(Number.isInteger(b.captionAtMs) && b.captionAtMs >= 0 && b.captionAtMs <= (b.durationMs ?? 0))) {
       err(20, `${at}: captionAtMs must be an integer from 0 to durationMs`);
+    }
+
+    // Rule 27: a Cisco platform note names a feature and cites only platform claims (feature 003 FR-017).
+    if (b.cisco !== undefined) {
+      if (!b.cisco?.feature?.trim() || !b.cisco?.text?.trim()) err(27, `${at}: cisco needs feature and text`);
+      const cited = matchAll(b.cisco?.text, CLAIM_RE).map(([, id]) => id);
+      if (!cited.length) err(27, `${at}: cisco.text needs a {{claim}} citation`);
+      for (const id of cited) if (claimById.get(id) && claimById.get(id).kind !== 'platform') err(27, `${at}: cisco.text cites "${id}", which is not a platform claim`);
     }
 
     // Rule 24: an optional callout card (FR-005a).
@@ -187,10 +208,7 @@ export async function validateContent({ release = false, content = loadContent()
 
     const hotspots = b.hotspots ?? [];
     const ids = new Set();
-    for (const depth of ['all', 'technical']) {
-      const n = hotspots.filter((h) => (h.depth ?? 'all') === depth).length;
-      if (n > 4) err(21, `${at}: ${n} hotspots at depth "${depth}" (max 4)`);
-    }
+    if (hotspots.length > 4) err(21, `${at}: ${hotspots.length} hotspots (max 4)`);
     for (const h of hotspots) {
       const where = `${at} hotspot ${h.id ?? '?'}`;
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(h.id ?? '')) err(21, `${where}: id must be kebab-case`);
@@ -207,8 +225,8 @@ export async function validateContent({ release = false, content = loadContent()
         if (!c) err(2, `${where}: unknown claim "${h.claim}"`);
         else if (release && !c.verification?.verifiedOn) err(21, `${where}: claim "${h.claim}" is not verified`);
       }
-      if (h.technical && words(stripMarkup(h.technical)) > 30) err(21, `${where}: technical has more than 30 words`);
-      if (h.depth !== undefined && !['all', 'technical'].includes(h.depth)) err(21, `${where}: depth must be "all" or "technical"`);
+      if (h.technical !== undefined) err(11, `${where}: technical is not allowed (plain language only)`);
+      if (h.depth !== undefined) err(11, `${where}: depth is not allowed (one plain layer)`);
     }
 
     for (const [j, q] of (b.questions ?? []).entries()) {
@@ -218,6 +236,7 @@ export async function validateContent({ release = false, content = loadContent()
       if (!q.a?.trim()) err(22, `${where}: a required`);
       else if (words(stripMarkup(q.a)) > 80) err(22, `${where}: a has more than 80 words`);
       if (q.audience !== undefined && !['leadership', 'technical', 'both'].includes(q.audience)) err(22, `${where}: audience must be leadership, technical or both`);
+      if (q.followUp !== undefined && typeof q.followUp !== 'boolean') err(22, `${where}: followUp must be true or false`);
     }
   };
 
@@ -226,7 +245,7 @@ export async function validateContent({ release = false, content = loadContent()
   const checkCaptionJargon = (tab) => {
     const defined = new Set();
     for (const [i, b] of (tab.beats ?? []).entries()) {
-      const onScreen = [...['headline', 'takeaway', 'technical'].map((f) => b.caption?.[f]), b.callout?.title, ...(b.callout?.points ?? [])];
+      const onScreen = [...['headline', 'takeaway'].map((f) => b.caption?.[f]), b.callout?.title, ...(b.callout?.points ?? [])];
       for (const text of onScreen) for (const [, id] of matchAll(text, TERM_RE)) defined.add(id);
       for (const h of b.hotspots ?? []) if (h.term) defined.add(h.term);
       const plain = onScreen.map((t) => stripMarkup(t)).join(' \n ');
@@ -278,11 +297,24 @@ export async function validateContent({ release = false, content = loadContent()
     for (const id of tab.scenarioIds ?? []) if (!scenarioById.has(id)) err(2, `${where}: unknown scenario "${id}"`);
 
     // Rule 6.
-    if (tab.kind === 'feature' && tab.introducedIn && tab.introducedIn !== 'wifi7' && !tab.wifi7Adds?.trim()) err(6, `${where}: introducedIn ${tab.introducedIn} requires wifi7Adds`);
+    if (tab.kind === 'feature' && tab.introducedIn && tab.introducedIn !== 'wifi7' && !tab.wifi7Adds?.trim() && !tab.sinceWifi6?.wifi7?.trim()) err(6, `${where}: introducedIn ${tab.introducedIn} requires sinceWifi6.wifi7 (or wifi7Adds)`);
 
     if (tab.kind === 'feature') {
       if (!(tab.compareGenerations ?? []).includes('wifi7') || !(tab.compareGenerations ?? []).some((g) => g === 'wifi6' || g === 'wifi6e')) {
         err(2, `${where}: compareGenerations must include wifi7 and wifi6 or wifi6e`);
+      }
+      // Feature 003: comparisons start at Wi-Fi 6 (FR-006); a few key figures; no technical sections.
+      for (const g of tab.compareGenerations ?? []) if (!['wifi6', 'wifi6e', 'wifi7'].includes(g)) err(2, `${where}: compareGenerations may only use wifi6, wifi6e and wifi7; found ${g}`);
+      if ((tab.keyFigures ?? []).length > MAX_KEY_FIGURES) err(2, `${where}: ${tab.keyFigures.length} key figures (max ${MAX_KEY_FIGURES})`);
+      if ((tab.sections ?? []).length) err(11, `${where}: feature chapters have no sections (plain language only)`);
+      // Rule 26: what each generation added since Wi-Fi 6, cited (FR-005, FR-007).
+      if (!draft) {
+        const since = tab.sinceWifi6;
+        if (!since?.wifi7?.trim() || !(since.wifi6?.trim() || since.wifi6e?.trim())) err(26, `${where}: sinceWifi6 needs wifi7 and at least one of wifi6 or wifi6e`);
+        for (const [g, text] of Object.entries(since ?? {})) {
+          if (!['wifi6', 'wifi6e', 'wifi7'].includes(g)) err(26, `${where}: sinceWifi6.${g} is not a generation since Wi-Fi 6`);
+          else if (!matchAll(text, CLAIM_RE).length) err(26, `${where}: sinceWifi6.${g} needs a {{claim}} citation`);
+        }
       }
     }
 
@@ -294,7 +326,7 @@ export async function validateContent({ release = false, content = loadContent()
         // the five-part arc in fewer, fuller steps (FR-013a).
         const types = beats.flatMap((b) => [b.type, ...(b.covers ?? [])]).join(',');
         if (types !== BEAT_ORDER.join(',')) err(3, `${where}: feature steps must cover ${BEAT_ORDER.join(' → ')} in order; found ${types || 'none'}`);
-        if (beats.length < 3) err(3, `${where}: feature chapters need at least 3 steps; found ${beats.length}`);
+        if (beats.length < FEATURE_STEPS.min || beats.length > FEATURE_STEPS.max) err(3, `${where}: feature chapters need ${FEATURE_STEPS.min}–${FEATURE_STEPS.max} steps; found ${beats.length}`);
       } else if (tab.kind === 'overview' || tab.kind === 'roadmap') {
         if (beats.length < 3 || beats.length > 6) err(3, `${where}: needs 3–6 beats; found ${beats.length}`);
         for (const b of beats) if (!NARRATIVE_BEATS.includes(b.type)) err(3, `${where}: beat type "${b.type}" must be one of ${NARRATIVE_BEATS.join('/')}`);
@@ -315,8 +347,9 @@ export async function validateContent({ release = false, content = loadContent()
       if (!draft && tab.kind === 'feature') {
         if (!b.bottomLine?.trim()) err(11, `${at}: bottomLine required`);
         else if (words(stripMarkup(b.bottomLine)) > 40) err(11, `${at}: bottomLine longer than 40 words`);
-        if ((b.type === 'how' || b.type === 'improvement') && !b.deepDive?.trim()) err(11, `${at}: deepDive required on ${b.type} beats`);
       }
+      // Feature 003: no technical layer anywhere (FR-009).
+      if (b.deepDive !== undefined) err(11, `${at}: deepDive is not allowed (plain language only)`);
       checkStep(tab, i, b);
     }
 
@@ -396,13 +429,18 @@ export async function validateContent({ release = false, content = loadContent()
     if (r.publisher === 'peer-reviewed' && !/^10\.\d{4,}\//.test(r.identifier ?? '')) err(13, `reference ${r.id}: peer-reviewed sources need a DOI identifier`);
     if (!['current', 'superseded'].includes(r.status)) err(13, `reference ${r.id}: status must be current or superseded`);
     if (!['open', 'paywalled'].includes(r.access)) err(13, `reference ${r.id}: access must be open or paywalled`);
+    if (r.publisher === 'cisco') {
+      if (r.access !== 'open') err(13, `reference ${r.id}: Cisco references must be public (access "open")`);
+      if (!r.edition?.trim()) err(13, `reference ${r.id}: Cisco references need an edition (revision or release)`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(r.checkedOn ?? '')) err(13, `reference ${r.id}: Cisco references need checkedOn (YYYY-MM-DD)`);
+    }
   }
 
   // Rules 14, 15, 19: claims.
   const maxAgeMs = (sourcePolicy.maxVerificationAgeDays ?? 365) * 86400000;
   for (const c of claims) {
     const at = `claim ${c.id}`;
-    if (!['technical', 'context'].includes(c.kind)) err(14, `${at}: kind must be technical or context`);
+    if (!['technical', 'context', 'platform'].includes(c.kind)) err(14, `${at}: kind must be technical, context or platform`);
     if (!['stated', 'derived', 'illustrative'].includes(c.method)) err(14, `${at}: method must be stated, derived or illustrative`);
     if (!c.sources?.length) err(14, `${at}: needs ≥ 1 source`);
     const tiers = [];
@@ -416,7 +454,9 @@ export async function validateContent({ release = false, content = loadContent()
       if (release && ref.status === 'superseded' && !c.verification?.notes) err(19, `${at}: cites superseded ${ref.id} without a note`);
     }
     if (c.kind === 'technical' && !tiers.includes(1)) err(14, `${at}: technical claims need a Tier 1 source`);
-    if (c.kind === 'context' && !tiers.some((t) => t <= (sourcePolicy.contextMinTier ?? 2))) err(14, `${at}: context claims need a Tier 1 or Tier 2 source`);
+    if (c.kind === 'context' && !tiers.some((t) => typeof t === 'number' && t <= (sourcePolicy.contextMinTier ?? 2))) err(14, `${at}: context claims need a Tier 1 or Tier 2 source`);
+    // Feature 003: Cisco documents source platform claims; standards figures still need Tier 1 (above).
+    if (c.kind === 'platform' && !tiers.includes(sourcePolicy.platformKindTier ?? 'cisco')) err(14, `${at}: platform claims need a Cisco public documentation source`);
 
     if (c.method === 'derived') {
       const d = c.derivation;
@@ -459,6 +499,11 @@ export async function validateContent({ release = false, content = loadContent()
     ...strings(claims, 'claims'), ...strings(references.map(({ url, ...r }) => r), 'references'), ...strings(generations, 'generations')
   ]) {
     for (const name of denylist) if (new RegExp(`(?<![\\w])${escapeRe(name)}(?![\\w])`, 'i').test(text)) err(7, `${at}: contains denylisted name "${name}"`);
+    // Rule 7a: no hardware model names or release numbers in what the audience sees. Source records
+    // (locators, excerpts, reference titles and editions) may quote them; ids are never shown.
+    if (!/\.(locator|excerpt|notes|title|identifier|edition|id|referenceId)$/.test(at)) {
+      for (const re of modelPatterns) if (re.test(text)) err('7a', `${at}: names a hardware model or release ("${text.match(re)[0]}")`);
+    }
     for (const phrase of GUARANTEE_PHRASES) if (new RegExp(`\\b${escapeRe(phrase)}\\b`, 'i').test(text)) releaseOrWarn(8, `${at}: guarantee wording "${phrase}"`);
   }
 

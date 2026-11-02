@@ -1,0 +1,143 @@
+{
+  "id": "mlo",
+  "order": 4,
+  "kind": "feature",
+  "title": "Multi-Link Operation (MLO)",
+  "summary": "One connection that holds links in several bands, and moves traffic between them without reconnecting.",
+  "opener": {
+    "promise": "One connection with links in several bands",
+    "problem": "Badge calls break up when the one band a device uses gets busy."
+  },
+  "introducedIn": "wifi7",
+  "wifi7Adds": null,
+  "compareGenerations": [
+    "wifi6",
+    "wifi6e",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6e",
+  "sceneId": "mlo",
+  "scenarioIds": [
+    "voice-badge-hallway"
+  ],
+  "beats": [
+    {
+      "type": "problem",
+      "heading": "The call that breaks up between units",
+      "caption": {
+        "headline": "The call that breaks up between units",
+        "takeaway": "Choppy badge calls cost clinical time and create repeat pages: a care problem, not just IT."
+      },
+      "body": "A nurse takes a call on a [[voice-badge]] while walking to the next unit. The badge is connected to the nearest [[access-point]] on a single band — and on that band, an imaging cart has just started a large upload.\n\nThe call's small voice packets now wait in line behind the image. The nurse hears gaps and repeats themselves, or the call drops.",
+      "bottomLine": "Choppy or dropped badge calls cost clinical time and create repeat pages — a reliability problem for care teams, not just an IT inconvenience.",
+      "sceneState": "single-link-congested",
+      "sceneDescription": "An access point on the left connects to a nurse's badge on the right with a single arched link. Large gray blocks from an imaging upload fill the link, and the badge's small voice packets bunch up behind them and stall.",
+      "durationMs": 12000
+    },
+    {
+      "type": "what",
+      "heading": "One connection, several radio lanes",
+      "caption": {
+        "headline": "One connection, several radio lanes",
+        "takeaway": "[[mlo|Multi-Link Operation]] holds links in 2.4, 5 and 6 GHz{{mlo-bands}}, so traffic can switch lanes."
+      },
+      "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form one connection with links in more than one band {{mlo-defined-be}}: 2.4 GHz, 5 GHz and 6 GHz {{mlo-bands}}.\n\nWhen one band gets busy, traffic can move to another link without the device reconnecting first {{mlo-tid-mapping}}. Devices that can use several links at once can also spread traffic across them for more speed {{str-what}}.",
+      "bottomLine": "Urgent traffic gets another lane on a different band, instead of waiting for one busy band to clear.",
+      "sceneState": "links-aggregate",
+      "sceneDescription": "Gray upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.",
+      "durationMs": 14000,
+      "covers": [
+        "how"
+      ],
+      "questions": [
+        {
+          "q": "Is MLO just bonding bands together for speed?",
+          "a": "Speed is one use, but the bigger gain for clinical traffic is resilience: a device keeps links in several bands{{mlo-bands}}, so urgent packets can move to a free band without reconnecting."
+        }
+      ]
+    },
+    {
+      "type": "improvement",
+      "heading": "New in Wi-Fi 7: no reconnecting",
+      "caption": {
+        "headline": "Earlier Wi-Fi: one lane at a time",
+        "takeaway": "Wi-Fi 6 and 6E use one band at a time{{single-link-pre-be}}; Wi-Fi 7 keeps the others open."
+      },
+      "body": "Wi-Fi 6 and Wi-Fi 6E devices connect on one band at a time. If that band gets busy, the device can only wait, or reconnect on another band and briefly pause its traffic {{single-link-pre-be}}. With Wi-Fi 7, the other links are already set up, so traffic moves without reconnecting {{mlo-tid-mapping}}.\n\nFor care teams, that means steadier voice calls and alerts while clinicians move. How much a device gains depends on how it uses its links, so check each badge, phone and laptop model.",
+      "bottomLine": "Plan MLO with device refresh: the access points enable it, but each clinical device model decides how much it gains.",
+      "sceneState": "gen-compare",
+      "sceneDescription": "The view splits in two. On the left, an earlier-generation connection uses a single link that clogs with upload traffic while voice packets wait. On the right, the Wi-Fi 7 connection has three links open, and the voice packets move to the free one and keep flowing.",
+      "durationMs": 14000,
+      "questions": [
+        {
+          "q": "Does MLO replace roaming between access points?",
+          "a": "No. MLO links one device to one access point across its bands{{mlo-defined-be}}. Moving between access points is still roaming, so roaming design still matters."
+        },
+        {
+          "q": "What security does MLO need?",
+          "a": "Password-based sign-in over Wi-Fi 7 multi-link connections requires WPA3{{wpa3-mlo-required}}, so plan the WPA3 migration together with the MLO rollout."
+        },
+        {
+          "q": "Will our current badges and phones get MLO?",
+          "a": "Only if they support Wi-Fi 7 multi-link operation, which needs new hardware. Ask each vendor how the model uses its links; that decides how much it gains.",
+          "followUp": true
+        }
+      ],
+      "covers": [
+        "why"
+      ],
+      "cisco": {
+        "feature": "WPA3 for multi-link",
+        "text": "On a Cisco network that mixes WPA2 and WPA3 sign-in, devices that join with WPA2 cannot use multi-link operation or Wi-Fi 7{{cisco-wpa2-no-mlo}}."
+      }
+    }
+  ],
+  "keyFigures": [
+    {
+      "id": "links",
+      "metric": "Bands one connection can hold links in",
+      "unit": null,
+      "values": {
+        "wifi6": "One",
+        "wifi6e": "One",
+        "wifi7": "Up to 3"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "single-link-pre-be",
+        "wifi6e": "single-link-pre-be",
+        "wifi7": "mlo-bands"
+      }
+    },
+    {
+      "id": "switch-bands",
+      "metric": "Moves traffic between bands without reconnecting",
+      "unit": null,
+      "values": {
+        "wifi6": "No",
+        "wifi6e": "No",
+        "wifi7": "Yes"
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "single-link-pre-be",
+        "wifi6e": "single-link-pre-be",
+        "wifi7": "mlo-tid-mapping"
+      }
+    }
+  ],
+  "sections": [],
+  "sinceWifi6": {
+    "wifi6": "One band at a time; changing bands means reconnecting{{single-link-pre-be}}.",
+    "wifi6e": "Adds the 6 GHz band, but still one band at a time{{single-link-pre-be}}.",
+    "wifi7": "New: one connection with links in several bands{{mlo-defined-be}} {{mlo-bands}}."
+  }
+}

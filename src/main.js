@@ -18,7 +18,6 @@ import { initComparison } from './app/comparison.js';
 import { initFigures } from './app/figures.js';
 import { initScenario } from './app/scenario.js';
 import { initShortcuts } from './app/shortcuts.js';
-import { initView } from './app/view.js';
 import { initProvenance } from './app/provenance.js';
 import { initReferences } from './app/references.js';
 import { initPresentation } from './app/presentation.js';
@@ -31,10 +30,9 @@ import spectrumScene from './scenes/spectrum.js';
 import mloScene from './scenes/mlo.js';
 import securityScene from './scenes/security.js';
 import twtScene from './scenes/twt.js';
-import densityScene from './scenes/density.js';
-import latencyScene from './scenes/latency.js';
+import ratesScene from './scenes/rates.js';
 
-for (const scene of [overviewScene, spectrumScene, mloScene, securityScene, twtScene, densityScene, latencyScene]) register(scene);
+for (const scene of [overviewScene, spectrumScene, ratesScene, mloScene, twtScene, securityScene]) register(scene);
 
 const routeNotice = document.createElement('p');
 routeNotice.className = 'notice route-notice';
@@ -108,7 +106,6 @@ function boot() {
   story.setStage(stage, { test: testMode });
   if (!stage) story.useFallback(createFallback(stageEl, noticeEl));
 
-  initView();
   initChapterMenu();
   initOverview();
   initControls({ test: testMode });

@@ -8,17 +8,17 @@ import sourcePolicyJson from '../../content/source-policy.json';
 
 const index = (list) => new Map(list.map((x) => [x.id, x]));
 
+
 import tab01 from '../../content/tabs/01-overview.json';
 import tab02 from '../../content/tabs/02-6ghz-320mhz.json';
-import tab03 from '../../content/tabs/03-mlo.json';
-import tab04 from '../../content/tabs/04-security.json';
+import tab03 from '../../content/tabs/03-data-rates.json';
+import tab04 from '../../content/tabs/04-mlo.json';
 import tab05 from '../../content/tabs/05-twt.json';
-import tab06 from '../../content/tabs/06-density.json';
-import tab07 from '../../content/tabs/07-latency.json';
-import tab08 from '../../content/tabs/08-closing.json';
-import tab09 from '../../content/tabs/09-references.json';
+import tab06 from '../../content/tabs/06-security.json';
+import tab07 from '../../content/tabs/07-closing.json';
+import tab08 from '../../content/tabs/08-references.json';
 
-export const tabs = [tab01, tab02, tab03, tab04, tab05, tab06, tab07, tab08, tab09].sort((a, b) => a.order - b.order);
+export const tabs = [tab01, tab02, tab03, tab04, tab05, tab06, tab07, tab08].sort((a, b) => a.order - b.order);
 export const tabById = index(tabs);
 export const generations = generationsJson.generations;
 export const genById = index(generations);

@@ -127,27 +127,6 @@
       }
     },
     {
-      "id": "wifi7-ieee-approved",
-      "statement": "IEEE 802.11be approved by the IEEE SA Standards Board",
-      "value": "2024-09-26",
-      "unit": "date",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Standard listing: board approval date",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S8: IEEE listing: board approval 2024-09-26; status Active Standard."
-      }
-    },
-    {
       "id": "wifi7-ieee-published",
       "statement": "IEEE 802.11be published",
       "value": "2025-07-22",
@@ -187,195 +166,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Confirmed. S10: TGbn timeline: D2.0 WG letter ballot done; remaining milestones “Upcoming”, RevCom/SASB approval projected May 2028."
-      }
-    },
-    {
-      "id": "ht-max-nss",
-      "statement": "Wi-Fi 4 (HT) maximum spatial streams",
-      "value": 4,
-      "unit": "streams",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 19 (HT PHY), HT MCS tables",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19 (HT PHY), HT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "ht-nsd-40",
-      "statement": "Data subcarriers in a 40 MHz HT channel",
-      "value": 108,
-      "unit": "subcarriers",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 19, HT timing-related constants table",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "ht-64qam-bits",
-      "statement": "Bits per subcarrier at 64-QAM (Wi-Fi 4 highest modulation)",
-      "value": 6,
-      "unit": "bits",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 19, HT modulation-dependent parameters table",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "vht-max-nss",
-      "statement": "Wi-Fi 5 (VHT) maximum spatial streams",
-      "value": 8,
-      "unit": "streams",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 21 (VHT PHY), VHT MCS tables",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MCS tables. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "vht-max-width",
-      "statement": "Wi-Fi 5 (VHT) widest channel",
-      "value": 160,
-      "unit": "MHz",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 21 (VHT PHY)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "vht-nsd-160",
-      "statement": "Data subcarriers in a 160 MHz VHT channel",
-      "value": 468,
-      "unit": "subcarriers",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 21, VHT timing-related constants table",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT timing-related constants table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "vht-256qam-bits",
-      "statement": "Bits per subcarrier at 256-QAM (Wi-Fi 5 highest modulation)",
-      "value": 8,
-      "unit": "bits",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 21, VHT modulation-dependent parameters table",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT modulation-dependent parameters table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "ofdm-symbol-ht-vht-us",
-      "statement": "OFDM symbol duration (without guard interval) for HT and VHT",
-      "value": 3.2,
-      "unit": "µs",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clauses 19 and 21, timing-related constants (T_DFT)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_DFT). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "short-gi-ht-vht-us",
-      "statement": "Short guard interval for HT and VHT",
-      "value": 0.4,
-      "unit": "µs",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clauses 19 and 21, timing-related constants (T_GI,S)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clauses 19 and 21, timing-related constants (T_GI,S). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -635,79 +425,6 @@
       }
     },
     {
-      "id": "wifi4-peak-phy",
-      "statement": "Wi-Fi 4 theoretical peak PHY rate: 4 streams, 40 MHz, 64-QAM 5/6, short guard interval",
-      "value": 600,
-      "unit": "Mbps",
-      "kind": "technical",
-      "method": "derived",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 19, HT MCS 31 rate table",
-          "excerpt": null
-        }
-      ],
-      "derivation": {
-        "formula": "phyRate",
-        "inputs": {
-          "nss": "ht-max-nss",
-          "nsd": "ht-nsd-40",
-          "bits": "ht-64qam-bits",
-          "codingRate": "coding-rate-max",
-          "symbolUs": "ofdm-symbol-ht-vht-us",
-          "giUs": "short-gi-ht-vht-us"
-        },
-        "constants": {},
-        "rounding": {
-          "decimals": 0
-        },
-        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
-      },
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 19, HT MCS 31 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
-      "id": "wifi5-peak-phy",
-      "statement": "Wi-Fi 5 theoretical peak PHY rate: 8 streams, 160 MHz, 256-QAM 5/6, short guard interval",
-      "value": 6.93,
-      "unit": "Gbps",
-      "kind": "technical",
-      "method": "derived",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 21, VHT-MCS 9 rate table",
-          "excerpt": null
-        }
-      ],
-      "derivation": {
-        "formula": "phyRate",
-        "inputs": {
-          "nss": "vht-max-nss",
-          "nsd": "vht-nsd-160",
-          "bits": "vht-256qam-bits",
-          "codingRate": "coding-rate-max",
-          "symbolUs": "ofdm-symbol-ht-vht-us",
-          "giUs": "short-gi-ht-vht-us"
-        },
-        "constants": {},
-        "rounding": {
-          "decimals": 2,
-          "unit": "Gbps"
-        },
-        "explanation": "Streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol + guard interval)"
-      },
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21, VHT-MCS 9 rate table. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
       "id": "wifi6-peak-phy",
       "statement": "Wi-Fi 6 / 6E theoretical peak PHY rate: 8 streams, 160 MHz, 1024-QAM 5/6, 0.8 µs guard interval",
       "value": 9.61,
@@ -900,126 +617,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
-      }
-    },
-    {
-      "id": "us-6ghz-channels-20",
-      "statement": "Non-overlapping 20 MHz channels in the US 6 GHz band",
-      "value": 59,
-      "unit": "channels",
-      "kind": "technical",
-      "method": "derived",
-      "sources": [
-        {
-          "referenceId": "fcc-20-51",
-          "locator": "Band edges",
-          "excerpt": null
-        },
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Annex E, channel numbering",
-          "excerpt": null
-        }
-      ],
-      "derivation": {
-        "formula": "channelCount",
-        "inputs": {
-          "bandStartMHz": "us-6ghz-band-start",
-          "bandEndMHz": "us-6ghz-band-end",
-          "firstEdgeMHz": "6ghz-ch1-lower-edge"
-        },
-        "constants": {
-          "widthMHz": 20
-        },
-        "rounding": {
-          "decimals": 0
-        },
-        "explanation": "Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
-      },
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
-      }
-    },
-    {
-      "id": "us-6ghz-channels-40",
-      "statement": "Non-overlapping 40 MHz channels in the US 6 GHz band",
-      "value": 29,
-      "unit": "channels",
-      "kind": "technical",
-      "method": "derived",
-      "sources": [
-        {
-          "referenceId": "fcc-20-51",
-          "locator": "Band edges",
-          "excerpt": null
-        },
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Annex E, channel numbering",
-          "excerpt": null
-        }
-      ],
-      "derivation": {
-        "formula": "channelCount",
-        "inputs": {
-          "bandStartMHz": "us-6ghz-band-start",
-          "bandEndMHz": "us-6ghz-band-end",
-          "firstEdgeMHz": "6ghz-ch1-lower-edge"
-        },
-        "constants": {
-          "widthMHz": 40
-        },
-        "rounding": {
-          "decimals": 0
-        },
-        "explanation": "Whole 40 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
-      },
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
-      }
-    },
-    {
-      "id": "us-6ghz-channels-80",
-      "statement": "Non-overlapping 80 MHz channels in the US 6 GHz band",
-      "value": 14,
-      "unit": "channels",
-      "kind": "technical",
-      "method": "derived",
-      "sources": [
-        {
-          "referenceId": "fcc-20-51",
-          "locator": "Band edges",
-          "excerpt": null
-        },
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Annex E, channel numbering",
-          "excerpt": null
-        }
-      ],
-      "derivation": {
-        "formula": "channelCount",
-        "inputs": {
-          "bandStartMHz": "us-6ghz-band-start",
-          "bandEndMHz": "us-6ghz-band-end",
-          "firstEdgeMHz": "6ghz-ch1-lower-edge"
-        },
-        "constants": {
-          "widthMHz": 80
-        },
-        "rounding": {
-          "decimals": 0
-        },
-        "explanation": "Whole 80 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
-      },
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Partly confirmed. As for us-6ghz-channels-20. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
     },
     {
@@ -1265,27 +862,6 @@
       }
     },
     {
-      "id": "mlo-modes-be",
-      "statement": "IEEE 802.11be defines STR and NSTR operation for pairs of links, plus the EMLSR and EMLMR enhanced multi-link modes",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 35.3.16.3 (STR), 35.3.16.4 (NSTR), 35.3.17 (EMLSR), 35.3.18 (EMLMR)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, multi-link device operation and EMLSR/EMLMR subclauses. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
-      }
-    },
-    {
       "id": "mlo-bands",
       "statement": "A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands",
       "value": null,
@@ -1385,27 +961,6 @@
       }
     },
     {
-      "id": "bss-coloring-ax",
-      "statement": "802.11ax BSS coloring lets a device tell its own network’s transmissions from a neighbor’s, which spatial-reuse rules then use to transmit more often",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Clause 26.17.3 (BSS color) and 26.10 (HE spatial reuse)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, BSS color and spatial reuse operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
-      }
-    },
-    {
       "id": "contention-dcf",
       "statement": "Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time",
       "value": null,
@@ -1424,27 +979,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 10, distributed coordination function (DCF) and EDCA. Peer review 2026-10-31 (GPT, High Thinking): Overstated (\"whole channel\"); reworded to the TXOP access rule. Medium."
-      }
-    },
-    {
-      "id": "twt-origin",
-      "statement": "Target Wake Time was first defined in IEEE 802.11ah",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211ah",
-          "locator": "TWT subclause (MAC)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S9 is not openly readable (IEEE paywall); check TWT subclause (MAC). Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
       }
     },
     {
@@ -1556,48 +1090,6 @@
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
-    },
-    {
-      "id": "be-latency-objective",
-      "statement": "The scope of IEEE 802.11be includes at least one mode of operation with improved worst-case latency and jitter",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Standard listing: Scope",
-          "excerpt": "This amendment defines at least one mode of operation capable of improved worst case latency and jitter."
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S8: IEEE listing scope: “This amendment defines at least one mode of operation capable of improved worst case latency and jitter.”"
-      }
-    },
-    {
-      "id": "latency-histogram-illustrative",
-      "statement": "The latency histograms show the shape of the improvement Wi-Fi 7 targets (a shorter worst-case tail), not measured values",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "illustrative",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Standard listing: Scope (worst-case latency and jitter objective)",
-          "excerpt": null
-        }
-      ],
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S8: Scope sentence as for be-latency-objective; the histograms are labelled illustrative and carry no measured values."
-      },
-      "derivation": null
     },
     {
       "id": "wpa3-mandatory-cert",
@@ -1767,27 +1259,6 @@
       }
     },
     {
-      "id": "legacy-security-disallowed",
-      "statement": "WEP, TKIP and WPA (version 1) are disallowed in all WPA3 and Wi-Fi Enhanced Open configurations",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-deploy",
-          "locator": "Table 4, Legacy Security Parameters",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide Table 4 (all WPA3 and Enhanced Open modes): WEP, TKIP and WPA v1 DISALLOW for every AP and STA row."
-      }
-    },
-    {
       "id": "wpa3-ent-pmf-required",
       "statement": "In WPA3-Enterprise Only Mode, protected management frames are required (PMF Required) on the access point and the device",
       "value": null,
@@ -1809,48 +1280,6 @@
       }
     },
     {
-      "id": "wpa3-ent-sha256",
-      "statement": "WPA3-Enterprise Only Mode uses the IEEE 802.1X sign-in with SHA-256 and does not enable the SHA-1 version used by WPA2-Enterprise",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-spec",
-          "locator": "Section 3.2 (WPA3-Enterprise Only Mode), AP items 1–2, page 15",
-          "excerpt": "shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)"
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “shall not enable AKM suite selector: 00-0F-AC:1 (IEEE 802.1X with SHA-1)”."
-      }
-    },
-    {
-      "id": "wpa2-ent-pmf-optional",
-      "statement": "WPA2-Enterprise does not require protected management frames: WPA3-Enterprise transition mode differs from it by disallowing TKIP, enabling PMF and requiring SHA-256 sign-in",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-deploy",
-          "locator": "Section 2.8, note on WPA3-Enterprise Transition Mode, page 21",
-          "excerpt": "WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled (\"Capable\"), and support for SHA-256 AKM (in addition to SHA-1 AKM) is required."
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide: “WPA3-Enterprise transition mode is similar to WPA2-Enterprise, except that TKIP is disallowed, PMF is enabled (Capable) …”."
-      }
-    },
-    {
       "id": "wpa3-ent-cert-validation",
       "statement": "A WPA3 device must validate the authentication server’s certificate when it signs in with EAP-TLS, EAP-TTLS or EAP-PEAP",
       "value": null,
@@ -1869,27 +1298,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 5.1: “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1”."
-      }
-    },
-    {
-      "id": "wpa3-ent-192",
-      "statement": "WPA3-Enterprise 192-bit mode, intended for networks with higher security requirements, uses only the Suite B 192-bit sign-in, requires PMF, and uses GCMP-256 and BIP-GMAC-256 encryption",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-spec",
-          "locator": "Section 3.5 (WPA3-Enterprise 192-bit mode), AP items 1–3, page 16",
-          "excerpt": "well suited for deployments in sensitive enterprise environments to further protect Wi-Fi networks with higher security requirements"
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.5: 192-bit mode is for networks “with higher security requirements”."
       }
     },
     {
@@ -1940,48 +1348,6 @@
       }
     },
     {
-      "id": "vht-dl-mu-mimo",
-      "statement": "802.11ac (Wi-Fi 5) introduced downlink multi-user MIMO for up to four users; it defined no uplink multi-user transmission, so devices sending to the access point still did so one at a time",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211-2020",
-          "locator": "Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S6 is not openly readable (IEEE paywall); check Clause 21 (VHT PHY), VHT MU PPDU (downlink, up to four users). Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
-      }
-    },
-    {
-      "id": "he-ul-mu",
-      "statement": "802.11ax (Wi-Fi 6) adds uplink multi-user transmission: the access point triggers several devices to send at once, using OFDMA or MU-MIMO",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Clause 26, trigger frame and uplink multi-user (UL MU) operation",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Clause 26, trigger frame and uplink multi-user (UL MU) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (Medium)."
-      }
-    },
-    {
       "id": "str-what",
       "statement": "For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time",
       "value": null,
@@ -2003,48 +1369,6 @@
       }
     },
     {
-      "id": "emlsr-what",
-      "statement": "In EMLSR mode, a multi-link device listens on several links but exchanges frames on only one of them at a time; the mode does not fix how many radios the device has",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 35.3.17",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link single-radio (EMLSR) operation. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
-      }
-    },
-    {
-      "id": "emlmr-what",
-      "statement": "In EMLMR mode, a multi-radio multi-link device operates on several links at once and redistributes its spatial streams among them as traffic requires",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211be",
-          "locator": "Clause 35.3.18",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, enhanced multi-link multi-radio (EMLMR) operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
-      }
-    },
-    {
       "id": "fcc-sp-afc",
       "statement": "In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC)",
       "value": null,
@@ -2063,48 +1387,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands."
-      }
-    },
-    {
-      "id": "wpa3-launched",
-      "statement": "Wi-Fi Alliance launched WPA3 certification as its own security program",
-      "value": 2018,
-      "unit": "year",
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-launch",
-          "locator": "Press release, 2018-06-25",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S23: Press release dated 2018-06-25 introducing Wi-Fi CERTIFIED WPA3."
-      }
-    },
-    {
-      "id": "wpa3-ent-transition",
-      "statement": "WPA3-Enterprise Transition Mode enables both the SHA-1 and SHA-256 802.1X sign-ins and sets PMF Capable rather than PMF Required, so WPA2- and WPA3-Enterprise devices can share one network",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-spec",
-          "locator": "Section 3.3 (WPA3-Enterprise Transition Mode), AP items, page 16",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.3: the AP “shall enable at least AKM suite selectors 00-0F-AC:1 (IEEE 802.1X with SHA-1) and 00-0F-AC:5” and “shall be PMF Capable”."
       }
     },
     {
@@ -2153,6 +1435,202 @@
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 9, EHT Capabilities element (Restricted TWT Support); Clause 35, restricted TWT. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
       }
+    },
+    {
+      "id": "qam-4096-vs-1024",
+      "statement": "4096-QAM carries 1.2 times as many bits per subcarrier as 1024-QAM",
+      "value": 1.2,
+      "unit": "×",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "ieee-80211be",
+          "locator": "Clause 36, Table 36-51 (4096-QAM) and Table 36-86",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Clause 27, HE-MCS 10–11 parameters",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "ratio",
+        "inputs": {
+          "a": "eht-4096qam-bits",
+          "b": "he-1024qam-bits"
+        },
+        "constants": {},
+        "rounding": {
+          "decimals": 1
+        },
+        "explanation": "12 bits ÷ 10 bits"
+      },
+      "verification": {}
+    },
+    {
+      "id": "cisco-afc-standard-power",
+      "statement": "Cisco networks support standard-power 6 GHz operation through AFC, both on Cisco wireless controllers and in the Meraki dashboard",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-afc-faq",
+          "locator": "Platform support answers",
+          "excerpt": "AFC is supported via Cisco Catalyst 9800 Series Wireless Controllers and the Meraki dashboard."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-320-opt-in",
+      "statement": "On Cisco wireless controllers, automatic channel assignment stops at 160 MHz by default; 320 MHz, available only in 6 GHz, has to be enabled",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-9800-wifi7-ops",
+          "locator": "320 MHz channel width",
+          "excerpt": "By default, the Dynamic Channel Assignment (DCA) maximum bandwidth is 160 MHz."
+        },
+        {
+          "referenceId": "cisco-9800-wifi7-ops",
+          "locator": "320 MHz channel width",
+          "excerpt": "320 MHz is supported only on the 6-GHz band."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-320-us-sp-one",
+      "statement": "Cisco design guidance: under standard power, only one 320 MHz channel is available in the US",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "meraki-wifi7-guide",
+          "locator": "320 MHz Channel Width",
+          "excerpt": "If the Wi-Fi 7 Access Point is operating in Standard Power (SP) Mode … the number of 320 MHz channels is restricted to 1 in the US and 2 in Canada."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-4kqam-close-range",
+      "statement": "Cisco design guidance: 4096-QAM needs a very strong signal, so clients must be very close to the access point to reach its rates",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "meraki-wifi7-guide",
+          "locator": "4K QAM",
+          "excerpt": "The clients have to be very close to the Access Point, within a few feet to achieve the high data rates with 4K QAM."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-wpa2-no-mlo",
+      "statement": "On a Cisco network that mixes WPA2 and WPA3 sign-in, clients that connect with WPA2 cannot use multi-link operation or Wi-Fi 7",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-migrate-wifi7",
+          "locator": "Passphrase / WPA3-Personal / IoT networks",
+          "excerpt": "In this situation, clients that connect using WPA2 cannot use MLO or Wi-Fi 7, but clients connecting with SAE-EXT can."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-noncompliant-downgrade",
+      "statement": "Cisco networks offer a network as Wi-Fi 7 only when its security meets the Wi-Fi 7 requirements; otherwise access points run it as Wi-Fi 6 or 6E",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-migrate-wifi7",
+          "locator": "Cisco IOS XE 17.18.1/17.18.2",
+          "excerpt": "advertise a WLAN as Wi-Fi 7 and MLO capable only if the appropriate security requirements are enabled"
+        },
+        {
+          "referenceId": "cisco-migrate-wifi7",
+          "locator": "WPA3-SAE configuration on the Cisco Meraki dashboard",
+          "excerpt": "If a WPA2-Personal SSID is configured in the dashboard network, all the Wi-Fi 7 APs would revert to Wi-Fi 6E operation."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-beacon-protection-auto",
+      "statement": "With recent Cisco controller software, beacon protection turns on automatically for networks that meet the Wi-Fi 7 requirements",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-migrate-wifi7",
+          "locator": "Additional WPA3 and related options > Beacon protection",
+          "excerpt": "After 17.18, the beacon protection elements are enabled automatically if your WLAN is Wi-Fi 7 compliant"
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-wifi7-readiness-check",
+      "statement": "Cisco’s Wireless Configuration Analyzer Express includes a Wi-Fi 7 readiness check of controller configuration",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-migrate-wifi7",
+          "locator": "Wireless Configuration Analyzer Express (WCAE)",
+          "excerpt": "has a Wi-Fi 7 readiness check that evaluates your 9800 configuration against all the Wi-Fi 7 requirements"
+        }
+      ],
+      "derivation": null,
+      "verification": {}
+    },
+    {
+      "id": "cisco-twt-default-off",
+      "statement": "On Cisco wireless controllers, Target Wake Time is off by default and has to be turned on",
+      "value": null,
+      "unit": null,
+      "kind": "platform",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "cisco-9800-twt",
+          "locator": "Target wake time (Note)",
+          "excerpt": "By default Target Wake Time (TWT) is disabled on the controller."
+        }
+      ],
+      "derivation": null,
+      "verification": {}
     }
   ]
 }

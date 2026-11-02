@@ -82,21 +82,7 @@ test('glossary popover in the notes opens on a term and closes on Escape', async
   await expect(term).toBeFocused();
 });
 
-test('Under the hood is open on beats with technical depth, and can be closed', async ({ page }) => {
+test('feature chapters show no technical depth in the notes (feature 003)', async ({ page }) => {
   await open(page, 'mlo', 3, { notes: true });
-  const details = page.locator('.deep-dive');
-  await expect(details).toHaveCount(1);
-  await expect(details).toHaveAttribute('open', '');
-  await expect(details.locator('.deep-body')).toContainText('multi-link');
-  await details.locator('summary').click();
-  await expect(details).not.toHaveAttribute('open', '');
-});
-
-test('MLO modes section changes the scene state and restores it when closed', async ({ page }) => {
-  await open(page, 'mlo', 2, { notes: true });
-  const section = page.locator('[data-section="mlo-modes"]');
-  await section.locator('summary').click();
-  await expect.poll(() => page.evaluate(() => window.__stage.state)).toBe('modes-compare');
-  await section.locator('summary').click();
-  await expect.poll(() => page.evaluate(() => window.__stage.state)).toBe('what-is-mlo');
+  await expect(page.locator('.deep-dive, .deep-section')).toHaveCount(0);
 });

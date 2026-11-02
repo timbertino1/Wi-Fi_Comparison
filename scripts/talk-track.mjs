@@ -1,5 +1,5 @@
 // Builds the speaker talk track from content (contracts/talk-track.md, research P8): every chapter
-// and step with what is on screen, what to say, technical depth, figures with sources and likely
+// and step with what is on screen, what to say, Cisco notes, figures with sources and likely
 // questions, plus key figures, glossary, claims register and references. Output is deterministic
 // plain Markdown in docs/, never in dist/.
 // Usage: node scripts/talk-track.mjs [--check]
@@ -72,10 +72,18 @@ export function buildTalkTrack(content = loadContent()) {
       line(`**Opener** (its own click): ${o.label} · ${o.tag}${badge} — ${tab.title}. ${sentence(md(tab.opener.promise))} The problem: ${sentence(md(tab.opener.problem))}`);
       line();
     }
-    const lead = lineageLead(tab, genById);
-    if (lead) {
-      line(`**Lineage:** ${lead}What Wi-Fi 7 adds: ${md(tab.wifi7Adds)}`);
+    if (tab.sinceWifi6) {
+      // Feature 003: what each generation added since Wi-Fi 6, as the side panel shows it.
+      line('**Since Wi-Fi 6:**');
       line();
+      for (const g of ['wifi6', 'wifi6e', 'wifi7']) if (tab.sinceWifi6[g]) line(`- ${genById.get(g)?.name}: ${md(tab.sinceWifi6[g])}`);
+      line();
+    } else {
+      const lead = lineageLead(tab, genById);
+      if (lead && tab.wifi7Adds) {
+        line(`**Lineage:** ${lead}What Wi-Fi 7 adds: ${md(tab.wifi7Adds)}`);
+        line();
+      }
     }
     for (const id of tab.scenarioIds ?? []) {
       const s = scenarioById.get(id);
@@ -101,7 +109,7 @@ export function buildTalkTrack(content = loadContent()) {
         for (const p of b.callout.points) line(`- ${md(p)}`);
         line();
       }
-      line(`**Say (leadership):** ${md(b.heading)}.`);
+      line(`**Say:** ${md(b.heading)}.`);
       line();
       line(md(b.body));
       if (b.bottomLine) {
@@ -109,10 +117,11 @@ export function buildTalkTrack(content = loadContent()) {
         line(`**Bottom line:** ${md(b.bottomLine)}`);
       }
       line();
-      const technical = [b.caption?.technical, b.deepDive, ...hotspots.map((h) => h.technical)].filter(Boolean).map(md);
-      line(`**Technical depth:** ${technical.length ? technical.join(' ') : 'No extra technical layer on this step.'}`);
-      line();
-      const terms = termsIn(b.heading, b.body, b.bottomLine, b.deepDive, b.caption?.headline, b.caption?.takeaway, b.caption?.technical, ...(b.callout?.points ?? [])).concat(hotspots.map((h) => h.term));
+      if (b.cisco) {
+        line(`**On Cisco networks — ${md(b.cisco.feature)}:** ${md(b.cisco.text)}`);
+        line();
+      }
+      const terms = termsIn(b.heading, b.body, b.bottomLine, b.caption?.headline, b.caption?.takeaway, b.cisco?.text, ...(b.callout?.points ?? [])).concat(hotspots.map((h) => h.term));
       const uniqueTerms = [...new Set(terms)].filter((id) => termById.has(id));
       if (uniqueTerms.length) {
         line('**Terms:**');
@@ -121,7 +130,7 @@ export function buildTalkTrack(content = loadContent()) {
         line();
       }
       const stepClaims = [...new Set([
-        ...claimsIn(b.body, b.bottomLine, b.deepDive, b.caption?.takeaway, b.caption?.technical, ...(b.callout?.points ?? []), ...hotspots.map((h) => h.technical)),
+        ...claimsIn(b.body, b.bottomLine, b.caption?.takeaway, b.cisco?.text, ...(b.callout?.points ?? [])),
         ...hotspots.map((h) => h.claim).filter(Boolean)
       ])].filter((id) => claimById.has(id));
       line('**Figures:**');
@@ -142,7 +151,7 @@ export function buildTalkTrack(content = loadContent()) {
       line('**Likely questions:**');
       line();
       if (b.questions?.length) {
-        for (const q of b.questions) line(`- **Q (${q.audience ?? 'both'}):** ${md(q.q)} **A:** ${md(q.a)}`);
+        for (const q of b.questions) line(`- **Q${q.followUp ? ' (follow-up topic)' : ''}:** ${md(q.q)} **A:** ${md(q.a)}`);
       } else {
         line('- None written yet.');
       }
@@ -164,7 +173,7 @@ export function buildTalkTrack(content = loadContent()) {
     }
 
     if (tab.sections?.length) {
-      line('### Deep sections (Technical)');
+      line('### Sections');
       line();
       for (const s of tab.sections) {
         line(`#### ${md(s.heading)}`);

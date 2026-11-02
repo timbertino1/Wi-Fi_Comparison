@@ -11,10 +11,10 @@ test('F toggles full screen without moving the story', async ({ page, browserNam
   await expect(page.locator('html')).toHaveAttribute('data-present', '');
   await expect(page.locator('#present-toggle')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('.site-header')).toBeHidden();
-  await expect(page.locator('#progress')).toContainText('Step 2 of 5');
+  await expect(page.locator('#progress')).toContainText('Step 2 of 3');
   await page.keyboard.press('f');
   await expect(page.locator('html')).not.toHaveAttribute('data-present', '');
-  await expect(page.locator('#progress')).toContainText('Step 2 of 5');
+  await expect(page.locator('#progress')).toContainText('Step 2 of 3');
 });
 
 test('the settings menu offers full screen', async ({ page }) => {
@@ -30,5 +30,5 @@ test('B and . blank and unblank the screen without moving the story', async ({ p
   await expect(page.locator('#blank')).toBeVisible();
   await page.keyboard.press('.');
   await expect(page.locator('#blank')).toBeHidden();
-  await expect(page.locator('#progress')).toContainText('Step 3 of 5');
+  await expect(page.locator('#progress')).toContainText('Step 3 of 3');
 });

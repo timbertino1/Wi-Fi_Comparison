@@ -1,12 +1,11 @@
 // Hotspots (FR-016–FR-018, research P5): "i" markers pinned to the anchors a scene publishes for the
 // current state, each opening a non-modal card with the term's definition, an optional sourced
-// figure and (Technical view) a technical line. Scenes publish anchors only; markers, cards and their
+// figure (feature 003 removed the technical line). Scenes publish anchors only; markers, cards and their
 // text belong to the shell. A card closes on Escape, an outside click, or Next (via overlays).
 import { termById, claimById, markupContext } from './content.js';
 import { renderInline } from './markup.js';
 import * as story from './story.js';
 import * as overlays from './overlays.js';
-import { getView } from './view.js';
 
 const slide = document.getElementById('slide');
 const card = document.getElementById('hotspot-card');
@@ -14,8 +13,6 @@ let stage = null;
 let pins = [];
 let markers = [];
 let openMarker = null;
-
-const visibleFor = (h) => (h.depth ?? 'all') === 'all' || getView() === 'technical';
 
 function clearMarkers() {
   closeCard({ focus: false });
@@ -52,7 +49,7 @@ function renderMarkers() {
   const anchors = instance.anchors();
   for (const h of beat?.hotspots ?? []) {
     const object = anchors[h.anchor];
-    if (!object || !visibleFor(h)) continue;
+    if (!object) continue;
     const button = marker(h);
     pins.push(stage.attach(object, button, h.offset ?? [0, 0.55, 0]));
     markers.push(button);
@@ -113,7 +110,6 @@ function openCard(h, button) {
     const fig = figureLine(h.claim);
     if (fig) body.push(fig);
   }
-  if (h.technical && getView() === 'technical') body.push(line('hotspot-technical', renderInline(h.technical, markupContext))); // safe: renderMarkup
   card.replaceChildren(...body);
   openMarker = button;
   button.setAttribute('aria-expanded', 'true');

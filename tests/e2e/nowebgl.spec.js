@@ -36,7 +36,7 @@ test('the still-image notice leaves the comparison and slide controls uncovered'
   await page.goto(fileUrl('#/twt/1?test'));
   await expect(page.locator('#stage-notice')).toBeVisible();
   // A real (unforced) click fails if anything sits on top of the control.
-  for (const id of ['wifi6', 'wifi5']) {
+  for (const id of ['wifi6e', 'wifi6']) {
     await page.locator(`#compare input[value="${id}"]`).click();
     await expect(page.locator(`#compare input[value="${id}"]`)).toBeChecked();
   }
