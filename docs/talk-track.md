@@ -1202,71 +1202,71 @@ Restricted TWT is an optional 802.11be capability, advertised in the EHT Capabil
 - [S8] Clause 36, Table 36-51 (4096-QAM) and Table 36-86
 - [S7] Clause 27, HE-MCS 10–11 parameters
 - Derivation: 12 bits ÷ 10 bits
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-afc-standard-power
 
 Cisco networks support standard-power 6 GHz operation through AFC, both on Cisco wireless controllers and in the Meraki dashboard — value: —; method: stated; kind: platform.
 - [S30] Platform support answers — “AFC is supported via Cisco Catalyst 9800 Series Wireless Controllers and the Meraki dashboard.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-320-opt-in
 
 On Cisco wireless controllers, automatic channel assignment stops at 160 MHz by default; 320 MHz, available only in 6 GHz, has to be enabled — value: —; method: stated; kind: platform.
 - [S27] 320 MHz channel width — “By default, the Dynamic Channel Assignment (DCA) maximum bandwidth is 160 MHz.”
 - [S27] 320 MHz channel width — “320 MHz is supported only on the 6-GHz band.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-320-us-sp-one
 
 Cisco design guidance: under standard power, only one 320 MHz channel is available in the US — value: —; method: stated; kind: platform.
 - [S29] 320 MHz Channel Width — “If the Wi-Fi 7 Access Point is operating in Standard Power (SP) Mode … the number of 320 MHz channels is restricted to 1 in the US and 2 in Canada.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-4kqam-close-range
 
 Cisco design guidance: 4096-QAM needs a very strong signal, so clients must be very close to the access point to reach its rates — value: —; method: stated; kind: platform.
 - [S29] 4K QAM — “The clients have to be very close to the Access Point, within a few feet to achieve the high data rates with 4K QAM.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-wpa2-no-mlo
 
 On a Cisco network that mixes WPA2 and WPA3 sign-in, clients that connect with WPA2 cannot use multi-link operation or Wi-Fi 7 — value: —; method: stated; kind: platform.
 - [S26] Passphrase / WPA3-Personal / IoT networks — “In this situation, clients that connect using WPA2 cannot use MLO or Wi-Fi 7, but clients connecting with SAE-EXT can.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-noncompliant-downgrade
 
 Cisco networks offer a network as Wi-Fi 7 only when its security meets the Wi-Fi 7 requirements; otherwise access points run it as Wi-Fi 6 or 6E — value: —; method: stated; kind: platform.
 - [S26] Cisco IOS XE 17.18.1/17.18.2 — “advertise a WLAN as Wi-Fi 7 and MLO capable only if the appropriate security requirements are enabled”
 - [S26] WPA3-SAE configuration on the Cisco Meraki dashboard — “If a WPA2-Personal SSID is configured in the dashboard network, all the Wi-Fi 7 APs would revert to Wi-Fi 6E operation.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-wifi7-readiness-check
 
 Cisco’s Wireless Configuration Analyzer Express includes a Wi-Fi 7 readiness check of controller configuration — value: —; method: stated; kind: platform.
 - [S26] Wireless Configuration Analyzer Express (WCAE) — “has a Wi-Fi 7 readiness check that evaluates your 9800 configuration against all the Wi-Fi 7 requirements”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### cisco-twt-default-off
 
 On Cisco wireless controllers, Target Wake Time is off by default and has to be turned on — value: —; method: stated; kind: platform.
 - [S28] Target wake time (Note) — “By default Target Wake Time (TWT) is disabled on the controller.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### wifi7-no-wpa2
 
 The WPA3 specification excludes the WPA2 sign-in methods, for both password-based and enterprise networks, from any connection that uses Wi-Fi 7 (EHT) or multi-link operation — value: —; method: stated; kind: technical.
 - [S18] Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9 — “AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO”
 - [S18] Section 3.3 (WPA3-Enterprise Transition Mode), STA item 1 note, page 16 — “AKM suite selector 00-0F-AC:1 (IEEE 802.1X with SHA-1) is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ### wpa3-transition-options
 
 WPA3 transition mode lets WPA3-capable devices connect with WPA3 while older devices connect with WPA2 on the same network; where older devices have interoperability issues with transition mode, Wi-Fi Alliance describes two separate networks (one WPA3, one WPA2) as an alternative — value: —; method: stated; kind: technical.
 - [S25] Page 1, WPA3 transition mode allows connection to either WPA3 or WPA2 — “This transition mode allows client devices that support WPA3 to connect with WPA3 while older devices connect with WPA2”
 - [S25] Page 1, Alternatives to WPA3 transition mode — “One alternative is to configure two SSIDs (two networks) on the access point (AP), one with WPA3 and the other with WPA2.”
-- Verification: not yet verified
+- Verification: 2026-11-02 by Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk (Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md.)
 
 ## References
 
