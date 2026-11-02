@@ -22,7 +22,7 @@ test.describe('reduced motion', () => {
     await page.waitForTimeout(1500);
     await expect(page.locator('#progress')).toHaveText(progress);
     await page.locator('#step-forward').click();
-    await expect.poll(() => page.evaluate(() => window.__stage.state)).toBe('links-aggregate');
+    await expect.poll(() => page.evaluate(() => window.__stage.state)).toBe('what-is-mlo');
     // With no ambient motion the render loop goes idle.
     await expect.poll(() => page.evaluate(() => window.__stage.running), { timeout: 3000 }).toBe(false);
   });
@@ -47,7 +47,7 @@ test('losing the WebGL context switches to still images without losing the place
     gl.getExtension('WEBGL_lose_context').loseContext();
   });
   await expect(page.locator('#stage img.stage-fallback')).toHaveAttribute('src', 'fallback/mlo/3.jpg');
-  await expect(page.locator('#progress')).toContainText('Step 3 of 3');
+  await expect(page.locator('#progress')).toContainText('Step 3 of 4');
 });
 
 test('hiding the page stops the render loop', async ({ page }) => {

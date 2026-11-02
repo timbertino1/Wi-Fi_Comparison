@@ -43,18 +43,29 @@
       },
       "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form one connection with links in more than one band {{mlo-defined-be}}: 2.4 GHz, 5 GHz and 6 GHz {{mlo-bands}}.\n\nWhen one band gets busy, traffic can move to another link without the device reconnecting first {{mlo-tid-mapping}}. Devices that can use several links at once can also spread traffic across them for more speed {{str-what}}.",
       "bottomLine": "Urgent traffic gets another lane on a different band, instead of waiting for one busy band to clear.",
-      "sceneState": "links-aggregate",
-      "sceneDescription": "Gray upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.",
+      "sceneState": "what-is-mlo",
+      "sceneDescription": "One access point on the left connects to the nurse's badge on the right with three arched links, one each in 6 GHz, 5 GHz and 2.4 GHz. The voice call travels on the 5 GHz link, while the other two links stay connected and ready.",
       "durationMs": 14000,
-      "covers": [
-        "how"
-      ],
       "questions": [
         {
           "q": "Is MLO just bonding bands together for speed?",
           "a": "Speed is one use, but the bigger gain for clinical traffic is resilience: a device keeps links in several bands{{mlo-bands}}, so urgent packets can move to a free band without reconnecting."
         }
       ]
+    },
+    {
+      "type": "how",
+      "heading": "Watch the call change bands",
+      "caption": {
+        "headline": "The call switches bands mid-call",
+        "takeaway": "When an upload fills 5 GHz, the call moves to 6 GHz without reconnecting{{mlo-tid-mapping}}."
+      },
+      "body": "The badge's call starts on the 5 GHz link. Then the imaging cart's upload arrives on that same band, and the call's voice packets begin to wait behind it.\n\nBecause the badge already holds a 6 GHz link in the same connection, the call's traffic moves there and keeps flowing, with no reconnecting first {{mlo-tid-mapping}}. The 2.4 GHz link stays ready as another option.",
+      "bottomLine": "The call keeps going on another band while the busy band clears, instead of waiting in line behind the upload.",
+      "sceneState": "links-aggregate",
+      "sceneDescription": "The voice call travels on the 5 GHz link. Gray imaging-upload blocks then fill the 5 GHz link and the voice packets briefly wait. The call moves to the 6 GHz link and keeps arriving at the badge, while the 2.4 GHz link stands ready.",
+      "durationMs": 14000,
+      "captionAtMs": 6000
     },
     {
       "type": "improvement",

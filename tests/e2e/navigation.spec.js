@@ -25,7 +25,7 @@ test.describe('chapter navigation', () => {
     await page.keyboard.press('Escape');
     await expect(page.locator('#chapter-menu')).toBeHidden();
     // Escape closed the menu without moving the story.
-    await expect(page.locator('#progress')).toContainText('Step 2 of 3');
+    await expect(page.locator('#progress')).toContainText('Step 2 of 4');
   });
 
   test('deep links open chapters and steps directly; out-of-range steps clamp', async ({ page }) => {

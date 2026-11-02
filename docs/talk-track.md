@@ -462,7 +462,7 @@ No figures cited on this step.
 
 ### Step 2 — One connection, several radio lanes
 
-**On screen:** One connection, several radio lanes / Multi-Link Operation holds links in 2.4, 5 and 6 GHz [S8, S15], so traffic can switch lanes. Gray upload traffic fills the 5 GHz link. The voice packets move onto the 6 GHz link and keep arriving at the badge, while the 2.4 GHz link stands ready.
+**On screen:** One connection, several radio lanes / Multi-Link Operation holds links in 2.4, 5 and 6 GHz [S8, S15], so traffic can switch lanes. One access point on the left connects to the nurse's badge on the right with three arched links, one each in 6 GHz, 5 GHz and 2.4 GHz. The voice call travels on the 5 GHz link, while the other two links stay connected and ready.
 
 **Say:** One connection, several radio lanes.
 
@@ -489,7 +489,29 @@ When one band gets busy, traffic can move to another link without the device rec
 
 - **Q:** Is MLO just bonding bands together for speed? **A:** Speed is one use, but the bigger gain for clinical traffic is resilience: a device keeps links in several bands [S8, S15], so urgent packets can move to a free band without reconnecting.
 
-### Step 3 — Earlier Wi-Fi: one lane at a time
+### Step 3 — The call switches bands mid-call
+
+**On screen:** The call switches bands mid-call / When an upload fills 5 GHz, the call moves to 6 GHz without reconnecting [S8]. The voice call travels on the 5 GHz link. Gray imaging-upload blocks then fill the 5 GHz link and the voice packets briefly wait. The call moves to the 6 GHz link and keeps arriving at the badge, while the 2.4 GHz link stands ready.
+
+**Say:** Watch the call change bands.
+
+The badge's call starts on the 5 GHz link. Then the imaging cart's upload arrives on that same band, and the call's voice packets begin to wait behind it.
+
+Because the badge already holds a 6 GHz link in the same connection, the call's traffic moves there and keeps flowing, with no reconnecting first [S8]. The 2.4 GHz link stays ready as another option.
+
+**Bottom line:** The call keeps going on another band while the busy band clears, instead of waiting in line behind the upload.
+
+**Figures:**
+
+| Figure | Value | Source | Where |
+|---|---|---|---|
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
+
+**Likely questions:**
+
+- None written yet.
+
+### Step 4 — Earlier Wi-Fi: one lane at a time
 
 **On screen:** Earlier Wi-Fi: one lane at a time / Wi-Fi 6 and 6E use one band at a time [S6, S8]; Wi-Fi 7 keeps the others open. The view splits in two. On the left, an earlier-generation connection uses a single link that clogs with upload traffic while voice packets wait. On the right, the Wi-Fi 7 connection has three links open, and the voice packets move to the free one and keep flowing.
 

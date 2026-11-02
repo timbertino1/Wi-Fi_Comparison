@@ -9,6 +9,9 @@ const BANDS = [
 ];
 const VOICE = 6;
 const BULK = 4;
+// The live band move (links-aggregate): seconds until the upload reaches 5 GHz, and until the call moves.
+const UPLOAD_AT = 2.5;
+const MOVE_AT = 4.5;
 
 export default {
   id: 'mlo',
@@ -127,6 +130,7 @@ export default {
     const groups = { single: single.group, multi: multi.group, modes };
     let mode = 'single-link-congested';
     let time = 0;
+    let moveT = Infinity; // time into the live band move; Infinity shows its end
 
     function placeRigs(name) {
       // Positions/scales for each state: [x, scale, visible] per group.
@@ -144,10 +148,10 @@ export default {
     // The long form names the upload; the small side-by-side keeps the short one.
     const busyText = (f, show) => (show ? `${f.band.label} · busy: imaging upload` : `${f.band.label} · busy`);
     /** Shows the traffic labels on a link: the upload while it is busy, the call where it travels. */
-    function labelTraffic(f, { voice, waiting, show }) {
+    function labelTraffic(f, { voice, waiting, show, moved = false }) {
       f.uploadLabel.element.style.opacity = show && f.busy ? '1' : '0';
       f.voiceLabel.element.style.opacity = show && voice ? '1' : '0';
-      labels.setText(f.voiceLabel, waiting ? 'Voice call · waiting' : 'Voice call');
+      labels.setText(f.voiceLabel, waiting ? 'Voice call · waiting' : moved ? 'Voice call · moved from 5 GHz' : 'Voice call');
       // A waiting call queues near the access point; a flowing one is labelled near the badge.
       f.voiceAnchor.position.copy(f.curve.getPoint(waiting ? 0.12 : 0.85));
       f.voiceAnchor.position.y += 0.45;
@@ -160,15 +164,21 @@ export default {
       old.busy = name === 'single-link-congested' || name === 'gen-compare';
       labels.setText(old.label, old.busy ? busyText(old, show) : old.band.label);
       labelTraffic(old, { voice: true, waiting: old.busy, show });
-      const congested = ['links-aggregate', 'gen-compare', 'clinical-outcome'].includes(name);
+      // The band move plays live: the call starts on 5 GHz, the upload fills it, then the call moves.
+      const live = name === 'links-aggregate';
+      const congested = live ? moveT >= UPLOAD_AT : ['gen-compare', 'clinical-outcome'].includes(name);
+      const moved = live ? moveT >= MOVE_AT : congested;
       for (const f of multi.flows) {
+        const wasActive = f.active;
         f.busy = f.band.id === '5' && congested;
         // Voice uses one link: 5 GHz until it is busy, then 6 GHz; the 2.4 GHz link stands ready.
-        f.active = f.band.id === (congested ? '6' : '5');
+        f.active = f.band.id === (moved ? '6' : '5');
+        // A call that moves mid-step enters its new link at the access point, not along it.
+        if (f.active && !wasActive && live && Number.isFinite(moveT)) f.voice.forEach((v, i) => { v.userData.t = -i / VOICE; });
         f.mesh.material.opacity = f.active || f.busy ? 0.85 : 0.3;
         // Say what each link is doing, so a dim link reads as connected, not off.
         labels.setText(f.label, f.busy ? busyText(f, show) : f.active ? f.band.label : `${f.band.label} · ready`);
-        labelTraffic(f, { voice: f.active, waiting: false, show });
+        labelTraffic(f, { voice: f.active, waiting: f.busy && f.active, show, moved: live && moved && f.active });
       }
     }
 
@@ -181,16 +191,21 @@ export default {
           p.position.copy(f.curve.getPoint(p.userData.t));
         }
         f.voice.forEach((p, i) => {
-          if (f.busy && rig === single) {
+          if (f.busy && f.active) {
             // Voice packets pile up behind the bulk upload near the access point.
             const cap = 0.22 - i * 0.03;
             p.userData.t = Math.min(cap, p.userData.t + dt * 0.05);
             if (p.userData.t >= 0.999) p.userData.t = 0;
-          } else if (f.busy || !f.active) {
+          } else if (!f.active) {
             p.visible = false; // in Wi-Fi 7 the voice traffic moves to the free link
             return;
           } else {
-            p.userData.t = (p.userData.t + dt * 0.42) % 1;
+            p.userData.t += dt * 0.42;
+            if (p.userData.t < 0) {
+              p.visible = false; // not yet sent on the new link
+              return;
+            }
+            p.userData.t %= 1;
           }
           p.visible = true;
           p.position.copy(f.curve.getPoint(Math.max(0, p.userData.t)));
@@ -220,6 +235,8 @@ export default {
     return {
       async setState(name, { animate = true, signal } = {}) {
         mode = name;
+        // Full motion plays the band move live; a still or a settled step shows where it ends.
+        moveT = name === 'links-aggregate' && animate && motionFull ? 0 : Infinity;
         const layout = placeRigs(name);
         setBusy(name);
         const jobs = [];
@@ -248,6 +265,12 @@ export default {
         camera.lookAt(0, lookY(), 0);
         if (!motionFull) return;
         time += dt;
+        if (mode === 'links-aggregate' && moveT < MOVE_AT) {
+          const before = moveT;
+          moveT += dt;
+          if ((before < UPLOAD_AT) !== (moveT < UPLOAD_AT) || moveT >= MOVE_AT) setBusy(mode);
+          if (moveT >= MOVE_AT) ctx.cue('caption'); // the caption names the move as it happens
+        }
         if (mode === 'clinical-outcome') multi.flows[1].busy = Math.floor(time / 4) % 2 === 0;
         layoutPackets(single, dt);
         layoutPackets(multi, dt);
