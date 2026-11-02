@@ -85,12 +85,6 @@
       "definition": "The WPA3 sign-in exchange. Both sides prove they know the password without revealing anything an eavesdropper could test offline."
     },
     {
-      "id": "forward-secrecy",
-      "term": "Forward secrecy",
-      "expansion": null,
-      "definition": "A property where learning a password later does not let someone decrypt traffic they recorded earlier, because each session used its own key."
-    },
-    {
       "id": "twt",
       "term": "TWT",
       "expansion": "Target Wake Time",

@@ -289,7 +289,8 @@
       "date": "2021-01",
       "status": "current",
       "access": "open",
-      "url": "https://www.wi-fi.org/system/files/Wi-Fi_CERTIFIED_WPA3_Technology_Overview_202101.pdf"
+      "url": "https://www.wi-fi.org/system/files/Wi-Fi_CERTIFIED_WPA3_Technology_Overview_202101.pdf",
+      "retired": true
     },
     {
       "id": "wfa-wpa3-highlights",

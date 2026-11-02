@@ -4,7 +4,7 @@ import { claimById, refById, publisherById } from './content.js';
 import { plainText } from './markup.js';
 
 const METHOD = { stated: 'Stated in source', derived: 'Derived', illustrative: 'Illustrative' };
-const TIER = { 1: 'Tier 1: standards body / regulator', 2: 'Tier 2: peer-reviewed / health authority' };
+const TIER = { 1: 'Tier 1: standards body / regulator', cisco: 'Cisco public documentation', 2: 'Tier 2: peer-reviewed / health authority' };
 const FORMULA = {
   phyRate: 'streams × data subcarriers × bits per subcarrier × coding rate ÷ (symbol time + guard interval)',
   channelCount: 'whole channels that fit between the band edges',

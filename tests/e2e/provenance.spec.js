@@ -38,7 +38,7 @@ for (const tab of featureTabs) {
       await expect(dialog).toContainText(claim.statement);
       await expect(dialog.locator('.badge').first()).toBeVisible();
       await expect(dialog.locator('.prov-where').first()).toContainText(claim.sources[0].locator);
-      await expect(dialog.getByText(/Tier [12]:/).first()).toBeVisible();
+      await expect(dialog.getByText(/Tier [12]:|Cisco public documentation/).first()).toBeVisible();
       const link = dialog.locator('a.prov-source-title').first();
       await expect(link).toHaveAttribute('rel', /noopener/);
       await expect(link).toHaveAttribute('rel', /noreferrer/);

@@ -2,11 +2,11 @@
   "id": "security",
   "order": 6,
   "kind": "feature",
-  "title": "Security Since Wi-Fi 6",
-  "summary": "WPA3 closes WPA2’s weak points, Wi-Fi 6E requires it in 6 GHz, and Wi-Fi 7 builds on it.",
+  "title": "Security: WPA3 for Wi-Fi 7",
+  "summary": "Wi-Fi 7 requires WPA3: why the bar is set there, and how a hospital can get ready.",
   "opener": {
-    "promise": "Stronger sign-in for shared-password and staff networks alike",
-    "problem": "A guessable WPA2 password can be cracked offline; devices can be fooled by fake access points."
+    "promise": "Wi-Fi 7 makes WPA3 sign-in the price of entry",
+    "problem": "Many hospital devices and networks still sign in with WPA2, which Wi-Fi 7 does not use."
   },
   "introducedIn": "wifi6",
   "wifi7Adds": null,
@@ -23,64 +23,65 @@
   "beats": [
     {
       "type": "problem",
-      "heading": "WPA2: two doors, two weak points",
+      "heading": "Wi-Fi 7 requires WPA3",
       "caption": {
-        "headline": "[[wpa2|WPA2]]: two doors, two weak points",
-        "takeaway": "A guessable shared password can be cracked offline; a [[fake-access-point|fake access point]] can fool devices."
+        "headline": "Wi-Fi 7 requires [[wpa3|WPA3]]",
+        "takeaway": "Devices that sign in with [[wpa2|WPA2]] can’t use Wi-Fi 7{{wifi7-no-wpa2}}; WPA3 unlocks it."
       },
-      "body": "Hospitals run two kinds of Wi-Fi sign-in through the same [[access-point|access points]]. Many clinical device networks use one shared password: [[wpa-personal|WPA2-Personal]]. Staff devices usually sign in with their own credentials: [[wpa-enterprise|WPA2-Enterprise]].\n\nEach has a weak point. Someone in the parking lot can record a device joining the shared-password network and try millions of guesses offline {{wpa3-sae}}. On the staff network, a device that is not set up to check the sign-in server can be fooled by a [[fake-access-point|fake access point]] {{wpa3-ent-cert-validation}}.",
-      "bottomLine": "Both kinds of WPA2 network can be attacked quietly: one through a recorded sign-in, the other through a convincing fake.",
-      "sceneState": "wpa2-risks",
-      "sceneDescription": "A hallway wall on a hospital unit with two doors under an access point: a keypad door for the shared-password network, with an infusion pump in front, and a badge door for staff sign-in, with a workstation. An outsider copies a recorded sign-in from the keypad and carries it to a desk, where the lock pops open. At the staff door, the workstation is linked to a red fake access point instead of the real one.",
-      "durationMs": 13000,
+      "body": "Wi-Fi 7 comes with a security rule: a Wi-Fi 7 connection between a device and an [[access-point|access point]] signs in with [[wpa3|WPA3]], never [[wpa2|WPA2]] {{wifi7-no-wpa2}}. That holds for shared-password networks and for staff sign-in alike.\n\nA device limited to WPA2 can still join a network that offers WPA2, but it connects without Wi-Fi 7 or multi-link {{wifi7-no-wpa2}} and stays out of the 6 GHz band {{wpa3-6ghz-required}}.",
+      "bottomLine": "To get Wi-Fi 7’s benefits, both the device and the network it joins need WPA3.",
+      "sceneState": "wpa3-only",
+      "sceneDescription": "A hallway wall on a hospital unit with two doors under an access point labeled Wi-Fi 7: WPA3 sign-in. The infusion pump and the workstation each hold their own key. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices. A note shows what the earlier generation accepted.",
+      "durationMs": 12000,
       "callout": {
-        "title": "WPA2’s two weak points",
+        "title": "The Wi-Fi 7 security rule",
         "points": [
-          "Shared password: a recorded sign-in lets attackers guess offline{{wpa3-sae}}",
-          "Staff sign-in: certificate checks depend on device configuration{{wpa3-ent-cert-validation}}"
+          "Wi-Fi 7 connections sign in with WPA3, not WPA2{{wifi7-no-wpa2}}",
+          "WPA2-only devices connect without Wi-Fi 7{{cisco-wpa2-no-mlo}}",
+          "6 GHz has required WPA3 since Wi-Fi 6E{{wpa3-6ghz-required}}"
         ]
       },
       "hotspots": [
         {
-          "id": "access-point",
-          "anchor": "ap",
-          "term": "access-point"
-        },
-        {
-          "id": "wpa-personal",
-          "anchor": "personal-door",
-          "term": "wpa-personal"
-        },
-        {
-          "id": "wpa-enterprise",
-          "anchor": "enterprise-door",
-          "term": "wpa-enterprise"
-        },
-        {
-          "id": "fake-ap",
-          "anchor": "fake-ap",
-          "term": "fake-access-point"
+          "id": "side-door",
+          "anchor": "side-door",
+          "term": "legacy-device",
+          "claim": "wpa3-dual-ssid-legacy"
         }
-      ]
+      ],
+      "questions": [
+        {
+          "q": "Will our older clinical devices still connect?",
+          "a": "Yes, if the network still offers WPA2 for them, through WPA3 transition mode or a separate network{{wpa3-transition-options}}. They stay off 6 GHz{{wpa3-6ghz-required}} and don’t get Wi-Fi 7{{wifi7-no-wpa2}} until they are updated or replaced.",
+          "followUp": true
+        }
+      ],
+      "covers": [
+        "what"
+      ],
+      "cisco": {
+        "feature": "Wi-Fi 7 readiness",
+        "text": "A Cisco network offers Wi-Fi 7 only when its security meets the requirements; otherwise access points run it as Wi-Fi 6 or 6E{{cisco-noncompliant-downgrade}}. Devices that connect with WPA2 cannot use Wi-Fi 7 or multi-link{{cisco-wpa2-no-mlo}}."
+      }
     },
     {
-      "type": "what",
-      "heading": "WPA3 closes both weak points",
+      "type": "how",
+      "heading": "Why Wi-Fi 7 requires WPA3",
       "caption": {
-        "headline": "[[wpa3|WPA3]] closes both weak points",
-        "takeaway": "Recordings can’t be guessed offline{{wpa3-sae}}, and staff devices must check the network is genuine{{wpa3-ent-cert-validation}}."
+        "headline": "Why Wi-Fi 7 requires WPA3",
+        "takeaway": "One stronger sign-in on every band, as the Wi-Fi Alliance moves everyone to WPA3{{wfa-wpa3-whenever-possible}}."
       },
-      "body": "[[wpa3|WPA3]]-Personal replaces the shared-password handshake with [[sae|SAE]]: a recording is useless for offline guessing, so every guess must be tried live against the real network {{wpa3-sae}}. Each session also gets a fresh key, so a password leaked later cannot unlock traffic recorded earlier {{wpa3-forward-secrecy}}.\n\nWPA3-Enterprise makes devices check the sign-in server’s certificate before trusting it {{wpa3-ent-cert-validation}}, so a fake access point cannot pose as the hospital. WPA3 became required for new Wi-Fi CERTIFIED devices {{wpa3-mandatory-cert}}.",
-      "bottomLine": "WPA3 closes the most common ways attackers break hospital Wi-Fi sign-in, and current devices already support it.",
-      "sceneState": "wpa3-personal",
-      "sceneDescription": "Back at the keypad door. The outsider’s recording turns into a sealed gray box that gives nothing to test, and their single live guess at the real keypad is refused. The infusion pump gets its own key for the session.",
+      "body": "**WPA3 is the industry’s direction.** WPA3 support has been required in new Wi-Fi CERTIFIED devices since 2020, it is mandatory in the 6 GHz band, and the Wi-Fi Alliance recommends it wherever possible {{wfa-wpa3-whenever-possible}}.\n\n**One connection, every band.** A Wi-Fi 7 multi-link connection is a single connection across bands, with security coordinated across all of its links {{mlo-tid-mapping}}. The 6 GHz band already allows only WPA3 {{wpa3-6ghz-required}}, and Wi-Fi 7 applies the same rule to every Wi-Fi 7 connection {{wifi7-no-wpa2}}.\n\n**It closes WPA2’s best-known gaps.** A recorded sign-in can no longer be cracked offline {{wpa3-sae}}, and staff devices must check they are on the real network, not a [[fake-access-point|fake access point]] {{wpa3-ent-cert-validation}}.",
+      "bottomLine": "Wi-Fi 7 raises the security floor, so every band and every Wi-Fi 7 device meets the same stronger standard.",
+      "sceneState": "why-wpa3",
+      "sceneDescription": "A wide view of the hallway wall with both doors under the access point, labeled WPA3 on every band. At the keypad door, an outsider’s recorded sign-in turns into a sealed gray box with nothing to crack. At the staff door, the workstation checks a gold certificate seal before trusting the real access point, and both devices hold their own keys.",
       "durationMs": 12000,
       "callout": {
-        "title": "What WPA3 changes",
+        "title": "Why WPA3, at a glance",
         "points": [
-          "Shared password: a recording gives nothing to guess offline{{wpa3-sae}}",
-          "Staff sign-in: devices must check the server is genuine{{wpa3-ent-cert-validation}}",
-          "Each session gets a fresh key{{wpa3-forward-secrecy}}"
+          "Required in new certified devices since 2020{{wfa-wpa3-whenever-possible}}",
+          "One sign-in covers every band of a Wi-Fi 7 connection{{mlo-tid-mapping}}",
+          "Stops offline password guessing{{wpa3-sae}} and [[fake-access-point|fake access points]]{{wpa3-ent-cert-validation}}"
         ]
       },
       "hotspots": [
@@ -89,12 +90,6 @@
           "anchor": "keypad",
           "term": "sae",
           "claim": "wpa3-sae"
-        },
-        {
-          "id": "forward-secrecy",
-          "anchor": "personal-door",
-          "term": "forward-secrecy",
-          "claim": "wpa3-forward-secrecy"
         }
       ],
       "questions": [
@@ -109,27 +104,27 @@
         }
       ],
       "covers": [
-        "how"
+        "improvement"
       ]
     },
     {
-      "type": "improvement",
-      "heading": "6 GHz and Wi-Fi 7 make WPA3 the baseline",
+      "type": "why",
+      "heading": "Getting a hospital ready for WPA3",
       "caption": {
-        "headline": "Wi-Fi 6E and 7: WPA3 required",
-        "takeaway": "In 6 GHz and on Wi-Fi 7, WPA3 is required{{wpa3-6ghz-required}}{{wpa3-mlo-required}}; older devices use a separate network."
+        "headline": "Getting the hospital ready for WPA3",
+        "takeaway": "Inventory devices, test, move what you can to WPA3, and plan for the rest{{wpa3-transition-options}}."
       },
-      "body": "**Wi-Fi 6E** brought the first band with no WPA2 at all: secured networks in 6 GHz use WPA3, and open guest networks use Enhanced Open {{6ghz-security-options}}. Staff networks there run WPA3-Enterprise Only mode {{wpa3-ent-6ghz-eht}}, which requires protected control messages {{wpa3-ent-pmf-required}}.\n\n**Wi-Fi 7** goes further: multi-link connections require WPA3 {{wpa3-mlo-required}}, and Wi-Fi Alliance guidance adds stronger encryption and protects the announcements an access point broadcasts {{wifi7-eht-security}}. Devices that cannot do WPA3 can stay on a separate, older network while they are replaced {{wpa3-dual-ssid-legacy}}.",
-      "bottomLine": "Moving to 6 GHz and Wi-Fi 7 makes the strongest settings the baseline. WPA3 is one layer of security, not a complete program.",
-      "sceneState": "wpa3-only",
-      "sceneDescription": "Above both doors, the access point is labeled Wi-Fi 7 and 6 GHz, WPA3 sign-in. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices, labeled as one migration option. A note shows what the earlier generation accepted.",
-      "durationMs": 14000,
+      "body": "Start with an inventory: which clinical devices, phones and workstations support WPA3 and Wi-Fi 7, and which need a software update or the maker’s sign-off first. Keep wireless drivers current, and test with your own devices before changing a clinical network {{cisco-client-readiness}}.\n\nMove WPA3-capable devices first. WPA3 transition mode lets WPA3 and WPA2 devices share one network; where older devices struggle with it, two separate networks are the alternative {{wpa3-transition-options}}. Retire the older network as devices are replaced, aiming for a network that runs WPA3 only {{cisco-full-wpa3-goal}}.",
+      "bottomLine": "Treat WPA3 as a planned migration with clinical engineering, not a switch you flip. It is one layer of a wider security program.",
+      "sceneState": "clinical-outcome",
+      "sceneDescription": "The hallway wall seen wide. The infusion pump and the workstation sign in with WPA3 through the main doors, each holding its own key, while an older phone uses the smaller side door for older devices, labeled to be retired as devices are replaced. A label above the pump reads inventory, test, migrate.",
+      "durationMs": 12000,
       "callout": {
-        "title": "What changes on 6E and 7",
+        "title": "A practical path",
         "points": [
-          "6 GHz: WPA3 or Enhanced Open, never WPA2{{6ghz-security-options}}",
-          "Wi-Fi 7 multi-link connections require WPA3{{wpa3-mlo-required}}",
-          "Older devices: a separate network is one option{{wpa3-dual-ssid-legacy}}"
+          "Inventory and test each device’s WPA3 and Wi-Fi 7 support{{cisco-client-readiness}}",
+          "Older devices: transition mode or a separate network{{wpa3-transition-options}}",
+          "Retire the older network; aim for WPA3 only{{cisco-full-wpa3-goal}}"
         ]
       },
       "hotspots": [
@@ -142,21 +137,17 @@
       ],
       "questions": [
         {
-          "q": "Will our older clinical devices still connect?",
-          "a": "Devices without WPA3 cannot join 6 GHz networks{{wpa3-6ghz-required}} or Wi-Fi 7 multi-link connections{{wpa3-mlo-required}}. Many will stay on 2.4 and 5 GHz on a separate network name{{wpa3-dual-ssid-legacy}} until they are replaced.",
-          "followUp": true
+          "q": "Can we just switch everything to WPA3 now?",
+          "a": "Not in one step. Some older devices have trouble even with transition mode{{wpa3-transition-options}}, so test with your own devices first{{cisco-client-readiness}}. Many clinical devices also need their maker’s validation before any security change."
         },
         {
           "q": "Does WPA3 make our network compliant?",
           "a": "No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organization’s security and compliance processes."
         }
       ],
-      "covers": [
-        "why"
-      ],
       "cisco": {
-        "feature": "Wi-Fi 7 readiness",
-        "text": "A Cisco network offers Wi-Fi 7 only when its security meets the requirements; otherwise access points run it as Wi-Fi 6 or 6E{{cisco-noncompliant-downgrade}}. Beacon protection turns on automatically for compliant networks{{cisco-beacon-protection-auto}}, and Cisco’s Wireless Configuration Analyzer Express includes a readiness check{{cisco-wifi7-readiness-check}}."
+        "feature": "Wi-Fi 7 readiness check",
+        "text": "Cisco’s Wireless Configuration Analyzer Express checks controller configuration against the Wi-Fi 7 requirements{{cisco-wifi7-readiness-check}}. For older or sensitive IoT devices, Cisco guidance describes keeping a separate network alongside the WPA3 one{{cisco-legacy-iot-ssid}}."
       }
     }
   ],
@@ -182,21 +173,21 @@
       }
     },
     {
-      "id": "wpa3-mlo",
-      "metric": "WPA3 required for multi-link connections",
+      "id": "wpa3-wifi7",
+      "metric": "WPA3 required for Wi-Fi 7 connections",
       "unit": null,
       "values": {
         "wifi6": null,
         "wifi6e": null,
-        "wifi7": "Yes"
+        "wifi7": "Yes, on every band"
       },
       "qualifier": "certification",
       "regulatoryDomain": null,
-      "note": "Earlier generations have no multi-link operation.",
+      "note": null,
       "headline": true,
       "cellQualifiers": {},
       "claimIds": {
-        "wifi7": "wpa3-mlo-required"
+        "wifi7": "wifi7-no-wpa2"
       }
     }
   ],
@@ -208,6 +199,6 @@
   "sinceWifi6": {
     "wifi6": "WPA3 becomes required for new Wi-Fi CERTIFIED devices{{wpa3-mandatory-cert}}.",
     "wifi6e": "In 6 GHz, no WPA2: WPA3, or Enhanced Open for guests{{6ghz-security-options}}.",
-    "wifi7": "Multi-link connections require WPA3{{wpa3-mlo-required}}, with stronger encryption and protected beacons{{wifi7-eht-security}}."
+    "wifi7": "Every Wi-Fi 7 connection signs in with WPA3, on every band{{wifi7-no-wpa2}}."
   }
 }

@@ -28,10 +28,10 @@
       "deviceTypes": [
         "infusion pump",
         "clinical workstation",
-        "voice badge"
+        "phone"
       ],
-      "problem": "Devices share a long-lived WPA2 password that a recorded sign-in could crack offline, and staff devices could be fooled by a fake access point.",
-      "outcomeSupported": "WPA3 makes offline guessing ineffective on shared-password networks and makes staff devices check they are on the real network, supporting the organization’s wider security program."
+      "problem": "Many clinical devices and staff networks still sign in with WPA2, which Wi-Fi 7 connections do not use.",
+      "outcomeSupported": "Moving devices to WPA3 lets them use Wi-Fi 7 and a stronger sign-in, while a planned path keeps older devices connected until they are replaced, as part of the organization’s wider security program."
     },
     {
       "id": "badge-battery-shift",
