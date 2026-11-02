@@ -27,6 +27,6 @@ test('V does nothing, and an old view=leadership link still opens the step', asy
   const state = await page.evaluate(() => window.__stage.state);
   await page.locator('#stage').click({ force: true });
   await page.keyboard.press('v');
-  await expect(page.locator('#progress')).toContainText('Step 3 of 3');
+  await expect(page.locator('#progress')).toContainText('Step 3 of 4');
   expect(await page.evaluate(() => window.__stage.state)).toBe(state);
 });

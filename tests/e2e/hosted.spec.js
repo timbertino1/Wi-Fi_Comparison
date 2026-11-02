@@ -21,10 +21,10 @@ test('navigation, deep links and the story work over HTTP with hardening headers
   await page.locator('#step-forward').click();
   await expect(page.locator('#chapter-list a[data-chapter="spectrum"]')).toHaveAttribute('aria-current', 'step');
   await page.goto(`${server.url}#/mlo/2?gen=wifi6`);
-  await expect(page.locator('#progress')).toContainText('Step 2 of 3');
+  await expect(page.locator('#progress')).toContainText('Step 2 of 4');
   await expect(page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' }).getByRole('radio', { checked: true })).toHaveValue('wifi6');
   await page.locator('#step-forward').click();
-  await expect(page.locator('#progress')).toContainText('Step 3 of 3');
+  await expect(page.locator('#progress')).toContainText('Step 3 of 4');
   await page.goto(`${server.url}#/references`);
   await expect(page.locator('#reference-list')).toBeVisible();
   expect(external).toEqual([]);
