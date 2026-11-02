@@ -217,6 +217,8 @@ export default {
         setLabelsVisible(toTimeline);
         for (const l of winLabels) l.element.style.opacity = name === 'floor-wifi7' ? '1' : '0';
         for (const l of [...wpa3Labels, signInLabel]) l.element.style.opacity = name === 'floor-wpa3' ? '1' : '0';
+        // The WPA3 labels need the room the station's own label would take.
+        if (name === 'floor-wpa3') stationLabel.element.style.opacity = '0';
         const finished = await Promise.all(jobs);
         if (!toTimeline && finished.every(Boolean)) timeline.visible = false;
         applyCount();
