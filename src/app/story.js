@@ -98,6 +98,7 @@ function updateTestHook() {
     state: state.sceneName,
     generation: state.generation,
     phase: state.phase,
+    animated: state.animated,
     captionShown: state.captionShown,
     calloutShown: state.calloutShown,
     intro: state.intro,
@@ -368,14 +369,14 @@ export function leaveIntro() {
   return applySceneState({ animate: true });
 }
 
-export function goTo(index, { animate = true } = {}) {
+export function goTo(index, { animate = true, replay = false } = {}) {
   if (!state.tab) return Promise.resolve();
   if (state.intro) {
     state.intro = false;
     stage?.releaseShot();
   }
   const next = clampBeat(index);
-  if (next === state.beatIndex && state.sceneName) return Promise.resolve();
+  if (next === state.beatIndex && state.sceneName && !replay) return Promise.resolve();
   state.beatIndex = next;
   state.animated = animate;
   renderText();

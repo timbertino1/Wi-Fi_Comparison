@@ -70,5 +70,14 @@ test('play/pause and replay remain available on the slide (FR-009)', async ({ pa
   await expect(page.locator('#play')).toBeVisible();
   await expect(page.locator('#replay')).toBeVisible();
   await page.locator('#replay').click();
-  await expect.poll(() => page.evaluate(() => window.__stage.beat)).toBe(1);
+  await expect.poll(() => page.evaluate(() => window.__stage.beat)).toBe(3);
+  expect(await page.evaluate(() => window.__stage.animated)).toBe(true);
+});
+
+test('replay is available on a chapter first step and replays it', async ({ page }) => {
+  await page.goto(fileUrl('#/twt/1?test'));
+  await expect(page.locator('#replay')).toBeEnabled();
+  await page.locator('#replay').click();
+  await expect.poll(() => page.evaluate(() => window.__stage.animated)).toBe(true);
+  expect(await page.evaluate(() => window.__stage.beat)).toBe(1);
 });

@@ -6,7 +6,7 @@ const SHORTCUTS = [
   ['N', 'Open or close the notes for this step'],
   ['M', 'Open the chapter menu'],
   ['K', 'Play or pause'],
-  ['R', 'Replay from the first step of the chapter'],
+  ['R', 'Replay the current step'],
   ['G', 'Change the generation compared with Wi-Fi 7'],
   ['F or P', 'Full screen on or off'],
   ['B or .', 'Blank the screen'],

@@ -29,7 +29,7 @@ const forward = el('button', { type: 'button', className: 'control control-next'
 const replay = el('button', { type: 'button', className: 'control', id: 'replay' }, '↺ Replay');
 back.setAttribute('aria-label', 'Back');
 forward.setAttribute('aria-label', 'Next');
-replay.setAttribute('aria-label', 'Replay from the first step');
+replay.setAttribute('aria-label', 'Replay this step');
 
 function dwellFor(beat) {
   const override = testMode ? Number(window.__dwellMs) : NaN;
@@ -88,9 +88,11 @@ export function stepBack() {
   return true;
 }
 
+/** Replays the current step's animation (FR-009); on a chapter opener, plays step 1. */
 export function replayTab() {
   pause();
-  story.goTo(0);
+  beforeMove();
+  story.goTo(story.snapshot().beatIndex, { replay: true });
 }
 
 /** The sequencer installs handlers so stepping past either end of a chapter moves between chapters. */
@@ -113,7 +115,6 @@ function update(snap) {
   // From a first step, Back shows the chapter opener; only the first chapter's opener has no Back.
   back.disabled = snap.intro && !hasPrev();
   forward.disabled = !snap.intro && snap.beatIndex === snap.beatCount - 1 && !hasNext();
-  replay.disabled = snap.beatIndex === 0;
 }
 
 function isEditable(target) {
