@@ -200,3 +200,30 @@ Each "Since Wi-Fi 6" line was checked against its claims:
 
 - Meraki's claim that Wi-Fi 7 is "up to four times" faster than Wi-Fi 6 is not used. The standards-derived single-link peaks give about 2.4 times, and the slide says "more than double".
 - No Cisco source read so far mentions Restricted TWT, so the talk does not claim Cisco support for it.
+
+## Security chapter re-check, 2026-11-02
+
+Chapter 6 was rewritten to make three high-level points: Wi-Fi 7 requires WPA3, why, and how a hospital can prepare. The WPA2-versus-WPA3 detail was cut. The Wi-Fi Alliance highlights PDF and Cisco tech note 223061 were reopened without signing in on 2026-11-02. The new claims still need the presenter's sign-off (rule 19).
+
+### New claims
+
+| Claim | Statement | Evidence | Result |
+|---|---|---|---|
+| wifi7-no-wpa2 | WPA2 sign-in (password and enterprise) is excluded from any Wi-Fi 7 (EHT) or multi-link connection | WPA3 Specification §2: “AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO”; §3.3: “AKM suite selector 00-0F-AC:1 (IEEE 802.1X with SHA-1) is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band.” Both excerpts were already signed off under wpa3-mlo-required and wpa3-ent-6ghz-eht. | Confirmed |
+| wfa-wpa3-whenever-possible | WPA3 required in new certified devices since 2020, mandatory in 6 GHz, recommended whenever possible | Wi-Fi Alliance, *Driving widespread adoption of WPA3*, p. 1: “WPA3 support has been required in all new Wi-Fi CERTIFIED devices since 2020 and its use is mandatory in the 6 GHz band. Wi-Fi Alliance strongly recommends that deployers and users configure Wi-Fi networks for WPA3 whenever possible.” | Confirmed |
+| wpa3-transition-options | Transition mode serves WPA3 and WPA2 devices on one network; two separate networks are the alternative | Same PDF, p. 1: “This transition mode allows client devices that support WPA3 to connect with WPA3 while older devices connect with WPA2”; “One alternative is to configure two SSIDs (two networks) on the access point (AP), one with WPA3 and the other with WPA2.” | Confirmed |
+| cisco-client-readiness | Confirm Wi-Fi 7 support, keep drivers up to date, test with your own devices | Tech note 223061, Troubleshooting checklist: “Make sure the client supports Wi-Fi 7.” “Make sure the wireless adapter drivers are up to date.” Use cases (OWE): “Test with your clients to measure the support.” | Confirmed (the testing line is in the guest-network section; the slide uses it as general advice) |
+| cisco-full-wpa3-goal | Move to a WPA3-only network as soon as possible | Tech note 223061, Use cases > 802.1X / WPA3-Enterprise: “consider moving as soon as possible to a full WPA3 WLAN with AES128+GCMP256.” | Confirmed (stated in the Enterprise section) |
+| cisco-legacy-iot-ssid | A separate network beside a WPA3-only one is a preferred approach for older or sensitive IoT devices | Tech note 223061, Use cases > Passphrase / WPA3-Personal / IoT networks: “This can be a preferred approach if you have older or more sensitive IoT devices deployed.” | Confirmed |
+
+The Cisco note on step 1 reuses cisco-wpa2-no-mlo and cisco-noncompliant-downgrade. The "why" step reuses mlo-tid-mapping (one multi-link association with security coordinated across its links), wpa3-6ghz-required, wpa3-sae and wpa3-ent-cert-validation.
+
+### Wording kept deliberately cautious
+
+- Neither source states *why* the Wi-Fi Alliance set the Wi-Fi 7 rule. The slide lists facts side by side (the industry is moving to WPA3; a multi-link connection is one connection across bands; 6 GHz already requires WPA3) and does not claim a cause.
+- WPA3-Personal compatibility mode (RSN overriding) is in the same PDF but is left out. It is a WPA2-facing option and does not give older devices Wi-Fi 7.
+- The PDF does not mention medical devices. "Get the maker's sign-off" is presenter advice, not a cited claim.
+
+### Removed
+
+wpa3-forward-secrecy, wifi7-eht-security, wpa3-ent-6ghz-eht and cisco-beacon-protection-auto are no longer used and were deleted. The WPA3 Technology Overview (cited only by forward secrecy) is retired, so source numbers do not shift.

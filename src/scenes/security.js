@@ -2,14 +2,15 @@
 // sign-in badge door (WPA2/WPA3-Enterprise), under the ward's access point. WPA2's weak points are
 // shown first (a sign-in recorded and cracked away from the door; a device fooled by a fake access
 // point), then how WPA3 closes each one, then the Wi-Fi 7 / 6 GHz rule of WPA3 sign-in, with a
-// separate side door for older devices. The 192-bit option is left to the callout and tooltips.
+// separate side door for older devices. The talk uses the rule, a wide view of why (both doors
+// closed at once) and the readiness plan; the close-ups stay for follow-up sessions.
 // Everything moves on state changes; nothing animates per frame.
 const OUTSIDER = '#c0392b';
 const SEAL = '#d9a521';
 
 export default {
   id: 'security',
-  states: ['wpa2-risks', 'wpa3-personal', 'wpa3-enterprise', 'wpa3-only', 'clinical-outcome'],
+  states: ['wpa2-risks', 'wpa3-personal', 'wpa3-enterprise', 'wpa3-only', 'why-wpa3', 'clinical-outcome'],
 
   create(ctx) {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo } = ctx;
@@ -143,25 +144,29 @@ export default {
     const lCert = tag(seal, 'Device checks the certificate', [1.4, 0.05, 0.3]);
     const lShield = tag(shield, 'Control messages protected', [0, 0.75, 0]);
     const lKeys = tag(pumpKey.group, 'Each device gets its own key', [0, 0.45, 0]);
-    const lOnly = tag(ap, 'Wi-Fi 7 · 6 GHz: WPA3 sign-in', [0, 0.65, 0], 'big');
+    const lOnly = tag(ap, 'Wi-Fi 7: WPA3 sign-in', [0, 0.65, 0], 'big');
+    const lEvery = tag(ap, 'WPA3 on every band', [0, 0.65, 0], 'big');
     const lOlder = tag(ap, '', [0, 1.3, 0]);
     const lRetire = tag(sideDoor.sign, 'Retire as devices are replaced', [0, -1.9, 0]);
+    const lPlan = tag(pumpKey.group, 'Inventory · test · migrate', [0, 0.45, 0]);
     // Wi-Fi 6E already bars WPA2 in 6 GHz, but still accepts it on 2.4 and 5 GHz.
     const olderText = () => (compareGen === 'wifi6e' ? `${genName(compareGen)}: WPA3 in 6 GHz, WPA2 still on 2.4 and 5 GHz` : `${genName(compareGen)}: WPA2 or WPA3 accepted`);
     labels.setText(lOlder, olderText());
 
     const shownOn = new Map([
-      [lOutsider, ['wpa2-risks', 'wpa3-personal']],
+      [lOutsider, ['wpa2-risks', 'wpa3-personal', 'why-wpa3']],
       [lCracked, ['wpa2-risks']],
-      [lSealed, ['wpa3-personal']],
+      [lSealed, ['wpa3-personal', 'why-wpa3']],
       [lLive, ['wpa3-personal']],
       [lFake, ['wpa2-risks']],
-      [lCert, ['wpa3-enterprise']],
+      [lCert, ['wpa3-enterprise', 'why-wpa3']],
       [lShield, ['wpa3-enterprise']],
       [lKeys, ['wpa3-personal']],
       [lOnly, ['wpa3-only']],
       [lOlder, ['wpa3-only']],
-      [lRetire, ['clinical-outcome']]
+      [lEvery, ['why-wpa3']],
+      [lRetire, ['clinical-outcome']],
+      [lPlan, ['clinical-outcome']]
     ]);
 
     const cameras = {
@@ -169,13 +174,15 @@ export default {
       'wpa3-personal': { pos: [-3.2, 4.4, 9], look: [-3.4, 1.1, 1] },
       'wpa3-enterprise': { pos: [3.4, 4.4, 9], look: [3.6, 1.2, 0.6] },
       'wpa3-only': { pos: [2, 5.2, 11.5], look: [2, 1.1, 0.4] }, // the side door's sign clears the callout
-      'clinical-outcome': { pos: [0.8, 5.2, 11.5], look: [0.8, 1.1, 0.4] }
+      'why-wpa3': { pos: [-0.6, 5.4, 12.5], look: [-0.6, 1.1, 0.8] }, // wide enough for the desk and both doors
+      'clinical-outcome': { pos: [2, 5.2, 11.5], look: [2, 1.1, 0.4] } // as wpa3-only, so the side door clears the callout
     };
     const anchorSets = {
       'wpa2-risks': { ap, 'personal-door': personalDoor.sign, 'enterprise-door': enterpriseDoor.sign, outsider, 'fake-ap': fakeAp },
       'wpa3-personal': { ap, 'personal-door': personalDoor.sign, outsider, keypad },
       'wpa3-enterprise': { ap, 'enterprise-door': enterpriseDoor.sign, reader },
       'wpa3-only': { ap, 'side-door': sideDoor.sign },
+      'why-wpa3': { ap, 'personal-door': personalDoor.sign, 'enterprise-door': enterpriseDoor.sign, keypad, reader },
       'clinical-outcome': { ap, 'side-door': sideDoor.sign, 'personal-door': personalDoor.sign, 'enterprise-door': enterpriseDoor.sign }
     };
     const lookTarget = { x: 0, y: 1, z: 0 };
@@ -196,16 +203,18 @@ export default {
         const enterprise = name === 'wpa3-enterprise';
         const only = name === 'wpa3-only';
         const outcome = name === 'clinical-outcome';
+        const why = name === 'why-wpa3'; // both doors' WPA3 fixes at once, seen wide
+        const sealed = personal || why;
 
         // Personal door: the recording travels to the desk; WPA2 cracks it, WPA3 leaves it sealed.
-        outsider.visible = risks || personal;
-        desk.visible = deskLock.group.visible = recording.visible = risks || personal;
-        if (risks || personal) {
+        outsider.visible = risks || sealed;
+        desk.visible = deskLock.group.visible = recording.visible = risks || sealed;
+        if (risks || sealed) {
           recPos.copy(atKeypad);
           jobs.push(animateTo([[recPos, 'x', atDesk.x], [recPos, 'y', atDesk.y], [recPos, 'z', atDesk.z]], { durationMs: 1600, delayMs: 500, animate, signal }));
         }
-        recording.material.color.set(personal ? neutral.device : SEAL);
-        recording.material.emissiveIntensity = personal ? 0 : 0.25;
+        recording.material.color.set(sealed ? neutral.device : SEAL);
+        recording.material.emissiveIntensity = sealed ? 0 : 0.25;
         deskLock.body.material.color.set(risks ? OUTSIDER : neutral.device);
         jobs.push(animateTo([[deskLock.shackle.position, 'y', risks ? 0.42 : 0.17]], { durationMs: 600, delayMs: 1900, animate, signal }));
 
@@ -213,7 +222,7 @@ export default {
         fake.visible = risks; // with WPA3-Enterprise the fake no longer works, so it leaves the picture
         fakeLink.visible = risks;
         realLink.visible = !risks;
-        seal.visible = enterprise || only || outcome;
+        seal.visible = enterprise || why || only || outcome;
         shield.visible = enterprise || outcome;
 
         // A close-up on one door leaves the other at the slide edge or under the callout: its sign
@@ -223,7 +232,7 @@ export default {
 
         // Each device's own key appears once its door is WPA3.
         pumpKey.group.visible = !risks;
-        stationKey.group.visible = enterprise || only || outcome;
+        stationKey.group.visible = enterprise || why || only || outcome;
 
         // Wi-Fi 7 / 6 GHz: WPA3 sign-in; an older device is turned to the side door.
         sideDoor.group.visible = only || outcome;
