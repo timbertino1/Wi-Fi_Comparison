@@ -1258,7 +1258,11 @@
         },
         "explanation": "12 bits ÷ 10 bits"
       },
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-afc-standard-power",
@@ -1275,7 +1279,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-320-opt-in",
@@ -1297,7 +1305,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-320-us-sp-one",
@@ -1314,7 +1326,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-4kqam-close-range",
@@ -1331,7 +1347,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-wpa2-no-mlo",
@@ -1348,7 +1368,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-noncompliant-downgrade",
@@ -1370,7 +1394,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-wifi7-readiness-check",
@@ -1387,7 +1415,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "cisco-twt-default-off",
@@ -1404,7 +1436,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "wifi7-no-wpa2",
@@ -1426,7 +1462,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     },
     {
       "id": "wpa3-transition-options",
@@ -1448,7 +1488,11 @@
         }
       ],
       "derivation": null,
-      "verification": {}
+      "verification": {
+        "verifiedOn": "2026-11-02",
+        "verifiedBy": "Tim (presenter), on the 2026-11-02 fact-check of the Cisco-session talk",
+        "notes": "Approved by the presenter on 2026-11-02 after reviewing the source excerpts in docs/fact-check.md."
+      }
     }
   ]
 }
