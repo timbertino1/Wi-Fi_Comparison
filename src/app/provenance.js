@@ -62,7 +62,6 @@ function open(trigger) {
   if (!claim) return;
   close();
   returnFocus = trigger;
-  const technical = document.documentElement.dataset.view === 'technical';
 
   panel = el('div', 'provenance');
   panel.setAttribute('role', 'dialog');
@@ -82,11 +81,6 @@ function open(trigger) {
 
   const v = claim.verification ?? {};
   const verified = el('p', 'prov-verified', v.verifiedOn ? `Verified ${v.verifiedOn} by ${v.verifiedBy}` : 'Not yet verified');
-
-  // Short form (Leadership view): primary source and verification, with "How we know this" to expand.
-  const primary = refById.get(claim.sources?.[0]?.referenceId);
-  const short = el('p', 'prov-short');
-  short.append(el('strong', '', 'Source: '), document.createTextNode(primary ? `${publisherById.get(primary.publisher)?.name ?? primary.publisher} — ${primary.identifier}` : '—'));
 
   const full = el('div', 'prov-full');
   full.append(el('h3', '', 'Sources'));
@@ -124,13 +118,8 @@ function open(trigger) {
   full.append(links);
 
   const body = el('div', 'prov-body');
-  if (technical) {
-    body.append(full, verified);
-  } else {
-    const more = el('details', 'prov-more');
-    more.append(el('summary', '', 'How we know this'), full);
-    body.append(short, verified, more);
-  }
+  // Every viewer sees the full record: sources, location and method (feature 003 FR-012).
+  body.append(full, verified);
   panel.append(body);
 
   const closeButton = el('button', 'control prov-close', 'Close');

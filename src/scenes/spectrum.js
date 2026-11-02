@@ -9,7 +9,7 @@ const GAP = 0.7; // space between roads
 
 export default {
   id: 'spectrum',
-  states: ['crowded-legacy', 'band-6ghz', 'channels-fill', 'gen-compare', 'clinical-outcome'],
+  states: ['crowded-legacy', 'band-6ghz', 'gen-compare', 'clinical-outcome'],
 
   create(ctx) {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo, seeded, claim } = ctx;
@@ -86,30 +86,7 @@ export default {
     const legacyTruck = new THREE.Object3D(); // hotspot anchor that rides with one legacy truck
     highway.add(legacyTruck);
 
-    // 6 GHz, step 3: the road split along its length into four stretches of 20, 80, 160 and 320 MHz.
-    const fillGroup = new THREE.Group();
-    fillGroup.visible = false;
-    highway.add(fillGroup);
-    const stretch = ROAD_LENGTH / 4;
-    const fill = [20, 80, 160, 320].map((mhz, s) => {
-      const x0 = ROAD_X0 + s * stretch;
-      const d = dividers(road6, mhz, x0 + 0.08, stretch - 0.16);
-      fillGroup.add(d.mesh);
-      const count = claim(`us-6ghz-channels-${mhz}`).value;
-      const anchor = new THREE.Object3D();
-      anchor.position.set(x0 + stretch / 2, 0.5, road6.zc - road6.w / 2 - 0.45);
-      fillGroup.add(anchor);
-      const label = labels.add(anchor, `${count} × ${mhz} MHz`, { className: 'muted' });
-      const cars = Math.min(d.lanes, mhz === 20 ? 30 : d.lanes * 2);
-      const f = fleet({ count: cars, color: mhz === 320 ? palette.wifi7 : palette.wifi6e, length: mhz === 20 ? 0.3 : 0.55, height: 0.14 + (mhz / 320) * 0.14, laneWidth: d.laneWidth, laneZ: laneZ(d), speed: 1.4, x0, xLen: stretch });
-      fillGroup.add(f.mesh);
-      return { mhz, label, fleet: f, d };
-    });
-    const lane320 = new THREE.Object3D(); // hotspot anchor: one of the widest lanes
-    lane320.position.set(ROAD_X0 + 3.5 * stretch, 0.35, fill[3].d.top - fill[3].d.laneWidth * 1.5);
-    highway.add(lane320);
-
-    // 6 GHz, step 4: the comparison generation's widest lanes beside Wi-Fi 7's, half the road each.
+    // 6 GHz, the comparison: the earlier generation's widest lanes beside Wi-Fi 7's, half the road each.
     const compareGroup = new THREE.Group();
     compareGroup.visible = false;
     highway.add(compareGroup);
@@ -122,6 +99,9 @@ export default {
     const cmpFleet = fleet({ count: cmpLanes.lanes * 2, color: palette[compareGen], length: 0.7, height: 0.22, laneWidth: cmpLanes.laneWidth, laneZ: laneZ(cmpLanes), speed: 1.1, x0: ROAD_X0, xLen: half });
     const ehtFleet = fleet({ count: ehtLanes.lanes * 2, color: palette.wifi7, length: 0.7, height: 0.3, laneWidth: ehtLanes.laneWidth, laneZ: laneZ(ehtLanes), speed: 1.1, x0: ROAD_X0 + half, xLen: half });
     compareGroup.add(cmpFleet.mesh, ehtFleet.mesh);
+    const lane320 = new THREE.Object3D(); // hotspot anchor: one of the widest lanes
+    lane320.position.set(ROAD_X0 + half * 1.5, 0.35, ehtLanes.laneZ(1));
+    highway.add(lane320);
     const closed = new THREE.Mesh(new THREE.BoxGeometry(half - 0.2, 0.07, road6.w), new THREE.MeshStandardMaterial({ color: neutral.device, transparent: true, opacity: 0.55 }));
     closed.position.set(ROAD_X0 + half / 2, 0.03, road6.zc);
     compareGroup.add(closed);
@@ -184,14 +164,12 @@ export default {
     const cameras = {
       'crowded-legacy': { pos: [0.4, 7.2, 11.5], look: [0.6, 0, road5.zc + 0.6] },
       'band-6ghz': { pos: [0.6, 13, 10.5], look: [0.6, 0, (road24.zc + road6.zc) / 2] },
-      'channels-fill': { pos: [mid6, 9.5, road6.zc + 9.5], look: [mid6, 0, road6.zc] },
       'gen-compare': { pos: [mid6, 8.5, road6.zc + 8.5], look: [mid6, 0, road6.zc] },
       'clinical-outcome': { pos: [0, 11, 7.5], look: [0, 0, 0] }
     };
     const anchorSets = {
       'crowded-legacy': { ap: hubAp, 'band-24': road24.anchor, 'band-5': road5.anchor, 'band-6': road6.anchor, 'legacy-truck': legacyTruck },
       'band-6ghz': { ap: hubAp, 'band-24': road24.anchor, 'band-5': road5.anchor, 'band-6': road6.anchor },
-      'channels-fill': { ap: hubAp, 'band-6': road6.anchor, 'lane-320': lane320 },
       'gen-compare': { ap: hubAp, 'band-6': road6.anchor, 'lane-320': lane320 },
       'clinical-outcome': { ap }
     };
@@ -214,12 +192,10 @@ export default {
         // The 6 GHz road is unlit while the old bands are jammed, then opens.
         jobs.push(animateTo([[road6.surface.material, 'opacity', name === 'crowded-legacy' ? 0.14 : 0.5]], { durationMs: 900, animate, signal }));
         jobs.push(animateTo([[road24.surface.material, 'opacity', name === 'crowded-legacy' ? 0.55 : 0.35], [road5.surface.material, 'opacity', name === 'crowded-legacy' ? 0.55 : 0.35]], { durationMs: 900, animate, signal }));
-        // Steps 3–4 are about the 6 GHz road alone; the old roads leave the picture.
+        // The comparison is about the 6 GHz road alone; the old roads leave the picture.
         const oldRoads = name === 'crowded-legacy' || name === 'band-6ghz';
         for (const f of oldTraffic) f.mesh.visible = oldRoads;
         lanes24.mesh.visible = lanes5.mesh.visible = road24.group.visible = road5.group.visible = oldRoads;
-        fillGroup.visible = name === 'channels-fill';
-        for (const s of fill) s.label.element.style.opacity = name === 'channels-fill' ? '1' : '0';
         compareGroup.visible = name === 'gen-compare';
         if (name === 'gen-compare') recolorCompare(compareGen);
         jobs.push(animateTo(rings.flatMap((r) => [[r.scale, 'x', onCoverage ? 1 : 0.001], [r.scale, 'y', onCoverage ? 1 : 0.001]]), { durationMs: 1200, animate, signal }));
@@ -238,7 +214,6 @@ export default {
         camera.lookAt(look);
         if (motionFull && dt > 0) {
           if (mode === 'crowded-legacy' || mode === 'band-6ghz') for (const f of oldTraffic) f.advance(dt);
-          if (mode === 'channels-fill') for (const s of fill) s.fleet.advance(dt);
           if (mode === 'gen-compare') for (const f of [cmpFleet, ehtFleet]) f.advance(dt);
         }
         const c = truck.cars[0];

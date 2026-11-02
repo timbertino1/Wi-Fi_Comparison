@@ -103,6 +103,17 @@
       "use": "Cryptography and security background"
     },
     {
+      "id": "cisco",
+      "name": "Cisco public documentation",
+      "tier": "cisco",
+      "domains": [
+        "cisco.com",
+        "www.cisco.com",
+        "documentation.meraki.com"
+      ],
+      "use": "Cisco platform features and deployment guidance; never the only source for a standards figure. Public pages only (no login, partner access or paywall)."
+    },
+    {
       "id": "peer-reviewed",
       "name": "Peer-reviewed publication (DOI required)",
       "tier": 2,
@@ -144,8 +155,8 @@
   ],
   "excluded": [
     {
-      "category": "Vendor material",
-      "description": "Anything published by or for an equipment, chipset, or software vendor: marketing pages, blogs, white papers, datasheets, and webinars, wherever they are hosted."
+      "category": "Other vendor material, and Cisco material that is not public documentation",
+      "description": "Anything published by or for an equipment, chipset or software vendor other than Cisco; and Cisco marketing pages, community and Learning Network posts, event decks, model data sheets, and anything behind a login, partner portal or paywall."
     },
     {
       "category": "Wikipedia and wikis",
@@ -171,5 +182,6 @@
       "category": "Uncredited infographics",
       "description": "Charts or tables with no traceable primary source."
     }
-  ]
+  ],
+  "platformKindTier": "cisco"
 }

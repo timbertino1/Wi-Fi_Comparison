@@ -30,7 +30,6 @@
       },
       "body": "Walk any modern care unit and count what is talking over the air: nurses' [[voice-badge|voice badges]] and phones, bedside [[telemetry|telemetry]] monitors, smart infusion pumps, [[rtls|location tags]] on equipment, mobile workstations, imaging carts and telehealth video.\n\nEvery one of them shares the same invisible resource — radio time from the [[access-point|access points]] in the ceiling.",
       "bottomLine": "Wireless is now part of how care is delivered, not just a convenience for staff and guests.",
-      "deepDive": null,
       "sceneState": "floor-quiet",
       "sceneDescription": "A stylized hospital floor seen from above: patient rooms along a corridor, a nurses' station in the middle, and a few access points on the ceiling. A small number of devices glow as they connect.",
       "durationMs": 11000,
@@ -47,26 +46,22 @@
         {
           "id": "access-point",
           "anchor": "ap",
-          "term": "access-point",
-          "technical": "Wi-Fi 7 access points can run links in the 2.4, 5 and 6 GHz bands at the same time{{mlo-bands}}."
+          "term": "access-point"
         },
         {
           "id": "voice-badge",
           "anchor": "voice-badge",
-          "term": "voice-badge",
-          "technical": "Sends small, steady voice packets; any delay or jitter is heard straight away as gaps in the call."
+          "term": "voice-badge"
         },
         {
           "id": "infusion-pump",
           "anchor": "infusion-pump",
-          "term": "infusion-pump",
-          "technical": "Light traffic that must be reliable: drug-library updates, pump orders and alerts."
+          "term": "infusion-pump"
         },
         {
           "id": "patient-monitor",
           "anchor": "telemetry-monitor",
-          "term": "patient-monitor",
-          "technical": "Streams small readings continuously and must deliver alarms promptly, so worst-case delay matters more than speed."
+          "term": "patient-monitor"
         }
       ]
     },
@@ -79,7 +74,6 @@
       },
       "body": "Each year more clinical work moves onto wireless devices, and the traffic gets heavier: high-resolution images, video consults, continuous monitoring. Some of it is bulky; some of it is small but urgent, like an alarm or a voice call.\n\nWhen the network gets crowded, the urgent traffic waits in line behind everything else. That is the problem each feature in this story is designed to solve.",
       "bottomLine": "Network capacity planning now has a direct line to clinical workflow — delays show up as missed pages, stalled images and frustrated staff.",
-      "deepDive": null,
       "sceneState": "floor-crowded",
       "sceneDescription": "The same hospital floor fills with many more devices in every room and hallway. Small packets stream toward the access points, and some begin to queue up and wait, showing the air becoming crowded.",
       "durationMs": 12000,
@@ -96,20 +90,17 @@
         {
           "id": "clinical-smartphone",
           "anchor": "phone",
-          "term": "clinical-smartphone",
-          "technical": "Mixes voice, messaging and alarm notifications, and roams between access points as staff move."
+          "term": "clinical-smartphone"
         },
         {
           "id": "workstation-on-wheels",
           "anchor": "workstation-cart",
-          "term": "workstation-on-wheels",
-          "technical": "Moves larger records and images, and roams constantly between rooms."
+          "term": "workstation-on-wheels"
         },
         {
           "id": "rtls",
           "anchor": "rtls-tag",
-          "term": "rtls",
-          "technical": "Sends tiny, infrequent location reports and depends on long battery life."
+          "term": "rtls"
         }
       ]
     },
@@ -118,33 +109,29 @@
       "heading": "Five generations of Wi-Fi",
       "caption": {
         "headline": "Five generations brought us here",
-        "takeaway": "Wi-Fi 7 certification launched in 2024{{wifi7-cert-launch}}; it is the generation to plan around today.",
-        "technical": "Wi-Fi 4 to 6 map to IEEE 802.11n, ac and ax{{gen-naming}}; 802.11be was approved in September 2024{{wifi7-ieee-approved}}."
+        "takeaway": "Wi-Fi 7 certification launched in 2024{{wifi7-cert-launch}}; this talk compares it with Wi-Fi 6 and 6E."
       },
       "body": "Wi-Fi is defined by the [[ieee-802-11]] standards; the Wi-Fi Alliance gives each generation a simple name {{gen-naming}}.\n\n**Wi-Fi 4** (802.11n) arrived in 2009 {{wifi4-published}}. **Wi-Fi 5** (802.11ac) followed in 2013 {{wifi5-published}}. **Wi-Fi 6** (802.11ax) certification began in 2019 {{wifi6-cert-launch}}, and **Wi-Fi 6E** brought it into the new 6 GHz band in 2021 {{wifi6e-cert-launch}}. **Wi-Fi 7** (802.11be) certification launched in 2024 {{wifi7-cert-launch}}.",
       "bottomLine": "Wi-Fi 7 is the current generation: devices and access points are certified and shipping, so it belongs in today's refresh plans.",
-      "deepDive": "Wi-Fi Alliance names (Wi-Fi 4, 5, 6, 6E, 7) map to IEEE amendments 802.11n, 802.11ac, 802.11ax and 802.11be {{gen-naming}}. IEEE approved 802.11be on 2024-09-26 {{wifi7-ieee-approved}} and published it on 2025-07-22 {{wifi7-ieee-published}}. Theoretical peak rates rose from 600 Mbps for Wi-Fi 4 {{wifi4-peak-phy}} to 6.93 Gbps for Wi-Fi 5 {{wifi5-peak-phy}}, 9.61 Gbps for Wi-Fi 6 {{wifi6-peak-phy}} and 23.1 Gbps for Wi-Fi 7 on a single link {{wifi7-peak-phy}}; these assume every option at its maximum, and real devices reach far less.",
       "sceneState": "timeline",
       "sceneDescription": "A timeline rises from the floor: five pillars in a row, one for each generation from Wi-Fi 4 to Wi-Fi 7, each in its own color and labeled with its name and year.",
       "durationMs": 13000,
       "questions": [
         {
           "q": "Is Wi-Fi 7 mature enough to buy now, or should we wait for Wi-Fi 8?",
-          "a": "Wi-Fi 7 certification has run since 2024{{wifi7-cert-launch}}, and IEEE published the standard in 2025{{wifi7-ieee-published}}. Wi-Fi 8 (IEEE 802.11bn) is still in development{{wifi8-status}}. Plan current refreshes on Wi-Fi 7; wired upgrades made now carry forward.",
-          "audience": "leadership"
+          "a": "Wi-Fi 7 certification has run since 2024{{wifi7-cert-launch}}, and IEEE published the standard in 2025{{wifi7-ieee-published}}. Wi-Fi 8 (IEEE 802.11bn) is still in development{{wifi8-status}}. Plan current refreshes on Wi-Fi 7; wired upgrades made now carry forward."
         }
       ]
     },
     {
       "type": "outlook",
-      "heading": "How to use this story",
+      "heading": "Five improvements since Wi-Fi 6",
       "caption": {
-        "headline": "Each chapter: a hospital problem, then the fix",
-        "takeaway": "Every chapter follows one pattern: the problem, the feature, how it works, and why it matters."
+        "headline": "Five improvements since Wi-Fi 6",
+        "takeaway": "New spectrum, faster rates, multi-link, longer battery life and stronger security, each for a hospital problem."
       },
-      "body": "Each chapter tells one part of the story in a few steps: the problem in a hospital, what the feature is, how it works, how it improves on earlier Wi-Fi, and why it matters for care. The last chapter brings it together.\n\nEvery figure links to its source — select any small number in brackets to see where it came from and how it was calculated.",
-      "bottomLine": "Start with the chapters that match your current pain points; each one stands on its own.",
-      "deepDive": null,
+      "body": "This talk covers five things that changed since Wi-Fi 6: **new spectrum** in the 6 GHz band, **faster data rates**, **[[mlo|multi-link operation]]**, **[[twt|Target Wake Time]]** for battery life, and **security**.\n\nEach chapter starts with a problem on a hospital floor, shows what Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 each brought, and ends with why it matters for care. Every figure links to its source in the side panel.",
+      "bottomLine": "Each chapter is a starting point for a deeper follow-up discussion, not the last word on design.",
       "sceneState": "timeline-wifi7",
       "sceneDescription": "The Wi-Fi 7 pillar on the timeline grows taller and brighter than the others, with a ring of light around it, inviting the viewer to continue into the feature chapters.",
       "durationMs": 10000,
@@ -159,7 +146,7 @@
         },
         {
           "q": "Where do the figures in this talk come from?",
-          "a": "Only from standards bodies and regulators: IEEE, the Wi-Fi Alliance and national regulators such as the FCC. Each figure links to its source, the exact clause and how it was checked; peak rates are recalculated from the standard at every build."
+          "a": "Standards figures come only from standards bodies and regulators: IEEE, the Wi-Fi Alliance and regulators such as the FCC. Statements about Cisco networks come from Cisco’s public documentation. Each figure links to its source and where in it the figure appears."
         }
       ]
     }

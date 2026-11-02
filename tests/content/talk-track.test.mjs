@@ -33,15 +33,16 @@ function* pageText({ tabs, scenarios, glossary, references, claims, generations 
   for (const t of tabs) {
     const at = `tabs/${t.id}`;
     for (const f of ['title', 'summary', 'wifi7Adds']) if (t[f]) yield [`${at}.${f}`, t[f]];
+    for (const g of ['wifi6', 'wifi6e', 'wifi7']) if (t.sinceWifi6?.[g]) yield [`${at}.sinceWifi6.${g}`, t.sinceWifi6[g]];
     for (const f of ['promise', 'problem']) if (t.opener?.[f]) yield [`${at}.opener.${f}`, t.opener[f]];
     for (const [i, b] of t.beats.entries()) {
-      for (const f of ['heading', 'body', 'bottomLine', 'deepDive', 'sceneDescription']) if (b[f]) yield [`${at}.beats[${i}].${f}`, b[f]];
-      for (const f of ['headline', 'takeaway', 'technical']) if (b.caption?.[f]) yield [`${at}.beats[${i}].caption.${f}`, b.caption[f]];
+      for (const f of ['heading', 'body', 'bottomLine', 'sceneDescription']) if (b[f]) yield [`${at}.beats[${i}].${f}`, b[f]];
+      for (const f of ['headline', 'takeaway']) if (b.caption?.[f]) yield [`${at}.beats[${i}].caption.${f}`, b.caption[f]];
+      if (b.cisco) for (const f of ['feature', 'text']) yield [`${at}.beats[${i}].cisco.${f}`, b.cisco[f]];
       if (b.callout) {
         yield [`${at}.beats[${i}].callout.title`, b.callout.title];
         for (const [j, p] of b.callout.points.entries()) yield [`${at}.beats[${i}].callout.points[${j}]`, p];
       }
-      for (const [j, h] of (b.hotspots ?? []).entries()) if (h.technical) yield [`${at}.beats[${i}].hotspots[${j}].technical`, h.technical];
       for (const [j, q] of (b.questions ?? []).entries()) for (const f of ['q', 'a']) yield [`${at}.beats[${i}].questions[${j}].${f}`, q[f]];
     }
     for (const [i, s] of (t.sections ?? []).entries()) for (const f of ['heading', 'body']) yield [`${at}.sections[${i}].${f}`, s[f]];
@@ -80,7 +81,7 @@ test('every on-page text field appears in the talk track', () => {
 test('every step has the five talk-track sections', () => {
   const doc = buildTalkTrack(content);
   const steps = content.tabs.filter((t) => t.kind !== 'references').reduce((n, t) => n + t.beats.length, 0);
-  for (const label of ['**On screen:**', '**Say (leadership):**', '**Technical depth:**', '**Figures:**', '**Likely questions:**']) {
+  for (const label of ['**On screen:**', '**Say:**', '**Figures:**', '**Likely questions:**']) {
     assert.equal(doc.split(label).length - 1, steps, `${label} should appear once per step (${steps})`);
   }
 });

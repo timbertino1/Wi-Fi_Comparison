@@ -1,9 +1,11 @@
 # Wi-Fi 7 Explained: A Healthcare Story
 
-A vendor-neutral, animated explainer of Wi-Fi 7 and how it improves on earlier Wi-Fi, told through
-hospital scenarios. Eight chapters cover why it matters, 6 GHz and 320 MHz channels, Multi-Link
-Operation, WPA3, Target Wake Time, client density and latency,
-then a closing recap, followed by references and a glossary. Every figure links to the reputable source it came from.
+An animated, plain-language talk on what Wi-Fi 7 improves since Wi-Fi 6, told through hospital
+scenarios for a mixed audience at a Cisco-focused session. Seven chapters: why it matters, new
+spectrum (6 GHz and 320 MHz), data rates, Multi-Link Operation, Target Wake Time and security,
+then a closing recap with topics for deeper follow-up sessions. References and a glossary follow.
+Every figure links to its source in the side panel. Cisco platform features are named where they
+help, but never specific hardware models.
 
 ## Viewing it
 
@@ -16,8 +18,8 @@ then a closing recap, followed by references and a glossary. Every figure links 
 
 **Using the page**
 
-- **Audience** switch (top right): *Leadership* shows a short Bottom line on each step and the
-  headline figures; *Technical* opens the protocol detail and the full figures table. Press `V`.
+- One plain-language layer for everyone; open **Notes** (`N`) for the step's text, the "Since
+  Wi-Fi 6" summary, any Cisco note, key figures and their sources.
 - Each tab tells its story in steps: use **Play**, **Next step** / **Back**, the step numbers, or
   the arrow keys. **Compare Wi-Fi 7 with** switches the earlier generation shown.
 - Select any small number in brackets, or any key figure, to see **how we know this**: the
@@ -31,9 +33,13 @@ then a closing recap, followed by references and a glossary. Every figure links 
 ## How the content stays accurate
 
 - Only reputable sources are cited: standards bodies and regulators (IEEE, Wi-Fi Alliance, IETF,
-  FCC, ECC/CEPT, ETSI, ISED, Ofcom, NIST) for technical facts; peer-reviewed research and health
-  authorities only for healthcare context. Vendor material, wikis, blogs, news and AI-generated
-  text are never cited. See [docs/source-policy.md](docs/source-policy.md).
+  FCC, ECC/CEPT, ETSI, ISED, Ofcom, NIST) for every technical figure; Cisco public documentation
+  (open without signing in) for what Cisco networks support and Cisco design guidance, never as the
+  only source of a standards figure; peer-reviewed research and health authorities only for
+  healthcare context. Other vendors' material, Cisco marketing, wikis, blogs, news and
+  AI-generated text are never cited. See [docs/source-policy.md](docs/source-policy.md).
+- `npm run validate` also blocks Cisco hardware model names and software release numbers in
+  anything the audience sees (`tests/content/model-patterns.txt`).
 - Every number is a **claim** in [`content/claims.json`](content/claims.json) with its source
   locations, method (stated, derived or illustrative) and verification record. Derived values,
   such as peak PHY rates and channel counts, are recalculated on every build.

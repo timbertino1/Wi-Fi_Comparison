@@ -81,10 +81,11 @@ test.describe('hotspots', () => {
     expect(await page.evaluate(() => window.__stage.beat)).toBe(1);
   });
 
-  test('cards show their technical line, and never cover the caption', async ({ page }) => {
+  test('cards are plain (no technical line), and never cover the caption', async ({ page }) => {
     await open(page, 1);
     await page.locator('.hotspot-marker[data-hotspot="voice-badge"]').click();
-    await expect(page.locator('#hotspot-card .hotspot-technical')).toBeVisible();
+    await expect(page.locator('#hotspot-card .hotspot-definition')).toBeVisible();
+    await expect(page.locator('#hotspot-card .hotspot-technical')).toHaveCount(0);
     for (const id of ['access-point', 'infusion-pump', 'patient-monitor']) {
       await page.keyboard.press('Escape'); // an open card may cover the next marker
       await page.locator(`.hotspot-marker[data-hotspot="${id}"]`).click();

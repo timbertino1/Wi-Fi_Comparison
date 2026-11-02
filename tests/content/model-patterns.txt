@@ -1,0 +1,18 @@
+# Cisco hardware model names and numbers, and software release numbers, that must never appear in
+# audience-visible content (constitution Principle I, 4.0.0; feature 003 FR-017). One
+# case-insensitive regular expression per line. Source records (locators, excerpts, reference
+# titles and editions) are exempt. This file is test configuration, not site content.
+
+# Access points (Wi-Fi 6/6E/7 families) and their part numbers
+\bCW9\d{3}[A-Z0-9]*\b
+\bC9\d{3}[A-Z0-9-]*\b
+\bCatalyst\s+9\d{2,3}[A-Z0-9-]*\b
+\bAIR-[A-Z0-9-]+\b
+# Wireless controllers and switches
+\b98\d{2}(-\w+)?\b
+\bCatalyst\s+9\d{3}\b
+# Meraki models and firmware (MR, CW, MS, MX families)
+\bM[RSX]\s?\d{2,3}[A-Z]?\b
+# Software releases
+\bIOS[ -]?XE\s+\d+(\.\d+)*\b
+\bMR\s?\d+\.\d+(\.\d+)?\b

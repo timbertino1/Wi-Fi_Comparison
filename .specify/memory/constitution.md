@@ -1,5 +1,15 @@
 <!--
-Sync Impact Report (3.0.0, 2026-11-01)
+Sync Impact Report (4.0.0, 2026-11-02)
+- Principle I redefined: renamed "Source Integrity & Technical Accuracy". Cisco public-facing
+  documentation is allowed for Cisco platform claims and as a second source; Cisco platform
+  features may be named; Cisco hardware models, marketing claims and every other vendor stay
+  forbidden. Reason: feature 003 (Cisco-focused session, presenter request). MAJOR.
+- Principle II: the technical layer is no longer shown; plain language plus citations (003 FR-009).
+- Principle IV: comparisons start at Wi-Fi 6 (003 FR-006).
+- Required feature coverage replaced: new spectrum, data rates, MLO, TWT, security.
+- Templates: no changes needed.
+
+Previous: Sync Impact Report (3.0.0, 2026-11-01)
 - Removed required feature coverage item 3, 4K-QAM (4096-QAM) & Preamble Puncturing.
   Reason: the presenter dropped that chapter to trim the talk; Multi-RU and puncturing are still
   mentioned in the client density and latency chapters. MAJOR because a required-coverage item was
@@ -18,10 +28,13 @@ Previous: Sync Impact Report (2.0.0, 2026-10-30)
 
 ## Core Principles
 
-### I. Vendor Neutrality & Technical Accuracy (NON-NEGOTIABLE)
+### I. Source Integrity & Technical Accuracy (NON-NEGOTIABLE)
 
-- The site MUST NOT name, depict, endorse, or imply any equipment vendor, chipset maker, or
-  product line. No vendor logos, product imagery, model numbers, or proprietary feature names.
+- The site MAY name Cisco and Cisco platform features that exist across Cisco's wireless
+  platform (for example the Cisco Meraki dashboard, Cisco Catalyst Center, AFC standard power
+  support). It MUST NOT name or show Cisco hardware models, model numbers or product SKUs, MUST NOT
+  make marketing or comparative claims, and MUST NOT name, depict or imply any other equipment
+  vendor, chipset maker or product line. No logos or brand styling.
 - Every technical claim (data rates, channel widths, modulation orders, latency, power figures,
   security requirements) MUST trace to a neutral primary source: IEEE 802.11 amendments
   (802.11ax, 802.11be, etc.), Wi-Fi Alliance certification material, IEEE 802.3 (PoE), or
@@ -29,9 +42,13 @@ Previous: Sync Impact Report (2.0.0, 2026-10-30)
 - **Reputable sources only.** Tier 1 (standards bodies and regulators: IEEE, Wi-Fi Alliance, IETF,
   FCC, ECC/CEPT, ETSI, ISED, Ofcom, NIST) is required for every technical figure. Tier 2
   (peer-reviewed publications with a DOI, and government or standards bodies for healthcare
-  context such as FDA, AAMI, WHO) is allowed for healthcare context and corroboration. Vendor
-  material of any kind, Wikipedia, blogs, forums, news articles, and AI-generated text MUST NOT be
-  cited.
+  context such as FDA, AAMI, WHO) is allowed for healthcare context and corroboration. **Cisco
+  public-facing documentation** (pages and documents on cisco.com or documentation.meraki.com that
+  open without a login, partner access or paywall) is allowed for claims about what Cisco networks
+  support and for Cisco deployment guidance, and as a second source for a technical figure, but
+  MUST NOT be the only source of a technical figure. Cisco marketing pages, community posts, event
+  decks and model data sheets are not allowed. Other vendor material, Wikipedia, blogs, forums,
+  news articles, and AI-generated text MUST NOT be cited.
 - **Provenance for every claim.** Every number or normative statement MUST be recorded as a
   claim with its source(s), the exact location in the source (clause, table, section, or page),
   how the value was obtained (stated directly, or derived with the formula and inputs shown),
@@ -58,12 +75,9 @@ on neutrality and on numbers that hold up to scrutiny.
   4. **How it improves** — explicit before/after versus Wi-Fi 6/6E and earlier.
   5. **Why it matters in healthcare** — the outcome for clinicians, patients, or IT.
 - Copy MUST be written for a mixed audience (clinical leadership, biomed, and network
-  engineers): lead with plain language, then give the technical depth (shown alongside it since
-  2026-10-30, at the presenter's request; earlier it was behind a switch).
-- Audience depth MUST be layered within one story, not split into separate versions: a shared
-  plain-language core seen by everyone, a leadership layer (impact, risk, cost, planning), and a
-  technical layer (mechanism and protocol detail). Every layer draws on the same facts and
-  references.
+  engineers) in plain language. Since 2026-11-02 (feature 003) no separate technical layer is
+  shown: the talk sets the stage for deeper follow-up discussions, and citations carry the detail.
+- One story for everyone: plain-language points, a few key figures, and their sources.
 - Jargon MUST be defined at first use in each chapter, on screen (for example by a caption or
   hotspot), not only in supporting notes.
 
@@ -85,8 +99,9 @@ domain would undermine trust.
 
 ### IV. Generational Comparison
 
-- Each feature chapter MUST explicitly compare Wi-Fi 7 (802.11be) against Wi-Fi 6/6E (802.11ax) and,
-  where it aids the story, Wi-Fi 5 (802.11ac) and Wi-Fi 4 (802.11n).
+- Each feature chapter MUST explicitly compare Wi-Fi 7 (802.11be) against Wi-Fi 6 and Wi-Fi 6E
+  (802.11ax), stating what each generation added or that it changed nothing. Earlier generations
+  appear only as context in the introduction.
 - Comparisons MUST use consistent generation naming (both the Wi-Fi Alliance name and IEEE
   amendment) and a consistent visual language (same color per generation across all chapters).
 - Where a feature first appeared in an earlier generation (e.g., TWT, WPA3, preamble puncturing,
@@ -160,15 +175,15 @@ trustworthy to deploy, and its repository must resist accidental or malicious ch
 
 **Required feature coverage** — each item below MUST have its own chapter following Principle II:
 
-1. 6 GHz spectrum (including channel availability and why clean spectrum matters)
-2. Multi-Link Operation (MLO)
-3. WPA3 and Wi-Fi 7 security requirements
+1. New spectrum: 6 GHz (Wi-Fi 6E) and 320 MHz channels (Wi-Fi 7), including availability
+2. Data rates since Wi-Fi 6 (theoretical peaks labeled as such)
+3. Multi-Link Operation (MLO)
 4. Target Wake Time (TWT) and client battery life
-5. Client density and its healthcare implications
+5. Security since Wi-Fi 6: WPA3, Wi-Fi 6E and Wi-Fi 7 requirements
 
 Bandwidth and Power over Ethernet (PoE) is no longer a required chapter (removed 2026-10-30 at
 the presenter's request); wired-infrastructure planning is covered as one item in the closing
-chapter instead. 4K-QAM & Preamble Puncturing is no longer a required chapter either (removed
+chapter instead. Client density was removed on 2026-11-02 (feature 003). 4K-QAM & Preamble Puncturing is no longer a required chapter either (removed
 2026-11-01 at the presenter's request, to trim the talk).
 
 Additional chapters MAY be added through the spec process, provided they meet all principles. An
@@ -215,4 +230,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 3.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-01
+**Version**: 4.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-02

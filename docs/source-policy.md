@@ -17,6 +17,15 @@ enforced automatically by `npm run validate`; the machine-readable allowlist is
 | FCC, ECC/CEPT, ETSI, ISED, Ofcom | Spectrum allocations and operating rules by region |
 | NIST | Cryptography and security background |
 
+**Cisco public documentation** (since feature 003, 2026-11-02; constitution 4.0.0). Allowed for what
+Cisco networks support and Cisco design guidance (`platform` claims), and as a second source for a
+technical figure, never as its only source. Only pages on `www.cisco.com` or
+`documentation.meraki.com` that open without signing in: configuration guides, technical notes,
+deployment guides and FAQs. Each Cisco reference records its edition (revision or software release)
+and the date it was checked (`checkedOn`). Cisco marketing pages, community and Learning Network
+posts, event decks, model data sheets and anything behind a login are not allowed. The audience
+never sees Cisco hardware model names or release numbers; source records may quote them.
+
 **Tier 2 — peer-reviewed research and health authorities.** Allowed for healthcare context and to
 corroborate a Tier 1 source. A Tier 2 source alone never supports a technical figure.
 
@@ -25,8 +34,8 @@ corroborate a Tier 1 source. A Tier 2 source alone never supports a technical fi
 | Peer-reviewed publications (must have a DOI) | Measured performance and research context |
 | FDA, AAMI, WHO | Wireless medical device and healthcare technology context |
 
-**Never cited:** vendor material of any kind (marketing, blogs, white papers, datasheets —
-wherever hosted), Wikipedia and other wikis, blogs, forums and social media, news and trade press,
+**Never cited:** other vendors' material of any kind (marketing, blogs, white papers, datasheets —
+wherever hosted), Cisco material other than the public documentation above, Wikipedia and other wikis, blogs, forums and social media, news and trade press,
 analyst marketing reports, AI-generated text, and uncredited infographics. If one of these points
 to a useful fact, find and cite its primary source instead.
 
@@ -39,9 +48,9 @@ Every number or normative statement on the site is a **claim** in
 [`content/claims.json`](../content/claims.json). Text cites it as `{{claim-id}}`; key figures and
 3D scene labels read their values from it. A claim records:
 
-- **Statement, value and unit** — e.g., "Wi-Fi 7 theoretical peak PHY rate", 46.1, Gbps.
-- **Kind** — `technical` (needs a Tier 1 source) or `context` (healthcare or background; Tier 1
-  or Tier 2).
+- **Statement, value and unit** — e.g., "Wi-Fi 7 theoretical peak PHY rate on one link", 23.1, Gbps.
+- **Kind** — `technical` (needs a Tier 1 source), `platform` (what Cisco networks support; needs
+  a Cisco public documentation source) or `context` (healthcare or background; Tier 1 or Tier 2).
 - **Method**
   - `stated` — the value appears in the source;
   - `derived` — it is calculated from other stated claims, with the formula named;

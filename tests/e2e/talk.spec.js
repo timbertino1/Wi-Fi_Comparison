@@ -73,9 +73,9 @@ test('deep links open a settled step or an opener; legacy ?present links still w
   await page.goto(fileUrl('#/mlo/1?intro&test'));
   await page.waitForFunction(() => window.__stage?.intro === true);
   await expect.poll(() => position(page)).toBe('mlo/opener');
-  await page.goto(fileUrl('#/latency/2?present&test'));
-  await page.waitForFunction(() => window.__stage?.tab === 'latency');
-  await expect.poll(() => position(page)).toBe('latency/2');
+  await page.goto(fileUrl('#/security/2?present&test'));
+  await page.waitForFunction(() => window.__stage?.tab === 'security');
+  await expect.poll(() => position(page)).toBe('security/2');
   await expect(page.locator('.present-prompt')).toHaveCount(0);
 });
 

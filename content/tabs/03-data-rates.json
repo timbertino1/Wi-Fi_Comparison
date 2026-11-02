@@ -1,0 +1,196 @@
+{
+  "id": "rates",
+  "order": 3,
+  "kind": "feature",
+  "title": "Faster Data Rates",
+  "summary": "Wider channels, denser signals and several links at once raise Wi-Fi 7’s theoretical peak well above Wi-Fi 6.",
+  "opener": {
+    "promise": "More data per second, on devices that support it",
+    "problem": "Large imaging files and busy shifts push older Wi-Fi toward its limits."
+  },
+  "introducedIn": "wifi7",
+  "wifi7Adds": null,
+  "compareGenerations": [
+    "wifi6",
+    "wifi6e",
+    "wifi7"
+  ],
+  "defaultCompare": "wifi6e",
+  "sceneId": "rates",
+  "scenarioIds": [
+    "imaging-transfer"
+  ],
+  "sinceWifi6": {
+    "wifi6": "Theoretical peak of 9.6 Gbps{{wifi6-peak-phy}}.",
+    "wifi6e": "The same peak as Wi-Fi 6: it added spectrum, not speed{{he-max-width}}.",
+    "wifi7": "Theoretical peak of 23.1 Gbps on one link{{wifi7-peak-phy}}, from wider channels and denser signals."
+  },
+  "beats": [
+    {
+      "type": "problem",
+      "covers": [
+        "what"
+      ],
+      "heading": "Big files, busy floors",
+      "caption": {
+        "headline": "Big files, busy floors",
+        "takeaway": "Imaging studies and video consults need speed; slow transfers hold the air longer for everyone."
+      },
+      "body": "Imaging studies, telehealth video and software updates move a lot of data over Wi-Fi. The **data rate** is how much a connection can move each second; Wi-Fi standards quote a theoretical peak, the [[phy-rate|PHY rate]].\n\nA slower transfer does more than keep one clinician waiting: it holds the channel longer, so every other device on it waits too.",
+      "bottomLine": "Faster transfers finish sooner and give the air back to everyone else on the channel.",
+      "sceneState": "rates-demand",
+      "sceneDescription": "A road runs from an access point to an imaging cart. Long trucks carrying an imaging study crawl along it in single file, and smaller cars for calls and messages queue up behind them.",
+      "durationMs": 11000,
+      "hotspots": [
+        {
+          "id": "phy-rate",
+          "anchor": "cart",
+          "term": "phy-rate"
+        }
+      ]
+    },
+    {
+      "type": "how",
+      "heading": "Three reasons Wi-Fi 7 is faster",
+      "caption": {
+        "headline": "Wider lanes, fuller trucks, more roads",
+        "takeaway": "Wi-Fi 7 doubles channel width{{width-320-vs-160}}, packs more bits per signal{{eht-4096qam-bits}} and can add links{{mlo-bands}}."
+      },
+      "body": "**Wider lanes.** Wi-Fi 7 channels can be 320 MHz wide, twice the widest in Wi-Fi 6E {{eht-max-width}} {{width-320-vs-160}}.\n\n**Fuller trucks.** With [[qam|4096-QAM]], each [[subcarrier|subcarrier]] carries 12 bits {{eht-4096qam-bits}}, up from 10 with Wi-Fi 6’s 1024-QAM {{he-1024qam-bits}}: 1.2 times as many {{qam-4096-vs-1024}}. It only works with a very strong, clean signal, close to the [[access-point|access point]].\n\n**More roads at once.** [[mlo|Multi-link operation]] lets one device use links in more than one band {{mlo-bands}}; the next chapter covers it.",
+      "bottomLine": "Wi-Fi 7 is faster for three separate reasons, and each one depends on the device and where it is.",
+      "sceneState": "rates-reasons",
+      "sceneDescription": "The road changes in three steps, each labeled: it widens into wider lanes, the trucks are loaded fuller, and a second road opens beside the first. The imaging trucks speed up with each change and the queue behind them clears.",
+      "durationMs": 14000,
+      "callout": {
+        "title": "Three reasons for more speed",
+        "points": [
+          "Wider lanes: channels up to 320 MHz{{eht-max-width}}",
+          "Fuller trucks: 12 bits per [[subcarrier|subcarrier]], up from 10{{eht-4096qam-bits}}",
+          "More roads: links in several bands at once{{mlo-bands}}"
+        ]
+      },
+      "hotspots": [
+        {
+          "id": "qam",
+          "anchor": "trucks",
+          "term": "qam",
+          "claim": "eht-4096qam-bits"
+        },
+        {
+          "id": "channel-width",
+          "anchor": "road",
+          "term": "channel-width",
+          "claim": "eht-max-width"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Why does 4096-QAM need a strong signal?",
+          "a": "Packing more bits into each signal leaves less room for noise, so it only works close to the access point with a clean signal. Further away, devices fall back to lower rates automatically."
+        }
+      ],
+      "cisco": {
+        "feature": "4096-QAM range",
+        "text": "Cisco’s design guidance says clients must be very close to the access point, within a few feet, to reach 4096-QAM rates{{cisco-4kqam-close-range}}."
+      }
+    },
+    {
+      "type": "improvement",
+      "covers": [
+        "why"
+      ],
+      "heading": "Peak rates since Wi-Fi 6",
+      "caption": {
+        "headline": "More than double the peak rate",
+        "takeaway": "Up to 23.1 Gbps per link{{wifi7-peak-phy}} versus 9.6 Gbps{{wifi6-peak-phy}}: theoretical peaks, not floor speeds."
+      },
+      "body": "Wi-Fi 6 and Wi-Fi 6E share the same theoretical peak, 9.6 Gbps {{wifi6-peak-phy}}: Wi-Fi 6E added spectrum, not a higher top speed {{he-max-width}}. Wi-Fi 7’s theoretical peak on one link is 23.1 Gbps {{wifi7-peak-phy}}.\n\nThose peaks assume the best case: eight [[spatial-stream|spatial streams]] {{eht-max-nss}}, the widest channel and a perfect signal. Real devices on a hospital floor see much less, because they have fewer antennas, share the air and sit further away. The benefit is headroom: big files finish sooner and the channel frees up for everyone.",
+      "bottomLine": "Treat peak rates as a ceiling, not a promise: measure real throughput with your own devices in a pilot.",
+      "sceneState": "gen-compare",
+      "sceneDescription": "Two roads side by side. On the left, the earlier generation’s road with its narrower lanes and lighter loads; on the right, Wi-Fi 7’s wider road with fuller trucks. Each is labeled with its theoretical peak, and the Wi-Fi 7 trucks deliver the imaging study first.",
+      "durationMs": 13000,
+      "hotspots": [
+        {
+          "id": "peak-rate",
+          "anchor": "peak-wifi7",
+          "term": "phy-rate",
+          "claim": "wifi7-peak-phy"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Will our devices actually reach the peak rate?",
+          "a": "No. The Wi-Fi 7 peak{{wifi7-peak-phy}} is a theoretical maximum for an eight-stream device on a 320 MHz channel in ideal conditions. Real throughput is much lower and depends on the device, its distance and how busy the channel is."
+        },
+        {
+          "q": "How fast will Wi-Fi 7 be on our floors?",
+          "a": "That needs a site survey and a pilot with your own devices and traffic, which makes it a good topic for a follow-up session.",
+          "followUp": true
+        }
+      ]
+    }
+  ],
+  "keyFigures": [
+    {
+      "id": "peak",
+      "metric": "Peak PHY rate (one link)",
+      "unit": "Gbps",
+      "values": {
+        "wifi6": 9.61,
+        "wifi6e": 9.61,
+        "wifi7": 23.1
+      },
+      "qualifier": "theoretical",
+      "regulatoryDomain": null,
+      "note": "Best case: 8 spatial streams{{eht-max-nss}}; real devices see much less.",
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "wifi6-peak-phy",
+        "wifi6e": "wifi6-peak-phy",
+        "wifi7": "wifi7-peak-phy"
+      }
+    },
+    {
+      "id": "widest-channel",
+      "metric": "Widest channel",
+      "unit": "MHz",
+      "values": {
+        "wifi6": 160,
+        "wifi6e": 160,
+        "wifi7": 320
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": true,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "he-max-width",
+        "wifi6e": "he-max-width",
+        "wifi7": "eht-max-width"
+      }
+    },
+    {
+      "id": "bits",
+      "metric": "Bits per subcarrier (densest signal)",
+      "unit": "bits",
+      "values": {
+        "wifi6": 10,
+        "wifi6e": 10,
+        "wifi7": 12
+      },
+      "qualifier": "normative",
+      "regulatoryDomain": null,
+      "note": null,
+      "headline": false,
+      "cellQualifiers": {},
+      "claimIds": {
+        "wifi6": "he-1024qam-bits",
+        "wifi6e": "he-1024qam-bits",
+        "wifi7": "eht-4096qam-bits"
+      }
+    }
+  ],
+  "sections": []
+}

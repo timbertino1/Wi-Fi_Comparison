@@ -166,3 +166,37 @@ The reviewer read these from a copy of the standard. They should still be confir
 - Chapter 6 step 4.
 - Chapter 9 step 1.
 - Glossary entries for STR, NSTR and Restricted TWT.
+
+## Feature 003 re-check, 2026-11-02
+
+The talk was cut to seven chapters (feature 003). It now cites 70 claims: 60 that were checked and signed off on 2026-10-31 and are used unchanged, plus 10 new ones listed below. Each Cisco page was opened without signing in on 2026-11-02. The new claims still need the presenter's sign-off (rule 19).
+
+### New claims
+
+| Claim | Statement | Evidence | Result |
+|---|---|---|---|
+| qam-4096-vs-1024 | 4096-QAM carries 1.2 times as many bits per subcarrier as 1024-QAM | Derived: 12 bits (eht-4096qam-bits) ÷ 10 bits (he-1024qam-bits); both inputs signed off 2026-10-31. | Confirmed (recomputed by the validator) |
+| cisco-afc-standard-power | Standard-power 6 GHz through AFC, on Cisco controllers and in the Meraki dashboard | Cisco AFC FAQ (updated 2026-06-03): “AFC is supported via Cisco Catalyst 9800 Series Wireless Controllers and the Meraki dashboard.” | Confirmed |
+| cisco-320-opt-in | Controllers stop at 160 MHz by default; 320 MHz, 6 GHz only, must be enabled | Wi-Fi 7 Operations (IOS XE 17.18.x): “By default, the Dynamic Channel Assignment (DCA) maximum bandwidth is 160 MHz.” “320 MHz is supported only on the 6-GHz band.” | Confirmed |
+| cisco-320-us-sp-one | Under US standard power, one 320 MHz channel | Meraki Wi-Fi 7 Technical Guide, “320 MHz Channel Width”: “the number of 320 MHz channels is restricted to 1 in the US and 2 in Canada.” | Confirmed (Cisco guidance; not used as a standards figure) |
+| cisco-4kqam-close-range | 4096-QAM needs clients very close to the access point | Meraki Wi-Fi 7 Technical Guide, “4K QAM”: “The clients have to be very close to the Access Point, within a few feet to achieve the high data rates with 4K QAM.” | Confirmed |
+| cisco-wpa2-no-mlo | WPA2 clients on a mixed network cannot use MLO or Wi-Fi 7 | Tech note 223061 rev 10.0: “clients that connect using WPA2 cannot use MLO or Wi-Fi 7, but clients connecting with SAE-EXT can.” | Confirmed |
+| cisco-noncompliant-downgrade | Wi-Fi 7 offered only when security meets the requirements; otherwise Wi-Fi 6/6E | Tech note 223061: “advertise a WLAN as Wi-Fi 7 and MLO capable only if the appropriate security requirements are enabled”; Meraki: “all the Wi-Fi 7 APs would revert to Wi-Fi 6E operation.” | Confirmed |
+| cisco-beacon-protection-auto | Beacon protection turns on automatically for compliant networks, on recent software | Tech note 223061: “After 17.18, the beacon protection elements are enabled automatically if your WLAN is Wi-Fi 7 compliant” | Confirmed |
+| cisco-wifi7-readiness-check | Wireless Configuration Analyzer Express has a Wi-Fi 7 readiness check | Tech note 223061: “has a Wi-Fi 7 readiness check that evaluates your 9800 configuration against all the Wi-Fi 7 requirements” | Confirmed |
+| cisco-twt-default-off | TWT is off by default on Cisco controllers | TWT chapter (IOS XE 17.18.x): “By default Target Wake Time (TWT) is disabled on the controller.” | Confirmed |
+
+### Generation attributions (FR-007)
+
+Each "Since Wi-Fi 6" line was checked against its claims:
+
+- **New spectrum:** Wi-Fi 6 cannot use 6 GHz (6ghz-no-legacy); Wi-Fi 6E opened it (wifi6e-6ghz-origin); Wi-Fi 7 adds 320 MHz, 6 GHz only (eht-max-width, 320mhz-6ghz-only). Confirmed.
+- **Data rates:** Wi-Fi 6 and 6E share the 9.6 Gbps theoretical peak, because 6E keeps the 160 MHz maximum (wifi6-peak-phy, he-max-width); Wi-Fi 7 reaches 23.1 Gbps on one link (wifi7-peak-phy). Confirmed.
+- **MLO:** Wi-Fi 6/6E devices use one link at a time (single-link-pre-be); MLO is new in 802.11be (mlo-defined-be). Confirmed.
+- **TWT:** TWT is a Wi-Fi CERTIFIED 6 feature (twt-wifi6). The line "Wi-Fi 6E brought no TWT change" rests on wifi6e-cert-launch: “Wi-Fi 6E extends into the 6 GHz band the capabilities of Wi-Fi CERTIFIED 6”. Restricted TWT is new in 802.11be and optional (rtwt-be, rtwt-optional). Confirmed.
+- **Security:** wpa3-mandatory-cert says WPA3 is required for new Wi-Fi CERTIFIED devices; it is not tied to the Wi-Fi 6 program, so the slide says "becomes required" without claiming it was part of Wi-Fi 6 certification. The 6 GHz and Wi-Fi 7 lines rest on 6ghz-security-options, wpa3-mlo-required and wifi7-eht-security (Wi-Fi Alliance Deployment Guide tables: beacon protection mandatory; PMF Required and GCMP-256 in WPA3-Personal Only Mode with EHT). Confirmed.
+
+### Not used
+
+- Meraki's claim that Wi-Fi 7 is "up to four times" faster than Wi-Fi 6 is not used. The standards-derived single-link peaks give about 2.4 times, and the slide says "more than double".
+- No Cisco source read so far mentions Restricted TWT, so the talk does not claim Cisco support for it.

@@ -14,7 +14,7 @@ export default {
   create(ctx) {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo } = ctx;
     const genName = (id) => ctx.generations.find((g) => g.id === id)?.name ?? id;
-    let compareGen = 'wifi5';
+    let compareGen = 'wifi6';
     let mode = 'wpa2-risks';
     const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.5, ...extra });
     const box = (w, h, d, color, extra) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat(color, extra));
@@ -146,7 +146,8 @@ export default {
     const lOnly = tag(ap, 'Wi-Fi 7 · 6 GHz: WPA3 sign-in', [0, 0.65, 0], 'big');
     const lOlder = tag(ap, '', [0, 1.3, 0]);
     const lRetire = tag(sideDoor.sign, 'Retire as devices are replaced', [0, -1.9, 0]);
-    const olderText = () => `${genName(compareGen)}: WPA2 or WPA3 accepted`;
+    // Wi-Fi 6E already bars WPA2 in 6 GHz, but still accepts it on 2.4 and 5 GHz.
+    const olderText = () => (compareGen === 'wifi6e' ? `${genName(compareGen)}: WPA3 in 6 GHz, WPA2 still on 2.4 and 5 GHz` : `${genName(compareGen)}: WPA2 or WPA3 accepted`);
     labels.setText(lOlder, olderText());
 
     const shownOn = new Map([

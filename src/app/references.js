@@ -45,8 +45,13 @@ function claimUsage() {
 
 function renderPolicy() {
   const s = section('source-policy', 'Source policy');
-  for (const tier of [1, 2]) {
-    s.append(el('h4', '', tier === 1 ? 'Tier 1 — required for every technical figure' : 'Tier 2 — healthcare context and corroboration only'));
+  const TIER_HEADINGS = {
+    1: 'Tier 1 — required for every technical figure',
+    cisco: 'Cisco public documentation — platform features and deployment guidance',
+    2: 'Tier 2 — healthcare context and corroboration only'
+  };
+  for (const tier of [1, 'cisco', 2]) {
+    s.append(el('h4', '', TIER_HEADINGS[tier]));
     const ul = el('ul', 'ref-publishers');
     for (const p of sourcePolicy.publishers.filter((x) => x.tier === tier)) {
       const li = el('li');

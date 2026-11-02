@@ -264,6 +264,7 @@ with the clicker, and confirm both windows show the same step.
   through the feature chapters in the order of feature 001, then a closing chapter (FR-011b). The
   4K-QAM, puncturing and Multi-RU chapter was removed on 2026-11-01 to trim the talk. References
   and the glossary MUST remain reachable from the chapter menu but are not part of the clicker path.
+  *Superseded by feature 003 (2026-11-02): see specs/003-cisco-refocus/spec.md.*
 - **FR-011**: Moving between chapters MUST use a transition of: the view moving out from the current
   scene, a crossfade to the next scene, and the view moving in to the first step, completing within
   2.5 seconds.
@@ -321,6 +322,7 @@ with the clicker, and confirm both windows show the same step.
 
 **Viewing without a presenter**
 
+  *Superseded by feature 003 (2026-11-02): see specs/003-cisco-refocus/spec.md.*
 - **FR-021**: Each step MUST offer a "Notes" drawer, closed by default, holding that step's full
   text from content (story, bottom line, deep sections, key figures, scenario) at the current
   depth, so viewers without a presenter can read the detail. Opening or closing the drawer MUST
@@ -356,6 +358,7 @@ with the clicker, and confirm both windows show the same step.
   (WCAG 2.2 AA), reduced motion, no-WebGL fallback, offline and static delivery, performance,
   security and Content-Security-Policy MUST continue to hold for the new slides, captions,
   hotspots, transitions and presenter view.
+  *Superseded by feature 003 (2026-11-02): see specs/003-cisco-refocus/spec.md.*
 - **FR-029**: The no-WebGL fallback MUST show each step's still image with its caption and progress
   indicator, and present hotspots as numbered callouts on the still.
 - **FR-030**: Screen-reader users MUST receive each step's caption and a text description of the

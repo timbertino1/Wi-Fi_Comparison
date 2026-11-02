@@ -291,13 +291,6 @@ button {
   line-height: 1.25;
 }
 
-.caption-technical {
-  margin: calc(var(--slide-h) * 0.008) 0 0;
-  color: var(--fg-muted);
-  font-size: calc(var(--slide-h) * 0.028);
-  font-weight: 500;
-  line-height: 1.25;
-}
 
 .caption .term,
 .caption .cite {
@@ -510,15 +503,10 @@ button {
 }
 
 .hotspot-definition,
-.hotspot-figure,
-.hotspot-technical {
+.hotspot-figure {
   margin: calc(var(--slide-h) * 0.006) 0 0;
   font-size: calc(var(--slide-h) * 0.021);
   line-height: 1.35;
-}
-
-.hotspot-technical {
-  color: var(--fg-muted);
 }
 
 /* The no-WebGL notice is the bar's first, full-width row, so it never covers the controls however the bar wraps. */
@@ -799,8 +787,7 @@ button {
     font-size: var(--text-lg);
   }
 
-  .caption-takeaway,
-  .caption-technical {
+  .caption-takeaway {
     font-size: var(--text-md);
   }
 
@@ -904,13 +891,11 @@ button {
 }
 
 /* Disclosures */
-.deep-dive,
 .deep-section {
   padding: 0;
   margin-bottom: var(--space-3);
 }
 
-.deep-dive summary,
 .deep-section summary {
   padding: var(--space-3) var(--space-4);
   font-weight: 600;
@@ -1035,6 +1020,15 @@ button {
   border-radius: var(--radius-sm);
   background: var(--surface-2);
   font-size: var(--text-sm);
+}
+
+.since-wifi6 ul {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-4);
+}
+
+.since-wifi6 li + li {
+  margin-top: var(--space-1);
 }
 
 /* Key figures */
@@ -1203,6 +1197,18 @@ button {
   background: var(--surface);
 }
 
+.cisco-note {
+  margin-bottom: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-left: 4px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.cisco-note p {
+  margin: 0;
+}
+
 .bottom-line-label {
   display: block;
   margin-bottom: var(--space-1);
@@ -1214,12 +1220,6 @@ button {
 
 .bottom-line p {
   margin: 0;
-}
-
-[data-view="technical"] .bottom-line {
-  border-style: dashed;
-  font-size: var(--text-sm);
-  color: var(--fg-muted);
 }
 
 /* References: no slide; the notes area becomes a full-width reading page. */

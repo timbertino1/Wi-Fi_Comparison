@@ -302,6 +302,71 @@
       "status": "current",
       "access": "open",
       "url": "https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf"
+    },
+    {
+      "id": "cisco-migrate-wifi7",
+      "title": "Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless",
+      "identifier": "Cisco technical note, Document ID 223061",
+      "edition": "Revision 10.0",
+      "date": "2026-07-22",
+      "url": "https://www.cisco.com/c/en/us/support/docs/wireless/catalyst-9800-series-wireless-controllers/223061-migrate-to-wi-fi-7-and-6ghz.html",
+      "publisher": "cisco",
+      "tier": "cisco",
+      "status": "current",
+      "access": "open",
+      "checkedOn": "2026-11-02"
+    },
+    {
+      "id": "cisco-9800-wifi7-ops",
+      "title": "Cisco Catalyst 9800 Series Wireless Controller Software Configuration Guide — Wi-Fi 7 Operations",
+      "identifier": "Cisco configuration guide chapter",
+      "edition": "Cisco IOS XE 17.18.x",
+      "date": "2026-09-30",
+      "url": "https://www.cisco.com/c/en/us/td/docs/wireless/controller/9800/17-18/config-guide/b_wl_17_18_cg/m_wi-fi-7_operations.html",
+      "publisher": "cisco",
+      "tier": "cisco",
+      "status": "current",
+      "access": "open",
+      "checkedOn": "2026-11-02"
+    },
+    {
+      "id": "cisco-9800-twt",
+      "title": "Cisco Catalyst 9800 Series Wireless Controller Software Configuration Guide — Target Wake Time",
+      "identifier": "Cisco configuration guide chapter",
+      "edition": "Cisco IOS XE 17.18.x",
+      "date": "2026",
+      "url": "https://www.cisco.com/c/en/us/td/docs/wireless/controller/9800/17-18/config-guide/b_wl_17_18_cg/m_twt_support_axel.html",
+      "publisher": "cisco",
+      "tier": "cisco",
+      "status": "current",
+      "access": "open",
+      "checkedOn": "2026-11-02"
+    },
+    {
+      "id": "meraki-wifi7-guide",
+      "title": "Wi-Fi 7 (802.11be) Technical Guide",
+      "identifier": "Cisco Meraki documentation",
+      "edition": "Web page (© 2026)",
+      "date": "2026",
+      "url": "https://documentation.meraki.com/Wireless/Design_and_Configure/Architecture_and_Best_Practices/Wi-Fi_7_(802.11be)_Technical_Guide",
+      "publisher": "cisco",
+      "tier": "cisco",
+      "status": "current",
+      "access": "open",
+      "checkedOn": "2026-11-02"
+    },
+    {
+      "id": "cisco-afc-faq",
+      "title": "Automated Frequency Coordination (AFC) FAQ",
+      "identifier": "Cisco FAQ",
+      "edition": "Updated 2026-06-03",
+      "date": "2026-06-03",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/networking/wireless/access-points/automated-frequency-coordination-faq.html",
+      "publisher": "cisco",
+      "tier": "cisco",
+      "status": "current",
+      "access": "open",
+      "checkedOn": "2026-11-02"
     }
   ]
 }

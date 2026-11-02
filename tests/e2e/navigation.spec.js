@@ -25,7 +25,7 @@ test.describe('chapter navigation', () => {
     await page.keyboard.press('Escape');
     await expect(page.locator('#chapter-menu')).toBeHidden();
     // Escape closed the menu without moving the story.
-    await expect(page.locator('#progress')).toContainText('Step 2 of 5');
+    await expect(page.locator('#progress')).toContainText('Step 2 of 3');
   });
 
   test('deep links open chapters and steps directly; out-of-range steps clamp', async ({ page }) => {
@@ -55,7 +55,7 @@ test.describe('chapter navigation', () => {
   });
 
   test('any chapter, or the references, is reachable in two actions (SC-004)', async ({ page }) => {
-    await gotoTab(page, 'latency');
+    await gotoTab(page, 'security');
     for (const id of ['overview', 'references', 'spectrum']) {
       await page.locator('#chapter-menu-toggle').click();
       await page.locator(`#chapter-list a[data-chapter="${id}"]`).click();

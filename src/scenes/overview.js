@@ -1,5 +1,5 @@
 // Overview: a hospital floor that fills with wireless devices, then a timeline of generations. The
-// closing chapter returns to the same floor on Wi-Fi 7, each device labelled with what it gains.
+// closing chapter returns to the same floor on Wi-Fi 7, each device labeled with what it gains.
 const GENS = ['wifi4', 'wifi5', 'wifi6', 'wifi6e', 'wifi7'];
 const MAX_DEVICES = 180;
 const QUIET_DEVICES = 18;
@@ -102,8 +102,7 @@ export default {
     const WINS = {
       'voice-badge': 'Steadier calls · multi-link',
       'infusion-pump': 'Safer sign-in · WPA3',
-      'telemetry-monitor': 'Alarms wait less',
-      phone: 'Room for more · OFDMA',
+      phone: 'More speed · Wi-Fi 7 rates',
       'workstation-cart': 'Faster big files · 6 GHz',
       'rtls-tag': 'Longer battery life · TWT'
     };

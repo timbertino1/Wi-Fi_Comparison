@@ -45,27 +45,14 @@
       "outcomeSupported": "Target Wake Time lets devices sleep between agreed wake-ups, and optional Restricted TWT can protect time for voice and telemetry on devices that support it, so batteries can last longer and timing can be more predictable."
     },
     {
-      "id": "ed-shift-change",
-      "location": "Emergency department at shift change",
+      "id": "imaging-transfer",
+      "location": "Imaging and procedure rooms during a busy shift",
       "deviceTypes": [
-        "staff phone",
-        "voice badge",
-        "bedside monitor",
-        "infusion pump",
-        "workstation on wheels"
+        "imaging cart",
+        "telehealth cart"
       ],
-      "problem": "Two shifts of staff devices plus patient equipment and visitors' phones all compete for the same airtime at once.",
-      "outcomeSupported": "Serving several devices per transmission and spreading them across bands supports a responsive network at the unit's busiest moments."
-    },
-    {
-      "id": "telemetry-alarm-delay",
-      "location": "Cardiac telemetry unit",
-      "deviceTypes": [
-        "bedside monitor",
-        "nurses' station workstation"
-      ],
-      "problem": "Occasionally an alarm message waits behind a large download before reaching the nurses' station.",
-      "outcomeSupported": "Multi-link operation and optional Restricted TWT target those worst-case waits; on supporting devices they can make alarm and voice delivery more predictable, to be confirmed in a pilot."
+      "problem": "Large imaging studies and video consults hold the channel for a long time, so other devices on the same channel wait behind them.",
+      "outcomeSupported": "On devices that support it, Wi-Fi 7’s wider channels and denser signals finish transfers sooner and give the air back to everyone else; real speeds depend on the device and its distance."
     }
   ]
 }

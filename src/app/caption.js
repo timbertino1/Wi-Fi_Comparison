@@ -1,5 +1,5 @@
-// Slide caption (FR-003, FR-004, research P3): headline, takeaway and (Technical view) a technical
-// line. It appears when the step's subject does: after `captionAtMs`, or earlier on cue('caption')
+// Slide caption (FR-003, FR-004, research P3): a headline and a plain takeaway (feature 003 removed
+// the technical line). It appears when the step's subject does: after `captionAtMs`, or earlier on cue('caption')
 // from the scene, whichever comes first. Settled steps and reduced motion show it at once.
 import { markupContext } from './content.js';
 import { renderInline } from './markup.js';
@@ -38,7 +38,6 @@ function render({ beat, animated, intro }) {
   const caption = beat?.caption;
   if (!caption || intro) return; // the chapter opener stands alone
   root.append(line('caption-headline', caption.headline), line('caption-takeaway', caption.takeaway));
-  if (caption.technical) root.append(line('caption-technical', caption.technical));
   if (!animated || prefs.effectiveMotion() === 'reduced') show();
   else timer = setTimeout(show, beat.captionAtMs ?? DEFAULT_CAPTION_AT_MS);
 }

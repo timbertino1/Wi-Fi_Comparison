@@ -51,15 +51,15 @@ for (const tab of featureTabs) {
 }
 
 test('derivation inputs link to their own claims, and the register link highlights the claim', async ({ page }) => {
-  await page.goto(fileUrl('#/spectrum/3?view=technical&notes'));
-  await page.locator('.figures-table .figure-value[data-claim="us-6ghz-channels-320"]').click();
+  await page.goto(fileUrl('#/rates/3?notes'));
+  await page.locator('.figures-table .figure-value[data-claim="wifi7-peak-phy"]').click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('.prov-input')).toHaveCount(3);
+  await expect(dialog.locator('.prov-input')).toHaveCount(6);
   await dialog.locator('.prov-input').first().click();
-  await expect(page.getByRole('dialog')).toContainText('Lower edge of the US 6 GHz');
+  await expect(page.getByRole('dialog')).toContainText('maximum spatial streams');
   await page.getByRole('dialog').getByRole('link', { name: 'In the claims register' }).click();
   await expect(page.locator('#chapter-list a[data-chapter="references"]')).toHaveAttribute('aria-current', 'step');
-  await expect(page.locator('#claim-us-6ghz-band-start')).toHaveClass(/is-highlighted/);
+  await expect(page.locator('#claim-eht-max-nss')).toHaveClass(/is-highlighted/);
 });
 
 test('References tab lists the source policy, every reference, the register and the glossary', async ({ page }) => {
