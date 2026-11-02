@@ -79,12 +79,6 @@
       "definition": "The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options."
     },
     {
-      "id": "sae",
-      "term": "SAE",
-      "expansion": "Simultaneous Authentication of Equals",
-      "definition": "The WPA3 sign-in exchange. Both sides prove they know the password without revealing anything an eavesdropper could test offline."
-    },
-    {
       "id": "twt",
       "term": "TWT",
       "expansion": "Target Wake Time",
@@ -149,24 +143,6 @@
       "term": "Clinical smartphone",
       "expansion": null,
       "definition": "A hospital-managed phone that staff use for calls, secure messages, alarm notifications and barcode scanning over Wi-Fi."
-    },
-    {
-      "id": "wpa-personal",
-      "term": "WPA-Personal",
-      "expansion": null,
-      "definition": "Wi-Fi sign-in with one shared password for every device on the network, common for clinical devices that cannot hold their own credentials."
-    },
-    {
-      "id": "wpa-enterprise",
-      "term": "WPA-Enterprise",
-      "expansion": null,
-      "definition": "Wi-Fi sign-in where each person or device uses its own credentials, checked by the hospital’s sign-in server, instead of one shared password."
-    },
-    {
-      "id": "fake-access-point",
-      "term": "Fake access point",
-      "expansion": null,
-      "definition": "A rogue radio set up to imitate the hospital network, so devices connect to it and hand over sign-in details or traffic."
     }
   ]
 }

@@ -241,7 +241,8 @@
       "date": "2026",
       "status": "current",
       "access": "open",
-      "url": "https://www.wi-fi.org/discover-wi-fi/security"
+      "url": "https://www.wi-fi.org/discover-wi-fi/security",
+      "retired": true
     },
     {
       "id": "fcc-20-51",
@@ -277,7 +278,8 @@
       "date": "2018-06-25",
       "status": "current",
       "access": "open",
-      "url": "https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-wpa3-security"
+      "url": "https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-wpa3-security",
+      "retired": true
     },
     {
       "id": "wfa-wpa3-overview",

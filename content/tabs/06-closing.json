@@ -1,12 +1,12 @@
 {
   "id": "closing",
-  "order": 7,
+  "order": 6,
   "kind": "closing",
   "title": "Bringing it together",
   "summary": "The same hospital floor, now on Wi-Fi 7: what changes for each device, and what to plan.",
   "opener": {
     "promise": "What Wi-Fi 7 changes on the floor, in one view",
-    "problem": "Five features; the decision needs one picture and a short plan."
+    "problem": "Four features and one requirement; the decision needs one picture and a short plan."
   },
   "introducedIn": null,
   "wifi7Adds": null,
@@ -22,26 +22,57 @@
         "headline": "The same hospital, on Wi-Fi 7",
         "takeaway": "Each kind of device can gain something different, once it supports Wi-Fi 7."
       },
-      "body": "Back on the floor where we started. Workstations with 320 MHz support move large images faster on wide 6 GHz channels {{eht-max-width}} {{width-320-vs-160}}. Badges that support multi-link keep calls steadier by using more than one band {{mlo-bands}}. Location tags and badges that use Target Wake Time sleep between wake-ups, which can extend battery life {{twt-what}}. Pumps and staff devices sign in with [[wpa3|WPA3]], which 6 GHz and Wi-Fi 7 require {{wpa3-6ghz-required}} {{wpa3-mlo-required}}.\n\nEach gain needs support in the device, so it grows as devices are refreshed.",
+      "body": "Back on the floor where we started. Workstations with 320 MHz support move large images faster on wide 6 GHz channels {{eht-max-width}} {{width-320-vs-160}}. Badges that support multi-link keep calls steadier by using more than one band {{mlo-bands}}. Location tags and badges that use Target Wake Time sleep between wake-ups, which can extend battery life {{twt-what}}.\n\nEach gain needs support in the device, so it grows as devices are refreshed.",
       "bottomLine": "Wi-Fi 7 is not one feature: each chapter addresses a different problem on the same floor, for devices that support it.",
       "sceneState": "floor-wifi7",
-      "sceneDescription": "The hospital floor from the first chapter, full of devices and busy with traffic flowing to the access points. A label above one of each kind of device names what it can gain: workstations, faster big files on 6 GHz; phones, more speed with Wi-Fi 7 data rates; voice badges, steadier calls with multi-link; location tags, longer battery life with TWT; infusion pumps, safer sign-in with WPA3.",
+      "sceneDescription": "The hospital floor from the first chapter, full of devices and busy with traffic flowing to the access points. A label above one of each kind of device names what it can gain: workstations, faster big files on 6 GHz; phones, more speed with Wi-Fi 7 data rates; voice badges, steadier calls with multi-link; location tags, longer battery life with TWT.",
       "durationMs": 14000,
       "callout": {
         "title": "What Wi-Fi 7 brings",
         "points": [
           "Wide 6 GHz channels, twice as wide as before{{width-320-vs-160}}",
           "One connection with links in several bands{{mlo-bands}}",
-          "Longer battery life on supporting devices{{twt-what}}",
-          "[[wpa3|WPA3]] as the baseline, not an option{{wpa3-6ghz-required}}"
+          "Longer battery life on supporting devices{{twt-what}}"
         ]
       },
       "questions": [
         {
           "q": "Which chapter matters most for us?",
-          "a": "Start with today’s biggest pain point: crowded bands point to 6 GHz, slow transfers to data rates, dropped calls to multi-link, battery swaps to Target Wake Time, and audit findings to WPA3."
+          "a": "Start with today’s biggest pain point: crowded bands point to 6 GHz, slow transfers to data rates, dropped calls to multi-link, and battery swaps to Target Wake Time."
         }
       ]
+    },
+    {
+      "type": "context",
+      "heading": "One requirement: WPA3",
+      "caption": {
+        "headline": "Wi-Fi 7 requires [[wpa3|WPA3]]",
+        "takeaway": "Wi-Fi 7 rates, multi-link and 6 GHz all need WPA3 sign-in{{wifi7-no-wpa2}}{{wpa3-6ghz-required}}."
+      },
+      "body": "One requirement ties the chapters together. A Wi-Fi 7 connection signs in with [[wpa3|WPA3]], never [[wpa2|WPA2]] {{wifi7-no-wpa2}}, and the 6 GHz band allows only WPA3 {{wpa3-6ghz-required}}. A device that can only do WPA2 misses the Wi-Fi 7 gains in this talk: no 6 GHz and its 320 MHz channels {{320mhz-6ghz-only}}, and no Wi-Fi 7 data rates or multi-link {{wifi7-no-wpa2}}.\n\nOlder devices can stay connected during the move, through WPA3 transition mode or a separate network {{wpa3-transition-options}}, but they connect the way they did before. Moving devices to WPA3 is what unlocks the gains.",
+      "bottomLine": "Plan WPA3 alongside Wi-Fi 7: without it, devices still connect but miss the Wi-Fi 7 gains.",
+      "sceneState": "floor-wpa3",
+      "sceneDescription": "The same busy hospital floor. The middle access point is labeled Wi-Fi 7 sign-in: WPA3. Above the badges, phones and workstations, labels show what WPA3 unlocks for each: multi-link, Wi-Fi 7 rates, 6 GHz and its widest channels. Above the infusion pumps, a label notes that a WPA2-only device gets no Wi-Fi 7 gains.",
+      "durationMs": 12000,
+      "callout": {
+        "title": "WPA3 unlocks Wi-Fi 7",
+        "points": [
+          "Wi-Fi 7 connections sign in with WPA3, not [[wpa2|WPA2]]{{wifi7-no-wpa2}}",
+          "6 GHz and its 320 MHz channels: WPA3 only{{wpa3-6ghz-required}}{{320mhz-6ghz-only}}",
+          "Older devices: transition mode or a separate network{{wpa3-transition-options}}"
+        ]
+      },
+      "questions": [
+        {
+          "q": "Will our older clinical devices still connect?",
+          "a": "Yes, if the network still offers WPA2 for them, through WPA3 transition mode or a separate network{{wpa3-transition-options}}. They stay off 6 GHz{{wpa3-6ghz-required}} and don’t get Wi-Fi 7{{wifi7-no-wpa2}} until they are updated or replaced.",
+          "followUp": true
+        }
+      ],
+      "cisco": {
+        "feature": "Wi-Fi 7 readiness",
+        "text": "A Cisco network offers Wi-Fi 7 only when its security meets the requirements; otherwise access points run it as Wi-Fi 6 or 6E{{cisco-noncompliant-downgrade}}. Devices that connect with WPA2 cannot use Wi-Fi 7 or multi-link{{cisco-wpa2-no-mlo}}. Cisco’s Wireless Configuration Analyzer Express includes a Wi-Fi 7 readiness check{{cisco-wifi7-readiness-check}}."
+      }
     },
     {
       "type": "outlook",
@@ -80,7 +111,7 @@
       "heading": "Topics for follow-up sessions",
       "caption": {
         "headline": "Where to go deeper next",
-        "takeaway": "Five follow-up topics, one per feature, to turn this overview into a plan."
+        "takeaway": "Five follow-up topics, from 6 GHz to WPA3, to turn this overview into a plan."
       },
       "body": "This talk set the stage. Each topic below deserves its own session with the people who will design, buy and support the network:\n\n- **6 GHz design**, including standard power and access-point placement\n- **Data rates in practice**: capacity planning for imaging and busy units\n- **Multi-link readiness** of our badges, phones and workstations\n- **Battery-powered devices** and Target Wake Time support\n- **WPA3 migration** for clinical devices",
       "bottomLine": "Pick the topic that matches today’s biggest pain point and schedule that session first.",

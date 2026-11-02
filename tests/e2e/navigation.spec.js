@@ -55,7 +55,7 @@ test.describe('chapter navigation', () => {
   });
 
   test('any chapter, or the references, is reachable in two actions (SC-004)', async ({ page }) => {
-    await gotoTab(page, 'security');
+    await gotoTab(page, 'twt');
     for (const id of ['overview', 'references', 'spectrum']) {
       await page.locator('#chapter-menu-toggle').click();
       await page.locator(`#chapter-list a[data-chapter="${id}"]`).click();

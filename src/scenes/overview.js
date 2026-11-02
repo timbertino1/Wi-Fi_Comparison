@@ -6,7 +6,7 @@ const QUIET_DEVICES = 18;
 
 export default {
   id: 'overview',
-  states: ['floor-quiet', 'floor-crowded', 'timeline', 'timeline-wifi7', 'floor-wifi7', 'floor-plan'],
+  states: ['floor-quiet', 'floor-crowded', 'timeline', 'timeline-wifi7', 'floor-wifi7', 'floor-wpa3', 'floor-plan'],
 
   create(ctx) {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo, seeded } = ctx;
@@ -101,16 +101,26 @@ export default {
     // Closing recap: what Wi-Fi 7 does for each kind of device, one chapter each.
     const WINS = {
       'voice-badge': 'Steadier calls · multi-link',
-      'infusion-pump': 'Safer sign-in · WPA3',
       phone: 'More speed · Wi-Fi 7 rates',
       'workstation-cart': 'Faster big files · 6 GHz',
       'rtls-tag': 'Longer battery life · TWT'
     };
-    const winLabels = Object.entries(WINS).map(([id, text]) => {
+    // Closing WPA3 step: what WPA3 sign-in unlocks for each kind of device, and what WPA2 misses.
+    const NEEDS_WPA3 = {
+      'voice-badge': 'Multi-link · needs WPA3',
+      phone: 'Wi-Fi 7 rates · needs WPA3',
+      'workstation-cart': '6 GHz, 320 MHz · needs WPA3',
+      'infusion-pump': 'WPA2 only · no Wi-Fi 7 gains'
+    };
+    const floorLabels = (texts) => Object.entries(texts).map(([id, text]) => {
       const l = labels.add(typeAnchors[id], text, { className: 'big', offset: [0, 0.55, 0] });
       l.element.style.opacity = '0';
       return l;
     });
+    const winLabels = floorLabels(WINS);
+    const wpa3Labels = floorLabels(NEEDS_WPA3);
+    const signInLabel = labels.add(aps[1], 'Wi-Fi 7 sign-in: WPA3', { className: 'big', offset: [0, 2.2, 0] });
+    signInLabel.element.style.opacity = '0';
     const visibleOf = (n, t) => (n > t ? Math.floor((n - 1 - t) / TYPES.length) + 1 : 0);
     for (const [t, c] of crowds.entries()) c.mesh.count = visibleOf(QUIET_DEVICES, t);
 
@@ -154,7 +164,7 @@ export default {
     const cameraFloor = { x: 0, y: 9.5, z: 9.5 };
     const cameraTimeline = { x: 0, y: 4.2, z: 12.5 };
     const cameraPlan = { x: 0, y: 11.5, z: 12.5 };
-    const flowing = (name) => name === 'floor-crowded' || name === 'floor-wifi7' || name === 'floor-plan';
+    const flowing = (name) => name === 'floor-crowded' || name === 'floor-wifi7' || name === 'floor-wpa3' || name === 'floor-plan';
     const counter = { n: QUIET_DEVICES };
     let shown = QUIET_DEVICES;
     function applyCount() {
@@ -206,6 +216,9 @@ export default {
         jobs.push(animateTo([[halo.material, 'opacity', name === 'timeline-wifi7' ? 0.95 : 0]], { durationMs: 800, animate, signal }));
         setLabelsVisible(toTimeline);
         for (const l of winLabels) l.element.style.opacity = name === 'floor-wifi7' ? '1' : '0';
+        for (const l of [...wpa3Labels, signInLabel]) l.element.style.opacity = name === 'floor-wpa3' ? '1' : '0';
+        // The WPA3 labels need the room the station's own label would take.
+        if (name === 'floor-wpa3') stationLabel.element.style.opacity = '0';
         const finished = await Promise.all(jobs);
         if (!toTimeline && finished.every(Boolean)) timeline.visible = false;
         applyCount();

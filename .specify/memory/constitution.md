@@ -1,5 +1,11 @@
 <!--
-Sync Impact Report (4.0.0, 2026-11-02)
+Sync Impact Report (5.0.0, 2026-11-02)
+- Removed required feature coverage item 5, Security since Wi-Fi 6. Reason: the presenter dropped
+  the security chapter; the WPA3 requirement for Wi-Fi 7 is now one step in the closing chapter
+  instead. MAJOR because a required-coverage item was removed.
+- Templates: no changes needed.
+
+Previous: Sync Impact Report (4.0.0, 2026-11-02)
 - Principle I redefined: renamed "Source Integrity & Technical Accuracy". Cisco public-facing
   documentation is allowed for Cisco platform claims and as a second source; Cisco platform
   features may be named; Cisco hardware models, marketing claims and every other vendor stay
@@ -179,7 +185,9 @@ trustworthy to deploy, and its repository must resist accidental or malicious ch
 2. Data rates since Wi-Fi 6 (theoretical peaks labeled as such)
 3. Multi-Link Operation (MLO)
 4. Target Wake Time (TWT) and client battery life
-5. Security since Wi-Fi 6: WPA3, Wi-Fi 6E and Wi-Fi 7 requirements
+
+Security is no longer a required chapter (removed 2026-11-02 at the presenter's request). The
+closing chapter MUST state that Wi-Fi 7 requires WPA3 and which Wi-Fi 7 features depend on it.
 
 Bandwidth and Power over Ethernet (PoE) is no longer a required chapter (removed 2026-10-30 at
 the presenter's request); wired-infrastructure planning is covered as one item in the closing
@@ -230,4 +238,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 4.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-02
+**Version**: 5.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-02

@@ -10,8 +10,7 @@ Source markers such as [S3] refer to the References section at the end.
 3. Faster Data Rates
 4. Multi-Link Operation (MLO)
 5. Target Wake Time & Battery Life
-6. Security: WPA3 for Wi-Fi 7
-7. Bringing it together
+6. Bringing it together
 - Generations · Glossary · Claims register · References
 
 ## 1. Why Wi-Fi 7, and why now
@@ -127,13 +126,13 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 
 - **Q:** Is Wi-Fi 7 mature enough to buy now, or should we wait for Wi-Fi 8? **A:** Wi-Fi 7 certification has run since 2024 [S16], and IEEE published the standard in 2025 [S8]. Wi-Fi 8 (IEEE 802.11bn) is still in development [S10]. Plan current refreshes on Wi-Fi 7; wired upgrades made now carry forward.
 
-### Step 4 — Five improvements since Wi-Fi 6
+### Step 4 — Four improvements since Wi-Fi 6
 
-**On screen:** Five improvements since Wi-Fi 6 / New spectrum, faster rates, multi-link, longer battery life and stronger security, each for a hospital problem. The Wi-Fi 7 pillar on the timeline grows taller and brighter than the others, with a ring of light around it, inviting the viewer to continue into the feature chapters.
+**On screen:** Four improvements since Wi-Fi 6 / New spectrum, faster rates, multi-link and longer battery life, each for a hospital problem. The Wi-Fi 7 pillar on the timeline grows taller and brighter than the others, with a ring of light around it, inviting the viewer to continue into the feature chapters.
 
-**Say:** Five improvements since Wi-Fi 6.
+**Say:** Four improvements since Wi-Fi 6.
 
-This talk covers five things that changed since Wi-Fi 6: **new spectrum** in the 6 GHz band, **faster data rates**, **multi-link operation**, **Target Wake Time** for battery life, and **security**.
+This talk covers four things that changed since Wi-Fi 6: **new spectrum** in the 6 GHz band, **faster data rates**, **multi-link operation** and **Target Wake Time** for battery life. The closing adds the one requirement they share: **WPA3** sign-in.
 
 Each chapter starts with a problem on a hospital floor, shows what Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 each brought, and ends with why it matters for care. Every figure links to its source in the side panel.
 
@@ -143,6 +142,7 @@ Each chapter starts with a problem on a hospital floor, shows what Wi-Fi 6, Wi-F
 
 - MLO — A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting.
 - TWT — An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
+- WPA3 — The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options.
 
 **Figures:**
 
@@ -657,180 +657,29 @@ It is optional: only access points and devices that support it take part [S8]. W
 | Target Wake Time | Individual and broadcast | Individual and broadcast | Individual and broadcast | defined in the standard | [S7] |
 | Restricted TWT (protected time slots) | n/a | n/a | Yes | optional | [S8] |
 
-## 6. Security: WPA3 for Wi-Fi 7
-
-Wi-Fi 7 requires WPA3: why the bar is set there, and how a hospital can get ready.
-
-**Opener** (its own click): Chapter 6 · Wi-Fi 7 feature · Improved in Wi-Fi 7 · WPA3 since 2018 — Security: WPA3 for Wi-Fi 7. Wi-Fi 7 makes WPA3 sign-in the price of entry. The problem: Many hospital devices and networks still sign in with WPA2, which Wi-Fi 7 does not use.
-
-**Since Wi-Fi 6:**
-
-- Wi-Fi 6: WPA3 becomes required for new Wi-Fi CERTIFIED devices [S20].
-- Wi-Fi 6E: In 6 GHz, no WPA2: WPA3, or Enhanced Open for guests [S19, S25].
-- Wi-Fi 7: Every Wi-Fi 7 connection signs in with WPA3, on every band [S18].
-
-**Healthcare scenario — Clinical device and staff networks** (devices: infusion pump, clinical workstation, phone)
-
-- Problem: Many clinical devices and staff networks still sign in with WPA2, which Wi-Fi 7 connections do not use.
-- What Wi-Fi 7 supports: Moving devices to WPA3 lets them use Wi-Fi 7 and a stronger sign-in, while a planned path keeps older devices connected until they are replaced, as part of the organization’s wider security program.
-
-### Step 1 — Wi-Fi 7 requires WPA3
-
-**On screen:** Wi-Fi 7 requires WPA3 / Devices that sign in with WPA2 can’t use Wi-Fi 7 [S18]; WPA3 unlocks it. A hallway wall on a hospital unit with two doors under an access point labeled Wi-Fi 7: WPA3 sign-in. The infusion pump and the workstation each hold their own key. An older phone that supports only WPA2 is turned away from the main doors and moves to a smaller side door, a separate network for older devices. A note shows what the earlier generation accepted. Hotspots: Legacy device.
-
-**Callout — The Wi-Fi 7 security rule:**
-
-- Wi-Fi 7 connections sign in with WPA3, not WPA2 [S18]
-- WPA2-only devices connect without Wi-Fi 7 [S26]
-- 6 GHz has required WPA3 since Wi-Fi 6E [S19, S25]
-
-**Say:** Wi-Fi 7 requires WPA3.
-
-Wi-Fi 7 comes with a security rule: a Wi-Fi 7 connection between a device and an access point signs in with WPA3, never WPA2 [S18]. That holds for shared-password networks and for staff sign-in alike.
-
-A device limited to WPA2 can still join a network that offers WPA2, but it connects without Wi-Fi 7 or multi-link [S18] and stays out of the 6 GHz band [S19, S25].
-
-**Bottom line:** To get Wi-Fi 7’s benefits, both the device and the network it joins need WPA3.
-
-**On Cisco networks — Wi-Fi 7 readiness:** A Cisco network offers Wi-Fi 7 only when its security meets the requirements; otherwise access points run it as Wi-Fi 6 or 6E [S26]. Devices that connect with WPA2 cannot use Wi-Fi 7 or multi-link [S26].
-
-**Terms:**
-
-- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
-- WPA3 — The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options.
-- WPA2 — The previous generation of Wi-Fi security. Its password-based mode lets a recorded sign-in be attacked offline.
-- Legacy device — A device built for an older Wi-Fi generation. Slow devices take longer to send the same data, so they use more of a shared channel’s airtime.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| The WPA3 specification excludes the WPA2 sign-in methods, for both password-based and enterprise networks, from any connection that uses Wi-Fi 7 (EHT) or multi-link operation | — | S18 WPA3 Specification | Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9 |
-| WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
-| Cisco networks offer a network as Wi-Fi 7 only when its security meets the Wi-Fi 7 requirements; otherwise access points run it as Wi-Fi 6 or 6E | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Cisco IOS XE 17.18.1/17.18.2 |
-| On a Cisco network that mixes WPA2 and WPA3 sign-in, clients that connect with WPA2 cannot use multi-link operation or Wi-Fi 7 | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Passphrase / WPA3-Personal / IoT networks |
-| Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configuration so older devices that cannot use WPA3 keep connecting during the transition | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30 |
-
-**Likely questions:**
-
-- **Q (follow-up topic):** Will our older clinical devices still connect? **A:** Yes, if the network still offers WPA2 for them, through WPA3 transition mode or a separate network [S25]. They stay off 6 GHz [S19, S25] and don’t get Wi-Fi 7 [S18] until they are updated or replaced.
-
-### Step 2 — Why Wi-Fi 7 requires WPA3
-
-**On screen:** Why Wi-Fi 7 requires WPA3 / One stronger sign-in on every band, as the Wi-Fi Alliance moves everyone to WPA3 [S25]. A wide view of the hallway wall with both doors under the access point, labeled WPA3 on every band. At the keypad door, an outsider’s recorded sign-in turns into a sealed gray box with nothing to crack. At the staff door, the workstation checks a gold certificate seal before trusting the real access point, and both devices hold their own keys. Hotspots: SAE.
-
-**Callout — Why WPA3, at a glance:**
-
-- Required in new certified devices since 2020 [S25]
-- One sign-in covers every band of a Wi-Fi 7 connection [S8]
-- Stops offline password guessing [S23, S18] and fake access points [S18]
-
-**Say:** Why Wi-Fi 7 requires WPA3.
-
-**WPA3 is the industry’s direction.** WPA3 support has been required in new Wi-Fi CERTIFIED devices since 2020, it is mandatory in the 6 GHz band, and the Wi-Fi Alliance recommends it wherever possible [S25].
-
-**One connection, every band.** A Wi-Fi 7 multi-link connection is a single connection across bands, with security coordinated across all of its links [S8]. The 6 GHz band already allows only WPA3 [S19, S25], and Wi-Fi 7 applies the same rule to every Wi-Fi 7 connection [S18].
-
-**It closes WPA2’s best-known gaps.** A recorded sign-in can no longer be cracked offline [S23, S18], and staff devices must check they are on the real network, not a fake access point [S18].
-
-**Bottom line:** Wi-Fi 7 raises the security floor, so every band and every Wi-Fi 7 device meets the same stronger standard.
-
-**Terms:**
-
-- Fake access point — A rogue radio set up to imitate the hospital network, so devices connect to it and hand over sign-in details or traffic.
-- SAE — The WPA3 sign-in exchange. Both sides prove they know the password without revealing anything an eavesdropper could test offline.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| WPA3 support has been required in all new Wi-Fi CERTIFIED devices since 2020, its use is mandatory in the 6 GHz band, and Wi-Fi Alliance strongly recommends configuring networks for WPA3 whenever possible | — | S25 Driving widespread adoption of WPA3 | Page 1, Driving widespread adoption of WPA3 |
-| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
-| WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
-| The WPA3 specification excludes the WPA2 sign-in methods, for both password-based and enterprise networks, from any connection that uses Wi-Fi 7 (EHT) or multi-link operation | — | S18 WPA3 Specification | Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9 |
-| WPA3-Personal uses Simultaneous Authentication of Equals (SAE), which resists offline password guessing | — | S23 Wi-Fi Alliance introduces Wi-Fi CERTIFIED WPA3 security | Press release, WPA3-Personal paragraph |
-| A WPA3 device must validate the authentication server’s certificate when it signs in with EAP-TLS, EAP-TTLS or EAP-PEAP | — | S18 WPA3 Specification | Section 5.1 (Failure Conditions for Server Certificate Validation), page 21 |
-
-**Likely questions:**
-
-- **Q (follow-up topic):** We already use WPA2-Enterprise. What do we gain from WPA3? **A:** Mandatory certificate checks [S18], and in Only mode protected control messages [S18]. Your sign-in server and credentials usually carry over; devices and access points need WPA3 support.
-- **Q:** What about guest Wi-Fi with no password? **A:** Wi-Fi Enhanced Open encrypts each guest device’s traffic without a password [S19, S20], so an open network is no longer readable by anyone nearby.
-
-### Step 3 — Getting the hospital ready for WPA3
-
-**On screen:** Getting the hospital ready for WPA3 / Inventory devices, test, move what you can to WPA3, and plan for the rest [S25]. The hallway wall seen wide. The infusion pump and the workstation sign in with WPA3 through the main doors, each holding its own key, while an older phone uses the smaller side door for older devices, labeled to be retired as devices are replaced. A label above the pump reads inventory, test, migrate. Hotspots: Legacy device.
-
-**Callout — A practical path:**
-
-- Inventory and test each device’s WPA3 and Wi-Fi 7 support [S26]
-- Older devices: transition mode or a separate network [S25]
-- Retire the older network; aim for WPA3 only [S26]
-
-**Say:** Getting a hospital ready for WPA3.
-
-Start with an inventory: which clinical devices, phones and workstations support WPA3 and Wi-Fi 7, and which need a software update or the maker’s sign-off first. Keep wireless drivers current, and test with your own devices before changing a clinical network [S26].
-
-Move WPA3-capable devices first. WPA3 transition mode lets WPA3 and WPA2 devices share one network; where older devices struggle with it, two separate networks are the alternative [S25]. Retire the older network as devices are replaced, aiming for a network that runs WPA3 only [S26].
-
-**Bottom line:** Treat WPA3 as a planned migration with clinical engineering, not a switch you flip. It is one layer of a wider security program.
-
-**On Cisco networks — Wi-Fi 7 readiness check:** Cisco’s Wireless Configuration Analyzer Express checks controller configuration against the Wi-Fi 7 requirements [S26]. For older or sensitive IoT devices, Cisco guidance describes keeping a separate network alongside the WPA3 one [S26].
-
-**Terms:**
-
-- Legacy device — A device built for an older Wi-Fi generation. Slow devices take longer to send the same data, so they use more of a shared channel’s airtime.
-
-**Figures:**
-
-| Figure | Value | Source | Where |
-|---|---|---|---|
-| Cisco Wi-Fi 7 migration guidance advises confirming that each device supports Wi-Fi 7, keeping wireless drivers up to date, and testing with your own devices | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Troubleshoot and verify > Troubleshooting checklist |
-| WPA3 transition mode lets WPA3-capable devices connect with WPA3 while older devices connect with WPA2 on the same network; where older devices have interoperability issues with transition mode, Wi-Fi Alliance describes two separate networks (one WPA3, one WPA2) as an alternative | — | S25 Driving widespread adoption of WPA3 | Page 1, WPA3 transition mode allows connection to either WPA3 or WPA2 |
-| Cisco guidance recommends moving to a network that runs WPA3 only as soon as possible | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Use cases > 802.1X / WPA3-Enterprise networks |
-| Cisco’s Wireless Configuration Analyzer Express includes a Wi-Fi 7 readiness check of controller configuration | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Wireless Configuration Analyzer Express (WCAE) |
-| Cisco guidance describes keeping a separate network for older devices alongside a WPA3-only network as a preferred approach where older or more sensitive IoT devices are deployed | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Use cases > Passphrase / WPA3-Personal / IoT networks > WPA3-SAE configuration |
-| Wi-Fi Alliance deployment guidance describes a dual-network (Dual-SSID) configuration so older devices that cannot use WPA3 keep connecting during the transition | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 3.2.1 (Dual-SSID WPA3-Personal configuration for legacy STA interoperability) and Table 16, page 30 |
-
-**Likely questions:**
-
-- **Q:** Can we just switch everything to WPA3 now? **A:** Not in one step. Some older devices have trouble even with transition mode [S25], so test with your own devices first [S26]. Many clinical devices also need their maker’s validation before any security change.
-- **Q:** Does WPA3 make our network compliant? **A:** No single feature does. WPA3 is one layer of security; it complements network segmentation, device management and your organization’s security and compliance processes.
-
-### Key figures
-
-| Figure | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 6E (IEEE 802.11ax (6 GHz)) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
-|---|---|---|---|---|---|
-| WPA2-Personal in the 6 GHz band | Cannot use 6 GHz | Not permitted | Not permitted | Wi-Fi Alliance requirement, not IEEE | [S7, S17, S19, S25] |
-| WPA3 required for Wi-Fi 7 connections | n/a | n/a | Yes, on every band | Wi-Fi Alliance requirement, not IEEE | [S18] |
-
-## 7. Bringing it together
+## 6. Bringing it together
 
 The same hospital floor, now on Wi-Fi 7: what changes for each device, and what to plan.
 
-**Opener** (its own click): Chapter 7 · In summary — Bringing it together. What Wi-Fi 7 changes on the floor, in one view. The problem: Five features; the decision needs one picture and a short plan.
+**Opener** (its own click): Chapter 6 · In summary — Bringing it together. What Wi-Fi 7 changes on the floor, in one view. The problem: Four features and one requirement; the decision needs one picture and a short plan.
 
 ### Step 1 — The same hospital, on Wi-Fi 7
 
-**On screen:** The same hospital, on Wi-Fi 7 / Each kind of device can gain something different, once it supports Wi-Fi 7. The hospital floor from the first chapter, full of devices and busy with traffic flowing to the access points. A label above one of each kind of device names what it can gain: workstations, faster big files on 6 GHz; phones, more speed with Wi-Fi 7 data rates; voice badges, steadier calls with multi-link; location tags, longer battery life with TWT; infusion pumps, safer sign-in with WPA3.
+**On screen:** The same hospital, on Wi-Fi 7 / Each kind of device can gain something different, once it supports Wi-Fi 7. The hospital floor from the first chapter, full of devices and busy with traffic flowing to the access points. A label above one of each kind of device names what it can gain: workstations, faster big files on 6 GHz; phones, more speed with Wi-Fi 7 data rates; voice badges, steadier calls with multi-link; location tags, longer battery life with TWT.
 
 **Callout — What Wi-Fi 7 brings:**
 
 - Wide 6 GHz channels, twice as wide as before [S8, S7]
 - One connection with links in several bands [S8, S15]
 - Longer battery life on supporting devices [S9, S7]
-- WPA3 as the baseline, not an option [S19, S25]
 
 **Say:** The same hospital, on Wi-Fi 7.
 
-Back on the floor where we started. Workstations with 320 MHz support move large images faster on wide 6 GHz channels [S8, S15] [S8, S7]. Badges that support multi-link keep calls steadier by using more than one band [S8, S15]. Location tags and badges that use Target Wake Time sleep between wake-ups, which can extend battery life [S9, S7]. Pumps and staff devices sign in with WPA3, which 6 GHz and Wi-Fi 7 require [S19, S25] [S19, S18].
+Back on the floor where we started. Workstations with 320 MHz support move large images faster on wide 6 GHz channels [S8, S15] [S8, S7]. Badges that support multi-link keep calls steadier by using more than one band [S8, S15]. Location tags and badges that use Target Wake Time sleep between wake-ups, which can extend battery life [S9, S7].
 
 Each gain needs support in the device, so it grows as devices are refreshed.
 
 **Bottom line:** Wi-Fi 7 is not one feature: each chapter addresses a different problem on the same floor, for devices that support it.
-
-**Terms:**
-
-- WPA3 — The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options.
 
 **Figures:**
 
@@ -840,14 +689,53 @@ Each gain needs support in the device, so it grows as devices are refreshed.
 | A 320 MHz Wi-Fi 7 channel is twice as wide as the widest Wi-Fi 6E channel | 2 × | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 36 |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
 | With Target Wake Time, devices wake at scheduled times to exchange data and can sleep in between; individual TWT is negotiated per device, broadcast TWT is a schedule shared by several devices | — | S9 IEEE 802.11ah-2016: Amendment 2: Sub 1 GHz License Exempt Operation (origin of Target Wake Time) | TWT subclause (MAC) |
-| WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
-| Password-based authentication over Wi-Fi 7 MLO requires WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites) |
 
 **Likely questions:**
 
-- **Q:** Which chapter matters most for us? **A:** Start with today’s biggest pain point: crowded bands point to 6 GHz, slow transfers to data rates, dropped calls to multi-link, battery swaps to Target Wake Time, and audit findings to WPA3.
+- **Q:** Which chapter matters most for us? **A:** Start with today’s biggest pain point: crowded bands point to 6 GHz, slow transfers to data rates, dropped calls to multi-link, and battery swaps to Target Wake Time.
 
-### Step 2 — What to plan
+### Step 2 — Wi-Fi 7 requires WPA3
+
+**On screen:** Wi-Fi 7 requires WPA3 / Wi-Fi 7 rates, multi-link and 6 GHz all need WPA3 sign-in [S18] [S19, S25]. The same busy hospital floor. The middle access point is labeled Wi-Fi 7 sign-in: WPA3. Above the badges, phones and workstations, labels show what WPA3 unlocks for each: multi-link, Wi-Fi 7 rates, 6 GHz and its widest channels. Above the infusion pumps, a label notes that a WPA2-only device gets no Wi-Fi 7 gains.
+
+**Callout — WPA3 unlocks Wi-Fi 7:**
+
+- Wi-Fi 7 connections sign in with WPA3, not WPA2 [S18]
+- 6 GHz and its 320 MHz channels: WPA3 only [S19, S25] [S15, S8]
+- Older devices: transition mode or a separate network [S25]
+
+**Say:** One requirement: WPA3.
+
+One requirement ties the chapters together. A Wi-Fi 7 connection signs in with WPA3, never WPA2 [S18], and the 6 GHz band allows only WPA3 [S19, S25]. A device that can only do WPA2 misses the Wi-Fi 7 gains in this talk: no 6 GHz and its 320 MHz channels [S15, S8], and no Wi-Fi 7 data rates or multi-link [S18].
+
+Older devices can stay connected during the move, through WPA3 transition mode or a separate network [S25], but they connect the way they did before. Moving devices to WPA3 is what unlocks the gains.
+
+**Bottom line:** Plan WPA3 alongside Wi-Fi 7: without it, devices still connect but miss the Wi-Fi 7 gains.
+
+**On Cisco networks — Wi-Fi 7 readiness:** A Cisco network offers Wi-Fi 7 only when its security meets the requirements; otherwise access points run it as Wi-Fi 6 or 6E [S26]. Devices that connect with WPA2 cannot use Wi-Fi 7 or multi-link [S26]. Cisco’s Wireless Configuration Analyzer Express includes a Wi-Fi 7 readiness check [S26].
+
+**Terms:**
+
+- WPA3 — The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options.
+- WPA2 — The previous generation of Wi-Fi security. Its password-based mode lets a recorded sign-in be attacked offline.
+
+**Figures:**
+
+| Figure | Value | Source | Where |
+|---|---|---|---|
+| The WPA3 specification excludes the WPA2 sign-in methods, for both password-based and enterprise networks, from any connection that uses Wi-Fi 7 (EHT) or multi-link operation | — | S18 WPA3 Specification | Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9 |
+| WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 | — | S19 WPA3 and Wi-Fi Enhanced Open Deployment Guide | Section 2, WPA3-Personal configuration notes (note 5) |
+| 320 MHz channels are only available where the 6 GHz band is open to Wi-Fi | — | S15 Wi-Fi CERTIFIED 7 | "320 MHz channels" feature description |
+| WPA3 transition mode lets WPA3-capable devices connect with WPA3 while older devices connect with WPA2 on the same network; where older devices have interoperability issues with transition mode, Wi-Fi Alliance describes two separate networks (one WPA3, one WPA2) as an alternative | — | S25 Driving widespread adoption of WPA3 | Page 1, WPA3 transition mode allows connection to either WPA3 or WPA2 |
+| Cisco networks offer a network as Wi-Fi 7 only when its security meets the Wi-Fi 7 requirements; otherwise access points run it as Wi-Fi 6 or 6E | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Cisco IOS XE 17.18.1/17.18.2 |
+| On a Cisco network that mixes WPA2 and WPA3 sign-in, clients that connect with WPA2 cannot use multi-link operation or Wi-Fi 7 | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Passphrase / WPA3-Personal / IoT networks |
+| Cisco’s Wireless Configuration Analyzer Express includes a Wi-Fi 7 readiness check of controller configuration | — | S26 Migrate to 6 GHz and Wi-Fi 7 with Cisco Wireless | Wireless Configuration Analyzer Express (WCAE) |
+
+**Likely questions:**
+
+- **Q (follow-up topic):** Will our older clinical devices still connect? **A:** Yes, if the network still offers WPA2 for them, through WPA3 transition mode or a separate network [S25]. They stay off 6 GHz [S19, S25] and don’t get Wi-Fi 7 [S18] until they are updated or replaced.
+
+### Step 3 — What to plan
 
 **On screen:** What to plan / Inventory devices first, survey for 6 GHz, ready the wired side, and pilot with measurable targets. The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the planning checklist appears beside it.
 
@@ -883,9 +771,9 @@ Then survey before placing access points, because walls weaken 6 GHz signals mor
 - **Q:** What share of our devices can use these features today? **A:** That is the first deliverable: an inventory by model and firmware. Feature support varies device by device, so build the business case on your own fleet, not on best-case Wi-Fi 7 clients.
 - **Q:** What about older 2.4 GHz-only or WPA2-only medical devices? **A:** They keep working on the older bands but gain little directly from Wi-Fi 7, and they may shape your network and security design for years [S19]. Plan their replacement with clinical engineering.
 
-### Step 3 — Where to go deeper next
+### Step 4 — Where to go deeper next
 
-**On screen:** Where to go deeper next / Five follow-up topics, one per feature, to turn this overview into a plan. The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the list of follow-up topics appears beside it.
+**On screen:** Where to go deeper next / Five follow-up topics, from 6 GHz to WPA3, to turn this overview into a plan. The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the list of follow-up topics appears beside it.
 
 **Callout — Follow-up topics:**
 
@@ -957,7 +845,6 @@ A reviewer checks each claim against its source and records the date and their i
 - **Airtime**: The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime.
 - **Channel width**: How much radio spectrum one Wi-Fi channel occupies. Wider channels carry more data at once, but fewer of them fit in a band.
 - **Clinical smartphone**: A hospital-managed phone that staff use for calls, secure messages, alarm notifications and barcode scanning over Wi-Fi.
-- **Fake access point**: A rogue radio set up to imitate the hospital network, so devices connect to it and hand over sign-in details or traffic.
 - **IEEE 802.11**: The family of IEEE standards that defines Wi-Fi. Each generation is an amendment with a letter suffix, such as 802.11ax (Wi-Fi 6) or 802.11be (Wi-Fi 7).
 - **Latency**: How long data takes to get from one device to another. For alarms and voice, lower is better.
 - **Legacy device**: A device built for an older Wi-Fi generation. Slow devices take longer to send the same data, so they use more of a shared channel’s airtime.
@@ -968,7 +855,6 @@ A reviewer checks each claim against its source and records the date and their i
 - **QAM** (Quadrature amplitude modulation): The way Wi-Fi encodes bits into a radio signal. Higher orders, such as 4096-QAM, pack more bits into each signal but need a cleaner, stronger signal.
 - **Restricted TWT**: An optional Wi-Fi 7 form of Target Wake Time that better protects scheduled slots for latency-sensitive traffic such as voice and telemetry, on devices that support it.
 - **RTLS** (Real-time location system): Small battery-powered tags on staff or equipment that report their location so teams can find pumps, wheelchairs or colleagues quickly.
-- **SAE** (Simultaneous Authentication of Equals): The WPA3 sign-in exchange. Both sides prove they know the password without revealing anything an eavesdropper could test offline.
 - **Service period**: The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
 - **Smart infusion pump**: A bedside pump that delivers medication at a set rate and uses Wi-Fi to receive drug libraries and orders and to report alerts and history.
 - **Spatial stream**: An independent data stream sent over its own antenna path at the same time as others. More streams multiply the peak rate.
@@ -977,8 +863,6 @@ A reviewer checks each claim against its source and records the date and their i
 - **TWT** (Target Wake Time): An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
 - **Voice badge**: A small wearable communicator that lets clinicians call and message each other hands-free over Wi-Fi.
 - **Workstation on wheels**: A mobile cart with a computer and scanner that clinicians push from room to room to chart, scan medications and look up records over Wi-Fi.
-- **WPA-Enterprise**: Wi-Fi sign-in where each person or device uses its own credentials, checked by the hospital’s sign-in server, instead of one shared password.
-- **WPA-Personal**: Wi-Fi sign-in with one shared password for every device on the network, common for clinical devices that cannot hold their own credentials.
 - **WPA2** (Wi-Fi Protected Access 2): The previous generation of Wi-Fi security. Its password-based mode lets a recorded sign-in be attacked offline.
 - **WPA3** (Wi-Fi Protected Access 3): The current generation of Wi-Fi security, with a sign-in that resists offline password guessing and stronger encryption options.
 
@@ -1274,12 +1158,6 @@ Devices that support restricted TWT follow channel-access rules that protect the
 - [S8] Clause 35.8.4.1
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S8 is not openly readable (IEEE paywall); check Clause 35, restricted TWT operation. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
-### wpa3-mandatory-cert
-
-WPA3 is required for new Wi-Fi CERTIFIED devices — value: —; method: stated; kind: technical.
-- [S20] WPA3 section
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S20: Security page: “WPA3 is mandatory for Wi-Fi CERTIFIED devices.” Highlights PDF: required “since 2020”.)
-
 ### wpa3-6ghz-required
 
 WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3 — value: —; method: stated; kind: technical.
@@ -1293,32 +1171,6 @@ Password-based authentication over Wi-Fi 7 MLO requires WPA3 — value: —; met
 - [S19] Tables 5–7, rows for "AP: EHT enabled on BSS" (AKM suites)
 - [S18] Section 2 (WPA3-Personal modes), STA item notes citing 802.11 12.12.9 — “AKM suite selectors 00-0F-AC:2, 00-0F-AC:6 and 00-0F-AC:8 are not used in an association that negotiates use of EHT or MLO”
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains.)
-
-### wpa3-sae
-
-WPA3-Personal uses Simultaneous Authentication of Equals (SAE), which resists offline password guessing — value: —; method: stated; kind: technical.
-- [S23] Press release, WPA3-Personal paragraph
-- [S18] SAE requirements section
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S24: Technology Overview: SAE credentials cannot be obtained “by a passive attack, active attack, or offline dictionary attack”; launch release: SAE gives “stronger protections … against password guessing attempts”.)
-
-### owe-what
-
-Wi-Fi Enhanced Open (OWE) encrypts traffic on open networks, such as guest Wi-Fi, without requiring a password — value: —; method: stated; kind: technical.
-- [S19] Section 1 and Wi-Fi Enhanced Open mode tables
-- [S20] Wi-Fi Enhanced Open section
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S20: Security page: Wi-Fi Enhanced Open provides “unauthenticated data encryption”; “there are no public passphrases to maintain, share, or manage”.)
-
-### wpa3-ent-pmf-required
-
-In WPA3-Enterprise Only Mode, protected management frames are required (PMF Required) on the access point and the device — value: —; method: stated; kind: technical.
-- [S18] Section 3.2 (WPA3-Enterprise Only Mode), AP item 3 and STA item 3, page 15 — “The AP’s BSS Configuration shall be PMF Required”
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “The AP’s BSS Configuration shall be PMF Required”.)
-
-### wpa3-ent-cert-validation
-
-A WPA3 device must validate the authentication server’s certificate when it signs in with EAP-TLS, EAP-TTLS or EAP-PEAP — value: —; method: stated; kind: technical.
-- [S18] Section 5.1 (Failure Conditions for Server Certificate Validation), page 21 — “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1 EAP methods.”
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S18: Spec 5.1: “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1”.)
 
 ### wpa3-dual-ssid-legacy
 
@@ -1337,13 +1189,6 @@ For a pair of links operating as STR, a multi-link device can transmit on one li
 In the US, standard-power access points may use only the U-NII-5 (5925–6425 MHz) and U-NII-7 (6525–6875 MHz) parts of the 6 GHz band, under automated frequency coordination (AFC) — value: —; method: stated; kind: technical.
 - [S21] Report and Order, Section III.A (Standard-Power Operations in U-NII-5 and U-NII-7 Bands); 47 CFR 15.407 — “We authorize standard-power access points using an automated frequency coordination (AFC) system.”
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands.)
-
-### 6ghz-security-options
-
-In the 6 GHz band, WPA2-Personal is not permitted: secured networks use WPA3, and open networks use Wi-Fi Enhanced Open under Wi-Fi Alliance guidance — value: —; method: stated; kind: technical.
-- [S19] Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)
-- [S25] Page 1
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
 
 ### rtwt-optional
 
@@ -1416,36 +1261,11 @@ The WPA3 specification excludes the WPA2 sign-in methods, for both password-base
 - [S18] Section 3.3 (WPA3-Enterprise Transition Mode), STA item 1 note, page 16 — “AKM suite selector 00-0F-AC:1 (IEEE 802.1X with SHA-1) is not used in an association that negotiates use of EHT or MLO, nor in an association in the 6 GHz band.”
 - Verification: not yet verified
 
-### wfa-wpa3-whenever-possible
-
-WPA3 support has been required in all new Wi-Fi CERTIFIED devices since 2020, its use is mandatory in the 6 GHz band, and Wi-Fi Alliance strongly recommends configuring networks for WPA3 whenever possible — value: —; method: stated; kind: technical.
-- [S25] Page 1, Driving widespread adoption of WPA3 — “WPA3 support has been required in all new Wi-Fi CERTIFIED devices since 2020 and its use is mandatory in the 6 GHz band. Wi-Fi Alliance strongly recommends that deployers and users configure Wi-Fi networks for WPA3 whenever possible.”
-- Verification: not yet verified
-
 ### wpa3-transition-options
 
 WPA3 transition mode lets WPA3-capable devices connect with WPA3 while older devices connect with WPA2 on the same network; where older devices have interoperability issues with transition mode, Wi-Fi Alliance describes two separate networks (one WPA3, one WPA2) as an alternative — value: —; method: stated; kind: technical.
 - [S25] Page 1, WPA3 transition mode allows connection to either WPA3 or WPA2 — “This transition mode allows client devices that support WPA3 to connect with WPA3 while older devices connect with WPA2”
 - [S25] Page 1, Alternatives to WPA3 transition mode — “One alternative is to configure two SSIDs (two networks) on the access point (AP), one with WPA3 and the other with WPA2.”
-- Verification: not yet verified
-
-### cisco-client-readiness
-
-Cisco Wi-Fi 7 migration guidance advises confirming that each device supports Wi-Fi 7, keeping wireless drivers up to date, and testing with your own devices — value: —; method: stated; kind: platform.
-- [S26] Troubleshoot and verify > Troubleshooting checklist — “Make sure the client supports Wi-Fi 7. … Make sure the wireless adapter drivers are up to date.”
-- [S26] Use cases > Open / Enhanced Open / OWE / Guest networks — “Test with your clients to measure the support.”
-- Verification: not yet verified
-
-### cisco-full-wpa3-goal
-
-Cisco guidance recommends moving to a network that runs WPA3 only as soon as possible — value: —; method: stated; kind: platform.
-- [S26] Use cases > 802.1X / WPA3-Enterprise networks — “consider moving as soon as possible to a full WPA3 WLAN with AES128+GCMP256.”
-- Verification: not yet verified
-
-### cisco-legacy-iot-ssid
-
-Cisco guidance describes keeping a separate network for older devices alongside a WPA3-only network as a preferred approach where older or more sensitive IoT devices are deployed — value: —; method: stated; kind: platform.
-- [S26] Use cases > Passphrase / WPA3-Personal / IoT networks > WPA3-SAE configuration — “This can be a preferred approach if you have older or more sensitive IoT devices deployed.”
 - Verification: not yet verified
 
 ## References
@@ -1468,10 +1288,8 @@ Cisco guidance describes keeping a separate network for older devices alongside 
 - **S17** Wi-Fi Alliance delivers Wi-Fi 6E certification program. Wi-Fi Alliance press release, 2021-01-07 (current, open). https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-delivers-wi-fi-6e-certification-program
 - **S18** WPA3 Specification. WPA3 Specification v3.5, v3.5, 2025 (current, open). https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.5.pdf
 - **S19** WPA3 and Wi-Fi Enhanced Open Deployment Guide. Deployment Guide v1.1, v1.1, 2025 (current, open). https://www.wi-fi.org/system/files/WPA3%20and%20Wi-Fi%20Enhanced%20Open%20Deployment%20Guide%20v1.1.pdf
-- **S20** Wi-Fi Alliance: Security. Security overview page, 2026 (current, open). https://www.wi-fi.org/discover-wi-fi/security
 - **S21** Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order. FCC 20-51 (ET Docket 18-295, GN Docket 17-183), Report and Order, 2020-04-24 (current, open). https://docs.fcc.gov/public/attachments/FCC-20-51A1.pdf
 - **S22** ECC Decision (20)01 on the harmonised use of the frequency band 5945-6425 MHz for WAS/RLAN. ECC/DEC/(20)01, Approved 2020-11-20, amended 2024-11-08, 2024-11-08 (current, open). https://docdb.cept.org/document/16737
-- **S23** Wi-Fi Alliance introduces Wi-Fi CERTIFIED WPA3 security. Wi-Fi Alliance press release, 2018-06-25 (current, open). https://www.wi-fi.org/news-events/newsroom/wi-fi-alliance-introduces-wi-fi-certified-wpa3-security
 - **S25** Driving widespread adoption of WPA3. WPA3 Deployment Options Highlights, 2026-02, 2026-02 (current, open). https://www.wi-fi.org/system/files/WPA3_Deployment_Options_Highlights_202602.pdf
 
 ### Tier 2

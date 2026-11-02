@@ -23,17 +23,6 @@
       "outcomeSupported": "With multi-link operation, the call's packets can use a less busy band, supporting steadier calls on the move."
     },
     {
-      "id": "shared-passphrase-risk",
-      "location": "Clinical device and staff networks",
-      "deviceTypes": [
-        "infusion pump",
-        "clinical workstation",
-        "phone"
-      ],
-      "problem": "Many clinical devices and staff networks still sign in with WPA2, which Wi-Fi 7 connections do not use.",
-      "outcomeSupported": "Moving devices to WPA3 lets them use Wi-Fi 7 and a stronger sign-in, while a planned path keeps older devices connected until they are replaced, as part of the organization’s wider security program."
-    },
-    {
       "id": "badge-battery-shift",
       "location": "Inpatient unit across a long shift",
       "deviceTypes": [
