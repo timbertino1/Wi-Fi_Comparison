@@ -39,8 +39,9 @@ for (const tab of storyTabs) {
         await page.keyboard.press('PageUp');
         await expectBeat(page, tab, 1);
       }
+      // Replay re-runs the current step rather than leaving it (FR-009).
       await page.keyboard.press('r');
-      await expectBeat(page, tab, 0);
+      await expectBeat(page, tab, 1);
       expect(errors()).toEqual([]);
     });
 
