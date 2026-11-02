@@ -1,9 +1,10 @@
 # Wi-Fi 7 Explained: A Healthcare Story
 
 An animated, plain-language talk on what Wi-Fi 7 improves since Wi-Fi 6, told through hospital
-scenarios for a mixed audience at a Cisco-focused session. Seven chapters: why it matters, new
-spectrum (6 GHz and 320 MHz), data rates, Multi-Link Operation, Target Wake Time and security,
-then a closing recap with topics for deeper follow-up sessions. References and a glossary follow.
+scenarios for a mixed audience at a Cisco-focused session. Six chapters: why it matters, new
+spectrum (6 GHz and 320 MHz), data rates, Multi-Link Operation and Target Wake Time, then a
+closing recap that covers the WPA3 requirement and topics for deeper follow-up sessions.
+References and a glossary follow.
 Every figure links to its source in the side panel. Cisco platform features are named where they
 help, but never specific hardware models.
 

@@ -1092,27 +1092,6 @@
       }
     },
     {
-      "id": "wpa3-mandatory-cert",
-      "statement": "WPA3 is required for new Wi-Fi CERTIFIED devices",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-security",
-          "locator": "WPA3 section",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S20: Security page: “WPA3 is mandatory for Wi-Fi CERTIFIED devices.” Highlights PDF: required “since 2020”."
-      }
-    },
-    {
       "id": "wpa3-6ghz-required",
       "statement": "WPA2-Personal networks are not permitted in the 6 GHz band; secured networks there use WPA3",
       "value": null,
@@ -1162,100 +1141,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec: AKM suite selectors 00-0F-AC:2, :6 and :8 “are not used in an association that negotiates use of EHT or MLO”; only SAE-GDH (WPA3) remains."
-      }
-    },
-    {
-      "id": "wpa3-sae",
-      "statement": "WPA3-Personal uses Simultaneous Authentication of Equals (SAE), which resists offline password guessing",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-launch",
-          "locator": "Press release, WPA3-Personal paragraph",
-          "excerpt": null
-        },
-        {
-          "referenceId": "wfa-wpa3-spec",
-          "locator": "SAE requirements section",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S24: Technology Overview: SAE credentials cannot be obtained “by a passive attack, active attack, or offline dictionary attack”; launch release: SAE gives “stronger protections … against password guessing attempts”."
-      }
-    },
-    {
-      "id": "owe-what",
-      "statement": "Wi-Fi Enhanced Open (OWE) encrypts traffic on open networks, such as guest Wi-Fi, without requiring a password",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-deploy",
-          "locator": "Section 1 and Wi-Fi Enhanced Open mode tables",
-          "excerpt": null
-        },
-        {
-          "referenceId": "wfa-security",
-          "locator": "Wi-Fi Enhanced Open section",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S20: Security page: Wi-Fi Enhanced Open provides “unauthenticated data encryption”; “there are no public passphrases to maintain, share, or manage”."
-      }
-    },
-    {
-      "id": "wpa3-ent-pmf-required",
-      "statement": "In WPA3-Enterprise Only Mode, protected management frames are required (PMF Required) on the access point and the device",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-spec",
-          "locator": "Section 3.2 (WPA3-Enterprise Only Mode), AP item 3 and STA item 3, page 15",
-          "excerpt": "The AP’s BSS Configuration shall be PMF Required"
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 3.2: “The AP’s BSS Configuration shall be PMF Required”."
-      }
-    },
-    {
-      "id": "wpa3-ent-cert-validation",
-      "statement": "A WPA3 device must validate the authentication server’s certificate when it signs in with EAP-TLS, EAP-TTLS or EAP-PEAP",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-spec",
-          "locator": "Section 5.1 (Failure Conditions for Server Certificate Validation), page 21",
-          "excerpt": "A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1 EAP methods."
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S18: Spec 5.1: “A WPA3 STA shall perform server certificate validation when using EAP-TTLS, EAP-TLS, EAP-PEAPv0 or EAP-PEAPv1”."
       }
     },
     {
@@ -1319,32 +1204,6 @@
         "verifiedOn": "2026-10-31",
         "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
         "notes": "Fact-check 2026-10-31: Confirmed. S21: Report and Order: “We authorize standard-power access points using an automated frequency coordination (AFC) system.” Section III.A: Standard-Power Operations in U-NII-5 and U-NII-7 Bands."
-      }
-    },
-    {
-      "id": "6ghz-security-options",
-      "statement": "In the 6 GHz band, WPA2-Personal is not permitted: secured networks use WPA3, and open networks use Wi-Fi Enhanced Open under Wi-Fi Alliance guidance",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-deploy",
-          "locator": "Section 2 configuration notes (note 5) and Appendix A.3 (tri-band example: Enhanced Open Only Mode in 6 GHz)",
-          "excerpt": null
-        },
-        {
-          "referenceId": "wfa-wpa3-highlights",
-          "locator": "Page 1",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S19: Guide note 5 (no WPA2-Personal in 6 GHz); Highlights (WPA3 mandatory in 6 GHz); guide example A.3 runs open access in 6 GHz as Wi-Fi Enhanced Open Only Mode. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement."
       }
     },
     {
@@ -1570,23 +1429,6 @@
       "verification": {}
     },
     {
-      "id": "wfa-wpa3-whenever-possible",
-      "statement": "WPA3 support has been required in all new Wi-Fi CERTIFIED devices since 2020, its use is mandatory in the 6 GHz band, and Wi-Fi Alliance strongly recommends configuring networks for WPA3 whenever possible",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "wfa-wpa3-highlights",
-          "locator": "Page 1, Driving widespread adoption of WPA3",
-          "excerpt": "WPA3 support has been required in all new Wi-Fi CERTIFIED devices since 2020 and its use is mandatory in the 6 GHz band. Wi-Fi Alliance strongly recommends that deployers and users configure Wi-Fi networks for WPA3 whenever possible."
-        }
-      ],
-      "derivation": null,
-      "verification": {}
-    },
-    {
       "id": "wpa3-transition-options",
       "statement": "WPA3 transition mode lets WPA3-capable devices connect with WPA3 while older devices connect with WPA2 on the same network; where older devices have interoperability issues with transition mode, Wi-Fi Alliance describes two separate networks (one WPA3, one WPA2) as an alternative",
       "value": null,
@@ -1603,62 +1445,6 @@
           "referenceId": "wfa-wpa3-highlights",
           "locator": "Page 1, Alternatives to WPA3 transition mode",
           "excerpt": "One alternative is to configure two SSIDs (two networks) on the access point (AP), one with WPA3 and the other with WPA2."
-        }
-      ],
-      "derivation": null,
-      "verification": {}
-    },
-    {
-      "id": "cisco-client-readiness",
-      "statement": "Cisco Wi-Fi 7 migration guidance advises confirming that each device supports Wi-Fi 7, keeping wireless drivers up to date, and testing with your own devices",
-      "value": null,
-      "unit": null,
-      "kind": "platform",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "cisco-migrate-wifi7",
-          "locator": "Troubleshoot and verify > Troubleshooting checklist",
-          "excerpt": "Make sure the client supports Wi-Fi 7. … Make sure the wireless adapter drivers are up to date."
-        },
-        {
-          "referenceId": "cisco-migrate-wifi7",
-          "locator": "Use cases > Open / Enhanced Open / OWE / Guest networks",
-          "excerpt": "Test with your clients to measure the support."
-        }
-      ],
-      "derivation": null,
-      "verification": {}
-    },
-    {
-      "id": "cisco-full-wpa3-goal",
-      "statement": "Cisco guidance recommends moving to a network that runs WPA3 only as soon as possible",
-      "value": null,
-      "unit": null,
-      "kind": "platform",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "cisco-migrate-wifi7",
-          "locator": "Use cases > 802.1X / WPA3-Enterprise networks",
-          "excerpt": "consider moving as soon as possible to a full WPA3 WLAN with AES128+GCMP256."
-        }
-      ],
-      "derivation": null,
-      "verification": {}
-    },
-    {
-      "id": "cisco-legacy-iot-ssid",
-      "statement": "Cisco guidance describes keeping a separate network for older devices alongside a WPA3-only network as a preferred approach where older or more sensitive IoT devices are deployed",
-      "value": null,
-      "unit": null,
-      "kind": "platform",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "cisco-migrate-wifi7",
-          "locator": "Use cases > Passphrase / WPA3-Personal / IoT networks > WPA3-SAE configuration",
-          "excerpt": "This can be a preferred approach if you have older or more sensitive IoT devices deployed."
         }
       ],
       "derivation": null,

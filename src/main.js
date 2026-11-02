@@ -28,11 +28,10 @@ import { register } from './scenes/index.js';
 import overviewScene from './scenes/overview.js';
 import spectrumScene from './scenes/spectrum.js';
 import mloScene from './scenes/mlo.js';
-import securityScene from './scenes/security.js';
 import twtScene from './scenes/twt.js';
 import ratesScene from './scenes/rates.js';
 
-for (const scene of [overviewScene, spectrumScene, ratesScene, mloScene, twtScene, securityScene]) register(scene);
+for (const scene of [overviewScene, spectrumScene, ratesScene, mloScene, twtScene]) register(scene);
 
 const routeNotice = document.createElement('p');
 routeNotice.className = 'notice route-notice';

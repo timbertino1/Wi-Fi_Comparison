@@ -227,3 +227,9 @@ The Cisco note on step 1 reuses cisco-wpa2-no-mlo and cisco-noncompliant-downgra
 ### Removed
 
 wpa3-forward-secrecy, wifi7-eht-security, wpa3-ent-6ghz-eht and cisco-beacon-protection-auto are no longer used and were deleted. The WPA3 Technology Overview (cited only by forward secrecy) is retired, so source numbers do not shift.
+
+## Security chapter removed, 2026-11-02
+
+At the presenter's request the security chapter was removed. The closing chapter now has one step, "One requirement: WPA3", which states that Wi-Fi 7 requires WPA3 and which Wi-Fi 7 features depend on it. That step cites claims already listed above: wifi7-no-wpa2, wpa3-6ghz-required, 320mhz-6ghz-only and wpa3-transition-options, plus the Cisco claims cisco-noncompliant-downgrade, cisco-wpa2-no-mlo and cisco-wifi7-readiness-check. Target Wake Time is deliberately left out of the list, because it is a Wi-Fi 6 feature and no source ties it to WPA3.
+
+Ten claims used only by the security chapter were deleted: wpa3-mandatory-cert, wpa3-sae, owe-what, wpa3-ent-pmf-required, wpa3-ent-cert-validation, 6ghz-security-options, wfa-wpa3-whenever-possible, cisco-client-readiness, cisco-full-wpa3-goal and cisco-legacy-iot-ssid. The Wi-Fi Alliance Security page and the WPA3 launch press release are retired, so source numbers do not shift.
