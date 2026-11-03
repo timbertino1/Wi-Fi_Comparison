@@ -2,8 +2,7 @@
 // current state, each opening a non-modal card with the term's definition, an optional sourced
 // figure (feature 003 removed the technical line). Scenes publish anchors only; markers, cards and their
 // text belong to the shell. A card closes on Escape, an outside click, or Next (via overlays).
-import { termById, claimById, markupContext } from './content.js';
-import { renderInline } from './markup.js';
+import { termById, claimById } from './content.js';
 import * as story from './story.js';
 import * as overlays from './overlays.js';
 
@@ -70,9 +69,7 @@ function figureLine(claimId) {
   const value = c.value === null || c.value === undefined ? '' : `${c.value}${c.unit ? ` ${c.unit}` : ''} — `;
   const p = document.createElement('p');
   p.className = 'hotspot-figure';
-  const cite = document.createElement('span');
-  cite.innerHTML = renderInline(`{{${claimId}}}`, markupContext); // safe: renderMarkup
-  p.append(document.createTextNode(`${value}${c.statement}`), cite);
+  p.textContent = `${value}${c.statement}`;
   return p;
 }
 

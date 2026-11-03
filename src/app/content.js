@@ -1,10 +1,8 @@
 // All site content, bundled at build time (static imports; no runtime fetch — works from file://).
 import generationsJson from '../../content/generations.json';
-import referencesJson from '../../content/references.json';
 import glossaryJson from '../../content/glossary.json';
 import scenariosJson from '../../content/scenarios.json';
 import claimsJson from '../../content/claims.json';
-import sourcePolicyJson from '../../content/source-policy.json';
 
 const index = (list) => new Map(list.map((x) => [x.id, x]));
 
@@ -15,23 +13,17 @@ import tab03 from '../../content/tabs/03-data-rates.json';
 import tab04 from '../../content/tabs/04-mlo.json';
 import tab05 from '../../content/tabs/05-twt.json';
 import tab06 from '../../content/tabs/06-closing.json';
-import tab07 from '../../content/tabs/07-references.json';
 
-export const tabs = [tab01, tab02, tab03, tab04, tab05, tab06, tab07].sort((a, b) => a.order - b.order);
+export const tabs = [tab01, tab02, tab03, tab04, tab05, tab06].sort((a, b) => a.order - b.order);
 export const tabById = index(tabs);
 export const generations = generationsJson.generations;
 export const genById = index(generations);
 export const glossary = glossaryJson.terms;
 export const termById = index(glossary);
-// Retired references keep their place in the file (stable talk-track numbering) but are not shown.
-export const references = referencesJson.references.filter((r) => !r.retired);
-export const refById = index(references);
 export const scenarios = scenariosJson.scenarios;
 export const scenarioById = index(scenarios);
 export const claims = claimsJson.claims;
 export const claimById = index(claims);
-export const sourcePolicy = sourcePolicyJson;
-export const publisherById = index(sourcePolicy.publishers);
 
 /** The only way app and scene code obtain a number to display (contracts/scene-module.md). */
 export function claim(id) {
@@ -40,27 +32,5 @@ export function claim(id) {
   return { value: c.value, unit: c.unit, method: c.method, statement: c.statement };
 }
 
-// Citation numbers are stable across the whole site: claims are numbered in order of first use.
-const citationOrder = new Map();
-for (const tab of tabs) {
-  for (const [, id] of JSON.stringify(tab).matchAll(/\{\{([a-z0-9-]+)\}\}/g)) {
-    if (claimById.has(id) && !citationOrder.has(id)) citationOrder.set(id, citationOrder.size + 1);
-  }
-  for (const k of tab.keyFigures ?? []) {
-    for (const id of Object.values(k.claimIds ?? {})) if (!citationOrder.has(id)) citationOrder.set(id, citationOrder.size + 1);
-  }
-}
-export function citationNumber(claimId) {
-  if (!citationOrder.has(claimId)) citationOrder.set(claimId, citationOrder.size + 1);
-  return citationOrder.get(claimId);
-}
-
-/** Glossary term id → ids of tabs where it is marked up. */
-export const termTabs = new Map(glossary.map((t) => [t.id, []]));
-for (const tab of tabs) {
-  const text = JSON.stringify(tab);
-  for (const t of glossary) if (text.includes(`[[${t.id}]]`) || text.includes(`[[${t.id}|`)) termTabs.get(t.id).push(tab.id);
-}
-
 /** Context object for renderMarkup(). */
-export const markupContext = { termById, claimById, refById, citationNumber };
+export const markupContext = { termById };

@@ -4,8 +4,8 @@ An animated, plain-language talk on what Wi-Fi 7 improves since Wi-Fi 6, told th
 scenarios for a mixed audience at a Cisco-focused session. Six chapters: why it matters, new
 spectrum (6 GHz and 320 MHz), data rates, Multi-Link Operation and Target Wake Time, then a
 closing recap that covers the WPA3 requirement and topics for deeper follow-up sessions.
-References and a glossary follow.
-Every figure links to its source in the side panel. Cisco platform features are named where they
+The slides show no citations: every figure's source is on a separate sources page,
+`dist/references.html`, listed chapter by chapter and step by step. Cisco platform features are named where they
 help, but never specific hardware models.
 
 ## Viewing it
@@ -20,11 +20,12 @@ help, but never specific hardware models.
 **Using the page**
 
 - One plain-language layer for everyone; open **Notes** (`N`) for the step's text, the "Since
-  Wi-Fi 6" summary, any Cisco note, key figures and their sources.
+  Wi-Fi 6" summary, any Cisco note and key figures.
 - Each tab tells its story in steps: use **Play**, **Next step** / **Back**, the step numbers, or
   the arrow keys.
-- Select any small number in brackets, or any key figure, to see **how we know this**: the
-  source, the exact clause or table, the calculation and when it was verified.
+- Open **`dist/references.html`** to see **how we know this** for each step: every figure and rule
+  with its source, the exact clause or table, the calculation and when it was verified, plus the
+  source list and glossary. It is rebuilt with the slides, so it always matches them.
 - **Present** (or `P`) gives full screen and large text for meetings; a presentation clicker's
   Page Up / Page Down moves through steps and tabs. `B` blanks the screen. Press `?` for all
   shortcuts.

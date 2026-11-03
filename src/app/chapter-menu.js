@@ -33,17 +33,16 @@ export function toggleMenu() {
 
 export function initChapterMenu() {
   const chapters = talkChapters();
-  const entries = [...chapters, ...tabs.filter((t) => t.kind === 'references')];
-  links = entries.map((tab) => {
+  links = chapters.map((tab) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
     a.className = 'chapter-link';
-    a.href = tab.kind === 'references' ? `#/${tab.id}` : `#/${tab.id}/1`;
+    a.href = `#/${tab.id}/1`;
     a.dataset.chapter = tab.id;
     const number = document.createElement('span');
     number.className = 'chapter-number';
     number.setAttribute('aria-hidden', 'true');
-    number.textContent = tab.kind === 'references' ? '§' : String(chapters.indexOf(tab) + 1);
+    number.textContent = String(chapters.indexOf(tab) + 1);
     const label = document.createElement('span');
     label.textContent = tab.title;
     a.append(number, label);

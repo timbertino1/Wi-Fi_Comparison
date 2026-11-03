@@ -9,10 +9,11 @@ export function escapeHtml(text) {
 
 /**
  * @param {string} text  Content text with [[term]], [[term|label]], {{claim}}, {{ref:id}}, **bold**.
- * @param {object} ctx   { termById, claimById, refById, citationNumber(claimId) }
+ *   Citations are not shown on the slides; they are listed on the sources page (dist/references.html).
+ * @param {object} ctx   { termById }
  */
 export function renderMarkup(text, ctx = {}) {
-  const { termById = new Map(), claimById = new Map(), refById = new Map(), citationNumber = () => '?' } = ctx;
+  const { termById = new Map() } = ctx;
   const escaped = escapeHtml(text);
 
   const withTerms = escaped.replace(/\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g, (_, id, label) => {
@@ -22,20 +23,11 @@ export function renderMarkup(text, ctx = {}) {
     return `<button type="button" class="term" data-term="${id}" aria-haspopup="dialog">${shown}</button>`;
   });
 
-  const withRefs = withTerms.replace(/\{\{ref:([a-z0-9-]+)\}\}/g, (_, id) => {
-    if (!refById.has(id)) return '';
-    return `<sup><a class="cite-ref" href="#/references?ref=${id}" aria-label="ref: background reading, ${escapeHtml(refById.get(id).title)}">[ref]</a></sup>`;
-  });
+  const withoutCitations = withTerms.replace(/\s*\{\{(?:ref:)?[a-z0-9-]+\}\}/g, '');
 
-  const withClaims = withRefs.replace(/\{\{([a-z0-9-]+)\}\}/g, (_, id) => {
-    const claim = claimById.get(id);
-    if (!claim) return '';
-    return `<sup><button type="button" class="cite" data-claim="${id}" aria-haspopup="dialog" aria-label="Source ${citationNumber(id)}: ${escapeHtml(claim.statement)}">[${citationNumber(id)}]</button></sup>`;
-  });
+  const withBold = withoutCitations.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
-  const withBold = withClaims.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-
-  // A term or source button keeps the punctuation right after it on the same line.
+  // A term button keeps the punctuation right after it on the same line.
   const glued = withBold.replace(/((?:<sup>)?<button [^>]*>[^<]*<\/button>(?:<\/sup>)?)([.,;:!?)’]+)/g, '<span class="nowrap">$1$2</span>');
 
   return glued
@@ -56,8 +48,7 @@ export function plainText(text, ctx = {}) {
   const { termById = new Map() } = ctx;
   return String(text ?? '')
     .replace(/\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g, (_, id, label) => label ?? termById.get(id)?.term ?? id)
-    .replace(/\{\{ref:[a-z0-9-]+\}\}/g, '')
-    .replace(/\{\{[a-z0-9-]+\}\}/g, '')
+    .replace(/\s*\{\{(?:ref:)?[a-z0-9-]+\}\}/g, '')
     .replace(/\*\*/g, '')
     .replace(/\s+/g, ' ')
     .trim();

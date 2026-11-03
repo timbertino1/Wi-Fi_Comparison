@@ -1,5 +1,13 @@
 <!--
-Sync Impact Report (5.0.0, 2026-11-02)
+Sync Impact Report (6.0.0, 2026-11-03)
+- Principle I redefined: viewers check a figure's source on the standalone sources page
+  (dist/references.html, rebuilt with every build, listed by chapter and step), not from the
+  figure on the slide. The talk shows no citation markers or source pop-ups. Reason: the presenter
+  found the references distracting during the talk (feature 003, FR-015, FR-022). MAJOR because a
+  viewer-facing provenance guarantee moved.
+- Templates: no changes needed.
+
+Previous: Sync Impact Report (5.0.0, 2026-11-02)
 - Removed required feature coverage item 5, Security since Wi-Fi 6. Reason: the presenter dropped
   the security chapter; the WPA3 requirement for Wi-Fi 7 is now one step in the closing chapter
   instead. MAJOR because a required-coverage item was removed.
@@ -60,7 +68,9 @@ Previous: Sync Impact Report (2.0.0, 2026-10-30)
   how the value was obtained (stated directly, or derived with the formula and inputs shown),
   and when and by whom it was verified. Derived values MUST be recomputed automatically from their
   cited inputs. Illustrative (non-measured) visuals MUST be labeled "illustrative".
-- Viewers MUST be able to see, from any figure, where it came from and how it was put together.
+- Viewers MUST be able to see, for any figure, where it came from and how it was put together. The
+  slides carry no citations; the standalone sources page, generated from content on every build,
+  lists each chapter's and step's claims with their sources, locations, methods and verification.
 - Theoretical maximums MUST be labeled as such ("up to", "theoretical PHY rate") and MUST NOT be
   presented as typical real-world throughput.
 - Features that are optional in the standard or certification MUST be identified as optional;
@@ -238,4 +248,4 @@ overview/introduction and a references section are expected in addition to featu
 - Every plan and review MUST verify compliance; any deliberate deviation MUST be recorded with
   justification in the plan's Complexity Tracking (or equivalent) section.
 
-**Version**: 5.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-02
+**Version**: 6.0.0 | **Ratified**: 2026-10-26 | **Last Amended**: 2026-11-03

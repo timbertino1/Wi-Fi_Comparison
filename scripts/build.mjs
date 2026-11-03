@@ -75,6 +75,9 @@ if (watch) {
     const run = spawnSync(process.execPath, [snapshotScript], { stdio: 'inherit' });
     if (run.status !== 0) process.exit(run.status ?? 1);
   }
+  // The standalone sources page (dist/references.html): every chapter and step's claims and sources.
+  const refsPage = spawnSync(process.execPath, [path.join(root, 'scripts', 'references-page.mjs')], { stdio: 'inherit' });
+  if (refsPage.status !== 0) process.exit(refsPage.status ?? 1);
   // The one-file copy for sharing (dist/wifi7-explainer.html), after the stills it inlines.
   const single = spawnSync(process.execPath, [path.join(root, 'scripts', 'single-file.mjs')], { stdio: 'inherit' });
   if (single.status !== 0) process.exit(single.status ?? 1);

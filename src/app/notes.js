@@ -19,14 +19,12 @@ toggle.setAttribute('aria-controls', 'notes');
 toggle.setAttribute('aria-expanded', 'false');
 
 let returnFocus = null;
-const isReferences = () => document.documentElement.dataset.tab === 'references';
 
 export function isOpen() {
-  return !drawer.hidden && !isReferences();
+  return !drawer.hidden;
 }
 
 export function setOpen(open, { focus = true } = {}) {
-  if (isReferences()) return;
   if (open === isOpen()) return;
   drawer.hidden = !open;
   toggle.setAttribute('aria-expanded', String(open));
@@ -54,11 +52,6 @@ export function initNotes() {
   });
   story.on('beat', ({ beat, tab }) => {
     description.textContent = plainText(beat?.sceneDescription ?? tab?.summary ?? '');
-    // The references page shows this content as a page, not a drawer.
-    if (isReferences()) {
-      drawer.hidden = false;
-      return;
-    }
     setOpen(openOnNextBeat, { focus: false });
     openOnNextBeat = false;
   });

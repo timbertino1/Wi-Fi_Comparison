@@ -166,8 +166,10 @@ need a deep answer are marked as follow-up topics.
 
 - **FR-001**: The talk MUST consist of, in order: the intro chapter, New Spectrum (Wi-Fi 6E and
   Wi-Fi 7), Data Rates, Multi-Link Operation, Target Wake Time, Security, and the closing chapter.
-  References and the glossary MUST remain reachable from the chapter menu but stay off the
-  clicker path.
+  ~~References and the glossary MUST remain reachable from the chapter menu but stay off the
+  clicker path.~~ *Changed 2026-11-03 at the presenter's request (references are "a bit
+  distracting and not very helpful for the presentation"):* references and the glossary leave the
+  talk and move to the standalone sources page (FR-022).
 - **FR-002**: The Client Density and Latency chapters MUST be removed, with their scenes, steps,
   scenarios and any claims no other chapter uses.
 - **FR-003**: A new Data Rates chapter MUST compare Wi-Fi 6/6E and Wi-Fi 7 peak data rates, explain
@@ -220,8 +222,11 @@ need a deep answer are marked as follow-up topics.
 - **FR-014**: Standards figures MUST be sourced from Tier 1. Cisco documentation MAY be the source
   for Cisco platform features and deployment guidance, and MAY corroborate a standards figure, but
   MUST NOT be its only source.
-- **FR-015**: Citations MUST appear in the side panel, hotspot cards and References, never inside
-  the animation.
+- **FR-015**: ~~Citations MUST appear in the side panel, hotspot cards and References, never inside
+  the animation.~~ *Changed 2026-11-03 at the presenter's request:* the talk shows no citation
+  markers and no source pop-up anywhere (captions, callouts, Notes, hotspot cards, key figures).
+  Content keeps its `{{claim}}` markers, so every figure stays cited and validated; they are shown
+  only on the sources page (FR-022) and in the talk track.
 - **FR-016**: Before release, every claim MUST pass a fact-check against its readable source, and
   every Cisco link MUST be confirmed to open publicly.
 
@@ -244,6 +249,13 @@ need a deep answer are marked as follow-up topics.
 - **FR-021**: All other 002 requirements (clicker, chapter openers, transitions, hotspots,
   accessibility, no-WebGL fallback, single-file build) MUST continue to hold. Testing targets
   Chromium-based browsers (Chrome and Edge) only.
+- **FR-022**: *(Added 2026-11-03.)* Every build MUST generate a standalone sources page,
+  `dist/references.html`, from content: for each chapter (its opener and Notes panel) and each step,
+  every claim it cites with its value, source (numbered S1… as in the talk track, linked), location,
+  method, derivation and verification date; then how figures are checked, the source list and the
+  glossary. It MUST be self-contained (inline CSS under a hashed CSP, no scripts, no network loads;
+  the same CSS also ships as `references.css` for hosts that send the hardening headers) and
+  readable at phone width, in light and dark.
 
 ### Key Entities
 

@@ -1,5 +1,5 @@
-// Key-figures panel: one column per compared generation, every value a button that opens its
-// provenance (claim). Qualifiers are always spelled out in text.
+// Key-figures panel: one column per compared generation. Sources are listed on the sources page
+// (dist/references.html). Qualifiers are always spelled out in text.
 import { genById, claimById, markupContext } from './content.js';
 import { renderInline } from './markup.js';
 import * as story from './story.js';
@@ -55,6 +55,10 @@ function render({ tab, generation }) {
 
   const wrap = document.createElement('div');
   wrap.className = 'table-wrap';
+  // The values are plain text, so the scroll area itself takes focus for keyboard scrolling.
+  wrap.tabIndex = 0;
+  wrap.setAttribute('role', 'region');
+  wrap.setAttribute('aria-labelledby', 'figures-title');
   const table = document.createElement('table');
   table.className = 'figures-table';
   const thead = table.createTHead().insertRow();
@@ -106,13 +110,10 @@ function render({ tab, generation }) {
         td.textContent = 'Not supported';
         continue;
       }
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'figure-value';
-      button.dataset.claim = figure.claimIds[genId];
-      button.textContent = cellText(figure, genId);
-      button.setAttribute('aria-label', `${figure.metric}, ${genById.get(genId).name}: ${cellText(figure, genId)}. Show source.`);
-      td.append(button);
+      const text = document.createElement('span');
+      text.className = 'figure-value';
+      text.textContent = cellText(figure, genId);
+      td.append(text);
       const cellBadge = qualifierBadge(figure.cellQualifiers?.[genId], figure.regulatoryDomain);
       if (cellBadge) td.append(cellBadge);
     }

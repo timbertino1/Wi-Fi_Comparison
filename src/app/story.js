@@ -156,14 +156,14 @@ function mountScene(tab) {
     if (fallback && tab.sceneId) clearPlaceholder();
     else {
       fallback?.hide();
-      showPlaceholder(tab.kind === 'references' ? 'Sources, claims and glossary' : 'Animation unavailable');
+      showPlaceholder('Animation unavailable');
     }
     return;
   }
   stage.unmount();
   const module = tab.sceneId ? sceneFor(tab.sceneId) : null;
   if (!module) {
-    showPlaceholder(tab.kind === 'references' ? 'Sources, claims and glossary' : 'Animation in preparation');
+    showPlaceholder('Animation in preparation');
     return;
   }
   clearPlaceholder();

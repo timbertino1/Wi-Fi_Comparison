@@ -3,7 +3,7 @@
   "order": 7,
   "kind": "references",
   "title": "References & Glossary",
-  "summary": "Every source, every claim, and every term used on this site — and how each figure was checked.",
+  "summary": "Every source, every claim, and every term used in the talk, and how each figure was checked. Published as the standalone sources page, dist/references.html.",
   "introducedIn": null,
   "wifi7Adds": null,
   "compareGenerations": [],
@@ -22,7 +22,7 @@
     {
       "id": "how-figures-are-checked",
       "heading": "How each figure is recorded and checked",
-      "body": "Every number or rule on the site is a **claim** that records its source, the exact clause, table or page, and how the value was obtained: **stated** in the source, **derived** from other cited values (for example, peak rates are recalculated from the standard's parameters every time the site is built), or **illustrative** (a picture of a pattern, with no numbers shown).\n\nA reviewer checks each claim against its source and records the date and their initials; claims must be re-checked at least every 12 months. Select any small number in brackets, or any key figure, to see this for yourself.",
+      "body": "Every number or rule on the site is a **claim** that records its source, the exact clause, table or page, and how the value was obtained: **stated** in the source, **derived** from other cited values (for example, peak rates are recalculated from the standard's parameters every time the site is built), or **illustrative** (a picture of a pattern, with no numbers shown).\n\nA reviewer checks each claim against its source and records the date and their initials; claims must be re-checked at least every 12 months. This page lists every claim the talk uses, step by step, with its source.",
       "sceneState": null
     },
     {
