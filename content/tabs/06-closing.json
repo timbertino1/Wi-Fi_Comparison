@@ -111,7 +111,7 @@
       "heading": "Topics for follow-up sessions",
       "caption": {
         "headline": "Where to go deeper next",
-        "takeaway": "Five follow-up topics, from 6 GHz to WPA3, to turn this overview into a plan."
+        "takeaway": "Follow-up topics, from 6 GHz to WPA3, to turn this overview into a plan."
       },
       "body": "This talk set the stage. Each topic below deserves its own session with the people who will design, buy and support the network:\n\n- **6 GHz design**, including standard power and access-point placement\n- **Data rates in practice**: capacity planning for imaging and busy units\n- **Multi-link readiness** of our badges, phones and workstations\n- **Battery-powered devices** and Target Wake Time support\n- **WPA3 migration** for clinical devices",
       "bottomLine": "Pick the topic that matches today’s biggest pain point and schedule that session first.",

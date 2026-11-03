@@ -830,7 +830,7 @@ Then survey before placing access points, because walls weaken 6 GHz signals mor
 
 ### Step 4 — Where to go deeper next
 
-**On screen:** Where to go deeper next / Five follow-up topics, from 6 GHz to WPA3, to turn this overview into a plan. The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the list of follow-up topics appears beside it.
+**On screen:** Where to go deeper next / Follow-up topics, from 6 GHz to WPA3, to turn this overview into a plan. The camera pulls back over the whole hospital floor on Wi-Fi 7, with traffic flowing to the access points, while the list of follow-up topics appears beside it.
 
 **Callout — Follow-up topics:**
 
