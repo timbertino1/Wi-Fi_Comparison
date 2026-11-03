@@ -20,20 +20,9 @@ async function open(page, id, query = '') {
 for (const tab of featureTabs) {
   test(`comparison: ${tab.id}`, async ({ page }) => {
     await open(page, tab.id);
-    const options = tab.compareGenerations.filter((g) => g !== 'wifi7');
-    const group = page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' });
-    await expect(group.getByRole('radio')).toHaveCount(options.length);
-    for (const g of options) await expect(group.getByText(`${genName(g).name} (${genName(g).ieee})`)).toBeVisible();
-    await expect(group.getByRole('radio', { checked: true })).toHaveValue(tab.defaultCompare);
-
-    // Selecting a generation updates the URL, the scene and the highlighted figure column.
-    const other = options.find((g) => g !== tab.defaultCompare);
-    if (other) {
-      await group.locator(`input[value="${other}"]`).check({ force: true });
-      await expect.poll(() => page.evaluate(() => location.hash)).toContain(`gen=${other}`);
-      await expect.poll(() => page.evaluate(() => window.__stage.generation)).toBe(other);
-      await expect(page.locator(`.figures-table th[data-gen="${other}"]`)).toHaveClass(/is-selected/);
-    }
+    // The scene and the highlighted figure column stay on the chapter's default generation.
+    await expect.poll(() => page.evaluate(() => window.__stage.generation)).toBe(tab.defaultCompare);
+    if (tab.keyFigures.length) await expect(page.locator(`.figures-table th[data-gen="${tab.defaultCompare}"]`)).toHaveClass(/is-selected/);
 
     // Every qualified figure spells out its qualifier.
     for (const figure of tab.keyFigures) {
@@ -48,17 +37,16 @@ for (const tab of featureTabs) {
       if (tab.sinceWifi6?.[g]) await expect(since.locator(`li[data-gen="${g}"]`)).toContainText(genName(g).name);
     }
     await expect(since.locator('li')).toHaveCount(Object.keys(tab.sinceWifi6 ?? {}).length);
-    // Comparisons start at Wi-Fi 6 (FR-006).
-    for (const old of ['wifi4', 'wifi5']) await expect(group.locator(`input[value="${old}"]`)).toHaveCount(0);
   });
 }
 
-test('G cycles the comparison generation and deep links restore it', async ({ page }) => {
+test('no generation switcher: G and gen= links change nothing', async ({ page }) => {
   await open(page, 'spectrum', '&gen=wifi6');
-  await expect(page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' }).getByRole('radio', { checked: true })).toHaveValue('wifi6');
+  await expect(page.getByRole('radiogroup')).toHaveCount(0);
+  await expect.poll(() => page.evaluate(() => window.__stage.generation)).toBe('wifi6e');
   await page.locator('#stage').click({ force: true });
   await page.keyboard.press('g');
-  await expect(page.getByRole('radiogroup', { name: 'Compare Wi-Fi 7 with' }).getByRole('radio', { checked: true })).toHaveValue('wifi6e');
+  await expect.poll(() => page.evaluate(() => window.__stage.generation)).toBe('wifi6e');
 });
 
 test('generation colours are identical on every tab', async ({ page }) => {

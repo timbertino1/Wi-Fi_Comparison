@@ -1,5 +1,5 @@
 // Beat state machine: which tab and beat are showing, the scene that animates them, and the text
-// that goes with them. Other modules subscribe to tab/beat/generation changes.
+// that goes with them. Other modules subscribe to tab/beat changes.
 import { tabById, markupContext, generations, genById } from './content.js';
 import { renderMarkup, renderInline, plainText } from './markup.js';
 import { sceneFor } from '../scenes/index.js';
@@ -26,7 +26,7 @@ const bottomLineEl = document.getElementById('bottom-line');
 const sectionsEl = document.createElement('div');
 deepEl.append(sectionsEl);
 
-const listeners = { tab: new Set(), beat: new Set(), generation: new Set(), settled: new Set() };
+const listeners = { tab: new Set(), beat: new Set(), settled: new Set() };
 const state = { tab: null, beatIndex: 0, generation: null, instance: null, sceneName: null, transition: null, animated: false, phase: 'settled', captionShown: false, calloutShown: false, hotspots: [], hotspotOpen: null, intro: false };
 let stage = null;
 let fallback = null;
@@ -316,7 +316,7 @@ async function applySceneState({ animate }) {
  * Shows a tab at a beat. `animate: false` jumps straight to the end state (deep links). `intro`
  * shows the chapter opener instead: the first step's state, settled, on the scene's wide shot.
  */
-export function showTab(tabId, beatIndex = 0, { animate = false, generation = null, intro = false } = {}) {
+export function showTab(tabId, beatIndex = 0, { animate = false, intro = false } = {}) {
   const tab = tabById.get(tabId);
   const changed = state.tab?.id !== tabId;
   state.tab = tab;
@@ -325,7 +325,7 @@ export function showTab(tabId, beatIndex = 0, { animate = false, generation = nu
   state.beatIndex = intro ? 0 : clampBeat(beatIndex);
   state.animated = intro ? false : animate;
   if (intro) animate = false;
-  state.generation = (generation && tab.compareGenerations.includes(generation) ? generation : null) ?? tab.defaultCompare ?? null;
+  state.generation = tab.defaultCompare ?? null;
   if (changed) {
     mountScene(tab);
     renderSections(tab);
@@ -400,14 +400,6 @@ export function isFirstBeat() {
 export function isLastBeat() {
   const count = state.tab?.beats?.length ?? 0;
   return !count || state.beatIndex === count - 1;
-}
-
-export function setGeneration(genId) {
-  if (!state.tab?.compareGenerations.includes(genId) || genId === state.generation) return;
-  state.generation = genId;
-  state.instance?.setGeneration?.(genId);
-  emit('generation');
-  updateTestHook();
 }
 
 /** Re-applies the current beat's scene state (e.g., after a deep section closes). */

@@ -1,4 +1,4 @@
-// Hash routing per contracts/ui-navigation.md: #/<tabId>/<beat>?gen=…&view=…&present&ref=…&claim=…&test
+// Hash routing per contracts/ui-navigation.md: #/<tabId>/<beat>?view=…&present&ref=…&claim=…&test
 // Works identically from file:// and a static host.
 
 const PERSISTENT = ['present', 'test']; // carried across tab changes

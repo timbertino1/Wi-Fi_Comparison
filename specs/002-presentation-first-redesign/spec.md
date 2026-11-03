@@ -295,8 +295,11 @@ with the clicker, and confirm both windows show the same step.
 - **FR-014**: Each feature chapter MUST include at least one step that animates an earlier
   generation and Wi-Fi 7 handling the same healthcare scenario, labelled with both Wi-Fi Alliance
   and IEEE names.
-- **FR-015**: The generation comparison switch MUST stay on the slide and change the earlier
-  generation shown without leaving the current step.
+- **FR-015**: ~~The generation comparison switch MUST stay on the slide and change the earlier
+  generation shown without leaving the current step.~~ *Changed 2026-11-03 at the presenter's request (the buttons "might just be a distraction at
+  this point"):* there is no generation switch and no `G` key. Each chapter shows its default
+  earlier generation (`defaultCompare`): Wi-Fi 6E in chapters 2–4, Wi-Fi 6 in chapter 5. Old
+  `gen=` links are ignored.
 
 **Hotspots**
 
