@@ -138,7 +138,6 @@
         "title": "What Wi-Fi 7 adds",
         "points": [
           "Optional [[restricted-twt|Restricted TWT]] protects slots for urgent traffic{{rtwt-optional}}",
-          "Supporting devices pause before each slot begins{{rtwt-protect}}",
           "Check support in each access point, device and firmware"
         ]
       },

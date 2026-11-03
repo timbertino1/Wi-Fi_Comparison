@@ -678,7 +678,6 @@ TWT arrived with Wi-Fi 6 [S4]. Wi-Fi 6E is Wi-Fi 6 in the 6 GHz band [S17], so i
 **Callout — What Wi-Fi 7 adds:**
 
 - Optional Restricted TWT protects slots for urgent traffic [S8]
-- Supporting devices pause before each slot begins [S8]
 - Check support in each access point, device and firmware
 
 **Say:** Protected time for urgent traffic.
