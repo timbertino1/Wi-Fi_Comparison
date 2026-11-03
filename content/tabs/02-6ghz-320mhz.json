@@ -140,13 +140,31 @@
           "followUp": true
         }
       ],
-      "covers": [
-        "why"
-      ],
       "cisco": {
         "feature": "320 MHz is opt-in",
         "text": "Cisco controllers assign channels up to 160 MHz by default; 320 MHz has to be turned on for 6 GHz{{cisco-320-opt-in}}. Under US standard power, Cisco’s guidance notes only one 320 MHz channel fits{{cisco-320-us-sp-one}}."
       }
+    },
+    {
+      "type": "why",
+      "heading": "More than twice the channels",
+      "caption": {
+        "headline": "More than twice the channels",
+        "takeaway": "In the US, 6 GHz holds 59 channels of 20 MHz{{us-6ghz-channels-20}}; 5 GHz holds 25{{us-5ghz-channels-20}}."
+      },
+      "callout": {
+        "title": "Why more channels matter",
+        "points": [
+          "Neighboring access points can each get a channel of their own",
+          "Fewer access points share a channel, so each waits less for [[airtime|airtime]]",
+          "Only Wi-Fi 6E and newer devices use 6 GHz{{6ghz-no-legacy}}"
+        ]
+      },
+      "body": "Counted in channels of 20 MHz, the US 6 GHz band holds 59 {{us-6ghz-channels-20}}, against 25 in the 5 GHz band {{us-5ghz-channels-20}}. Every 6 GHz channel is new room for Wi-Fi 6E and Wi-Fi 7 devices, with no older devices slowing it down {{6ghz-no-legacy}}.\n\nMore channels let neighboring [[access-point|access points]], on the floors above and below and in the next unit, each use a channel of their own, so they compete less for [[airtime|airtime]]. That matters most where devices crowd together, such as emergency departments and busy nursing units.",
+      "bottomLine": "The 6 GHz band more than doubles the channels a hospital can spread its access points across.",
+      "sceneState": "channels-20",
+      "sceneDescription": "Two roads leave the access point, divided into lanes of the same width, one lane per channel. The 5 GHz road has 25 lanes; the 6 GHz road beside it has 59 lanes and is more than twice as wide, with a car in every lane.",
+      "durationMs": 14000
     }
   ],
   "keyFigures": [

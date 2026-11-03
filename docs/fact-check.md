@@ -237,3 +237,16 @@ Ten claims used only by the security chapter were deleted: wpa3-mandatory-cert, 
 ## Presenter sign-off, 2026-11-02
 
 The presenter approved the 11 remaining unverified claims on 2026-11-02: qam-4096-vs-1024, cisco-afc-standard-power, cisco-320-opt-in, cisco-320-us-sp-one, cisco-4kqam-close-range, cisco-wpa2-no-mlo, cisco-noncompliant-downgrade, cisco-wifi7-readiness-check, cisco-twt-default-off, wifi7-no-wpa2 and wpa3-transition-options. Every claim in the talk is now verified, and release validation passes with no errors.
+
+## Channel-count step and STR, 2026-11-03
+
+At the presenter's request, chapter 2 gained a fourth step comparing 20 MHz channels in the US 5 GHz and 6 GHz bands, and the MLO chapter now shows STR across the 5 GHz and 6 GHz links.
+
+| Claim | Statement | Check |
+|---|---|---|
+| us-6ghz-channels-20 | Non-overlapping 20 MHz channels in the US 6 GHz band (59) | Restored unchanged from before the 003 refocus, with its 2026-10-31 sign-off. Derived from the FCC 20-51 band edges; recomputed at every build. |
+| us-5ghz-channels-20 | 25 non-overlapping 20 MHz channels in the US 5 GHz band, U-NII-1 to U-NII-3 (channels 36–64, 100–144 and 149–165, including radar-detection channels); U-NII-4 (169–177) not counted | **Needs sign-off.** Cited to IEEE 802.11-2020 Annex E, Table E-1 (US operating classes 115, 118, 121 and 125); the text is not openly readable (IEEE paywall). Corroborated by Cisco's public Catalyst 9136 deployment guide ("5 GHz had 25x 20-MHz channels"), which is not cited because its title names a hardware model. Meraki documentation counts 28 because it includes U-NII-4; the presenter chose 25 on 2026-11-03. |
+
+STR uses the existing signed-off claim str-what and the restored glossary entry for STR. The scene's badge using STR on 5 GHz and 6 GHz is illustrative: the body says that whether a device can use a pair of bands this way depends on its hardware.
+
+The presenter approved us-5ghz-channels-20 on 2026-11-03. Every claim in the talk is verified again.

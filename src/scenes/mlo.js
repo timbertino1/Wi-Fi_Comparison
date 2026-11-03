@@ -1,7 +1,7 @@
 // Multi-Link Operation: one link that clogs versus a connection with several links, where traffic moves
 // to a free link without reconnecting, plus the four multi-link modes defined in 802.11be. The Wi-Fi 7
-// rig carries voice on one link at a time, which every multi-link mode can do (peer review 2026-10-31);
-// the modes panels show which devices can use links at once.
+// rig shows STR across 5 and 6 GHz (presenter request, 2026-11-03): the badge sends on 6 GHz while it
+// receives on 5 GHz, until an upload fills 5 GHz and the incoming voice moves to 6 GHz as well.
 const BANDS = [
   { id: '6', label: '6 GHz', arch: 1.6, bend: -3.2, at: 0.4 },
   { id: '5', label: '5 GHz', arch: 1.6, bend: 0, at: 0.5 },
@@ -71,12 +71,31 @@ export default {
         const voiceAnchor = new THREE.Object3D();
         group.add(voiceAnchor);
         const voiceLabel = labels.add(voiceAnchor, 'Voice call', { className: 'muted' });
-        uploadLabel.element.style.opacity = voiceLabel.element.style.opacity = '0';
-        return { band, curve, mesh, voice, bulk, busy: false, active: true, label, uploadLabel, voiceAnchor, voiceLabel };
+        // The badge's own side of the call, travelling back to the access point (STR sends on one link
+        // while receiving on another).
+        const out = Array.from({ length: VOICE }, (_, i) => {
+          const p = kit.packet({ color: palette[genId], size: 0.16 });
+          p.userData.t = i / VOICE;
+          p.visible = false;
+          group.add(p);
+          return p;
+        });
+        const outAnchor = new THREE.Object3D();
+        outAnchor.position.copy(curve.getPoint(0.65));
+        outAnchor.position.y += 0.45;
+        group.add(outAnchor);
+        const outLabel = labels.add(outAnchor, 'Voice out', { className: 'muted' });
+        uploadLabel.element.style.opacity = voiceLabel.element.style.opacity = outLabel.element.style.opacity = '0';
+        return { band, curve, mesh, voice, out, bulk, busy: false, active: true, sending: false, label, uploadLabel, voiceAnchor, voiceLabel, outLabel };
       });
 
       const title = labels.add(ap, genName(genId), { className: 'big', offset: [0, 0.9, 0] });
-      return { group, ap, badge, flows, title, genId };
+      const modeAnchor = new THREE.Object3D();
+      modeAnchor.position.set(4.2, -0.9, 0);
+      group.add(modeAnchor);
+      const modeLabel = labels.add(modeAnchor, 'STR: sends on 6 GHz while receiving on 5 GHz', { className: 'muted' });
+      modeLabel.element.style.opacity = '0';
+      return { group, ap, badge, flows, title, genId, modeLabel };
     }
 
     const single = makeRig(['5'], compareGen);
@@ -88,7 +107,7 @@ export default {
       rig.badge.material.color.copy(color);
       for (const f of rig.flows) {
         f.mesh.material.color.copy(color);
-        for (const p of f.voice) {
+        for (const p of [...f.voice, ...f.out]) {
           p.material.color.copy(color);
           p.material.emissive.copy(color);
         }
@@ -148,10 +167,10 @@ export default {
     // The long form names the upload; the small side-by-side keeps the short one.
     const busyText = (f, show) => (show ? `${f.band.label} · busy: imaging upload` : `${f.band.label} · busy`);
     /** Shows the traffic labels on a link: the upload while it is busy, the call where it travels. */
-    function labelTraffic(f, { voice, waiting, show, moved = false }) {
+    function labelTraffic(f, { voice, waiting, show, text }) {
       f.uploadLabel.element.style.opacity = show && f.busy ? '1' : '0';
       f.voiceLabel.element.style.opacity = show && voice ? '1' : '0';
-      labels.setText(f.voiceLabel, waiting ? 'Voice call · waiting' : moved ? 'Voice call · moved from 5 GHz' : 'Voice call');
+      labels.setText(f.voiceLabel, text ?? (waiting ? 'Voice call · waiting' : 'Voice call'));
       // A waiting call queues near the access point; a flowing one is labelled near the badge.
       f.voiceAnchor.position.copy(f.curve.getPoint(waiting ? 0.12 : 0.85));
       f.voiceAnchor.position.y += 0.45;
@@ -164,22 +183,28 @@ export default {
       old.busy = name === 'single-link-congested' || name === 'gen-compare';
       labels.setText(old.label, old.busy ? busyText(old, show) : old.band.label);
       labelTraffic(old, { voice: true, waiting: old.busy, show });
-      // The band move plays live: the call starts on 5 GHz, the upload fills it, then the call moves.
+      // In STR the badge sends its side of the call on 6 GHz while it receives the other side on 5 GHz.
+      // The band move plays live: the upload fills 5 GHz, then the incoming voice moves to 6 GHz too.
       const live = name === 'links-aggregate';
       const congested = live ? moveT >= UPLOAD_AT : ['gen-compare', 'clinical-outcome'].includes(name);
       const moved = live ? moveT >= MOVE_AT : congested;
       for (const f of multi.flows) {
         const wasActive = f.active;
         f.busy = f.band.id === '5' && congested;
-        // Voice uses one link: 5 GHz until it is busy, then 6 GHz; the 2.4 GHz link stands ready.
-        f.active = f.band.id === (moved ? '6' : '5');
-        // A call that moves mid-step enters its new link at the access point, not along it.
+        f.active = f.band.id === (moved ? '6' : '5'); // receiving
+        f.sending = f.band.id === '6';
+        // Incoming voice that moves mid-step enters its new link at the access point, not along it.
         if (f.active && !wasActive && live && Number.isFinite(moveT)) f.voice.forEach((v, i) => { v.userData.t = -i / VOICE; });
-        f.mesh.material.opacity = f.active || f.busy ? 0.85 : 0.3;
+        const used = f.active || f.sending;
+        f.mesh.material.opacity = used || f.busy ? 0.85 : 0.3;
         // Say what each link is doing, so a dim link reads as connected, not off.
-        labels.setText(f.label, f.busy ? busyText(f, show) : f.active ? f.band.label : `${f.band.label} · ready`);
-        labelTraffic(f, { voice: f.active, waiting: f.busy && f.active, show, moved: live && moved && f.active });
+        labels.setText(f.label, f.busy ? busyText(f, show) : used ? f.band.label : `${f.band.label} · ready`);
+        const both = f.active && f.sending;
+        const text = f.busy && f.active ? 'Voice in · waiting' : both ? (live ? 'Voice both ways · moved from 5 GHz' : 'Voice both ways') : 'Voice in';
+        labelTraffic(f, { voice: f.active, waiting: f.busy && f.active, show, text });
+        f.outLabel.element.style.opacity = show && f.sending && !both ? '1' : '0';
       }
+      multi.modeLabel.element.style.opacity = show && !moved ? '1' : '0';
     }
 
     function layoutPackets(rig, dt) {
@@ -210,6 +235,12 @@ export default {
           p.visible = true;
           p.position.copy(f.curve.getPoint(Math.max(0, p.userData.t)));
         });
+        for (const p of f.out) {
+          p.visible = f.sending;
+          if (!f.sending) continue;
+          p.userData.t = (p.userData.t + dt * 0.42) % 1;
+          p.position.copy(f.curve.getPoint(1 - p.userData.t)); // badge to access point
+        }
       }
     }
 

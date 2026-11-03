@@ -284,6 +284,41 @@ Wide channels are scarce: indoors, the US band fits only three of them [S21, S7]
 - **Q:** Why not use the widest channels everywhere? **A:** Only three fit in the US band [S21, S7], so neighboring access points would overlap. Dense floors usually run narrower channels and keep the widest for lightly shared areas such as imaging rooms.
 - **Q (follow-up topic):** Do we need more access points for the new band? **A:** Possibly in some areas. Walls weaken 6 GHz signals more than lower bands [S21], so a site survey decides placement. Run the survey before you budget.
 
+### Step 4 — More than twice the channels
+
+**On screen:** More than twice the channels / In the US, 6 GHz holds 59 channels of 20 MHz [S21, S7]; 5 GHz holds 25 [S6]. Two roads leave the access point, divided into lanes of the same width, one lane per channel. The 5 GHz road has 25 lanes; the 6 GHz road beside it has 59 lanes and is more than twice as wide, with a car in every lane.
+
+**Callout — Why more channels matter:**
+
+- Neighboring access points can each get a channel of their own
+- Fewer access points share a channel, so each waits less for airtime
+- Only Wi-Fi 6E and newer devices use 6 GHz [S7, S17]
+
+**Say:** More than twice the channels.
+
+Counted in channels of 20 MHz, the US 6 GHz band holds 59 [S21, S7], against 25 in the 5 GHz band [S6]. Every 6 GHz channel is new room for Wi-Fi 6E and Wi-Fi 7 devices, with no older devices slowing it down [S7, S17].
+
+More channels let neighboring access points, on the floors above and below and in the next unit, each use a channel of their own, so they compete less for airtime. That matters most where devices crowd together, such as emergency departments and busy nursing units.
+
+**Bottom line:** The 6 GHz band more than doubles the channels a hospital can spread its access points across.
+
+**Terms:**
+
+- Access point — The ceiling- or wall-mounted radio that connects wireless devices to the hospital's wired network.
+- Airtime — The share of time a channel spends carrying a given device's traffic. Every device on an access point competes for the same airtime.
+
+**Figures:**
+
+| Figure | Value | Source | Where |
+|---|---|---|---|
+| Non-overlapping 20 MHz channels in the US 6 GHz band | 59 channels | S21 Unlicensed Use of the 6 GHz Band; Expanding Flexible Use in Mid-Band Spectrum Between 3.7 and 24 GHz — Report and Order | Band edges |
+| Non-overlapping 20 MHz channels in the US 5 GHz band, U-NII-1 to U-NII-3 (channels 36–64, 100–144 and 149–165, including channels that require radar detection); the U-NII-4 channels 169–177 are not counted | 25 channels | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Annex E, Table E-1 (US operating classes 115, 118, 121 and 125) |
+| Only Wi-Fi 6E and later devices operate in the 6 GHz band; earlier Wi-Fi generations cannot use it | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Annex E and 6 GHz operation subclauses (HE operation only) |
+
+**Likely questions:**
+
+- None written yet.
+
 ### Key figures
 
 | Figure | Wi-Fi 6 (IEEE 802.11ax) | Wi-Fi 6E (IEEE 802.11ax (6 GHz)) | Wi-Fi 7 (IEEE 802.11be) | Qualifier | Sources |
@@ -462,19 +497,20 @@ No figures cited on this step.
 
 ### Step 2 — One connection, several radio lanes
 
-**On screen:** One connection, several radio lanes / Multi-Link Operation holds links in 2.4, 5 and 6 GHz [S8, S15], so traffic can switch lanes. One access point on the left connects to the nurse's badge on the right with three arched links, one each in 6 GHz, 5 GHz and 2.4 GHz. The voice call travels on the 5 GHz link, while the other two links stay connected and ready.
+**On screen:** One connection, several radio lanes / Links in 2.4, 5 and 6 GHz [S8, S15]; in STR, the badge sends and receives at once [S8]. One access point on the left connects to the nurse's badge on the right with three arched links, one each in 6 GHz, 5 GHz and 2.4 GHz. In STR mode the badge sends its voice on the 6 GHz link while it receives voice on the 5 GHz link, at the same time; the 2.4 GHz link stays connected and ready.
 
 **Say:** One connection, several radio lanes.
 
 Multi-Link Operation lets a device and an access point form one connection with links in more than one band [S8]: 2.4 GHz, 5 GHz and 6 GHz [S8, S15].
 
-When one band gets busy, traffic can move to another link without the device reconnecting first [S8]. Devices that can use several links at once can also spread traffic across them for more speed [S8].
+Here the badge uses its 5 GHz and 6 GHz links in **STR** mode: it sends its side of the call on 6 GHz while it receives the other side on 5 GHz, at the same time [S8]. When one band gets busy, traffic can move to another link without the device reconnecting first [S8]. Whether a device can use a pair of bands this way depends on its hardware.
 
 **Bottom line:** Urgent traffic gets another lane on a different band, instead of waiting for one busy band to clear.
 
 **Terms:**
 
 - MLO — A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting.
+- STR — A way two links of a multi-link device can work: sending on one while receiving on the other at the same time.
 
 **Figures:**
 
@@ -482,8 +518,8 @@ When one band gets busy, traffic can move to another link without the device rec
 |---|---|---|---|
 | Multi-Link Operation (MLO) is defined in IEEE 802.11be | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3 (Multi-link operation) |
 | A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
-| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 | For a pair of links operating as STR, a multi-link device can transmit on one link while receiving on the other at the same time | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3.16.3 |
+| 802.11be lets traffic types be mapped to one or more links (TID-to-link mapping), and a multi-link device sets up one association, with security coordinated across its links | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35.3, TID-to-link mapping subclauses; Clause 12.6 and 35.3.5 (MLD security and association) |
 
 **Likely questions:**
 
@@ -491,13 +527,13 @@ When one band gets busy, traffic can move to another link without the device rec
 
 ### Step 3 — The call switches bands mid-call
 
-**On screen:** The call switches bands mid-call / When an upload fills 5 GHz, the call moves to 6 GHz without reconnecting [S8]. The voice call travels on the 5 GHz link. Gray imaging-upload blocks then fill the 5 GHz link and the voice packets briefly wait. The call moves to the 6 GHz link and keeps arriving at the badge, while the 2.4 GHz link stands ready.
+**On screen:** The call switches bands mid-call / When an upload fills 5 GHz, incoming voice moves to 6 GHz without reconnecting [S8]. The badge sends its voice on the 6 GHz link and receives voice on the 5 GHz link. Gray imaging-upload blocks then fill the 5 GHz link and the incoming voice packets briefly wait. The incoming voice moves to the 6 GHz link, which now carries the call in both directions, while the 2.4 GHz link stands ready.
 
 **Say:** Watch the call change bands.
 
-The badge's call starts on the 5 GHz link. Then the imaging cart's upload arrives on that same band, and the call's voice packets begin to wait behind it.
+The call starts split across two links: the badge sends on 6 GHz and receives on 5 GHz. Then the imaging cart's upload arrives on the 5 GHz band, and the incoming voice packets begin to wait behind it.
 
-Because the badge already holds a 6 GHz link in the same connection, the call's traffic moves there and keeps flowing, with no reconnecting first [S8]. The 2.4 GHz link stays ready as another option.
+Because the badge already holds the 6 GHz link in the same connection, the incoming voice moves there and keeps flowing, with no reconnecting first [S8]. Now 6 GHz carries both sides of the call, and the 2.4 GHz link stays ready as another option.
 
 **Bottom line:** The call keeps going on another band while the busy band clears, instead of waiting in line behind the upload.
 
@@ -880,6 +916,7 @@ A reviewer checks each claim against its source and records the date and their i
 - **Service period**: The agreed window of time during which a device wakes to exchange data under a Target Wake Time agreement.
 - **Smart infusion pump**: A bedside pump that delivers medication at a set rate and uses Wi-Fi to receive drug libraries and orders and to report alerts and history.
 - **Spatial stream**: An independent data stream sent over its own antenna path at the same time as others. More streams multiply the peak rate.
+- **STR** (Simultaneous transmit and receive): A way two links of a multi-link device can work: sending on one while receiving on the other at the same time.
 - **Subcarrier**: One of the many narrow frequencies that make up a Wi-Fi channel. Each carries a few bits at a time, in parallel with the others.
 - **Telemetry**: Continuous wireless monitoring of a patient's vital signs, sent from a bedside or wearable monitor to a central station.
 - **TWT** (Target Wake Time): An agreement between a device and an access point about when the device will wake up to send or receive, so it can sleep the rest of the time.
@@ -1054,6 +1091,20 @@ Spectrum made available for unlicensed use in the US 6 GHz band — value: 1200 
 Lower edge of 6 GHz channel 1 (channel starting frequency 5950 MHz; channel 1 centered on 5955 MHz) — value: 5945 MHz; method: stated; kind: technical.
 - [S7] Annex E, 6 GHz band operating classes and channel numbering
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S7 is not openly readable (IEEE paywall); check Annex E, 6 GHz band operating classes and channel numbering. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
+
+### us-5ghz-channels-20
+
+Non-overlapping 20 MHz channels in the US 5 GHz band, U-NII-1 to U-NII-3 (channels 36–64, 100–144 and 149–165, including channels that require radar detection); the U-NII-4 channels 169–177 are not counted — value: 25 channels; method: stated; kind: technical.
+- [S6] Annex E, Table E-1 (US operating classes 115, 118, 121 and 125)
+- Verification: 2026-11-03 by Tim (presenter), on 2026-11-03 (Approved by the presenter on 2026-11-03 after reviewing the sources in docs/fact-check.md (25 channels, U-NII-1 to U-NII-3; U-NII-4 not counted).)
+
+### us-6ghz-channels-20
+
+Non-overlapping 20 MHz channels in the US 6 GHz band — value: 59 channels; method: derived; kind: technical.
+- [S21] Band edges
+- [S7] Annex E, channel numbering
+- Derivation: Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)
+- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build. Peer review 2026-10-31 (GPT, High Thinking): Correct (High).)
 
 ### us-6ghz-channels-160
 
