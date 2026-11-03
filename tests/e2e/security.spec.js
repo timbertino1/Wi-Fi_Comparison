@@ -6,7 +6,8 @@ import { fileUrl, guardOffline, collectConsoleErrors, trackCspViolations } from 
 import { start } from './static-server.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const tabs = fs.readdirSync(path.join(root, 'content', 'tabs')).map((f) => JSON.parse(fs.readFileSync(path.join(root, 'content', 'tabs', f), 'utf8')));
+// The references tab is content for the sources page (dist/references.html), not a slide.
+const tabs = fs.readdirSync(path.join(root, 'content', 'tabs')).map((f) => JSON.parse(fs.readFileSync(path.join(root, 'content', 'tabs', f), 'utf8'))).filter((t) => t.kind !== 'references');
 
 let server;
 test.beforeAll(async () => {
@@ -60,8 +61,11 @@ test('only app.js is loaded as script, and storage holds only preferences', asyn
   expect(Object.keys(stored).sort()).toEqual(['motion', 'theme']);
 });
 
-test('external links open safely', async ({ page }) => {
-  await page.goto(fileUrl('#/references'));
+test('external links open safely, and the sources page loads under its CSP', async ({ page }) => {
+  const violations = await trackCspViolations(page);
+  await page.goto(fileUrl().replace(/index\.html$/, 'references.html'));
+  await expect(page.locator('a[target="_blank"]').first()).toBeAttached();
+  expect(await violations()).toEqual([]);
   for (const link of await page.locator('a[target="_blank"]').all()) {
     const rel = await link.getAttribute('rel');
     expect(rel).toContain('noopener');

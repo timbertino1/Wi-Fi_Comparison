@@ -17,14 +17,10 @@ test.describe('slide content', () => {
       const caption = page.locator('#caption');
       await expect(caption).toBeVisible();
       await expect(caption.locator('.caption-headline')).toHaveText(plainMarkup(beat.caption.headline));
-      // A takeaway's {{claim}} citations render as source buttons; compare the words around them.
+      // A takeaway's {{claim}} citations are not shown (FR-015); only its words are.
       const takeaway = caption.locator('.caption-takeaway');
-      await expect.poll(() => takeaway.evaluate((el) => {
-        const copy = el.cloneNode(true);
-        for (const cite of copy.querySelectorAll('.cite')) cite.remove();
-        return copy.textContent.replace(/\s+/g, ' ').trim();
-      })).toBe(plainMarkup(beat.caption.takeaway).replace(/\s+/g, ' ').trim());
-      await expect(takeaway.locator('.cite')).toHaveCount((beat.caption.takeaway.match(/\{\{[^}]+\}\}/g) ?? []).length);
+      await expect.poll(() => takeaway.evaluate((el) => el.textContent.replace(/\s+/g, ' ').trim())).toBe(plainMarkup(beat.caption.takeaway));
+      await expect(page.locator('#slide sup, #slide [data-claim], #notes sup, #notes [data-claim]')).toHaveCount(0);
       // The technical line always shows now; the headline and takeaway keep the 24-word budget (SC-002).
       const main = (await caption.locator('.caption-headline').innerText()) + ' ' + (await takeaway.innerText());
       expect(words(main), `${chapter}/${step}`).toBeLessThanOrEqual(24);

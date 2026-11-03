@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { fileUrl } from './helpers.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const tabs = fs.readdirSync(path.join(root, 'content', 'tabs')).map((f) => JSON.parse(fs.readFileSync(path.join(root, 'content', 'tabs', f), 'utf8')));
+// The references tab is content for the sources page (dist/references.html), not a slide.
+const tabs = fs.readdirSync(path.join(root, 'content', 'tabs')).map((f) => JSON.parse(fs.readFileSync(path.join(root, 'content', 'tabs', f), 'utf8'))).filter((t) => t.kind !== 'references');
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 
 for (const scheme of ['light', 'dark']) {
@@ -24,10 +25,15 @@ for (const scheme of ['light', 'dark']) {
         expect(summary).toEqual([]);
       });
     }
+    test('axe: the sources page', async ({ page }) => {
+      await page.goto(fileUrl().replace(/index\.html$/, 'references.html'));
+      const results = await new AxeBuilder({ page }).withTags(TAGS).analyze();
+      expect(results.violations.map((v) => `${v.id}: ${v.nodes.length} × ${v.nodes[0]?.target.join(' ')}`)).toEqual([]);
+    });
   });
 }
 
-test('keyboard only: reach the menus, slide controls, comparison, notes and figures', async ({ page }) => {
+test('keyboard only: reach the menus, slide controls, notes and glossary terms', async ({ page }) => {
   await page.goto(fileUrl('#/mlo/2?notes'));
   const reached = new Set();
   for (let i = 0; i < 60; i++) {
@@ -39,7 +45,7 @@ test('keyboard only: reach the menus, slide controls, comparison, notes and figu
     reached.add(String(id));
   }
   const all = [...reached].join(' ');
-  for (const expected of ['chapter-menu-toggle', 'settings-toggle', 'step-forward', 'play', 'replay', 'notes-close', 'figure-value', 'term']) expect(all).toContain(expected);
+  for (const expected of ['chapter-menu-toggle', 'settings-toggle', 'step-forward', 'play', 'replay', 'notes-close', 'term']) expect(all).toContain(expected);
 });
 
 test('scene description is a live region that updates with each beat', async ({ page }) => {

@@ -244,7 +244,7 @@ Only Wi-Fi 6E and newer devices can use it [S7, S17], so no slow legacy devices 
 
 ### Step 3 — Twice the widest channel
 
-**On screen:** Twice the widest channel / Wi-Fi 7’s 320 MHz channels [S8, S15] move big imaging files faster; plan where to use them. The 6 GHz road is split in two. On the left, the earlier generation’s seven 160 MHz lanes [S21, S7] carry mid-sized vehicles; on the right, Wi-Fi 7’s three 320 MHz lanes [S21, S7] carry trucks twice as wide. Choosing Wi-Fi 6 closes the left half, because Wi-Fi 6 devices cannot use 6 GHz. Hotspots: Channel width.
+**On screen:** Twice the widest channel / Wi-Fi 7’s 320 MHz channels [S8, S15] move big imaging files faster; plan where to use them. The 6 GHz road is split in two. On the left, Wi-Fi 6E’s seven 160 MHz lanes [S21, S7] carry mid-sized vehicles; on the right, Wi-Fi 7’s three 320 MHz lanes [S21, S7] carry trucks twice as wide. Hotspots: Channel width.
 
 **Callout — Why Wi-Fi 7 is faster here:**
 
@@ -416,7 +416,7 @@ No figures cited on this step.
 
 ### Step 3 — More than double the peak rate
 
-**On screen:** More than double the peak rate / Up to 23.1 Gbps per link [S8] versus 9.6 Gbps [S7]: theoretical peaks, not floor speeds. Two roads side by side. On the left, the earlier generation’s road with its narrower lanes and lighter loads; on the right, Wi-Fi 7’s wider road with fuller trucks. Each is labeled with its theoretical peak, and the Wi-Fi 7 trucks deliver the imaging study first. Hotspots: PHY rate.
+**On screen:** More than double the peak rate / Up to 23.1 Gbps per link [S8] versus 9.6 Gbps [S7]: theoretical peaks, not floor speeds. Two roads side by side. On the left, Wi-Fi 6E’s road with its narrower lanes and lighter loads; on the right, Wi-Fi 7’s wider road with fuller trucks. Each is labeled with its theoretical peak, and the Wi-Fi 7 trucks deliver the imaging study first. Hotspots: PHY rate.
 
 **Say:** Peak rates since Wi-Fi 6.
 
@@ -861,7 +861,7 @@ No figures cited on this step.
 
 ## References & Glossary
 
-Every source, every claim, and every term used on this site — and how each figure was checked.
+Every source, every claim, and every term used in the talk, and how each figure was checked. Published as the standalone sources page, dist/references.html.
 
 ### Why standards bodies, regulators and Cisco public documentation
 
@@ -873,7 +873,7 @@ We never cite other vendors’ material, Cisco marketing or community posts, Wik
 
 Every number or rule on the site is a **claim** that records its source, the exact clause, table or page, and how the value was obtained: **stated** in the source, **derived** from other cited values (for example, peak rates are recalculated from the standard's parameters every time the site is built), or **illustrative** (a picture of a pattern, with no numbers shown).
 
-A reviewer checks each claim against its source and records the date and their initials; claims must be re-checked at least every 12 months. Select any small number in brackets, or any key figure, to see this for yourself.
+A reviewer checks each claim against its source and records the date and their initials; claims must be re-checked at least every 12 months. This page lists every claim the talk uses, step by step, with its source.
 
 ### What the labels mean
 

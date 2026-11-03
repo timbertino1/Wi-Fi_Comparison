@@ -18,9 +18,9 @@ const REDUCED_CROSSFADE_MS = 200;
 let settleNextRoute = false;
 let stage = null;
 
-/** Chapters in the clicker path: everything with steps except the references page (FR-010). */
+/** Chapters in the clicker path: every tab with steps (FR-010). */
 export function talkChapters() {
-  return tabs.filter((t) => t.kind !== 'references' && t.beats.length);
+  return tabs.filter((t) => t.beats.length);
 }
 
 function chapterIndex() {
@@ -136,7 +136,7 @@ export function initSequencer(options = {}) {
     if (!isMove && e.key !== 'Escape') return;
     if (e.key === ' ' && e.target.closest?.('button, a, summary')) return; // Space activates the control
     if (isMove && e.target.closest?.('#chapter-menu, #settings-menu')) return; // arrows move within menus
-    // Glossary popovers, the provenance panel and the shortcuts dialog handle their own keys first;
+    // Glossary popovers and the shortcuts dialog handle their own keys first;
     // overlays registered here mark their dialogs with data-overlay.
     if (document.querySelector('[role="dialog"]:not([data-overlay])')) return;
     if (overlays.closeTop()) {

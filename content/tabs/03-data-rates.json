@@ -107,7 +107,7 @@
       "body": "Wi-Fi 6 and Wi-Fi 6E share the same theoretical peak, 9.6 Gbps {{wifi6-peak-phy}}: Wi-Fi 6E added spectrum, not a higher top speed {{he-max-width}}. Wi-Fi 7’s theoretical peak on one link is 23.1 Gbps {{wifi7-peak-phy}}.\n\nThose peaks assume the best case: eight [[spatial-stream|spatial streams]] {{eht-max-nss}}, the widest channel and a perfect signal. Real devices on a hospital floor see much less, because they have fewer antennas, share the air and sit further away. The benefit is headroom: big files finish sooner and the channel frees up for everyone.",
       "bottomLine": "Treat peak rates as a ceiling, not a promise: measure real throughput with your own devices in a pilot.",
       "sceneState": "gen-compare",
-      "sceneDescription": "Two roads side by side. On the left, the earlier generation’s road with its narrower lanes and lighter loads; on the right, Wi-Fi 7’s wider road with fuller trucks. Each is labeled with its theoretical peak, and the Wi-Fi 7 trucks deliver the imaging study first.",
+      "sceneDescription": "Two roads side by side. On the left, Wi-Fi 6E’s road with its narrower lanes and lighter loads; on the right, Wi-Fi 7’s wider road with fuller trucks. Each is labeled with its theoretical peak, and the Wi-Fi 7 trucks deliver the imaging study first.",
       "durationMs": 13000,
       "hotspots": [
         {

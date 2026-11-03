@@ -9,7 +9,7 @@ const position = (page) => positionKey(page);
 test.describe('clicker path', () => {
   test.use({ reducedMotion: 'reduce' });
 
-  test('clicker keys walk every step and opener across chapters and back; references is not in the path', async ({ page }) => {
+  test('clicker keys walk every step and opener across chapters and back', async ({ page }) => {
     test.setTimeout(150000);
     const errors = collectConsoleErrors(page);
     await page.goto(fileUrl(`#/${path[0].chapter}/1?test`));
@@ -19,7 +19,7 @@ test.describe('clicker path', () => {
       await page.keyboard.press(forward[i % forward.length]);
       await expect.poll(() => position(page)).toBe(path[i].key);
     }
-    // Next on the last step stays put: the references page is not part of the talk.
+    // Next on the last step stays put.
     await page.keyboard.press('PageDown');
     await expect.poll(() => position(page)).toBe(path.at(-1).key);
 
@@ -79,13 +79,13 @@ test('deep links open a settled step or an opener; legacy ?present links still w
   await expect(page.locator('.present-prompt')).toHaveCount(0);
 });
 
-test('the chapter menu jumps to any chapter and lists references', async ({ page }) => {
+test('the chapter menu jumps to any chapter', async ({ page }) => {
   await page.goto(fileUrl('#/overview/1?test'));
   await page.waitForFunction(() => window.__stage !== undefined);
   await page.keyboard.press('m');
   const menu = page.locator('#chapter-menu');
   await expect(menu).toBeVisible();
-  await expect(menu.locator('a')).toHaveCount(talkChapters().length + 1);
+  await expect(menu.locator('a')).toHaveCount(talkChapters().length);
   await menu.getByRole('link', { name: /Multi-Link/ }).click();
   await expect.poll(() => position(page)).toBe('mlo/1');
   await expect(menu).toBeHidden();

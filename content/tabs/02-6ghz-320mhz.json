@@ -111,7 +111,7 @@
       "body": "Wi-Fi 6E’s widest channel is 160 MHz {{he-max-width}}. Wi-Fi 7 doubles it to 320 MHz {{eht-max-width}} {{width-320-vs-160}}, so one transmission can carry about twice as much data, on devices that support it.\n\nWide channels are scarce: indoors, the US band fits only three of them {{us-6ghz-channels-320}}. They suit imaging and procedure rooms more than crowded floors. Walls also weaken 6 GHz signals more than the older bands {{6ghz-building-loss}}, so a site survey decides where access points go.",
       "bottomLine": "Use 320 MHz channels{{eht-max-width}} where big files move, plan narrower ones on dense floors, and survey before placing access points.",
       "sceneState": "gen-compare",
-      "sceneDescription": "The 6 GHz road is split in two. On the left, the earlier generation’s seven 160 MHz lanes {{us-6ghz-channels-160}} carry mid-sized vehicles; on the right, Wi-Fi 7’s three 320 MHz lanes {{us-6ghz-channels-320}} carry trucks twice as wide. Choosing Wi-Fi 6 closes the left half, because Wi-Fi 6 devices cannot use 6 GHz.",
+      "sceneDescription": "The 6 GHz road is split in two. On the left, Wi-Fi 6E’s seven 160 MHz lanes {{us-6ghz-channels-160}} carry mid-sized vehicles; on the right, Wi-Fi 7’s three 320 MHz lanes {{us-6ghz-channels-320}} carry trucks twice as wide.",
       "durationMs": 13000,
       "callout": {
         "title": "Why Wi-Fi 7 is faster here",

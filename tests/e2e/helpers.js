@@ -39,7 +39,7 @@ export function positionKey(page) {
 
 /** Plain text of inline markup ([[term|text]], {{claim}}, **bold**). */
 export function plainMarkup(text) {
-  return (text ?? '').replace(/\[\[[^\]|]+\|([^\]]+)\]\]|\[\[([^\]]+)\]\]/g, '$1$2').replace(/\{\{[^}]+\}\}/g, '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+  return (text ?? '').replace(/\[\[[^\]|]+\|([^\]]+)\]\]|\[\[([^\]]+)\]\]/g, '$1$2').replace(/\s*\{\{[^}]+\}\}/g, '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
 }
 
 /** file:// URL of the built site, with an optional hash such as "#/mlo/3". */

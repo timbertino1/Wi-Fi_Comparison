@@ -21,7 +21,7 @@ for (const tab of talkChapters()) {
       if (beat.cisco) {
         const note = page.locator('#notes .cisco-note');
         await expect(note).toContainText(`On Cisco networks: ${plainMarkup(beat.cisco.feature)}`);
-        await expect(note.locator('[data-claim]').first()).toBeAttached();
+        await expect(note.locator('[data-claim]')).toHaveCount(0); // sources are on dist/references.html (FR-015)
       } else {
         await expect(page.locator('#notes .cisco-note')).toHaveCount(0);
       }

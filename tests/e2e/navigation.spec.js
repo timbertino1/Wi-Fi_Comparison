@@ -10,7 +10,7 @@ test.describe('chapter navigation', () => {
     const errors = collectConsoleErrors(page);
     await page.goto(fileUrl());
     await expect(page.locator('#progress')).toContainText(`Chapter 1 of ${CHAPTER_COUNT} · Step 1 of ${chapters[0].beats.length}`);
-    await expect(page.locator('#chapter-list a')).toHaveCount(CHAPTER_COUNT + 1);
+    await expect(page.locator('#chapter-list a')).toHaveCount(CHAPTER_COUNT);
     await expect(page.locator(`#chapter-list a[data-chapter="${chapters[0].id}"]`)).toHaveAttribute('aria-current', 'step');
     expect(blocked()).toEqual([]);
     expect(errors()).toEqual([]);
@@ -54,9 +54,9 @@ test.describe('chapter navigation', () => {
     await expect(page.locator('#chapter-list a[data-chapter="overview"]')).toHaveAttribute('aria-current', 'step');
   });
 
-  test('any chapter, or the references, is reachable in two actions (SC-004)', async ({ page }) => {
+  test('any chapter is reachable in two actions (SC-004)', async ({ page }) => {
     await gotoTab(page, 'twt');
-    for (const id of ['overview', 'references', 'spectrum']) {
+    for (const id of ['overview', 'closing', 'spectrum']) {
       await page.locator('#chapter-menu-toggle').click();
       await page.locator(`#chapter-list a[data-chapter="${id}"]`).click();
       await expect(page.locator(`#chapter-list a[data-chapter="${id}"]`)).toHaveAttribute('aria-current', 'step');
@@ -65,7 +65,7 @@ test.describe('chapter navigation', () => {
 
   test('the overview final step previews every chapter in its notes', async ({ page }) => {
     await page.goto(fileUrl('#/overview/4?notes'));
-    await expect(page.locator('#notes .preview-list li')).toHaveCount(CHAPTER_COUNT);
+    await expect(page.locator('#notes .preview-list li')).toHaveCount(CHAPTER_COUNT - 1);
     await page.getByRole('button', { name: /Start the story/ }).click();
     await expect(page.locator('#chapter-list a[data-chapter="spectrum"]')).toHaveAttribute('aria-current', 'step');
   });

@@ -16,7 +16,7 @@ test('navigation, deep links and the story work over HTTP with hardening headers
     if (!req.url().startsWith(server.url) && !/^(data|blob):/.test(req.url())) external.push(req.url());
   });
   await page.goto(server.url);
-  await expect(page.locator('#chapter-list a')).toHaveCount(7);
+  await expect(page.locator('#chapter-list a')).toHaveCount(6);
   await page.goto(`${server.url}#/overview/4`);
   await page.locator('#step-forward').click();
   await expect(page.locator('#chapter-list a[data-chapter="spectrum"]')).toHaveAttribute('aria-current', 'step');
@@ -24,7 +24,9 @@ test('navigation, deep links and the story work over HTTP with hardening headers
   await expect(page.locator('#progress')).toContainText('Step 2 of 4');
   await page.locator('#step-forward').click();
   await expect(page.locator('#progress')).toContainText('Step 3 of 4');
-  await page.goto(`${server.url}#/references`);
-  await expect(page.locator('#reference-list')).toBeVisible();
+  // The sources page, styled from references.css under the hosting CSP header (FR-022).
+  await page.goto(`${server.url}references.html`);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Wi-Fi 7 Explained: Sources');
+  await expect.poll(() => page.locator('.claim').first().evaluate((el) => getComputedStyle(el).borderTopStyle)).toBe('solid');
   expect(external).toEqual([]);
 });

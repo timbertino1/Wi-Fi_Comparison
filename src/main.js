@@ -17,8 +17,6 @@ import { initGlossary } from './app/glossary.js';
 import { initFigures } from './app/figures.js';
 import { initScenario } from './app/scenario.js';
 import { initShortcuts } from './app/shortcuts.js';
-import { initProvenance } from './app/provenance.js';
-import { initReferences } from './app/references.js';
 import { initPresentation } from './app/presentation.js';
 import { setMotion } from './stage/tween.js';
 import { createStage, webglAvailable } from './stage/renderer.js';
@@ -118,8 +116,6 @@ function boot() {
   initFigures();
   initScenario();
   initShortcuts();
-  initProvenance();
-  initReferences();
   initPresentation();
   initPreferenceToggles();
 
