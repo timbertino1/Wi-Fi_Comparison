@@ -37,6 +37,12 @@
       "definition": "A Wi-Fi 7 feature that gives one connection links in several bands; depending on the device, it uses them together or switches between them without reconnecting."
     },
     {
+      "id": "str",
+      "term": "STR",
+      "expansion": "Simultaneous transmit and receive",
+      "definition": "A way two links of a multi-link device can work: sending on one while receiving on the other at the same time."
+    },
+    {
       "id": "channel-width",
       "term": "Channel width",
       "expansion": null,

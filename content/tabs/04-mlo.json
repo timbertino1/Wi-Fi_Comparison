@@ -39,12 +39,12 @@
       "heading": "One connection, several radio lanes",
       "caption": {
         "headline": "One connection, several radio lanes",
-        "takeaway": "[[mlo|Multi-Link Operation]] holds links in 2.4, 5 and 6 GHz{{mlo-bands}}, so traffic can switch lanes."
+        "takeaway": "Links in 2.4, 5 and 6 GHz{{mlo-bands}}; in [[str|STR]], the badge sends and receives at once{{str-what}}."
       },
-      "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form one connection with links in more than one band {{mlo-defined-be}}: 2.4 GHz, 5 GHz and 6 GHz {{mlo-bands}}.\n\nWhen one band gets busy, traffic can move to another link without the device reconnecting first {{mlo-tid-mapping}}. Devices that can use several links at once can also spread traffic across them for more speed {{str-what}}.",
+      "body": "[[mlo|Multi-Link Operation]] lets a device and an access point form one connection with links in more than one band {{mlo-defined-be}}: 2.4 GHz, 5 GHz and 6 GHz {{mlo-bands}}.\n\nHere the badge uses its 5 GHz and 6 GHz links in **[[str|STR]]** mode: it sends its side of the call on 6 GHz while it receives the other side on 5 GHz, at the same time {{str-what}}. When one band gets busy, traffic can move to another link without the device reconnecting first {{mlo-tid-mapping}}. Whether a device can use a pair of bands this way depends on its hardware.",
       "bottomLine": "Urgent traffic gets another lane on a different band, instead of waiting for one busy band to clear.",
       "sceneState": "what-is-mlo",
-      "sceneDescription": "One access point on the left connects to the nurse's badge on the right with three arched links, one each in 6 GHz, 5 GHz and 2.4 GHz. The voice call travels on the 5 GHz link, while the other two links stay connected and ready.",
+      "sceneDescription": "One access point on the left connects to the nurse's badge on the right with three arched links, one each in 6 GHz, 5 GHz and 2.4 GHz. In STR mode the badge sends its voice on the 6 GHz link while it receives voice on the 5 GHz link, at the same time; the 2.4 GHz link stays connected and ready.",
       "durationMs": 14000,
       "questions": [
         {
@@ -58,12 +58,12 @@
       "heading": "Watch the call change bands",
       "caption": {
         "headline": "The call switches bands mid-call",
-        "takeaway": "When an upload fills 5 GHz, the call moves to 6 GHz without reconnecting{{mlo-tid-mapping}}."
+        "takeaway": "When an upload fills 5 GHz, incoming voice moves to 6 GHz without reconnecting{{mlo-tid-mapping}}."
       },
-      "body": "The badge's call starts on the 5 GHz link. Then the imaging cart's upload arrives on that same band, and the call's voice packets begin to wait behind it.\n\nBecause the badge already holds a 6 GHz link in the same connection, the call's traffic moves there and keeps flowing, with no reconnecting first {{mlo-tid-mapping}}. The 2.4 GHz link stays ready as another option.",
+      "body": "The call starts split across two links: the badge sends on 6 GHz and receives on 5 GHz. Then the imaging cart's upload arrives on the 5 GHz band, and the incoming voice packets begin to wait behind it.\n\nBecause the badge already holds the 6 GHz link in the same connection, the incoming voice moves there and keeps flowing, with no reconnecting first {{mlo-tid-mapping}}. Now 6 GHz carries both sides of the call, and the 2.4 GHz link stays ready as another option.",
       "bottomLine": "The call keeps going on another band while the busy band clears, instead of waiting in line behind the upload.",
       "sceneState": "links-aggregate",
-      "sceneDescription": "The voice call travels on the 5 GHz link. Gray imaging-upload blocks then fill the 5 GHz link and the voice packets briefly wait. The call moves to the 6 GHz link and keeps arriving at the badge, while the 2.4 GHz link stands ready.",
+      "sceneDescription": "The badge sends its voice on the 6 GHz link and receives voice on the 5 GHz link. Gray imaging-upload blocks then fill the 5 GHz link and the incoming voice packets briefly wait. The incoming voice moves to the 6 GHz link, which now carries the call in both directions, while the 2.4 GHz link stands ready.",
       "durationMs": 14000,
       "captionAtMs": 6000
     },

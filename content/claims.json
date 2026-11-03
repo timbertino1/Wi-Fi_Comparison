@@ -620,6 +620,67 @@
       }
     },
     {
+      "id": "us-5ghz-channels-20",
+      "statement": "Non-overlapping 20 MHz channels in the US 5 GHz band, U-NII-1 to U-NII-3 (channels 36–64, 100–144 and 149–165, including channels that require radar detection); the U-NII-4 channels 169–177 are not counted",
+      "value": 25,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "stated",
+      "sources": [
+        {
+          "referenceId": "ieee-80211-2020",
+          "locator": "Annex E, Table E-1 (US operating classes 115, 118, 121 and 125)",
+          "excerpt": null
+        }
+      ],
+      "derivation": null,
+      "verification": {
+        "verifiedOn": "2026-11-03",
+        "verifiedBy": "Tim (presenter), on 2026-11-03",
+        "notes": "Approved by the presenter on 2026-11-03 after reviewing the sources in docs/fact-check.md (25 channels, U-NII-1 to U-NII-3; U-NII-4 not counted)."
+      }
+    },
+    {
+      "id": "us-6ghz-channels-20",
+      "statement": "Non-overlapping 20 MHz channels in the US 6 GHz band",
+      "value": 59,
+      "unit": "channels",
+      "kind": "technical",
+      "method": "derived",
+      "sources": [
+        {
+          "referenceId": "fcc-20-51",
+          "locator": "Band edges",
+          "excerpt": null
+        },
+        {
+          "referenceId": "ieee-80211ax",
+          "locator": "Annex E, channel numbering",
+          "excerpt": null
+        }
+      ],
+      "derivation": {
+        "formula": "channelCount",
+        "inputs": {
+          "bandStartMHz": "us-6ghz-band-start",
+          "bandEndMHz": "us-6ghz-band-end",
+          "firstEdgeMHz": "6ghz-ch1-lower-edge"
+        },
+        "constants": {
+          "widthMHz": 20
+        },
+        "rounding": {
+          "decimals": 0
+        },
+        "explanation": "Whole 20 MHz channels between the first channel edge (5945 MHz) and the band's upper edge (7125 MHz)"
+      },
+      "verification": {
+        "verifiedOn": "2026-10-31",
+        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
+        "notes": "Fact-check 2026-10-31: Partly confirmed. Band edges confirmed in FCC 20-51; the channel raster (IEEE 802.11ax Annex E) is not openly readable; the count is recomputed at every build. Peer review 2026-10-31 (GPT, High Thinking): Correct (High)."
+      }
+    },
+    {
       "id": "us-6ghz-channels-160",
       "statement": "Non-overlapping 160 MHz channels in the US 6 GHz band",
       "value": 7,
