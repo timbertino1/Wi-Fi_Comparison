@@ -55,6 +55,10 @@ function render({ tab, generation }) {
 
   const wrap = document.createElement('div');
   wrap.className = 'table-wrap';
+  // The values are plain text, so the scroll area itself takes focus for keyboard scrolling.
+  wrap.tabIndex = 0;
+  wrap.setAttribute('role', 'region');
+  wrap.setAttribute('aria-labelledby', 'figures-title');
   const table = document.createElement('table');
   table.className = 'figures-table';
   const thead = table.createTHead().insertRow();

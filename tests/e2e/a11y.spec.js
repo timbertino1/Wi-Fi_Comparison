@@ -33,7 +33,7 @@ for (const scheme of ['light', 'dark']) {
   });
 }
 
-test('keyboard only: reach the menus, slide controls, notes and glossary terms', async ({ page }) => {
+test('keyboard only: reach the menus, slide controls, notes, key figures and glossary terms', async ({ page }) => {
   await page.goto(fileUrl('#/mlo/2?notes'));
   const reached = new Set();
   for (let i = 0; i < 60; i++) {
@@ -45,7 +45,7 @@ test('keyboard only: reach the menus, slide controls, notes and glossary terms',
     reached.add(String(id));
   }
   const all = [...reached].join(' ');
-  for (const expected of ['chapter-menu-toggle', 'settings-toggle', 'step-forward', 'play', 'replay', 'notes-close', 'term']) expect(all).toContain(expected);
+  for (const expected of ['chapter-menu-toggle', 'settings-toggle', 'step-forward', 'play', 'replay', 'notes-close', 'table-wrap', 'term']) expect(all).toContain(expected);
 });
 
 test('scene description is a live region that updates with each beat', async ({ page }) => {

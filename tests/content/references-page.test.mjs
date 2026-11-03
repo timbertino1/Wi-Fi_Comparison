@@ -36,7 +36,7 @@ test('sources page: self-contained, no scripts, CSP hash matches its one style b
   assert.ok(!/\ssrc=/i.test(html));
   const style = html.match(/<style>([\s\S]*?)<\/style>/)[1];
   const hash = crypto.createHash('sha256').update(style).digest('base64');
-  assert.match(html, new RegExp(`style-src 'self' 'sha256-${hash.replace(/[+/=]/g, '\\$&')}'`));
+  assert.ok(html.includes(`style-src 'self' 'sha256-${hash}'`));
   assert.match(html, /default-src 'none'/);
   for (const [, attrs] of html.matchAll(/<a ([^>]*href="https?:[^>]*)>/g)) assert.match(attrs, /rel="noopener noreferrer"/);
 });
