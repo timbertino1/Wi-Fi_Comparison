@@ -125,9 +125,9 @@
     },
     {
       "type": "outlook",
-      "heading": "Four improvements since Wi-Fi 6",
+      "heading": "Improvements since Wi-Fi 6",
       "caption": {
-        "headline": "Four improvements since Wi-Fi 6",
+        "headline": "Improvements since Wi-Fi 6",
         "takeaway": "New spectrum, faster rates, multi-link and longer battery life, each for a hospital problem."
       },
       "body": "This talk covers four things that changed since Wi-Fi 6: **new spectrum** in the 6 GHz band, **faster data rates**, **[[mlo|multi-link operation]]** and **[[twt|Target Wake Time]]** for battery life. The closing adds the one requirement they share: **[[wpa3|WPA3]]** sign-in.\n\nEach chapter starts with a problem on a hospital floor, shows what Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 each brought, and ends with why it matters for care. Every figure links to its source in the side panel.",

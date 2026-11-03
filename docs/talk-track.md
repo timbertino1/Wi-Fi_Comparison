@@ -126,11 +126,11 @@ Wi-Fi is defined by the IEEE 802.11 standards; the Wi-Fi Alliance gives each gen
 
 - **Q:** Is Wi-Fi 7 mature enough to buy now, or should we wait for Wi-Fi 8? **A:** Wi-Fi 7 certification has run since 2024 [S16], and IEEE published the standard in 2025 [S8]. Wi-Fi 8 (IEEE 802.11bn) is still in development [S10]. Plan current refreshes on Wi-Fi 7; wired upgrades made now carry forward.
 
-### Step 4 — Four improvements since Wi-Fi 6
+### Step 4 — Improvements since Wi-Fi 6
 
-**On screen:** Four improvements since Wi-Fi 6 / New spectrum, faster rates, multi-link and longer battery life, each for a hospital problem. The Wi-Fi 7 pillar on the timeline grows taller and brighter than the others, with a ring of light around it, inviting the viewer to continue into the feature chapters.
+**On screen:** Improvements since Wi-Fi 6 / New spectrum, faster rates, multi-link and longer battery life, each for a hospital problem. The Wi-Fi 7 pillar on the timeline grows taller and brighter than the others, with a ring of light around it, inviting the viewer to continue into the feature chapters.
 
-**Say:** Four improvements since Wi-Fi 6.
+**Say:** Improvements since Wi-Fi 6.
 
 This talk covers four things that changed since Wi-Fi 6: **new spectrum** in the 6 GHz band, **faster data rates**, **multi-link operation** and **Target Wake Time** for battery life. The closing adds the one requirement they share: **WPA3** sign-in.
 
