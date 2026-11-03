@@ -21,7 +21,7 @@ export default {
     const heWidth = claim('he-max-width').value;
     const ehtWidth = claim('eht-max-width').value;
     const peak = (id) => Number(claim(id).value.toFixed(1));
-    let compareGen = 'wifi6e';
+    const compareGen = 'wifi6e';
     let mode = 'rates-demand';
 
     const world = new THREE.Group();
@@ -151,12 +151,6 @@ export default {
         if (name === 'gen-compare') recolorCompare(compareGen);
         await job;
         this.update(0);
-        ctx.requestRender();
-      },
-      setGeneration(genId) {
-        if (genId === 'wifi7') return;
-        compareGen = genId;
-        recolorCompare(genId);
         ctx.requestRender();
       },
       update(dt) {

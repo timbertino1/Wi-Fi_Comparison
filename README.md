@@ -22,7 +22,7 @@ help, but never specific hardware models.
 - One plain-language layer for everyone; open **Notes** (`N`) for the step's text, the "Since
   Wi-Fi 6" summary, any Cisco note, key figures and their sources.
 - Each tab tells its story in steps: use **Play**, **Next step** / **Back**, the step numbers, or
-  the arrow keys. **Compare Wi-Fi 7 with** switches the earlier generation shown.
+  the arrow keys.
 - Select any small number in brackets, or any key figure, to see **how we know this**: the
   source, the exact clause or table, the calculation and when it was verified.
 - **Present** (or `P`) gives full screen and large text for meetings; a presentation clicker's

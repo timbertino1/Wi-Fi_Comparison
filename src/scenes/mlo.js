@@ -21,7 +21,7 @@ export default {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo } = ctx;
     const motionFull = ctx.motion === 'full';
     const genName = (id) => ctx.generations.find((g) => g.id === id)?.name ?? id;
-    let compareGen = 'wifi6e';
+    const compareGen = 'wifi6e';
 
     const bulkMaterial = new THREE.MeshStandardMaterial({ color: neutral.device, roughness: 0.7 });
 
@@ -284,12 +284,6 @@ export default {
         layoutPackets(multi, 0);
         layoutModes(0);
         camera.lookAt(0, lookY(), 0);
-        ctx.requestRender();
-      },
-      setGeneration(genId) {
-        if (genId === 'wifi7' || !palette[genId]) return;
-        compareGen = genId;
-        recolor(single, genId);
         ctx.requestRender();
       },
       update(dt) {

@@ -226,9 +226,6 @@ export default {
         lookTarget();
         ctx.requestRender();
       },
-      setGeneration() {
-        // The overview shows every generation at once; nothing to switch.
-      },
       update(dt) {
         applyCount();
         lookTarget();

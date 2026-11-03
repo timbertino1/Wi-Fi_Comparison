@@ -14,7 +14,6 @@ import * as story from './app/story.js';
 import { initOverview } from './app/overview.js';
 import { initControls, pause } from './app/controls.js';
 import { initGlossary } from './app/glossary.js';
-import { initComparison } from './app/comparison.js';
 import { initFigures } from './app/figures.js';
 import { initScenario } from './app/scenario.js';
 import { initShortcuts } from './app/shortcuts.js';
@@ -116,7 +115,6 @@ function boot() {
   initNotes();
   initSettingsMenu();
   initGlossary();
-  initComparison();
   initFigures();
   initScenario();
   initShortcuts();
@@ -140,7 +138,7 @@ function boot() {
     const beatIndex = route.beat ? route.beat - 1 : 0;
     // A Back across chapters lands settled; a forward chapter change plays its first step.
     const settle = consumeSettle();
-    story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged && !settle, generation: route.params.get('gen'), intro: route.params.has('intro') });
+    story.showTab(route.tabId, beatIndex, { animate: !firstRoute && tabChanged && !settle, intro: route.params.has('intro') });
     if (tabChanged && !firstRoute) {
       const tab = tabs.find((t) => t.id === route.tabId);
       const chapters = talkChapters();

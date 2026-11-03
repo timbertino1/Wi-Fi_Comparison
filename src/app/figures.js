@@ -125,5 +125,4 @@ function render({ tab, generation }) {
 
 export function initFigures() {
   story.on('tab', render);
-  story.on('generation', render);
 }

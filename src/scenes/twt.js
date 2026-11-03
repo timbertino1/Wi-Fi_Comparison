@@ -24,7 +24,7 @@ export default {
     const { three: THREE, scene, camera, kit, palette, neutral, labels, animateTo } = ctx;
     const motionFull = ctx.motion === 'full';
     const genName = (id) => ctx.generations.find((g) => g.id === id)?.name ?? id;
-    let compareGen = 'wifi6';
+    const compareGen = 'wifi6';
     let mode = 'always-awake';
     let progress = 1;
     const mat = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.5, ...extra });
@@ -214,12 +214,6 @@ export default {
           [lookTarget, 'x', cam.look[0]], [lookTarget, 'y', cam.look[1]], [lookTarget, 'z', cam.look[2]]
         ], { durationMs: 1100, animate, signal });
         this.update(0);
-        ctx.requestRender();
-      },
-      setGeneration(genId) {
-        if (genId === 'wifi7') return;
-        compareGen = genId;
-        labels.setText(lCompare, compareText());
         ctx.requestRender();
       },
       update(dt) {

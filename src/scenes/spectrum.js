@@ -18,7 +18,7 @@ export default {
     const bandEnd = claim('us-6ghz-band-end').value;
     const width6 = bandEnd - bandStart;
     const motionFull = ctx.motion === 'full';
-    let compareGen = 'wifi6e';
+    const compareGen = 'wifi6e';
     let mode = 'crowded-legacy';
 
     // --- Roads, front (2.4 GHz) to back (6 GHz), each as wide as its band.
@@ -242,12 +242,6 @@ export default {
         jobs.push(animateTo(rings.flatMap((r) => [[r.scale, 'x', onCoverage ? 1 : 0.001], [r.scale, 'y', onCoverage ? 1 : 0.001]]), { durationMs: 1200, animate, signal }));
         await Promise.all(jobs);
         this.update(0);
-        ctx.requestRender();
-      },
-      setGeneration(genId) {
-        if (genId === 'wifi7') return;
-        compareGen = genId;
-        recolorCompare(genId);
         ctx.requestRender();
       },
       update(dt) {
