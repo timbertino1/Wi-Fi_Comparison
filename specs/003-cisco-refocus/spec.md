@@ -186,7 +186,7 @@ need a deep answer are marked as follow-up topics.
 - **FR-006**: ~~The generation comparison switch MUST offer Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7.~~ Wi-Fi 5
   comparisons MUST be removed from the slides. *Changed 2026-11-03 at the presenter's request (the buttons "might just be a distraction at
   this point"):* there is no generation switch and no `G` key. Each chapter shows its default
-  earlier generation (`defaultCompare`): Wi-Fi 6E in chapters 2–4, Wi-Fi 6 in chapter 5. Old
+  earlier generation (`defaultCompare`): Wi-Fi 6E in chapters 2–3, Wi-Fi 6 in chapters 4–5 (chapter 4 moved to Wi-Fi 6 on 2026-11-03). Old
   `gen=` links are ignored.
 - **FR-007**: These attributions MUST be stated, each with a source:
   - 6 GHz: opened by Wi-Fi 6E; Wi-Fi 7 adds 320 MHz channels.
