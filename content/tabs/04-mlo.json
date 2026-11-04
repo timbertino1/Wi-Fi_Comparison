@@ -15,7 +15,7 @@
     "wifi6e",
     "wifi7"
   ],
-  "defaultCompare": "wifi6e",
+  "defaultCompare": "wifi6",
   "sceneId": "mlo",
   "scenarioIds": [
     "voice-badge-hallway"

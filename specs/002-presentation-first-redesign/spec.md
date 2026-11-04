@@ -298,7 +298,7 @@ with the clicker, and confirm both windows show the same step.
 - **FR-015**: ~~The generation comparison switch MUST stay on the slide and change the earlier
   generation shown without leaving the current step.~~ *Changed 2026-11-03 at the presenter's request (the buttons "might just be a distraction at
   this point"):* there is no generation switch and no `G` key. Each chapter shows its default
-  earlier generation (`defaultCompare`): Wi-Fi 6E in chapters 2–4, Wi-Fi 6 in chapter 5. Old
+  earlier generation (`defaultCompare`): Wi-Fi 6E in chapters 2–3, Wi-Fi 6 in chapters 4–5 (chapter 4 moved to Wi-Fi 6 on 2026-11-03). Old
   `gen=` links are ignored.
 
 **Hotspots**
