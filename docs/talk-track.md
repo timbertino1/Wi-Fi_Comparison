@@ -66,7 +66,6 @@ No figures cited on this step.
 - Two shifts of staff devices plus patients’ and visitors’ phones share one unit’s airtime
 - Devices take turns on a channel [S6], so each new one adds waiting
 - Small urgent messages, such as alarms and calls, queue behind large downloads
-- Wi-Fi 7 spreads devices across bands [S8, S15]; Wi-Fi 6 and 7 serve many per transmission [S7, S4]
 
 **Say:** More devices, more data, less tolerance for delay.
 
@@ -88,8 +87,6 @@ When the network gets crowded, the urgent traffic waits in line behind everythin
 | Figure | Value | Source | Where |
 |---|---|---|---|
 | Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time | — | S6 IEEE Standard for Information Technology — Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (includes the HT and VHT PHYs of Wi-Fi 4 and Wi-Fi 5) | Clause 10.3 (DCF) and 10.23 (HCF/EDCA) |
-| A Wi-Fi 7 multi-link connection can combine links in the 2.4 GHz, 5 GHz and 6 GHz bands | — | S8 IEEE 802.11be-2024: Amendment 2: Enhancements for Extremely High Throughput (EHT) (Wi-Fi 7) | Clause 35, multi-link device (MLD) operation |
-| OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) | — | S7 IEEE 802.11ax-2021: Amendment 1: Enhancements for High-Efficiency WLAN (Wi-Fi 6 / 6E) | Clause 27, HE MU PPDU and RU allocation |
 
 **Likely questions:**
 
@@ -1185,13 +1182,6 @@ Before 802.11be, a device is associated with one access point (BSS) at a time; m
 - [S6] Clause 11, association and reassociation procedures
 - [S8] Clause 35, multi-link device introduction
 - Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Needs IEEE text. Clause text of S6, S8 is not openly readable (IEEE paywall); check Clause 11, association and reassociation procedures; Clause 35, multi-link device introduction. Peer review 2026-10-31 (GPT, High Thinking): Imprecise; reworded to the reviewer’s precise statement.)
-
-### ofdma-ax
-
-OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6) — value: —; method: stated; kind: technical.
-- [S7] Clause 27, HE MU PPDU and RU allocation
-- [S4] Feature list (OFDMA)
-- Verification: 2026-10-31 by Tim (presenter), on the 2026-10-31 fact-check and GPT peer review (Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features.)
 
 ### contention-dcf
 

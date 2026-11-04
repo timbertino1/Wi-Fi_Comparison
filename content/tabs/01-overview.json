@@ -82,8 +82,7 @@
         "points": [
           "Two shifts of staff devices plus patients’ and visitors’ phones share one unit’s [[airtime|airtime]]",
           "Devices take turns on a channel{{contention-dcf}}, so each new one adds waiting",
-          "Small urgent messages, such as alarms and calls, queue behind large downloads",
-          "Wi-Fi 7 spreads devices across bands{{mlo-bands}}; Wi-Fi 6 and 7 serve many per transmission{{ofdma-ax}}"
+          "Small urgent messages, such as alarms and calls, queue behind large downloads"
         ]
       },
       "hotspots": [
