@@ -996,32 +996,6 @@
       }
     },
     {
-      "id": "ofdma-ax",
-      "statement": "OFDMA, which divides a channel into resource units shared by several devices at once, was introduced with 802.11ax (Wi-Fi 6)",
-      "value": null,
-      "unit": null,
-      "kind": "technical",
-      "method": "stated",
-      "sources": [
-        {
-          "referenceId": "ieee-80211ax",
-          "locator": "Clause 27, HE MU PPDU and RU allocation",
-          "excerpt": null
-        },
-        {
-          "referenceId": "wfa-wifi6-announce",
-          "locator": "Feature list (OFDMA)",
-          "excerpt": null
-        }
-      ],
-      "derivation": null,
-      "verification": {
-        "verifiedOn": "2026-10-31",
-        "verifiedBy": "Tim (presenter), on the 2026-10-31 fact-check and GPT peer review",
-        "notes": "Fact-check 2026-10-31: Confirmed. S4: Press release 2019-01-08 lists “Uplink and downlink orthogonal frequency division multiple access (OFDMA)” among Wi-Fi 6 features."
-      }
-    },
-    {
       "id": "contention-dcf",
       "statement": "Under 802.11 DCF/EDCA, devices win transmission opportunities by carrier sensing and random backoff, so within one network, outside multi-user transmissions, one device transmits at a time",
       "value": null,
