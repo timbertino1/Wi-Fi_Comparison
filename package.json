@@ -20,11 +20,11 @@
     "talk-track": "node scripts/talk-track.mjs"
   },
   "dependencies": {
-    "three": "0.186.1"
+    "three": "0.187.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
-    "@playwright/test": "1.64.1",
+    "@playwright/test": "1.65.0",
     "esbuild": "0.28.2"
   }
 }
